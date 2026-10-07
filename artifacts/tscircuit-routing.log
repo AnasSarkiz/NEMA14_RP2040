@@ -1,0 +1,931 @@
+
+> NEMA14_RP2040@1.0.0 autoroute
+> bun scripts/build.tsx
+
+Rendering NEMA14 RP2040 with tscircuit local autorouter…
+Each child in a list should have a unique "key" prop.
+
+Check the render method of `footprint`. See https://react.dev/link/warning-keys for more information.
+AutoroutingPipelineSolver9_PreloadedTraceGraph error: Error: TraceSimplificationSolver cannot preserve endpoints for duplicate route "source_net_12"
+Async effect error in PcbTraceRender "autorouting":
+AutorouterError: TraceSimplificationSolver cannot preserve endpoints for duplicate route "source_net_12" (capacity-autorouter@0.0.958)
+    at runCycleAndQueueNextCycle (/workspace/NEMA14_RP2040/node_modules/@tscircuit/core/dist/index.js:107832:45)
+{
+  "elements": 2793,
+  "traces": 0,
+  "errors": [
+    {
+      "type": "pcb_autorouting_error",
+      "message": "TraceSimplificationSolver cannot preserve endpoints for duplicate route \"source_net_12\" (capacity-autorouter@0.0.958)"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.GND1] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.GND2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.SHIELD] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.VBUS1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.VBUS2] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.CC1] is not connected to net [PD_CC1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_PD.CC2] is not connected to net [PD_CC2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.GND1] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.GND2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.SHIELD] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.VBUS1] is not connected to net [DATA_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.VBUS2] is not connected to net [DATA_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.CC1] is not connected to net [DATA_CC1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.CC2] is not connected to net [DATA_CC2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.DP1] is not connected to net [USB_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.DP2] is not connected to net [USB_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.DM1] is not connected to net [USB_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DATA.DM2] is not connected to net [USB_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.VDD] is not connected to net [PD_VDD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.CFG2] is not connected to net [PD_VDD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.CFG3] is not connected to net [PD_VDD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.CFG1] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.VBUS] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.CC1] is not connected to net [PD_CC1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.CC2] is not connected to net [PD_CC2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.PG] is not connected to net [PD_GOOD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_PD.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_PD.pin1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_PD.pin2] is not connected to net [PD_VDD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_PD.pin1] is not connected to net [PD_VDD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_PD.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_PG.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_PG.pin2] is not connected to net [PD_GOOD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD10] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD22] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD33] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD42] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.IOVDD49] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.DVDD23] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.DVDD50] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.VREG_OUT] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.ADC_AVDD] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.USB_VDD] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.VREG_IN] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.TESTEN] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO6] is not connected to net [STEP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO7] is not connected to net [DIR] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO8] is not connected to net [ENABLE_N] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO9] is not connected to net [SLEEP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO10] is not connected to net [PD_GOOD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO28] is not connected to net [VM_SENSE] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO29] is not connected to net [DATA_PRESENT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.USB_DM] is not connected to net [MCU_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.USB_DP] is not connected to net [MCU_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.RUN] is not connected to net [RUN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.SWCLK] is not connected to net [SWCLK] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.SWDIO] is not connected to net [SWDIO] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.XIN] is not connected to net [XIN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.XOUT] is not connected to net [XOUT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SS] is not connected to net [QSPI_SS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SCLK] is not connected to net [QSPI_SCLK] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD0] is not connected to net [QSPI_SD0] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD1] is not connected to net [QSPI_SD1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD2] is not connected to net [QSPI_SD2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD3] is not connected to net [QSPI_SD3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO1.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO1.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO10.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO10.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO22.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO22.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO33.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO33.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO42.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO42.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO49.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_IO49.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DV23.pin1] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DV23.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DV50.pin1] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DV50.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_USB.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_USB.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_ADC.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_ADC.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_IN.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_IN.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_OUT.pin1] is not connected to net [V1V1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_OUT.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.CS] is not connected to net [QSPI_SS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO1] is not connected to net [QSPI_SD1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO2] is not connected to net [QSPI_SD2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO0] is not connected to net [QSPI_SD0] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.CLK] is not connected to net [QSPI_SCLK] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO3] is not connected to net [QSPI_SD3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.VCC] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.EP] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_FLASH.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_FLASH.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_FLASH_CS.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_FLASH_CS.pin2] is not connected to net [QSPI_SS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_BOOT.pin1] is not connected to net [QSPI_SS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_BOOT.pin2] is not connected to net [BOOT_PAD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_BOOT.BOOT] is not connected to net [BOOT_PAD] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_BOOT.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [Y_MCU.XIN] is not connected to net [XIN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [Y_MCU.XTAL_OUT] is not connected to net [XTAL_OUT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [Y_MCU.GND2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [Y_MCU.GND4] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_XOUT.pin1] is not connected to net [XOUT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_XOUT.pin2] is not connected to net [XTAL_OUT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_XIN.pin1] is not connected to net [XIN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_XIN.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_XOUT.pin1] is not connected to net [XTAL_OUT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_XOUT.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_RUN.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_RUN.pin2] is not connected to net [RUN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_DM.pin1] is not connected to net [MCU_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_DM.pin2] is not connected to net [USB_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_DP.pin1] is not connected to net [MCU_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_DP.pin2] is not connected to net [USB_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_CC1.pin1] is not connected to net [DATA_CC1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_CC1.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_CC2.pin1] is not connected to net [DATA_CC2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_CC2.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_USB_SENSE_H.pin1] is not connected to net [DATA_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_USB_SENSE_H.pin2] is not connected to net [DATA_PRESENT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_USB_SENSE_L.pin1] is not connected to net [DATA_PRESENT] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_USB_SENSE_L.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_VM_H.pin1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_VM_H.pin2] is not connected to net [VM_SENSE] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_VM_L.pin1] is not connected to net [VM_SENSE] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_VM_L.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VM_SENSE.pin1] is not connected to net [VM_SENSE] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VM_SENSE.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.FB] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.EN] is not connected to net [LOGIC_IN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.VIN] is not connected to net [LOGIC_IN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.SW] is not connected to net [BUCK_SW] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_BUCK.BST] is not connected to net [BUCK_BST] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [L_BUCK.pin1] is not connected to net [BUCK_SW] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [L_BUCK.pin2] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BOOTSTRAP.pin1] is not connected to net [BUCK_BST] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BOOTSTRAP.pin2] is not connected to net [BUCK_SW] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_IN.pin1] is not connected to net [LOGIC_IN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_IN.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_OUT1.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_OUT1.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_OUT2.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BUCK_OUT2.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_PD.pin1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_PD.pin2] is not connected to net [LOGIC_IN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_DATA.pin1] is not connected to net [DATA_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_DATA.pin2] is not connected to net [LOGIC_IN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT1A] is not connected to net [A_PLUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT1B] is not connected to net [A_MINUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT2A] is not connected to net [B_PLUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT2B] is not connected to net [B_MINUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VBB1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VBB2] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.EP] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.CP1] is not connected to net [CP1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.CP2] is not connected to net [CP2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VCP] is not connected to net [VCP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VREG] is not connected to net [VREG] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.MS1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.MS2] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.MS3] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.RESET_N] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VDD] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.ROSC] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.STEP] is not connected to net [STEP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.DIR] is not connected to net [DIR] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.ENABLE_N] is not connected to net [ENABLE_N] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.SLEEP] is not connected to net [SLEEP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.REF] is not connected to net [VREF] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.SENSE1] is not connected to net [SENSE1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.SENSE2] is not connected to net [SENSE2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_CP.pin1] is not connected to net [CP1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_CP.pin2] is not connected to net [CP2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VCP.pin1] is not connected to net [VCP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VCP.pin2] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG.pin1] is not connected to net [VREG] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DRV_LOGIC.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_DRV_LOGIC.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VM.pin1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VM.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BULK.pin1] is not connected to net [PD_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_BULK.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SA.pin1] is not connected to net [SENSE1] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SA.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SB.pin1] is not connected to net [SENSE2] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SB.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_REF_H.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_REF_H.pin2] is not connected to net [VREF] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_REF_L.pin1] is not connected to net [VREF] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_REF_L.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_REF.pin1] is not connected to net [VREF] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_REF.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_ENABLE.pin1] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_ENABLE.pin2] is not connected to net [ENABLE_N] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SLEEP.pin1] is not connected to net [SLEEP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [R_SLEEP.pin2] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_MOTOR.A_PLUS] is not connected to net [A_PLUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_MOTOR.A_MINUS] is not connected to net [A_MINUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_MOTOR.B_PLUS] is not connected to net [B_PLUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_MOTOR.B_MINUS] is not connected to net [B_MINUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DEBUG.VDD] is not connected to net [V3V3] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DEBUG.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DEBUG.SWCLK] is not connected to net [SWCLK] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DEBUG.SWDIO] is not connected to net [SWDIO] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [J_DEBUG.RUN] is not connected to net [RUN] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.DP1] is not connected to net [USB_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.DP2] is not connected to net [USB_DP] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.DM1] is not connected to net [USB_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.DM2] is not connected to net [USB_DM] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.VBUS] is not connected to net [DATA_VBUS] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_ESD.GND] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_TVS.pin1] is not connected to net [GND] by a PCB trace."
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [D_TVS.pin2] is not connected to net [PD_VBUS] by a PCB trace."
+    }
+  ]
+}
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice

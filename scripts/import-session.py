@@ -18,7 +18,9 @@ def parse(s):
 def children(n,tag):return [c for c in n if isinstance(c,list) and c and c[0]==tag]
 s=parse((ROOT/'artifacts'/ses).read_text());routes=children(s,'routes')[0];res=children(routes,'resolution')[0]
 assert res[1]=='um';scale=1000*float(res[2])
-j=json.loads((ROOT/'artifacts/unrouted.circuit.json').read_text())
+inputfile=ROOT/'artifacts'/(prefix+'-unrouted.circuit.json')
+if not prefix or not inputfile.exists():inputfile=ROOT/'artifacts/unrouted.circuit.json'
+j=json.loads(inputfile.read_text())
 j=[e for e in j if e['type'] not in ['pcb_trace','pcb_via','pcb_copper_pour'] and not e['type'].endswith('_error')]
 meta=json.loads((ROOT/'artifacts'/mapfile).read_text());netids=meta['netids']
 sourceports={e['source_port_id']:e for e in j if e['type']=='source_port'};ports={e['pcb_port_id']:e for e in j if e['type']=='pcb_port'}
@@ -43,7 +45,7 @@ for net in children(children(routes,'network_out')[0],'net'):
  name=net[1];key=netkeys.get(name);netid=netids.get(name)
  if name.startswith('NC_'):continue
  for wire in children(net,'wire'):
-  path=children(wire,'path')[0];layer={'F.Cu':'top','B.Cu':'bottom'}[path[1]];width=float(path[2])/scale;coords=list(map(float,path[3:]));assert len(coords)%2==0
+  path=children(wire,'path')[0];layer={'F.Cu':'top','In2.Cu':'inner2','B.Cu':'bottom'}[path[1]];width=float(path[2])/scale;coords=list(map(float,path[3:]));assert len(coords)%2==0
   route=[{'route_type':'wire','x':coords[i]/scale,'y':coords[i+1]/scale,'width':width,'layer':layer} for i in range(0,len(coords),2)]
   if len(route)<2:continue
   count+=1;elem={'type':'pcb_trace','pcb_trace_id':f'freerouted_trace_{count}','route':route,'subcircuit_id':'subcircuit_source_group_0'}
@@ -73,7 +75,13 @@ for t in meta['thermalVias']:
 # Thermal vias are explicit engineering choices and permitted only inside grounded exposed pads.
 for t in meta['thermalVias']:
  if not any(e['type']=='pcb_via' and math.hypot(e['x']-t['x'],e['y']-t['y'])<.01 for e in j):
-  vcount+=1;j.append({'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':t['x'],'y':t['y'],'hole_diameter':.3,'outer_diameter':.6,'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','source_net_id':netids['GND'],'subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':netkeys['GND']})
+  vcount+=1;j.append({'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':t['x'],'y':t['y'],'hole_diameter':(.25 if prefix else .3),'outer_diameter':(.5 if prefix else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','source_net_id':netids['GND'],'subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':netkeys['GND']})
+if prefix:
+ seeds=json.loads((ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).read_text())
+ j.extend(e for e in seeds if e['type'] in ['pcb_trace','pcb_via'])
+if prefix in ['fixed4','fixed5','fixed6','fixed7','fixed8']:
+ for e in j:
+  if e['type']=='pcb_via':e['layers']=['top','inner1','inner2','bottom']
 for e in j:
  if e['type']=='pcb_board':e['is_via_in_pad_allowed']=True
 (ROOT/'artifacts'/outfile).write_text(json.dumps(j,indent=2)+'\n')

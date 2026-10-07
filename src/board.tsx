@@ -15,9 +15,9 @@ const resistor = (name:string,value:string,x:number,y:number,a:string,b:string,f
 const cap = (name:string,value:string,x:number,y:number,a:string,b="GND",footprint="0603",rotation=0) => <capacitor key={name} name={name} capacitance={value} maxVoltageRating={['PD_VBUS','LOGIC_IN','BUCK_BST','CP1'].includes(a)||b==='PD_VBUS'?35:10} footprint={footprint} pcbX={x} pcbY={y} pcbRotation={rotation} connections={{pin1:n(a),pin2:n(b)}} />
 
 export default function Nema14Controller({ routingDisabled = false }: { routingDisabled?: boolean } = {}) {
- return <board width={35} height={35} layers={2} thickness={1.6}
+ return <board width={35} height={35} layers={4} thickness={1.6}
   routingDisabled={routingDisabled} minTraceWidth={0.16} minTraceToPadEdgeClearance={0.15} minPadEdgeToPadEdgeClearance={0.15}
-  minViaHoleDiameter={0.25} minViaPadDiameter={0.5} minBoardEdgeClearance={0.25}
+  minViaHoleDiameter={0.2} minViaPadDiameter={0.4} minBoardEdgeClearance={0.25}
   autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled>
   {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'].includes(name)?0.45:0.16} /></React.Fragment>)}
   {[-13,13].flatMap(x=>[-13,13].map(y=><React.Fragment key={`${x},${y}`}><hole name={`M${x}_${y}`} pcbX={x} pcbY={y} diameter={3.2} /><keepout pcbX={x} pcbY={y} shape="rect" width={5.4} height={5.4} layers={['top','bottom']} /><silkscreencircle pcbX={x} pcbY={y} radius={2.7} strokeWidth={0.1} /></React.Fragment>))}
@@ -30,7 +30,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <chip name="U_MCU" manufacturerPartNumber="RP2040" pinLabels={mcuPins} footprint={<RP2040Footprint />} pcbX={3.4} pcbY={0} noConnect={["GPIO0", "GPIO1", "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26", "GPIO27"]} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
   {cap('C_IO1','100nF',-1.7,2.6,'V3V3','GND','0402',90)}
   {cap('C_IO10','100nF',-1.7,-1.2,'V3V3','GND','0402',90)}
-  {cap('C_IO22','100nF',4,-5.4,'V3V3','GND','0402',90)}
+  {cap('C_IO22','100nF',4,-5.4,'V3V3','GND','0402',270)}
   {cap('C_IO33','100nF',8.05,-1.2,'V3V3','GND','0402',90)}
   {cap('C_IO42','100nF',8.05,2.6,'V3V3','GND','0402',90)}
   {cap('C_IO49','100nF',3.9,5.3,'V3V3','GND','0402',90)}
@@ -45,9 +45,9 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_FLASH_CS','10k',2,12.6,'V3V3','QSPI_SS','0402',0)}
   {resistor('R_BOOT','1k',5.3,12.7,'QSPI_SS','BOOT_PAD','0402')}
   <chip name="J_BOOT" pinLabels={{pin1:'BOOT',pin2:'GND'}} footprint={<footprint>{[-.75,.75].map((x,i)=><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={1} height={1.5} shape="rect" />)}<courtyardrect width={2.8} height={2} /></footprint>} pcbX={8.2} pcbY={15.5} connections={{BOOT:n('BOOT_PAD'),GND:n('GND')}} />
-  <chip name="Y_MCU" pcbRotation={90} manufacturerPartNumber="ABM8-272-T3" pinLabels={{pin1:'XIN',pin2:'GND2',pin3:'XTAL_OUT',pin4:'GND4'}} footprint={<CrystalFootprint />} pcbX={1.1} pcbY={-6.3} connections={{XIN:n('XIN'),XTAL_OUT:n('XTAL_OUT'),GND2:n('GND'),GND4:n('GND')}} />
-  {resistor('R_XOUT','1k',4,-7,'XOUT','XTAL_OUT','0402')}
-  {cap('C_XIN','15pF',-1.4,-6,'XIN','GND','0402',90)}
+  <chip name="Y_MCU" pcbRotation={0} manufacturerPartNumber="ABM8-272-T3" pinLabels={{pin1:'XIN',pin2:'GND2',pin3:'XTAL_OUT',pin4:'GND4'}} footprint={<CrystalFootprint />} pcbX={1.1} pcbY={-6.16} connections={{XIN:n('XIN'),XTAL_OUT:n('XTAL_OUT'),GND2:n('GND'),GND4:n('GND')}} />
+  {resistor('R_XOUT','1k',4.3,-7,'XOUT','XTAL_OUT','0402')}
+  {cap('C_XIN','15pF',-1.55,-6,'XIN','GND','0402',90)}
   {cap('C_XOUT','15pF',5.5,-8.5,'XTAL_OUT','GND','0402',90)}
   {resistor('R_RUN','10k',6.9,-5.5,'V3V3','RUN','0402',90)}
   {resistor('R_DM','27',5.9,5.3,'MCU_DM','USB_DM','0402',90)}
@@ -69,9 +69,9 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <diode name="D_DATA" manufacturerPartNumber="B5819W" footprint="sod123" pcbX={-4.6} pcbY={1} connections={{anode:n('DATA_VBUS'),cathode:n('LOGIC_IN')}} />
   <chip name="U_DRV" manufacturerPartNumber="A4988SETTR-T" pinLabels={driverPins} footprint={<A4988Footprint />} pcbX={0} pcbY={-11.5} noConnect={['NC7','NC18','NC20','NC25']} connections={{OUT1A:n('A_PLUS'),OUT1B:n('A_MINUS'),OUT2A:n('B_PLUS'),OUT2B:n('B_MINUS'),VBB1:n('PD_VBUS'),VBB2:n('PD_VBUS'),GND:n('GND'),EP:n('GND'),CP1:n('CP1'),CP2:n('CP2'),VCP:n('VCP'),VREG:n('VREG'),MS1:n('V3V3'),MS2:n('V3V3'),MS3:n('V3V3'),RESET_N:n('V3V3'),VDD:n('V3V3'),ROSC:n('GND'),STEP:n('STEP'),DIR:n('DIR'),ENABLE_N:n('ENABLE_N'),SLEEP:n('SLEEP'),REF:n('VREF'),SENSE1:n('SENSE1'),SENSE2:n('SENSE2')}} />
   {cap('C_CP','100nF',-4.2,-8.5,'CP1','CP2','0603',270)}
-  {cap('C_VCP','100nF',-4.5,-11.7,'VCP','PD_VBUS','0603',270)}
+  {cap('C_VCP','100nF',-5.3,-11.7,'VCP','PD_VBUS','0603',270)}
   {cap('C_VREG','220nF',-5,-14.8,'VREG','GND','0603',90)}
-  {cap('C_DRV_LOGIC','100nF',4.7,-10.2,'V3V3')}
+  {cap('C_DRV_LOGIC','100nF',4.9,-10.2,'V3V3')}
   {cap('C_VM','100nF',-3,-3.9,'PD_VBUS','GND','0805',90)}
   <capacitor name="C_BULK" capacitance="47uF" maxVoltageRating={35} manufacturerPartNumber="EKMG350ELL470ME11D" footprint={<BulkFootprint />} pcbX={-13.8} pcbY={-7} connections={{pin1:n("PD_VBUS"),pin2:n("GND")}} />
   {resistor('R_SA','0.25',6.8,-12.8,'SENSE1','GND','0805',90)}

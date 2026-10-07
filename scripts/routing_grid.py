@@ -34,7 +34,9 @@ def obstacle(net,width,via=False):
    w=e.get('width',e.get('outer_width',e.get('outer_diameter',e.get('radius',0)*2)));h=e.get('height',e.get('outer_height',e.get('outer_diameter',e.get('radius',0)*2)))
    if abs(e.get('ccw_rotation',0)%180-90)<.01:w,h=h,w
    ls=[0 if l=='top' else 1 for l in e.get('layers',[e.get('layer','top')])]
-   for l in ls:drawrect(ds[l],e['x'],e['y'],w,h,margin)
+   for l in ls:
+    if e.get('shape')=='circle':circle(ds[l],e['x'],e['y'],w/2+margin)
+    else:drawrect(ds[l],e['x'],e['y'],w,h,margin)
   elif typ=='pcb_trace' and key(e)!=net:
    rr=e['route']
    for a,b in zip(rr,rr[1:]):
@@ -55,3 +57,40 @@ def obstacle(net,width,via=False):
  for d in ds:
   b=math.ceil(border/STEP);d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1);d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
  return [np.asarray(im,dtype=np.bool_) for im in imgs]
+from shapely.geometry import box, Point, LineString, Polygon
+from shapely.strtree import STRtree
+from shapely.ops import unary_union
+
+def groups(net):
+ elems=[e for e in j if e['type'] in ['pcb_smtpad','pcb_plated_hole','pcb_trace','pcb_via','pcb_copper_pour'] and key(e)==net]
+ parent=list(range(len(elems)))
+ def root(i):
+  while parent[i]!=i:parent[i]=parent[parent[i]];i=parent[i]
+  return i
+ def union(a,b):
+  a,b=root(a),root(b)
+  if a!=b:parent[b]=a
+ stack=['top','inner1','inner2','bottom'];layerindex={l:i for i,l in enumerate(stack)}
+ layers=[[] for _ in stack];owners=[[] for _ in stack]
+ def add(i,l,g):layers[l].append(g);owners[l].append(i)
+ for i,e in enumerate(elems):
+  typ=e['type']
+  if typ in ['pcb_smtpad','pcb_plated_hole']:
+   w=e.get('width',e.get('outer_width',e.get('outer_diameter',e.get('radius',0)*2)));h=e.get('height',e.get('outer_height',e.get('outer_diameter',e.get('radius',0)*2)))
+   if abs(e.get('ccw_rotation',0)%180-90)<.01:w,h=h,w
+   g=Point(e['x'],e['y']).buffer(w/2) if e.get('shape')=='circle' else box(e['x']-w/2,e['y']-h/2,e['x']+w/2,e['y']+h/2)
+   for l in e.get('layers',[e.get('layer','top')]):add(i,layerindex[l],g)
+  elif typ=='pcb_via':
+   for l in e['layers']:add(i,layerindex[l],Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
+  elif typ=='pcb_copper_pour':
+   b=e['brep_shape'];points=lambda ring:[(v['x'],v['y']) for v in ring['vertices']];add(i,layerindex[e['layer']],Polygon(points(b['outer_ring']),[points(r) for r in b.get('inner_rings',[])]))
+  else:
+   rr=e['route']
+   for a,b in zip(rr,rr[1:]):
+    if a['route_type']=='wire' and b['route_type']=='wire' and a['layer']==b['layer']:
+     add(i,layerindex[a['layer']],LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2))
+ for l in range(len(stack)):
+  tree=STRtree(layers[l])
+  for i,g in enumerate(layers[l]):
+   for h in tree.query(g,predicate='intersects'):union(owners[l][i],owners[l][h])
+ return elems,[root(i) for i in range(len(elems))]

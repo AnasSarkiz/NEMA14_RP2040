@@ -1,10 +1,13 @@
 {
-  "tool": "tscircuit",
-  "version": "0.0.2759",
-  "routing": "local",
-  "limitSeconds": 120,
-  "exitCode": 124,
+  "router": "tscircuit local autorouter",
+  "tscircuitVersion": "0.0.2759",
+  "copperLayers": 4,
+  "timeoutSeconds": 120,
+  "exitCode": 0,
   "completed": false,
-  "result": "No completed routing returned before timeout; used authorized freerouting fallback.",
-  "log": "artifacts/tscircuit-routing.log"
+  "date": "2026-10-07T19:31:21.377484+00:00",
+  "processCompleted": true,
+  "traceCount": 0,
+  "errorCount": 227,
+  "reason": "TraceSimplificationSolver cannot preserve endpoints for duplicate route \"source_net_12\" (capacity-autorouter@0.0.958)"
 }

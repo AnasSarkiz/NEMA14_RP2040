@@ -1,0 +1,53 @@
+2026-10-07 20:06:48.446 [main] INFO  Freerouting v2.0.1 (build-date: 2024-11-14)
+2026-10-07 20:06:48.517 [main] INFO  Settings were loaded from freerouting.json
+2026-10-07 20:06:53.408 [Thread-7] INFO  Auto-router pass #1 on board '39ba100c4b5947bc1ef2322367f6a9d1' was completed in 3.25 seconds
+java.util.concurrent.CompletionException: java.net.ConnectException
+	at java.base/java.util.concurrent.CompletableFuture.encodeRelay(CompletableFuture.java:368)
+	at java.base/java.util.concurrent.CompletableFuture.uniComposeStage(CompletableFuture.java:1189)
+	at java.base/java.util.concurrent.CompletableFuture.thenCompose(CompletableFuture.java:2341)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:481)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsyncImpl$7(MultiExchange.java:477)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandle(CompletableFuture.java:934)
+	at java.base/java.util.concurrent.CompletableFuture.uniHandleStage(CompletableFuture.java:950)
+	at java.base/java.util.concurrent.CompletableFuture.handle(CompletableFuture.java:2372)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:467)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:355)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.net.ConnectException
+	at java.net.http/jdk.internal.net.http.common.Utils.toConnectException(Utils.java:1065)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:227)
+	at java.net.http/jdk.internal.net.http.AsyncSSLConnection.connectAsync(AsyncSSLConnection.java:56)
+	at java.net.http/jdk.internal.net.http.Http2Connection.createAsync(Http2Connection.java:529)
+	at java.net.http/jdk.internal.net.http.Http2ClientImpl.getConnectionFor(Http2ClientImpl.java:140)
+	at java.net.http/jdk.internal.net.http.ExchangeImpl.get(ExchangeImpl.java:98)
+	at java.net.http/jdk.internal.net.http.Exchange.establishExchange(Exchange.java:391)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:584)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:428)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:420)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:435)
+	... 12 more
+Caused by: java.nio.channels.UnresolvedAddressException
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:147)
+	at java.base/sun.nio.ch.Net.checkAddress(Net.java:155)
+	at java.base/sun.nio.ch.SocketChannelImpl.checkRemote(SocketChannelImpl.java:842)
+	at java.base/sun.nio.ch.SocketChannelImpl.connect(SocketChannelImpl.java:865)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.lambda$connectAsync$1(PlainHttpConnection.java:210)
+	at java.base/java.security.AccessController.doPrivileged(AccessController.java:571)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.connectAsync(PlainHttpConnection.java:212)
+	... 21 more
+2026-10-07 20:06:55.883 [Thread-7] INFO  Auto-router pass #2 on board 'a213907eabe28b01c75a278f39c37eab' was completed in 2.45 seconds
+2026-10-07 20:06:58.340 [Thread-7] INFO  Auto-router pass #3 on board 'b7976089eec806ab91b0c4814529b071' was completed in 2.43 seconds
+2026-10-07 20:07:01.129 [Thread-7] INFO  Auto-router pass #4 on board 'fa507fa2044e779e182c35597de4b8c2' was completed in 2.77 seconds
+2026-10-07 20:07:04.200 [Thread-7] INFO  Auto-router pass #5 on board '6d59dd1cec463e056f529eecc1ef9ffe' was completed in 3.06 seconds
+2026-10-07 20:07:05.131 [Thread-7] INFO  Auto-router pass #6 on board 'de165653a31a2de80a02cf83f19cdf38' was completed in 0.92 seconds
+2026-10-07 20:07:05.665 [Thread-7] INFO  Auto-router pass #7 on board '9b08045e9dab78c9727b7fdc3d5c101b' was completed in 0.52 seconds
+2026-10-07 20:07:06.371 [Thread-7] INFO  Auto-router pass #8 on board 'de4c7750e87ede0b1c8d0a2d5b0e223e' was completed in 0.69 seconds
+2026-10-07 20:07:07.105 [Thread-7] INFO  Auto-router pass #9 on board 'b59750513b4c937f01368de0e786eb05' was completed in 0.72 seconds
+2026-10-07 20:07:07.360 [Thread-7] INFO  Auto-router pass #10 on board '14f6f2e8d63d300c9e8d48217ff24408' was completed in 0.24 seconds
+2026-10-07 20:07:07.544 [Thread-7] WARN  There were only 15.60 track length increase in the last 5 passes, so it's very likely that autorouter can't improve the result further.
+2026-10-07 20:07:07.544 [Thread-7] INFO  Auto-router pass #11 on board '063478fdd90c8e1d8a97de948fd3be20' was completed in 0.17 seconds

@@ -1,0 +1,389 @@
+{
+  "base": "fixed8.circuit.json",
+  "finalSource": "final-source.circuit.json",
+  "notes": [
+    "Rotate C_IO22 90 to 270 degrees; remove its old ground trace.",
+    "Retain the USB-C CC2 repair.",
+    "Add two short capacitor fanouts with 0.40 mm / 0.20 mm vias.",
+    "Refill masked ground on all four layers after applying these changes."
+  ],
+  "removedCopperIds": [
+    "freerouted_trace_13"
+  ],
+  "insertedCopper": [
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_-16.5_-16.5",
+      "x": -16.5,
+      "y": -16.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_-16.5_16.5",
+      "x": -16.5,
+      "y": 16.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_16.5_-16.5",
+      "x": 16.5,
+      "y": -16.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_16.5_16.5",
+      "x": 16.5,
+      "y": 16.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_-16.5_0",
+      "x": -16.5,
+      "y": 0,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_16.5_0",
+      "x": 16.5,
+      "y": 0,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_0_-16.9",
+      "x": 0,
+      "y": -16.9,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "ground_stitch_0_16.5",
+      "x": 0,
+      "y": 16.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "source_net_id": "source_net_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "manual_repair_J_DATA_CC2_3152",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 9.805,
+          "y": 6.25,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_21"
+        },
+        {
+          "route_type": "wire",
+          "x": 8.925,
+          "y": 6.25,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 8.400000000000002,
+          "y": 5.725000000000001,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "via",
+          "x": 8.400000000000002,
+          "y": 5.725000000000001,
+          "from_layer": "top",
+          "to_layer": "inner2",
+          "via_diameter": 0.5,
+          "via_hole_diameter": 0.25
+        },
+        {
+          "route_type": "wire",
+          "x": 8.400000000000002,
+          "y": 5.725000000000001,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 9.400000000000002,
+          "y": 6.725000000000001,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 9.400000000000002,
+          "y": 9.575000000000003,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 10.025000000000002,
+          "y": 10.200000000000003,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 10.025000000000002,
+          "y": 15.975000000000001,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 10.450000000000003,
+          "y": 16.4,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 11.400000000000002,
+          "y": 16.4,
+          "width": 0.16,
+          "layer": "inner2"
+        }
+      ],
+      "source_net_id": "source_net_9",
+      "source_trace_id": "source_trace_126",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net6",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "pcb_port_ids": [
+        "pcb_port_21"
+      ]
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "manual_repair_J_DATA_CC2_3152_via0",
+      "pcb_trace_id": "manual_repair_J_DATA_CC2_3152",
+      "source_trace_id": "source_trace_126",
+      "source_net_id": "source_net_9",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net6",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "x": 8.400000000000002,
+      "y": 5.725000000000001,
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ]
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "terminal_fanout_C_IO22_pin1",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 4,
+          "y": -4.890000000000001,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_110"
+        },
+        {
+          "route_type": "wire",
+          "x": 4.575,
+          "y": -4.2250000000000005,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "via",
+          "x": 4.575,
+          "y": -4.2250000000000005,
+          "from_layer": "top",
+          "to_layer": "bottom",
+          "via_diameter": 0.4,
+          "via_hole_diameter": 0.2
+        },
+        {
+          "route_type": "wire",
+          "x": 4.575,
+          "y": -4.2250000000000005,
+          "width": 0.16,
+          "layer": "bottom"
+        }
+      ],
+      "pcb_port_ids": [
+        "pcb_port_110"
+      ],
+      "source_net_id": "source_net_2",
+      "source_trace_id": "source_trace_213",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net11",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "terminal_fanout_C_IO22_pin1_via",
+      "pcb_trace_id": "terminal_fanout_C_IO22_pin1",
+      "x": 4.575,
+      "y": -4.2250000000000005,
+      "hole_diameter": 0.2,
+      "outer_diameter": 0.4,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "source_net_id": "source_net_2",
+      "source_trace_id": "source_trace_213",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net11",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "terminal_fanout_C_IO22_pin2",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 4,
+          "y": -5.91,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_111"
+        },
+        {
+          "route_type": "wire",
+          "x": 3.45,
+          "y": -5.925000000000001,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "via",
+          "x": 3.45,
+          "y": -5.925000000000001,
+          "from_layer": "top",
+          "to_layer": "bottom",
+          "via_diameter": 0.4,
+          "via_hole_diameter": 0.2
+        },
+        {
+          "route_type": "wire",
+          "x": 3.45,
+          "y": -5.925000000000001,
+          "width": 0.16,
+          "layer": "bottom"
+        }
+      ],
+      "pcb_port_ids": [
+        "pcb_port_111"
+      ],
+      "source_net_id": "source_net_0",
+      "source_trace_id": "source_trace_224",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "terminal_fanout_C_IO22_pin2_via",
+      "pcb_trace_id": "terminal_fanout_C_IO22_pin2",
+      "x": 3.45,
+      "y": -5.925000000000001,
+      "hole_diameter": 0.2,
+      "outer_diameter": 0.4,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "source_net_id": "source_net_0",
+      "source_trace_id": "source_trace_224",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ]
+}

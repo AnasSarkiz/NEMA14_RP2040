@@ -22,6 +22,11 @@ for (const [name,edge] of [['J_PD',-17.5],['J_DATA',17.5]] as const) {
  const front=points.length ? (edge<0?Math.min(...points.map((p:any)=>p.x)):Math.max(...points.map((p:any)=>p.x))) : NaN
  if(!Number.isFinite(front) || Math.abs(front-edge)>.001) unique.push({type:'validation_error',message:name+' opening is not flush with the board edge.'})
 }
+if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected four copper layers in the RP2040 board.'})
+for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
+ if(via.hole_diameter<board.min_via_hole_diameter || via.outer_diameter<board.min_via_pad_diameter) unique.push({type:'validation_error',message:'Via violates the declared minimum pad/drill diameter: '+via.pcb_via_id})
+}
+if(json.some((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) unique.push({type:'validation_error',message:'Inner1 is reserved for ground.'})
 const holes=json.filter((e:any)=>e.type==='pcb_hole' && e.hole_diameter===3.2)
 if(holes.length!==4) unique.push({type:'validation_error',message:'Expected four 3.2 mm mounting holes.'})
 const vref=3.3*10000/(36000+10000), current=vref/(8*.25)
@@ -39,6 +44,9 @@ for(const [pin,netName] of Object.entries(expectedPins)) {
 for(const name of ['R_DP','R_DM']) if(sourceComponents.find((e:any)=>e.name===name)?.resistance!==27) unique.push({type:'validation_error',message:name+' must be 27 ohms.'})
 for(const name of ['U_FLASH','Y_MCU','C_VREG_IN','C_VREG_OUT','C_DV23','C_DV50','U_BUCK','L_BUCK','J_BOOT','J_DEBUG']) if(!sourceComponents.some((e:any)=>e.name===name)) unique.push({type:'validation_error',message:'Missing required RP2040 support component '+name})
 if(json.some((e:any)=>e.type==='pcb_component' && e.layer!=='top')) unique.push({type:'validation_error',message:'Component assembly must be top-side only.'})
+if(json.some((e:any)=>e.type==='pcb_solder_paste' && e.layer!=='top')) unique.push({type:'validation_error',message:'Top assembly must not have bottom solder paste.'})
+const platedHoles=json.filter((e:any)=>e.type==='pcb_plated_hole')
+if(json.some((e:any)=>e.type==='pcb_solder_paste' && platedHoles.some((h:any)=>Math.hypot(h.x-e.x,h.y-e.y)<.001))) unique.push({type:'validation_error',message:'Hand-soldered through holes must not have stencil paste.'})
 const report={date:new Date().toISOString(),tool:'@tscircuit/checks',traceCount,currentLimitAmps:current,errors:unique,warnings,manufacturingRelease:false,releaseBlockers:['Manufacturer drawing specifies front mounting only; rear adapter fit is unverified.','Hardware has not been assembled or electrically tested.','Footprint/rating and USB/PD bench validation remain required.']}
 writeFileSync('artifacts/drc-report.json',JSON.stringify(report,null,2)+'\n')
 console.log(JSON.stringify({traceCount,currentLimitAmps:current,errors:unique.length,warnings:warnings.length},null,2))
