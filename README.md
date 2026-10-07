@@ -35,3 +35,5 @@ Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected 
 ## USB and final validation
 
 [USB programming procedure](docs/usb-programming.md) · [Validation details](docs/validation.md) · [Browser schematic analysis](artifacts/validation/schematic-analysis-ui.png). Both board variants support boot-mode entry through their Data USB-C port; flashing still requires assembled-hardware validation. Current software checks report zero DRC errors/warnings, zero schematic-placement findings and no Gerber shorts. Application firmware remains a separate task.
+
+The public main entry point is `index.circuit.tsx`, which exports the board from `src/board.tsx`. `index.circuit.json` is the checked saved layout; publication refreshes it from `artifacts/board.circuit.json` and includes both JSON files. `tscircuit.config.json` selects the root source entry and saved-layout preview.

@@ -4,7 +4,7 @@ import { prepareSchematic } from "./prepare-schematic"
 import { Circuit } from "tscircuit"
 import { convertCircuitJsonToPcbSvg, convertCircuitJsonToSchematicSvg } from "circuit-to-svg"
 import { mkdirSync, writeFileSync } from "node:fs"
-import Nema14Controller from "../src/board"
+import Nema14Controller from "../index.circuit"
 import { normalizeAssembly } from "./normalize-assembly"
 const circuit = new Circuit()
 circuit.add(<Nema14Controller routingDisabled={process.argv.includes("--unrouted")} />)

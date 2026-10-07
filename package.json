@@ -1,12 +1,12 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
-  "main": "src/board.tsx",
+  "main": "index.circuit.tsx",
   "scripts": {
     "build": "npm run render && npm run check",
     "check": "bun scripts/check.ts",
-    "dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev artifacts/board.circuit.json",
+    "dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev index.circuit.json",
     "test": "npm run check",
     "render": "bun scripts/render.ts",
     "autoroute": "bun scripts/build.tsx",
