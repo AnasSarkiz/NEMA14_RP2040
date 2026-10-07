@@ -25,8 +25,21 @@ assert json.loads((stage/'index.circuit.json').read_text())==j
 assert json.loads((stage/'artifacts/board.circuit.json').read_text())==j
 print('Prepared compact source package with unchanged saved copper')
 PY
+cd "$project_root"
+XDG_CONFIG_HOME=/workspace/.config tsci build index.circuit.json
+python3 - "$project_root" "$package_stage" <<'PYDIST'
+import json,pathlib,sys
+root,stage=map(pathlib.Path,sys.argv[1:])
+saved=json.loads((root/'artifacts/board.circuit.json').read_text())
+built=json.loads((root/'dist/index/circuit.json').read_text())
+assert built==saved, 'Native CLI dist build differs from the checked routing'
+output=stage/'dist/index/circuit.json';output.parent.mkdir(parents=True,exist_ok=True)
+output.write_text(json.dumps(built,separators=(',',':'))+'\n')
+assert json.loads(output.read_text())==saved
+print('Including native CLI dist/index/circuit.json with verified saved routing')
+PYDIST
 cd "$package_stage"
-XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --compress
+XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist
 # The CLI increments a conflicting release version; keep the repo metadata aligned.
 python3 - "$project_root" "$package_stage" <<'PY'
 import json,pathlib,sys
