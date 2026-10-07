@@ -1,0 +1,46 @@
+{
+  "name": "NEMA14_RP2040",
+  "version": "1.0.0",
+  "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
+  "main": "src/board.tsx",
+  "scripts": {
+    "build": "npm run render && npm run check",
+    "check": "bun scripts/check.ts",
+    "dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev src/board.tsx",
+    "test": "npm run check",
+    "render": "bun scripts/render.ts",
+    "autoroute": "bun scripts/build.tsx",
+    "source:check": "bun scripts/build.tsx --unrouted",
+    "export": "XDG_CONFIG_HOME=/workspace/.config tsci export artifacts/board.circuit.json -f gerbers -o \"$PWD/artifacts/nema14-gerbers.zip\"",
+    "typecheck": "tsc --noEmit",
+    "shorts": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/board.circuit.json --mode gerber --layer all --pixels-per-mm 100",
+    "publish:tscircuit": "XDG_CONFIG_HOME=/workspace/.config tsci push src/board.tsx --compress"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnasSarkiz/NEMA14_RP2040.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AnasSarkiz/NEMA14_RP2040/issues"
+  },
+  "homepage": "https://github.com/AnasSarkiz/NEMA14_RP2040",
+  "dependencies": {
+    "@tscircuit/cli": "0.1.2258",
+    "circuit-json-to-gerber": "0.0.112",
+    "circuit-json-to-kicad": "0.0.230",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "three": "0.186.1",
+    "tscircuit": "0.0.2759",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3"
+  },
+  "devDependencies": {
+    "bun": "1.4.2"
+  },
+  "private": true
+}

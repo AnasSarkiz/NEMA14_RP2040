@@ -1,0 +1,69 @@
+
+> NEMA14_RP2040@1.0.0 check
+> bun scripts/check.ts
+
+{
+  "traceCount": 406,
+  "currentLimitAmps": 0.358695652173913,
+  "errors": 54,
+  "warnings": 31
+}
+pcb_port_not_connected_error: Port [U_MCU.DVDD23] is not connected to net [V1V1] by a PCB trace.
+pcb_port_not_connected_error: Port [U_MCU.SWCLK] is not connected to net [SWCLK] by a PCB trace.
+pcb_port_not_connected_error: Port [C_DV23.pin1] is not connected to net [V1V1] by a PCB trace.
+pcb_port_not_connected_error: Port [C_VREG_OUT.pin1] is not connected to net [V1V1] by a PCB trace.
+pcb_port_not_connected_error: Port [U_FLASH.IO1] is not connected to net [QSPI_SD1] by a PCB trace.
+pcb_port_not_connected_error: Port [U_FLASH.IO0] is not connected to net [QSPI_SD0] by a PCB trace.
+pcb_port_not_connected_error: Port [U_FLASH.CLK] is not connected to net [QSPI_SCLK] by a PCB trace.
+pcb_port_not_connected_error: Port [U_FLASH.IO3] is not connected to net [QSPI_SD3] by a PCB trace.
+pcb_port_not_connected_error: Port [R_BOOT.pin1] is not connected to net [QSPI_SS] by a PCB trace.
+pcb_port_not_connected_error: Port [Y_MCU.XTAL_OUT] is not connected to net [XTAL_OUT] by a PCB trace.
+pcb_port_not_connected_error: Port [R_XOUT.pin1] is not connected to net [XOUT] by a PCB trace.
+pcb_port_not_connected_error: Port [R_XOUT.pin2] is not connected to net [XTAL_OUT] by a PCB trace.
+pcb_port_not_connected_error: Port [C_XIN.pin1] is not connected to net [XIN] by a PCB trace.
+pcb_port_not_connected_error: Port [C_XOUT.pin1] is not connected to net [XTAL_OUT] by a PCB trace.
+pcb_port_not_connected_error: Port [R_RUN.pin2] is not connected to net [RUN] by a PCB trace.
+pcb_port_not_connected_error: Port [R_DM.pin2] is not connected to net [USB_DM] by a PCB trace.
+pcb_port_not_connected_error: Port [R_DP.pin2] is not connected to net [USB_DP] by a PCB trace.
+pcb_port_not_connected_error: Port [R_CC2.pin2] is not connected to net [GND] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.OUT1A] is not connected to net [A_PLUS] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.OUT2B] is not connected to net [B_MINUS] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.VBB2] is not connected to net [PD_VBUS] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.CP1] is not connected to net [CP1] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.STEP] is not connected to net [STEP] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.DIR] is not connected to net [DIR] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.ENABLE_N] is not connected to net [ENABLE_N] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.REF] is not connected to net [VREF] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.SENSE1] is not connected to net [SENSE1] by a PCB trace.
+pcb_port_not_connected_error: Port [U_DRV.SENSE2] is not connected to net [SENSE2] by a PCB trace.
+pcb_port_not_connected_error: Port [C_CP.pin1] is not connected to net [CP1] by a PCB trace.
+pcb_port_not_connected_error: Port [R_SA.pin1] is not connected to net [SENSE1] by a PCB trace.
+pcb_port_not_connected_error: Port [R_SB.pin1] is not connected to net [SENSE2] by a PCB trace.
+pcb_port_not_connected_error: Port [J_MOTOR.A_PLUS] is not connected to net [A_PLUS] by a PCB trace.
+pcb_port_not_connected_error: Port [J_MOTOR.B_MINUS] is not connected to net [B_MINUS] by a PCB trace.
+pcb_port_not_connected_error: Port [J_DEBUG.SWCLK] is not connected to net [SWCLK] by a PCB trace.
+pcb_port_not_connected_error: Port [J_DEBUG.SWDIO] is not connected to net [SWDIO] by a PCB trace.
+pcb_port_not_connected_error: Port [J_DEBUG.RUN] is not connected to net [RUN] by a PCB trace.
+pcb_trace_error: Trace [.U_MCU > .GPIO10 to net.PD_GOOD] is missing a connection to SMD pad U_MCU.GPIO10
+pcb_trace_error: Trace [.J_DEBUG > .VDD to net.V3V3] is missing a connection to SMD pad J_DEBUG.VDD
+pcb_trace_error: Trace [.R_BOOT > .pin1 to net.QSPI_SS] is missing a connection to SMD pad R_BOOT.pin1
+pcb_trace_error: Trace [.C_XIN > .pin1 to net.XIN] is missing a connection to SMD pad C_XIN.pin1
+pcb_trace_error: Trace [.R_ENABLE > .pin2 to net.ENABLE_N] is missing a connection to SMD pad R_ENABLE.pin2
+pcb_trace_error: Trace [.U_DRV > .STEP to net.STEP] is missing a connection to SMD pad U_DRV.STEP
+pcb_trace_error: Trace [.U_DRV > .DIR to net.DIR] is missing a connection to SMD pad U_DRV.DIR
+pcb_trace_error: Trace [.R_XOUT > .pin1 to net.XOUT] is missing a connection to SMD pad R_XOUT.pin1
+pcb_trace_error: Trace [.C_VREG_OUT > .pin1 to net.V1V1] is missing a connection to SMD pad C_VREG_OUT.pin1
+pcb_trace_error: Trace [.J_DEBUG > .SWDIO to net.SWDIO] is missing a connection to SMD pad J_DEBUG.SWDIO
+pcb_trace_error: Trace [.J_DEBUG > .RUN to net.RUN] is missing a connection to SMD pad J_DEBUG.RUN
+pcb_trace_error: Trace [.U_FLASH > .IO3 to net.QSPI_SD3] is missing a connection to SMD pad U_FLASH.IO3
+pcb_trace_error: Trace [.U_FLASH > .IO0 to net.QSPI_SD0] is missing a connection to SMD pad U_FLASH.IO0
+pcb_trace_error: Trace [.U_FLASH > .IO1 to net.QSPI_SD1] is missing a connection to SMD pad U_FLASH.IO1
+pcb_trace_error: Trace [.U_FLASH > .CLK to net.QSPI_SCLK] is missing a connection to SMD pad U_FLASH.CLK
+pcb_trace_error: Trace [.D_TVS > .anode to net.GND] has dangling endpoint at (3.40, -1.80)
+pcb_trace_error: Trace [.R_SLEEP > .pin1 to net.SLEEP] has dangling endpoint at (2.65, -2.18)
+pcb_trace_error: Trace [.R_ENABLE > .pin2 to net.ENABLE_N] has dangling endpoint at (-1.13, 1.21)
+npm notice
+npm notice New major version of npm available! 11.9.0 -> 12.2.0
+npm notice Changelog: https://github.com/npm/cli/releases/tag/v12.2.0
+npm notice To update run: npm install -g npm@12.2.0
+npm notice
