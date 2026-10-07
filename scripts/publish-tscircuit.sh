@@ -13,7 +13,7 @@ for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
 for f in (root/'artifacts').glob('schematic-a4-page-*.svg'):shutil.copy2(f,stage/'artifacts'/f.name)
 shutil.copytree(root/'artifacts/validation',stage/'artifacts/validation')
-for f in ['bom.csv','drc-report.json','physical-connectivity.json','verification.json','presentation-verification.json','jlcpcb-import-report.json','pcb-top.png','pcb-bottom.png','pcb-inner1.png','pcb-inner2.png','schematic-a4.pdf','schematic-a4.png','schematic.svg']:
+for f in ['bom.csv','drc-report.json','physical-connectivity.json','trace-width-review.json','ground-planes.json','verification.json','presentation-verification.json','jlcpcb-import-report.json','pcb-top.png','pcb-bottom.png','pcb-inner1.png','pcb-inner2.png','schematic-a4.pdf','schematic-a4.png','schematic.svg']:
  if (root/'artifacts'/f).exists():shutil.copy2(root/'artifacts'/f,stage/'artifacts'/f)
 # Source compilation can write an overview SVG; publish the checked A4 first sheet.
 shutil.copy2(root/'artifacts/schematic-a4-page-01.svg',stage/'artifacts/schematic.svg')

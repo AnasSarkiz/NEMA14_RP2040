@@ -10,3 +10,8 @@
 - RP2040, AP63203, GD25Q16EEIGR and crystal pad geometry copied from existing cached supplier imports. Numbered pins checked against manufacturer references; assembly/library review is still needed. No generic QFN footprint is substituted for the reduced RP2040 ground pad.
 
 The remaining A4988, CH224K, USB-C and ESD footprints derive from the original project. This is an engineering prototype; exact purchasing identities for passives and the inductor land pattern require final assembly review. No stock check or assembly quote is claimed.
+
+
+Current fitted parts are genuine JLCPCB imports obtained with `tsci import --jlcpcb --download --use-exact-footprint <C-number>`. `src/jlcpcb-catalog.json` records component-to-part mapping, original import hashes and native OBJ/STEP hashes. No fitted part uses a custom replacement footprint. Earlier KiCad/Eagle references establish pin cross-checks only; they do not define the current supplier land patterns.
+
+Current tools: tscircuit 0.0.2764, CLI 0.1.2261, pinned in the lockfile. WCH evaluation-board reference section 5 documents PC17-high cold-start ROM USB programming. RP2040 and AP63203 manufacturer PDFs used for power/boot/reference checks are cached in the RP2040 project's `references/` directory. The AP63203 PDF is DS41326 Rev 3-2, November 2024, including the fixed-output pin map and PCB layout guidance. Additional direct Allegro/Raspberry Pi document retrieval during this review returned HTTP 403; no new manufacturer qualification is claimed from those failed requests.

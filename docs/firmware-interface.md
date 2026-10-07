@@ -22,3 +22,5 @@ Full steps: 400/revolution. Configured 1/16 microsteps: 6400/revolution. No USB 
 J_DEBUG bottom-to-top in the top PCB view: 3V3, GND, SWCLK, SWDIO, RUN. J_BOOT shorts flash CS to GND through 1 kΩ: hold short while asserting/releasing RUN to enter ROM USB boot. Never leave the short during ordinary flash operation.
 
 For factory ROM USB boot entry, see [USB programming](usb-programming.md). This hardware contract does not supply a motor-control application.
+
+Motor voltage conversion: `VM_V = VM_SENSE_V × 11` for the reviewed 100 kΩ/10 kΩ divider. Update/calibrate firmware accordingly; the former ×(122/22) conversion is obsolete.

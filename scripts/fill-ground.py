@@ -8,7 +8,8 @@ from shapely.geometry.polygon import orient
 net=next(k for k,v in g.nets.items() if v['name']=='GND');netid=g.nets[net]['source_net_id']
 g.j[:]=[e for e in g.j if e['type']!='pcb_copper_pour']
 records=[]
-for layer in ['top','inner1','inner2','bottom']:
+layers=['top','bottom'] if next(e for e in g.j if e['type']=='pcb_board')['num_layers']==2 else ['top','inner1','inner2','bottom']
+for layer in layers:
  cuts=[];terminals=[]
  for e in g.j:
   typ=e['type']

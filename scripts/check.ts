@@ -35,8 +35,10 @@ if(holes.length!==4) unique.push({type:'validation_error',message:'Expected four
 const resistance=(name:string)=>json.find((e:any)=>e.type==='source_component' && e.name===name)?.resistance
 const vref=3.3*resistance('R_REF_L')/(resistance('R_REF_H')+resistance('R_REF_L')), current=vref/(8*resistance('R_SA'))
 if(!Number.isFinite(current) || resistance('R_SA')!==resistance('R_SB')) unique.push({type:'validation_error',message:'Missing or mismatched phase-current setting resistors.'})
-const worstCurrent=3.33*(resistance('R_REF_L')*1.01)/(resistance('R_REF_H')*.99+resistance('R_REF_L')*1.01)/(8*resistance('R_SA')*.99)*1.05
+const worstCurrent=3.465*(resistance('R_REF_L')*1.01)/(resistance('R_REF_H')*.99+resistance('R_REF_L')*1.01)/(8*resistance('R_SA')*.99)*1.05
 if(worstCurrent>.4) unique.push({type:'validation_error',message:'Estimated tolerance-bound phase current exceeds 0.4 A.'})
+const vmAdcWorst=35*(resistance('R_VM_L')*1.01)/(resistance('R_VM_H')*.99+resistance('R_VM_L')*1.01)
+if(!Number.isFinite(vmAdcWorst) || vmAdcWorst>3.3) unique.push({type:'validation_error',message:'Motor voltage divider exceeds 3.3 V at the 35 V review envelope.'})
 if(current>.4) unique.push({type:'validation_error',message:'Nominal phase current exceeds 0.4 A.'})
 // Verify the RP2040 rails and required interfaces against physical pin numbers.
 const sourceComponents=json.filter((e:any)=>e.type==='source_component')
@@ -54,8 +56,25 @@ if(json.some((e:any)=>e.type==='pcb_component' && e.layer!=='top')) unique.push(
 if(json.some((e:any)=>e.type==='pcb_solder_paste' && e.layer!=='top')) unique.push({type:'validation_error',message:'Top assembly must not have bottom solder paste.'})
 const platedHoles=json.filter((e:any)=>e.type==='pcb_plated_hole')
 if(json.some((e:any)=>e.type==='pcb_solder_paste' && platedHoles.some((h:any)=>Math.hypot(h.x-e.x,h.y-e.y)<.001))) unique.push({type:'validation_error',message:'Hand-soldered through holes must not have stencil paste.'})
-const report={date:new Date().toISOString(),tool:'@tscircuit/checks',traceCount,currentLimitAmps:current,errors:unique,warnings,manufacturingRelease:false,releaseBlockers:['Manufacturer drawing specifies front mounting only; rear adapter fit is unverified.','Hardware has not been assembled or electrically tested.','Footprint/rating and USB/PD bench validation remain required.']}
+// Physical-pin review of motor power, PD request, protection and reset defaults.
+const reviewedPhysicalPins:Record<string,Record<number,string>>={
+ U_PD:{1:'PD_VDD',2:'PD_VDD',3:'PD_VDD',6:'PD_CC2',7:'PD_CC1',8:'PD_VBUS',9:'GND',10:'PD_GOOD',11:'GND'},
+ U_DRV:{1:'B_MINUS',2:'ENABLE_N',3:'GND',4:'CP1',5:'CP2',6:'VCP',8:'VREG',9:'V3V3',10:'V3V3',11:'V3V3',12:'V3V3',13:'GND',14:'SLEEP',15:'V3V3',16:'STEP',17:'VREF',18:'GND',19:'DIR',21:'A_MINUS',22:'PD_VBUS',23:'SENSE1',24:'A_PLUS',26:'B_PLUS',27:'SENSE2',28:'PD_VBUS',29:'GND'},
+ U_ESD:{1:'USB_DP',2:'GND',3:'USB_DM',4:'USB_DM',5:'DATA_VBUS',6:'USB_DP'},
+}
+reviewedPhysicalPins.U_BUCK={1:'V3V3',2:'LOGIC_IN',3:'LOGIC_IN',4:'GND',5:'BUCK_SW',6:'BUCK_BST'}
+for(const [reference,pins] of Object.entries(reviewedPhysicalPins)) {
+ const component=json.find((e:any)=>e.type==='source_component' && e.name===reference)
+ for(const [pin,netName] of Object.entries(pins)) {
+  const port=json.find((e:any)=>e.type==='source_port' && e.source_component_id===component?.source_component_id && e.pin_number===Number(pin))
+  const net=json.find((e:any)=>e.type==='source_net' && e.name===netName)
+  if(!port || !net || port.subcircuit_connectivity_map_key!==net.subcircuit_connectivity_map_key) unique.push({type:'validation_error',message:`${reference} physical pin ${pin} must connect to ${netName}.`})
+ }
+}
+for(const [ref,expected] of [['R_ENABLE',100000],['R_SLEEP',100000],['R_VM_H',100000],['R_VM_L',10000]] as const)
+ if(resistance(ref)!==expected) unique.push({type:'validation_error',message:ref+' differs from its reviewed value.'})
+const report={date:new Date().toISOString(),tool:'@tscircuit/checks',traceCount,currentLimitAmps:current,currentLimitEngineeringBudgetAmps:worstCurrent,currentLimitBudgetIsNotQualified:true,motorAdcAt35VWorstVolts:vmAdcWorst,errors:unique,warnings,manufacturingRelease:false,releaseBlockers:['Manufacturer drawing specifies front mounting only; rear adapter fit is unverified.','Hardware has not been assembled or electrically tested.','Footprint/rating and USB/PD bench validation remain required.']}
 writeFileSync('artifacts/drc-report.json',JSON.stringify(report,null,2)+'\n')
-console.log(JSON.stringify({traceCount,currentLimitAmps:current,errors:unique.length,warnings:warnings.length},null,2))
+console.log(JSON.stringify({traceCount,currentLimitAmps:current,currentLimitEngineeringBudgetAmps:worstCurrent,currentLimitBudgetIsNotQualified:true,motorAdcAt35VWorstVolts:vmAdcWorst,errors:unique.length,warnings:warnings.length},null,2))
 for(const error of unique) console.error(error.type+': '+error.message)
 if(unique.length) process.exitCode=1

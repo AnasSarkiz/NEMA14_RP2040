@@ -39,3 +39,7 @@ Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected 
 The public main entry point is `index.circuit.tsx`, which exports the board from `src/board.tsx`. `index.circuit.json` is the checked saved layout; publication refreshes it from `artifacts/board.circuit.json` and includes both JSON files. `tscircuit.config.json` selects the root source entry and saved-layout preview.
 
 Publication uses the CLI build-output option: `tsci push index.circuit.tsx --include-dist`. Before uploading, the script runs `tsci build index.circuit.json` and verifies that `dist/index/circuit.json` equals the checked saved routing.
+
+## Copper and electrical review
+
+The [electrical review](docs/electrical.md) records power-trace widening, filled grounds, the corrected 100 kΩ/10 kΩ motor-voltage divider, copper-thickness requirements, and remaining prototype tests. Run `npm run check:copper` for the actual saved-segment audit. The [machine-readable report](artifacts/trace-width-review.json) distinguishes isolated tracks from parallel ground-plane paths; software checks do not certify hardware operation.

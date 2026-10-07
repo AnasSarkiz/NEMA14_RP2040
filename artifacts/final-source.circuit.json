@@ -3761,6 +3761,7 @@
     ],
     "source_component_id": "source_component_36",
     "subcircuit_id": "subcircuit_source_group_0",
+    "is_passive": true,
     "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net17"
   },
   {
@@ -3777,6 +3778,7 @@
     ],
     "source_component_id": "source_component_36",
     "subcircuit_id": "subcircuit_source_group_0",
+    "is_passive": true,
     "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0"
   },
   {
@@ -3784,14 +3786,14 @@
     "source_component_id": "source_component_36",
     "ftype": "simple_resistor",
     "name": "R_VM_L",
-    "manufacturer_part_number": "0603WAF2202T5E",
+    "manufacturer_part_number": "0603WAF1002T5E",
     "supplier_part_numbers": {
       "jlcpcb": [
-        "C31850"
+        "C25804"
       ]
     },
-    "resistance": 22000,
-    "display_resistance": "22kΩ",
+    "resistance": 10000,
+    "display_resistance": "10kΩ",
     "are_pins_interchangeable": true,
     "source_group_id": "source_group_0"
   },
@@ -34651,8 +34653,8 @@
     },
     "pcb_component_id": "pcb_component_36",
     "source_component_id": "source_component_36",
-    "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0603WAF2202T5E/A_0603WAF2202T5E.obj",
-    "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0603WAF2202T5E/A_0603WAF2202T5E.step",
+    "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.obj",
+    "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.step",
     "model_origin_alignment": "center_of_component_on_board_surface",
     "anchor_alignment": "center_of_component_on_board_surface",
     "model_origin_position": {
@@ -49787,7 +49789,7 @@
     "is_box_with_pins": true,
     "symbol_name": "boxresistor_down",
     "schematic_sheet_id": "schematic_sheet_7",
-    "symbol_display_value": "22kΩ",
+    "symbol_display_value": "10kΩ",
     "pin_spacing": 0.44
   },
   {
@@ -49809,7 +49811,7 @@
     "type": "schematic_text",
     "schematic_text_id": "a4_text_595",
     "schematic_sheet_id": "schematic_sheet_7",
-    "text": "22kΩ",
+    "text": "10kΩ",
     "position": {
       "x": 0.675,
       "y": -4.58
