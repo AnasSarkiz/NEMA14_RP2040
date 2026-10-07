@@ -46,7 +46,7 @@ export const CH224Footprint = () => <footprint>
 <courtyardrect width={7.45} height={5.4} />
 </footprint>
 export const EsdFootprint = () => <footprint>
-{[[-1.1,.95],[-1.1,0],[-1.1,-.95],[1.1,-.95],[1.1,0],[1.1,.95]].map(([x,y],i)=><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={y} width={1} height={.6} shape="rect" />)}
+{[[-1.1,.95],[-1.1,0],[-1.1,-.95],[1.1,-.95],[1.1,0],[1.1,.95]].map(([x,y],i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={y} width={1} height={.6} shape="rect" /></React.Fragment>)}
 <courtyardrect width={3.5} height={3.4} />
 </footprint>
 export const BulkFootprint = () => <footprint>

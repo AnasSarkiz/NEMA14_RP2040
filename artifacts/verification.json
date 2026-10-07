@@ -21,23 +21,31 @@
   "firmwareImplemented": false,
   "manufacturingRelease": false,
   "sha256": {
-    "artifacts/board.circuit.json": "e0ca0f1debbde6bb2a8dd04cc28e4ec8e54b691924663b6cbae37c7d19e4e52f",
-    "artifacts/final-source.circuit.json": "b064160e545b9651f6c3eab005535f72676bab0ba63d79e638cf6e3ab4fe1499",
+    "artifacts/board.circuit.json": "e3cc1f09245b56b7935fb559bc112d0014144f7886c72215fc0cd84c508e11d5",
+    "artifacts/final-source.circuit.json": "7c60138593e97a6254a684f132887a02241f750e4ddc5b680fc5a318fbdecd7a",
     "artifacts/fixed8-input.dsn": "ec4ffb367d847448fd208658741d1302f30d519b73c815a1fadd46bdcb6fcad2",
     "artifacts/fixed8-board.ses": "815d3194589e0505d2072bc662e75ba557a0fc5be6794200482e46a9ef5de9dc",
     "artifacts/fixed8-unrouted.circuit.json": "2af8f480022d1e2477b5683dbd6d589316863a780873888b84dcdf7e050c0dd4",
     "artifacts/fixed8-seeds.circuit.json": "1c1cfd06a5c7946679dd95adfc79ec8542e497b1d70c0fdb4cbfd2ef8172ca20",
     "artifacts/saved-copper-adjustments.json": "c7b68bc88de2bc9576e37b2cf641291a35e3d6a53ef9fadd7f16f38cb6115286",
-    "artifacts/drc-report.json": "8fb25e181f8320a66b01a3c5f8592fd87bebeef247ec340976a1a0fdc00ce543",
-    "artifacts/physical-connectivity.json": "457b33fa34953b857773d513cae41971ce555ff800e45107d6e7d89d2a28ede7",
+    "artifacts/drc-report.json": "c5f8167d6ecb76f32b2790fd08379bc6d7cfc4a3385408f2ddbccda33ae0270c",
+    "artifacts/physical-connectivity.json": "c36fad82a2802af2b0a0053f197088d562e90bc6697e19a199c5afec24eec264",
     "artifacts/shorts-output.txt": "d7f9ea241a247e70a8b09c8c54d7cd100a9633b1571fc7e7fff1ddd22508a0ce",
     "artifacts/nema14-gerbers.zip": "2ad443f20026a8c6fafd0e0da79027b23965c162f126874fd291e43845565a43",
-    "artifacts/schematic-a4.pdf": "fa6ed3d7417e2b6c59c4491eecd62382b7d6e58c5e2690b5c8d96e853531ba68",
+    "artifacts/schematic-a4.pdf": "c825de9b10fc2699c2fabeef0ba3e06ce036afd747a0ba58cafad238e9058239",
     "artifacts/jlcpcb-import-report.json": "de7d3a3e923a94fbbc7e89f08c36fe6f798b5509e8958c1873fc62fb56cdd62e",
-    "artifacts/bom.csv": "4099b8f4ef900bf9adcb7edf617534fd5e9b9e96c084b5846cc5657622669e5e"
+    "artifacts/bom.csv": "4099b8f4ef900bf9adcb7edf617534fd5e9b9e96c084b5846cc5657622669e5e",
+    "artifacts/validation/shorts.txt": "4c40f37bb2d3985fa1b2ed955b5fa6269a84859dddf85f5c3ca5a363f3a62e97",
+    "artifacts/validation/schematic-ui-review.json": "a643336809fec9cf1c85461ae3fc30836834292d5625d20b59e60312bd5d3736"
   },
   "supplierCadModels": 30,
   "supplierImportsComplete": false,
   "schematicA4PageCount": 13,
-  "allNumberedPhysicalPinsOnSchematic": true
+  "allNumberedPhysicalPinsOnSchematic": true,
+  "drcErrors": 0,
+  "drcWarnings": 0,
+  "gerberShorts": 0,
+  "usbProgrammingHardware": true,
+  "usbFlashingBenchTested": false,
+  "physicalConnectivityCheckedNets": 48
 }

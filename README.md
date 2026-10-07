@@ -26,8 +26,12 @@ npm run shorts
 
 See [routing](docs/routing.md), [electrical review](docs/electrical.md), and [firmware interface](docs/firmware-interface.md). **Hardware prototype, not a fabrication release.** No firmware or bench-tested USB, PD, current or thermal behavior is included.
 
-Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected across all four copper layers. The 31 source pin-metadata warnings remain documented. [BOM](artifacts/bom.csv), [Gerbers](artifacts/nema14-gerbers.zip) and [top preview](artifacts/pcb-top.png) are included. Exact passive purchasing identities, assembly rotations and the inductor footprint still require assembly review.
+Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected across all four copper layers. Power/ground pin metadata and passive connector/crystal classifications are explicit; current DRC reports zero warnings. [BOM](artifacts/bom.csv), [Gerbers](artifacts/nema14-gerbers.zip) and [top preview](artifacts/pcb-top.png) are included. Exact passive purchasing identities, assembly rotations and the inductor footprint still require assembly review.
 
 ## Supplier models and A4 schematics
 
 [Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. Exact JLCPCB CAD is attached to **30/61 fitted parts**; the other 31 await supplier access. Bare motor/debug/boot solder interfaces do not have fitted component models. See [supplier CAD details](docs/supplier-cad.md) and the [reference-by-reference import report](artifacts/jlcpcb-import-report.json). Saved copper and electrical pin connections are unchanged.
+
+## USB and final validation
+
+[USB programming procedure](docs/usb-programming.md) · [Validation details](docs/validation.md) · [Browser schematic analysis](artifacts/validation/schematic-analysis-ui.png). Both board variants support boot-mode entry through their Data USB-C port; flashing still requires assembled-hardware validation. Current software checks report zero DRC errors/warnings, zero schematic-placement findings and no Gerber shorts. Application firmware remains a separate task.
