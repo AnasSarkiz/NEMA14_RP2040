@@ -1,30 +1,19 @@
 """Refill grounded, masked copper from saved final copper with 0.20 mm clearance."""
 import json,math
-import routing_grid as g
+import verify_supplier_connectivity as g
+g.nets={e["subcircuit_connectivity_map_key"]:e for e in g.j if e["type"]=="source_net"}
 from shapely.geometry import box,Point,LineString,Polygon
 from shapely.ops import unary_union
 from shapely.geometry.polygon import orient
 net=next(k for k,v in g.nets.items() if v['name']=='GND');netid=g.nets[net]['source_net_id']
 g.j[:]=[e for e in g.j if e['type']!='pcb_copper_pour']
-# Legal, ordinary through-vias tie the perimeter of the two ground planes.
-for sx,sy in [(-16.5,-16.5),(-16.5,16.5),(16.5,-16.5),(16.5,16.5),(-16.5,0),(16.5,0),(0,-16.9),(0,16.5)]:
- if any(e['type']=='pcb_via' and math.hypot(e['x']-sx,e['y']-sy)<.01 for e in g.j):continue
- vb=g.obstacle(net,.16,True);ix,iy=g.xy(sx,sy)
- if vb[0][iy,ix] or vb[1][iy,ix]:continue
- g.j.append({'type':'pcb_via','pcb_via_id':f'ground_stitch_{sx}_{sy}','x':sx,'y':sy,'layers':['top','inner1','inner2','bottom'],'hole_diameter':.25,'outer_diameter':.5,'source_net_id':netid,'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0'})
-
-def pad(e):
- w=e.get('width',e.get('outer_width',e.get('outer_diameter',e.get('radius',0)*2)));h=e.get('height',e.get('outer_height',e.get('outer_diameter',e.get('radius',0)*2)))
- if abs(e.get('ccw_rotation',0)%180-90)<.01:w,h=h,w
- if e.get('shape')=='circle':return Point(e['x'],e['y']).buffer(w/2,quad_segs=16)
- return box(e['x']-w/2,e['y']-h/2,e['x']+w/2,e['y']+h/2)
 records=[]
 for layer in ['top','inner1','inner2','bottom']:
  cuts=[];terminals=[]
  for e in g.j:
   typ=e['type']
   if typ in ['pcb_smtpad','pcb_plated_hole'] and layer in e.get('layers',[e.get('layer','top')]):
-   geom=pad(e)
+   geom=g.geometry(e)
    if g.key(e)==net:terminals.append(geom)
    else:cuts.append(geom.buffer(.20,quad_segs=16))
   elif typ=='pcb_via':

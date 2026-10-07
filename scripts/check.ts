@@ -3,7 +3,8 @@ import { runAllChecks, checkViasInPads } from "@tscircuit/checks"
 const json=JSON.parse(readFileSync('artifacts/board.circuit.json','utf8'))
 const checks=await runAllChecks(json)
 // Permit only the three explicit grounded thermal vias inside exposed pads.
-const thermalCenters=[[3.4,0],[0,-11.5],[-3.4,8.2]]
+const thermalNames=['U_MCU','U_DRV','U_PD']
+const thermalCenters:Array<[number,number]>=json.filter((p:any)=>p.type==='pcb_smtpad' && p.width>1 && p.height>1 && json.some((c:any)=>c.type==='pcb_component' && c.pcb_component_id===p.pcb_component_id && json.some((s:any)=>s.type==='source_component' && s.source_component_id===c.source_component_id && thermalNames.includes(s.name)))).map((p:any)=>[p.x,p.y])
 const ground=json.find((e:any)=>e.type==='source_net' && e.name==='GND')
 const strict=json.filter((e:any)=>!(e.type==='pcb_via' && e.source_net_id===ground.source_net_id && thermalCenters.some(([x,y])=>Math.hypot(e.x-x,e.y-y)<.001))).map((e:any)=>e.type==='pcb_board'?{...e,is_via_in_pad_allowed:false}:e)
 checks.push(...checkViasInPads(strict))
@@ -18,9 +19,11 @@ if(!board || board.width!==35 || board.height!==35) unique.push({type:'validatio
 for (const [name,edge] of [['J_PD',-17.5],['J_DATA',17.5]] as const) {
  const source=json.find((e:any)=>e.type==='source_component' && e.name===name)
  const component=json.find((e:any)=>e.type==='pcb_component' && e.source_component_id===source?.source_component_id)
- const points=json.filter((e:any)=>e.type==='pcb_fabrication_note_path' && e.pcb_component_id===component?.pcb_component_id).flatMap((e:any)=>e.route)
- const front=points.length ? (edge<0?Math.min(...points.map((p:any)=>p.x)):Math.max(...points.map((p:any)=>p.x))) : NaN
- if(!Number.isFinite(front) || Math.abs(front-edge)>.001) unique.push({type:'validation_error',message:name+' opening is not flush with the board edge.'})
+ const cad=json.find((e:any)=>e.type==='cad_component' && e.source_component_id===source?.source_component_id)
+ // Exact imported TYPE-C model: mating plane is local Y=2.6 mm, origin Y=-2.7500289 mm.
+ const angle=(cad?.rotation?.z??0)*Math.PI/180
+ const front=cad ? cad.position.x-Math.sin(angle)*(2.6-cad.model_origin_position.y) : NaN
+ if(!Number.isFinite(front) || Math.abs(front-edge)>.001) unique.push({type:'validation_error',message:name+' imported USB-C mating plane is not flush with the board edge.'})
 }
 if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected four copper layers in the RP2040 board.'})
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
@@ -29,7 +32,11 @@ for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
 if(json.some((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) unique.push({type:'validation_error',message:'Inner1 is reserved for ground.'})
 const holes=json.filter((e:any)=>e.type==='pcb_hole' && e.hole_diameter===3.2)
 if(holes.length!==4) unique.push({type:'validation_error',message:'Expected four 3.2 mm mounting holes.'})
-const vref=3.3*10000/(36000+10000), current=vref/(8*.25)
+const resistance=(name:string)=>json.find((e:any)=>e.type==='source_component' && e.name===name)?.resistance
+const vref=3.3*resistance('R_REF_L')/(resistance('R_REF_H')+resistance('R_REF_L')), current=vref/(8*resistance('R_SA'))
+if(!Number.isFinite(current) || resistance('R_SA')!==resistance('R_SB')) unique.push({type:'validation_error',message:'Missing or mismatched phase-current setting resistors.'})
+const worstCurrent=3.33*(resistance('R_REF_L')*1.01)/(resistance('R_REF_H')*.99+resistance('R_REF_L')*1.01)/(8*resistance('R_SA')*.99)*1.05
+if(worstCurrent>.4) unique.push({type:'validation_error',message:'Estimated tolerance-bound phase current exceeds 0.4 A.'})
 if(current>.4) unique.push({type:'validation_error',message:'Nominal phase current exceeds 0.4 A.'})
 // Verify the RP2040 rails and required interfaces against physical pin numbers.
 const sourceComponents=json.filter((e:any)=>e.type==='source_component')

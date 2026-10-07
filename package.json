@@ -1,6 +1,6 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.0.8",
+  "version": "1.1.0",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "src/board.tsx",
   "scripts": {
@@ -15,7 +15,7 @@
     "typecheck": "tsc --noEmit",
     "shorts": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/board.circuit.json --mode gerber --layer all --pixels-per-mm 100",
     "publish:tscircuit": "bash scripts/publish-tscircuit.sh",
-    "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && python3 scripts/report-presentation.py"
+    "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && /workspace/.routing-venv/bin/python scripts/report-presentation.py"
   },
   "repository": {
     "type": "git",
@@ -30,13 +30,14 @@
   },
   "homepage": "https://github.com/AnasSarkiz/NEMA14_RP2040",
   "dependencies": {
-    "@tscircuit/cli": "0.1.2258",
+    "@tscircuit/cli": "^0.1.2261",
     "circuit-json-to-gerber": "0.0.112",
     "circuit-json-to-kicad": "0.0.230",
     "react": "19.3.0",
     "react-dom": "19.3.0",
+    "react-reconciler": "0.34.0",
     "three": "0.186.1",
-    "tscircuit": "0.0.2759",
+    "tscircuit": "^0.0.2764",
     "tsx": "4.20.6",
     "typescript": "5.9.3"
   },

@@ -19,7 +19,7 @@ export function prepareSchematic(json: any[]) {
    const name=ports.find(p=>!/^pin\d/.test(p.name))?.name??ports[0].name
    nets.set(key,{name,subcircuit_connectivity_map_key:key})
   }
-  const widths:Record<string,number>={U_MCU:source.get(components.find(c=>source.get(c.source_component_id)?.name==='U_MCU')?.source_component_id)?.manufacturer_part_number==='RP2040'?2.70:3.27,U_DRV:2.51,J_PD:2.22,J_DATA:2.22,U_PD:1.94,U_FLASH:1.75,J_BOOT:1.2,Y_MCU:2.32,U_BUCK:1.75,U_LDO:1.84,J_MOTOR:2.51,J_DEBUG:2.12,U_ESD:1.84}
+  const widths:Record<string,number>={U_MCU:source.get(components.find(c=>source.get(c.source_component_id)?.name==='U_MCU')?.source_component_id)?.manufacturer_part_number==='RP2040'?2.70:3.27,U_DRV:2.51,J_PD:2.055,J_DATA:2.055,U_PD:1.94,U_FLASH:1.75,J_BOOT:1.2,Y_MCU:2.32,U_BUCK:1.75,U_LDO:1.84,J_MOTOR:2.51,J_DEBUG:2.12,U_ESD:1.84}
 
   const pages:any[][]=[]
   // Large ICs have dedicated sheets; the remaining symbols use generous two-column cells.
@@ -59,8 +59,8 @@ export function prepareSchematic(json: any[]) {
       const ports=json.filter(e=>e.type==='schematic_port'&&e.schematic_component_id===old.schematic_component_id).sort((a,b)=>a.pin_number-b.pin_number)
       const boxed=!old.symbol_name
       const half=Math.ceil(ports.length/2),spacing=.44
-      const vertical=s.name==='J_BOOT'||s.name==='R_PD'
-      const size=boxed?{width:widths[s.name]??2.4,height:s.name==='J_BOOT'?1.8:Math.max(1.2,half*spacing+.4)}:vertical?{width:old.size.height,height:old.size.width}:old.size
+      const vertical=s.name==='J_BOOT'||s.name==='R_PD'||s.name==='D_TVS'
+      const size=boxed?{width:widths[s.name]??2.4,height:['J_BOOT','D_TVS'].includes(s.name)?1.8:Math.max(1.2,half*spacing+.4)}:vertical?{width:old.size.height,height:old.size.width}:old.size
       const c={...old,center,size,schematic_sheet_id:sheet,pin_spacing:spacing}
       delete c.schematic_group_id
       if(s.name==='R_PD') c.symbol_name='boxresistor_down'
@@ -70,8 +70,9 @@ export function prepareSchematic(json: any[]) {
       text(sheet,value,center.x-size.width/2,center.y-size.height/2-.48,'left',.19,c.schematic_component_id)
       ports.forEach((oldPort,i)=>{
         const left=i<half,sign=left?-1:1,row=left?i:i-half
-        const pinCenter=vertical?{x:center.x,y:center.y+(i===0?1:-1)*(size.height/2+(boxed?.35:0))}:boxed?{x:center.x+sign*(size.width/2+.35),y:center.y+(half-1)*spacing/2-row*spacing}:{x:center.x+oldPort.center.x-old.center.x,y:center.y+oldPort.center.y-old.center.y}
-        const direction=vertical?(i===0?'up':'down'):boxed?(left?'left':'right'):oldPort.facing_direction
+        const verticalSign=(i===0?1:-1)*(s.name==='D_TVS'?-1:1)
+        const pinCenter=vertical?{x:center.x,y:center.y+verticalSign*(size.height/2+(boxed?.35:0))}:boxed?{x:center.x+sign*(size.width/2+.35),y:center.y+(half-1)*spacing/2-row*spacing}:{x:center.x+oldPort.center.x-old.center.x,y:center.y+oldPort.center.y-old.center.y}
+        const direction=vertical?(verticalSign>0?'up':'down'):boxed?(left?'left':'right'):oldPort.facing_direction
         const port={...oldPort,center:pinCenter,schematic_sheet_id:sheet,display_pin_label_font_size:.17,...(boxed||vertical?{side_of_component:direction==='up'?'top':direction==='down'?'bottom':direction,facing_direction:direction,distance_from_component_edge:.35}:{})}
         out.push(port)
         const sp=sourcePorts.get(oldPort.source_port_id),net=nets.get(sp?.subcircuit_connectivity_map_key)

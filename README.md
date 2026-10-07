@@ -9,7 +9,7 @@ For STEPperONLINE **14HM11-0404S**: 0.9° bipolar motor, 0.40 A/phase, 25 Ω win
 - Two top-side USB-C receptacles, openings flush at opposite board edges: CH224K PD sink requests 15 V, separate USB 2.0 data connection to RP2040.
 - RP2040 QFN56, 2 MB GD25Q16EEIGR external QSPI flash, 12 MHz ABM8-272-T3 crystal, 27 Ω USB resistors, all supply bypasses and 1.1 V core-regulator reservoirs.
 - AP63203WU-7 3.3 V buck, diode-OR inputs from PD and data VBUS. Motor rail is supplied only by the PD port; data VBUS cannot supply the motor.
-- A4988 chopper driver: 1/16 stepping, nominal peak phase-current setting 0.359 A. This setting uses 36k/10k VREF and 0.25 Ω sense resistors; 1% divider/sense resistors and the regulator tolerance must be included in the production current review.
+- A4988 chopper driver: 1/16 stepping, nominal peak phase-current setting 0.351 A. This setting uses 39k/10k VREF and 0.24 Ω sense resistors; 1% divider/sense resistors and the regulator tolerance must be included in the production current review.
 - Top-side component assembly; top/inner2/bottom routing, inner1 ground plane and through-vias. The four-layer PCB costs more than the CH32 two-layer version. SWD/reset solder pads, BOOTSEL solder pads (short to GND while resetting), four motor wire solder holes. These pads avoid connector/button cost.
 
 Motor connection: black A+, green A−, red B+, blue B−. Firmware must keep ENABLE_N high and SLEEP low until the negotiated supply is verified. Data-VBUS sensing is required to disconnect the USB device pull-up when the host cable is absent.
@@ -30,7 +30,7 @@ Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected 
 
 ## Supplier models and A4 schematics
 
-[Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. Exact JLCPCB CAD is attached to **30/61 fitted parts**; the other 31 await supplier access. Bare motor/debug/boot solder interfaces do not have fitted component models. See [supplier CAD details](docs/supplier-cad.md) and the [reference-by-reference import report](artifacts/jlcpcb-import-report.json). Saved copper and electrical pin connections are unchanged.
+[Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. All **61/61 fitted components** use exact JLCPCB imports with native land patterns and OBJ/STEP models. Motor/debug/boot connections are bare PCB pads. See [supplier CAD details](docs/supplier-cad.md) and [the import report](artifacts/jlcpcb-import-report.json).
 
 ## USB and final validation
 

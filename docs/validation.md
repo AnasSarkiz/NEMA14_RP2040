@@ -10,4 +10,4 @@ Run `python3 scripts/schematic-review-ui.py` for a read-only browser UI that dis
 
 The standalone tscircuit IDE was also launched. In this environment its PCB pane cannot obtain a WebGPU adapter, and the Schematic tab is disabled for the saved circuit-JSON selection. The review UI provides the native SVGs and CLI analysis without requiring GPU access; it is a project review tool, not the IDE's disabled schematic analyzer pane. External telemetry/CDN requests blocked by the cloud allowlist are recorded as environmental limitations.
 
-See [USB programming](usb-programming.md). Supplier imports remain partially blocked; consult the reference-level import report before sourcing parts.
+See [USB programming](usb-programming.md). All fitted components now have exact supplier imports and OBJ/STEP assets; consult the reference-level import report.
