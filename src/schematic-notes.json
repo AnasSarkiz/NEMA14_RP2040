@@ -1,0 +1,30 @@
+[
+  [
+    "U_MCU - RP2040",
+    "USB computer control; generates STEP/DIR.\nChecks PD voltage before enabling the motor.\nInternal regulator supplies the 1.1 V core."
+  ],
+  [
+    "U_FLASH - GD25Q16EEIGR",
+    "2 MB external QSPI flash stores firmware.\nRequired because RP2040 has no internal flash.\nBOOT pads permit ROM USB boot recovery."
+  ],
+  [
+    "Y_MCU - ABM8-272-T3",
+    "12 MHz crystal is the USB clock reference.\nLoad capacitors and XOUT resistor support\noscillation and limit crystal drive."
+  ],
+  [
+    "U_PD - CH224K",
+    "USB-C PD sink requests a 15 V motor supply.\nPG reports a completed power negotiation."
+  ],
+  [
+    "U_BUCK - AP63203WU-7",
+    "Efficient 3.3 V supply for MCU and logic.\nDiode OR accepts USB data power or PD.\nInductor and capacitors smooth switching."
+  ],
+  [
+    "U_DRV - A4988",
+    "Two current-regulated bridges drive the coils.\nSTEP/DIR interface; fixed 1/16 microstepping.\nNominal phase-current limit is 0.359 A."
+  ],
+  [
+    "U_ESD - USBLC6-2SC6",
+    "Clamps ESD on USB D+ and D- at the data port.\nVBUS pin references the protection diodes."
+  ]
+]

@@ -1,6 +1,6 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.0.2",
+  "version": "1.0.7",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "src/board.tsx",
   "scripts": {
@@ -14,7 +14,8 @@
     "export": "XDG_CONFIG_HOME=/workspace/.config tsci export artifacts/board.circuit.json -f gerbers -o \"$PWD/artifacts/nema14-gerbers.zip\"",
     "typecheck": "tsc --noEmit",
     "shorts": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/board.circuit.json --mode gerber --layer all --pixels-per-mm 100",
-    "publish:tscircuit": "bash scripts/publish-tscircuit.sh"
+    "publish:tscircuit": "bash scripts/publish-tscircuit.sh",
+    "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && python3 scripts/report-presentation.py"
   },
   "repository": {
     "type": "git",
