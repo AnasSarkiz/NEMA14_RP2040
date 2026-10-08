@@ -1,0 +1,85 @@
+{
+  "removed": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "supplier_repair_island_net16_0",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": -3.3161,
+          "y": 2.1998,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "via",
+          "x": -3.3161,
+          "y": 2.1998,
+          "from_layer": "bottom",
+          "to_layer": "top",
+          "via_diameter": 0.5,
+          "via_hole_diameter": 0.25
+        },
+        {
+          "route_type": "wire",
+          "x": -3.3161,
+          "y": 2.1998,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "pcb_port_ids": [],
+      "source_trace_id": "source_trace_231",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net16",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "source_net_id": "source_net_15"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "freerouted_via_69",
+      "x": 15.8386,
+      "y": 4.0322,
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "from_layer": "top",
+      "to_layer": "bottom",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net34",
+      "source_net_id": "source_net_51",
+      "source_trace_id": "source_trace_114",
+      "tented_on_top": true,
+      "tented_on_bottom": true
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "freerouted_via_70",
+      "x": 15.4549,
+      "y": 15.2349,
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "from_layer": "top",
+      "to_layer": "bottom",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net34",
+      "source_net_id": "source_net_51",
+      "source_trace_id": "source_trace_114",
+      "tented_on_top": true,
+      "tented_on_bottom": true
+    }
+  ],
+  "nativePadRecordsChanged": false,
+  "reason": "Island has no same-net physical contact with any native source pad; all conductive layers/barrels included in independent graph.",
+  "savedSHA256": "4f8af670f648da867f4bfcedf1e018129c2388304d1403240f4d80058802c710"
+}

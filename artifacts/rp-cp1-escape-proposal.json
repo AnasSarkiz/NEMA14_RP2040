@@ -1,0 +1,102 @@
+{
+  "inputSha256": "802f620a3b65f6c0a911207cd306703bcca72ecf564b4cccd6b39bb7f440f9f5",
+  "inputSnapshot": "artifacts/rp-cp1-restoration-input.circuit.json",
+  "proposalOnly": true,
+  "minimumForeignClearanceMm": 0.158,
+  "nativeFootprintsChanged": false,
+  "requiresRootIndependentMergeCheck": true,
+  "additions": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "supplier_repair_CP1_fanout_C_CP_pin1",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": -4.7,
+          "y": -10.699976,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_240"
+        },
+        {
+          "route_type": "wire",
+          "x": -5.2749999999999995,
+          "y": -10.699976,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -6.024999999999999,
+          "y": -9.949976,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "pcb_port_ids": [
+        "pcb_port_240"
+      ],
+      "source_net_id": "source_net_24",
+      "source_trace_id": "source_trace_206",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net45",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "supplier_repair_CP1_fanout_C_CP_pin1_via",
+      "x": -6.024999999999999,
+      "y": -9.949976,
+      "outer_diameter": 0.5,
+      "hole_diameter": 0.25,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "source_net_id": "source_net_24",
+      "source_trace_id": "source_trace_206",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net45",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "fanouts": [
+    {
+      "ref": "U_DRV",
+      "pin": "CP1",
+      "noViaReachable": true,
+      "reachableGridCells": 355,
+      "ignoredTraces": []
+    },
+    {
+      "ref": "C_CP",
+      "pin": "pin1",
+      "via": [
+        -6.024999999999999,
+        -9.949976
+      ],
+      "points": [
+        [
+          -4.7,
+          -10.699976
+        ],
+        [
+          -5.2749999999999995,
+          -10.699976
+        ],
+        [
+          -6.024999999999999,
+          -9.949976
+        ]
+      ],
+      "lengthMm": 1.63566017177982,
+      "minimumTopForeignClearanceMm": 0.36998019999999876,
+      "minimumViaAllLayerClearanceMm": 0.18338006504165033,
+      "ignoredTraces": [],
+      "gridStepMm": 0.025
+    }
+  ],
+  "removeTraceIds": []
+}

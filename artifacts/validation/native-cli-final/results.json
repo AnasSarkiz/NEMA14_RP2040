@@ -1,0 +1,60 @@
+{
+  "date": "2026-10-08T21:47:04.434405+00:00",
+  "sourceSHA256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+  "checks": {
+    "netlist": {
+      "command": [
+        "tsci",
+        "check",
+        "netlist",
+        "index.circuit.tsx"
+      ],
+      "exitCode": 0
+    },
+    "pin_specification": {
+      "command": [
+        "tsci",
+        "check",
+        "pin_specification",
+        "index.circuit.tsx"
+      ],
+      "exitCode": 0
+    },
+    "source": {
+      "command": [
+        "tsci",
+        "check",
+        "source",
+        "index.circuit.tsx"
+      ],
+      "exitCode": 0
+    },
+    "placement": {
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/validation/native-cli-final/source.circuit.json"
+      ],
+      "exitCode": 1,
+      "disposition": "Nonzero exit is preserved; airwire/rotation advice is reviewed separately from saved-copper/source geometric DRC and actual CAM.",
+      "drcErrors": 0,
+      "drcWarnings": 0,
+      "log": "artifacts/validation/native-cli-final/placement.txt"
+    },
+    "placementSavedBoard": {
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exitCode": 1,
+      "drcErrors": 0,
+      "drcWarnings": 0,
+      "boardSHA256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "log": "artifacts/validation/native-cli-final/placement-saved-board.txt",
+      "disposition": "Heuristic rotation and bare-interface courtyard advice retained; native body/contact/probe and final routed CAM evidence provide separate disposition."
+    }
+  }
+}

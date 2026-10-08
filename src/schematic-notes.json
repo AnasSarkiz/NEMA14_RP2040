@@ -13,7 +13,7 @@
   ],
   [
     "U_PD - CH224K",
-    "USB-C PD sink requests a 15 V motor supply.\nPG reports a completed power negotiation."
+    "15 V request: CFG1=0, CFG2=CFG3=1.\nPG is open-drain, active low. PD-only mode:\nchip DP/DM shorted; VBUS sense pin unused."
   ],
   [
     "U_BUCK - AP63203WU-7",
@@ -21,10 +21,18 @@
   ],
   [
     "U_DRV - A4988",
-    "Two current-regulated bridges drive the coils.\nSTEP/DIR interface; fixed 1/16 microstepping.\nNominal phase-current limit is 0.351 A."
+    "Fixed 1/16 steps; 10k enable/sleep defaults.\n3.9k/1k REF divider, 0.24 ohm sense resistors:\n0.351 A nominal; measure peak phase current."
   ],
   [
     "U_ESD - USBLC6-2SC6",
     "Clamps ESD on USB D+ and D- at the data port.\nVBUS pin references the protection diodes."
+  ],
+  [
+    "U_VM_ISO - SN74CBTLV1G125",
+    "Isolates VM ADC when logic power is off.\n10k OE pull-up defaults off; MCU gates ON.\nBus/21 when ON; wait 0.5 ms then sample."
+  ],
+  [
+    "Q_DATA - MMBT3904-7-F",
+    "Detects host 5 V without direct GPIO feed.\n10k base feed and 10k 3.3 V collector pull.\nDATA_PRESENT LOW means host attached."
   ]
 ]

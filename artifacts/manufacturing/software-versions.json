@@ -1,0 +1,18 @@
+{
+  "python": "3.12.14",
+  "installed_packages": {
+    "@tscircuit/cli": "0.1.2261",
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/checks": "0.0.242",
+    "circuit-json": "0.0.521",
+    "circuit-json-to-gerber": "0.0.112",
+    "typescript": "5.9.3"
+  },
+  "actual_copper_generation_software": {
+    "F_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+    "In2_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+    "B_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+    "In1_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111"
+  },
+  "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
+}

@@ -1,3 +1,7 @@
+import { MMBT3904_7_F } from "../imports/supplier/MMBT3904_7_F/MMBT3904_7_F"
+import { SN74CBTLV1G125DCKR } from "../imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR"
+import { EEEFPV101XAP } from "../imports/supplier/EEEFPV101XAP/EEEFPV101XAP"
+import { A_0603WAF3901T5E } from "../imports/supplier/A_0603WAF3901T5E/A_0603WAF3901T5E"
 import { ERJPA3F1001V } from "../imports/supplier/ERJPA3F1001V/ERJPA3F1001V"
 import React from "react"
 import catalog from "./jlcpcb-catalog.json"
@@ -37,6 +41,10 @@ import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
 import { CH224K } from "../imports/supplier/CH224K/CH224K"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C94514": MMBT3904_7_F,
+ "C131992": SN74CBTLV1G125DCKR,
+ "C178585": EEEFPV101XAP,
+ "C23018": A_0603WAF3901T5E,
  "C441922": ERJPA3F1001V,
  "C11702": A_0402WGF1001TCE,
  "C13585": CL31A106KBHNNNE,

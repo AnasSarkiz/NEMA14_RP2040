@@ -1,0 +1,336 @@
+{
+  "review": "Explicit four-layer circular head keepouts and from_above bare3 insertion metadata at reviewed source poses; no geometry or copper change in this step.",
+  "baselineSha256": "f22a99d26adfbad60a2c4d55d33e9da80270c5d9d2fae828869ef3dbcdaa6c6e",
+  "freshSourceSha256AtReview": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+  "onlyAllowedFields": [
+    "layers",
+    "insertion_direction"
+  ],
+  "geometryUnchanged": true,
+  "changes": [
+    {
+      "id": "pcb_component_23",
+      "field": "insertion_direction",
+      "reference": "J_BOOT",
+      "before": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_23",
+        "center": {
+          "x": 14.6,
+          "y": 9.1
+        },
+        "width": 2.5,
+        "height": 1.5,
+        "layer": "top",
+        "rotation": 0,
+        "source_component_id": "source_component_23",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 14.6,
+        "display_offset_y": 9.1
+      },
+      "after": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_23",
+        "center": {
+          "x": 14.6,
+          "y": 9.1
+        },
+        "width": 2.5,
+        "height": 1.5,
+        "layer": "top",
+        "rotation": 0,
+        "insertion_direction": "from_above",
+        "source_component_id": "source_component_23",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 14.6,
+        "display_offset_y": 9.1
+      }
+    },
+    {
+      "id": "pcb_component_66",
+      "field": "insertion_direction",
+      "reference": "J_MOTOR",
+      "before": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_66",
+        "center": {
+          "x": 0,
+          "y": -16
+        },
+        "width": 7.7,
+        "height": 1.700000000000001,
+        "layer": "top",
+        "rotation": 0,
+        "source_component_id": "source_component_66",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 0,
+        "display_offset_y": -16
+      },
+      "after": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_66",
+        "center": {
+          "x": 0,
+          "y": -16
+        },
+        "width": 7.7,
+        "height": 1.700000000000001,
+        "layer": "top",
+        "rotation": 0,
+        "insertion_direction": "from_above",
+        "source_component_id": "source_component_66",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 0,
+        "display_offset_y": -16
+      }
+    },
+    {
+      "id": "pcb_component_67",
+      "field": "insertion_direction",
+      "reference": "J_DEBUG",
+      "before": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_67",
+        "center": {
+          "x": 15.5,
+          "y": -6.3
+        },
+        "width": 1.5,
+        "height": 5.200000000000001,
+        "layer": "top",
+        "rotation": 90,
+        "source_component_id": "source_component_67",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 15.5,
+        "display_offset_y": -8.5
+      },
+      "after": {
+        "type": "pcb_component",
+        "pcb_component_id": "pcb_component_67",
+        "center": {
+          "x": 15.5,
+          "y": -6.3
+        },
+        "width": 1.5,
+        "height": 5.200000000000001,
+        "layer": "top",
+        "rotation": 90,
+        "insertion_direction": "from_above",
+        "source_component_id": "source_component_67",
+        "subcircuit_id": "subcircuit_source_group_0",
+        "do_not_place": true,
+        "obstructs_within_bounds": true,
+        "is_allowed_to_be_off_board": false,
+        "position_mode": "relative_to_group_anchor",
+        "positioned_relative_to_pcb_board_id": "pcb_board_0",
+        "display_offset_x": 15.5,
+        "display_offset_y": -8.5
+      }
+    },
+    {
+      "id": "pcb_keepout_0",
+      "field": "layers",
+      "reference": "mount_head_circle",
+      "before": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_0",
+        "layers": [
+          "top",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": -13,
+          "y": -13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      },
+      "after": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_0",
+        "layers": [
+          "top",
+          "inner1",
+          "inner2",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": -13,
+          "y": -13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      }
+    },
+    {
+      "id": "pcb_keepout_1",
+      "field": "layers",
+      "reference": "mount_head_circle",
+      "before": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_1",
+        "layers": [
+          "top",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": -13,
+          "y": 13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      },
+      "after": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_1",
+        "layers": [
+          "top",
+          "inner1",
+          "inner2",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": -13,
+          "y": 13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      }
+    },
+    {
+      "id": "pcb_keepout_2",
+      "field": "layers",
+      "reference": "mount_head_circle",
+      "before": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_2",
+        "layers": [
+          "top",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": 13,
+          "y": -13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      },
+      "after": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_2",
+        "layers": [
+          "top",
+          "inner1",
+          "inner2",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": 13,
+          "y": -13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      }
+    },
+    {
+      "id": "pcb_keepout_3",
+      "field": "layers",
+      "reference": "mount_head_circle",
+      "before": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_3",
+        "layers": [
+          "top",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": 13,
+          "y": 13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      },
+      "after": {
+        "type": "pcb_keepout",
+        "pcb_keepout_id": "pcb_keepout_3",
+        "layers": [
+          "top",
+          "inner1",
+          "inner2",
+          "bottom"
+        ],
+        "shape": "circle",
+        "excluded_pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_1"
+        ],
+        "radius": 2.7,
+        "center": {
+          "x": 13,
+          "y": 13
+        },
+        "subcircuit_id": "subcircuit_source_group_0"
+      }
+    }
+  ]
+}

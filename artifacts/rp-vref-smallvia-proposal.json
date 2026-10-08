@@ -1,0 +1,121 @@
+{
+  "inputSha256": "b870918eb6ea59257b49584f6c468dda895070e205195ab2e33ee7042ff09a1e",
+  "inputSnapshot": "artifacts/rp-vref-fanout-input.circuit.json",
+  "proposalOnly": true,
+  "minimumForeignClearanceMm": 0.158,
+  "nativeFootprintsChanged": false,
+  "requiresRootIndependentMergeCheck": true,
+  "additions": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "supplier_repair_VREF_fanout_U_DRV_REF",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 1.7999950000000002,
+          "y": -11.700253,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_227"
+        },
+        {
+          "route_type": "wire",
+          "x": 2.299995,
+          "y": -11.700253,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 2.3249950000000004,
+          "y": -11.675253,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 2.3499950000000007,
+          "y": -11.675253,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 2.5749950000000004,
+          "y": -11.450253,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "pcb_port_ids": [
+        "pcb_port_227"
+      ],
+      "source_net_id": "source_net_23",
+      "source_trace_id": "source_trace_228",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net49",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "supplier_repair_VREF_fanout_U_DRV_REF_via",
+      "x": 2.5749950000000004,
+      "y": -11.450253,
+      "outer_diameter": 0.4,
+      "hole_diameter": 0.2,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "source_net_id": "source_net_23",
+      "source_trace_id": "source_trace_228",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net49",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "fanouts": [
+    {
+      "ref": "U_DRV",
+      "pin": "REF",
+      "via": [
+        2.5749950000000004,
+        -11.450253
+      ],
+      "points": [
+        [
+          1.7999950000000002,
+          -11.700253
+        ],
+        [
+          2.299995,
+          -11.700253
+        ],
+        [
+          2.3249950000000004,
+          -11.675253
+        ],
+        [
+          2.3499950000000007,
+          -11.675253
+        ],
+        [
+          2.5749950000000004,
+          -11.450253
+        ]
+      ],
+      "lengthMm": 0.8785533905932739,
+      "minimumTopForeignClearanceMm": 0.19638422622624713,
+      "minimumViaAllLayerClearanceMm": 0.1879471451881851,
+      "ignoredTraces": [
+        "supplier_repair_U_DRV_OUT2B"
+      ],
+      "gridStepMm": 0.025
+    }
+  ],
+  "removeTraceIds": [
+    "supplier_repair_U_DRV_OUT2B"
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "checked_on": "2026-10-08",
+  "command": [
+    "tsci",
+    "search",
+    "C780206",
+    "--jlcpcb",
+    "--json"
+  ],
+  "evidence_tier": "exact CID CLI supplier description, not manufacturer datasheet; unclear fields or conditions are not assumed",
+  "manufacturer_identity": "not exposed by this CLI response (mfr field is part number)",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 780206,
+      "mfr": "SRN4018-4R7M",
+      "package": "SMD,4x4mm",
+      "description": "1.9A 2A 4.7uH 84m\u03a9 \u00b120% SMD,4x4mm Power Inductors ROHS"
+    }
+  ],
+  "not_claimed": [
+    "manufacturer qualification",
+    "thermal/measurement criteria",
+    "live ordering suitability",
+    "ESD system performance",
+    "current stock/pricing"
+  ]
+}

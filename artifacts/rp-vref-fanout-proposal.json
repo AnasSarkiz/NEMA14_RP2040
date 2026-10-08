@@ -1,0 +1,21 @@
+{
+  "inputSha256": "b870918eb6ea59257b49584f6c468dda895070e205195ab2e33ee7042ff09a1e",
+  "inputSnapshot": "artifacts/rp-vref-fanout-input.circuit.json",
+  "proposalOnly": true,
+  "minimumForeignClearanceMm": 0.158,
+  "nativeFootprintsChanged": false,
+  "requiresRootIndependentMergeCheck": true,
+  "additions": [],
+  "fanouts": [
+    {
+      "ref": "U_DRV",
+      "pin": "REF",
+      "noViaReachable": true,
+      "reachableGridCells": 590,
+      "ignoredTraces": [
+        "supplier_repair_U_DRV_OUT2B"
+      ]
+    }
+  ],
+  "removeTraceIds": []
+}

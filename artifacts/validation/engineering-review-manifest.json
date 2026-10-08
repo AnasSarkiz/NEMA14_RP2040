@@ -1,0 +1,2499 @@
+{
+  "schema": "nema14-engineering-review-manifest-v1",
+  "project": "NEMA14_RP2040",
+  "generated_at_utc": "2026-10-08T22:12:19.049311+00:00",
+  "overall_engineering_qualification": "BLOCKED",
+  "manufacturing_release": false,
+  "physical_hardware_tested": false,
+  "scope": "Final offline source/native copper/CAM/schematic/native mechanical review only. Passed geometric/software checks do not qualify electrical operation, motor torque, USB programming, thermal margin, supplier assembly or fabrication release.",
+  "bindings": {
+    "source_circuit_json_sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+    "saved_board_circuit_json_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+    "index_circuit_json_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+    "manufacturing_zip_sha256": "c8b9e121c44370eeeec24432ca3bb1704526b683b020821c867378d777caf08c",
+    "manufacturer_calculation_source_file": "src/board.tsx",
+    "manufacturer_calculation_source_file_sha256": "5f4172c4c9d047decbe9fd95cbb0b076ebdd97a83e2834962eefe357b9a66a98",
+    "source_and_schematic_functional_records_equal_saved_board": true,
+    "functional_record_count": 2028,
+    "compiler_warning_record_difference": "Compile diagnostic records can be omitted by saved-board sync; functional source/schematic records are canonically identical."
+  },
+  "software_versions": {
+    "tscircuit": "0.0.2764",
+    "@tscircuit/cli": "0.1.2261",
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/checks": "0.0.242",
+    "circuit-json": "0.0.521",
+    "circuit-to-svg": "0.0.445",
+    "@resvg/resvg-js": "2.6.2",
+    "typescript": "5.9.3",
+    "bun": "1.4.2"
+  },
+  "cam_software": {
+    "python": "3.12.14",
+    "installed_packages": {
+      "@tscircuit/cli": "0.1.2261",
+      "@tscircuit/core": "0.0.2110",
+      "@tscircuit/checks": "0.0.242",
+      "circuit-json": "0.0.521",
+      "circuit-json-to-gerber": "0.0.112",
+      "typescript": "5.9.3"
+    },
+    "actual_copper_generation_software": {
+      "F_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "In2_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "B_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "In1_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111"
+    },
+    "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
+  },
+  "independent_parser_versions": {
+    "gerbonara": "1.5.0",
+    "pygerber": "2.4.3",
+    "shapely": "2.1.2"
+  },
+  "mechanical_software": {
+    "cadquery": "2.6.1",
+    "matplotlib": "3.11.2",
+    "numpy": "2.3.5"
+  },
+  "router": {
+    "accepted_router": "Freerouting2.0.1",
+    "native_tscircuit_latest_attempt": {
+      "router": "tscircuit local autorouter",
+      "command": "npm run autoroute",
+      "exit_code": 124,
+      "recorded_exit_file": "artifacts/rp-same-edge-tscircuit-autoroute.exit",
+      "stdout": "artifacts/validation/same-edge-native-autorouter.txt",
+      "stdout_sha256": "61d85519e7a603f1492dfd5fe2eab527650e857667d69945ca9afdd6eaa5e5ff",
+      "stdout_file_mtime_utc": "2026-10-08T20:31:47.808038+00:00",
+      "completed": false,
+      "accepted_output": false,
+      "duration_seconds": null,
+      "limitation": "Recorded124timeout exit and rendering-start-only output; no completed routing result accepted. Historical autorouter-attempt.json and autorouted.circuit.json do not validate the current same-edge final copper. Exact timeout duration not asserted from this log."
+    },
+    "manual_adjustment_replay_count": 389,
+    "copper_records_identical_after_replay": true,
+    "proof": "artifacts/engineering/route-replay-verification.json",
+    "source_physical_metadata_delta": "artifacts/rp-source-metadata-physical-delta.json",
+    "full_record_replay_proof": {
+      "replayedAdjustments": 389,
+      "exactCopperRecordsEqual": true,
+      "allRecordValuesEqualAfterPresentationSync": true,
+      "nativePhysicalDeltaRecordsReplayed": 26,
+      "metadataRecordsReplayed": 7,
+      "replayedJsonSha256": "0bfb9a2dfc5a2b4eeacffc6af3e53ba6b510ef9ce218eaf240d9f2a73b6e3c47",
+      "acceptedCanonicalBoardSha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "supplierImportSha256": "f22a99d26adfbad60a2c4d55d33e9da80270c5d9d2fae828869ef3dbcdaa6c6e",
+      "orderAndPresentationRefreshRequired": true,
+      "isolatedTemporaryReplay": true,
+      "acceptedCanonicalSnapshotUnchanged": true
+    }
+  },
+  "checks": {
+    "cloud_install": {
+      "exit_code": 0,
+      "log": "artifacts/validation/cloud-install-final.txt",
+      "scope": "Installed development workflow; occurred before later metadata-only bare insertion update."
+    },
+    "typecheck": {
+      "exit_code": 0,
+      "log": "artifacts/validation/typecheck-final.txt"
+    },
+    "native_source_build": {
+      "exit_code": 0,
+      "source_errors": 0,
+      "log": "artifacts/validation/source-final-accessibility.txt",
+      "bare_insertion_directions_explicit": true
+    },
+    "saved_board_native_drc": {
+      "exit_code": 0,
+      "trace_count": 527,
+      "errors": 0,
+      "warnings": [
+        {
+          "type": "source_no_power_pin_defined_warning",
+          "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_35",
+          "warning_type": "source_no_power_pin_defined_warning",
+          "message": "Q_DATA has no pin with requires_power=true",
+          "source_component_id": "source_component_35",
+          "source_port_ids": [
+            "source_port_171",
+            "source_port_172",
+            "source_port_173"
+          ],
+          "subcircuit_id": "subcircuit_source_group_0"
+        }
+      ],
+      "warning_disposition": "Generic native imported NPN has no VDD pin; keep true warning instead of fabricating a power pin.",
+      "log": "artifacts/validation/pcb-check-final.txt"
+    },
+    "official_cli": {
+      "date": "2026-10-08T21:47:04.434405+00:00",
+      "sourceSHA256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+      "checks": {
+        "netlist": {
+          "command": [
+            "tsci",
+            "check",
+            "netlist",
+            "index.circuit.tsx"
+          ],
+          "exitCode": 0
+        },
+        "pin_specification": {
+          "command": [
+            "tsci",
+            "check",
+            "pin_specification",
+            "index.circuit.tsx"
+          ],
+          "exitCode": 0
+        },
+        "source": {
+          "command": [
+            "tsci",
+            "check",
+            "source",
+            "index.circuit.tsx"
+          ],
+          "exitCode": 0
+        },
+        "placement": {
+          "command": [
+            "tsci",
+            "check",
+            "placement",
+            "artifacts/validation/native-cli-final/source.circuit.json"
+          ],
+          "exitCode": 1,
+          "disposition": "Nonzero exit is preserved; airwire/rotation advice is reviewed separately from saved-copper/source geometric DRC and actual CAM.",
+          "drcErrors": 0,
+          "drcWarnings": 0,
+          "log": "artifacts/validation/native-cli-final/placement.txt"
+        },
+        "placementSavedBoard": {
+          "command": [
+            "tsci",
+            "check",
+            "placement",
+            "artifacts/board.circuit.json"
+          ],
+          "exitCode": 1,
+          "drcErrors": 0,
+          "drcWarnings": 0,
+          "boardSHA256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+          "log": "artifacts/validation/native-cli-final/placement-saved-board.txt",
+          "disposition": "Heuristic rotation and bare-interface courtyard advice retained; native body/contact/probe and final routed CAM evidence provide separate disposition."
+        }
+      }
+    },
+    "official_cli_placement_advisories": {
+      "rotation_refs": [
+        "C_IO10",
+        "C_IO22",
+        "C_IO42",
+        "C_FLASH",
+        "R_RUN",
+        "R_VM_BLEED",
+        "D_TVS"
+      ],
+      "courtyard_overlaps": [
+        {
+          "refs": [
+            "J_BOOT",
+            "U_ESD"
+          ],
+          "heuristic_overlap_mm": 0.5
+        },
+        {
+          "refs": [
+            "C_VM_SENSE",
+            "J_DEBUG"
+          ],
+          "heuristic_overlap_mm": 0.12
+        }
+      ],
+      "suggested_rotation_deg": 180,
+      "source_exit_code": 1,
+      "saved_board_exit_code": 1,
+      "drc_errors": 0,
+      "drc_warnings": 0,
+      "disposition": "Exact airwire/courtyard heuristics are retained from the native CLI logs and assessed separately against accepted native pads/copper/CAD. No schematic/PCB placement CLI blanket PASS claimed. Actual native pads, routed connectivity and CAM are separately audited."
+    },
+    "native_all_layer_connectivity": {
+      "checked_nets": 52,
+      "disconnected_nets": [],
+      "all_copper_layers_checked": true,
+      "native_polygons_slots": true,
+      "log": "artifacts/validation/connectivity-final.txt"
+    },
+    "trace_width_screen": {
+      "segments": 2474,
+      "errors": [],
+      "qualified_for_manufacture": false,
+      "thermal_current_sharing_pending": true,
+      "log": "artifacts/validation/copper-final.txt"
+    },
+    "independent_cam": {
+      "status": "PASS",
+      "issues": [],
+      "archive_extracted_bytes_verified": true,
+      "all_net_native_pad_connectivity_and_short_check": "artifacts/manufacturing/audit.json",
+      "scope": "Parsed actual Gerber/Excellon/ZIP, native pads/polygons/slots, paste/mask/drills/BOM/CPL and independent renders. Supplier production process acceptance remains pending."
+    },
+    "critical_route_geometry": {
+      "board_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "scope": "Final actual native saved copper; historical seeded-route length records are not treated as current. Lengths are planar centerline measures, not switching loop area/inductance/impedance or thermal qualification. Composite path excludes copper-pad spreading and via barrel length.",
+      "routes": [
+        {
+          "from": "U_DRV.CP1",
+          "to": "C_CP.pin1",
+          "trace_ids": [
+            "engineering_local_12"
+          ],
+          "length_mm": 2.09749253025312,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.CP2",
+          "to": "C_CP.pin2",
+          "trace_ids": [
+            "engineering_local_13"
+          ],
+          "length_mm": 2.0560712062475286,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.VCP",
+          "to": "C_VCP.pin1",
+          "trace_ids": [
+            "engineering_local_14"
+          ],
+          "length_mm": 2.1551746108875776,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.VREG",
+          "to": "C_VREG.pin1",
+          "trace_ids": [
+            "engineering_local_15"
+          ],
+          "length_mm": 4.058922800644187,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.SENSE1",
+          "to": "R_SA.pin1",
+          "trace_ids": [
+            "engineering_local_16"
+          ],
+          "length_mm": 2.303560138739743,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.3,
+            0.3
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.SENSE2",
+          "to": "R_SB.pin1",
+          "trace_ids": [
+            "engineering_local_17"
+          ],
+          "length_mm": 2.4899537351109,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.347,
+            0.347
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.VBB2",
+          "to": "C_VM.pin1",
+          "trace_ids": [
+            "engineering_local_18"
+          ],
+          "length_mm": 2.871508239671795,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.353,
+            0.353
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.VDD",
+          "to": "C_DRV_LOGIC.pin1",
+          "trace_ids": [
+            "engineering_local_19"
+          ],
+          "length_mm": 3.3763685042344287,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_MCU.IOVDD10",
+          "to": "C_IO10.pin1",
+          "length_mm": 5.722548583347935,
+          "layers": [
+            "inner1",
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.227
+          ],
+          "via_ids": [
+            "engineering_local_IOVDD10_cap_via",
+            "engineering_local_IOVDD10_lead_via"
+          ],
+          "vias": 2,
+          "trace_ids": [
+            "engineering_local_IOVDD10_bridge",
+            "engineering_local_IOVDD10_cap",
+            "engineering_local_IOVDD10_lead",
+            "freerouted_trace_276"
+          ],
+          "method": "Shortest actual saved same-net centerline path, true intersections noded, copper pad/via connector contacts; excludes internal pad spreading and vertical barrel length."
+        },
+        {
+          "from": "U_BUCK.VIN",
+          "to": "C_BUCK_IN.pin1",
+          "trace_ids": [
+            "engineering_local_21"
+          ],
+          "length_mm": 2.5459184867458315,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.3,
+            0.3
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_BUCK.BST",
+          "to": "C_BOOTSTRAP.pin1",
+          "trace_ids": [
+            "engineering_local_22"
+          ],
+          "length_mm": 1.7745771387216056,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.16,
+            0.16
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_BUCK.SW",
+          "to": "C_BOOTSTRAP.pin2",
+          "trace_ids": [
+            "engineering_local_23"
+          ],
+          "length_mm": 3.289426293927231,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.348,
+            0.348
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_BUCK.SW",
+          "to": "L_BUCK.pin1",
+          "trace_ids": [
+            "engineering_local_24"
+          ],
+          "length_mm": 3.531440925080371,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.6,
+            0.6
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "L_BUCK.pin2",
+          "to": "C_BUCK_OUT1.pin1",
+          "trace_ids": [
+            "engineering_local_25"
+          ],
+          "length_mm": 4.952723720850874,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.3,
+            0.3
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "L_BUCK.pin2",
+          "to": "C_BUCK_OUT2.pin1",
+          "trace_ids": [
+            "engineering_local_26"
+          ],
+          "length_mm": 8.90771503307349,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.3,
+            0.3
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_BUCK.FB",
+          "to": "C_BUCK_OUT1.pin1",
+          "length_mm": 11.889333746393868,
+          "layers": [
+            "inner2",
+            "top"
+          ],
+          "width_range_mm": [
+            0.204,
+            0.3
+          ],
+          "via_ids": [
+            "supplier_repair_island_net12_2_via0",
+            "supplier_repair_island_net12_2_via1"
+          ],
+          "vias": 2,
+          "trace_ids": [
+            "engineering_local_25",
+            "supplier_repair_island_net12_1",
+            "supplier_repair_island_net12_2"
+          ],
+          "method": "Shortest actual saved same-net centerline path, true intersections noded, copper pad/via connector contacts; excludes internal pad spreading and vertical barrel length."
+        },
+        {
+          "from": "U_DRV.VBB1",
+          "to": "C_VM2.pin1",
+          "trace_ids": [
+            "supplier_repair_VBB1_short_bypass"
+          ],
+          "length_mm": 6.1258592867738635,
+          "layers": [
+            "bottom",
+            "top"
+          ],
+          "width_range_mm": [
+            0.399,
+            0.399
+          ],
+          "vias": 2,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.GND",
+          "to": "U_DRV.EP",
+          "trace_ids": [
+            "supplier_repair_ground_fanout_U_DRV_GND"
+          ],
+          "length_mm": 1.1998712000000005,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.419,
+            0.419
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        },
+        {
+          "from": "U_DRV.GND18",
+          "to": "U_DRV.EP",
+          "trace_ids": [
+            "supplier_repair_ground_fanout_U_DRV_GND18"
+          ],
+          "length_mm": 1.2001252000000002,
+          "layers": [
+            "top"
+          ],
+          "width_range_mm": [
+            0.419,
+            0.419
+          ],
+          "vias": 0,
+          "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+        }
+      ]
+    },
+    "bounded_inner1_power_bypass": {
+      "proof": "artifacts/validation/rp-iovdd10-local-clearance.json",
+      "IOVDD10_to_cap_length_mm": 5.722548583347935,
+      "ordinary_vias": 2,
+      "via_outer_drill_mm": [
+        0.4,
+        0.2
+      ],
+      "inner1_ground_connected_area_mm2": 987.1690841183265,
+      "projected_USB_QSPI_slot_gap_mm": 2.4363,
+      "scope": "The2.4363mm source-based margin applies only to the V3V3 bridge slot. All actual repair cuts are separately parsed below; no high-frequency return qualification inferred."
+    },
+    "actual_CAM_inner1_ground_cut_review": {
+      "source_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "actual_archive_sha256": "c8b9e121c44370eeeec24432ca3bb1704526b683b020821c867378d777caf08c",
+      "actual_inner1_sha256": "152a586038d2b899e6a55202034a083d56f84ec9b39e0cc96237daf6c625af31",
+      "before_source_sha256": "3522fff70c0c196107cd9c56fb279259cc9f2ca9eb1743688770b11c321a6722",
+      "actual_ground_before_mm2": 981.6770539162385,
+      "actual_ground_after_mm2": 979.0380124469641,
+      "actual_ground_removed_mm2": 3.8138559833904453,
+      "removed_ground_bounds_mm": [
+        -1.5495590000000001,
+        -4.344675,
+        1.874559,
+        1.6745590000000001
+      ],
+      "actual_ground_added_mm2": 1.1748145141159398,
+      "ground_after_planar_parts": 1,
+      "projected_fast_signal_review": [
+        {
+          "net": "QSPI_SCLK",
+          "minimum_added_cut_distance_mm": 1.0767919713025456,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 3.204546631554356,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 3.1245517630085096,
+          "minimum_trace_edge_distance_to_added_cut_mm": 0.9967950430067628,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "QSPI_SD0",
+          "minimum_added_cut_distance_mm": 1.8244135856817711,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 4.001350488689942,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 3.9213506911820026,
+          "minimum_trace_edge_distance_to_added_cut_mm": 1.7444150859367809,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "QSPI_SD1",
+          "minimum_added_cut_distance_mm": 1.7620102393969177,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 3.8978173737174,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 3.8178185855891718,
+          "minimum_trace_edge_distance_to_added_cut_mm": 1.6820102394319119,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "QSPI_SD2",
+          "minimum_added_cut_distance_mm": 0.7801962538641494,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 2.8583095465697252,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 2.778309546569725,
+          "minimum_trace_edge_distance_to_added_cut_mm": 0.7001993125568424,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "QSPI_SD3",
+          "minimum_added_cut_distance_mm": 0.22174099999999997,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 2.348109546569725,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 2.2681095465697245,
+          "minimum_trace_edge_distance_to_added_cut_mm": 0.1417409999999999,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "QSPI_SS",
+          "minimum_added_cut_distance_mm": 1.5170409999999999,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 3.6434095465697247,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 3.5634095465697246,
+          "minimum_trace_edge_distance_to_added_cut_mm": 1.437041,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "USB_DM",
+          "minimum_added_cut_distance_mm": 5.902255165384411,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 7.754962434884312,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 7.674963178921807,
+          "minimum_trace_edge_distance_to_added_cut_mm": 5.8222553738953575,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        {
+          "net": "USB_DP",
+          "minimum_added_cut_distance_mm": 4.842979402134134,
+          "length_over_added_cut_mm": 0.0,
+          "minimum_centerline_distance_to_bridge_cut_mm": 6.885048479732924,
+          "minimum_trace_edge_distance_to_bridge_cut_mm": 6.805051356518531,
+          "minimum_trace_edge_distance_to_added_cut_mm": 4.762983566511191,
+          "trace_Cu_overlap_added_cut_mm2": 0.0
+        }
+      ],
+      "nearest_fast_signal_segments": {
+        "QSPI_SCLK": {
+          "nearest_bridge_centerline_mm": [
+            2.1205,
+            2.5838
+          ],
+          "nearest_bridge_cut_mm": [
+            1.3071420672873695,
+            -0.5158077150342436
+          ],
+          "nearest_trace_edge_mm": [
+            2.084531093627631,
+            2.5123420559043588
+          ],
+          "nearest_added_cut_mm": [
+            1.6282700098916183,
+            1.6260993232227907
+          ],
+          "net": "QSPI_SCLK",
+          "trace_id": "freerouted_trace_372",
+          "layer": "top",
+          "segment_mm": [
+            [
+              2.3051,
+              2.7684
+            ],
+            [
+              2.1205,
+              2.5838
+            ]
+          ],
+          "added_ground_cut_distance_mm": 1.0767919713025456,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 3.1245517630085096,
+          "centerline_distance_to_bridge_cut_mm": 3.204546631554356,
+          "trace_edge_distance_to_added_cut_mm": 0.9967950430067628,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "QSPI_SD0": {
+          "nearest_bridge_centerline_mm": [
+            2.0,
+            3.4251
+          ],
+          "nearest_bridge_cut_mm": [
+            1.3071420672873695,
+            -0.5158077150342436
+          ],
+          "nearest_trace_edge_mm": [
+            1.980561585607739,
+            3.3474974997444367
+          ],
+          "nearest_added_cut_mm": [
+            1.5461136346475022,
+            1.6580481900727086
+          ],
+          "net": "QSPI_SD0",
+          "trace_id": "freerouted_trace_371",
+          "layer": "top",
+          "segment_mm": [
+            [
+              2.0,
+              3.4251
+            ],
+            [
+              2.0,
+              4.0818
+            ]
+          ],
+          "added_ground_cut_distance_mm": 1.8244135856817711,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 3.9213506911820026,
+          "centerline_distance_to_bridge_cut_mm": 4.001350488689942,
+          "trace_edge_distance_to_added_cut_mm": 1.7444150859367809,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "QSPI_SD1": {
+          "nearest_bridge_centerline_mm": [
+            1.1999,
+            3.4251
+          ],
+          "nearest_bridge_cut_mm": [
+            0.7967218178401262,
+            -0.45180954656972483
+          ],
+          "nearest_trace_edge_mm": [
+            1.207741371226365,
+            3.345485221866224
+          ],
+          "nearest_added_cut_mm": [
+            1.372557693793051,
+            1.671569445798207
+          ],
+          "net": "QSPI_SD1",
+          "trace_id": "freerouted_trace_362",
+          "layer": "top",
+          "segment_mm": [
+            [
+              1.1999,
+              3.4251
+            ],
+            [
+              1.1999,
+              4.0818
+            ]
+          ],
+          "added_ground_cut_distance_mm": 1.7620102393969177,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 3.8178185855891718,
+          "centerline_distance_to_bridge_cut_mm": 3.8978173737174,
+          "trace_edge_distance_to_added_cut_mm": 1.6820102394319119,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "QSPI_SD2": {
+          "nearest_bridge_centerline_mm": [
+            1.0836,
+            2.4065
+          ],
+          "nearest_bridge_cut_mm": [
+            0.7967218178401262,
+            -0.45180954656972483
+          ],
+          "nearest_trace_edge_mm": [
+            1.106822774180357,
+            2.329944773141423
+          ],
+          "nearest_added_cut_mm": [
+            1.303886365352498,
+            1.6580481900727086
+          ],
+          "net": "QSPI_SD2",
+          "trace_id": "freerouted_trace_365",
+          "layer": "top",
+          "segment_mm": [
+            [
+              1.4455,
+              2.7684
+            ],
+            [
+              1.0836,
+              2.4065
+            ]
+          ],
+          "added_ground_cut_distance_mm": 0.7801962538641494,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 2.7926700768241948,
+          "centerline_distance_to_bridge_cut_mm": 2.8726699349927025,
+          "trace_edge_distance_to_added_cut_mm": 0.7001993125568424,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "QSPI_SD3": {
+          "nearest_bridge_centerline_mm": [
+            0.7967218178401256,
+            1.8963
+          ],
+          "nearest_bridge_cut_mm": [
+            0.7967218178401262,
+            -0.45180954656972483
+          ],
+          "nearest_trace_edge_mm": [
+            1.4151908936951283,
+            1.8163
+          ],
+          "nearest_added_cut_mm": [
+            1.4151908936951283,
+            1.6745590000000001
+          ],
+          "net": "QSPI_SD3",
+          "trace_id": "freerouted_trace_379",
+          "layer": "bottom",
+          "segment_mm": [
+            [
+              -0.9754,
+              1.8963
+            ],
+            [
+              2.4551,
+              1.8963
+            ]
+          ],
+          "added_ground_cut_distance_mm": 0.22174099999999997,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 2.2681095465697245,
+          "centerline_distance_to_bridge_cut_mm": 2.348109546569725,
+          "trace_edge_distance_to_added_cut_mm": 0.1417409999999999,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "QSPI_SS": {
+          "nearest_bridge_centerline_mm": [
+            0.796721817840127,
+            3.1916
+          ],
+          "nearest_bridge_cut_mm": [
+            0.7967218178401262,
+            -0.45180954656972483
+          ],
+          "nearest_trace_edge_mm": [
+            1.4151908936951285,
+            3.1116
+          ],
+          "nearest_added_cut_mm": [
+            1.4151908936951283,
+            1.6745590000000001
+          ],
+          "net": "QSPI_SS",
+          "trace_id": "freerouted_trace_352",
+          "layer": "bottom",
+          "segment_mm": [
+            [
+              8.2897,
+              3.1916
+            ],
+            [
+              0.0197,
+              3.1916
+            ]
+          ],
+          "added_ground_cut_distance_mm": 1.5170409999999999,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 3.5634095465697246,
+          "centerline_distance_to_bridge_cut_mm": 3.6434095465697247,
+          "trace_edge_distance_to_added_cut_mm": 1.437041,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "USB_DM": {
+          "nearest_bridge_centerline_mm": [
+            5.9,
+            5.7328
+          ],
+          "nearest_bridge_cut_mm": [
+            1.3071420672873695,
+            -0.5158077150342436
+          ],
+          "nearest_trace_edge_mm": [
+            5.843431457505076,
+            5.676231457505076
+          ],
+          "nearest_added_cut_mm": [
+            1.7359500576781073,
+            1.5498220996094183
+          ],
+          "net": "USB_DM",
+          "trace_id": "freerouted_trace_204",
+          "layer": "top",
+          "segment_mm": [
+            [
+              5.9,
+              5.7328
+            ],
+            [
+              6.4017,
+              5.7328
+            ]
+          ],
+          "added_ground_cut_distance_mm": 5.902255165384411,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 7.674963178921807,
+          "centerline_distance_to_bridge_cut_mm": 7.754962434884312,
+          "trace_edge_distance_to_added_cut_mm": 5.8222553738953575,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        },
+        "USB_DP": {
+          "nearest_bridge_centerline_mm": [
+            4.1983,
+            5.7328
+          ],
+          "nearest_bridge_cut_mm": [
+            1.3071420672873695,
+            -0.5158077150342436
+          ],
+          "nearest_trace_edge_mm": [
+            4.157171780464542,
+            5.664181711199978
+          ],
+          "nearest_added_cut_mm": [
+            1.6666059732854803,
+            1.6042439758441547
+          ],
+          "net": "USB_DP",
+          "trace_id": "freerouted_trace_212",
+          "layer": "top",
+          "segment_mm": [
+            [
+              4.1983,
+              5.7328
+            ],
+            [
+              4.1983,
+              5.9408
+            ]
+          ],
+          "added_ground_cut_distance_mm": 4.842979402134134,
+          "centerline_length_over_added_ground_cut_mm": 0.0,
+          "trace_edge_distance_to_bridge_cut_mm": 6.805051356518531,
+          "centerline_distance_to_bridge_cut_mm": 6.885048479732924,
+          "trace_edge_distance_to_added_cut_mm": 4.762983566511191,
+          "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+        }
+      },
+      "bridge_specific_actual_cut_mm2": 2.611459662715664,
+      "bridge_specific_actual_cut_bounds_mm": [
+        -1.5495590000000001,
+        -4.344675,
+        1.399559,
+        -0.45180954656972483
+      ],
+      "added_cut_components": [
+        {
+          "area_mm2": 0.5424380481253746,
+          "bounds_mm": [
+            0.975441,
+            0.7754409999999999,
+            1.874559,
+            1.6745590000000001
+          ]
+        },
+        {
+          "area_mm2": 2.611459662715664,
+          "bounds_mm": [
+            -1.5495590000000001,
+            -4.344675,
+            1.399559,
+            -0.45180954656972483
+          ]
+        },
+        {
+          "area_mm2": 0.6565933894964755,
+          "bounds_mm": [
+            -1.324559,
+            0.5009497888504394,
+            -0.42544099999999996,
+            1.499559
+          ]
+        }
+      ],
+      "fast_signal_segments_over_added_cut": [],
+      "scope": "Actual independently parsed pre/post inner1 Cu and physical drill holes; GND polygons assigned by overlap with source GND pours after full CAM source/net verification. Signal centerlines projected geometrically. This does not establish USB impedance, return-current density, EMC or physical qualification."
+    },
+    "native_schematic": {
+      "pages": 14,
+      "A4_mm": [
+        297,
+        210
+      ],
+      "all_pages_browser_and_visually_reviewed": true,
+      "schematic_placement_cli_exit_code": 0,
+      "cli_finding_count": 0,
+      "original_reviewed_source_sha256": "c79f09d5407b39739a688dc940464c808ae9a140c25e07779aabd0f9055b35bb",
+      "latest_source_exact_schematic_equivalence": true,
+      "immutable_cli_input": "artifacts/validation/native-a4-review/same-edge-current-source.circuit.json",
+      "report": "artifacts/validation/schematic-review-final.json",
+      "official_ide_analyzer_executed_in_final_pass": false,
+      "official_ide_limitation": "Official IDE attempt recorded disabled schematic tab for saved JSON and unavailable WebGPU adapter. Native project review UI and actual CLI provide separately identified review evidence; no claim of official IDE analyzer completion."
+    },
+    "native_mechanical": {
+      "native_step_models": 67,
+      "all_exact_supplier_hashes_verified": true,
+      "nominal_component_collisions": false,
+      "nominal_fastener_collisions": false,
+      "nominal_carrier_collisions": false,
+      "nominal_plug_envelope_collisions": false,
+      "step_assemblies": [
+        {
+          "archive": "board-fitted-components.step.zip",
+          "member": "board-fitted-components.step",
+          "uncompressed_step_sha256": "27f04ec03dbd852fb441240b494c4bf5ec01ef471438a174f5cfee2a3d9ab535",
+          "uncompressed_bytes": 116895262,
+          "archive_sha256": "de8b92cb985f73158e5f92d2be6c19ea6ce1a788605b979f22dde095ba521d1e",
+          "archive_crc_verified": true
+        },
+        {
+          "archive": "mounted-front-carrier.step.zip",
+          "member": "mounted-front-carrier.step",
+          "uncompressed_step_sha256": "831bc6dee0d38655883f3e33b7f8319f347f2bbbf7ff35c044cbd81f5ea41924",
+          "uncompressed_bytes": 118629121,
+          "archive_sha256": "3c05124075b917f3f9f02e5aba1c96b546608e72e8f2172d592b65e8267f100d",
+          "archive_crc_verified": true
+        }
+      ],
+      "release": "BLOCKED_PENDING_PROTOTYPE_AND_MODEL_FINDING_REVIEW",
+      "scope": "Native imported component STEP and official motor STEP; nominal analysis, separate prototype carrier. Maximum bulk-cap envelope separately screened; actual package/cable/carrier fabrication untested."
+    },
+    "deterministic_electrical_calculations": {
+      "source_values_match": true,
+      "qualified_current_upper_A": null,
+      "report": "artifacts/validation/motor-electrical-calculations.json",
+      "scope": "Datasheet arithmetic and explicit scenarios; driver accuracy, temperature and transient qualification excluded."
+    }
+  },
+  "release_risks": [
+    {
+      "id": "CURRENT_LOW_VREF",
+      "status": "BLOCKED",
+      "finding": "A4988 regulation accuracy is not specified at the selected ~0.6735V reference. Formula-only nominal phase limit0.350765A and manufacturer-rail/component upper formula value0.364518A do not include driver accuracy. No qualified maximum current claim.",
+      "resolution": "Scope phase/sense peak current over temperature/supply/decay/microstep states; satisfy motor0.4A per-phase limit with margin or change hardware."
+    },
+    {
+      "id": "POWER_SEQUENCE",
+      "status": "BLOCKED",
+      "finding": "Protected VM ADC switch/NPN host detection are implemented, but intermediate-rail behavior, fast collapse and charged10nF discharge are unqualified; VM OE must remain HIGH until rail valid. Firmware absent. PD-only ROM/pull-up ESD ghost-DATA and false active-low host detection are a specific untested boundary.",
+      "resolution": "Scope all PD/DATA connection/removal/order/ramp/brownout conditions at MCU pins and VDD; verify exact absolute limits, obtain manufacturer injection guidance, or add guaranteed hardware supervision/clamps."
+    },
+    {
+      "id": "THERMAL_PRIMARY",
+      "status": "BLOCKED",
+      "finding": "Exact selected SRN4018-4R7M saturation/RMS/DCR criteria and effective buck capacitor values remain unverified; mounted AP63203/inductor/A4988/motor/sense temperatures and ground current sharing unmeasured.",
+      "resolution": "Obtain exact primary specifications, derating and selected-package evidence; run worst-case mounted thermal soak or revise the power components/architecture."
+    },
+    {
+      "id": "PROTECTION_PRIMARY",
+      "status": "BLOCKED",
+      "finding": "Exact selected TVS clamp/energy, ESD device and NPN primary limits, resistor pulse/hot tolerance and ceramic effective capacitance remain incomplete. Regenerative motor/load energy is unqualified.",
+      "resolution": "Complete exact-MPN primary evidence and transient/ripple/temperature qualification; revise protection if required."
+    },
+    {
+      "id": "REAR_MOUNT",
+      "status": "USER_REVIEW",
+      "finding": "Official motor drawing specifies front M3 threads, not independent rear mounting holes. Native rear recesses contain endcap fasteners. Separate front-thread carrier is a machined prototype candidate only.",
+      "resolution": "Prototype carrier/fasteners and qualify actual motor revision, thread engagement, load strength, cable exit and isolation; do not remove endcap fasteners for PCB mounting."
+    },
+    {
+      "id": "SUPPLIER_CAD_HEIGHT",
+      "status": "USER_REVIEW",
+      "finding": "Native C178585 bulk capacitor STEP is5.82mm tall while manufacturer body height is7.7\u00b10.3mm. Native model retained; independent manufacturer-maximum envelope screened.",
+      "resolution": "Verify actual production package and assembly clearance with correct supplier model or physical sample."
+    },
+    {
+      "id": "USB_CABLE_FIT",
+      "status": "USER_REVIEW",
+      "finding": "Both USB-C mouths face+Y atX\u00b15.3mm, pitch10.6mm; compact overmolds\u226410mm are a screening requirement. Physical simultaneous insertion/retention/strain relief not tested.",
+      "resolution": "Use actual intended compact PD/DATA cables and assembled carrier to qualify mating/retention/bend/fastener clearance."
+    },
+    {
+      "id": "FAB_ASSEMBLY_QUOTE",
+      "status": "USER_REVIEW",
+      "finding": "Offline native/CAM audits pass their geometric scope; fab mask/stencil/annulus process acceptance and supplier CPL rotation/pickup orientation are not verified. No stock/price quote or assembly preview approval.",
+      "resolution": "Supplier reviews actual ZIP/BOM/CPL and package pick-up conventions; resolve mask/stencil policy and approve preview before any order."
+    },
+    {
+      "id": "USB_FIRMWARE",
+      "status": "BLOCKED",
+      "finding": "USB hardware paths and boot/debug interfaces exist; firmware/protocol and actual USB enumeration/programming/motion have not been demonstrated.",
+      "resolution": "Implement correct reset-safe active-low host detection and VM OE sequencing, firmware flashing/USB control, then run bring-up checklist."
+    }
+  ],
+  "approvals": "No fabrication, assembly-placement, final-price, payment or engineering sign-off approval is inferred or recorded.",
+  "artifacts": {
+    ".gitattributes": {
+      "sha256": "aea4dbc046fafa7931dd2835f2de70c7f492f34270e504813974271a7b883bec",
+      "bytes": 421
+    },
+    ".pcba-workflow/circuit-review.md": {
+      "sha256": "e84008d78ee91c70549a89ea651712921f873e82e08199b961ad3a8b1ff958c8",
+      "bytes": 2970
+    },
+    "artifacts/board.circuit.json": {
+      "sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "bytes": 15828999
+    },
+    "artifacts/bom.csv": {
+      "sha256": "f7cac3a08b81b462ee19caa44d8f3059d8737f987ae20ed459f2bce6090c44c0",
+      "bytes": 5051
+    },
+    "artifacts/drc-report.json": {
+      "sha256": "3d547230e4948fa851730e85d2e2cae26c141af0a63d7adaffae4ccdf2fc0842",
+      "bytes": 1710
+    },
+    "artifacts/driver-ground-return-correction.json": {
+      "sha256": "5843b76c3f6bf86471cdbf83faec50f4482032453c2227f077507a13c50820cb",
+      "bytes": 9838
+    },
+    "artifacts/engineering-vbb1-bypass.json": {
+      "sha256": "7d8596798e96028d4b33f7244e4ff4f6475f970368c84ecfbddc3bfa1583aaf1",
+      "bytes": 203
+    },
+    "artifacts/engineering/route-replay-verification.json": {
+      "sha256": "75f93e8017da0fa78d0f4efd92532e72e35241d676aed663940c65daa85ae3c2",
+      "bytes": 301
+    },
+    "artifacts/final-source.circuit.json": {
+      "sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+      "bytes": 1572007
+    },
+    "artifacts/manufacturing/B_Cu.gbr": {
+      "sha256": "12f13d1940aef6343051962057dc35d9dd89001351f6ccaf1d80f3d3756ff8b1",
+      "bytes": 1172338
+    },
+    "artifacts/manufacturing/B_Mask.gbr": {
+      "sha256": "87f6b41ff06df221aadeb69f9097fd422f6dd9b4ddc6bd811c2f1e6b86bfef82",
+      "bytes": 236848
+    },
+    "artifacts/manufacturing/B_Paste.gbr": {
+      "sha256": "21880a5d8ccf86520b8d968436a0584871c3b32228b6ac256a0e08bffa396018",
+      "bytes": 109
+    },
+    "artifacts/manufacturing/B_SilkScreen.gbr": {
+      "sha256": "37fae435f582d6c93c862d13a4e3df54c98246ea02478af3b1df77f8b4379e2e",
+      "bytes": 128
+    },
+    "artifacts/manufacturing/Edge_Cuts.gbr": {
+      "sha256": "603bceb4e74b632d3fc328b6f9bcb884e12b8246a9c1c10cc4d301f9a21c5123",
+      "bytes": 493
+    },
+    "artifacts/manufacturing/F_Cu.gbr": {
+      "sha256": "b145790f4d1f9405b351ba2072d58b8bae6e0d1bdcec19abbd81fda116c570e1",
+      "bytes": 1408773
+    },
+    "artifacts/manufacturing/F_Fab.gbr": {
+      "sha256": "0a8fd3a60625bf8beb07894ce50bd2b4dca41c910d7c57f6be64893aa9f7b98f",
+      "bytes": 4615
+    },
+    "artifacts/manufacturing/F_Mask.gbr": {
+      "sha256": "4b468a2c1e00e931039f170156c09ef1b124cd2f9081b62db384d7dd238f9a30",
+      "bytes": 1985925
+    },
+    "artifacts/manufacturing/F_Paste.gbr": {
+      "sha256": "83b67f18a528d2e97ddec0a9ea95f48d4f49d61acb001591cea86f84fcd51f9e",
+      "bytes": 32207
+    },
+    "artifacts/manufacturing/F_SilkScreen.gbr": {
+      "sha256": "e6fcc8981e6f79124166b2fcc1abed9a4e9246e56890ef75d1f3cd5bd101835d",
+      "bytes": 5862340
+    },
+    "artifacts/manufacturing/In1_Cu.gbr": {
+      "sha256": "152a586038d2b899e6a55202034a083d56f84ec9b39e0cc96237daf6c625af31",
+      "bytes": 1432189
+    },
+    "artifacts/manufacturing/In2_Cu.gbr": {
+      "sha256": "81d087a4f9b82e618f4a244d0845b758b5610b355a4366353056ef2e84c07b7c",
+      "bytes": 1010144
+    },
+    "artifacts/manufacturing/audit.json": {
+      "sha256": "e6169d13a0ec4ebdaf6065cbcf3aeb7f1e55c832cd90856b0443c367ece7d10e",
+      "bytes": 36156
+    },
+    "artifacts/manufacturing/bom.csv": {
+      "sha256": "f7cac3a08b81b462ee19caa44d8f3059d8737f987ae20ed459f2bce6090c44c0",
+      "bytes": 5051
+    },
+    "artifacts/manufacturing/drill-L1-L4.drl": {
+      "sha256": "a8dcc916e4e6537e57e931c9e0ea1f98d8636785830cfcdf42b81da0a7a96ecf",
+      "bytes": 2671
+    },
+    "artifacts/manufacturing/drill_npth.drl": {
+      "sha256": "bc63e5c3a9d4ff7dfe76160b57d956656acb11874ef31a736ce8b39378aa4e9c",
+      "bytes": 532
+    },
+    "artifacts/manufacturing/export-manifest.json": {
+      "sha256": "6cd768c6a17d35b3b7f6f241a6372f14f5454cda86cededd800182e37660488d",
+      "bytes": 5158
+    },
+    "artifacts/manufacturing/independent-render/B_Cu.png": {
+      "sha256": "c3d5a4c6bbf62c7fee9f255154e472e6c5e7ca64c0ec98b60af5075a3ba63b25",
+      "bytes": 89964
+    },
+    "artifacts/manufacturing/independent-render/F_Cu.png": {
+      "sha256": "dd7a502f8da14fbecc2811f46183b3de4007d02ac8bcf58c15af7a8f99725943",
+      "bytes": 104500
+    },
+    "artifacts/manufacturing/independent-render/In1_Cu.png": {
+      "sha256": "1e0dbd29cdedd6f17c7f2b45ab72aa299090490b47ac87b8bec837c79e242316",
+      "bytes": 78602
+    },
+    "artifacts/manufacturing/independent-render/In2_Cu.png": {
+      "sha256": "d7a6d4defa15b4d60dc4b1133c55569bf364d67dcafa7b5d37743645813b659d",
+      "bytes": 92226
+    },
+    "artifacts/manufacturing/inner1-local-bridge-review.json": {
+      "sha256": "a6ea4323acef4c02b48989f6456f0a301374c8bcec28f18f4e4dc4d2bcccc23c",
+      "bytes": 12974
+    },
+    "artifacts/manufacturing/mask-web-policy.json": {
+      "sha256": "bd5f1bdb7201b2117606285a5f1f00651635f3d6f989aaec12e502bee26dc023",
+      "bytes": 17921
+    },
+    "artifacts/manufacturing/pick_and_place.csv": {
+      "sha256": "3cac9b310939572dcd8354913ca6836495bed53bf2f98feecc49e10e123ac705",
+      "bytes": 1903
+    },
+    "artifacts/manufacturing/software-versions.json": {
+      "sha256": "6e2918662ffc913183f98d866ab5e5dcf5f4790b2f0397369b8c4c4d72f3ce4d",
+      "bytes": 705
+    },
+    "artifacts/manufacturing/via-paste-inspection.json": {
+      "sha256": "b163355a41d1a329a7fd1f4d683e16731ea296ec5a4786a18dad82a5abd96e58",
+      "bytes": 37444
+    },
+    "artifacts/mechanical/audited-input.circuit.json": {
+      "sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+      "bytes": 1572007
+    },
+    "artifacts/mechanical/board-bottom.png": {
+      "sha256": "627df937ac6b92df20f2a76c6679b02ebf40f55fc39a538856083c87826351cc",
+      "bytes": 46019
+    },
+    "artifacts/mechanical/board-fitted-components.step.zip": {
+      "sha256": "de8b92cb985f73158e5f92d2be6c19ea6ce1a788605b979f22dde095ba521d1e",
+      "bytes": 19615453
+    },
+    "artifacts/mechanical/board-isometric.png": {
+      "sha256": "7df6dedf0bbe5d71e67586fe56b94decb0d61ed408aaf80adfbbdec73434b5c8",
+      "bytes": 126337
+    },
+    "artifacts/mechanical/board-top.png": {
+      "sha256": "012ac54f90c695eb2d9bf860fcec1475ef91e02de535eae96d7a45cc221e4e92",
+      "bytes": 64548
+    },
+    "artifacts/mechanical/bulk-capacitor-height-review.png": {
+      "sha256": "68d3667ed3a146f7ac9ff1b7d6388690c4c2a52fdd4ff90ea5b6eee5a5a49cab",
+      "bytes": 153426
+    },
+    "artifacts/mechanical/bulk-manufacturer-maximum-envelope.step": {
+      "sha256": "9b6ff7a00c219a778b5266d9db4ad3fc5458b445eab26d277ef9d82ddd26967d",
+      "bytes": 16137
+    },
+    "artifacts/mechanical/dimensions.png": {
+      "sha256": "aaa9c3d57b27d0e498b91b7aa612d8ab578945aff33d6f74979e915c12738c43",
+      "bytes": 162248
+    },
+    "artifacts/mechanical/dimensions.svg": {
+      "sha256": "4e98bc10f053b4d561f26a327d7702a314b8daefdb7fb2244dfb55fd7b536d44",
+      "bytes": 86175
+    },
+    "artifacts/mechanical/fastener-clearance-envelopes.step": {
+      "sha256": "d451f6ec55f1e826a03b3fe1a2edac38cf82756b585637fc29fb871bf8551694",
+      "bytes": 117351
+    },
+    "artifacts/mechanical/generated-step-validation.json": {
+      "sha256": "1b0bbb78584690556c5965f535e42c2729a3483fe45841c398c9c64107511090",
+      "bytes": 911
+    },
+    "artifacts/mechanical/input-board.circuit.json": {
+      "sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "bytes": 15828999
+    },
+    "artifacts/mechanical/input-jlcpcb-catalog.json": {
+      "sha256": "9e1c4fadda10a36897565e1283676d8ba248da4adb891962065aa97fde5ca33c",
+      "bytes": 33815
+    },
+    "artifacts/mechanical/input-review-mechanical.py": {
+      "sha256": "f88bf06788435673fc12e78b39f2f8f480984c9ac2f66523468c721f952a0ee9",
+      "bytes": 32825
+    },
+    "artifacts/mechanical/mechanical-review.json": {
+      "sha256": "d6973423525b0fbebacaa1dc8fc4ee3eb3950698b6e589cb4da8adeb5f1e89f9",
+      "bytes": 138180
+    },
+    "artifacts/mechanical/motor-front-detail.png": {
+      "sha256": "fb864314deed2c3ab18ec53a67fbdf6bf33f4bc61226caf7054daeec54241258",
+      "bytes": 76291
+    },
+    "artifacts/mechanical/motor-rear-detail.png": {
+      "sha256": "c74b257f21f40b81ee2ce7ad82ed7902b1b2bfb05cba4af92c8bfaa06254e186",
+      "bytes": 146530
+    },
+    "artifacts/mechanical/mounted-bottom.png": {
+      "sha256": "532b3bf4609670b6fab773646a713e40fce5facfd83e07d3596c1799c17eabb4",
+      "bytes": 49680
+    },
+    "artifacts/mechanical/mounted-front-carrier.step.zip": {
+      "sha256": "3c05124075b917f3f9f02e5aba1c96b546608e72e8f2172d592b65e8267f100d",
+      "bytes": 19902905
+    },
+    "artifacts/mechanical/mounted-isometric.png": {
+      "sha256": "303dac53b63baf1dfdde71e165cce57b4df35d7fc77de8d3be08fafcb06c2a8d",
+      "bytes": 102803
+    },
+    "artifacts/mechanical/mounted-side.png": {
+      "sha256": "b7dfdff96f32c9fb336511b4128a4bb0d18f6e3083c0e69ce04043aca85f9af1",
+      "bytes": 46410
+    },
+    "artifacts/mechanical/mounted-top.png": {
+      "sha256": "a11d38beabe2a7deac0260001af2bbf7c5aa46e53fd5ffd6f89f903ae6aebc9d",
+      "bytes": 54964
+    },
+    "artifacts/mechanical/programming-access-plan.png": {
+      "sha256": "3be60b591c57eb399bc331973c9ba47effd5fb874905d930487857f727460dc8",
+      "bytes": 176776
+    },
+    "artifacts/mechanical/programming-access-plan.svg": {
+      "sha256": "9ce3f1b7acb848aa2f87ab95acb951305cf5bc2b3ac1450f3cc4faabdd24675e",
+      "bytes": 93183
+    },
+    "artifacts/mechanical/same-edge-provisional-screen.json": {
+      "sha256": "027f1c5b6110b8b4524049004b94fcecf5d0acc6efeb51e146232ad1ff045350",
+      "bytes": 4502
+    },
+    "artifacts/mechanical/separate-front-carrier.step": {
+      "sha256": "e4b61e3c50a905263fdb1dc87b0be6e579706a027447a003ab7c432c02c4789b",
+      "bytes": 164317
+    },
+    "artifacts/nema14-gerbers.zip": {
+      "sha256": "c8b9e121c44370eeeec24432ca3bb1704526b683b020821c867378d777caf08c",
+      "bytes": 3514045
+    },
+    "artifacts/physical-connectivity.json": {
+      "sha256": "7dc7b57493a5e44d694b2c521032c55951199a78b43779522ff6c2ac862e65d5",
+      "bytes": 204
+    },
+    "artifacts/pick_and_place.csv": {
+      "sha256": "3cac9b310939572dcd8354913ca6836495bed53bf2f98feecc49e10e123ac705",
+      "bytes": 1903
+    },
+    "artifacts/presentation-verification.json": {
+      "sha256": "fd6367dbe23e48545c934a11594c95e98221c3ae91883ec394e35d9e0b870f14",
+      "bytes": 4971
+    },
+    "artifacts/rp-same-edge-tscircuit-autoroute.exit": {
+      "sha256": "ca2ebdf97d7469496b1f4b78958f9dc8447efdcb623953fee7b6996b762f6fff",
+      "bytes": 4
+    },
+    "artifacts/rp-source-metadata-physical-delta.json": {
+      "sha256": "d2901f1c2f169f0815f537ad1de87b4e9c83b9b1c2b5cb8516f80e9c2cd841a3",
+      "bytes": 9212
+    },
+    "artifacts/schematic-a4.pdf": {
+      "sha256": "edf5b36177520618120ae84570cd565aa5bd9976728f7cbc09b88aece776b3eb",
+      "bytes": 292652
+    },
+    "artifacts/source-bom.csv": {
+      "sha256": "a41b8b8e4c068a8c2d1577c681225b8f098b444076cd2c5c76ee6b255e830f80",
+      "bytes": 6726
+    },
+    "artifacts/supplier-board.ses": {
+      "sha256": "ad915e521e705cbb21e9d15eae42f09d3d6cd9e32e65dff713ed3772e98e6b22",
+      "bytes": 75159
+    },
+    "artifacts/supplier-input.dsn": {
+      "sha256": "b220e24c696eafca332a6e61b4661e63ed97086669d9c87400f9dbbde898aa20",
+      "bytes": 97121
+    },
+    "artifacts/supplier-routing-adjustments.json": {
+      "sha256": "8f24fa96d96fe6fddf01939e1a83e32354bd454fcfd464d8d859335ff6aa8f3c",
+      "bytes": 17145333
+    },
+    "artifacts/supplier-seeds.circuit.json": {
+      "sha256": "86d6297ea4a75cb4e7fe150fc72e0ba794c870d6c73d9540de4da4aafe8af97e",
+      "bytes": 216296
+    },
+    "artifacts/trace-width-review.json": {
+      "sha256": "d3e500a31147174c69a1108159fdcd882ff057717dfef13cd4bdc0b957ffa324",
+      "bytes": 1135502
+    },
+    "artifacts/validation/a4-pdf-final.txt": {
+      "sha256": "ca5379b7d584a8f74cd9b1f72856f0b3608ebd2fb3bd89168ba0cab3a5ceec7f",
+      "bytes": 53
+    },
+    "artifacts/validation/cloud-install-final.txt": {
+      "sha256": "954de5f17ae23ca3521b7902166eca748d28b4c876cc43ee610299230bd356c8",
+      "bytes": 14885
+    },
+    "artifacts/validation/connectivity-final.txt": {
+      "sha256": "7dc7b57493a5e44d694b2c521032c55951199a78b43779522ff6c2ac862e65d5",
+      "bytes": 204
+    },
+    "artifacts/validation/copper-final.txt": {
+      "sha256": "c0ab2104e03b82089c31fdd6b2e5d4af9e371e532d24fade2aeef1856e0e8481",
+      "bytes": 105
+    },
+    "artifacts/validation/critical-route-review.json": {
+      "sha256": "b8c92b8f1283a3d519af0f83721584665ceddf7ae213533de7c9a08760e646f4",
+      "bytes": 8391
+    },
+    "artifacts/validation/mechanical-rebind-final.txt": {
+      "sha256": "b3a591aef1ca606a38bc8548e20d14b390617403e79c3bea0c3eec31669606b5",
+      "bytes": 223
+    },
+    "artifacts/validation/motor-calculations-final.txt": {
+      "sha256": "b4ff935ef78842bd385ae046c15b194f90fe4b6efd2f2e61dd6e3cbc53cb6faf",
+      "bytes": 89
+    },
+    "artifacts/validation/motor-electrical-calculations.json": {
+      "sha256": "2018f667fa0d7057848367ae75996c16ebf764a68b13e99cde38c409d2f548da",
+      "bytes": 8673
+    },
+    "artifacts/validation/native-a4-review/bare-interface-current-source.circuit.json": {
+      "sha256": "2ab39b115158e7dc1d6e641f6d1c0fb3c7a7abea31d47ad340c86b5b5c0aa9a8",
+      "bytes": 1571890
+    },
+    "artifacts/validation/native-a4-review/bare-interface-metadata-rebind.json": {
+      "sha256": "0a1109fac4ecc27c3298a7d2dc1bdff653664c3d6705f3c710f3c1e1804e125d",
+      "bytes": 806
+    },
+    "artifacts/validation/native-a4-review/browser-review.json": {
+      "sha256": "173569b2d17add03fb1f27437af6dee712d60626f2ec43c27f7ae3bf4f878cd7",
+      "bytes": 13874
+    },
+    "artifacts/validation/native-a4-review/final-physical-source-rebind.json": {
+      "sha256": "73a83b5d87bdb460918bc2ddb7ae8b021bfbf880c2270d64a9823fa01e5b652f",
+      "bytes": 635
+    },
+    "artifacts/validation/native-a4-review/metadata-only-proof.json": {
+      "sha256": "6134c4ce3e5ac2fa0e5a9111c555b41c1724d3a06a7609c77ef37ec64341ac22",
+      "bytes": 692
+    },
+    "artifacts/validation/native-a4-review/page-01.png": {
+      "sha256": "458646c50f3b16de36fe33036ddc635297cf91b2ec219e117f01f830f1ef8d60",
+      "bytes": 232860
+    },
+    "artifacts/validation/native-a4-review/page-01.svg": {
+      "sha256": "fc5997426cc93a2b0c9c147b653c37610211862d8509612c445cc6ed4b4c45e7",
+      "bytes": 187876
+    },
+    "artifacts/validation/native-a4-review/page-02.png": {
+      "sha256": "711a0f608ee43069ae51cae7986e98e38336f2bc4021e3c398808a351eaaaa32",
+      "bytes": 183664
+    },
+    "artifacts/validation/native-a4-review/page-02.svg": {
+      "sha256": "9238fc4732aaa00be3d3a236997117882fbde3ab64ebce3097c3d5b8a8012817",
+      "bytes": 128570
+    },
+    "artifacts/validation/native-a4-review/page-03.png": {
+      "sha256": "3cfa0756692ccd136098578751021d58a1b7c65f7b94e2345f097b3e014188cd",
+      "bytes": 217288
+    },
+    "artifacts/validation/native-a4-review/page-03.svg": {
+      "sha256": "7eb24458b1174417cedaf07e894384775a63b4dabf2f4e8f5572720871ffc03f",
+      "bytes": 181492
+    },
+    "artifacts/validation/native-a4-review/page-04.png": {
+      "sha256": "6745eee2152a6378796eea1cfeed84ae1964e306722bb02e5d6086e348541c93",
+      "bytes": 156803
+    },
+    "artifacts/validation/native-a4-review/page-04.svg": {
+      "sha256": "d9d1c58095e4ceb2de6d0f511c045c87d3f034830b56a5aaab56d2dd3d855a25",
+      "bytes": 83083
+    },
+    "artifacts/validation/native-a4-review/page-05.png": {
+      "sha256": "f4b0465e408af92e499d781369b9cdf8c04db061cc92c2bb813a6149dbed4f53",
+      "bytes": 161762
+    },
+    "artifacts/validation/native-a4-review/page-05.svg": {
+      "sha256": "8f3e2918db688806aea8a7f35beb569f137524476a754cd6c8760b22d2833a6a",
+      "bytes": 82854
+    },
+    "artifacts/validation/native-a4-review/page-06.png": {
+      "sha256": "633d3d5baf917f79285b41c5ba52700c974624179f7d0255d49df5e5a6c888b0",
+      "bytes": 183782
+    },
+    "artifacts/validation/native-a4-review/page-06.svg": {
+      "sha256": "9c9eccf91b5e2295a7d3a3d66578fac70c12f94fcf98b6f2279887a235b9c1e3",
+      "bytes": 111257
+    },
+    "artifacts/validation/native-a4-review/page-07.png": {
+      "sha256": "053a39fe74a7821ebc47b971fc32898d804d47d24d970fab3f1e9547a0c0e154",
+      "bytes": 160782
+    },
+    "artifacts/validation/native-a4-review/page-07.svg": {
+      "sha256": "17b47c8d109275db4d47d7b2f5a9ddce71223faaf0163ca24ed2caaa87e53ede",
+      "bytes": 82225
+    },
+    "artifacts/validation/native-a4-review/page-08.png": {
+      "sha256": "0a36d755ae24b241ebceaa1a3a384c1d2e1f494c2496a39860b3b5c0ae871401",
+      "bytes": 175303
+    },
+    "artifacts/validation/native-a4-review/page-08.svg": {
+      "sha256": "29a6373b9f2f209521aeb5aa3d4c26e09dedd40e9091684f8f0d565335a97459",
+      "bytes": 86275
+    },
+    "artifacts/validation/native-a4-review/page-09.png": {
+      "sha256": "6b1d71eb6faff4817ee0d5cdba3bb5e0abc4e97cafcbf0ea37382d88152e50d4",
+      "bytes": 174860
+    },
+    "artifacts/validation/native-a4-review/page-09.svg": {
+      "sha256": "b4c440db289ec26ef3f924154127e36824e924925f0f91e7a02dea4cc283b1c4",
+      "bytes": 92329
+    },
+    "artifacts/validation/native-a4-review/page-10.png": {
+      "sha256": "80310c8f288f28f5043774b4652a3c2f29b67ebd9112fff6b027bccd3edac94c",
+      "bytes": 174630
+    },
+    "artifacts/validation/native-a4-review/page-10.svg": {
+      "sha256": "ca040bb6aafd140e8cff23c31d72136b04205248e3f35ded9428a2e4c64ec747",
+      "bytes": 108182
+    },
+    "artifacts/validation/native-a4-review/page-11.png": {
+      "sha256": "591b05fb10505de2785d98a64fb3d47b971ede3641d674932fcd4a58095c0ba4",
+      "bytes": 161575
+    },
+    "artifacts/validation/native-a4-review/page-11.svg": {
+      "sha256": "9eb6e1ef4ee797a8591de0a03c62e6382bfb22c76d80bb5783f736d10f0f4f5c",
+      "bytes": 83473
+    },
+    "artifacts/validation/native-a4-review/page-12.png": {
+      "sha256": "31f2d0a07c7787e97ab47030ec96a2b6dae94def37381c7ee46a6af2abd24557",
+      "bytes": 164756
+    },
+    "artifacts/validation/native-a4-review/page-12.svg": {
+      "sha256": "e42ed352ef34ac1cccf89e18ebb18628027dd4445e5444f2af80c87667dce850",
+      "bytes": 84576
+    },
+    "artifacts/validation/native-a4-review/page-13.png": {
+      "sha256": "50862209f859d3da62426420edb530bcaa9ee89d6c49929b3dd9c56e04ce247a",
+      "bytes": 176327
+    },
+    "artifacts/validation/native-a4-review/page-13.svg": {
+      "sha256": "1bdadb92213dec586025c05f4cd780560a8e02e805191769253c5da47f554647",
+      "bytes": 99257
+    },
+    "artifacts/validation/native-a4-review/page-14.png": {
+      "sha256": "245b3c436c43ace4bd5485b43c6b686935dda6fb4454fc143c5ba33c9ac20b08",
+      "bytes": 156721
+    },
+    "artifacts/validation/native-a4-review/page-14.svg": {
+      "sha256": "dc276237c0b68115b6a4799857d2810f25802600a7b3f0ce109420e6f84259bb",
+      "bytes": 73479
+    },
+    "artifacts/validation/native-a4-review/same-edge-current-source.circuit.json": {
+      "sha256": "be47adacb1650c7391ba7258697e5996b43ef2f66cc38186d55bc2160e4c190d",
+      "bytes": 1573683
+    },
+    "artifacts/validation/native-a4-review/same-edge-placement-cli-stderr.txt": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "artifacts/validation/native-a4-review/same-edge-placement-cli.txt": {
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    "artifacts/validation/native-a4-review/same-edge-source-rebind.json": {
+      "sha256": "42814687c5bf4dbfac1472dc6e5fbf3ee01e446f00d740f4b54daf0a8d5fb1ef",
+      "bytes": 1974
+    },
+    "artifacts/validation/native-a4-review/source-reviewed.circuit.json": {
+      "sha256": "c79f09d5407b39739a688dc940464c808ae9a140c25e07779aabd0f9055b35bb",
+      "bytes": 1572860
+    },
+    "artifacts/validation/native-a4-review/ui-page-01.png": {
+      "sha256": "7db707904043a9ae84c440552f706548f19218dc22c2300e5fa894576cc1cdc3",
+      "bytes": 158779
+    },
+    "artifacts/validation/native-a4-review/ui-page-02.png": {
+      "sha256": "86238876d255f141eee37b15cfec096e7c80576bc4d2a0897c8902ea42c9840b",
+      "bytes": 137703
+    },
+    "artifacts/validation/native-a4-review/ui-page-03.png": {
+      "sha256": "8c1ebcb42f2e56b8ff136adbec83f33d103c287495b9ed1a1dd3999ffec8526e",
+      "bytes": 153108
+    },
+    "artifacts/validation/native-a4-review/ui-page-04.png": {
+      "sha256": "e8b1d69b8df22edfa95764409e04b077eead0fa2d59f7edcd10f0f5364a54497",
+      "bytes": 123543
+    },
+    "artifacts/validation/native-a4-review/ui-page-05.png": {
+      "sha256": "1875ee19c504e3fe59bc81ca5ca82c2f4a73fd11e3f765569b071e09f3a0add2",
+      "bytes": 125327
+    },
+    "artifacts/validation/native-a4-review/ui-page-06.png": {
+      "sha256": "05476db1559a412b5712123e64193b144b7a6a4f11582e25ffdf0132e7c96420",
+      "bytes": 135727
+    },
+    "artifacts/validation/native-a4-review/ui-page-07.png": {
+      "sha256": "b7c8888160ceb63aaceb623583accdd7025630c6a51aa77c91ce5270e67cfb80",
+      "bytes": 126338
+    },
+    "artifacts/validation/native-a4-review/ui-page-08.png": {
+      "sha256": "5838fcd158bbc57e400627e337aaf6f7c68de82cfefa2b85eac7eca27f312bd3",
+      "bytes": 130817
+    },
+    "artifacts/validation/native-a4-review/ui-page-09.png": {
+      "sha256": "7a7706430712c3cb0dff3410927e603c721f64088d0c36116c75be0b99f01fe6",
+      "bytes": 131461
+    },
+    "artifacts/validation/native-a4-review/ui-page-10.png": {
+      "sha256": "134109a24fda6e84fc3372259dc3bd1ca08046f8c9ba130a3d7963a80ca867c1",
+      "bytes": 131695
+    },
+    "artifacts/validation/native-a4-review/ui-page-11.png": {
+      "sha256": "8c6c34cf0f60d89a2e144b95213f3b7ac4771783d9b08625743c9c12ddb90781",
+      "bytes": 126646
+    },
+    "artifacts/validation/native-a4-review/ui-page-12.png": {
+      "sha256": "8dab53497bfd2e776956c16b279c9c132bca79694398f0e942431a03e9fe0191",
+      "bytes": 126493
+    },
+    "artifacts/validation/native-a4-review/ui-page-13.png": {
+      "sha256": "d9e9d56fce2908bcf816eb8093ad756dc8b42816070bc94724f654c6cd4c4b79",
+      "bytes": 132499
+    },
+    "artifacts/validation/native-a4-review/ui-page-14.png": {
+      "sha256": "c1a46177f36d410311a6f6c469f5431e9aaa187eb906b388e8c458f50df6daad",
+      "bytes": 124237
+    },
+    "artifacts/validation/native-cli-final/netlist.txt": {
+      "sha256": "fe71995ed75ac506b65effb2176e0a10dc20d9b4fd6bc73f4f0a2460bf12ae4b",
+      "bytes": 16997
+    },
+    "artifacts/validation/native-cli-final/pin_specification.txt": {
+      "sha256": "e90b7bb01902c5fdc3d49cb01df265d860f63555509bda32b98b06d273788b12",
+      "bytes": 1288
+    },
+    "artifacts/validation/native-cli-final/placement-saved-board.txt": {
+      "sha256": "d0c77de90be43bcd6e7d009c1f75202d64f604ca2b6d1a7fa45c78235682961e",
+      "bytes": 7532
+    },
+    "artifacts/validation/native-cli-final/placement.txt": {
+      "sha256": "d0c77de90be43bcd6e7d009c1f75202d64f604ca2b6d1a7fa45c78235682961e",
+      "bytes": 7532
+    },
+    "artifacts/validation/native-cli-final/results.json": {
+      "sha256": "667c181a1b5a84ed070381652bf63633ae537d1c74bbcae832d0e49666ff41c0",
+      "bytes": 1657
+    },
+    "artifacts/validation/native-cli-final/source.circuit.json": {
+      "sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+      "bytes": 1572007
+    },
+    "artifacts/validation/native-cli-final/source.txt": {
+      "sha256": "fe48c43594ed73d99f88beefd48354fadb270a28ce96f2351732318fe904d2b9",
+      "bytes": 2015
+    },
+    "artifacts/validation/pcb-check-final.txt": {
+      "sha256": "90eb6e3f1cd2337ddd534b4d01f1618f406e7f1101ef866c52a912fee522793b",
+      "bytes": 419
+    },
+    "artifacts/validation/power-sequencing-audit.json": {
+      "sha256": "ffed1e67df0b2ad49c3e89821faa2c390a00fa8b01e437242d94d3d3b75d6706",
+      "bytes": 5474
+    },
+    "artifacts/validation/power-sequencing-correction.json": {
+      "sha256": "db31a33968aefb7e2c462fb323d86cb87c3338fbc7d2a4ddbcc917098bb8a730",
+      "bytes": 2239
+    },
+    "artifacts/validation/presentation-final.txt": {
+      "sha256": "51f02364c7f4bcaa737e24280bbe92807dfa61722b6328693a052954bcac820a",
+      "bytes": 73
+    },
+    "artifacts/validation/routing-replay-final.txt": {
+      "sha256": "1a46de39f190cbbb03e3a82b52c7382c903cfc4cf76b8004f93d674001dc1781",
+      "bytes": 808
+    },
+    "artifacts/validation/rp-iovdd10-local-clearance.json": {
+      "sha256": "e4529746877534c67678889b21ba437e8ffb2e80b9790918d8c8d666103e24d1",
+      "bytes": 44372
+    },
+    "artifacts/validation/same-edge-native-autorouter.json": {
+      "sha256": "a7e883c12ff5aacb54adffcdd94ae893ceefafc550d5730e751cb143be2d9221",
+      "bytes": 750
+    },
+    "artifacts/validation/same-edge-native-autorouter.txt": {
+      "sha256": "61d85519e7a603f1492dfd5fe2eab527650e857667d69945ca9afdd6eaa5e5ff",
+      "bytes": 117
+    },
+    "artifacts/validation/same-edge-replay-proof.json": {
+      "sha256": "f14a94ad692a298c7a153499621528751f68232c2fd08f4d0dceb0e3dada9dc4",
+      "bytes": 613
+    },
+    "artifacts/validation/schematic-analysis-ui.png": {
+      "sha256": "7db707904043a9ae84c440552f706548f19218dc22c2300e5fa894576cc1cdc3",
+      "bytes": 158779
+    },
+    "artifacts/validation/schematic-review-final.json": {
+      "sha256": "eabca6f38822ed8ed0a29f6903e61a32b4c766e0549a9a2f9ba29134eaeb4fbf",
+      "bytes": 7355
+    },
+    "artifacts/validation/schematic-ui-review.json": {
+      "sha256": "45703542966dbcae5c7c2cb6a8a80e4eb5a0af0d96354f964fc14a6bfe0a6527",
+      "bytes": 17651
+    },
+    "artifacts/validation/source-final-accessibility.txt": {
+      "sha256": "5b96cd43637eda09b065f2e3f83b000b60b56b1611699262999015dcd5ec9140",
+      "bytes": 185
+    },
+    "artifacts/validation/typecheck-final.txt": {
+      "sha256": "ea085edc7c9edc6d36baf9ff0f4a892871ec682948fe2d76c996ebf160c60dee",
+      "bytes": 49
+    },
+    "docs/bringup-checklist.md": {
+      "sha256": "7ecdcff2de45ad2f8f0766b5b0334630081e456585036610945282f6929f9fc4",
+      "bytes": 10664
+    },
+    "docs/component-evidence.md": {
+      "sha256": "8807aa217be49096a17c9398eb0d3d5d848b8e37e5daf1e79e0d0c9924bd06dd",
+      "bytes": 9851
+    },
+    "docs/engineering-review.md": {
+      "sha256": "97812e0c7697d624e52c757dfe730c2bb00c8a30468018e295e0d710e2b68a51",
+      "bytes": 24278
+    },
+    "docs/manufacturing-review.md": {
+      "sha256": "2ae65dab3c83259d48d5a080592b3bfc252b47e883fe791907b2bdac46f4c679",
+      "bytes": 12695
+    },
+    "docs/mechanical-fit.md": {
+      "sha256": "dc30ef49c199f5034b6858688188af0f0cb7d09ea12e71ac56031d34db10cf5c",
+      "bytes": 14993
+    },
+    "docs/motor-compatibility.md": {
+      "sha256": "a291884759d60c10f8811e6d38ad1510090e7c029c590b9b7b1b79813a850250",
+      "bytes": 7304
+    },
+    "docs/routing.md": {
+      "sha256": "dcd94f5a30e02b5af94ebd34011665cdd68617e2d9d85d3789c759c3464274b1",
+      "bytes": 2776
+    },
+    "docs/schematic-review.md": {
+      "sha256": "3977732a951e13474a4bddb802e546eccc6baf6a21957eca41c1e584ebe7d568",
+      "bytes": 3458
+    },
+    "docs/sources.md": {
+      "sha256": "5e64d441276f80dcc04192cad4c613f85018194a01a7e5543554458b1905aa27",
+      "bytes": 4795
+    },
+    "docs/variant-comparison.md": {
+      "sha256": "6ae8add9f3fba0ba91888229d25a8806128dfb2537be825ce04c351275760e5f",
+      "bytes": 7099
+    },
+    "imports/supplier/A4988SETTR_T/A4988SETTR_T.obj": {
+      "sha256": "01eb47f12909a50a9f70825ab23b31c6be4b33ffe26bd7c8697f94077b87ebd9",
+      "bytes": 80209
+    },
+    "imports/supplier/A4988SETTR_T/A4988SETTR_T.step": {
+      "sha256": "578a8ff75c4016df2d5e6e332aba2899ef713bf2d1c439906bc57edf2a57e121",
+      "bytes": 1874198
+    },
+    "imports/supplier/ABM8_272_T3/ABM8_272_T3.obj": {
+      "sha256": "4b75001f08c9e627eb8c88ca2c599b8b278cbe76d399495cfd15b2fc366c45a7",
+      "bytes": 133015
+    },
+    "imports/supplier/ABM8_272_T3/ABM8_272_T3.step": {
+      "sha256": "55aee3da5b1518e84230f692ed298823bc71771ac97e871a21b265f0b4f8232b",
+      "bytes": 1285360
+    },
+    "imports/supplier/AP63203WU_7/AP63203WU_7.obj": {
+      "sha256": "6bf633f38ffa66eddae4e52f2e0134e27604a77f2e70a2a65f73e02b6c5d5d69",
+      "bytes": 82763
+    },
+    "imports/supplier/AP63203WU_7/AP63203WU_7.step": {
+      "sha256": "4420c424f4a2941b36f28b622f6950c965439c7c9525e1961bb8384ef58a6dd9",
+      "bytes": 1646923
+    },
+    "imports/supplier/A_0402CG150J500NT/A_0402CG150J500NT.obj": {
+      "sha256": "11ff3d0e00ddf06caa7ba9e7a4127aa407425d2dbeb9d33203f865f52a44590d",
+      "bytes": 55992
+    },
+    "imports/supplier/A_0402CG150J500NT/A_0402CG150J500NT.step": {
+      "sha256": "b49e77a39a55d45c078607d8c791cc5521719fc0140e660f44a3e122fe57af14",
+      "bytes": 1481985
+    },
+    "imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.obj": {
+      "sha256": "658e8980a1ff78ad44b1f30b6de0c63023cfd0b883902f3c1333902984d7bfe4",
+      "bytes": 18730
+    },
+    "imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.step": {
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "bytes": 1068271
+    },
+    "imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.obj": {
+      "sha256": "658e8980a1ff78ad44b1f30b6de0c63023cfd0b883902f3c1333902984d7bfe4",
+      "bytes": 18730
+    },
+    "imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.step": {
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "bytes": 1068271
+    },
+    "imports/supplier/A_0402WGF270JTCE/A_0402WGF270JTCE.obj": {
+      "sha256": "658e8980a1ff78ad44b1f30b6de0c63023cfd0b883902f3c1333902984d7bfe4",
+      "bytes": 18730
+    },
+    "imports/supplier/A_0402WGF270JTCE/A_0402WGF270JTCE.step": {
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "bytes": 1068271
+    },
+    "imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.obj": {
+      "sha256": "658e8980a1ff78ad44b1f30b6de0c63023cfd0b883902f3c1333902984d7bfe4",
+      "bytes": 18730
+    },
+    "imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.step": {
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "bytes": 1068271
+    },
+    "imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.obj": {
+      "sha256": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+      "bytes": 78929
+    },
+    "imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.step": {
+      "sha256": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc",
+      "bytes": 1046696
+    },
+    "imports/supplier/A_0603WAF1003T5E/A_0603WAF1003T5E.obj": {
+      "sha256": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+      "bytes": 78929
+    },
+    "imports/supplier/A_0603WAF1003T5E/A_0603WAF1003T5E.step": {
+      "sha256": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc",
+      "bytes": 1046696
+    },
+    "imports/supplier/A_0603WAF3901T5E/A_0603WAF3901T5E.obj": {
+      "sha256": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+      "bytes": 78929
+    },
+    "imports/supplier/A_0603WAF3901T5E/A_0603WAF3901T5E.step": {
+      "sha256": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc",
+      "bytes": 1046696
+    },
+    "imports/supplier/A_0603WAF5101T5E/A_0603WAF5101T5E.obj": {
+      "sha256": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+      "bytes": 78929
+    },
+    "imports/supplier/A_0603WAF5101T5E/A_0603WAF5101T5E.step": {
+      "sha256": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc",
+      "bytes": 1046696
+    },
+    "imports/supplier/B5819W_SL/B5819W_SL.obj": {
+      "sha256": "7c8e2c97e9b3e5c32c1eca57a40e13681407e988333317e3024a8635b37b7344",
+      "bytes": 61981
+    },
+    "imports/supplier/B5819W_SL/B5819W_SL.step": {
+      "sha256": "f2468af30d27a00c11bf5070ed3293c491829997423ccad7906ca52893418de7",
+      "bytes": 1130934
+    },
+    "imports/supplier/CC0603KRX7R9BB104/CC0603KRX7R9BB104.obj": {
+      "sha256": "3af4d2000750b3be8149bdf53d8b14743d96fc20c1c8a963704802ada85759f2",
+      "bytes": 57506
+    },
+    "imports/supplier/CC0603KRX7R9BB104/CC0603KRX7R9BB104.step": {
+      "sha256": "5f7216cf66690dab2ac39e25f5ad1bda3a067967e55809dd781fa60d385df110",
+      "bytes": 1468156
+    },
+    "imports/supplier/CH224K/CH224K.obj": {
+      "sha256": "9fceace97b3056c9b525486645e2f69ac9290eee319061ac743edf3570fb6296",
+      "bytes": 60457
+    },
+    "imports/supplier/CH224K/CH224K.step": {
+      "sha256": "d18445242d4c9c099a3b99743d6cf639e9433f0b32efd8152de33d2d4984c8a7",
+      "bytes": 1724834
+    },
+    "imports/supplier/CL05A105KA5NQNC/CL05A105KA5NQNC.obj": {
+      "sha256": "11ff3d0e00ddf06caa7ba9e7a4127aa407425d2dbeb9d33203f865f52a44590d",
+      "bytes": 55992
+    },
+    "imports/supplier/CL05A105KA5NQNC/CL05A105KA5NQNC.step": {
+      "sha256": "b49e77a39a55d45c078607d8c791cc5521719fc0140e660f44a3e122fe57af14",
+      "bytes": 1481985
+    },
+    "imports/supplier/CL05B103KB5NNNC/CL05B103KB5NNNC.obj": {
+      "sha256": "11ff3d0e00ddf06caa7ba9e7a4127aa407425d2dbeb9d33203f865f52a44590d",
+      "bytes": 55992
+    },
+    "imports/supplier/CL05B103KB5NNNC/CL05B103KB5NNNC.step": {
+      "sha256": "b49e77a39a55d45c078607d8c791cc5521719fc0140e660f44a3e122fe57af14",
+      "bytes": 1481985
+    },
+    "imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.obj": {
+      "sha256": "11ff3d0e00ddf06caa7ba9e7a4127aa407425d2dbeb9d33203f865f52a44590d",
+      "bytes": 55992
+    },
+    "imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.step": {
+      "sha256": "b49e77a39a55d45c078607d8c791cc5521719fc0140e660f44a3e122fe57af14",
+      "bytes": 1481985
+    },
+    "imports/supplier/CL10A105KB8NNNC/CL10A105KB8NNNC.obj": {
+      "sha256": "3af4d2000750b3be8149bdf53d8b14743d96fc20c1c8a963704802ada85759f2",
+      "bytes": 57506
+    },
+    "imports/supplier/CL10A105KB8NNNC/CL10A105KB8NNNC.step": {
+      "sha256": "5f7216cf66690dab2ac39e25f5ad1bda3a067967e55809dd781fa60d385df110",
+      "bytes": 1468156
+    },
+    "imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.obj": {
+      "sha256": "3af4d2000750b3be8149bdf53d8b14743d96fc20c1c8a963704802ada85759f2",
+      "bytes": 57506
+    },
+    "imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.step": {
+      "sha256": "5f7216cf66690dab2ac39e25f5ad1bda3a067967e55809dd781fa60d385df110",
+      "bytes": 1468156
+    },
+    "imports/supplier/CL10B224KA8NNNC/CL10B224KA8NNNC.obj": {
+      "sha256": "3af4d2000750b3be8149bdf53d8b14743d96fc20c1c8a963704802ada85759f2",
+      "bytes": 57506
+    },
+    "imports/supplier/CL10B224KA8NNNC/CL10B224KA8NNNC.step": {
+      "sha256": "5f7216cf66690dab2ac39e25f5ad1bda3a067967e55809dd781fa60d385df110",
+      "bytes": 1468156
+    },
+    "imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.obj": {
+      "sha256": "a6ecf4d78195d1f061b045e187fdff13726b03dc2475a4f11803b44d86adebc1",
+      "bytes": 57153
+    },
+    "imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.step": {
+      "sha256": "67f86cfc9ebba2ff889d65b12f5d49d5a90b265b73635a931d68c6a27d34e11f",
+      "bytes": 1480687
+    },
+    "imports/supplier/CL31A106KBHNNNE/CL31A106KBHNNNE.obj": {
+      "sha256": "d725fdbb4ab326035448275626e2022faef2bcdf473e3b7654e25f6308d096c0",
+      "bytes": 120447
+    },
+    "imports/supplier/CL31A106KBHNNNE/CL31A106KBHNNNE.step": {
+      "sha256": "a3b636a587c98bf5baa4dcd6af15732c43a5f396ec40d2b987bd6db5417c8265",
+      "bytes": 1169799
+    },
+    "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.obj": {
+      "sha256": "d2a82f339551bccf8ac1358cc8f9756f50a5d9d445ffb49c9395fe01969b4225",
+      "bytes": 115947
+    },
+    "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.step": {
+      "sha256": "0520d085e6aa1b712b8127b1de76907f64951f608caa5f1d495a693c6ae742fb",
+      "bytes": 1118069
+    },
+    "imports/supplier/ERJPA3F1001V/ERJPA3F1001V.obj": {
+      "sha256": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+      "bytes": 78929
+    },
+    "imports/supplier/ERJPA3F1001V/ERJPA3F1001V.step": {
+      "sha256": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc",
+      "bytes": 1046696
+    },
+    "imports/supplier/FRL0805FR240TS/FRL0805FR240TS.obj": {
+      "sha256": "6bbe05c8bf2262e8c377c9a7cb422b1725e8842352dcd40bc47f3a573bb08a84",
+      "bytes": 18763
+    },
+    "imports/supplier/FRL0805FR240TS/FRL0805FR240TS.step": {
+      "sha256": "fc4726ad0364128aa67ad16e76bace8fa7a85fb80514f68d5fbf53d114860b6f",
+      "bytes": 1067918
+    },
+    "imports/supplier/GD25Q16EEIGR/GD25Q16EEIGR.obj": {
+      "sha256": "a0a193afc869824c333a2720df80d5266114ac8f11734b8a5ef0e93a325f83ed",
+      "bytes": 86770
+    },
+    "imports/supplier/GD25Q16EEIGR/GD25Q16EEIGR.step": {
+      "sha256": "2dd22ac0001afff0442bc446a8b088ace9dc27630dd4d061bd9837e310011c20",
+      "bytes": 1087615
+    },
+    "imports/supplier/MMBT3904_7_F/MMBT3904_7_F.obj": {
+      "sha256": "eba3fbb208f2c1a7432380919e93350a471d50f840cc10ec11fdb1f59812c7b2",
+      "bytes": 137983
+    },
+    "imports/supplier/MMBT3904_7_F/MMBT3904_7_F.step": {
+      "sha256": "c9a82c26510eaf3f266d1d61eb7c4addbfd4f1bef9c428b719678ad8455821cc",
+      "bytes": 1214946
+    },
+    "imports/supplier/RP2040/RP2040.obj": {
+      "sha256": "a3a668d5b1ab3b8962838676908b1a52503a1374525738f51d09eef15bbcd39e",
+      "bytes": 167735
+    },
+    "imports/supplier/RP2040/RP2040.step": {
+      "sha256": "174a866c06fe9b824f197259a77cb3b39625ba986ddd7214fb32f0d873eb4bbd",
+      "bytes": 2121609
+    },
+    "imports/supplier/SMF18A/SMF18A.obj": {
+      "sha256": "da7ea2615c07f6b32365b75ea560ce49a73847950b28adc2758b09e13fab6d3a",
+      "bytes": 41142
+    },
+    "imports/supplier/SMF18A/SMF18A.step": {
+      "sha256": "09d6262e2e56a71ebe143062f98e269803bdd3ebbb9d1202f29942ae90e5109f",
+      "bytes": 1090348
+    },
+    "imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR.obj": {
+      "sha256": "d6d072766bb2d6afc659ce9490b8efc52c5323b9e9a06123e05f4a0870c1a65d",
+      "bytes": 112671
+    },
+    "imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR.step": {
+      "sha256": "2a5ea2d631a3dc8048d594e771cb3e1a859cbef693e4820724eac974e4b6f00c",
+      "bytes": 2209143
+    },
+    "imports/supplier/SRN4018_4R7M/SRN4018_4R7M.obj": {
+      "sha256": "108e122d483c901c50656619eb0b126d30b2570239c220269cf2ff7b06bb5103",
+      "bytes": 296904
+    },
+    "imports/supplier/SRN4018_4R7M/SRN4018_4R7M.step": {
+      "sha256": "602eb8887a3d6867e46f5d07ff979eb717ad6d2f6ffd317763873cddebdab782",
+      "bytes": 1360285
+    },
+    "imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.obj": {
+      "sha256": "9d7e957178f20137fdd5d62ae84281fe3b5bb3a44262f348d8e129b0a4182320",
+      "bytes": 677525
+    },
+    "imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.step": {
+      "sha256": "3806dacd6082a75cfb24d3ba4b86b3d0c96213134c67e1385eb1599a89b2c461",
+      "bytes": 3046769
+    },
+    "imports/supplier/USBLC6_2SC6/USBLC6_2SC6.obj": {
+      "sha256": "b4a68fd1399fd2ab9e7baf51fd4bb6dd8b2a8be45c2b632e1f2c84723c5d7e45",
+      "bytes": 565628
+    },
+    "imports/supplier/USBLC6_2SC6/USBLC6_2SC6.step": {
+      "sha256": "53901e8dbe77366e4c00f90fd3613933fd2db1f1453ddc9eee51d8a18d44dbff",
+      "bytes": 3277419
+    },
+    "index.circuit.json": {
+      "sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+      "bytes": 15828999
+    },
+    "index.circuit.tsx": {
+      "sha256": "15ad1f5d90399ab207943f34bde5b8abbd5880aacd293de7e3e51d480752cedb",
+      "bytes": 130
+    },
+    "package-lock.json": {
+      "sha256": "c914567b08212fd4b472a2285ff0f104aeb911f5dbe34ab3542a0a91343da295",
+      "bytes": 165743
+    },
+    "package.json": {
+      "sha256": "59dd41213a5db563147d806d3a7902007565b3ba8ba79cd21057af7da4ecefdd",
+      "bytes": 1984
+    },
+    "references/14HM11-0404S.pdf": {
+      "sha256": "182a8fa957c2362d2d0a9f0e804e99e8422d9625d8ab6f6693e426f6b6d160be",
+      "bytes": 139260
+    },
+    "references/A4988-4988-DS-Rev5.pdf": {
+      "sha256": "c7341f95ab7d571d219ad2cdf495641da84a2452bcd196ffbda0f5ad93504ca0",
+      "bytes": 1088839
+    },
+    "references/A4988-4988-DS-Rev5.txt": {
+      "sha256": "ee0c2424e4b2677edd5286de8d523ecf5a967b2c0c33df6b4b43643928e62c93",
+      "bytes": 90689
+    },
+    "references/ABM8-272-T3.pdf": {
+      "sha256": "f4b5787cbc51e7f6366333491ec09884ad406dd348fe540040f0fc043ab5457f",
+      "bytes": 691102
+    },
+    "references/AP63203-DS41326-Rev3-2.txt": {
+      "sha256": "5b6d73f6d51b2b9faf4951e8aaae4cc3c7b7886f8d1200dbc1345f9aa4bc7da8",
+      "bytes": 69403
+    },
+    "references/AP63203.pdf": {
+      "sha256": "ef99daa3789d835bc025dfcb4c605c5c2e6d3e7223e86d40b33e6b497ea5a722",
+      "bytes": 1226090
+    },
+    "references/CH224DS1-v1F.pdf": {
+      "sha256": "bc085c9d57a015e2de3802c76ab8a5b34bc92726c7cb8f88f2fcb855a7e438a4",
+      "bytes": 1080895
+    },
+    "references/CH224DS1-v1F.txt": {
+      "sha256": "b52e59371e9bfa43bb8c2f9b2ce0c969996c347287a6545a0f9b7bb474d0a83b",
+      "bytes": 20174
+    },
+    "references/CH32X035DS0-v2.3.pdf": {
+      "sha256": "1714c07d9448bc87ec667a602eba3e4c784a6ca7ca25ef125445df0ee4cc755d",
+      "bytes": 815038
+    },
+    "references/CH32X035DS0-v2.3.txt": {
+      "sha256": "0e99941aab8268d6948889a62a0cbdd37541f5b6ddc1eed505ff2a19f42105c9",
+      "bytes": 169208
+    },
+    "references/GD25Q16E.pdf": {
+      "sha256": "cde85a649968cd40df2421bbae92f25ab0c4033b88b3d05447822c79786eef6e",
+      "bytes": 2281415
+    },
+    "references/Panasonic-FP-2025.pdf": {
+      "sha256": "58f2ec610e03cbad28a61f8bc740521df5d03e27a6dfee92a583f2747b99c981",
+      "bytes": 837527
+    },
+    "references/Panasonic-FP-2025.txt": {
+      "sha256": "9b7ab0d72406dd0c7a9ad5ce0e807d282ec22ee1c69344c25842142b0340e004",
+      "bytes": 77366
+    },
+    "references/Panasonic-FP-provenance.json": {
+      "sha256": "2041b6d4fec7d517c9a87d45c5e255d73bedb802f3c0e545d392f42335ffbad4",
+      "bytes": 1065
+    },
+    "references/RP2040.pdf": {
+      "sha256": "8ca7cede0476b9a7dcb4e5f7669e2dc249c55ea6f9782a63cdd0fae228580724",
+      "bytes": 4920747
+    },
+    "references/SN74CBTLV1G125-SCDS057H.pdf": {
+      "sha256": "b6e630eb40e31f0c1dddb29b70bb2ec389f71d31282be151d403f17348a1a712",
+      "bytes": 598137
+    },
+    "references/SN74CBTLV1G125-SCDS057H.txt": {
+      "sha256": "36fb2ece8dbdba8082a5522f1f78fa104e5e9d235c671b027b5b37baa9fe7ada",
+      "bytes": 49702
+    },
+    "references/cached-supplier-C13585.json": {
+      "sha256": "9123435a1a824c53dae7ee6f4f65fb9fa26377c09db643771ff655fea7ad2b9b",
+      "bytes": 857
+    },
+    "references/cached-supplier-C14663.json": {
+      "sha256": "f884a938a4261acc8072869466f300843d1a3d054f23cc5ecfa2570ebdd105e4",
+      "bytes": 781
+    },
+    "references/cached-supplier-C1525.json": {
+      "sha256": "a769acc66746b7929d1906ac9eae7ba5427a7b2f0db3d0fa278852e243304668",
+      "bytes": 866
+    },
+    "references/cached-supplier-C45783.json": {
+      "sha256": "fcd744365392f9eac08cb94e19c4e3630ab166e71a24209d404878a4f8ae734e",
+      "bytes": 858
+    },
+    "references/cached-supplier-C52923.json": {
+      "sha256": "70ff873d653dd887f5e8c3e51463992379ef20ca94e4e8411462863a47d12d50",
+      "bytes": 855
+    },
+    "references/cached-supplier-C72522.json": {
+      "sha256": "54cacb91183b076b3740ada41b2129c5739d3cd5030c6684ad9f52671d323b19",
+      "bytes": 527
+    },
+    "references/calculators/LICENSE": {
+      "sha256": "b9a0327ff3e06e1926c0617a3796b3b2fee0e07bdf65e84c96936c45dcbaea5e",
+      "bytes": 1071
+    },
+    "references/calculators/critical_route_review.py": {
+      "sha256": "e683a92e4ea39b02f52d57a24273973208e377f474339677b3c59fc34d6b8d9e",
+      "bytes": 6568
+    },
+    "references/calculators/motor_review.py": {
+      "sha256": "7a4d92e8947eefdcf37bfe631ad3862c6606b4cd4d03b27e4579171b105e6a93",
+      "bytes": 6479
+    },
+    "references/calculators/pcbcalc.py": {
+      "sha256": "7faf02ef2ba77d9b3fc2961a4e057a283f072d4a8fbf85e83b1ee9c3dfaecfa6",
+      "bytes": 28504
+    },
+    "references/calculators/provenance.json": {
+      "sha256": "aef66a7bb304666236d4c4cf032b4a2a48577fcd705edbe350840c059adb6ac8",
+      "bytes": 442
+    },
+    "references/manufacturer-review.json": {
+      "sha256": "5df6bd230d964b5b3a3b7659eb9a86dab8b7b1def2cece59ba5831c36b68f530",
+      "bytes": 25509
+    },
+    "references/motor/14hm11-0404s/14HM11-0404S.STEP": {
+      "sha256": "959f43e95b7840beae5ffbd56e997e23c5004a1b09e16b7caa40400296e46281",
+      "bytes": 936304
+    },
+    "references/motor/14hm11-0404s/14HM11-0404S_Full_Datasheet.pdf": {
+      "sha256": "d1cc1604b89947f6f0c2018d2b59c36194bc5e949796cd9af2d99be4effd4305",
+      "bytes": 121198
+    },
+    "references/motor/14hm11-0404s/provenance.json": {
+      "sha256": "f39c51c876d9ee84cb8c3a981c580d2d2b5e63ec766014c021e2280d3bd35688",
+      "bytes": 866
+    },
+    "references/supplier-description-C14289.json": {
+      "sha256": "c1dd79377bb1f61dc07bf93badba650863089533c08fa8bb76fce2c74245e6b4",
+      "bytes": 831
+    },
+    "references/supplier-description-C19077512.json": {
+      "sha256": "65836d0f41a10b24d933eedca5cab669d9449aa931bd8b408a51aa57f1da7cbe",
+      "bytes": 843
+    },
+    "references/supplier-description-C2687116.json": {
+      "sha256": "12c08c79cacb0f8ea03ff6c5d25f3a53ea29ba1923e0dbd624eda2b198028df1",
+      "bytes": 802
+    },
+    "references/supplier-description-C780206.json": {
+      "sha256": "91d3d2b139d0bb991100b49f8d404b5bc26b0ede00a5a4a47d6f9ae8b2caed2e",
+      "bytes": 756
+    },
+    "scripts/add-verified-fanouts.py": {
+      "sha256": "cf9d102775c4c7b6fa572ccf87029405366835e564f496504502b3eb3d566e35",
+      "bytes": 4236
+    },
+    "scripts/apply-rp-cp1-bounded-fix.py": {
+      "sha256": "7f83ac4f21ec882d0dc62f9cd99769d0bd7e8882dab5180b6085b1065b9ef599",
+      "bytes": 4012
+    },
+    "scripts/apply-saved-adjustments.py": {
+      "sha256": "012a1def4f73b944953e7d2fa2fff17caae554a7e7c476088aefd759190c3bae",
+      "bytes": 1027
+    },
+    "scripts/audit-manufacturing.py": {
+      "sha256": "73fbf3f13c8f361e7cd7d38f321834803c7c0d7e03c50baebd06889d7efb4a5f",
+      "bytes": 27794
+    },
+    "scripts/audit-trace-widths.py": {
+      "sha256": "ff7a1897e244ca49ec1aac97e0da7e2fc8514bcafc2c19271587d475401175a6",
+      "bytes": 8962
+    },
+    "scripts/build.tsx": {
+      "sha256": "1afa5c690f257d9340d7a8ca59b1c9b8ad51b64274430a2644ac7856fca16c81",
+      "bytes": 1534
+    },
+    "scripts/check-usb-head-clearance.py": {
+      "sha256": "7d227a8a5a68b2fdaed96de70cd7d114d1d7cd3a7f48268948203b4c1f86ccb2",
+      "bytes": 4073
+    },
+    "scripts/check.ts": {
+      "sha256": "5361b762574d80ba47914aa0737212864a896f623418d973f3493ba5df13551c",
+      "bytes": 14401
+    },
+    "scripts/classify-source.ts": {
+      "sha256": "d65b8b77430a4f85679748f1139c210641aeba338b1cf6f1ce2ae285a8e14452",
+      "bytes": 429
+    },
+    "scripts/clear-head-routing-intrusions.py": {
+      "sha256": "6ff03ed29ab3706f67acb1526fdf6ab161d7e0eae1be2637af21aabe2230f02f",
+      "bytes": 1379
+    },
+    "scripts/cloud-install.sh": {
+      "sha256": "352320b953ea810f5bdbff2d22e934b890ea8715e4c38f0cc3b6ebc95a8bf6f9",
+      "bytes": 1104
+    },
+    "scripts/escape-trapped-pads.py": {
+      "sha256": "c665c1c852d01290dfc71e992895d12807f3141fe2f4af0f81e0914e9de0d626",
+      "bytes": 4197
+    },
+    "scripts/export-a4-pdf.py": {
+      "sha256": "b55f2932b649835bfd2feb18f712199a75b22e5514d3e73e4b6f95afee70019a",
+      "bytes": 742
+    },
+    "scripts/export-manufacturing.py": {
+      "sha256": "799dd5de99cce2c3d14600f6b263bd37009d041f82b15c6aecdda5028ad490ee",
+      "bytes": 11524
+    },
+    "scripts/export-router.py": {
+      "sha256": "606aa0423a866fc19b880c3dfec9311010b1c10aea9878783cbdc5b4385c1ab0",
+      "bytes": 5685
+    },
+    "scripts/export-supplier-router.py": {
+      "sha256": "5e87fbd301461b183e9bb732547ef98b7f3087535cc636dfe8f390a13f125484",
+      "bytes": 5704
+    },
+    "scripts/fill-ground.py": {
+      "sha256": "190a6786180612fbf30e2850fa97e185a1c0fa20f3a9a48beeafac40931c20d2",
+      "bytes": 4240
+    },
+    "scripts/freerouting-api.py": {
+      "sha256": "ff8b694185a3cb29180dec2b5a73f893a684ec6f2e6ea4cad85b91611218d1e2",
+      "bytes": 1553
+    },
+    "scripts/freeze-escape-routes.py": {
+      "sha256": "aeb97919bd0b84d312621749de8852f182f63e07761540938f407d0480b46747",
+      "bytes": 1393
+    },
+    "scripts/import-session.py": {
+      "sha256": "5a3c82d86376ab9b786714131c502ce4ac1df7ce19b8223eb39d8136cda94c75",
+      "bytes": 6026
+    },
+    "scripts/import-supplier-session.py": {
+      "sha256": "28606c88f088e4d5cfe066c0c7b4463937874458909dc53f84160cd3d2ef6c5c",
+      "bytes": 6314
+    },
+    "scripts/inspect-inner1-bridge.py": {
+      "sha256": "3c0a5a8d9d8a6aa6c6f000f0c76dd2cae7bab7abb9ec133fb72ef832cf057381",
+      "bytes": 6908
+    },
+    "scripts/inspect-via-paste.py": {
+      "sha256": "e94d54ae506711607a0c48ab735c3376840e8dccbb5fc9d30ecfc47208237e20",
+      "bytes": 4056
+    },
+    "scripts/merge-reviewed-fanouts.py": {
+      "sha256": "da505edef9b3861da30f46e496578b4659595c5762970337962c7a90eddfb5ae",
+      "bytes": 2249
+    },
+    "scripts/normalize-assembly.ts": {
+      "sha256": "cdf7c936c4227d849022b5c46fc758fa9f2a981ec201b2a4db1dcbd9c8748e9b",
+      "bytes": 2949
+    },
+    "scripts/prepare-schematic.ts": {
+      "sha256": "813a53f6b058c98015dab02fe5609baa3d9de1dd637c1ed7b77bc62df9610d69",
+      "bytes": 7781
+    },
+    "scripts/propose-rp-control-fanouts.py": {
+      "sha256": "4775720d7f8f6938d83736d8e6e436f2bd2c21e6dd1de1feff85d4204db0784c",
+      "bytes": 5909
+    },
+    "scripts/propose-rp-cp1-escapes.py": {
+      "sha256": "f036882078ab69ae09282e2023fbb8cce8a994e4130f223ca491737a7b1a4f98",
+      "bytes": 5490
+    },
+    "scripts/propose-rp-dv23-fanout.py": {
+      "sha256": "9ab565ba8da2597869b95a39b83be0a691c5565fd807895657767a2a7f4785c5",
+      "bytes": 5698
+    },
+    "scripts/propose-rp-ground-fanouts.py": {
+      "sha256": "3008d21976c45d6c1c0bcffdc08e115173f35fda270bb9366b1573963fee960f",
+      "bytes": 5589
+    },
+    "scripts/propose-rp-iovdd10-fanouts.py": {
+      "sha256": "7c29f2454a2faf95a40efcaf5a4753b6fadfbe4bcc6423616b8d44c51742e6a1",
+      "bytes": 5511
+    },
+    "scripts/propose-rp-vref-fanout.py": {
+      "sha256": "e79f7f21bbcac11cdff98f2bb6b45cd5cdbed9842b72d9c5170d609bd141bced",
+      "bytes": 5472
+    },
+    "scripts/prune-unanchored-copper.py": {
+      "sha256": "40a20a545d04af4f32bd39201315b8ef0a4e6746fb23d9bc8cba441621baae30",
+      "bytes": 934
+    },
+    "scripts/publish-tscircuit.sh": {
+      "sha256": "7d698818cfa7c977bf5cf3efe7223e74368c4ba6312c9701deaac82608183b2e",
+      "bytes": 3334
+    },
+    "scripts/rebind-mechanical-review.py": {
+      "sha256": "1654d20988786177c17990b7e2cb749a70663dfa8cb7187d57f37671e544bfee",
+      "bytes": 8759
+    },
+    "scripts/record-supplier-adjustments.py": {
+      "sha256": "1b3cd8e181b185f845d05695291a504a5338db4d05c725f4b75d63bad42bcf6f",
+      "bytes": 1803
+    },
+    "scripts/render-mechanical-access.py": {
+      "sha256": "fd5623647d389d12478595ddd7920012948375239875e2469505b68a98481f78",
+      "bytes": 2561
+    },
+    "scripts/render.ts": {
+      "sha256": "e62dc1dac07b0781edf52a8b9e7c804da0a4e3c018e9032a21cfc78b772db7e3",
+      "bytes": 1364
+    },
+    "scripts/repair-engineering-routing.py": {
+      "sha256": "6183ef38a22fccc4c7cb351b709bfd3a20dba3107c6f6f94d5ca8312b9cbdd41",
+      "bytes": 8274
+    },
+    "scripts/repair-supplier-routing.py": {
+      "sha256": "f6c176802de958ec7f3628987fad78c8f33961668f33d2bd0e406e96ba81f1eb",
+      "bytes": 5828
+    },
+    "scripts/replay-supplier-adjustments.py": {
+      "sha256": "38b8bc22ea071d7cdd74a80ec20e8136ff07fa3f48ae36eece1a4a02ea9ad706",
+      "bytes": 5674
+    },
+    "scripts/report-manufacturing.py": {
+      "sha256": "3e1454dc076fed9d99c6d5f39fbf23b6f69b66e0b830289df1677e466649534b",
+      "bytes": 18655
+    },
+    "scripts/report-presentation.py": {
+      "sha256": "f69a79b3e96937cd947c812146f61b64166a2f2a86697dcf0b514873a986e90b",
+      "bytes": 7604
+    },
+    "scripts/report.py": {
+      "sha256": "a77538a283bf5fead0347c222a0821a422d5b91e12b5a351a20b0e154e0787d9",
+      "bytes": 121
+    },
+    "scripts/requirements-manufacturing.txt": {
+      "sha256": "4271e2d8044b131ccf827cbefd380208091207cefd9fbf14a003589c09fcd187",
+      "bytes": 126
+    },
+    "scripts/requirements-router.txt": {
+      "sha256": "b4573b59e8d4641af394874725489c8923cae0d6fa2a735425cdcec97f9b131d",
+      "bytes": 121
+    },
+    "scripts/reserve-router-fanouts.py": {
+      "sha256": "246c2448e4c0a87069a54be12ee7b76975779c668c7a04d9f3e760f873d641d9",
+      "bytes": 8938
+    },
+    "scripts/review-mechanical.py": {
+      "sha256": "f88bf06788435673fc12e78b39f2f8f480984c9ac2f66523468c721f952a0ee9",
+      "bytes": 32825
+    },
+    "scripts/review-power-copper.py": {
+      "sha256": "8a10fbb2a1c5e8b9e346343bce892ae2efd660077ac193f4433bafb24c5c796b",
+      "bytes": 3649
+    },
+    "scripts/routing_grid.py": {
+      "sha256": "506bfdfc1b4da36ee5c4b61772723ccac2b51d1d606e2a2852830ef0bd6e5d59",
+      "bytes": 5581
+    },
+    "scripts/schematic-review-ui.py": {
+      "sha256": "d61c5b414c5ec6a71db294284a94fd1aee5e32e079af8c56b00932fa2607d4be",
+      "bytes": 4265
+    },
+    "scripts/seed-engineering-routes.py": {
+      "sha256": "8537b6063f8d80e9e04a7652eb5c92f385d2f8a2ef678b12da6e1d66d1a57e8f",
+      "bytes": 6708
+    },
+    "scripts/seed-output-escapes.py": {
+      "sha256": "3c307a1c374d03371ba7a7dcdfc9db44daeb9992d86162c4b63f59b3a3936d46",
+      "bytes": 6933
+    },
+    "scripts/seed-vbb-fanout.py": {
+      "sha256": "c87375e05bfafff28c3e201be67f892d75dcf397cf5197046d341d73ff38d194",
+      "bytes": 5878
+    },
+    "scripts/shorten-driver-ground.py": {
+      "sha256": "83897623dd9f2a4415ca7673a43131a00054fcc7c3a75a12bada416e6d5c30cf",
+      "bytes": 2330
+    },
+    "scripts/sync-presentation.py": {
+      "sha256": "1f53bf460508a0fe8447b9421ac22e9f94cf1bab62a4a65c929e726f533236b4",
+      "bytes": 2191
+    },
+    "scripts/trace-linter.sha256": {
+      "sha256": "3fbf57f9554b2b2b864afd0b754f7643052beef8f060cedbe7200a0fe741c163",
+      "bytes": 1276
+    },
+    "scripts/verify-connectivity.py": {
+      "sha256": "56868d157b9dcf72b55fe74b18f6be1b04610721492c8bcef22b913cd0672249",
+      "bytes": 148
+    },
+    "scripts/verify_supplier_connectivity.py": {
+      "sha256": "fa10fc8c75929f345e0c6980866a7cd3c2c1b89a05a50c5c700a6d13036672d3",
+      "bytes": 4162
+    },
+    "src/board.tsx": {
+      "sha256": "5f4172c4c9d047decbe9fd95cbb0b076ebdd97a83e2834962eefe357b9a66a98",
+      "bytes": 13437
+    },
+    "src/jlcpcb-catalog.json": {
+      "sha256": "9e1c4fadda10a36897565e1283676d8ba248da4adb891962065aa97fde5ca33c",
+      "bytes": 33815
+    },
+    "src/pin-attributes.ts": {
+      "sha256": "c6662231d935778c6d8fe8aa2840e3024467b22ce9654449bde1173206c07c55",
+      "bytes": 1864
+    },
+    "src/schematic-notes.json": {
+      "sha256": "fbb45e30c244c160e3a3c1596c30f94b9c7751818f4e7164f88f7c3d2a8388bd",
+      "bytes": 1496
+    },
+    "src/schematic-notes.tsx": {
+      "sha256": "b00a68d27e529ed51af587d8d88638ce45bf370c71f1c24fac5dde0a9f213a9b",
+      "bytes": 884
+    },
+    "src/supplier-electrical-specs.json": {
+      "sha256": "124b21810efc9a847b5f3f12894e4a1d8ddcc743059c08b464c314c9c322105a",
+      "bytes": 1505
+    },
+    "src/supplier-parts.tsx": {
+      "sha256": "97478d53ac5b9a371bf26480f3ea20169e7128eea4b0e5e2a7c66fd3d5c04fce",
+      "bytes": 4972
+    },
+    "src/supplier-placement.json": {
+      "sha256": "77c2e8c8494e2e9cb4ad79110cdc8fd96e0f72f7c521f2e3eb3f1667cef15633",
+      "bytes": 5176
+    }
+  },
+  "freshness_rule": "Any changes to these bound source/package/pin/placement/copper/CAM/native model records require reassessment and new evidence bindings; old artifacts and logs are not reused as proof of a different revision."
+}

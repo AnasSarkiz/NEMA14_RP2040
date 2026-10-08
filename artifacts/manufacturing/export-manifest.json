@@ -1,0 +1,88 @@
+{
+  "software_versions": {
+    "python": "3.12.14",
+    "installed_packages": {
+      "@tscircuit/cli": "0.1.2261",
+      "@tscircuit/core": "0.0.2110",
+      "@tscircuit/checks": "0.0.242",
+      "circuit-json": "0.0.521",
+      "circuit-json-to-gerber": "0.0.112",
+      "typescript": "5.9.3"
+    },
+    "actual_copper_generation_software": {
+      "F_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "In2_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "B_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111",
+      "In1_Cu.gbr": "tscircuit,circuit-json-to-gerber,0.0.111"
+    },
+    "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
+  },
+  "source_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+  "raw_cli_archive_sha256": "fb67f8eca29bd1ec270df8036ae990aa70eeae2a9a8c23b9feeb0cdd1db75756",
+  "intentional_CAM_changes": {
+    "F_Paste.gbr": {
+      "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
+      "before_sha256": "8a48d1701121ab9b8d3d38a789b1a92f9c18d06531ba71a9fe19462c5680f289",
+      "after_sha256": "83b67f18a528d2e97ddec0a9ea95f48d4f49d61acb001591cea86f84fcd51f9e"
+    },
+    "B_Paste.gbr": {
+      "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
+      "before_sha256": "f6e102ef78afbbfd34efd46fdb1885e5f70180cfb966c7335a15c7fe80c17820",
+      "after_sha256": "21880a5d8ccf86520b8d968436a0584871c3b32228b6ac256a0e08bffa396018"
+    },
+    "F_Mask.gbr": {
+      "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
+      "before_sha256": "a6a3a6bd619a7edd350ea86ba04f0bf37a09b4323cf93af3b2b5cb4bf0dae250",
+      "after_sha256": "4b468a2c1e00e931039f170156c09ef1b124cd2f9081b62db384d7dd238f9a30"
+    },
+    "B_Mask.gbr": {
+      "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
+      "before_sha256": "c4d2987667658b9f98a6a16b972232ce3b581aa8445367c1dff670ef62ee3cf1",
+      "after_sha256": "87f6b41ff06df221aadeb69f9097fd422f6dd9b4ddc6bd811c2f1e6b86bfef82"
+    },
+    "F_SilkScreen.gbr": {
+      "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
+      "before_sha256": "2091e3dd2b89cfa604b58d946b252479f79d9d9962e160f8110482227ea6314b",
+      "after_sha256": "e6fcc8981e6f79124166b2fcc1abed9a4e9246e56890ef75d1f3cd5bd101835d"
+    },
+    "B_SilkScreen.gbr": {
+      "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
+      "before_sha256": "ec3c674fcd5bf6e8a74edb7a536900835a8c9a1bafa7214b22514a8458ccfbcd",
+      "after_sha256": "37fae435f582d6c93c862d13a4e3df54c98246ea02478af3b1df77f8b4379e2e"
+    },
+    "bom.csv": {
+      "reason": "exclude bare motor/debug/boot interfaces; identify exact fitted MPNs",
+      "before_sha256": "23aee16dfbcf42c1153a2d1946762e11d555fb36c282f4c672eb454bfe3dd4db",
+      "after_sha256": "f7cac3a08b81b462ee19caa44d8f3059d8737f987ae20ed459f2bce6090c44c0"
+    },
+    "pick_and_place.csv": {
+      "reason": "exclude bare motor/debug/boot interfaces; identify exact fitted MPNs",
+      "before_sha256": "9cb5930ddc697fcde576965dad41096cccce7d94b1467f67769123ac538e36cc",
+      "after_sha256": "3cac9b310939572dcd8354913ca6836495bed53bf2f98feecc49e10e123ac705"
+    }
+  },
+  "preserved_original_files": {
+    "F_Cu.gbr": "b145790f4d1f9405b351ba2072d58b8bae6e0d1bdcec19abbd81fda116c570e1",
+    "B_Cu.gbr": "12f13d1940aef6343051962057dc35d9dd89001351f6ccaf1d80f3d3756ff8b1",
+    "Edge_Cuts.gbr": "603bceb4e74b632d3fc328b6f9bcb884e12b8246a9c1c10cc4d301f9a21c5123",
+    "In1_Cu.gbr": "152a586038d2b899e6a55202034a083d56f84ec9b39e0cc96237daf6c625af31",
+    "In2_Cu.gbr": "81d087a4f9b82e618f4a244d0845b758b5610b355a4366353056ef2e84c07b7c",
+    "F_Fab.gbr": "0a8fd3a60625bf8beb07894ce50bd2b4dca41c910d7c57f6be64893aa9f7b98f",
+    "drill-L1-L4.drl": "a8dcc916e4e6537e57e931c9e0ea1f98d8636785830cfcdf42b81da0a7a96ecf",
+    "drill_npth.drl": "bc63e5c3a9d4ff7dfe76160b57d956656acb11874ef31a736ce8b39378aa4e9c"
+  },
+  "policy": {
+    "assembly": "top SMT reflow; USB shield slots and motor wires manually soldered afterward",
+    "DNP": [
+      "J_BOOT",
+      "J_DEBUG",
+      "J_MOTOR"
+    ],
+    "exposed_pad_vias": "filled and capped (VIPPO) required; supplier capability/quote approval remains pending",
+    "solder_mask": "0.05 mm nominal opening expansion reduced locally to guarantee 0.10 mm webs; source native copper unchanged",
+    "silkscreen": "0.15 mm clearance from mask apertures; 0.10 mm edge inset; full untrimmed refs on assembly drawing",
+    "lead_stencil": "Fine-pitch MCU/driver rectangular leads 90% native dimensions; rounded driver leads use safe inscribed rectangles; candidate foil 0.10 mm; native copper unchanged",
+    "exposed_pad_stencil": "four panes, nominal 60% native copper-pad coverage, 0.20 mm cross-gap"
+  },
+  "status": "PROTOTYPE CANDIDATE; fabrication and assembly approvals pending"
+}

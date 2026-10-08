@@ -1,45 +1,47 @@
-# Electrical design review
+# RP2040 electrical design review
 
-RP2040 is not a drop-in CH32 replacement. All six IOVDD pins, USB_VDD, ADC_AVDD and VREG_IN use 3.3 V. VREG_OUT and both DVDD pins use the separate internal 1.1 V rail. Each IOVDD/DVDD/USB/ADC supply has a 100 nF bypass; VREG input/output each have 1 μF. TESTEN and the exposed pad are grounded. RUN has a 10k pull-up and a debug reset pad.
+Current source: **67 fitted components**, top-side assembly on four copper layers. The [engineering review](engineering-review.md) and [manufacturer evidence](component-evidence.md) record verified specifications, corrective decisions and remaining qualification gates. Latest final routed/copper/CAM checks are pending reconciliation; historical pass counts and trace temperatures are not carried forward as current results.
 
-12 MHz ABM8-272-T3 has 10 pF specified load; two 15 pF capacitors assume about 2.5 pF parasitic load. A 1k XOUT series damping resistor is included. Verify clock startup and drive level on hardware. GD25Q16EEIGR is 16 Mbit/2 MB, 3.3 V USON8. Flash CS has 10k pull-up; both IO2/IO3 are wired to RP2040 for quad mode.
+## Logic, clock and USB
 
-AP63203WU-7 pin map checked against DS41326 Rev 3-2: FB1, EN2, VIN3, GND4, SW5, BST6. Fixed 3.3 V output, 3.8–32 V input, 1.1 MHz. Manufacturer table 2 specifies 3.9 μH, 10 μF input, two 22 μF output and 100 nF bootstrap. This prototype uses a 4.7 μH SRN4018-4R7M, a nearby standard value reducing ripple; verify stability and load-step behavior. FB senses the output directly. Input ceramic must be rated ≥35 V; bootstrap ≥25 V; output ceramics ≥10 V and retain sufficient capacitance after bias. Inductor saturation/ripple-current and exact footprint require purchasing review. Do not populate an adjustable AP63200 in this footprint without changing the feedback network.
+All six RP2040 IOVDD pins, USB_VDD, ADC_AVDD and VREG_IN use 3.3 V. VREG_OUT and DVDD23/50 use the separate 1.1 V internal-regulator output. Required 100 nF bypasses and 1 µF regulator reservoirs are included; TESTEN and the exposed pad are grounded. RUN has a 10 kΩ pull-up and exposed reset pad.
 
-Diode ORing keeps PD voltage out of host VBUS. Actual 5 V USB minimum, Schottky drop and buck dropout must be verified. CH224K supplies motor VBUS only; fallback 5 V cannot run the A4988. PG and VM ADC voltage gate firmware enable. 15 V is requested, not guaranteed with every charger/cable.
+The 12 MHz ABM8-272-T3 crystal specifies 10 pF load; two 15 pF capacitors assume 2.5 pF parasitic capacitance. The 1 kΩ XOUT resistor limits drive. Verify startup and drive level physically. GD25Q16EEIGR provides 2 MB external flash; select a compatible boot stage and quad-enable sequence. The separate Data USB-C port uses 27 Ω MCU series resistors. USB impedance, return continuity, enumeration and flashing require assembled-board tests.
 
-A4988 VREF = 3.3 × 10/(39+10) = 0.6735 V; Itrip = VREF/(8 × 0.24) = 0.3508 A. The native 0.24 Ω, 1%, 125 mW resistors dissipate about 29.5 mW nominally. A deliberately expanded 3.465 V rail budget, 1% resistor bounds and a provisional 5% driver allowance estimate 0.3969 A. This is an engineering budget, not a qualified maximum: the actual driver accuracy, ground bounce and sense-track resistance must be measured. The SMF18A clamp still requires regenerative-energy testing.
+## PD, regulator and motor power
 
-Only exposed-pad ground vias may sit inside component pads; ordinary vias must clear pads. Component assembly is on top; PCB uses four copper layers: top / inner1 ground / inner2 signals / bottom. Ground is filled on all layers, with inner1 reserved from signal routing. USB is full-speed 12 Mbit/s: matched short pair and continuous ground reference require layout review beyond a generic DRC/short test. No controlled-impedance or EMC compliance claim is made.
+CH224K requests 15 V with CFG1/2/3=0/1/1. PG is open-drain active low. PD-only wiring shorts chip DP/DM and leaves its optional VBUS-sense pin unconnected, avoiding its 13.5 V limit. The 1 kΩ/0.25 W feed and 1 µF bypass support its shunt VDD. A charger must advertise 15 V; 5 V fallback leaves the motor disabled.
 
+Schottky diode ORing isolates PD from host VBUS while powering logic from either port. AP63203WU-7 uses FB1, EN2, VIN3, GND4, SW5, BST6; fixed 3.3 V output, 3.8–32 V input and 1.1 MHz typical switching. The actual native capacitors are **C13585 10 µF/50 V input**, **C45783 22 µF/25 V outputs**, and **C1525 100 nF/16 V bootstrap**. Bootstrap rating applies to BST−SW, not the motor bus. Manufacturer Table 2 specifies 3.9 µH; selected 4.7 µH lies within the general 2.2–10 µH range. Exact inductor saturation/RMS/DCR criteria, capacitor DC-bias capacitance, loop behavior and converter startup still require qualification.
 
-## Copper review, 2026-10-07
+Bulk C_BULK is **C178585 Panasonic EEEFPV101XAP, 100 µF ±20%, 35 V**: 0.60 Arms at 100 kHz/105 °C, 0.39 Arms at 120 Hz/105 °C and ESR≤0.16 Ω at 100 kHz/20 °C. Actual ripple sharing, rear-board heat and lifetime remain measurements. Exact selected SMF18A clamp/energy data and regeneration handling are unqualified; its 18 V name does not imply an 18 V clamp.
 
-The checked saved layout, rather than nominal JSX settings, was reviewed. Power/motor tracks were widened only when exact imported pad, via and foreign-track geometry retained at least 0.15 mm clearance. Their centerlines were retained. `artifacts/power-copper-adjustments.json` records each width change; `supplier-routing-adjustments.json` replays the complete result from the saved SES import. Ground pours have 0.20 mm clearance, 0.35 mm edge margin, and no unconnected islands. Components remain top-side assembled.
+## Driver current and safe defaults
 
-| Copper | Actual saved width / review |
-| --- | --- |
-| Motor outputs / sense | About 0.28–0.45 mm, including package escapes; screened at 0.40 A peak |
-| PD motor supply | 0.30–0.60 mm; 0.75 A input budget, with a verified single-bridge RP2040 branch screened at 0.40 A |
-| Logic supply / switching node | Widened where possible; package escapes remain as small as 0.16 mm; 0.15 A rail / 0.20 A switching budget |
-| Ground | 0.16–0.45 mm tracks plus filled ground copper; parallel plane paths must be considered, rather than assuming the entire motor return flows down every ground stub |
-| USB / other signals | 0.16 mm; width alone does not establish differential impedance or signal integrity |
+A4988 uses a **3.9 kΩ/1 kΩ** divider:
 
-Copper screening requires **at least 35 μm finished external copper and 17.5 μm internal copper** where applicable, on 1.6 mm FR-4, with at least 20 μm via barrel plating. These are fabrication requirements, not measurements of a manufactured PCB. IPC-2221 equations use k=0.048 externally and 0.024 internally, with a 30 °C rise screening limit. The report includes each actual segment, layer, current budget and temperature estimate. This approximate method does not model enclosure/motor heating, neck heat spreading, switching pulses, vias or ground-plane current sharing.
+VREF=3.3×1/(3.9+1)=0.673469 V; Itrip=VREF/(8×0.24)=**0.350765 A nominal**.
 
-The largest isolated non-ground trace estimate is 25.2 °C at its assigned budget. Ground traces covered by the same-net pour are explicitly reported as parallel paths; their isolated-track estimate is not a prediction of actual plane temperature. Ground current sharing and regulator/driver temperatures remain bench checks.
+The 0.24 Ω, 1% native sense resistors dissipate 29.53 mW at nominal peak current. Lowering divider impedance reduced the ±3 µA REF-leakage voltage contribution from 23.88 mV to 2.39 mV. The RP regulator/resistor/leakage formula envelope is 0.337465–0.364518 A, **excluding driver regulation error**. Allegro specifies trip accuracy at VREF=2 V; no guaranteed error bound was found at 0.6735 V. The obsolete 0.3969 A allowance is not a qualified maximum. Measure both phases over every microstep, transient and temperature condition before accepting the motor's 0.40 A limit.
 
+ENABLE_N and SLEEP use 10 kΩ safe defaults. With±20 µA input leakage their maximum static offset is 0.2 V; original 100 kΩ defaults permitted 2 V. Firmware starts disabled/asleep and validates PG plus measured VM before enabling.
 
-## Voltage sensing correction
+## Protected voltage and host sensing
 
-R_VM_H/R_VM_L is now **100 kΩ/10 kΩ**, replacing 100 kΩ/22 kΩ. It produces 1.364 V at 15 V; the worst resistor-tolerance value is 3.240 V at a 35 V review envelope. The old divider produced 3.606 V at only 20 V, before tolerance, so motor regeneration could overstress the ADC input. This change reuses JLCPCB C25804 and its unchanged native footprint. **Firmware must multiply VM_SENSE voltage by 11**, with calibration as needed. The 35 V arithmetic envelope is not approval to operate the motor bus at 35 V; the intended supply remains 15 V. Rails, TVS energy and component ratings require transient testing.
+R_VM_H/R_VM_L remains 100 kΩ/10 kΩ at **VM_DIV**, connected to VM_SENSE through native **C131992 SN74CBTLV1G125DCKR**. VM_SENSE has 10 kΩ bleed and 10 nF reservoir; switch VCC has 100 nF local bypass. OE_N is pulled to V3V3 by 10 kΩ and controlled by **GPIO27/physical 39**.
 
-## Operation review and remaining tests
+When ON, the two 10 kΩ returns are parallel: **VM=PD/21**, nominal 0.714286 V at 15 V, approximately 4.76 kΩ output source impedance. Firmware asserts OE LOW only after stable logic power and waits≥0.5 ms before sampling. TI Ioff≤10 µA at VCC0, ports 0..3.6 V, gives≤0.101 V steady OFF output with the bleed's 1% high corner. This DC bound does not qualify undefined sub 2.3 V ramp behavior or stored 10 nF output charge during fast rail collapse.
 
-CH224K requests 15 V with CFG1/2/3 = 0/1/1; PG is active low. A supply must advertise the requested PDO. Driver ENABLE_N has a pull-up, SLEEP has a pull-down, and firmware must keep the bridge disabled until PG and measured VM are valid. Diode ORing separates host VBUS from PD while permitting logic-only USB power. USB/data ground is shared with motor power.
+Host detection uses native **C94514 MMBT3904-7-F**, 10 kΩ base feed from DATA_VBUS and 10 kΩ collector pull to V3V3. **DATA_PRESENT LOW means host attached**, HIGH means absent when logic powered. UseGPIO29 as a digital input. Exact NPN leakage/saturation and unpowered collector behavior require primary evidence and measurements.
 
-USB programming entry is wired: WCH ROM ISP through PC17/D+ at cold power-up on CH32; RP2040 ROM USB boot through the flash-CS boot jumper and RUN/reset. This has not been demonstrated on physical hardware. USB routes were checked for continuity and shorts, but were not impedance-qualified or accepted as a length-matched differential pair. Reported per-net copper totals contain connector/ESD branches and must not be interpreted as pair skew. Host-only, PD-only and simultaneous-cable tests, both Type-C orientations, repeated enumeration and actual flashing are required.
+## Copper, assembly and release boundary
 
-At first bring-up, keep the motor disconnected, power through a current-limited source, check all rails and confirm disabled outputs. Then verify 15 V PD negotiation/fallback behavior and absence of host backfeed. Measure 3.3 V ripple and load-step response (plus RP2040 1.1 V and crystal startup), flash over USB, measure both phase currents and sense offsets, and exercise stalled/accelerating/stopping motor cases while watching VM overshoot and driver/regulator temperatures. Test at the intended motor/enclosure temperature. The CH32 linear regulator dissipates roughly (14.6−3.3)×I_logic, or about 0.34 W at 30 mA; the 100 mA part rating alone is not a thermal guarantee. The RP2040 buck's switching/input loop and feedback placement require ripple/stability validation.
+Screen actual saved segments and every copper layer, including package escapes, ground returns, sense offsets and switching loops. Source trace-width annotations do not certify delivered geometry. Current screening requires 35 µm external copper, 17.5 µm internal copper and 20 µm via-barrel plating on 1.6 mm FR-4. IPC-2221/30 °C-rise arithmetic is a screening model, not a motor-heated assembly thermal prediction. Final geometry and CAM evidence must be regenerated after current routing.
 
-No motor-control firmware is present. Rear mounting remains unverified because the motor drawing dimensions only the front face. Manufacturer-level A4988 accuracy, CH224K/HT7533 electrical limits and component transient ratings remain purchasing/release checks; direct manufacturer document retrieval was blocked in this environment. Existing pin/reference and supplier evidence is recorded in `docs/sources.md`. **Manufacturing release remains blocked.**
+All fitted land patterns remain exact native supplier imports. Bare motor/debug/BOOT interfaces are excluded from placement BOM/CPL and paste; thermal-pad vias and USB shield-slot soldering need the documented process. See [manufacturing review](manufacturing-review.md) and [supplier CAD](supplier-cad.md).
+
+Firmware, current accuracy, rail sequencing/fast collapse, USB flashing, PD/backfeed, regeneration, component temperatures and actual rear-carrier fit remain untested. Follow [bring-up](bringup-checklist.md). **Manufacturing release remains blocked.**
+
+## USB connector identification and cable access
+
+Both USB-C openings face outward from the same **+Y edge**. **J_PD** is at X=−5.3 mm and supplies motor PD power; **J_DATA** is at X=+5.3 mm and connects the computer/programming interface. Firmware roles and signal pin assignments are unchanged by this placement. The 10.6 mm port-center pitch requires compact overmolds **≤10 mm wide** as a screening gate; verify both selected cables fit simultaneously and clear the carrier, screw heads and bend path before operating the prototype.

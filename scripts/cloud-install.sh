@@ -6,7 +6,7 @@ npm ci --legacy-peer-deps --cache /workspace/.npm-cache --no-audit --no-fund
 # npm cannot enforce registry integrity on this locked Git dependency; compare its executable sources to the verified upstream commit.
 sha256sum --check --status scripts/trace-linter.sha256
 python3 -m venv /workspace/.routing-venv
-/workspace/.routing-venv/bin/python -m pip install --cache-dir /workspace/.pip-cache -r scripts/requirements-router.txt
+/workspace/.routing-venv/bin/python -m pip install --cache-dir /workspace/.pip-cache -r scripts/requirements-router.txt -r scripts/requirements-manufacturing.txt
 # Optional fallback router, pinned and checksum-verified; Java21 is available in this image.
 if [ ! -f /workspace/freerouting-2.0.1.jar ]; then
   curl --fail --location --retry 2 https://github.com/freerouting/freerouting/releases/download/v2.0.1/freerouting-2.0.1.jar -o /workspace/freerouting-2.0.1.jar

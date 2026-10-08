@@ -1,0 +1,427 @@
+{
+  "source_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+  "actual_archive_sha256": "c8b9e121c44370eeeec24432ca3bb1704526b683b020821c867378d777caf08c",
+  "actual_inner1_sha256": "152a586038d2b899e6a55202034a083d56f84ec9b39e0cc96237daf6c625af31",
+  "before_source_sha256": "3522fff70c0c196107cd9c56fb279259cc9f2ca9eb1743688770b11c321a6722",
+  "actual_ground_before_mm2": 981.6770539162385,
+  "actual_ground_after_mm2": 979.0380124469641,
+  "actual_ground_removed_mm2": 3.8138559833904453,
+  "removed_ground_bounds_mm": [
+    -1.5495590000000001,
+    -4.344675,
+    1.874559,
+    1.6745590000000001
+  ],
+  "actual_ground_added_mm2": 1.1748145141159398,
+  "ground_after_planar_parts": 1,
+  "projected_fast_signal_review": [
+    {
+      "net": "QSPI_SCLK",
+      "minimum_added_cut_distance_mm": 1.0767919713025456,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 3.204546631554356,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 3.1245517630085096,
+      "minimum_trace_edge_distance_to_added_cut_mm": 0.9967950430067628,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "QSPI_SD0",
+      "minimum_added_cut_distance_mm": 1.8244135856817711,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 4.001350488689942,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 3.9213506911820026,
+      "minimum_trace_edge_distance_to_added_cut_mm": 1.7444150859367809,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "QSPI_SD1",
+      "minimum_added_cut_distance_mm": 1.7620102393969177,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 3.8978173737174,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 3.8178185855891718,
+      "minimum_trace_edge_distance_to_added_cut_mm": 1.6820102394319119,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "QSPI_SD2",
+      "minimum_added_cut_distance_mm": 0.7801962538641494,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 2.8583095465697252,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 2.778309546569725,
+      "minimum_trace_edge_distance_to_added_cut_mm": 0.7001993125568424,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "QSPI_SD3",
+      "minimum_added_cut_distance_mm": 0.22174099999999997,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 2.348109546569725,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 2.2681095465697245,
+      "minimum_trace_edge_distance_to_added_cut_mm": 0.1417409999999999,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "QSPI_SS",
+      "minimum_added_cut_distance_mm": 1.5170409999999999,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 3.6434095465697247,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 3.5634095465697246,
+      "minimum_trace_edge_distance_to_added_cut_mm": 1.437041,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "USB_DM",
+      "minimum_added_cut_distance_mm": 5.902255165384411,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 7.754962434884312,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 7.674963178921807,
+      "minimum_trace_edge_distance_to_added_cut_mm": 5.8222553738953575,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    {
+      "net": "USB_DP",
+      "minimum_added_cut_distance_mm": 4.842979402134134,
+      "length_over_added_cut_mm": 0.0,
+      "minimum_centerline_distance_to_bridge_cut_mm": 6.885048479732924,
+      "minimum_trace_edge_distance_to_bridge_cut_mm": 6.805051356518531,
+      "minimum_trace_edge_distance_to_added_cut_mm": 4.762983566511191,
+      "trace_Cu_overlap_added_cut_mm2": 0.0
+    }
+  ],
+  "nearest_fast_signal_segments": {
+    "QSPI_SCLK": {
+      "nearest_bridge_centerline_mm": [
+        2.1205,
+        2.5838
+      ],
+      "nearest_bridge_cut_mm": [
+        1.3071420672873695,
+        -0.5158077150342436
+      ],
+      "nearest_trace_edge_mm": [
+        2.084531093627631,
+        2.5123420559043588
+      ],
+      "nearest_added_cut_mm": [
+        1.6282700098916183,
+        1.6260993232227907
+      ],
+      "net": "QSPI_SCLK",
+      "trace_id": "freerouted_trace_372",
+      "layer": "top",
+      "segment_mm": [
+        [
+          2.3051,
+          2.7684
+        ],
+        [
+          2.1205,
+          2.5838
+        ]
+      ],
+      "added_ground_cut_distance_mm": 1.0767919713025456,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 3.1245517630085096,
+      "centerline_distance_to_bridge_cut_mm": 3.204546631554356,
+      "trace_edge_distance_to_added_cut_mm": 0.9967950430067628,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "QSPI_SD0": {
+      "nearest_bridge_centerline_mm": [
+        2.0,
+        3.4251
+      ],
+      "nearest_bridge_cut_mm": [
+        1.3071420672873695,
+        -0.5158077150342436
+      ],
+      "nearest_trace_edge_mm": [
+        1.980561585607739,
+        3.3474974997444367
+      ],
+      "nearest_added_cut_mm": [
+        1.5461136346475022,
+        1.6580481900727086
+      ],
+      "net": "QSPI_SD0",
+      "trace_id": "freerouted_trace_371",
+      "layer": "top",
+      "segment_mm": [
+        [
+          2.0,
+          3.4251
+        ],
+        [
+          2.0,
+          4.0818
+        ]
+      ],
+      "added_ground_cut_distance_mm": 1.8244135856817711,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 3.9213506911820026,
+      "centerline_distance_to_bridge_cut_mm": 4.001350488689942,
+      "trace_edge_distance_to_added_cut_mm": 1.7444150859367809,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "QSPI_SD1": {
+      "nearest_bridge_centerline_mm": [
+        1.1999,
+        3.4251
+      ],
+      "nearest_bridge_cut_mm": [
+        0.7967218178401262,
+        -0.45180954656972483
+      ],
+      "nearest_trace_edge_mm": [
+        1.207741371226365,
+        3.345485221866224
+      ],
+      "nearest_added_cut_mm": [
+        1.372557693793051,
+        1.671569445798207
+      ],
+      "net": "QSPI_SD1",
+      "trace_id": "freerouted_trace_362",
+      "layer": "top",
+      "segment_mm": [
+        [
+          1.1999,
+          3.4251
+        ],
+        [
+          1.1999,
+          4.0818
+        ]
+      ],
+      "added_ground_cut_distance_mm": 1.7620102393969177,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 3.8178185855891718,
+      "centerline_distance_to_bridge_cut_mm": 3.8978173737174,
+      "trace_edge_distance_to_added_cut_mm": 1.6820102394319119,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "QSPI_SD2": {
+      "nearest_bridge_centerline_mm": [
+        1.0836,
+        2.4065
+      ],
+      "nearest_bridge_cut_mm": [
+        0.7967218178401262,
+        -0.45180954656972483
+      ],
+      "nearest_trace_edge_mm": [
+        1.106822774180357,
+        2.329944773141423
+      ],
+      "nearest_added_cut_mm": [
+        1.303886365352498,
+        1.6580481900727086
+      ],
+      "net": "QSPI_SD2",
+      "trace_id": "freerouted_trace_365",
+      "layer": "top",
+      "segment_mm": [
+        [
+          1.4455,
+          2.7684
+        ],
+        [
+          1.0836,
+          2.4065
+        ]
+      ],
+      "added_ground_cut_distance_mm": 0.7801962538641494,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 2.7926700768241948,
+      "centerline_distance_to_bridge_cut_mm": 2.8726699349927025,
+      "trace_edge_distance_to_added_cut_mm": 0.7001993125568424,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "QSPI_SD3": {
+      "nearest_bridge_centerline_mm": [
+        0.7967218178401256,
+        1.8963
+      ],
+      "nearest_bridge_cut_mm": [
+        0.7967218178401262,
+        -0.45180954656972483
+      ],
+      "nearest_trace_edge_mm": [
+        1.4151908936951283,
+        1.8163
+      ],
+      "nearest_added_cut_mm": [
+        1.4151908936951283,
+        1.6745590000000001
+      ],
+      "net": "QSPI_SD3",
+      "trace_id": "freerouted_trace_379",
+      "layer": "bottom",
+      "segment_mm": [
+        [
+          -0.9754,
+          1.8963
+        ],
+        [
+          2.4551,
+          1.8963
+        ]
+      ],
+      "added_ground_cut_distance_mm": 0.22174099999999997,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 2.2681095465697245,
+      "centerline_distance_to_bridge_cut_mm": 2.348109546569725,
+      "trace_edge_distance_to_added_cut_mm": 0.1417409999999999,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "QSPI_SS": {
+      "nearest_bridge_centerline_mm": [
+        0.796721817840127,
+        3.1916
+      ],
+      "nearest_bridge_cut_mm": [
+        0.7967218178401262,
+        -0.45180954656972483
+      ],
+      "nearest_trace_edge_mm": [
+        1.4151908936951285,
+        3.1116
+      ],
+      "nearest_added_cut_mm": [
+        1.4151908936951283,
+        1.6745590000000001
+      ],
+      "net": "QSPI_SS",
+      "trace_id": "freerouted_trace_352",
+      "layer": "bottom",
+      "segment_mm": [
+        [
+          8.2897,
+          3.1916
+        ],
+        [
+          0.0197,
+          3.1916
+        ]
+      ],
+      "added_ground_cut_distance_mm": 1.5170409999999999,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 3.5634095465697246,
+      "centerline_distance_to_bridge_cut_mm": 3.6434095465697247,
+      "trace_edge_distance_to_added_cut_mm": 1.437041,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "USB_DM": {
+      "nearest_bridge_centerline_mm": [
+        5.9,
+        5.7328
+      ],
+      "nearest_bridge_cut_mm": [
+        1.3071420672873695,
+        -0.5158077150342436
+      ],
+      "nearest_trace_edge_mm": [
+        5.843431457505076,
+        5.676231457505076
+      ],
+      "nearest_added_cut_mm": [
+        1.7359500576781073,
+        1.5498220996094183
+      ],
+      "net": "USB_DM",
+      "trace_id": "freerouted_trace_204",
+      "layer": "top",
+      "segment_mm": [
+        [
+          5.9,
+          5.7328
+        ],
+        [
+          6.4017,
+          5.7328
+        ]
+      ],
+      "added_ground_cut_distance_mm": 5.902255165384411,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 7.674963178921807,
+      "centerline_distance_to_bridge_cut_mm": 7.754962434884312,
+      "trace_edge_distance_to_added_cut_mm": 5.8222553738953575,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    },
+    "USB_DP": {
+      "nearest_bridge_centerline_mm": [
+        4.1983,
+        5.7328
+      ],
+      "nearest_bridge_cut_mm": [
+        1.3071420672873695,
+        -0.5158077150342436
+      ],
+      "nearest_trace_edge_mm": [
+        4.157171780464542,
+        5.664181711199978
+      ],
+      "nearest_added_cut_mm": [
+        1.6666059732854803,
+        1.6042439758441547
+      ],
+      "net": "USB_DP",
+      "trace_id": "freerouted_trace_212",
+      "layer": "top",
+      "segment_mm": [
+        [
+          4.1983,
+          5.7328
+        ],
+        [
+          4.1983,
+          5.9408
+        ]
+      ],
+      "added_ground_cut_distance_mm": 4.842979402134134,
+      "centerline_length_over_added_ground_cut_mm": 0.0,
+      "trace_edge_distance_to_bridge_cut_mm": 6.805051356518531,
+      "centerline_distance_to_bridge_cut_mm": 6.885048479732924,
+      "trace_edge_distance_to_added_cut_mm": 4.762983566511191,
+      "projected_trace_Cu_overlap_added_cut_mm2": 0.0
+    }
+  },
+  "bridge_specific_actual_cut_mm2": 2.611459662715664,
+  "bridge_specific_actual_cut_bounds_mm": [
+    -1.5495590000000001,
+    -4.344675,
+    1.399559,
+    -0.45180954656972483
+  ],
+  "added_cut_components": [
+    {
+      "area_mm2": 0.5424380481253746,
+      "bounds_mm": [
+        0.975441,
+        0.7754409999999999,
+        1.874559,
+        1.6745590000000001
+      ]
+    },
+    {
+      "area_mm2": 2.611459662715664,
+      "bounds_mm": [
+        -1.5495590000000001,
+        -4.344675,
+        1.399559,
+        -0.45180954656972483
+      ]
+    },
+    {
+      "area_mm2": 0.6565933894964755,
+      "bounds_mm": [
+        -1.324559,
+        0.5009497888504394,
+        -0.42544099999999996,
+        1.499559
+      ]
+    }
+  ],
+  "fast_signal_segments_over_added_cut": [],
+  "scope": "Actual independently parsed pre/post inner1 Cu and physical drill holes; GND polygons assigned by overlap with source GND pours after full CAM source/net verification. Signal centerlines projected geometrically. This does not establish USB impedance, return-current density, EMC or physical qualification."
+}

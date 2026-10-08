@@ -28,7 +28,7 @@ def obstacle(net,width,via=False):
    for a,b in zip(e['route'],e['route'][1:]):
     if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:add(a['layer'],g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2))
   elif typ=='pcb_keepout':
-   c=e['center'];shape=g.box(c['x']-e['width']/2,c['y']-e['height']/2,c['x']+e['width']/2,c['y']+e['height']/2)
+   shape=g.keepout_geometry(e)
    for l in layers:add(l,shape)
   elif typ=='pcb_hole':
    for l in layers:add(l,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))

@@ -1,0 +1,687 @@
+{
+  "reviewed_on": "2026-10-08",
+  "scope": "Component manufacturer/supplier evidence only. This is not fabrication release, current-stock verification, bench validation or a claim that pending design corrections have been completed.",
+  "network": "Direct manufacturer and supplier PDF/catalog requests failed through mandatory proxy HTTP CONNECT403; legitimate GitHub manufacturer-document mirrors used without proxy bypass.",
+  "manufacturing_release": false,
+  "verified_manufacturer_documents": [
+    {
+      "part": "A4988SETTR-T",
+      "file": "A4988-4988-DS-Rev5.pdf",
+      "manufacturer": "Allegro MicroSystems",
+      "document": "4988-DS Rev.5, 2014-05-07",
+      "official_url": "https://www.allegromicro.com/-/media/files/datasheets/a4988-datasheet.pdf",
+      "retrieved_url": "https://raw.githubusercontent.com/Meta-Team/Datasheets/10be088ec22b27686bdee01c1b3cf64342d3da56/A4988%20%E6%AD%A5%E8%BF%9B%E7%94%B5%E6%9C%BA%20%E7%94%B5%E8%B0%83.pdf",
+      "evidence": "manufacturer-authored PDF mirrored by third party; current revision and errata not fetched",
+      "facts": {
+        "VBB_abs_max_V": 35,
+        "VBB_operating_min_V": 8,
+        "VDD_operating_V": [
+          3,
+          5.5
+        ],
+        "VIN_abs_V": [
+          -0.3,
+          5.5
+        ],
+        "VSENSE_abs_V": [
+          -0.5,
+          0.5
+        ],
+        "ambient_C": [
+          -20,
+          85
+        ],
+        "TJ_abs_max_C": 150,
+        "IDD_max_mA": 8,
+        "VREF_operating_V": [
+          0,
+          4
+        ],
+        "IREF_max_abs_uA": 3,
+        "IIN_max_abs_uA": 20,
+        "VIH_min_factor_VDD": 0.7,
+        "VIL_max_factor_VDD": 0.3,
+        "trip_error_conditions": [
+          {
+            "VREF_V": 2,
+            "DAC_percent": 38.27,
+            "error_abs_percent": 15
+          },
+          {
+            "VREF_V": 2,
+            "DAC_percent": 70.71,
+            "error_abs_percent": 5
+          },
+          {
+            "VREF_V": 2,
+            "DAC_percent": 100,
+            "error_abs_percent": 5
+          }
+        ],
+        "trip_error_at_0V6735": "not specified",
+        "STEP_high_low_min_us": 1,
+        "control_setup_hold_ns": 200,
+        "sleep_wake_delay_ms": 1,
+        "CP1_CP2_uF": 0.1,
+        "VCP_VBB_uF": 0.1,
+        "VREG_GND_uF": 0.22,
+        "ROSC_ground_behavior": "30us nominal off-time, mixed decay all step modes"
+      },
+      "physical_pin_map": {
+        "1": "OUT2B",
+        "2": "ENABLE_N",
+        "3": "GND",
+        "4": "CP1",
+        "5": "CP2",
+        "6": "VCP",
+        "7": "NC",
+        "8": "VREG",
+        "9": "MS1",
+        "10": "MS2",
+        "11": "MS3",
+        "12": "RESET_N",
+        "13": "ROSC",
+        "14": "SLEEP",
+        "15": "VDD",
+        "16": "STEP",
+        "17": "REF",
+        "18": "GND",
+        "19": "DIR",
+        "20": "NC",
+        "21": "OUT1B",
+        "22": "VBB1",
+        "23": "SENSE1",
+        "24": "OUT1A",
+        "25": "NC",
+        "26": "OUT2A",
+        "27": "SENSE2",
+        "28": "VBB2",
+        "EP": "GND"
+      },
+      "layout_requirements": "Heavy ground plane; solder EP and both GND pins to ground; low impedance star ground below device; short sense-to-resistor traces; very thick return to star ground; ceramic bypass closer than bulk to supply pins.",
+      "sha256": "c7341f95ab7d571d219ad2cdf495641da84a2452bcd196ffbda0f5ad93504ca0"
+    },
+    {
+      "part": "CH224K",
+      "file": "CH224DS1-v1F.pdf",
+      "manufacturer": "WCH",
+      "document": "CH224 datasheet version1F",
+      "official_url": "https://www.wch-ic.com/downloads/CH224DS1_PDF.html",
+      "retrieved_url": "https://raw.githubusercontent.com/Edragon/edragon.github.io/0a48863dbf2dcd02fe1c4a748225b9656ae02b32/Chip-cn-dat/WCH-dat/CH224-dat/ch224ds1.pdf",
+      "evidence": "manufacturer-authored mirrored PDF; p5 application pin map visually inspected",
+      "facts": {
+        "VDD_shunt_V": [
+          3.24,
+          3.3,
+          3.36
+        ],
+        "VDD_table_abs_V": [
+          3,
+          3.6
+        ],
+        "VDD_draw_current_range_mA": [
+          0,
+          30
+        ],
+        "VBUS_pin_abs_max_V": 13.5,
+        "CC1_CC2_CFG1_abs_max_V": 8,
+        "CFG2_CFG3_max_level_V": 3.7,
+        "ambient_C": [
+          -40,
+          90
+        ],
+        "chip_max_power_mW": 400,
+        "PG": "open drain active low",
+        "request_15V_CFG1_CFG2_CFG3": [
+          0,
+          1,
+          1
+        ],
+        "VDD_decoupling_uF": 1,
+        "VDD_series_from_bus_example_ohm": 1000,
+        "VBUS_sense_series_example_ohm": 10000,
+        "PD_only": "Section5.5: disconnect connector DP/DM, short chip DP to DM, VBUS pin may be NC."
+      },
+      "physical_pin_map": {
+        "EP": "GND",
+        "1": "VDD",
+        "2": "CFG2",
+        "3": "CFG3",
+        "4": "DP",
+        "5": "DM",
+        "6": "CC2",
+        "7": "CC1",
+        "8": "VBUS sense",
+        "9": "CFG1",
+        "10": "PG"
+      },
+      "findings": "Direct bus15V on pin8 violates13.5V maximum. PD-only configuration can remove pin8 bus connection and tie pin4/pin5.",
+      "sha256": "bc085c9d57a015e2de3802c76ab8a5b34bc92726c7cb8f88f2fcb855a7e438a4"
+    },
+    {
+      "part": "CH32X035G8U6",
+      "file": "CH32X035DS0-v2.3.pdf",
+      "manufacturer": "WCH",
+      "document": "CH32X035/X033 datasheet V2.3",
+      "official_url": "https://www.wch-ic.com/downloads/CH32X035DS0_PDF.html",
+      "retrieved_url": "https://raw.githubusercontent.com/ch32-riscv-ug/CH32X035/74c247d6d518052316b35b68ddc82db2a70afc52/datasheet_en/CH32X035DS0.PDF",
+      "evidence": "manufacturer-authored mirrored PDF, document reports V2.3; exact retrieved bytes and commit URL recorded; FastLED source URL corroborates mirror location but its recorded hash differs and is not a byte-integrity corroboration",
+      "facts": {
+        "VDD_abs_V": [
+          -0.3,
+          6
+        ],
+        "IO_abs_V": "-0.3 to VDD+0.3",
+        "IO_injection_allowance": "not specified in retrieved datasheet",
+        "VDD_USB_operating_V": [
+          3,
+          5.3
+        ],
+        "VDD_ADC_operating_V": [
+          2.5,
+          5.5
+        ],
+        "run_48MHz_3V3_typ_mA_all_peripherals": 4.2,
+        "run_48MHz_3V3_typ_mA_no_peripherals": 3,
+        "VIH_min_3V3_V": 1.8,
+        "VIL_max_3V3_V": 0.7,
+        "GPIO_leak_abs_uA": 2,
+        "VOH_min_VDD_minus_V_at_3V3_10mA_PB": 0.4,
+        "ADC_max_input_resistance_8MHz_11cycles_ohm": 6140,
+        "ADC_input_range": "0..VDD",
+        "BOOT": "PC17 high at power-up selects BOOT area",
+        "lot_caveat": "ADC channels3/7/11/15 unavailable where fifth-to-last lot-number digit is0."
+      },
+      "physical_pin_map": {
+        "1": "PC15/CC2",
+        "2": "VDD",
+        "3": "PC0",
+        "4": "PC3",
+        "5": "PA0",
+        "6": "PA1",
+        "7": "PA2",
+        "8": "PA3",
+        "9": "PA4",
+        "10": "PA5",
+        "11": "PA6",
+        "12": "PA7",
+        "13": "PB0",
+        "14": "PB3",
+        "15": "PB4",
+        "16": "PB1/PB5",
+        "17": "PB6",
+        "18": "PB7",
+        "19": "PB8",
+        "20": "PB9",
+        "21": "PB10",
+        "22": "PB11",
+        "23": "PB12",
+        "24": "PC19/DCK",
+        "25": "PC18/DIO",
+        "26": "PC16/PC11/UDM",
+        "27": "PC17/PC10/UDP",
+        "28": "PC14/CC1",
+        "29": "GND"
+      },
+      "recommendations": "Use DATA_PRESENT as digital PA3 input to avoid ADC3 lot dependence. Sample VM divider with slower ADC clock and sufficient settling; 10nF reservoir does not make unlimited sample rates valid.",
+      "sha256": "1714c07d9448bc87ec667a602eba3e4c784a6ca7ca25ef125445df0ee4cc755d"
+    },
+    {
+      "part": "AP63203WU-7",
+      "file": "AP63203.pdf",
+      "manufacturer": "Diodes Incorporated",
+      "document": "DS41326 Rev3-2 November2024",
+      "official_url": "https://www.diodes.com/datasheet/download/AP63200-AP63201-AP63203-AP63205.pdf",
+      "retrieved_url": "existing project references/AP63203.pdf, source recorded in prior source review",
+      "evidence": "cached manufacturer-authored PDF",
+      "facts": {
+        "VIN_operating_V": [
+          3.8,
+          32
+        ],
+        "VIN_abs_DC_V": 35,
+        "VIN_abs_400ms_V": 40,
+        "EN_abs_max_V": 35,
+        "FB_abs_max_V": 6,
+        "BST_abs_relative_SW_V": [
+          -0.3,
+          6
+        ],
+        "ambient_C": [
+          -40,
+          85
+        ],
+        "fixed_output_V": 3.3,
+        "VFB_CCM_V": [
+          3.27,
+          3.3,
+          3.33
+        ],
+        "fsw_typ_hz": 1100000,
+        "spread_spectrum_typ_percent": 6,
+        "high_side_peak_limit_A": [
+          2.5,
+          2.8,
+          3.1
+        ],
+        "theta_JA_C_per_W": 89,
+        "theta_JA_condition": "FR4 single-layer2oz minimum recommended pad layout",
+        "thermal_design_target_TJ_C": 125,
+        "table2_inductor_uH": 3.9,
+        "table2_input_uF": 10,
+        "table2_output_uF": [
+          22,
+          22
+        ],
+        "table2_bootstrap_nF": 100,
+        "inductance_recommendation_uH": [
+          2.2,
+          10
+        ],
+        "inductor_DCR_efficiency_target_ohm": 0.1,
+        "inductor_DC_rating_margin_percent": 35
+      },
+      "physical_pin_map": {
+        "1": "FB",
+        "2": "EN",
+        "3": "VIN",
+        "4": "GND",
+        "5": "SW",
+        "6": "BST"
+      },
+      "layout_requirements": "VIN capacitor close; feedback close; ground vias at input and output capacitors; ground layer below device. Fixed3.3V FB senses output directly.",
+      "sha256": "ef99daa3789d835bc025dfcb4c605c5c2e6d3e7223e86d40b33e6b497ea5a722"
+    },
+    {
+      "part": "EEEFPV101XAP",
+      "supplier_id": "C178585",
+      "manufacturer": "Panasonic",
+      "file": "Panasonic-FP-2025.pdf",
+      "document": "FP series surface mount, high-temperature lead-free reflow, 2025-09-01",
+      "official_url": "https://industrial.panasonic.com/cdbs/www-data/pdf/RDE0000/ABA0000C1184.pdf",
+      "retrieved_url": "cached official manufacturer document; see Panasonic-FP-provenance.json",
+      "evidence": "Manufacturer exact 35V/100uF/D8 ordering table and frequency correction table",
+      "sha256": "58f2ec610e03cbad28a61f8bc740521df5d03e27a6dfee92a583f2747b99c981",
+      "facts": {
+        "nominal_uF": 100,
+        "rated_V": 35,
+        "tolerance_percent": 20,
+        "capacitance_test": "120Hz,+20C",
+        "case_code": "D8",
+        "diameter_mm": 6.3,
+        "body_height_mm": 7.7,
+        "height_tolerance_mm": 0.3,
+        "ripple_100kHz_105C_A": 0.6,
+        "ripple_10kHz_105C_A": 0.57,
+        "ripple_120Hz_105C_A": 0.39,
+        "ripple_frequency_factors_120Hz_1kHz_10kHz_100kHz": [
+          0.65,
+          0.85,
+          0.95,
+          1.0
+        ],
+        "ESR_max_100kHz_20C_ohm": 0.16,
+        "category_temperature_C": [
+          -55,
+          105
+        ],
+        "endurance_h_105C_rated_voltage": 2000,
+        "leakage_limit_20C_2min_uA": 35
+      },
+      "native_import": {
+        "command": "tsci import --jlcpcb --download --use-exact-footprint C178585",
+        "original_sha256": "ed725099799971ad41fef6df856cf7db452d0345383c5feafdd895f9f31fc011",
+        "pad_geometry_and_polarity_identical_to_old_C72522": true,
+        "custom_footprint": false
+      },
+      "qualification_limit": "Manufacturer nominal/ripple/ESR evidence verified; actual mixed-frequency ripple, hot rear-board temperature, lifetime, regeneration and assembly reflow must still be measured/qualified."
+    },
+    {
+      "part": "SN74CBTLV1G125DCKR",
+      "supplier_id": "C131992",
+      "manufacturer": "Texas Instruments",
+      "file": "SN74CBTLV1G125-SCDS057H.pdf",
+      "document": "SCDS057H March1998, revisedJune2006; packaging addendum2025",
+      "official_url": "https://www.ti.com/lit/ds/symlink/sn74cbtlv1g125.pdf",
+      "retrieved_url": "https://raw.githubusercontent.com/esharpab/hardware-ESH10000540-R3/7a9de5b64c6b22502502700123ea00853dd38342/Electro-Engineering/70_Assets/Datasheets/sn74cbtlv1g125.pdf",
+      "evidence": "Manufacturer authored PDF mirrored by hardware project, actual PDF read; current TI publication/errata access blocked",
+      "sha256": "b6e630eb40e31f0c1dddb29b70bb2ec389f71d31282be151d403f17348a1a712",
+      "facts": {
+        "VCC_operating_V": [
+          2.3,
+          3.6
+        ],
+        "VCC_abs_V": [
+          -0.5,
+          4.6
+        ],
+        "port_abs_input_V": [
+          -0.5,
+          4.6
+        ],
+        "Ioff_max_A": 1e-05,
+        "Ioff_condition": "VCC=0,VIorVO=0..3.6V,TA=-40..85C",
+        "nominal_on_resistance_ohm": 5,
+        "OE_N_high": "A/Bisolated",
+        "OE_N_low": "A/Bconnected",
+        "power_up_down_guidance": "OEpullup toVCC toensurehighZ, minimumR determineddrivercurrent",
+        "ramp_limitation": "Ioff condition atVCC0 does not quantify undefined sub2.3V operating interval; honorOEpullup and verifyreset/fastshutdown behavior."
+      },
+      "physical_pin_map": {
+        "1": "OE_N",
+        "2": "A",
+        "3": "GND",
+        "4": "B",
+        "5": "VCC"
+      }
+    }
+  ],
+  "cached_supplier_capacitors": [
+    {
+      "supplier_id": "C13585",
+      "part": "CL31A106KBHNNNE",
+      "nominal_uF": 10,
+      "rated_V": 50,
+      "tolerance_percent": 10,
+      "dielectric": "X5R",
+      "evidence_file": "cached-supplier-C13585.json",
+      "status": "cached supplier rating evidence; not live sourcing or manufacturer DC-bias qualification"
+    },
+    {
+      "supplier_id": "C45783",
+      "part": "CL21A226MAQNNNE",
+      "nominal_uF": 22,
+      "rated_V": 25,
+      "tolerance_percent": 20,
+      "dielectric": "X5R",
+      "evidence_file": "cached-supplier-C45783.json",
+      "status": "cached supplier rating evidence; not live sourcing or manufacturer DC-bias qualification"
+    },
+    {
+      "supplier_id": "C1525",
+      "part": "CL05B104KO5NNNC",
+      "nominal_uF": 0.1,
+      "rated_V": 16,
+      "tolerance_percent": 10,
+      "dielectric": "X7R",
+      "evidence_file": "cached-supplier-C1525.json",
+      "status": "cached supplier rating evidence; not live sourcing or manufacturer DC-bias qualification"
+    },
+    {
+      "supplier_id": "C52923",
+      "part": "CL05A105KA5NQNC",
+      "nominal_uF": 1,
+      "rated_V": 25,
+      "tolerance_percent": 10,
+      "dielectric": "X5R",
+      "evidence_file": "cached-supplier-C52923.json",
+      "status": "cached supplier rating evidence; not live sourcing or manufacturer DC-bias qualification"
+    },
+    {
+      "supplier_id": "C14663",
+      "part": "CC0603KRX7R9BB104",
+      "nominal_uF": 0.1,
+      "rated_V": 50,
+      "tolerance_percent": 10,
+      "dielectric": "X7R",
+      "evidence_file": "cached-supplier-C14663.json",
+      "status": "cached supplier rating evidence; not live sourcing or manufacturer DC-bias qualification"
+    },
+    {
+      "supplier_id": "C72522",
+      "part": "RVT1V470M0605",
+      "nominal_uF": 47,
+      "rated_V": 35,
+      "tolerance_percent": 20,
+      "evidence_file": "cached-supplier-C72522.json",
+      "status": "historical removed part: replaced by qualified native Panasonic C178585; not fitted"
+    },
+    {
+      "supplier_id": "C178585",
+      "part": "EEEFPV101XAP",
+      "nominal_uF": 100,
+      "rated_V": 35,
+      "tolerance_percent": 20,
+      "evidence_file": "Panasonic-FP-2025.pdf",
+      "status": "selected native supplier part; primary manufacturer rating evidence verified, live stock/price not verified"
+    }
+  ],
+  "unresolved_component_evidence": [
+    {
+      "part": "HT7533-1",
+      "status": "BLOCKED exact primary electrical/thermal evidence",
+      "known_secondary": "wagiminator/CH32X035-USB-PD-Adapter describes100mA/30V but explicitly requests selecting30Vvariant",
+      "official_url": "https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf",
+      "unverified": [
+        "exact VIN limit for selected variant",
+        "output tolerance",
+        "junction and thermal resistance",
+        "capacitor ESR/stability",
+        "current limit and dropout"
+      ],
+      "thermal_note": "40mA and70mA are screening scenarios, not measured or typical CH32 current. At14.6V input/3.3V output losses0.452W/0.791W; actual typical MCU4.2mA+drivermax8mA is much lower, but max system/USB current remains unqualified.",
+      "exact_supplier_description": "-40\u2103~+85\u2103@(Ta) 1 100mA 2.5uA 25mV@(1mA) 3.3V 30V Fixed Positive SOT-89-3 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS",
+      "supplier_description_evidence": "supplier-description-C14289.json"
+    },
+    {
+      "part": "SMF18A",
+      "supplier_id": "C19077512",
+      "status": "BLOCKED exact selected manufacturer data",
+      "unverified": [
+        "manufacturer identity",
+        "breakdown range",
+        "clamp voltage/current",
+        "pulse and repetitive energy derating",
+        "junction temperature"
+      ],
+      "recommendation": "Do not use generic VishaySMF18A as evidence for a different selected manufacturer. Regeneration and hot-plug waveform must be measured. TVS18V marking alone is not a clamp-voltage guarantee.",
+      "exact_supplier_description": "-55\u2103~+150\u2103 18V 1uA 200W@10/1000us 22.1V 29.2V 6.8A@10/1000us IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS",
+      "supplier_description_evidence": "supplier-description-C19077512.json"
+    },
+    {
+      "part": "SRN4018-4R7M",
+      "supplier_id": "C780206",
+      "status": "BLOCKED exact manufacturer saturation/RMS/DCR table",
+      "manufacturer": "Bourns",
+      "nominal": "4.7uH +/-20% semishielded inductor",
+      "official_url": "https://www.bourns.com/docs/product-datasheets/srn4018.pdf",
+      "unverified": [
+        "saturation-current criteria and temperature dependence",
+        "RMS rating and temperature-rise criteria",
+        "DCR tolerance",
+        "lightload converter peak-current envelope"
+      ],
+      "exact_supplier_description": "1.9A 2A 4.7uH 84m\u03a9 \u00b120% SMD,4x4mm Power Inductors ROHS",
+      "supplier_description_evidence": "supplier-description-C780206.json"
+    },
+    {
+      "part": "USBLC6-2SC6",
+      "supplier_id": "C2687116",
+      "status": "BLOCKED exact selected manufacturer identity and primary data",
+      "official_url": "https://www.st.com/resource/en/datasheet/usblc6-2.pdf",
+      "secondary_pin_map": {
+        "1": "I/O1",
+        "2": "GND",
+        "3": "I/O2",
+        "4": "I/O2",
+        "5": "VBUS",
+        "6": "I/O1"
+      },
+      "unverified": [
+        "selected manufacturer may differ from ST library identity",
+        "capacitance",
+        "rail maximum",
+        "ESD clamp/system performance"
+      ],
+      "exact_supplier_description": "0.35pF\u30010.8pF 100nA 150W@8/20us 15V 2 5V 6A@8/20us 6V ESD SOT-23-6 ESD and Surge Protection (TVS/ESD) ROHS",
+      "supplier_description_evidence": "supplier-description-C2687116.json"
+    },
+    {
+      "part": "FRL0805FR240TS",
+      "supplier_id": "C2930216",
+      "status": "cached imported supplier identity; primary thermal/derating data pending",
+      "nominal": "0.24ohm1%125mW",
+      "nominal_phase_power_W": 0.029528711995002083,
+      "unverified": [
+        "temperature coefficient",
+        "hot-motor derating",
+        "pulse rating"
+      ]
+    }
+  ],
+  "deterministic_calculations": {
+    "buck_ccm_ideal": {
+      "command": [
+        "python",
+        "/workspace/NEMA14_RP2040/references/calculators/pcbcalc.py",
+        "buck-inductor",
+        "--vin",
+        "15.0",
+        "--vout",
+        "3.3",
+        "--fsw-hz",
+        "1100000.0",
+        "--iout",
+        "0.15",
+        "--ripple-ratio",
+        "3.3191489361702127",
+        "--json"
+      ],
+      "result": {
+        "calculator": "buck-inductor",
+        "delta_i_a": 0.49787234042553186,
+        "duty_cycle_ideal": 0.22,
+        "inductance_uh": 4.7,
+        "inputs": {
+          "fsw_hz": 1100000.0,
+          "iout_a": 0.15,
+          "ripple_ratio": 3.3191489361702127,
+          "vin_v": 15.0,
+          "vout_v": 3.3
+        },
+        "peak_current_a": 0.39893617021276595,
+        "recommended_saturation_current_a": 0.5186170212765957,
+        "rms_current_a": 0.20774119864244484,
+        "warnings": [
+          "Ideal duty cycle ignores switch, diode, inductor, and PCB losses.",
+          "Check the inductor's saturation, RMS, DCR, temperature rise, and shielding."
+        ]
+      }
+    },
+    "vm_divider": {
+      "formula": "VM=PD/(1+100k/(10k||10k))",
+      "vout_v": 0.7142857142857143,
+      "divider_factor": 21,
+      "effective_lower_ohm": 5000,
+      "note": "switchON Ron neglected; two10k returns are distinctVM_DIV andVM_SENSE nodes connectedbyqualifiedbusSW"
+    },
+    "vm_filter": {
+      "formula": "Rth=(100k||10k)||10k withswitchON; tau=Rth*10nF",
+      "Rth_ohm": 4761.9047619047615,
+      "tau_s": 4.7619047619047614e-05,
+      "settling_initial_target_ms": 0.5,
+      "note": "OFFoutputtimeconstant10k*10nF=100us; measurefastVDDcollapse margin"
+    },
+    "buck_model_limitation": "CCM ideal ripple ~0.498 A p-p; at 0.15 A load AP63203 uses PFM/DCM, so CCM peak/RMS values are not qualified actual switching currents.",
+    "phase_nominal": {
+      "formula": "Itrip = VDD * Rlow/(Rhigh+Rlow)/(8*Rs)",
+      "vdd": 3.3,
+      "rhigh_ohm": 3900,
+      "rlow_ohm": 1000,
+      "rsense_ohm": 0.24,
+      "amps": 0.350765306122449,
+      "status": "nominal calculation only; A4988 accuracy bound not specified at this VREF"
+    },
+    "vref_leakage": {
+      "IREF_max_abs_a": 3e-06,
+      "39k_10k_thevenin_ohm": 7959.183673469388,
+      "39k_10k_voltage_error_V": 0.02387755102040816,
+      "3k9_1k_voltage_error_V": 0.0023877551020408164
+    },
+    "safe_default_pulls": {
+      "logic_input_leak_max_abs_a": 2e-05,
+      "100k_voltage_error_V": 2.0,
+      "10k_voltage_error_V": 0.2,
+      "VIH_3V3_V": 2.31,
+      "VIL_3V3_V": 0.99,
+      "conclusion": "100k ENABLE_N and SLEEP defaults not guaranteed; 10k supplies sufficient static leakage margin"
+    },
+    "data_present_minimum": {
+      "assumptions": "USB at 4.4 V, resistors +/-1%, WCH GPIO leakage +/-2 uA, VDD=3.3 V",
+      "Vmin_V": 2.0780100000000004,
+      "VIH_V": 1.8,
+      "conclusion": "100k/100k passes static digital high threshold; ADC channel 3 lot caveat still applies",
+      "status": "historical removed100k/100k divider; replacednativeNPNactive-lowcollector sensing"
+    },
+    "R_PD_15V": {
+      "formula": "I=(15-3.3)/1000; P=I^2*1000",
+      "current_a": 0.0117,
+      "power_w": 0.13689,
+      "rating_w": 0.25,
+      "limitation": "Nominal 15 V condition only; pulse and temperature derating not qualified."
+    }
+  },
+  "findings_at_initial_review": [
+    {
+      "severity": "critical",
+      "id": "CH224-VBUS-ABS",
+      "condition": "U_PD pin8 direct PD bus15V exceeds13.5V absolute maximum",
+      "fix": "PD-only: NCpin8, shortchipDP/DMperSec5.5, or manufacturer10kseries input."
+    },
+    {
+      "severity": "major",
+      "id": "DRV-DEFAULT-LEAK",
+      "condition": "100k enable/sleep defaults not guaranteed with\u00b120uA input leakage",
+      "fix": "Use10k pulls."
+    },
+    {
+      "severity": "major",
+      "id": "DRV-CURRENT-BOUND",
+      "condition": "5%current accuracy asserted outsideVREF2Vtestconditions and IREFleakomitted",
+      "fix": "Remove qualifiedmaximum claim, lowerdividerimpedance, measurecurrent andretainreleaseblock."
+    },
+    {
+      "severity": "minor",
+      "id": "CAP-RATING-METADATA",
+      "condition": "Nominal source annotations disagree with selectedcapacitors",
+      "fix": "C13585actual50V,C45783actual25V,C1525actual16V; recordexactMPNratings."
+    },
+    {
+      "severity": "major",
+      "id": "BULK-RIPPLE",
+      "condition": "Old C72522 supplier metadata rated 54mA at120Hz; manufacturer ripple/ESR qualification was absent. One-phase ideal input capacitor screening gives approximately173mArms before ceramic/cable sharing.",
+      "fix": "Selected exact native Panasonic EEEFPV101XAP C178585100uF35V with0.60Arms@100kHz105C,0.39Arms@120Hz105C and0.16ohmESRmax. Native pads/polarity unchanged. Actual waveform and thermal qualification remain open."
+    }
+  ],
+  "source_metadata_table": "src/supplier-electrical-specs.json",
+  "exact_supplier_descriptions": {
+    "C19077512": {
+      "file": "supplier-description-C19077512.json",
+      "tier": "secondary exactCID supplier description; not primary manufacturer qualification"
+    },
+    "C780206": {
+      "file": "supplier-description-C780206.json",
+      "tier": "secondary exactCID supplier description; not primary manufacturer qualification"
+    },
+    "C2687116": {
+      "file": "supplier-description-C2687116.json",
+      "tier": "secondary exactCID supplier description; not primary manufacturer qualification"
+    },
+    "C14289": {
+      "file": "supplier-description-C14289.json",
+      "tier": "secondary exactCID supplier description; not primary manufacturer qualification"
+    }
+  },
+  "source_power_sequencing_correction": {
+    "switch": "C131992SN74CBTLV1G125DCKR",
+    "NPN": "C94514MMBT3904-7-F",
+    "OE_net": "VM_ENABLE_N",
+    "OE_default": "10kpulltoV3V3, MCUpininputZ/ROM/reset",
+    "MCU_pin": "GPIO27physical39",
+    "VM_factor_ON": 21,
+    "VM_bleed_ohm": 10000,
+    "poweredoff_max_node_V_from_Ioff": 0.101,
+    "host_polarity": "LOWwhenDATA_VBUSpresent; HIGHwhenabsentandV3V3powered",
+    "physical_validation": "notexecuted; lowVDDtransition, fastoutputcapacitor discharge, NPNunpoweredcollector andrailbackpower remain gates"
+  }
+}

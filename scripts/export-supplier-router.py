@@ -23,7 +23,7 @@ for c in [e for e in j if e['type']=='pcb_component']:
    x,y=pad['x'],pad['y'];w=pad.get('width',pad.get('outer_width',pad.get('outer_diameter',pad.get('radius',0)*2)));h=pad.get('height',pad.get('outer_height',pad.get('outer_diameter',pad.get('radius',0)*2)))
    if abs(pad.get('ccw_rotation',0)%180-90)<.01:w,h=h,w
    if pad.get('shape')=='circle':desc=[f'(shape (circle {layer_map[l]} {um(w)}))' for l in stack]
-   elif pad.get('shape')=='pill':
+   elif pad.get('shape') in ['pill','rotated_pill']:
     dx,dy=((w-h)/2,0) if w>=h else (0,(h-w)/2);desc=[f'(shape (path {layer_map[l]} {um(min(w,h))} {um(-dx)} {um(-dy)} {um(dx)} {um(dy)}))' for l in stack]
    else:desc=[f'(shape (rect {layer_map[l]} {um(-w/2)} {um(-h/2)} {um(w/2)} {um(h/2)}))' for l in stack]
   pname='supplier_pad_'+str(count);shapes.append(f'(padstack {q(pname)} '+' '.join(desc)+' (attach off))');pins.append(f'(pin {q(pname)} {q(pin)} {um(x-cx)} {um(y-cy)})');netpins.setdefault(net,[]).append(cid+'-'+pin);pinmap[cid+'-'+pin]={'pcb_port_id':pid,'net':net,'key':key}
@@ -34,8 +34,11 @@ for i,e in enumerate(j):
  if e['type']=='pcb_hole':
   for l in layer_names:keep.append(f'(keepout {q("hole"+str(i)+l)} (circle {layer_map[l]} {um(e["hole_diameter"]+.2)} {um(e["x"])} {um(e["y"])}))')
  if e['type']=='pcb_keepout':
-  x,y=e['center']['x'],e['center']['y'];w,h=e['width'],e['height']
-  for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (rect {layer_map[l]} {um(x-w/2)} {um(y-h/2)} {um(x+w/2)} {um(y+h/2)}))')
+  x,y=e['center']['x'],e['center']['y']
+  for l in layer_names:
+   if e.get('shape')=='circle':keep.append(f'(keepout {q("keep"+str(i)+l)} (circle {layer_map[l]} {um(2*e["radius"])} {um(x)} {um(y)}))')
+   else:
+    w,h=e['width'],e['height'];keep.append(f'(keepout {q("keep"+str(i)+l)} (rect {layer_map[l]} {um(x-w/2)} {um(y-h/2)} {um(x+w/2)} {um(y+h/2)}))')
 wide=['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'];signal=[n for n in netpins if n not in wide];classes=f'(class "signals" '+' '.join(q(n) for n in signal)+' (circuit (use_via "via500")) (rule (width 160) (clearance 150)))';classes+=f'(class "motor_power" '+' '.join(q(n) for n in wide)+' (circuit (use_via "via500")) (rule (width 300) (clearance 150)))'
 via='(padstack "via500" '+' '.join(f'(shape (circle {layer_map[l]} 500))' for l in layer_names)+' (attach off))'
 text='(pcb nema14_supplier (parser (string_quote ") (space_in_quoted_tokens on)) (resolution um 10) (unit um)'

@@ -1,0 +1,250 @@
+{
+  "source_reference_matches_calculation": true,
+  "source_sha256": "5f4172c4c9d047decbe9fd95cbb0b076ebdd97a83e2834962eefe357b9a66a98",
+  "date": "2026-10-08",
+  "motor": "14HM11-0404S",
+  "status": "datasheet arithmetic and engineering screening only; not bench validated",
+  "motor_reference": {
+    "datasheet_sha256": "d1cc1604b89947f6f0c2018d2b59c36194bc5e949796cd9af2d99be4effd4305",
+    "step_sha256": "959f43e95b7840beae5ffbd56e997e23c5004a1b09e16b7caa40400296e46281",
+    "phase_R_ohm": [
+      22.5,
+      25,
+      27.5
+    ],
+    "phase_L_H": [
+      0.0192,
+      0.024,
+      0.0288
+    ],
+    "rated_phase_current_A": 0.4,
+    "steps_full_rev": 400,
+    "steps_1_16_rev": 6400,
+    "lead_map": {
+      "A+": "black",
+      "A-": "green",
+      "B+": "red",
+      "B-": "blue"
+    }
+  },
+  "planned_corrected_reference": {
+    "rhigh_ohm": 3900.0,
+    "rlow_ohm": 1000.0,
+    "sense_ohm": 0.24,
+    "resistor_tolerance": 0.01,
+    "VREF_input_leak_max_abs_A": 3e-06,
+    "supply_V": [
+      3.27,
+      3.3,
+      3.33
+    ],
+    "supply_basis": "AP63203 CCM manufacturer range",
+    "formula": "I=(VDD*Rl/(Rh+Rl)+IREF*Rh*Rl/(Rh+Rl))/(8*Rs)",
+    "min_formula_A": 0.33746539662715513,
+    "nom_formula_A": 0.350765306122449,
+    "max_formula_A": 0.3645180797142022,
+    "driver_regulation_accuracy_included": false,
+    "qualified_min_current_A": null,
+    "qualified_max_current_A": null,
+    "why": "Allegro specifies error at VREF2V only; present VREF0.6735V not bounded. Resistor temperature drift, sense offset and sampling blanking remain unqualified."
+  },
+  "motor_calculations": {
+    "tau_nom_ms": 0.9600000000000001,
+    "tau_corner_ms": [
+      0.6981818181818181,
+      1.2799999999999998
+    ],
+    "sinusoidal_microstep_total_coil_loss_nom_W": 3.075907499479384,
+    "sinusoidal_microstep_total_coil_loss_room_R_corners_W": [
+      2.7683167495314454,
+      3.3834982494273222
+    ],
+    "two_phases_at_peak_conservative_loss_W": 6.151814998958768,
+    "fullstep_A4988_DAC_phase_nom_A": 0.24802614795918368,
+    "motor_rated_two_phase_full_current_loss_W": 8.000000000000002,
+    "winding_energy_two_phases_both_at_peak_nom_J": 0.0029528711995002086,
+    "regulated_sinusoidal_total_winding_energy_nom_J": 0.0014764355997501043,
+    "ideal_15V_step_reach_nom_I_ms": 0.8433932706967057,
+    "ideal_15V_step_reach_corner_max_ms": 1.0789158973100563,
+    "hot_winding_copper_alpha_assumption_per_C": 0.00393,
+    "hot_25to85C_sinusoidal_loss_W": 3.8012064878566227,
+    "holding_torque_warning": "0.11Nm applies to manufacturer rated excitation; do not guarantee same torque at0.3508Apeak/0.248Afullstep phase current."
+  },
+  "initial_motion_targets": {
+    "status": "proposed unloaded bench settings, not motor guaranteed maximum",
+    "start_rpm": 5,
+    "start_step_pulses_per_s": 533.3333333333334,
+    "ramp_rpm_per_s": 20,
+    "ramp_step_pulses_per_s2": 2133.3333333333335,
+    "initial_max_rpm": 30,
+    "initial_max_step_pulses_per_s": 3200.0,
+    "STEP_high_us": 5,
+    "DIR_setup_us": 5,
+    "sleep_release_delay_ms": 2
+  },
+  "power_targets": {
+    "motor_PD_contract_V": 15,
+    "source_recommended_A": 1,
+    "board_input_copper_screen_A": 0.75,
+    "source_rating_does_not_force_load_current": true,
+    "nominal_microstep_coil_current_from_15V_A": 0.20506049996529227,
+    "bench_validation": "Measure input current, transient overshoot and load inertia. USB power source current/policy and motor regeneration cannot be qualified by this ideal calculation."
+  },
+  "pcb_designer_calculator_runs": [
+    {
+      "command": [
+        "python",
+        "/workspace/NEMA14_RP2040/references/calculators/pcbcalc.py",
+        "voltage-divider",
+        "--vin",
+        "3.3",
+        "--r-top-ohm",
+        "3900",
+        "--r-bottom-ohm",
+        "1000",
+        "--json"
+      ],
+      "output": {
+        "calculator": "voltage-divider",
+        "divider_current_a": 0.000673469387755102,
+        "divider_current_ma": 0.673469387755102,
+        "inputs": {
+          "r_bottom_ohm": 1000.0,
+          "r_top_ohm": 3900.0,
+          "target_vout_v": null,
+          "vin_v": 3.3
+        },
+        "total_power_w": 0.0022224489795918366,
+        "vout_v": 0.673469387755102,
+        "warnings": [
+          "The load must be negligible compared with the divider current, or include it in the calculation.",
+          "Check resistor voltage rating, tolerance, temperature coefficient, and ADC input impedance."
+        ]
+      }
+    },
+    {
+      "command": [
+        "python",
+        "/workspace/NEMA14_RP2040/references/calculators/pcbcalc.py",
+        "rc-filter",
+        "--resistance-ohm",
+        "795.9183673469388",
+        "--capacitance-uf",
+        ".01",
+        "--json"
+      ],
+      "output": {
+        "calculator": "rc-filter",
+        "cutoff_hz": 19996.3902859048,
+        "inputs": {
+          "capacitance_uf": 0.01,
+          "resistance_ohm": 795.9183673469388
+        },
+        "tau_ms": 0.007959183673469388,
+        "tau_s": 7.959183673469388e-06,
+        "warnings": [
+          "This is an ideal first-order RC response.",
+          "Source impedance, load impedance, tolerance, leakage, and dielectric behavior change the result."
+        ]
+      }
+    },
+    {
+      "command": [
+        "python",
+        "/workspace/NEMA14_RP2040/references/calculators/pcbcalc.py",
+        "rc-filter",
+        "--resistance-ohm",
+        "4761.9047619047615",
+        "--capacitance-uf",
+        ".01",
+        "--json"
+      ],
+      "output": {
+        "calculator": "rc-filter",
+        "cutoff_hz": 3342.2538049298023,
+        "inputs": {
+          "capacitance_uf": 0.01,
+          "resistance_ohm": 4761.9047619047615
+        },
+        "tau_ms": 0.047619047619047616,
+        "tau_s": 4.7619047619047614e-05,
+        "warnings": [
+          "This is an ideal first-order RC response.",
+          "Source impedance, load impedance, tolerance, leakage, and dielectric behavior change the result."
+        ]
+      }
+    },
+    {
+      "command": [
+        "python",
+        "/workspace/NEMA14_RP2040/references/calculators/pcbcalc.py",
+        "buck-inductor",
+        "--vin",
+        "15",
+        "--vout",
+        "3.3",
+        "--fsw-hz",
+        "1100000",
+        "--iout",
+        ".15",
+        "--ripple-ratio",
+        "3.3191489361702127",
+        "--json"
+      ],
+      "output": {
+        "calculator": "buck-inductor",
+        "delta_i_a": 0.49787234042553186,
+        "duty_cycle_ideal": 0.22,
+        "inductance_uh": 4.7,
+        "inputs": {
+          "fsw_hz": 1100000.0,
+          "iout_a": 0.15,
+          "ripple_ratio": 3.3191489361702127,
+          "vin_v": 15.0,
+          "vout_v": 3.3
+        },
+        "peak_current_a": 0.39893617021276595,
+        "recommended_saturation_current_a": 0.5186170212765957,
+        "rms_current_a": 0.20774119864244484,
+        "warnings": [
+          "Ideal duty cycle ignores switch, diode, inductor, and PCB losses.",
+          "Check the inductor's saturation, RMS, DCR, temperature rise, and shielding."
+        ]
+      }
+    }
+  ],
+  "unqualified": [
+    "current-driver accuracy at low VREF",
+    "exact TVS clamp/energy",
+    "exact inductor saturation and RMS",
+    "ceramic effective capacitance afterDCbias",
+    "actual board/motor case temperatures",
+    "rear hardware revision compatibility"
+  ],
+  "input_protection": {
+    "VM_switch": "SN74CBTLV1G125DCKR C131992",
+    "VM_factor_ON": 21,
+    "VM_Rth_ON_ohm": 4761.9047619047615,
+    "VM15V_output_V": 0.7142857142857143,
+    "output_bleed_ohm": 10000,
+    "Ioff_max_A_at_VCC0": 1e-05,
+    "VM_off_node_max_V_DC": 0.101,
+    "host_detector": "nativeC94514NPN,activeLOW",
+    "qualification": "Railtransition,outputcapacitor discharge andNPNunpoweredcollector behavior requiremeasurement; firmwareabsent"
+  },
+  "bulk_capacitor_screening": {
+    "part": "EEEFPV101XAP",
+    "supplier_id": "C178585",
+    "capacitance_F": 0.0001,
+    "capacitance_min_F": 8e-05,
+    "rated_V": 35,
+    "ripple_rating_100kHz_105C_A": 0.6,
+    "ripple_rating_120Hz_105C_A": 0.39,
+    "ESR_max_100kHz_20C_ohm": 0.16,
+    "one_phase_ideal_D": 0.584608843537415,
+    "one_phase_ideal_rectangular_current_ripple_A": 0.1728534072499948,
+    "initial_15V_cap_energy_min_J": 0.009000000000000001,
+    "ideal_bus_V_if_only_valid_sine_winding_energy_returns_to_min_C": 16.183661204861917,
+    "limitations": "Ideal screening only; mixed slow/fast decay, microstep phasing, cable/source impedance and ceramic sharing are excluded. Not actual ripple or an upper bound. Rotor/load mechanical energy, copper and TVS losses, transient voltage and component-temperature qualification remain unmeasured."
+  }
+}

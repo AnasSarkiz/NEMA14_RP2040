@@ -1,0 +1,1270 @@
+                                                                                                                      A4988
+                                        DMOS Microstepping Driver with Translator
+                                                      And Overcurrent Protection
+Features and Benefits                                                 Description
+▪   Low RDS(ON) outputs                                               The A4988 is a complete microstepping motor driver with
+▪   Automatic current decay mode detection/selection                  built-in translator for easy operation. It is designed to operate
+▪   Mixed and Slow current decay modes                                bipolar stepper motors in full-, half-, quarter-, eighth-, and
+▪   Synchronous rectification for low power dissipation               sixteenth-step modes, with an output drive capacity of up to  
+▪   Internal UVLO                                                     35 V and ±2 A. The A4988 includes a fixed off-time current
+▪   Crossover-current protection                                      regulator which has the ability to operate in Slow or Mixed
+▪   3.3 and 5 V compatible logic supply                               decay modes.
+▪   Thermal shutdown circuitry
+▪   Short-to-ground protection                                        The translator is the key to the easy implementation of the
+▪   Shorted load protection                                           A4988. Simply inputting one pulse on the STEP input drives
+▪   Five selectable step modes: full, 1/2, 1/4, 1/8, and 1/16         the motor one microstep. There are no phase sequence tables,
+                                                                      high frequency control lines, or complex interfaces to program.
+                                                                      The A4988 interface is an ideal fit for applications where a
+Package:                                                              complex microprocessor is unavailable or is overburdened.
+                          28-contact  QFN
+                  with exposed thermal pad                            During stepping operation, the chopping control in the A4988
+                    5 mm × 5 mm × 0.90 mm                             automatically selects the current decay mode, Slow or Mixed.
+                         (ET package)                                 In Mixed decay mode, the device is set initially to a fast decay
+                                                                      for a proportion of the fixed off-time, then to a slow decay for
+                                                                      the remainder of the off-time. Mixed decay current control
+                                                                      results in reduced audible motor noise, increased step accuracy,
+                                                                      and reduced power dissipation.
+
+
+
+                                                                      Continued on the next page…
+                                Approximate size
+
+
+
+
+                                                    Typical Application Diagram
+                                              VDD                           0.1 µF            0.1 µF
+                                                    0.22 µF
+
+
+                                                              VREG ROSC   CP1    CP2    VCP    VBB1
+                              0.22 µF
+                                                          VDD                                                         100 µF
+                                                                                               VBB2
+                                            5 kΩ
+     Microcontroller or                                   SLEEP                               OUT1A
+     Controller Logic
+                                                                          A4988               OUT1B
+                                                          STEP
+                                                                                             SENSE1
+                                                          MS1
+                                                          MS2
+                                                          MS3
+                                                                                              OUT2A
+                                                          DIR
+                                                          ENABLE                              OUT2B
+
+                                                          RESET                              SENSE2
+
+                                                          VREF        GND              GND
+
+
+
+
+4988-DS, Rev. 5
+A4988                                           DMOS Microstepping Driver with Translator
+                                                              And Overcurrent Protection
+
+
+Description (continued)
+Internal synchronous rectification control circuitry is provided    The A4988 is supplied in a surface mount QFN package (ES), 5 mm
+to improve power dissipation during PWM operation. Internal         × 5 mm, with a nominal overall package height of 0.90 mm and an
+circuit protection includes: thermal shutdown with hysteresis,      exposed pad for enhanced thermal dissipation. It is lead (Pb) free
+undervoltage lockout (UVLO), and crossover-current protection.      (suffix –T), with 100% matte tin plated leadframes.
+Special power-on sequencing is not required.
+
+
+
+
+ Selection Guide
+    Part Number                                 Package                                      Packing
+ A4988SETTR-T            28-contact QFN with exposed thermal pad          1500 pieces per 7-in. reel
+
+
+
+
+Absolute Maximum Ratings
+            Characteristic                  Symbol                         Notes                                        Rating                Units
+ Load Supply Voltage                          VBB                                                                          35                  V
+ Output Current                               IOUT                                                                         ±2                  A
+ Logic Input Voltage                           VIN                                                                    –0.3 to 5.5              V
+ Logic Supply Voltage                         VDD                                                                     –0.3 to 5.5              V
+ Motor Outputs Voltage                                                                                                –2.0 to 37               V
+ Sense Voltage                               VSENSE                                                                   –0.5 to 0.5              V
+ Reference Voltage                            VREF                                                                         5.5                 V
+ Operating Ambient Temperature                 TA         Range S                                                      –20 to 85               ºC
+ Maximum Junction                           TJ(max)                                                                       150                  ºC
+ Storage Temperature                          Tstg                                                                    –55 to 150               ºC
+
+
+
+
+                                                                                                 Allegro MicroSystems, LLC                            2
+                                                                                                 115 Northeast Cutoff
+                                                                                                 Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                 1.508.853.5000; www.allegromicro.com
+A4988                                         DMOS Microstepping Driver with Translator
+                                                            And Overcurrent Protection
+
+
+                                                  Functional Block Diagram
+
+
+
+                                        0.22 µF                                       0.1 µF
+
+
+                       VREG                         ROSC                     CP1           CP2
+
+
+  VDD              Current                                                       Charge
+                                                  OSC
+                  Regulator                                                      Pump
+                                                                                                 VCP
+                                                                                                                              0.1 µF
+                                                              DMOS Full Bridge
+                                                                                                 VBB1
+  REF
+
+
+                DAC                                                                              OUT1A
+
+                                                                                                 OUT1B
+
+                          PWM Latch
+                            Blanking                    OCP
+                          Mixed Decay                                                            SENSE1
+  STEP
+   DIR                                              Gate
+                                                    Drive     DMOS Full Bridge                                       RS1
+                                                                                                 VBB2
+ RESET
+                              Control
+          Translator
+  MS1                          Logic
+                                                                                                 OUT2A
+  MS2                                                   OCP
+                                                                                                 OUT2B
+  MS3
+
+                          PWM Latch
+ENABLE                      Blanking                                                             SENSE2
+                          Mixed Decay
+ SLEEP
+                                                                                                                     RS2
+                DAC
+
+
+         VREF
+
+
+
+
+                                                                                                 Allegro MicroSystems, LLC                    3
+                                                                                                 115 Northeast Cutoff
+                                                                                                 Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                 1.508.853.5000; www.allegromicro.com
+A4988                                             DMOS Microstepping Driver with Translator
+                                                                And Overcurrent Protection
+ELECTRICAL CHARACTERISTICS1 at TA = 25°C, VBB = 35 V (unless otherwise noted)
+        Characteristics                      Symbol                       Test Conditions                       Min.         Typ.2         Max.             Units
+Output Drivers
+Load Supply Voltage Range                       VBB        Operating                                              8            –             35              V
+Logic Supply Voltage Range                      VDD        Operating                                             3.0           –            5.5              V
+                                                           Source Driver, IOUT = –1.5 A                           –           320           430             mΩ
+Output On Resistance                          RDSON
+                                                           Sink Driver, IOUT = 1.5 A                              –           320           430             mΩ
+                                                           Source Diode, IF = –1.5 A                              –            –            1.2              V
+Body Diode Forward Voltage                      VF
+                                                           Sink Diode, IF = 1.5 A                                 –            –            1.2              V
+                                                           fPWM < 50 kHz                                          –            –              4             mA
+Motor Supply Current                            IBB
+                                                           Operating, outputs disabled                            –            –              2             mA
+                                                           fPWM < 50 kHz                                          –            –              8             mA
+Logic Supply Current                            IDD
+                                                           Outputs off                                            –            –              5             mA
+Control Logic
+                                               VIN(1)                                                         VDD×0.7           –             –              V
+Logic Input Voltage
+                                               VIN(0)                                                             –             –       VDD×0.3              V
+                                               IIN(1)      VIN = VDD×0.7                                         –20          <1.0        20                 µA
+Logic Input Current
+                                               IIN(0)      VIN = VDD×0.3                                         –20          <1.0           20              µA
+                                               RMS1        MS1 pin                                                 –          100             –              kΩ
+Microstep Select                               RMS2        MS2 pin                                                 –           50             –              kΩ
+                                               RMS3        MS3 pin                                                 –          100             –              kΩ
+Logic Input Hysteresis                       VHYS(IN)      As a % of VDD                                           5           11            19              %
+Blank Time                                    tBLANK                                                             0.7            1           1.3              μs
+                                                           OSC = VDD or GND                                       20           30            40              μs
+Fixed Off-Time                                  tOFF
+                                                           ROSC = 25 kΩ                                           23           30            37              μs
+Reference Input Voltage Range                  VREF                                                                0            –             4               V
+Reference Input Current                        IREF                                                               –3            0             3              μA
+                                                           VREF = 2 V, %ITripMAX = 38.27%                          –            –           ±15              %
+Current Trip-Level Error3                       errI       VREF = 2 V, %ITripMAX = 70.71%                          –            –            ±5              %
+                                                           VREF = 2 V, %ITripMAX = 100.00%                         –            –            ±5              %
+Crossover Dead Time                             tDT                                                              100          475           800              ns
+Protection
+Overcurrent Protection Threshold4             IOCPST                                                             2.1            –            –                A
+Thermal Shutdown Temperature                   TTSD                                                               –           165            –               °C
+Thermal Shutdown Hysteresis                  TTSDHYS                                                              –            15            –               °C
+VDD Undervoltage Lockout                     VDDUVLO       VDD rising                                            2.7          2.8           2.9               V
+VDD Undervoltage Hysteresis                VDDUVLOHYS                                                             –            90            –               mV
+1For input and output current specifications, negative current is defined as coming out of (sourcing) the specified device pin.
+2Typical data are for initial design estimations only, and assume optimum manufacturing and application conditions. Performance may vary for individual
+units, within the specified maximum and minimum limits.
+3V
+   ERR = [(VREF/8) – VSENSE] / (VREF/8).
+4Overcurrent protection (OCP) is tested at T = 25°C in a restricted range and guaranteed by characterization.
+                                            A
+
+
+
+
+                                                                                                               Allegro MicroSystems, LLC                            4
+                                                                                                               115 Northeast Cutoff
+                                                                                                               Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                               1.508.853.5000; www.allegromicro.com
+A4988                                                              DMOS Microstepping Driver with Translator
+                                                                                 And Overcurrent Protection
+
+
+
+
+ THERMAL CHARACTERISTICS
+         Characteristic                                    Symbol                                                 Test Conditions*                                 Value Units
+ Package Thermal Resistance                                   RθJA         Four-layer PCB, based on JEDEC standard                                                   32      ºC/W
+
+ *Additional thermal information available on Allegro Web site.
+
+
+
+
+                                                                       Power Dissipation versus Ambient Temperature
+                                                           4.00
+
+                                                           3.50
+
+                                                           3.00
+                               Power Dissipation, PD (W)
+
+
+
+
+                                                           2.50                         R
+                                                                                        θJ
+                                                                                             A =
+                                                                                                   32
+                                                           2.00                                         ºC
+                                                                                                             /W
+
+                                                           1.50
+
+                                                           1.00
+
+                                                           0.50
+
+                                                             0
+                                                                  20      40    60    80     100       120                 140       160
+                                                                                     Temperature, TA (°C)
+
+
+
+
+                                                                                                                                       Allegro MicroSystems, LLC                    5
+                                                                                                                                       115 Northeast Cutoff
+                                                                                                                                       Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                                                       1.508.853.5000; www.allegromicro.com
+A4988                            DMOS Microstepping Driver with Translator
+                                               And Overcurrent Protection
+
+
+
+
+                                                                tA                             tB
+
+
+
+                  STEP
+
+
+                                          tC          tD
+
+
+        MS1, MS2, MS3,
+         RESET, or DIR
+
+
+
+
+                                Time Duration                   Symbol       Typ.        Unit
+                    STEP minimum, HIGH pulse width                   tA       1           μs
+                    STEP minimum, LOW pulse width                    tB       1           μs
+                    Setup time, input change to STEP                 tC      200          ns
+                    Hold time, input change to STEP                  tD      200          ns
+                                      Figure 1: Logic Interface Timing Diagram
+
+
+
+
+                         Table 1: Microstepping Resolution Truth Table
+                          MS1   MS2     MS3    Microstep Resolution       Excitation Mode
+                           L      L       L    Full Step                  2 Phase
+                           H      L       L    Half Step                  1-2 Phase
+                           L     H        L    Quarter Step               W1-2 Phase
+                           H     H        L    Eighth Step                2W1-2 Phase
+                           H     H       H     Sixteenth Step             4W1-2 Phase
+
+
+
+
+                                                                                        Allegro MicroSystems, LLC                    6
+                                                                                        115 Northeast Cutoff
+                                                                                        Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                        1.508.853.5000; www.allegromicro.com
+A4988                                         DMOS Microstepping Driver with Translator
+                                                            And Overcurrent Protection
+
+
+                                                  Functional Description
+
+
+Device Operation. The A4988 is a complete microstepping                  the home position which is by default common to all step modes.
+motor driver with a built-in translator for easy operation with
+minimal control lines. It is designed to operate bipolar stepper         Mixed Decay Operation. The bridge operates in Mixed
+motors in full-, half-, quarter-, eighth, and sixteenth-step modes.      decay mode, at power-on and reset, and during normal running
+The currents in each of the two output full-bridges and all of the       according to the ROSC configuration and the step sequence, as
+N-channel DMOS FETs are regulated with fixed off-time PWM                shown in Figures 9 through 13. During Mixed decay, when the
+(pulse width modulated) control circuitry. At each step, the current     trip point is reached, the A4988 initially goes into a fast decay
+for each full-bridge is set by the value of its external current-sense   mode for 31.25% of the off-time, tOFF . After that, it switches to
+resistor (RS1 and RS2), a reference voltage (VREF), and the output       Slow decay mode for the remainder of tOFF. A timing diagram for
+voltage of its DAC (which in turn is controlled by the output of         this feature appears on the next page.
+the translator).
+                                                                         Typically, mixed decay is only necessary when the current in the
+At power-on or reset, the translator sets the DACs and the phase         winding is going from a higher value to a lower value as determined
+current polarity to the initial Home state (shown in Figures 9           by the state of the translator. For most loads automatically-selected
+through 13), and the current regulator to Mixed Decay Mode for           mixed decay is convenient because it minimizes ripple when the
+both phases. When a step command signal occurs on the STEP               current is rising and prevents missed steps when the current is falling.
+input, the translator automatically sequences the DACs to the            For some applications where microstepping at very low speeds is
+next level and current polarity. (See Table 2 for the current-level      necessary, the lack of back EMF in the winding causes the current to
+sequence.) The microstep resolution is set by the combined effect        increase in the load quickly, resulting in missed steps. This is shown
+of the MSx inputs, as shown in Table 1.                                  in Figure 2. By pulling the ROSC pin to ground, mixed decay is set
+When stepping, if the new output levels of the DACs are lower            to be active 100% of the time, for both rising and falling currents, and
+than their previous output levels, then the decay mode for the           prevents missed steps as shown in Figure 3. If this is not an issue, it
+active full-bridge is set to Mixed. If the new output levels of the      is recommended that automatically-selected mixed decay be used,
+DACs are higher than or equal to their previous levels, then the         because it will produce reduced ripple currents. Refer to the Fixed
+decay mode for the active full-bridge is set to Slow. This auto-         Off-Time section for details.
+matic current decay selection improves microstepping perfor-             Low Current Microstepping. Intended for applications
+mance by reducing the distortion of the current waveform that            where the minimum on-time prevents the output current from
+results from the back EMF of the motor.                                  regulating to the programmed current level at low current steps.
+Microstep Select (MSx). The microstep resolution is set by               To prevent this, the device can be set to operate in Mixed decay
+the voltage on logic inputs MSx, as  shown in Table 1. The MS1           mode on both rising and falling portions of the current waveform.
+and MS3 pins have a 100 kΩ pull-down resistance, and the MS2             This feature is implemented by shorting the ROSC pin to ground.
+pin has a 50 kΩ pull-down resistance. When changing the step             In this state, the off-time is internally set to 30 µs.
+mode the change does not take effect until the next STEP rising
+edge.                                                                    Reset Input ( R̄¯Ē
+                                                                                           ¯S̄
+                                                                                             ¯Ē
+                                                                                               ¯T̄
+                                                                                                 ¯ ).  The R̄¯  Ē¯  S̄¯  Ē¯  T̄¯   input sets the translator
+                                                                         to a predefined Home state (shown in Figures 9 through 13), and
+If the step mode is changed without a translator reset, and abso-
+                                                                         turns off all of the FET outputs. All STEP inputs are ignored until
+lute position must be maintained, it is important to change the
+                                                                              ¯  Ē
+                                                                         the R̄  ¯  S̄¯  Ē
+                                                                                         ¯  T̄
+                                                                                            ¯   input is set to high.
+step mode at a step position that is common to both step modes in
+order to avoid missing steps. When the device is powered down,
+or reset due to TSD or an over current event the translator is set to    Step Input (STEP). A low-to-high transition on the STEP
+
+
+
+
+                                                                                                             Allegro MicroSystems, LLC                       7
+                                                                                                             115 Northeast Cutoff
+                                                                                                             Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                             1.508.853.5000; www.allegromicro.com
+A4988                                  DMOS Microstepping Driver with Translator
+                                                     And Overcurrent Protection
+
+
+                  Slow         Mixed    Slow     Mixed       Slow     Mixed     Slow        Mixed
+                  Decay        Decay    Decay    Decay       Decay    Decay     Decay       Decay
+
+
+
+
+                     Missed
+                      Step
+
+
+
+
+           Voltage on ROSC terminal 2 V/div.
+
+
+
+
+           Step input 10 V/div.                   t → , 1 s/div.
+
+                                  Figure 2: Missed Steps in Low-Speed Microstepping
+
+
+                                                    Mixed Decay
+
+
+                                                     No Missed
+        ILOAD 500 mA/div.                              Steps
+
+
+
+
+        Step input 10 V/div.                      t → , 1 s/div.
+
+
+          Figure 3: Continuous Stepping Using Automatically-Selected Mixed Stepping (ROSC pin grounded)
+
+
+
+                                                                                      Allegro MicroSystems, LLC                    8
+                                                                                      115 Northeast Cutoff
+                                                                                      Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                      1.508.853.5000; www.allegromicro.com
+A4988                                           DMOS Microstepping Driver with Translator
+                                                              And Overcurrent Protection
+
+
+input sequences the translator and advances the motor one incre-           ▪ ROSC through a resistor to ground — off-time is determined
+ment. The translator controls the input to the DACs and the direc-           by the following formula, the decay mode is automatic Mixed
+tion of current flow in each winding.  The size of the increment is          decay for all step modes except full step whic is set to slow
+determined by the combined state of the MSx inputs.                          decay.
+                                                                                                  tOFF ≈ ROSC ⁄ 825
+Direction Input (DIR). This determines the direction of rota-
+tion of the motor. Changes to this input do not take effect until the       Where tOFF is in µs.
+next STEP rising edge.                                                  Blanking. This function blanks the output of the current sense
+                                                                        comparators when the outputs are switched by the internal current
+Internal PWM Current Control. Each full-bridge is con-                  control circuitry. The comparator outputs are blanked to prevent
+trolled by a fixed off-time PWM current control circuit that limits false overcurrent detection due to reverse recovery currents of the
+the load current to a desired value, ITRIP . Initially, a diagonal pair clamp diodes, and switching transients related to the capacitance
+of source and sink FET outputs are enabled and current flows            of the load. The blank time, tBLANK (µs), is approximately
+through the motor winding and the current sense resistor, RSx.                                     tBLANK ≈ 1 µs
+When the voltage across RSx equals the DAC output voltage, the
+current sense comparator resets the PWM latch. The latch then           Shorted-Load and Short-to-Ground Protection.
+turns off the appropriate source driver and initiates a fixed off       If the motor leads are shorted together, or if one of the leads is
+time decay mode                                                         shorted to ground, the driver will protect itself by sensing the
+                                                                        overcurrent event and disabling the driver that is shorted, protect-
+The maximum value of current limiting is set by the selection of
+                                                                        ing the device from damage. In the case of a short-to-ground, the
+RSx and the voltage at the VREF pin. The transconductance func-                                                             ¯  Ē
+                                                                                                                               ¯  ¯  P̄¯   input goes
+                                                                        device will remain disabled (latched) until the S̄  L̄   Ē
+tion is approximated by the maximum value of current limiting,
+                                                                        high or VDD power is removed. A short-to-ground overcurrent
+ITripMAX  (A), which is set by                                          event is shown in Figure 4.
+                      ITripMAX = VREF / ( 8   × RS)                        When the two outputs are shorted together, the current path is
+                                                                           through the sense resistor. After the blanking time (≈1 µs) expires,
+where RS is the resistance of the sense resistor (Ω) and VREF is           the sense resistor voltage is exceeding its trip value, due to the
+the input voltage on the REF pin (V).                                      overcurrent condition that exists. This causes the driver to go into
+                                                                           a fixed off-time cycle. After the fixed off-time expires the driver
+The DAC output reduces the VREF output to the current sense
+                                                                           turns on again and the process repeats. In this condition the driver
+comparator in precise steps, such that
+                                                                           is completely protected against overcurrent events, but the short
+                                                                           is repetitive with a period equal to the fixed off-time of the driver.
+                 Itrip = (%ITripMAX / 100)   × ITripMAX                    This condition is shown in Figure 5.
+(See Table 2 for %ITripMAX at each step.)                                  During a shorted load event it is normal to observe both a posi-
+It is critical that the maximum rating (0.5 V) on the SENSE1 and           tive and negative current spike as shown in Figure 3, due to the
+                                                                           direction change implemented by the Mixed decay feature. This
+SENSE2 pins is not exceeded.
+                                                                           is shown in Figure 6. In both instances the overcurrent circuitry is
+Fixed Off-Time. The internal PWM current control circuitry                 protecting the driver and prevents damage to the device.
+uses a one-shot circuit to control the duration of time that the
+                                                                           Charge Pump (CP1 and CP2). The charge pump is used to
+DMOS FETs remain off. The off-time, tOFF, is determined by the generate a gate supply greater than that of VBB for driving the
+ROSC terminal. The ROSC terminal has three settings:           source-side FET gates. A 0.1 µF ceramic capacitor, should be
+▪ ROSC tied to VDD — off-time internally set to 30 µs, decay   connected between CP1 and CP2. In addition, a 0.1 µF ceramic
+  mode is automatic Mixed decay except when in full step where capacitor is required between VCP and VBB, to act as a reservoir
+  decay mode is set to Slow decay                              for operating the high-side FET gates.
+▪ ROSC tied directly to ground — off-time internally set to                Capacitor values should be Class 2 dielectric ±15% maximum,
+  30 µs, current decay is set to Mixed decay for both increasing           or tolerance R, according to EIA (Electronic Industries Alliance)
+  and decreasing currents for all step modes.                              specifications.
+
+                                                                                                          Allegro MicroSystems, LLC                    9
+                                                                                                          115 Northeast Cutoff
+                                                                                                          Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                          1.508.853.5000; www.allegromicro.com
+A4988                                             DMOS Microstepping Driver with Translator
+                                                                And Overcurrent Protection
+
+VREG (VREG). This internally-generated voltage is used to
+operate the sink-side FET outputs. The nominal output voltage
+                                                                                      5 A / div.
+                                                                                                                     Fault
+of the VREG terminal is 7 V. The VREG pin must be decoupled
+with a 0.22 µF ceramic capacitor to ground. VREG is internally                                                       latched
+monitored. In the case of a fault condition, the FET outputs of the
+A4988 are disabled.
+Capacitor values should be Class 2 dielectric ±15% maximum,
+or tolerance R, according to EIA (Electronic Industries Alliance)
+specifications.
+Enable Input ( Ē¯N̄¯Ā¯B̄¯L̄¯Ē¯ ). This input turns on or off all of the
+FET outputs. When set to a logic high, the outputs are disabled.                                          t→
+When set to a logic low, the internal control enables the outputs
+as required. The translator inputs STEP, DIR, and MSx, as well as                          Figure 4: Short-to-Ground Event
+the internal sequencing logic, all remain active, independent of the
+¯   N̄¯   Ā¯   B̄
+Ē               ¯  L̄
+                    ¯   Ē
+                        ¯   input state.
+
+Shutdown. In the event of a fault, overtemperature (excess TJ)
+or an undervoltage (on VCP), the FET outputs of the A4988 are                         5 A / div.
+disabled until the fault condition is removed. At power-on, the
+UVLO (undervoltage lockout) circuit disables the FET outputs                                    Fixed off-time
+and resets the translator to the Home state.
+
+Sleep Mode ( S̄¯L̄¯Ē¯Ē¯P̄¯ ). To minimize power consumption
+when the motor is not in use, this input disables much of the
+internal circuitry including the output FETs, current regulator,
+                                         ¯  Ē
+and charge pump. A logic low on the S̄  L̄  ¯  Ē
+                                               ¯  P̄¯   pin puts the A4988
+into Sleep mode. A logic high allows normal operation, as well as
+start-up (at which time the A4988 drives the motor to the Home
+microstep position). When emerging from Sleep mode, in order                                              t→
+to allow the charge pump to stabilize, provide a delay of 1 ms               Figure 5. Shorted Load (OUTxA → OUTxB) in Slow Decay Mode
+before issuing a Step command.
+
+Mixed Decay Operation. The bridge operates in Mixed
+Decay mode, depending on the step sequence, as shown in Fig-
+ures 9 through 13. As the trip point is reached, the A4988 initially                  5 A / div.
+goes into a fast decay mode for 31.25% of the off-time, tOFF.
+After that, it switches to Slow Decay mode for the remainder of                                    Fixed off-time
+tOFF. A timing diagram for this feature appears in Figure 7.
+
+Synchronous Rectification.  When a PWM-off cycle is
+triggered by an internal fixed-off time cycle, load current recircu-
+lates according to the decay mode selected by the control logic.
+This synchronous rectification feature turns on the appropriate                                 Fast decay portion
+FETs during current decay, and effectively shorts out the body                                  (direction change)
+diodes with the low FET RDS(ON). This reduces power dissipation
+significantly, and can eliminate the need for external Schottky                                        t→
+diodes in many applications. Synchronous rectification turns off             Figure 6: Shorted Load (OUTxA → OUTxB) in Mixed Decay Mode
+when the load current approaches zero (0 A), preventing reversal
+of the load current.
+                                                                                                      Allegro MicroSystems, LLC                    10
+                                                                                                      115 Northeast Cutoff
+                                                                                                      Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                      1.508.853.5000; www.allegromicro.com
+A4988                                  DMOS Microstepping Driver with Translator
+                                                     And Overcurrent Protection
+     VSTEP
+
+            100.00
+
+             70.71
+
+                                     See Enlargement A
+
+
+
+
+    IOUT        0
+
+
+
+
+            –70.71
+
+           –100.00
+
+
+
+
+                                                               Enlargement A
+
+
+                                                                          toff
+
+                                                         tFD                     tSD
+                                            IPEAK
+                                                                                            Slow Decay
+
+
+
+                                                                                       Mixed Decay
+                     IOUT
+
+
+
+
+                                                                                       Fa
+                                                                                         st
+                                                                                              De
+                                                                                                ca
+                                                                                                   y
+
+
+
+
+                                                                                                                      t
+
+                            Symbol                                   Characteristic
+                              toff         Device fixed off-time
+                             IPEAK         Maximum output current
+                              tSD          Slow decay interval
+                              tFD          Fast decay interval
+                             IOUT          Device output current
+
+
+
+
+                                        Figure 7: Current Decay Modes Timing Chart
+
+
+
+                                                                                                         Allegro MicroSystems, LLC                    11
+                                                                                                         115 Northeast Cutoff
+                                                                                                         Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                         1.508.853.5000; www.allegromicro.com
+A4988                                      DMOS Microstepping Driver with Translator
+                                                         And Overcurrent Protection
+
+
+                                                      Application Layout
+
+Layout. The printed circuit board should use a heavy ground-         The two input capacitors should be placed in parallel, and as
+plane. For optimum electrical and thermal performance, the           close to the device supply pins as possible. The ceramic capaci-
+A4988 must be soldered directly onto the board. Pins 3 and 18        tor (CIN1) should be closer to the pins than the bulk capacitor
+are internally fused, which provides a path for enhanced thermal     (CIN2). This is necessary because the ceramic capacitor will be
+dissipation. Theses pins should be soldered directly to an exposed   responsible for delivering the high frequency current components.
+surface on the PCB that connects to thermal vias are used to         The sense resistors, RSx , should have a very low impedance
+transfer heat to other layers of the PCB.                            path to ground, because they must carry a large current while
+                                                                     supporting very accurate voltage measurements by the current
+In order to minimize the effects of ground bounce and offset
+issues, it is important to have a low impedance single-point         sense comparators. Long ground traces will cause additional
+ground, known as a star ground, located very close to the device.    voltage drops, adversely affecting the ability of the comparators
+By making the connection between the pad and the ground plane        to accurately measure the current in the windings. The SENSEx
+directly under the A4988, that area becomes an ideal location for    pins have very short traces to the RSx resistors and very thick,
+a star ground point. A low impedance ground will prevent ground      low impedance traces directly to the star ground underneath the
+bounce during high current operation and ensure that the supply      device. If possible, there should be no other components on the
+voltage remains stable at the input terminal.                        sense circuits.
+
+
+
+                                                                                                                                                                 Solder
+                                                                                                                         A4988
+                                                                                                                                                                      Trace (2 oz.)
+                                                                                                                                                                       Signal (1 oz.)
+                                                                                                                                                                       Ground (1 oz.)
+                                                                                                PCB
+                                                                                                                                                                       Thermal (2 oz.)
+
+                                                                                          Thermal Vias
+
+
+
+
+                                                                                                RS1                                        RS2
+                                                                                     C7                                                                     C9                               VBB
+                                                                                                                                                                               C2
+                                                                                                                OUT2A
+
+
+                                                                                                                              OUT1A
+                                                                                                VBB2
+                                                                                                       SENSE2
+
+
+                                                                                                                        NC
+
+
+                                                                                                                                      SENSE1
+                                                                                                                                               VBB1
+
+
+
+
+                                                                                 1
+                                                                                     OUT2B                                                             OUT1B
+                                                                                     ENABLE                       A4988                                  NC
+
+                                                                                                                        PAD                              DIR
+                                                                                     GND
+                                                                                     CP1
+                                                                                C3                                                                      GND                             R3
+                                                                                     CP2                                                                REF
+                                                                           C4
+                                                                                     VCP                                                                STEP                    R2
+                                                                                     NC                                                                 VDD
+                                                                                                                                                                                             VDD
+                                                                                                                              RESET
+
+
+                                                                                                                                               SLEEP
+                                                                                                                                      ROSC
+                                                                                                VREG
+                                                                                                       MS1
+                                                                                                                MS2
+                                                                                                                        MS3
+
+
+
+
+                                                                                                                                                                 C1       C8
+
+
+                                                                                           C6                                    R6
+                                                                                                                                                       R1
+
+
+                                            Figure 8: Typical Application and Circuit Layout
+
+
+
+                                                                                                                        Allegro MicroSystems, LLC                                                  12
+                                                                                                                        115 Northeast Cutoff
+                                                                                                                        Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                                        1.508.853.5000; www.allegromicro.com
+A4988                                DMOS Microstepping Driver with Translator
+                                                   And Overcurrent Protection
+
+
+                                                  Pin Circuit Diagrams
+
+
+
+    VDD                 VBB                                          VBB        VCP     CP1             CP2
+
+
+           8V                 40 V
+
+
+          GND     GND         GND
+
+                                          PGND   GND
+                                                                           8V
+
+                                                                                GND     GND             GND
+
+
+
+
+                                                              MS1
+                  VBB                                         MS2                                      VBB
+                                                              MS3                                                             OUT
+    VREG                 SENSE                   VREG          DIR
+                                                             VREF                                         DMOS
+                                                             ROSC                                         Parasitic
+                              DMOS                                     8V
+           10 V                                             SLEEP                                                       DMOS
+                              Parasitic
+                                                                                                                        Parasitic
+           GND                   GND                                  GND             GND                     GND
+
+
+
+
+                                                                                            Allegro MicroSystems, LLC                    13
+                                                                                            115 Northeast Cutoff
+                                                                                            Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                            1.508.853.5000; www.allegromicro.com
+A4988                                                                                                  DMOS Microstepping Driver with Translator
+                                                                                                                     And Overcurrent Protection
+       RESET
+                                                                                                                                                        STEP
+       STEP                                                                                                                                                      100.00
+                                                                                                                                                                                                               Mixed*
+                 100.00
+                                                            Mixed*                                                                                                70.71
+
+                  70.71                                                                                                                                                    Slow                               Slow           Slow
+                                                                                                                                                     Phase 1                      Mixed                              Mixed       Mixed
+                                                           Slow
+     Phase 1                                                                                                                                            IOUT1A     0.00
+        IOUT1A     0.00                                                                                                                         Direction = H
+
+
+
+
+                                                                                                                                                                                   Home Microstep Position
+
+
+
+
+                                                                                                                                                                                                                                    Home Microstep Position
+Direction = H                                                                                                                                             (%)
+                          Home Microstep Position
+
+
+
+
+                                                                             Home Microstep Position
+          (%)
+                                                                                                                                                                 –70.71
+                 –70.71
+                                                                                                                                                             –100.00
+             –100.00
+
+                                                                                                                                                                 100.00
+                 100.00                                                                                                                                                                                        Mixed*
+                                                                                                                                                                  70.71
+                  70.71
+                                                                                                                                                                           Slow Slow                                  Slow            Slow
+     Phase 2                                                                                                                                         Phase 2              Mixed                              Mixed       Mixed
+        IOUT2A                                                                                                                                          IOUT2B
+                   0.00                                                                                                                                            0.00
+Direction = H                                                                                                                                   Direction = H
+          (%)                                                                                                                                             (%)
+
+                 –70.71                                                                                                                                          –70.71
+
+             –100.00
+                                                                                                                                                             –100.00
+                                                    *With ROSC pin tied to GND
+                                                                                                                                                                              *With ROSC pin tied to GND
+                                                           DIR= H                                                                                                                                            DIR= H
+            Figure 9: Decay Mode for Full-Step Increments                                                                                                Figure 10: Decay Modes for Half-Step Increments
+
+                                                             STEP
+                                                                         100.00
+                                                                          92.39
+
+                                                                          70.71
+                                                                                                                                               Mixed*
+                                                                          38.27
+                                                         Phase 1
+                                                                                                         Slow   Mixed                           Slow       Mixed             Slow
+                                                            IOUT1A
+                                                                           0.00
+                                                    Direction = H
+                                                                                                                 Home Microstep Position
+
+
+
+
+                                                              (%)        –38.27
+
+                                                                         –70.71
+                                                                         –92.39
+                                                                        –100.00
+
+                                                                         100.00
+                                                                          92.39
+
+                                                                          70.71                                                                         Mixed*
+
+                                                                          38.27                         Slow
+                                                         Phase 2
+                                                                                                        Mixed    Slow                          Mixed         Slow          Mixed
+                                                            IOUT2B
+                                                                           0.00
+                                                    Direction = H
+                                                              (%)        –38.27
+
+                                                                         –70.71
+                                                                         –92.39
+                                                                        –100.00
+
+                                                                                                                 *With ROSC pin tied to GND
+
+                                                                                                                                           DIR= H
+                                                                            Figure 11: Decay Modes for Quarter-Step Increments
+
+
+
+                                                                                                                                                                                          Allegro MicroSystems, LLC                                           14
+                                                                                                                                                                                          115 Northeast Cutoff
+                                                                                                                                                                                          Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                                                                                                          1.508.853.5000; www.allegromicro.com
+A4988                            DMOS Microstepping Driver with Translator
+                                               And Overcurrent Protection
+
+
+
+
+          STEP
+                     100.00
+                      92.39
+                      83.15
+                      70.71
+                      55.56
+                      38.27                                                     Mixed*
+        Phase 1
+                  19.51
+           IOUT1A             Slow                Mixed                                  Slow                   Mixed
+                   0.00
+   Direction = H –19.51
+                                                    Home Microstep Position
+
+
+
+             (%) –38.27
+                     –55.56
+                     –70.71
+                     –83.15
+                     –92.39
+                    –100.00
+
+                     100.00
+                      92.39
+                      83.15
+                      70.71
+                      55.56
+                      38.27                                                     Mixed*
+        Phase 2       19.51
+           IOUT2B             Mixed                Slow                                  Mixed                   Slow
+                       0.00
+   Direction = H     –19.51
+             (%)     –38.27
+                     –55.56
+                     –70.71
+                     –83.15
+                     –92.39
+                    –100.00
+                                                     *With ROSC pin tied to GND
+
+                                                                              DIR= H
+
+
+                               Figure 12: Decay Modes for Eighth-Step Increments
+
+
+
+
+                                                                                                 Allegro MicroSystems, LLC                    15
+                                                                                                 115 Northeast Cutoff
+                                                                                                 Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                 1.508.853.5000; www.allegromicro.com
+A4988                                      DMOS Microstepping Driver with Translator
+                                                         And Overcurrent Protection
+
+               STEP
+                          100.00
+                           95.69
+                           88.19
+                           83.15
+                           77.30
+                           70.71
+                           63.44
+                           55.56
+
+                           47.14
+                                                                                      Mixed*
+                           38.27
+
+                           29.03
+
+                           19.51
+
+             Phase 1         9.8
+                IOUT1A                     Slow            Mixed                                       Slow           Mixed
+                            0.00
+        Direction = H       –9.8
+                  (%)
+                          –19.51
+
+                          –29.03
+
+                          –38.27
+                                                            Home Microstep Position
+
+                          –47.14
+
+                          –55.56
+                          –63.44
+                          –70.71
+                          –77.30
+                          –83.15
+                          –88.19
+                          –95.69
+                         –100.00
+
+                          100.00
+                           95.69
+                           88.19
+                           83.15
+                           77.30
+                           70.71
+                           63.44
+                           55.56
+
+                           47.14
+                                                                                      Mixed*
+                           38.27
+
+                           29.03
+
+                           19.51
+                                   Slow
+             Phase 2         9.8
+                IOUT2B                    Mixed                  Slow                                Mixed               Slow
+                            0.00
+        Direction = H
+                            –9.8
+                  (%)
+                          –19.51
+
+                          –29.03
+
+                          –38.27
+
+                          –47.14
+
+                          –55.56
+                          –63.44
+                          –70.71
+                          –77.30
+                          –83.15
+                          –88.19
+                          –95.69
+                         –100.00
+                                                                               *With ROSC pin tied to GND
+
+                                                                                       DIR= H
+
+
+                                      Figure 13: Decay Modes for Sixteenth-Step Increments
+
+
+
+                                                                                                              Allegro MicroSystems, LLC                    16
+                                                                                                              115 Northeast Cutoff
+                                                                                                              Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                              1.508.853.5000; www.allegromicro.com
+A4988                                         DMOS Microstepping Driver with Translator
+                                                            And Overcurrent Protection
+
+
+Table 2: Step Sequencing Settings
+Home microstep position at Step Angle 45º; DIR = H
+
+                                    Phase 1        Phase 2                                                       Phase 1        Phase 2
+ Full   Half    1/4    1/8   1/16   Current        Current        Step    Full   Half    1/4    1/8     1/16     Current        Current        Step
+ Step   Step   Step   Step   Step   [% ItripMax]   [% ItripMax]   Angle   Step   Step   Step   Step     Step     [% ItripMax]   [% ItripMax]   Angle
+  #      #       #      #      #      (%)             (%)          (º)     #      #       #      #        #          (%)           (%)              (º)
+         1       1      1      1     100.00           0.00         0.0            5       9     17       33       –100.00          0.00            180.0
+                              2       99.52           9.80         5.6                                   34       –99.52          –9.80            185.6
+                       2      3       98.08          19.51        11.3                         18        35       –98.08         –19.51            191.3
+                              4       95.69          29.03        16.9                                   36       –95.69         –29.03            196.9
+                2      3      5       92.39          38.27        22.5                  10     19        37       –92.39         –38.27            202.5
+                              6       88.19          47.14        28.1                                   38       –88.19         –47.14            208.1
+                       4      7       83.15          55.56        33.8                         20        39       –83.15         –55.56            213.8
+                              8       77.30          63.44        39.4                                   40       –77.30         –63.44            219.4
+  1      2      3      5      9       70.71          70.71        45.0     3      6      11    21        41       –70.71         –70.71            225.0
+                             10       63.44          77.30        50.6                                   42       –63.44         –77.30            230.6
+                       6      11      55.56          83.15        56.3                         22        43       –55.56         –83.15            236.3
+                             12       47.14          88.19        61.9                                   44       –47.14         –88.19            241.9
+                4      7     13       38.27          92.39        67.5                  12     23        45       –38.27         –92.39            247.5
+                             14       29.03          95.69        73.1                                   46       –29.03         –95.69            253.1
+                       8     15       19.51          98.08        78.8                         24        47       –19.51         –98.08            258.8
+                             16        9.80          99.52        84.4                                   48        –9.80         –99.52            264.4
+         3      5      9     17        0.00         100.00        90.0            7     13     25        49         0.00        –100.00            270.0
+                             18       –9.80          99.52        95.6                                   50         9.80         –99.52            275.6
+                      10     19      –19.51          98.08        101.3                        26        51        19.51         –98.08            281.3
+                             20      –29.03          95.69        106.9                                  52        29.03         –95.69            286.9
+                6      11    21      –38.27          92.39        112.5                 14     27        53        38.27         –92.39            292.5
+                             22      –47.14          88.19        118.1                                  54        47.14         –88.19            298.1
+                      12     23      –55.56          83.15        123.8                        28        55        55.56         –83.15            303.8
+                             24      –63.44          77.30        129.4                                  56        63.44         –77.30            309.4
+  2      4      7     13     25      –70.71          70.71        135.0    4      8     15     29        57        70.71         –70.71            315.0
+                             26      –77.30          63.44        140.6                                  58        77.30         –63.44            320.6
+                      14     27      –83.15          55.56        146.3                        30        59        83.15         –55.56            326.3
+                             28      –88.19          47.14        151.9                                  60        88.19         –47.14            331.9
+                8     15     29      –92.39          38.27        157.5                 16     31        61        92.39         –38.27            337.5
+                             30      –95.69          29.03        163.1                                  62        95.69         –29.03            343.1
+                      16     31      –98.08          19.51        168.8                        32        63        98.08         –19.51            348.8
+                             32      –99.52           9.80        174.4                                  64        99.52          –9.80            354.4
+
+
+
+
+                                                                                                      Allegro MicroSystems, LLC                           17
+                                                                                                      115 Northeast Cutoff
+                                                                                                      Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                      1.508.853.5000; www.allegromicro.com
+A4988                         DMOS Microstepping Driver with Translator
+                                            And Overcurrent Protection
+
+                                              Pin-out Diagram
+
+
+
+
+                                                            27 SENSE2
+
+
+
+
+                                                                                                       23 SENSE1
+                                                                        26 OUT2A
+
+
+                                                                                            24 OUT1A
+                                                  28 VBB2
+
+
+
+
+                                                                                                                   22 VBB1
+                                                                                   25 NC
+                                    OUT2B     1                                                                               21 OUT1B
+                                   ENABLE     2                                                                               20 NC
+                                        GND   3                                                                               19 DIR
+                                        CP1   4                                    PAD                                        18 GND
+                                        CP2   5                                                                               17 REF
+                                        VCP   6                                                                               16 STEP
+                                         NC   7                                                                               15 VDD
+
+
+
+
+                                                                        MS2 10
+
+
+                                                                                            RESET 12
+                                                                                                       ROSC 13
+                                                                                                                   SLEEP 14
+                                                                                   MS3 11
+                                                  8
+                                                            9
+                                                  VREG
+                                                            MS1
+        Terminal List Table
+             Name               Number                                                                                            Description
+               CP1                 4                              Charge pump capacitor terminal
+               CP2                 5                              Charge pump capacitor terminal
+               VCP                 6                              Reservoir capacitor terminal
+             VREG                  8                              Regulator decoupling terminal
+               MS1                 9                              Logic input
+               MS2                10                              Logic input
+               MS3                 11                             Logic input
+             R̄¯Ē
+                 ¯S̄
+                   ¯Ē
+                     ¯T̄
+                       ¯          12                              Logic input
+             ROSC                 13                              Timing set
+             S̄¯L̄¯Ē
+                    ¯Ē
+                      ¯P̄
+                        ¯         14                              Logic input
+               VDD                15                              Logic supply
+              STEP                16                              Logic input
+               REF                17                              Gm reference voltage input
+              GND                3, 18                            Ground*
+               DIR                19                              Logic input
+            OUT1B                 21                              DMOS Full Bridge 1 Output B
+              VBB1                22                              Load supply
+            SENSE1                23                              Sense resistor terminal for Bridge 1
+             OUT1A                24                              DMOS Full Bridge 1 Output A
+             OUT2A                26                              DMOS Full Bridge 2 Output A
+            SENSE2                27                              Sense resistor terminal for Bridge 2
+              VBB2                28                              Load supply
+            OUT2B                  1                              DMOS Full Bridge 2 Output B
+             ¯N̄¯Ā
+            Ē    ¯B̄
+                    ¯L̄¯Ē¯        2                              Logic input
+                NC             7, 20, 25                          No connection
+               PAD                 –                              Exposed pad for enhanced thermal dissipation*
+        *The GND pins must be tied together externally by connecting to the PAD ground plane
+        under the device.
+
+
+
+
+                                                                                                                                                Allegro MicroSystems, LLC                    18
+                                                                                                                                                115 Northeast Cutoff
+                                                                                                                                                Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                                                                1.508.853.5000; www.allegromicro.com
+A4988                                             DMOS Microstepping Driver with Translator
+                                                                And Overcurrent Protection
+
+
+
+                                    ET Package, 28-Pin QFN with Exposed Thermal Pad
+                                                                                                        0.30
+                                    5.00 ±0.15
+                                                                                1.15           28                          0.50
+                           28
+
+                       1
+                       2        A                                                      1
+
+                                                    5.00 ±0.15                                                                      3.15     4.80
+
+
+
+
+                                                                                                        3.15
+29X   D                                                               C
+                                                            SEATING                                     4.80
+      0.08 C                                                PLANE
+               +0.05                                                                       C   PCB Layout Reference View
+          0.25 –0.07                                   0.90 ±0.10
+                                     0.50
+
+
+                                                                             For Reference Only; not for tooling use
+                                                                             (reference JEDEC MO-220VHHD-1)
+                                                                             Dimensions in millimeters
+                                                                             Exact case and lead configuration at supplier discretion within limits shown
+  0.73 MAX
+                                              B                           A Terminal #1 mark area
+                                                    3.15                  B Exposed thermal pad (reference only, terminal #1
+                                                                            identifier appearance at supplier discretion)
+                       2
+                       1                                                  C Reference land pattern layout (reference IPC7351
+                                                                            QFN50P500X500X100-29V1M);
+                                                                            All pads a minimum of 0.20 mm from all adjacent pads; adjust as
+                           28
+                                                                            necessary to meet application process requirements and PCB layout
+                                       3.15                                 tolerances; when mounting on a multilayer PCB, thermal vias at the
+                                                                            exposed thermal pad land can improve thermal dissipation (reference
+                                                                            EIA/JEDEC Standard JESD51-5)
+                                                                          D Coplanarity includes exposed thermal pad and terminals
+
+
+
+
+                                                                                                          Allegro MicroSystems, LLC                    19
+                                                                                                          115 Northeast Cutoff
+                                                                                                          Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                          1.508.853.5000; www.allegromicro.com
+A4988                                            DMOS Microstepping Driver with Translator
+                                                               And Overcurrent Protection
+
+
+
+
+ Revision History
+       Revision              Revision Date                                             Description of Revision
+            4               January 27, 2012       Update IOCPST
+            5                 May 7, 2014          Revised text on pg. 9; revised Figure 8 and Table 2
+
+
+
+
+  Copyright ©2009-2014, Allegro MicroSystems, LLC
+  Allegro MicroSystems, LLC reserves the right to make, from time to time, such departures from the detail specifications as may be required to
+permit improvements in the performance, reliability, or manufacturability of its products.  Before placing an order, the user is cautioned to verify that
+the information being relied upon is current.  
+  Allegro’s products are not to be used in any devices or systems, including but not limited to life support devices or systems, in which a failure of
+Allegro’s product can reasonably be expected to cause bodily harm.
+  The information included herein is believed to be accurate and reliable.  However, Allegro MicroSystems, LLC assumes no responsibility for its
+use; nor for any infringement of patents or other rights of third parties which may result from its use.
+
+
+
+
+                                             For the latest version of this document, visit our website:
+                                                              www.allegromicro.com
+
+                                                                                                             Allegro MicroSystems, LLC                    20
+                                                                                                             115 Northeast Cutoff
+                                                                                                             Worcester, Massachusetts 01615-0036 U.S.A.
+                                                                                                             1.508.853.5000; www.allegromicro.com
+

@@ -1,0 +1,18 @@
+{
+  "command": "tsci check schematic-placement artifacts/final-source.circuit.json",
+  "executed": true,
+  "exit_code": 0,
+  "before_source_sha256": "63df11c063a1ef3d010c27c4d24a9c6bae3c07388c364713abbf65373eb6f753",
+  "issues": [
+    {
+      "type": "GenericSchematicBoxTooWide",
+      "componentName": "U_VM_ISO",
+      "currentSchWidth": 2.4,
+      "suggestedSchWidth": 1.865,
+      "measuredInnerLabelHorizontalEmptySpace": 1.535,
+      "maxAllowedInnerLabelHorizontalEmptySpace": 1
+    }
+  ],
+  "record_source": "actual CLI output from this review before metadata correction",
+  "correction": "Source schWidth was overridden by prepareSchematic width table; final table entry1.865 resolves actual warning without changing electrical/PCB records."
+}

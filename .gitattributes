@@ -1,0 +1,9 @@
+# Preserve the audited CLI-derived CSV bytes, including their CRLF record endings.
+artifacts/bom.csv whitespace=cr-at-eol
+artifacts/pick_and_place.csv whitespace=cr-at-eol
+artifacts/manufacturing/*.csv whitespace=cr-at-eol
+
+# Preserve whitespace in exact supplier/manufacturer and native CAM evidence.
+artifacts/** whitespace=-trailing-space
+imports/** whitespace=-trailing-space
+references/** whitespace=-trailing-space

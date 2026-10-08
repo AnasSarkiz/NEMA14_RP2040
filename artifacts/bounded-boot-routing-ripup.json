@@ -1,0 +1,178 @@
+{
+  "removed": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_45",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 16.62,
+          "y": 15.2398,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 16.55,
+          "y": 15.3098,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 16.55,
+          "y": 16.4,
+          "width": 0.16,
+          "layer": "top",
+          "end_pcb_port_id": "pcb_port_146"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "source_net_id": "source_net_0",
+      "source_trace_id": "source_trace_249",
+      "pcb_port_ids": [
+        "pcb_port_146"
+      ]
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_261",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 8.1808,
+          "y": -13.6929,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 8.1808,
+          "y": -13.6375,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 13.0947,
+          "y": -8.7236,
+          "width": 0.16,
+          "layer": "inner2"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net12",
+      "source_net_id": "source_net_2",
+      "source_trace_id": "source_trace_238",
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_460",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 15.05,
+          "y": 15.4183,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.2715,
+          "y": 15.4183,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.4549,
+          "y": 15.2349,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net34",
+      "source_net_id": "source_net_51",
+      "source_trace_id": "source_trace_114",
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_461",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 15.8386,
+          "y": 4.0322,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.9902,
+          "y": 4.1838,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.9902,
+          "y": 14.6996,
+          "width": 0.16,
+          "layer": "inner2"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.4549,
+          "y": 15.2349,
+          "width": 0.16,
+          "layer": "inner2"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net34",
+      "source_net_id": "source_net_51",
+      "source_trace_id": "source_trace_114",
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_463",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 15.1328,
+          "y": 4.0,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_144"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.8064,
+          "y": 4.0,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.8386,
+          "y": 4.0322,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net34",
+      "source_net_id": "source_net_51",
+      "source_trace_id": "source_trace_114",
+      "pcb_port_ids": [
+        "pcb_port_144"
+      ]
+    }
+  ],
+  "reason": "Relocated BOOT pads and route outside native circular-keepout bounding-box false positives. No actual keepout waived."
+}

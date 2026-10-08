@@ -1,0 +1,2632 @@
+                                                   CH32X035/X033 Datasheet
+                                                                                                         V2.3
+                                                                                           https://wch-ic.com
+
+Overview
+CH32X035 is an industrial-grade microcontroller based on the QingKe RISC-V core. CH32X035 has built-in USB
+and PD PHY, supports USB Host and USB Device functions, PDUSB and Type-C fast charging functions, built-in
+programmable protocol I/O controller, provides 2 groups of OPA, 3 groups of CMP, 4 groups of USART, I2C, SPI,
+multiple timers, 12-bit ADC, 14-channel Touchkey and other rich peripheral resources.
+
+
+Features
+    Core                                                   - 2 output channels each, optional ADC pins
+    - QingKe 32-bit RISC-V4C core                           3 groups of analog voltage comparator CMP:
+    - Support RV32IMAC instruction set and self-            - 2 input channels each, optional common
+      extending instructions                                  reference voltage pin
+    - Fast programmable interrupt controller +              - Output to I/O or internal direct trigger TIM2
+      hardware interrupt stack                              12-bit ADC
+  - Branch prediction, conflict handling mechanism          - Analog input range: GND ~ VDD
+  - Single-cycle multiplication, hardware division          - 14-channel external signal + 1-channel internal
+ Memory                                                      signal channel
+  - 20KB volatile data storage area SRAM                    14-channel touch-key detection
+  - 62KB program memory area CodeFlash                      Multiple timers
+  - 256B system non-volatile configuration                  - 2×16-bit advanced-control timers, with dead-
+    information memory area                                   time control and emergency brake; can offer
+  - 256B user-defined information storage area                PWM complementary output for motor control
+ Power management and low-power:                           - 1×16-bit general-purpose timers, provide input
+  - System power supply VDD voltage range:                    capture/output comparison/PWM
+    2V~5.5V                                                 - 2 watchdog timers (independent watchdog and
+    - Low power modes: Sleep, Stop, Standby                   window watchdog)
+    System clock & Reset                                   - SysTick: 64-bit counter
+    - Built-in 48MHz RC oscillator                          4 groups of USART: Support LIN and ISO7816
+    - Power on/down reset, programmable voltage             1×I2C interface
+      detector                                              1×SPI interface
+    8-channel general-purpose DMA controller               USB2.0 full-speed controller and PHY:
+    - 8 channels, support ring buffer management            - Support USB Host and USB Device
+    - Support TIMx/ADC/USART/I2C/SPI                        USB PD and Type-C controller and PHY
+    Programmable Protocol I/O Controller PIOC:             Fast GPIO port
+    - Programmable, supports a wide range of 1-wire         - 60 I/O ports, with 24 external interrupts
+      interfaces, 2-wire interfaces                         Security features: Chip unique ID
+    2 groups of OPA/PGA/CMP:                               Debug mode: 2-wire serial debug interface
+    - Multiple input channels, selectable multi-step         (SDI)
+      gain                                                  Package: LQFP, QFN, QSOP, TSSOP
+    CH32X035 Datasheet                                                                                                      https://wch-ic.com
+
+
+
+
+                                                                              PDUSB
+                                  Advanced- General-                                                                               PIOC
+               Code                                    Serial                         Type-C                   Capacitive
+   Model               RAM GPIO    control   purpose            Watchdog USB USB                ADC OPA CMP                 SPI    1-wire     Package form
+               Flash                                   port                           Source                   Touchkey
+                                    timer     timer                    Host Device                                                interface
+                                                                                     Sink DRP
+
+CH32X035R8T6   62K     20K   60       2        1         4         2    √     √         √       14+1   2   3      14         √       √         LQFP64M
+
+CH32X035C8T6   62K     20K   46       2        1         4         2    √     √         √       10+1   2   3      10         √       √          LQFP48
+
+CH32X035G8U6   62K     20K   27       2        1         4         2    √     √         √       12+1   2   1      12         √       √          QFN28
+
+CH32X035G8R6   62K     20K   26       2        1         4         2    √     √         √       11+1   2   3      11         √       √          QSOP28
+
+CH32X035F8U6   62K     20K   19       2        1         3         2     -    √         √       10+1   2   -      10         √       √          QFN20
+
+CH32X035F7P6   62K     20K   18       2        1         3         2     -    √         √       11+1   1   1      11         √       √         TSSOP20
+
+CH32X035D8U6   62K     20K   11       2        1         3         2     -    √         √       5+1    1   -       5         √       √          QFN12
+
+CH32X033F8P6   62K     20K   18       2        1         4         2     -    √         -       10+1   2   2      10         √       √         TSSOP20
+CH32X035 Datasheet                                                                                                                         https://wch-ic.com
+
+
+
+                                            Chapter 1 Specification Information
+
+1.1 System Structure
+The microcontroller is designed on the basis of the RISC-V instruction set, and its architecture integrates the QingKe
+microprocessor core, arbitration unit, DMA module, SRAM storage and other components through multiple bus
+groups to achieve interaction. A general-purpose DMA controller is integrated to reduce the CPU load and improve
+access efficiency, and a multi-level clock management mechanism is applied to reduce the power consumption of
+peripherals. The following diagram shows the overall internal architecture of the series chip.
+                                         Figure 1-1 System Block Diagram
+
+
+                                                                                                                    @VDD                    VDD: 2V~5.5V
+                                   RISC-V (V4C)                                       FLASH                                                 GND
+                                                                   I-code Bus                                    POR PDR PVD
+                                                                                       CTRL
+                                 PFIC              RV32
+       SWCLK                       SDI             IMAC        D-code Bus
+       SWDIO
+                                                                                                    Flash
+                                                                            MUX
+
+
+
+                                                                                                   Memory
+                                              DMA Channels
+                              System Bus
+
+
+
+
+                                                                                                                                   SYSCLK
+                                                                                                         Reset &                   HBCLK
+                                                             MUX
+
+
+
+
+                                                                                 SRAM                   MUX & DIV                  HSI_DIV6_CLK
+                                                                                                                                   HSI_47KHZ_CLK
+                  DP
+                 DM                        USBFS
+                                                                                                            HSI-RC
+                                                                                      RCC
+
+                                                                                                            AWU_CLK
+                           CC1、CC2                   USBPD                                                  IWDG_CLK
+                       N0、N1、N2
+                        P0、P1、P2                      OPA1
+                       OUT0、OUT1
+                                                                                                               4 channels
+                       N0、N1、N2                                                          TIM2                  3 complementary Channels
+                        P0、P1、P2                      OPA2                                                     ETR, BIKN
+                       OUT0、OUT1
+                                                                                         TIM3                2 channels
+                           N0、N1
+                           P0、P1                     CMP1
+                             OUT                                                        USART2               RX, TX, CTS, RTS,CK
+                            N0、N1
+                            P0、P1                     CMP2                              USART3               RX, TX, CTS, RTS,CK
+                              OUT
+                                                                            HB
+
+
+
+
+                                                                                        USART4               RX, TX, CTS, RTS,CK
+                            N0、N1
+                            P0、P1                     CMP3
+                              OUT                                                        IWDG
+                       PA0 ~ PA23                    GPIOA
+                                                                                         WWDG
+                        PB0 ~ PB21                   GPIOB
+                                                                                            I2C               SCL, SDA
+                         PC0 ~ PC7
+                       PC14 ~ PC19                   GPIOC
+                                                                                          PWR
+             MOSI,MISO,SCK, NSS                       SPI
+                                                                                          PIOC
+               RX, TX, CTS, RTS,CK                   USART1
+                                                                                         AWU
+                     4 channels
+       3 complementary Channels                       TIM1
+                      ETR, BIKN                                                             AFIO
+                  AIN0 ~ AIN13                        Tkey                                  EXTI
+                    (GND)VREF -                       ADC
+                          VREF+
+
+
+
+
+V2.3                                                                              1
+CH32X035 Datasheet                                                                                    https://wch-ic.com
+
+
+
+1.2 Memory Map
+
+                                            Figure 1-2 Memory address map
+
+
+
+                                                                                                      Reserved
+                                                                                      0x5005 0000
+                                                                                                       USBPD
+                                                                                      0x4002 7000
+                                                                                                        PIOC
+                                                                                      0x4002 6C00
+                                                                                                      Reserved
+                                                                                      0x4002 6800
+                                                                                                        AWU
+                                                                                      0x4002 6400
+                                                                                                        OPA
+                                                                                      0x4002 6000
+
+                                                                                                      Reserved
+
+                                                                                      0x4002 3800
+                                                                                                        USBFS
+                                                                                      0x4002 3400
+                                                                                                      Reserved
+                                                                                      0x4002 2400
+                                                                                                    Flash Interface
+                                                                                      0x4002 2000
+                                                                                                       Reserved
+                                                                                      0x4002 1400
+                                                                                                         RCC
+                                                                                      0x4002 1000
+
+                                                                                                      Reserved
+
+                                                                                      0x4002 0400
+                                                                                                        DMA
+                                                                                      0x4002 0000
+
+                                                                                                      Reserved
+
+                                                                                      0x4001 3C00
+                                                                                                       USART1
+                                                                                      0x4001 3800
+                                                                                                      Reserved
+                                                                                      0x4001 3400
+                                                                                                         SPI
+                                                                                      0x4001 3000
+                                                                                                        TIM1
+                                                                                      0x4001 2C00
+                                             0xFFFF FFFFF                                             Reserved
+                                                                                      0x4001 2800
+                                                                                                    ADC/TouchKey
+                                                                     Reserved         0x4001 2400
+
+                                             0xE010 0000                                              Reserved
+                                                                     Core Private
+                                                                     Peripherals
+                                             0xE000 0000                              0x4001 1400
+                                                                                                        Port C
+                                                                                      0x4001 1000
+                                                                     Reserved                           Port B
+                                                                                      0x4001 0C00
+                                                                                                        Port A
+                                                                                      0x4001 0800
+       0x1FFF FFFF                                                                                       EXTI
+                          Reserved           0xA000 1000                              0x4001 0400
+       0x1FFF F900                                                                                       AFIO
+                                                                     Reserved         0x4001 0000
+                        Option Bytes
+       0x1FFF F800                                                                                    Reserved
+                        Vendor Bytes         0xA000 0000                              0x4000 7400
+       0x1FFF F700
+                          Reserved                                                                       PWR
+                                                                                      0x4000 7000
+       0x1FFF 0D00                                                   Reserved
+                                                                                                      Reserved
+                       System FLASH                                                   0x4000 5800
+                     (BOOT_3KB+256B)         0x7000 0000                                                I2C
+                                                                                      0x4000 5400
+       0x1FFF 0000                                                                                    Reserved
+                                                                                      0x4000 5000
+                                             0x6000 0000             Reserved                          USART4
+                                                                                      0x4000 4C00
+                                                                                                       USART3
+                          Reserved                                                    0x4000 4800
+                                                                                                       USART2
+                                                                                      0x4000 4400
+                                                                     Peripherals                      Reserved
+       0x0800 F800                           0x4000 0000
+                                                                                      0x4000 3400
+                                                                     Reserved                          IWDG
+                         Code FLASH                                                   0x4000 3000
+                                                                                                       WWDG
+                            62KB             0x2000 5000                              0x4000 2C00
+                                                                     20KB SRAM
+                                             0x2000 0000
+       0x0800 0000                                                                                    Reserved
+                      Aliased to Flash or
+                       system memory                                   FLASH
+                     depending on BOOT                                                0x4000 0800
+                             pins                                                                       TIM3
+                                                                                      0x4000 0400
+       0x0000 0000                           0x0000 0000                                                TIM2
+                                                                                      0x4000 0000
+                                                            4G linear address space
+
+
+
+
+V2.3                                                             2
+CH32X035 Datasheet                                                                                   https://wch-ic.com
+
+
+
+1.3 Clock Tree
+System clock source: Internal high frequency RC oscillator (HSI)
+                                      Figure 1-3 Clock Tree Block Diagram
+
+
+
+            48MHz       SYSCLK
+            HSI RC                                /1024                to AWU/IWDG
+
+
+                                                 CLK_DIV[3:0]          to ADC
+
+           MCO[1:0]
+                                                                       USBCLK
+
+                 HSI
+                                                   /6                   to Flash prog IF
+  MCO
+                 HCLK            HB prescaler
+                                 /1,/2.../256
+                                                                        to PIOC
+
+                                                                        to Flash prog IF(register)
+
+                                          HCLK
+
+                                                                        to HB bus/core/memory/OPA
+
+                                                                        FCLK core free running clock
+
+
+                                                                        to Core System timer
+                                                               /8
+
+
+                                                          enable        to SRAM
+
+
+                                                          enable        to USBPD/USBFS/DMA
+
+
+                                                          enable        to TIM1/SPI/USART1
+
+
+                                                          enable        to AFIO/IOPA/IOPB/IOPC
+
+
+                                                          enable        to I2C/WWDG/PWR
+
+
+                                                          enable        to USART2/USART3/USART4
+
+
+                                                          enable        to TIM2/TIM3
+
+
+
+
+V2.3                                                       3
+CH32X035 Datasheet                                                                                https://wch-ic.com
+
+
+
+1.4 Functional Description
+1.4.1 RISC-V4C Processor
+RISC-V4C supports the IMAC subset of the RISC-V instruction set. The processor is managed internally in a
+modular fashion and contains units such as a programmable fast interrupt controller (PFIC), memory protection,
+branch prediction mode and extended instruction support. Externally multiple buses are connected to external unit
+modules, enabling interaction between external function modules and the core.
+
+The processor with its minimal instruction set, multiple operating modes, and modular custom extensions can be
+flexibly applied to different scenarios of microcontroller design, such as small area low-power embedded scenarios,
+high performance application operating system scenarios, etc.
+
+      Support machine and user privileged modes
+      Programmable Fast Interrupt Controller (PFIC)
+      Multi-level hardware interrupt stack
+      2-wire serial debug interface (SDI)
+      Standard memory protection design
+      Static or dynamic branch prediction, efficient jumping, conflict detection mechanisms
+      Custom extension instructions
+
+
+1.4.2 Programmable Protocol I/O Controller (PIOC)
+Programmable protocol I/O controller is based on a single clock cycle dedicated compact instruction set RISC core
+running at system mains frequency with 2K instruction program ROM and 49 SFR registers and PWM timer/counter,
+supporting protocol control of 2 I/O pins.
+ Multiplex 4K bytes of system SRAM as a 2K word capacity program ROM, supporting program pause and
+     dynamic loading.
+ Provide 33 bytes of 1 register each in bidirectional and unidirectional mode, providing 6 levels of independent
+     stacking.
+ Support 1- and 2-wire interfaces with multiple protocol specifications by dynamically loading different
+     protocol programs.
+
+
+1.4.3 On-chip Memory
+Built-in 20K bytes SRAM area for data storage and data loss after power down. Among them, 4K can be used for
+PIOC.
+Built-in 62K bytes program flash memory storage area (Code FLASH), i.e. user area, for user's application program
+and constant data storage.
+Built-in 3328 bytes system storage area (System FLASH), i.e. BOOT area, for system boot program storage, built-
+in bootstrap loading program. This region can be used for the user area together with the aforementioned 62K-byte
+region via the WCH-LinkUtility tool. For details, refer to the relevant EVT.
+256-byte system non-volatile configuration information storage area, used for vendor configuration word storage,
+factory-cured, user cannot be modified.
+256-byte user-defined information storage area for user-selected word storage.
+
+
+1.4.4     Power Supply Scheme
+VDD = 2 ~ 5.5V: supplies power to the I/O pins and internal regulator. (When using the ADC or PD, VDD should be
+no less than 2.5V.)
+
+V2.3                                                    4
+CH32X035 Datasheet                                                                                 https://wch-ic.com
+
+
+
+
+1.4.5 Power Supply Monitor
+A power-on reset (POR)/power-down reset (PDR) circuit is integrated inside the chip, which is always active to
+ensure that the system operates when the power supply exceeds 2V; when VDD is below the set threshold (VPOR/PDR),
+it puts the device in reset without the need to use external reset circuitry.
+
+In addition, the system has a programmable voltage monitor (PVD), which needs to be turned on by software, to
+compare the voltage magnitude of the VDD supply with the set threshold VPVD. Turning on the corresponding edge
+interrupt of the PVD allows you to receive an interrupt notification when VDD falls to the PVD threshold or rises to
+the PVD threshold. Refer to Chapter 3 for VPOR/PDR and VPVD values.
+
+
+1.4.6 System Voltage Regulator LDO
+After resetting, the system voltage regulator is automatically switched on. There are two modes of operation
+depending on the application mode.
+ On mode: normal running operation, providing stable core power.
+ Low-power mode: low-power operation of the regulator when the CPU is in Standby mode.
+
+
+1.4.7 Low-power Mode
+The system supports three low-power modes, which can be selected to achieve the best balance for conditions such
+as low-power consumption, short start-up times and multiple wake-up events.
+ Sleep mode
+In Sleep mode, only the CPU clock is stopped, but all peripheral clocks are powered normally and the peripherals
+are in working condition. This mode is the shallowest low-power mode, but the fastest wake-up can be achieved.
+Exit condition: any interrupt or wake-up event.
+ Stop mode
+This mode puts the FLASH into low-power mode and the RC oscillator of the HSI is switched off.
+Exit conditions: any external interrupt/event (EXTI signal), external reset signal on RST, IWDG reset, where EXTI
+signal includes one of the 24 external I/O ports, output of PVD, wake-up signal of USB, wake-up signal of USB
+PD, etc.
+ Standby mode
+This mode FLASH enters low-power mode, the RC oscillator of HSI is switched off and the system LDO enters
+low-power mode.
+Exit conditions: any external interrupt/event (EXTI signal), external reset signal on RST, IWDG reset, where the
+EXTI signal includes one of the 24 external I/O ports, the output of PVD, the wake-up signal of USB, the wake-up
+signal of USB PD, etc.
+
+
+1.4.8 Programmable Fast Interrupt Controller (PFIC)
+The chip has a built-in Programmable Fast Interrupt Controller (PFIC) that supports up to 255 interrupt vectors,
+providing flexible interrupt management with minimal interrupt latency. Currently the chip manages 7 core private
+interrupts and 39 peripheral interrupt management, with other interrupt sources reserved. the PFIC registers are all
+accessible in both user and machine privileged modes.
+ 2 individually maskable interrupts
+ Provide one non-maskable interrupt NMI
+ Support Hardware Prologue/Epilogue (HPE) without instruction overhead
+ Provide 4 Vector Table Free (VTF) for faster access to interrupt service routines
+
+V2.3                                                    5
+CH32X035 Datasheet                                                                                   https://wch-ic.com
+
+
+      Vector table support address or instruction mode
+      Interrupt nesting depth can be configured up to 2 levels
+      Support interrupt tail linking function
+
+
+1.4.9 External Interrupt/Event Controller (EXTI)
+The external interrupt/event controller contains a total of 28 edge detectors for generating interrupt/event requests.
+Each interrupt line can be configured independently of its trigger event (rising or falling edge or double edge) and
+can be individually masked; a pending register maintains the status of all interrupt requests. Up to 60 general purpose
+I/O ports are optionally connected to 24 external interrupt lines.
+
+
+1.4.10 General DMA Controller
+The system has a built-in general purpose DMA controller that manages 8 channels to flexibly handle high-speed
+data transfers between memory to memory, peripheral to memory and memory to peripheral, supporting the ring
+buffer approach. Each channel has dedicated hardware DMA request logic to support one or more peripheral access
+requests to memory, with configurable access priority, transfer length, source and destination addresses for transfers,
+etc.
+
+DMA is used for the main peripherals including: General-purpose/advanced-control timers TIMx, ADC, USART,
+I2C, SPI.
+
+USB and USB PD have additional dedicated independent DMA channels.
+
+Note: DMA and CPU access to system SRAM after arbiter arbitration.
+
+
+1.4.11 Clock and Boot
+The system clock source HSI is turned on by default, and the internal 48MHz RC oscillator 6 division is used as the
+default CPU clock when no clock is configured or after a reset. For low power modes where the clock is turned off,
+the system will first turn on the internal RC oscillator upon wake-up. If the clock interrupt is enabled, the software
+can receive the corresponding interrupt.
+
+
+1.4.12 Analog-to-digital Converter (ADC) and Touchkey Capacitance Detection (TKey)
+The chip has a built-in 12-bit analog/digital converter (ADC) providing up to 14 external channels and 1 internal
+channel sample, with programmable channel sample times for single, continuous, sweep or intermittent conversion.
+The provision of an analogue watchdog function allows very accurate monitoring of one or more selected channels
+for monitoring channel signal voltages. Supports external event-triggered transitions, with trigger sources including
+internal signals from the on-chip timer and external pins. Supports the use of DMA operation.
+
+ADC internal channels are internal reference supply voltage sampling channels.
+
+Touch key capacitance detection unit, providing up to 14 detection channels, multiplexes the external channels of
+the ADC module. The detection results are converted to output results by the ADC module, and the touch key status
+is identified by the touch detection algorithm subroutine library or by user software.
+
+Note: ADC's channel 3, channel 7, channel 11, and channel 15 functions are not applicable to products whose lot
+number ends with 0 as the fifth-to-last digit.
+
+
+
+
+V2.3                                                      6
+CH32X035 Datasheet                                                                                  https://wch-ic.com
+
+
+1.4.13 Timer and Watchdog
+ Advanced-control timer (TIM1, TIM2)
+The Advanced Control Timer is a 16-bit auto-loading up/down counter with a 16-bit programmable prescaler. In
+addition to the full general-purpose timer functionality, it can be viewed as a three-phase PWM generator assigned
+to 6 channels, with a complementary PWM output functionality with dead-time insertion, allowing the timer to be
+updated after a specified number of counter cycles for repeating counting cycle, braking function, etc. Many
+functions of advanced control timers are the same as general timers, and the internal structure is also the same.
+Therefore, advanced control timers can cooperate with other TIM timers through the timer link function to provide
+synchronization or event link functions.
+
+ General-purpose timer (TIM3)
+The general-purpose timer is a 16-bit auto-loading recursive counter with a programmable 16-bit prescaler and 2
+independent channels, each supporting input capture, output comparison, PWM generation and single pulse mode
+output. It can also work with advanced-control timers via the timer linking function to provide synchronous or event
+linking functionality. In debug mode, the counter can be frozen and any general-purpose timer can be used to
+generate PWM outputs.
+
+ Independent watchdog
+The Independent Watchdog is a free-running 12-bit decrementing counter supporting 7 division factors. The clock
+source is provided by the division of the (HSI/1024) clock. IWDG works completely independently of the main
+program and can therefore be used to reset the entire system in case of problems or as a free timer to provide timeout
+management for applications. With the option byte it can be configured to be a software or hardware start watchdog.
+In debug mode, the counter can be frozen.
+
+ Window watchdog
+Window watchdog is a 7-bit decrementing counter and can be set to run freely. It can be used to reset the entire
+system in the event of a problem. It is driven by the master clock and has an early warning interrupt function; in
+debug mode the counter can be frozen.
+
+ SysTick timer
+QingKe microprocessor core comes with a 64-bit optional incremental or decremental counter for generating
+SYSTICK exceptions (exception number: 12), which can be used exclusively in real time operating systems to
+provide a "heartbeat" rhythm for the system, or as a standard 64-bit counter. Automatic reload function and
+programmable clock source.
+
+
+1.4.14 Universal Synchronous/Asynchronous Receiver Transmitter (USART)
+The chip provides 4 sets of universal synchronous/asynchronous transceivers. It supports full duplex asynchronous
+serial communication, synchronous unidirectional communication as well as half duplex single line communication,
+also LIN (Local Interconnect Network), ISO7816 compatible smart card protocol and IrDA SIR ENDEC
+transmission codec specification, as well as modem (CTS/RTS hardware flow control) operation, and also supports
+multi-processor communication. It uses a fractional baud rate generator system and supports continuous
+communication by DMA operation.
+
+
+1.4.15 Serial Peripheral Interface (SPI)
+The chip provides 1 serial peripheral SPI interface, support master or slave operation, dynamic switching. Support
+
+V2.3                                                     7
+CH32X035 Datasheet                                                                                   https://wch-ic.com
+
+
+multi-master mode, full-duplex or half-duplex synchronous transmission, support basic SD card and MMC mode.
+Programmable clock polarity and phase, data bit width provides 8 or 16-bit selection, hardware CRC
+generation/check for reliable communication, and continuous communication support for DMA operation.
+
+
+1.4.16 I2C Bus
+The chip provides one I2C bus interface, capable of working in multi-master or slave mode, performing all I2C bus
+specific timing, protocols, arbitration, etc. Both standard and fast communication speeds are supported.
+
+The I2C interface provides 7-bit or 10-bit addressing, and supports dual slave addressing in 7-bit Slave mode. It
+integrates built-in hardware CRC generator/checker. It also supports DMA operation.
+
+Note: The I2C function is not applicable to products whose lot number ends with 0 as the fifth-to-last digit.
+
+
+1.4.17 Universal Serial Bus USB2.0 Full-speed Host/Device Controller (USBFS)
+USB2.0 Full-speed Host Controller and Device Controller (USBFS) following the USB2.0 Fullspeed standard and
+supporting the BC charging protocol. Provides 8 configurable USB device endpoints and a set of host endpoints.
+Supports control/bulk/isochronous/interrupt transfer, double buffer mechanism, USB bus suspend/resume operation,
+and provides standby/wake-up function. The 48MHz clock dedicated to the USBFS module is generated directly
+from the internal high-speed clock (HSI).
+
+
+1.4.18 USB PD and Type-C Controller (USB PD)
+Built-in USB Power Delivery controller and PD transceiver PHY, support USB Type-C master-slave detection,
+automatic BMC codec and CRC, hardware edge control, support USB PD2.0 and PD3.0 power delivery control,
+support fast charging, support UFP/PD powered end Sink and DFP/PD powered end Source applications and DRP
+applications, supports PDUSB.
+
+The CH211 Type-C/PD high-voltage interface chip additionally enables 28V direct power supply, internal boost
+pump control of N-channel MOSFETs, 28V tolerant voltage on the CC pin, and an integrated 5KΩ controlled pull-
+down resistor compliant with Type-C specifications.
+
+
+1.4.19 General-purpose Input and Output (GPIO)
+The system provides 3 groups of GPIO ports with a total of 60 GPIO pins. Each pin can be configured by software
+as an output, input (with or without pull-up, some pins support pull-down) or multiplexed peripheral function port.
+
+All GPIO pins support controlled pull-up, only PA0-PA15 and PC16-PC17 support controlled pull-down, the
+remaining pins do not support pull-down. PC14-PC17 support multiple pull-up modes, set by dedicated control
+registers corresponding to the PD and USB pins respectively.
+
+Most GPIO pins are shared with either digital or analogue multiplexed peripherals. All PA and PB GPIO pins have
+high current drive capability with simple constant current functionality and all support PWM. a lockout mechanism
+is provided to freeze the I/O configuration to avoid accidental writes to I/O registers.
+
+Most of the I/O pins in the system are powered by VDD, and changing the VDD power supply will change the I/O pin
+output level high enough to adapt to the external communication interface level. Please refer to the pin description
+for specific pins.
+
+
+
+
+V2.3                                                     8
+CH32X035 Datasheet                                                                                https://wch-ic.com
+
+
+1.4.20 Operational Amplifier/Comparator (OPA)
+The chip has a built-in 2 groups of op-amp (OPA), which can also be used as a voltage comparator. Its input can be
+selected for multiple channels by changing the configuration, including amplification selection for the
+programmable gain op-amp (PGA), and its output can be selected for 2 channels by changing the configuration,
+internally associated to ADC channels. External analogue small signal amplification is supported for feeding into
+the ADC for small signal ADC conversion.
+
+
+1.4.21 Voltage Comparator (CMP)
+The chip has built-in 3 groups of rail-to-rail analog voltage comparators with optional hysteresis characteristics.
+The voltage comparison results are triggered by the GPIO output or internally directly into the input channels CH1
+~ CH3 of the TIM2.
+
+
+1.4.22 2-wire SDI Serial Debug Interface
+The core comes with a 2-wire serial debug interface (SDI) including the SWDIO and SWCLK pins. The default
+debug interface pin function is turned on after system power-up or reset, and the SDI can be turned off as required
+after the main program is running.
+
+
+
+
+V2.3                                                   9
+CH32X035 Datasheet                                                                                                     https://wch-ic.com
+
+
+
+                              Chapter 2 Pinouts and Pin Definition
+
+2.1 Pinouts
+
+
+
+
+                                           48
+                                           47
+                                           46
+                                           45
+                                           44
+                                           43
+                                           42
+                                           41
+                                           40
+                                           39
+                                           38
+                                           37
+                                           36
+                                           35
+                                           34
+                                           33
+                                              PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_/T1ET_
+                                             PC17/UDP/RTS1/TX4_/I2C_/RX4_/T1ET/PC10
+                                             PC16/UDM/T1C4/TX4_/I2C_/RX4_/CTS1/PC11
+                                                                          PB13/TX4_
+                                                                  PB12/T1C4_/T2C2N_
+
+
+
+                                                               PB11/T1C3/T2C1N_/RX1
+                                                                      PB10/TX1/T1C2
+                                                                  PB9/T1C1/MCO/TX4_
+                                                                   PB19/RTS3_/T2C4_
+                                                                   PB18/T2C3_/CTS3_
+                                                                    PB17/T2C2_/RX3_
+                                                                    PB16/TX3_/T2C1_
+                                                                     PB8/T1C3N/O1P1
+                                                               PB7/T1C2N/RTS3_/O2P2
+                                                                PB6/T1C1N/CTS3/O1N1
+                                                                PB5/O1O1/T3C2_/T1BK
+ 49                                                                                                                                   32
+       PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/RX4_/C1P0                                                                                VDD
+ 50                                                                                                                                   31
+       PB14/RX3_                                                                                                               GND
+ 51                                                                                                                                   30
+       PB20                                                                                         PB4/T2C4_/T3C1_/T2BK_/RX3/O1P2
+ 52                                                                                                                                   29
+       PB21/T2C1_/CS_/RTS4_                                                                          PB3/TX3/C3O/T2C3_/T2C3N_/O2P1
+ 53                                                                                                                                   28
+       PB15/T2C2_/SCK_/CTS4                                                                                           PB2/C2O/RX1_
+ 54                                                                                                                                   27
+       PC14/CC1/T1C3_/T2C2_                                                                                 PB1/T1C3N_/RX4/O2N1/A9
+ 55                                                                                                                                   26
+       PC15/CC2/T2C3_/T1ET_                                                                                 PB0/TX4/T1C2N_/O1P0/A8
+ 56                                                                                                                                   25
+       PA8/MISO_/RTS4/RTS1_                                                                                       PC7/MOSI_/T1C3N_
+ 57
+       PA9/MOSI_/MISO_/RX4_/CTS1_/T2BK_
+                                                          CH32X035R8T6                                            PC6/MISO_/T1C2N_
+                                                                                                                                      24
+ 58                                                                                                                                   23
+       PA10/SCL/TX1_/MOSI_/RX4_                                                            PA7/MOSI/T3C2/T1C1N_/TX1_/CTS4_/O2P0/A7
+ 59                                                                                                                                   22
+       PA11/SDA/SCK_/RX1_/C2P1                                                                   PA6/MISO/T3C1/RTS4_/T1BK_/O1N0/A6
+ 60                                                                                                                                   21
+       PA12/CS_/T2C2_/T2C1N_/C2P0                                                                       PA5/SCK/TX4_/CTS4_/O2N0/A5
+ 61                                                                                                                                   20
+                                             PC3/RTS2_/T1C4_/T2C3N_/T2C1N_/C1N0/C2N1/C3N1/A13
+
+
+
+
+       PA13/SCL_/RTS4_/CTS1_/T2C3_/T2C2N_/C3P0                                                          PA4/CS/O2O0/RTS3_/T3C2_/A4
+ 62                                                                                                                                   19
+       PA14/SDA_/RTS1_/T2C3N_/CTS4_/C3P1                                                                           PC5/SCK_/T1C1N_
+ 63                                                                                                                                   18
+       GND                                                                                                     PC4/CS_/T1BK_/T2ET_
+ 64                                                                                                                                   17
+       VDD                                                                                        PA3/T2C4/O1O0/T3C1_/RX2/CTS3_/A3
+                                             PA2/TX2/T2C3/O2O1/RTS2_/T2ET_/C3N0/A2
+                                             PA1/RTS2/T2C2/C1O/CTS2_/O1N2/O2N2/A1
+                                             PC0/TX2_/T2C4_/T1C1_/T2BK_/A10
+
+                                             PC2/T1C3_/T2C2N_/CTS2_/A12
+                                             PC1/T1C2_/T2C1N_/RX2_/A11
+
+
+
+
+                                             PA0/T2C1/CTS2/C1P1/A0
+                                             PA21/RST/T2C1N/RTS2_
+                                             PA18/TX3_/T2ET_
+
+
+
+
+                                             PA22/T2C2N/C2N0
+                                             PA23/T2C3N/C1N1
+                                             PA19/T2ET/RX2_
+                                             PA20/TX2_/T2BK
+                                             PA17/CTS2_
+                                             PA15/TX2_
+                                             PA16/RX2_
+                                            1
+                                            2
+                                            3
+                                            4
+                                            5
+                                            6
+                                            7
+                                            8
+                                            9
+                                           10
+                                           11
+                                           12
+                                           13
+                                           14
+                                           15
+                                           16
+
+
+
+
+V2.3                                                              10
+CH32X035 Datasheet                                                                                            https://wch-ic.com
+
+
+
+
+                                           36
+                                           35
+                                           34
+                                           33
+                                           32
+                                           31
+                                           30
+                                           29
+                                           28
+                                           27
+                                           26
+                                           25
+                                                                          PB13/TX4_
+                                                                  PB12/T1C4_/T2C2N_
+                                              PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_/T1ET_
+                                             PC17/UDP/RTS1/TX4_/I2C_/RX4_/T1ET/PC10
+                                             PC16/UDM/T1C4/TX4_/I2C_/RX4_/CTS1/PC11
+                                                               PB11/T1C3/T2C1N_/RX1
+                                                                      PB10/TX1/T1C2
+                                                                  PB9/T1C1/MCO/TX4_
+                                                                     PB8/T1C3N/O1P1
+                                                               PB7/T1C2N/RTS3_/O2P2
+                                                                PB6/T1C1N/CTS3/O1N1
+                                                                PB5/O1O1/T3C2_/T1BK
+ 37                                                                                                                         24
+       PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/RX4_/C1P0                                           PB4/T2C4_/T3C1_/T2BK_/RX3/O1P2
+ 38                                                                                                                         23
+       PC14/CC1/T1C3_/T2C2_                                                                PB3/TX3/C3O/T2C3_/T2C3N_/O2P1
+ 39                                                                                                                         22
+       PC15/CC2/T2C3_/T1ET_                                                                                 PB2/C2O/RX1_
+ 40                                                                                                                         21
+       PA8/RTS4/RTS1_                                                                             PB1/T1C3N_/RX4/O2N1/A9
+ 41                                                                                                                         20
+       PA9/MISO_/RX4_/CTS1_/T2BK_                                                                 PB0/TX4/T1C2N_/O1P0/A8
+ 42                                                                                                                         19
+       PA10/SCL/TX1_/MOSI_/RX4_                                                                               PC7/T1C3N_
+ 43
+       PA11/SDA/SCK_/RX1_/C2P1
+                                                    CH32X035C8T6                                              PC6/T1C2N_
+                                                                                                                            18
+ 44                                                                                                                         17
+       PA12/CS_/T2C2_/T2C1N_/C2P0                                                PA7/MOSI/T3C2/T1C1N_/TX1_/CTS4_/O2P0/A7
+ 45                                                                                                                         16
+       PA13/SCL_/RTS4_/CTS1_/T2C3_/T2C2N_/C3P0                                         PA6/MISO/T3C1/RTS4_/T1BK_/O1N0/A6
+ 46                                                                                                                         15
+       PA14/SDA_/RTS1_/T2C3N_/CTS4_/C3P1                                                      PA5/SCK/TX4_/CTS4_/O2N0/A5
+ 47                                                                                                                         14
+       GND                                                                                    PA4/CS/O2O0/RTS3_/T3C2_/A4
+ 48                                                                                                                         13
+       VDD                                                                              PA3/T2C4/O1O0/T3C1_/RX2/CTS3_/A3
+                                             PA2/TX2/T2C3/O2O1/RTS2_/T2ET_/C3N0/A2
+                                             PA1/RTS2/T2C2/C1O/CTS2_/O1N2/O2N2/A1
+                                             PA0/T2C1/CTS2/C1P1/A0
+                                             PA21/RST/T2C1N/RTS2_
+                                             PA18/TX3_/T2ET_
+
+
+
+                                             PA22/T2C2N/C2N0
+                                             PA23/T2C3N/C1N1
+                                             PA19/T2ET/RX2_
+                                             PA20/TX2_/T2BK
+                                             PA17/CTS2_
+                                             PA15/TX2_
+                                             PA16/RX2_
+                                            1
+                                            2
+                                            3
+                                            4
+                                            5
+                                            6
+                                            7
+                                            8
+                                            9
+                                           10
+                                           11
+                                           12
+
+
+
+
+          1                                                                                                        20
+                PB12/T1C4_/T2C2N_                                   PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/C1P0
+          2                                                                                                        19
+                PC14/CC1/T1C3_/T2C2_                              PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_/T1ET_
+          3                                                                                                        18
+                PC15/CC2/T2C3_/T1ET_                                  PC17/UDP/TX4_/I2C_/RX4_/T1ET/PC10
+          4                                                                                                        17
+                PC3/RST/T1C4_/T2C3N_/C1N0/A13                         PC16/UDM/T1C4/TX4_/I2C_/RX4_/PC11
+          5                                                                                                        16
+                PC1/T1C2_/T2C1N_/RX2_/A11                                                           VDD
+          6                                                                                                        15
+                PA0/T2C1/CTS2/C1P1/A0                                                               GND
+          7                                                                                                        14
+                PA1/RTS2/T2C2/C1O/O2N2/A1                                        PB1/T1C3N_/RX4/O2N1/A9
+          8                                                                                                        13
+                PA2/TX2/T2C3/O2O1/T2ET_/A2                            PA7/MOSI/T3C2/T1C1N_/TX1_/O2P0/A7
+          9                                                                                                        12
+                PA3/T2C4/T3C1_/RX2/A3                                            PA6/MISO/T3C1/T1BK_/A6
+         10                                                                                                        11
+                PA4/CS/O2O0/T3C2_/A4                                               PA5/SCK/TX4_/O2N0/A5
+                                                      CH32X035F7P6
+
+
+
+
+V2.3                                                         11
+CH32X035 Datasheet                                                                                                       https://wch-ic.com
+
+
+
+
+                                               21
+                                               20
+                                               19
+                                               18
+                                               17
+                                               16
+                                               15
+                                                PB1/T1C3N_/RX4/O2N1/A9/PB5/O1O1/T3C2_/T1BK
+                                                                             PB10/TX1/T1C2
+                                                                         PB9/T1C1/MCO/TX4_
+                                                                            PB8/T1C3N/O1P1
+                                                                      PB7/T1C2N/RTS3_/O2P2
+                                                                       PB6/T1C1N/CTS3/O1N1
+
+                                                            PB4/T2C4_/T3C1_/T2BK_/RX3/O1P2
+       22                                                                                                                         14
+            PB11/T1C3/T2C1N_/RX1                                                                     PB3/TX3/T2C3_/T2C3N_/O2P1
+       23                                                                                                                         13
+            PB12/T1C4_/T2C2N_                                                                           PB0/TX4/T1C2N_/O1P0/A8
+       24                                                                                                                         12
+            PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/C1P0                                              PA7/MOSI/T3C2/T1C1N_/TX1_/O2P0/A7
+       25                                                                                                                         11
+            PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_/T1ET_ CH32X035G8U6                                     PA6/MISO/T3C1/T1BK_/O1N0/A6
+       26                                                                                                                         10
+            PC16/UDM/T1C4/TX4_/I2C_/RX4_/CTS1/PC11                                                        PA5/SCK/TX4_/O2N0/A5
+       27                                                                                                                         9
+            PC17/UDP/RTS1/TX4_/I2C_/RX4_/T1ET/PC10                                                        PA4/CS/O2O0/T3C2_/A4
+       28                                                                                                                         8
+            PC14/CC1/T1C3_/T2C2_                                                                    PA3/T2C4/O1O0/T3C1_/RX2/A3
+                                                PC3/T1C4_/T2C3N_/T2C1N_/C1N0/A13
+                                                PC0/TX2_/T2C4_/T1C1_/T2BK_/A10
+
+
+                                                PA1/RTS2/T2C2/C1O/O1N2/O2N2/A1
+                                                PA2/TX2/T2C3/O2O1/T2ET_/A2
+                                                PA0/T2C1/CTS2/C1P1/A0
+                                                PC15/CC2/T2C3_/T1ET_
+                            GND
+
+
+
+
+                                                VDD
+                           0
+
+
+
+
+                                               1
+                                               2
+                                               3
+                                               4
+                                               5
+                                               6
+                                               7
+
+
+
+
+             1                                                                                                              28
+                 PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/C1P0               PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_
+             2                                                                                                              27
+                 PC16/UDM/T1C4/TX4_/I2C_/RX4_/CTS1/PC11                          PB12/T1C4_/T2C2N_
+             3                                                                                                              26
+                 PC17/UDP/RTS1/TX4_/I2C_/RX4_/T1ET/PC10                       PB11/T1C3/T2C1N_/RX1
+             4                                                                                                              25
+                 PA12/T2C2_/T2C1N_/C2P0/PC14/CC1/T1C3_/T2C2_                         PB10/TX1/T1C2
+             5                                                                                                              24
+                 PA13/T2C3_/T2C2N_/C3P0/PC15/CC2/T2C3_                           PB9/T1C1/MCO/TX4_
+             6                                                                                                              23
+                 VDD                                                                PB8/T1C3N/O1P1
+             7                                                                                                              22
+                 GND                                                          PB7/T1C2N/RTS3_/O2P2
+             8                                                                                                              21
+                 PC3/RST/T2C3N_/T2C1N_/C1N0/C2N1/C3N1/A13                      PB6/T1C1N/CTS3/O1N1
+             9                                                                                                              20
+                 PA0/T2C1/CTS2/C1P1/A0                  PB1/T1C3N_/RX4/O2N1/A9/PB5/O1O1/T3C2_/T1BK
+            10                                                                                                              19
+                 PA1/RTS2/T2C2/C1O/O1N2/O2N2/A1                     PB4/T2C4_/T3C1_/T2BK_/RX3/O1P2
+            11                                                                                                              18
+                 PA2/TX2/T2C3/O2O1/T2ET_/C3N0/A2                     PB3/TX3/C3O/T2C3_/T2C3N_/O2P1
+            12                                                                                                              17
+                 PA3/T2C4/O1O0/T3C1_/RX2/A3                      PA7/MOSI/T3C2/T1C1N_/TX1_/O2P0/A7
+            13                                                                                                              16
+                 PA6/MISO/T3C1/T1BK_/O1N0/A6                                  PA5/SCK/TX4_/O2N0/A5
+            14                                                                                                              15
+                 PB0/TX4/T1C2N_/O1P0/A8                                       PA4/CS/O2O0/T3C2_/A4
+                                                     CH32X035G8R6
+
+
+
+
+V2.3                                                            12
+CH32X035 Datasheet                                                                     https://wch-ic.com
+
+
+
+
+                                           15
+                                           14
+                                           13
+                                           12
+                                           11
+                                                            PB12 /T1C4_ /T2C2N _
+                                           PC18/D IO/TX3 _/T2C1 N_/T3C 2_/I2C _
+                                                         PB1 1/T1C3/ T2C1N_ /RX1
+                                                  PB 3/TX3/ T2C3_/T 2C3N_/ O2P1
+                                                      P B1/T1C 3N_/RX 4/O2N1 /A9
+        16                                                                              10
+              PC19/DCK/T2C1_/T3C1_/I2C_/RX3_                  PB0/TX4/T1C2N_/O1P0/A8
+        17                                                                              9
+              PC16/UDM/T1C4/TX4_/I2C_/RX4_              PA7/MOSI/T3C2/T1C1N_/O2P0/A7
+        18                                                                              8
+              PC17/UDP/TX4_/I2C_/RX4_/T1ET CH32X035F8U6 PA6/MISO/T3C1/T1BK_/O1N0/A6
+        19                                                                              7
+              PC14/CC1/T1C3_/T2C2_                              PA5/SCK/TX4_/O2N0/A5
+        20                                                                              6
+              PC15/CC2/T2C3_/T1ET_                              PA4/CS/O2O0/T3C2_/A4
+                                           PA1 /RTS2/ T2C2/O 1N2/O2N 2/A1
+                                           PA2 /TX2/T 2C3/O2 O1/T2ET _/A2
+                                           PA3 /T2C4/ O1O0/T 3C1_/RX 2/A3
+                                           PA0 /T2C1/ CTS2/A 0
+                              GND
+
+
+
+
+                                           VDD
+                             0
+
+
+
+
+                                           1
+                                           2
+                                           3
+                                           4
+                                           5
+                                                9
+                                                8
+                                                7
+                                                    PC18/DIO
+                                                    PC17/UDP
+                                                    PC16/UDM
+
+
+
+
+                              CH32X035D8U6
+
+
+
+
+                        10                                                         6
+                              PC19/DCK                 PA7/MOSI/O2P0/A7/PC7
+                        11    PC14/CC1                          PA6/MISO/A6        5
+                        12    PC15/CC2                      PA5/SCK/O2N0/A5        4
+                                                    PA2/TX2/O2O1/A2
+                                                    PA3/RX2/A3
+                                     GND
+
+
+
+                                                    VDD
+                                    0
+
+
+
+                                               1
+                                               2
+                                               3
+
+
+
+
+V2.3                                                          13
+CH32X035 Datasheet                                                                                     https://wch-ic.com
+
+
+
+
+           1                                                                                              20
+                PA6/MISO/T3C1/T1BK_/O1N0/A6                                    PA5/SCK/TX4_1/O2N0/A5
+           2                                                                                              19
+                PA7/MOSI/T3C2/T1C1N_/O2P0/PB0/TX4/T1C2N_/O1P0/A8                PA4/CS/O2O0/T3C2_/A4
+           3                                                                                              18
+                PB1/T1C3N_/RX4/O2N1/A9                           PC19/DCK/T2C1_/T3C1_/I2C_/RX3_/C1P0
+           4                                                                                              17
+                PB7/RST/T1C2N/O2P2                                        PA3/T2C4/T3C1_/RX2/O1O0/A3
+           5                                                                                              16
+                PC16/UDM/T1C4/TX4_2/I2C_/RX4_5/PC11                       PA2/TX2/T2C3/O2O1/T2ET_/A2
+           6                                                                                              15
+                PC17/UDP/TX4_5/I2C_/RX4_2/T1ET/PC10                        PA1/T2C2/C1O/O1N2/O2N2/A1
+           7                                                                                              14
+                GND                                                                 PA0/T2C1/C1P1/A0
+           8                                                                                              13
+                PC18/DIO/TX3_/T2C1N_/T3C2_/I2C_/T1ET_                 PC3/T1C4_/T2C1N_/C1N0/C2N1/A13
+           9                                                                                              12
+                VDD                                                              PA10/SCL/TX1_/MOSI_
+          10                                                                                              11
+                PA9/MISO_/RX4_1/T2BK_                                        PA11/SDA/SCK_/RX1_/C2P1
+                                                   CH32X033F8P6
+
+
+
+Note: The alternate functions in the pin diagram are abbreviated.
+    Example: A: ADC_ (A10: ADC_IN10)
+               C: CMP_ (C3N0: CMP3_N0)
+               T: TIME_ (T2C4: TIM2_CH4, T2C2N:TIM2_CH2N)
+               O: OPA_ (O1N2: OPA1_N2, O2O0: OPA2_OUT0)
+               TX2: USART2_TX
+               CS: SPI_NSS
+               UDP: USBDP
+               UDM: USBDM
+               DIO: SWDIO
+               DCK: SWCLK
+
+
+
+
+V2.3                                                    14
+          CH32X035 Datasheet                                                                                              https://wch-ic.com
+
+
+
+          2.2 Pin Description
+          Note that the pin function descriptions in the table below are for all functions and do not relate to specific product
+          models. Peripheral resources may vary between models, so please check the availability of this feature against the
+          product model resource table before viewing.
+          Table 2-1 CH32X035 Pin definitions
+                           Pin No.                                                Main
+LQFP64M
+
+
+
+
+                                                                Pin     Pin     function     Default alternate
+                                             TSSOP20
+                            QSOP28
+          LQFP48
+
+                   QFN28
+
+
+
+                                     QFN20
+
+
+
+                                                       QFN12
+
+                                                                                                                     Remapping function(2)
+                                                               name   type(1)     (after        function
+                                                                                 reset)
+
+  -         -       0         -       0        -        0      GND      P        GND
+31        47        -        7        -      15         -      GND      P        GND
+ 1         1        -         -       -        -        -      PA15    I/O       PA15                                   TX2_2/TX2_4
+ 2         2        -         -       -        -        -      PA16    I/O       PA16                                   RX2_2/RX2_4
+ 3         3        -         -       -        -        -      PA17    I/O       PA17                                  CTS2_2/CTS2_4
+ 4         4        -         -       -        -        -      PA18    I/O       PA18                               TX3_2/T2ET_1/T2ET_3
+ 5         5        -         -       -        -        -      PA19    I/O       PA19             T2ET                 RX2_1/T2ET_2
+ 6         6        -         -       -        -        -      PA20    I/O       PA20             T2BK                 TX2_1/T2BK_2
+ 7         7        -         -       -        -        -      PA21    I/O       PA21          RST/T2C1N                   RTS2_2
+                                                                                                                       TX2_3/T2C4_5
+ 8          -       3         -       -        -        -      PC0    I/O/A      PC0               A10
+                                                                                                                   /T2C4_6/T1C1_3/T2BK_4
+ 9          -       -         -       -       5         -      PC1    I/O/A      PC1              A11(3)           T1C2_3/T2C1N_4/RX2_3
+10          -       -         -       -        -        -      PC2    I/O/A      PC2               A12             T1C3_3/T2C2N_4/CTS2_3
+                                                                                           C1N0/C2N1/C3N1/
+11          -       4         -       -        -        -
+                                                                                                 A13                   RTS2_3/T1C4_3
+                                                               PC3    I/O/A      PC3
+                                                                                            RST/C1N0/C2N1/        /T2C3N_4/T2C1N_2/RTS2_4
+  -         -       -        8        -       4         -
+                                                                                               C3N1/A13
+12         8        -         -       -        -        -      PA22   I/O/A      PA22         T2C2N/C2N0            CK2_2/T2C2N_2/CK2_4
+13         9        -         -       -        -        -      PA23   I/O/A      PA23         T2C3N/C1N1               CK2_1/T2C3N_2
+14        10        5        9        2       6         -      PA0    I/O/A      PA0       T2C1/CTS2/C1P1/A0               T2C1_2
+                                                                                            RTS2/T2C2/C1O
+15        11        6       10        3       7         -      PA1    I/O/A      PA1                                   CTS2_1/T2C2_2
+                                                                                            /O1N2/O2N2/A1
+                                                                                            TX2/T2C3/O2O1/       RTS2_1/T2ET_5/T2C3_1/T2ET_
+16        12        7       11        4       8         2      PA2    I/O/A      PA2
+                                                                                               C3N0/A2                       6
+63          -       -         -       -        -        -      GND      P        GND
+32        48        2        6        1      16         1      VDD      P        VDD
+                                                                                           RX2/T2C4/O1O0/A3(
+17        13        8       12        5       9         3      PA3    I/O/A      PA3                3)
+                                                                                                                   T3C1_3/T2C4_1/CTS3_2
+
+18          -       -         -       -        -        -      PC4     I/O       PC4                                CS_3/T1BK_3/T2ET_4
+19          -       -         -       -        -        -      PC5     I/O       PC5                                   SCK_3/T1C1N_3
+20        14        9       15        6      10         -      PA4    I/O/A      PA4        CS/CK2/O2O0/A4             RTS3_2/T3C2_3
+21        15       10       16        7      11         4      PA5    I/O/A      PA5         SCK/O2N0/A5               TX4_1/CTS4_4
+22        16       11       13        8      12         5      PA6    I/O/A      PA6       MISO/T3C1/O1N0/A         CK4_1/RTS4_4/T1BK_1
+
+
+          V2.3                                                                     15
+          CH32X035 Datasheet                                                                                                  https://wch-ic.com
+
+
+                           Pin No.                                                     Main
+LQFP64M
+
+
+
+
+                                                                 Pin         Pin     function    Default alternate
+
+
+
+                                             TSSOP20
+                            QSOP28
+          LQFP48
+
+                   QFN28
+
+
+
+                                     QFN20
+
+
+
+                                                       QFN12
+                                                                                                                         Remapping function(2)
+                                                                name       type(1)     (after       function
+                                                                                      reset)
+
+                                                                                                        6
+                                                                                                MOSI/T3C2/O2P0/
+23        17       12       17        9      13         6       PA7(7)     I/O/A      PA7                              T1C1N_1/TX1_3/CTS4_1
+                                                                                                     A7(3)
+24        18        -         -       -        -        -        PC6        I/O       PC6                                 MISO_3/T1C2N_3/
+25        19        -         -       -        -        6       PC7(7)      I/O       PC7                            MOSI_3/T1C3N_3/PIOC_IO0_1
+26        20       13       14       10        -        -        PB0       I/O/A      PB0         TX4/O1P0/A8                 T1C2N_1
+27        21       16       20       11      14         -       PB1(5)     I/O/A      PB1        RX4/O2N1/A9                  T1C3N_1
+28        22        -         -       -        -        -        PB2       I/O/A      PB2           CK4/C2O              RX1_3/CK4_2/CK4_5
+                                                                                                                       T2C3_2/T2C3N_5/T2C3_3/
+29        23       14       18       12        -        -        PB3       I/O/A      PB3        TX3/C3O/O2P1
+                                                                                                                              T2C3N_6
+                                                                                                                       T2C4_2/T3C1_1/T2BK_5/
+30        24       15       19        -        -        -        PB4       I/O/A      PB4          RX3/O1P2
+                                                                                                                          T2C4_3/T2BK_6
+64          -       -         -       -        -        -        VDD         P        VDD
+33        25       16       20        -        -        -       PB5(5)     I/O/A      PB5       CK3/O1O1/T1BK        CK1_2/T3C2_1/CK3_1/T1BK_2
+34        26       17       21        -        -        -        PB6       I/O/A      PB6       T1C1N/CTS3/O1N1            T1C1N_2/CTS3_1
+35        27       18       22        -        -        -        PB7       I/O/A      PB7       T1C2N/O2P2/RTS3            RTS3_1/T1C2N_2
+36        28       19       23        -        -        -        PB8       I/O/A      PB8         T1C3N/O1P1            CK3_2/CK4_3/T1C3N_2
+37          -       -         -       -        -        -       PB16        I/O       PB16                                  TX3_3/T2C1_4
+38          -       -         -       -        -        -       PB17        I/O       PB17                                  T2C2_4/RX3_3
+39          -       -         -       -        -        -       PB18        I/O       PB18                                 T2C3_4/CTS3_3
+40          -       -         -       -                 -       PB19        I/O       PB19                                 RTS3_3/T2C4_4
+41        29       20       24        -        -        -        PB9        I/O       PB9        CK1/T1C1/MCO        TX4_3/CK1_1/T1C1_1/T1C1_2
+42        30       21       25        -        -        -       PB10        I/O       PB10         TX1/T1C2             T1C2_1/T1C2_2/TX1_2
+                                                                                                                     T1C3_1/T1C3_2/RX1_2/T2C1N_
+43        31       22       26       13        -        -       PB11        I/O       PB11         T1C3/RX1
+                                                                                                                                  6
+                                                               PC16(4)(9                                             TX4_2/SCL_2(3)/SDA_4(3)/RX4_
+                                     17                 7          )
+                                                                           I/O/A      PC16      UDM/T1C4/CTS1
+44        32       26        2               17                                                                           5/CTS1_1/T1C4_1
+                                      -                 -      PC11(4)      I/O       PC11
+                                                                                                                     TX4_5/SDA_2(3)/SCL_4(3)/RX4_
+                                                               PC17(4)(8
+                                     18                 8          )
+                                                                           I/O/A      PC17       UDP/RTS1/T1ET                    2
+45        33       27        3               18                                                                            /RTS1_1/T1ET_1
+                                      -                 -      PC10(4)      I/O       PC10
+                                                                                                                       TX3_1/T2C1N_5/SDA_3(3)/
+46        34       25       28       14      19         9       PC18        I/O       PC18       DIO/PIOC_IO0          SCL_5(3)/T1ET_2/T1ET_3/
+                                                                                                                                T3C2_2
+                                                                                                                       CK1_3/T1C4_2/T2C2N_5/
+47        35       23       27       15       1         -       PB12        I/O       PB12
+                                                                                                                              T2C2N_6
+48        36        -         -       -        -        -       PB13        I/O       PB13                                      TX4_4
+
+          V2.3                                                                          16
+          CH32X035 Datasheet                                                                                                                  https://wch-ic.com
+
+
+                               Pin No.                                                          Main
+LQFP64M
+
+
+
+
+                                                                         Pin        Pin       function     Default alternate
+
+
+
+                                                  TSSOP20
+                                QSOP28
+          LQFP48
+
+                       QFN28
+
+
+
+                                         QFN20
+
+
+
+                                                            QFN12
+                                                                                                                                       Remapping function(2)
+                                                                        name      type(1)       (after        function
+                                                                                               reset)
+
+                                                                                                         DCK/PIOC_IO1/C1P   T2C1_5/T3C1_2/SCL_3(3)/
+49        37           24         1      16       20        10          PC19         I/O/A     PC19
+                                                                                                                0         SDA_5(3)/RX3_1/RX4_4/T2C1_6
+50          -           -         -       -         -        -          PB14          I/O      PB14                                            RX3_2
+51          -           -         -       -         -        -          PB20          I/O      PB20                                            CK2_3
+52          -           -         -       -         -        -          PB21          I/O      PB21                                T2C1_1/CS_1/RTS4_1/T2C1_3
+                                                                                                                                  T2C2_1/SCK_1/T2C2_3/CTS4_2
+53          -           -         -       -         -        -          PB15          I/O      PB15                CTS4
+                                                                                                                                           /CTS4_5
+54        38           28         4      19        2        11          PC14(6)      I/O/A     PC14                CC1                    T1C3_4/T2C2_6
+55        39            1         5      20        3        12          PC15(6)      I/O/A     PC15                CC2                    T2C3_6/T1ET_4
+                                                                                                                                 RTS1_2/CK4_4/RTS4_2/RTS4_5/
+56        40            -         -       -         -        -           PA8          I/O       PA8                RTS4
+                                                                                                                                          MISO_1
+                                                                                                                                  MOSI_1/RX4_1/CTS1_2/MISO_
+57        41            -         -       -         -        -           PA9          I/O       PA9
+                                                                                                                                      2/T2BK_1/T2BK_3
+58        42            -         -       -         -        -          PA10          I/O       PA10               SCL(3)             TX1_1/MOSI_2/RX4_3
+59        43            -         -       -         -        -           PA11        I/O/A      PA11         SDA(3)/C2P1                  SCK_2/RX1_1
+                                                                                                                                 CS_2/T2C2_5/T2C1N_1/T2C1N_
+60        44            -         4       -         -        -          PA12(6)      I/O/A      PA12               C2P0
+                                                                                                                                              3
+                                                                                                                                     SCL_1(3)/RTS4_3/CTS1_3/
+61        45            -         5       -         -        -          PA13(6)      I/O/A      PA13               C3P0
+                                                                                                                                    T2C3_5/T2C2N_1/T2C2N_3
+                                                                                                                                    SDA_1(3)/RTS1_3/T2C3N_1/
+62        46            -         -       -         -        -          PA14         I/O/A      PA14               C3P1
+                                                                                                                                       CTS4_3/T2C3N_3
+
+
+          Table 2-2 CH32X033 Pin definitions
+                   Pin No.                                                   Main
+                                                               Pin         function            Default alternate
+                               TSSOP20
+
+
+
+
+                                         Pin name                                                                              Remapping function(2)
+                                                             type(1)         (after               function
+                                                                            reset)
+
+                   -            7             GND                   P        GND
+                   -            9                VDD                P        VDD
+                   -           14                PA0         I/O/A             PA0           T2C1/CTS2/C1P1/A0                       T2C1_2
+                                                                                              RTS2/T2C2/C1O
+                   -           15                PA1         I/O/A             PA1                                               CTS2_1/T2C2_2
+                                                                                              /O1N2/O2N2/A1
+                                                                                            TX2/T2C3/O2O1/C3N
+                   -           16                PA2         I/O/A             PA2                  0                     RTS2_1/T2ET_5/T2C3_1/T2ET_6
+                                                                                                   /A2
+                   -           17                PA3         I/O/A             PA3          RX2/T2C4/O1O0/A3(3)              T3C1_3/T2C4_1/CTS3_2
+                   -           19                PA4         I/O/A             PA4            CS/CK2/O2O0/A4                     RTS3_2/T3C2_3
+                   -           20                PA5         I/O/A             PA5             SCK/O2N0/A5                       TX4_1/CTS4_4
+
+
+          V2.3                                                                                    17
+CH32X035 Datasheet                                                                                https://wch-ic.com
+
+
+   Pin No.                                  Main
+         TSSOP20                  Pin     function     Default alternate
+                   Pin name                                                       Remapping function(2)
+                                type(1)     (after        function
+                                           reset)
+
+   -      1          PA6        I/O/A      PA6       MISO/T3C1/O1N0/A6           CK4_1/RTS4_4/T1BK_1
+          2                                          MOSI/T3C2/O2P0/A7(3
+   -                PA7(10)     I/O/A      PA7                 )
+                                                                                T1C1N_1/TX1_3/CTS4_1
+
+                                                                            MOSI_1/RX4_1/CTS1_2/MISO_2
+   -     10          PA9         I/O       PA9
+                                                                                 /T2BK_1/T2BK_3
+   -     12          PA10        I/O       PA10             SCL(3)               TX1_1/MOSI_2/RX4_3
+   -     11          PA11       I/O/A      PA11          SDA(3)/C2P1                  SCK_2/RX1_1
+   -      2         PB0(10)     I/O/A      PB0          TX4/O1P0/A8                     T1C2N_1
+   -      3          PB1        I/O/A      PB1          RX4/O2N1/A9                     T1C3N_1
+                                                     RST/T1C2N/O2P2/RT
+   -      4          PB7        I/O/A      PB7                                      RTS3_1/T1C2N_2
+                                                            S3
+                                                     C1N0/C2N1/C3N1/A1             RTS2_3/T1C4_3
+   -     13          PC3        I/O/A      PC3
+                                                             3                /T2C3N_4/T2C1N_2/RTS2_4
+                                                                            TX4_2/SCL_2(3)/SDA_4(3)/RX4_5
+   -               PC16(4)(9)   I/O/A      PC16        UDM/T1C4/CTS1
+          5                                                                       /CTS1_1/T1C4_1
+   -                PC11(4)      I/O       PC11
+                                                                            TX4_5/SDA_2(3)/SCL_4(3)/RX4_2
+   -               PC17(4)(8)   I/O/A      PC17        UDP/RTS1/T1ET
+          6                                                                       /RTS1_1/T1ET_1
+   -                PC10(4)      I/O       PC10
+                                                                           TX3_1/T2C1N_5/SDA_3(3)/SCL_5(3)
+   -      8          PC18        I/O       PC18         DIO/PIOC_IO0
+                                                                               T1ET_2/T1ET_3/T3C2_2
+                                                                           T2C1_5/T3C1_2/SCL_3(3)/SDA_5(3)
+   -     18          PC19       I/O/A      PC19      DCK/PIOC_IO1/C1P0
+                                                                               /RX3_1/RX4_4/T2C1_6
+Note 1: Explanation of table abbreviations:
+      I = TTL/CMOS level Schmitt input; O = CMOS level tri-state output;
+     A = Analog signal input or output; P = Power supply.
+Note 2: The value after the remapping function underline indicates the configuration value of the corresponding bit
+ in the AFIO register. For example: TX2_2 indicates that the corresponding bit of the AFIO register is configured
+ as 10b.
+Note 3: ADC's channel 3, channel 7, channel 11, and channel 15 functions are not applicable to products whose lot
+ number ends with 0 as the fifth-to-last digit.
+Note 4: Except for the CH32X035F8U6 chip and CH32X035D8U6 chip, for CH32X033 and other CH32X035 model
+ chips, the PC10 and PC17 pins are short-joined inside the chip, and both IOs are prohibited from being configured
+ as output functions; the PC11 and PC16 pins are short-joined inside the chip, prohibiting both IOs from being
+ configured as output functions; in USB applications, the PC10 and PC11 pins should be configured in floating
+ input mode (default value after reset).
+Note 5: For CH32X035G8U6 and CH32X035G8R6 chips, PB1 and PB5 pins are shorted and sealed inside the chip,
+ prohibiting both IOs from being configured for output function.
+
+
+V2.3                                                      18
+CH32X035 Datasheet                                                                            https://wch-ic.com
+
+
+Note 6: For CH32X035G8R6 chip, PA12 and PC14 pins are shorted and sealed inside the chip, prohibiting both
+  IOs from being configured for output function; PA13 and PC15 pins are shorted and sealed inside the chip,
+  prohibiting both IOs from being configured for output function.
+Note 7: For CH32X035D8U6, PA7 and PC7 pins are short-circuited inside the chip, prohibiting both IOs from being
+  configured as output functions.
+Note 8: PC17 is the BOOT detection pin. Upon power-up, PC17 is high, causing the chip to enter the BOOT area.
+Note 9: When using I2C functionality, an external pull-up resistor must be connected to the PC16 pin.
+Note 10: For CH32X033F8P6, pins PA7 and PB0 are internally shorted and sealed. Both I/O pins are prohibited
+from being configured as outputs.
+
+
+
+
+V2.3                                                 19
+CH32X035 Datasheet                                                                                   https://wch-ic.com
+
+
+
+2.3 Pin Alternate Functions
+Note: The pin function in the table below refer to all functions and does not involve specific model(s). There are
+differences in peripheral resources between different models. Please confirm whether this function is available
+according to the particular model's resource table before viewing this table.
+                                 Table 2-3 Pin alternate and remapping functions
+       Alternate
+                   ADC     TIM1/2    TIM3     USART    CMP     SYS     I2C       SPI     USB   OPA          PIOC
+ Pin
+                            T2C1
+       PA0         A0                         CTS2     C1P1
+                           T2C1_2
+                            T2C2               RTS2                                            O1N2
+       PA1         A1                                  C1O
+                           T2C2_2             CTS2_1                                           O2N2
+                            T2C3
+                           T2C3_1              TX2
+       PA2         A2                                  C3N0                                    O2O1
+                           T2ET_5             RTS2_1
+                           T2ET_6
+                            T2C4               RX2
+       PA3         A3(1)             T3C1_3                                                    O1O0
+                           T2C4_1             CTS3_2
+                                               CK2
+       PA4         A4                T3C2_3                                      CS            O2O0
+                                              RTS3_2
+                                              TX4_1
+       PA5         A5                                                            SCK           O2N0
+                                              CTS4_4
+                                              CK4_1
+       PA6         A6      T1BK_1    T3C1                                       MISO           O1N0
+                                              RTS4_4
+                                              CTS4_1
+       PA7         A7(1)   T1C1N_1   T3C2                                       MOSI           O2P0
+                                              TX1_3
+                                               RTS4
+                                              RTS1_2
+       PA8                                    CK4_4                             MISO_1
+                                              RTS4_2
+                                              RTS4_5
+                           T2BK_1             RX4_1                             MOSI_1
+       PA9
+                           T2BK_3             CTS1_2                            MISO_2
+                                              TX1_1
+       PA10                                                           SCL(1)    MOSI_2
+                                              RX4_3
+       PA11                                   RX1_1    C2P1           SDA(1)    SCK_2
+                            T2C2_5
+       PA12                T2C1N_1                     C2P0                      CS_2
+                           T2C1N_3
+                            T2C3_5
+                                              RTS4_3
+       PA13                T2C2N_1                     C3P0          SCL_1(1)
+                                              CTS1_3
+                           T2C2N_3
+                           T2C3N_1            CTS4_3
+       PA14                                            C3P1          SDA_1(1)
+                           T2C3N_3            RTS1_3
+                                              TX2_2
+       PA15
+                                              TX2_4
+                                              RX2_2
+       PA16
+                                              RX2_4
+                                              CTS2_2
+       PA17
+                                              CTS2_4
+                            T2ET_1
+       PA18                                   TX3_2
+                            T2ET_3
+                             T2ET
+       PA19                                   RX2_1
+                            T2ET_2
+                             T2BK
+       PA20                                   TX2_1
+                           T2BK_2
+       PA21                 T2C1N             RTS2_2           RST
+                            T2C2N             CK2_2
+       PA22                                            C2NO
+                           T2C2N_2            CK2_4
+                            T2C3N
+       PA23                                   CK2_1    C1N1
+                           T2C3N_2
+       PB0         A8      T1C2N_1             TX4                                             O1P0
+       PB1         A9      T1C3N_1             RX4                                             O2N1
+                                              RX1_3
+                                               CK4
+       PB2                                             C2O
+                                              CK4_2
+                                              CK4_5
+
+
+V2.3                                                      20
+CH32X035 Datasheet                                                                                       https://wch-ic.com
+
+
+       Alternate
+                   ADC      TIM1/2    TIM3     USART    CMP     SYS        I2C       SPI     USB   OPA          PIOC
+ Pin
+                             T2C3_2
+                             T2C3_3
+       PB3                                      TX3     C3O                                        O2P1
+                            T2C3N_5
+                            T2C3N_6
+                             T2C4_2
+                             T2C4_3
+       PB4                            T3C1_1    RX3                                                O1P2
+                            T2BK_5
+                            T2BK_6
+                                                CK3
+                             T1BK
+       PB5                            T3C2_1   CK1_2                                               O1O1
+                            T1BK_2
+                                               CK3_1
+                             T1C1N              CTS3
+       PB6                                                                                         O1N1
+                            T1C1N_2            CTS3_1
+                             T1C2N              RTS3
+       PB7                                                      RST(3)                             O2P2
+                            T1C2N_2            RTS3_1
+                             T1C3N             CK3_2
+       PB8                                                                                         O1P1
+                            T1C3N_2            CK4_3
+                              T1C1              CK1
+       PB9                   T1C1_1            CK1_1            MCO
+                             T1C1_2            TX4_3
+                              T1C2
+                                                TX1
+       PB10                  T1C2_1
+                                               TX1_2
+                             T1C2_2
+                              T1C3
+                             T1C3_1             RX1
+       PB11
+                             T1C3_2            RX1_2
+                            T2C1N_6
+                             T1C4_2
+       PB12                 T2C2N_5            CK1_3
+                            T2C2N_6
+       PB13                                    TX4_4
+       PB14                                    RX3_2
+                                                CTS4
+                            T2C2_1
+       PB15                                    CTS4_2                               SCK_1
+                            T2C2_3
+                                               CTS4_5
+       PB16                 T2C1_4             TX3_3
+       PB17                 T2C2_4             RX3_3
+       PB18                 T2C3_4             CTS3_3
+       PB19                 T2C4_4             RTS3_3
+       PB20                                    CK2_3
+                             T2C1_1
+       PB21                                    RTS4_1                                CS_1
+                             T2C1_3
+                             T1C1_3
+                             T2C4_5
+       PC0         A10                         TX2_3
+                             T2C4_6
+                            T2BK_4
+                             T1C2_3
+       PC1         A11(1)                      RX2_3
+                            T2C1N_4
+                             T1C3_3
+       PC2         A12                         CTS2_3
+                            T2C2N_4
+                             T1C4_3                     C1NO
+                                               RTS2_3
+       PC3         A13      T2C3N_4                     C2N1    RST(2)
+                                               RTS2_4
+                            T2C1N_2                     C3N1
+                            T1BK_3
+       PC4                                                                           CS_3
+                             T2ET_4
+       PC5                  T1C1N_3                                                 SCK_3
+       PC6                  T1C2N_3                                                 MISO_3
+       PC7                  T1C3N_3                                                 MOSI_3                   PIOC_IO0_1
+                             T1C3_4
+       PC14                                                                                  CC1
+                             T2C2_6
+                             T1ET_4
+       PC15                                                                                  CC2
+                             T2C3_6
+                                                CTS1
+                             T1C4              CTS1_1                    SCL_2(1)
+       PC16                                                                                  UDM
+                            T1C4_1             TX4_2                     SDA_4(1)
+                                               RX4_5
+       PC17                  T1ET               RTS1                     SDA_2(1)            UDP
+
+
+V2.3                                                       21
+CH32X035 Datasheet                                                                                 https://wch-ic.com
+
+
+       Alternate
+                   ADC   TIM1/2    TIM3     USART    CMP     SYS     I2C         SPI   USB   OPA          PIOC
+ Pin
+                                                                           (1)
+                         T1ET_1             RTS1_1                 SCL_4
+                                            RX4_2
+                                            TX4_5
+                          T1ET_2
+                                                                   SDA_3(1)
+       PC18               T1ET_3   T3C2_2   TX3_1            DIO                                        PIOC_IO0
+                                                                   SCL_5(1)
+                         T2C1N_5
+                          T2C1_5            RX3_1                  SCL_3(1)
+       PC19                        T3C1_2            C1P0    DCK                                        PIOC_IO1
+                          T2C1_6            RX4_4                  SDA_5(1)
+Note: 1. ADC's channel 3, channel 7, channel 11, and channel 15 functions are not applicable to products whose
+lot number ends with 0 as the fifth-to-last digit.
+     2. The RST function on pin PC3 is only available for the CH32X035 in the QSOP28 package and TSSOP20
+package.
+     3. The RST function on pin PB7 is only available for CH32X033 in TSSOP20 package.
+
+
+
+
+V2.3                                                    22
+CH32X035 Datasheet                                                                                     https://wch-ic.com
+
+
+
+                             Chapter 3 Electrical Characteristics
+
+3.1 Test Conditions
+All voltages are referenced to GND unless otherwise stated and labelled.
+
+All minimum and maximum values are guaranteed in the worst conditions of ambient temperature, supply voltage and
+clock frequency. Typical values are based on normal temperature 25℃ and VDD = rated 5V environment for design
+guidance.
+
+The data based on comprehensive evaluation, design simulation or technology characteristics are not tested in production.
+On the basis of comprehensive evaluation, the minimum and maximum values refer to sample tests. Unless otherwise
+specified that is tested, the characteristic parameters are guaranteed by comprehensive evaluation or design.
+
+Power supply scheme:
+
+                              Figure 3-1 Typical circuit for conventional power supply
+                                         VDD
+
+
+                                                                           VDD
+                                            4.7uF      0.1uF
+
+
+                                                                           GND
+
+
+
+
+3.2 Absolute Maximum Ratings
+Critical or exceeding the absolute maximum value may cause the chip to operate improperly or even be damaged.
+
+                                        Table 3-1 Absolute maximum ratings
+   Symbol                                   Description                                   Min.          Max.        Unit
+       TA      Ambient temperature during operation                                        -40           85          ℃
+       TS      Ambient temperature during storage                                          -40          125          ℃
+       VDD     Voltage on external mains supply pin VDD                                    -0.3          6.0         V
+       VIN     Voltage on I/O pins                                                         -0.3       VDD+0.3        V
+  |△VDD_x|     Voltage difference between each VDD of the main supply pins                               20         mV
+ |△GND_x|      Voltage difference between each GND of the common ground pins                             20         mV
+  VESD(HBM)    ESD electrostatic discharge voltage on common I/O pins (HBM)                       4K                 V
+       IVDD    Total combined current of all VDD main supply pins                                       150         mA
+       IGND    Total combined current on all GND common ground pins                                     200         mA
+               Sink current on any I/O pins                                                              40         mA
+       IIO
+               Source current on any I/O pins                                                            30         mA
+
+
+
+
+V2.3                                                      23
+CH32X035 Datasheet                                                                                       https://wch-ic.com
+
+
+
+3.3 Electrical Characteristics
+3.3.1 Operating Conditions
+                                          Table 3-2 General operating conditions
+  Symbol                      Parameter                           Condition                   Min.        Max.        Unit
+  FHCLK or     Internal system bus frequency
+                                                                                                           48        MHz
+   FSYS        or microprocessor main frequency
+                                                       Disable USB or PD function              2.0         5.5
+                                                                                                                       V
+               Operating supply voltage (rated         Enable USB or PD function               3.0         5.3
+       VDD
+               5V)                                     Disable ADC function                    2.0         5.5
+                                                                                                                       V
+                                                       Enable ADC function                     2.5         5.5
+
+
+                                    Table 3-3 Power-on and power-down conditions
+  Symbol                      Parameter                           Condition                  Min.        Max.         Unit
+               VDD rise time rate                                                            0.1           ∞
+       tVDD                                                                                                          us/V
+               VDD fall time rate                                                            10            ∞
+
+
+3.3.2 Built-in Reset and Power Control Module Characteristics
+                     Table 3-4 Reset and voltage monitor (For PDR, select high threshold gear)
+  Symbol              Parameter                       Condition               Min.             Typ.       Max.        Unit
+                                             PLS[1:0] = 00 (rising edge)                       2.12
+                                                                                                                       V
+                                             PLS[1:0] = 00 (falling edge)                      2.1
+                                             PLS[1:0] = 01 (rising edge)                       2.32
+               Level    selection of                                                                                   V
+                                             PLS[1:0] = 01 (falling edge)                      2.3
+   VPVD(1)     programmable voltage
+                                             PLS[1:0] = 10 (rising edge)                       3.02
+               detector                                                                                                V
+                                             PLS[1:0] = 10 (falling edge)                          3
+                                             PLS[1:0] = 11 (rising edge)                       4.02
+                                                                                                                       V
+                                             PLS[1:0] = 11 (falling edge)                          4
+  VPVDhyst     PVD hysteresis                                                                   20                    mV
+               Power-on/power-down           Rising edge                                       1.8                     V
+  VPOR/PDR
+               reset threshold               Falling edge                                      1.78                    V
+  VPDRhyst     PDR hysteresis                                                                   20                    mV
+               Power on reset                                                     4             17         24         ms
+  tRSTTEMPO
+               Other resets                                                       6                9       20          us
+Note: 1. Normal temperature test value.
+
+
+3.3.3 Built-in Reference Voltage
+                                           Table 3-5 Built-in reference voltage
+  Symbol                Parameter                           Condition                 Min.        Typ.    Max.       Unit
+  VREFINT      Internal reference voltage       TA = -40℃~85℃                         1.16         1.2    1.24         V
+  TS_vrefint   ADC sampling time when Slow sampling recommended                                            11       1/fADC
+
+
+V2.3                                                         24
+CH32X035 Datasheet                                                                                       https://wch-ic.com
+
+
+                reading     the       internal
+                reference voltage
+
+
+3.3.4 Supply Current Characteristics
+Current consumption is a comprehensive index of a variety of parameters and factors. These parameters and factors
+include operating voltage, ambient temperature, I/O pin load, software configuration of the product, the operating
+frequency, flip rate of the I/O pin, the location of the program in memory and the executed code, etc. The current
+consumption measurement method is as follows:
+
+                                      Figure 3-2 Current consumption measurement
+                                                      Electric current
+                                                       measurement
+
+                                                                         VDD
+
+                                                     Electric current
+                                                      measurement
+
+
+
+
+The microcontroller is in the following conditions:
+When tested at room temperature VDD = 3.3V: all I/O ports configured with pull-up inputs, HSI = 48M. power
+consumption of all peripheral clocks enabled or disabled.
+
+Note: For pins not packaged in small package models or pins that are packaged but unused, it is recommended to
+configure them as pull-up inputs or pull-down inputs. Failure to do so may affect current specifications. For specific
+procedures, please refer to the EVT low-power example code.
+
+
+    Table 3-6 Typical current consumption in Run mode, the data processing code runs from the internal Flash
+                                                                                             Typ.
+  Symbol         Parameter                         Condition                   Enable all           Disable all       Unit
+                                                                               peripherals          peripherals
+                                    Runs on the high-          FHCLK = 48MHz       4.2                  3.0
+                                    speed internal RC          FHCLK = 24MHz       3.2                  2.6
+         (1)
+               Current in Run
+   IDD                              oscillator (HSI). Uses     FHCLK = 16MHz       2.5                  2.1           mA
+               mode
+                                    HB prescaler to reduce
+                                                               FHCLK = 8MHz        2.2                  2.0
+                                    the frequency.
+Note: The above are measured parameters.
+
+
+ Table 3-7 Typical current consumption in Sleep mode, data processing code runs from internal Flash or SRAM
+                                                                                             Typ.
+ Symbol           Parameter                        Condition                   Enable all           Disable all      Unit
+                                                                               peripherals          peripherals
+               Current in Sleep     Runs on the high-        FHCLK = 48MHz        3.0                  1.8
+   IDD   (1)   mode                 speed internal RC        FHCLK = 24MHz        2.1                  1.5           mA
+               (In this case,       oscillator   (HSI).      FHCLK = 16MHz        1.8                  1.4
+
+
+V2.3                                                         25
+CH32X035 Datasheet                                                                                       https://wch-ic.com
+
+
+                 peripheral         Uses HB prescaler to
+                 power supply       reduce the frequency.
+                                                             FHCLK = 8MHz              1.5              1.3
+                 and clock are
+                 maintained)
+Note: The above are measured parameters.
+
+                            Table 3-8 Typical current consumption in Stop and Standby mode
+ Symbol                Parameter                                    Condition                           Typ.         Unit
+                                               High-speed internal RC oscillator is off (no
+                Current in Stop mode                                                                     75
+                                               independent watchdog)
+   IDD                                         Independent watchdog enabled                              530          uA
+                Current in Standby mode        AWU status enabled                                        528
+                                               Independent watchdog and AWU status disabled              51
+Note: The above are measured parameters.
+
+
+3.3.5 Internal Clock Source Characteristics
+                             Table 3-9 Internal high-speed (HSI) RC oscillator characteristics
+  Symbol                       Parameter                     Condition             Min.       Typ.         Max.       Unit
+       FHSI       Frequency (after calibration)                                                  48                  MHz
+  DuCyHSI         Duty cycle                                                         45          50           55       %
+                  Accuracy of HSI oscillator (after TA = 0℃~70℃                     -1.7      ±0.8            1.6      %
+  ACCHSI
+                  calibration)                      TA = -40℃~85℃                   -2.6      ±1.1            2.2      %
+                  HSI oscillator startup stabilization
+   tSU(HSI)                                                                         1.5                       3.5      us
+                  time
+   IDD(HSI)       HSI oscillator power consumption                                               312                  uA
+
+
+3.3.6 Wakeup Time from Low-power Mode
+                                     Table 3-10 Wakeup time from low-power mode(1)
+  Symbol                           Parameter                                    Condition                     Typ.    Unit
+   twusleep       Wakeup from Sleep mode                         Wake up using HSI RC clock                    1       us
+    twustop       Wakeup from Stop mode                          Wake up using HSI RC clock                   10       us
+  tWUSTDBY        Wakeup from Standby mode                       Wake up using HSI RC clock                   10       us
+Note: The above are measured parameters.
+
+
+3.3.7 Memory Characteristics
+                                           Table 3-11 Flash memory characteristics
+  Symbol                       Parameter                          Condition            Min.      Typ.      Max.       Unit
+  tprog_page      Page (256 bytes) programming time                                              1.5          2.0     ms
+  terase_page     Page (256 bytes) erase time                                                    2.5          3.0     ms
+   terase_sec     Sector (1K bytes) erase time                                                   2.7          3.3     ms
+
+
+
+
+V2.3                                                        26
+CH32X035 Datasheet                                                                                          https://wch-ic.com
+
+
+                                Table 3-12 Flash memory endurance and data retention
+  Symbol                  Parameter                          Condition                 Min.         Typ.      Max.      Unit
+                                                  TA = 25℃                             300K                            Times
+    NEND         Number of erasures
+                                                  TA = 70℃                             100K                            Times
+                                                  TA = 25℃                              20                              Years
+       tRET      Data retention period
+                                                  TA = 70℃                              10                              Years
+
+
+3.3.8 I/O Port Characteristics
+                                 Table 3-13 General-purpose I/O static characteristics
+ Symbol                     Parameter                        Condition          Min.          Typ.          Max.        Unit
+                                                                               (VDD-2)*
+                                                                                                             VDD          V
+              Standard I/O pin, input high-level                               0.36+1.3
+   VIH
+              voltage                            VDD = 5V                        2.4                         VDD          V
+                                                        VDD = 3.3V               1.8                         VDD          V
+                                                                                                           (VDD-2)*
+                                                                                  0                                       V
+              Standard I/O pin, input low-level                                                            0.24+0.4
+   VIL
+              voltage                           VDD = 5V                          0                          1.1          V
+                                                        VDD = 3.3V                0                          0.7          V
+              Standard I/O pin Schmitt trigger voltage
+  Vhys                                                 VDD = 5V                  180          350                       mV
+              hysteresis
+   Ilkg       Input leakage current                                               -2                          2          uA
+                                                        VDD = 5V                 25            60            140         uA
+   IPU        Standard I/O pin weak pull-up current
+                                                        VDD = 3.3V               12            30            65          uA
+                                                        VDD = 5V                 60           150            350         uA
+   IPD        PA0-PA15 pins weak pull-down current
+                                                        VDD = 3.3V               30            75            180         uA
+   CIO        Single I/O pin capacitor (without dual I/O co-packaging)                         5                         pF
+Note: The above are guaranteed design parameters;
+
+
+                                         Table 3-14 Output Voltage characteristics
+       Symbol                         Parameter                          Condition             Min.          Max.        Unit
+                                                                  IIO = 50mA
+                                                                                                              0.4         V
+      VOL             Output low-level voltage, pin sink          VDD = 3.3V
+   (PA0-PA23)         current                                     IIO = 100mA
+                                                                                                              0.5         V
+                                                                  VDD = 5V
+                                                            IIO = 30mA
+                                                                                              VDD-0.4                     V
+      VOH             Output high-level voltage, pin source VDD = 3.3V
+   (PA0-PA23)         current                               IIO = 50mA
+                                                                                              VDD-0.5                     V
+                                                            VDD = 5V
+                                                                  IIO = 50mA
+                                                                                                              0.4         V
+     VOL              Output low-level voltage, pin sink          VDD = 3.3V
+  (PB0-PB21)          current                                     IIO = 100mA
+                                                                                                              0.5         V
+                                                                  VDD = 5V
+
+
+V2.3                                                         27
+CH32X035 Datasheet                                                                                 https://wch-ic.com
+
+
+                                                           IIO = 6mA
+                                                                                      VDD-0.4                    V
+      VOH            Output high-level voltage, pin source VDD = 3.3V
+   (PB0-PB21)        current                               IIO = 10mA
+                                                                                      VDD-0.5                    V
+                                                           VDD = 5V
+                                                             IIO = 18mA
+      VOL                                                                                            0.4         V
+                     Output low-level voltage, pin sink      VDD = 3.3V
+   (PC0-PC7,
+                     current                                 IIO = 32mA
+  PC14-PC19)                                                                                         0.5         V
+                                                             VDD = 5V
+                                                           IIO = 8mA
+      VOH                                                                             VDD-0.4                    V
+                     Output high-level voltage, pin source VDD = 3.3V
+   (PC0-PC7,
+                     current                               IIO = 16mA
+  PC14-PC19)                                                                          VDD-0.5                    V
+                                                           VDD = 5V
+Note: 1. The above are guaranteed design parameters;
+      2. If multiple I/O pins are driven simultaneously under the above conditions, the total current cannot exceed
+    the absolute maximum ratings in Section 3.2. In addition, when multiple I/O pins are driven at the same time,
+    the current on the power/ground line is very large, and the resulting voltage drop causes the internal I/O
+    voltage to fail to reach the power supply voltage in the table, causing the driving current to be less than the
+    nominal value.
+
+
+                                     Table 3-15 Input/output AC characteristics
+       Pin           Symbol             Parameter                    Condition              Min.       Max.      Unit
+                                                             CL=50pF, VDD=2.9~4.0V                      40       MHz
+                  Fmax(IO)out    Maximum frequency
+                                                             CL=50pF, VDD=4.0~5.5V                      56       MHz
+                                 Output high to low fall     CL=50pF, VDD=2.9~4.0V                         6       ns
+       PA            tf(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                      4.2        ns
+                                 Output low to high rise     CL=50pF, VDD=2.9~4.0V                      8.4        ns
+                     tr(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                         6       ns
+                                                             CL=50pF, VDD=2.9~4.0V                      16       MHz
+                  Fmax(IO)out    Maximum frequency
+                                                             CL=50pF, VDD=4.0~5.5V                      24       MHz
+                                 Output high to low fall     CL=50pF, VDD=2.9~4.0V                         6       ns
+       PB            tf(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                      4.2        ns
+                                 Output low to high rise     CL=50pF, VDD=2.9~4.0V                      18         ns
+                     tr(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                     13.2        ns
+                                                             CL=50pF, VDD=2.9~4.0V                      28       MHz
+                  Fmax(IO)out    Maximum frequency
+                                                             CL=50pF, VDD=4.0~5.5V                      36       MHz
+                                 Output high to low fall     CL=50pF, VDD=2.9~4.0V                      8.4        ns
+       PC            tf(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                      7.2        ns
+                                 Output low to high rise     CL=50pF, VDD=2.9~4.0V                     13.2        ns
+                     tr(IO)out
+                                 time                        CL=50pF, VDD=4.0~5.5V                      9.6        ns
+Note: The above are guaranteed design parameters.
+
+
+
+
+V2.3                                                    28
+CH32X035 Datasheet                                                                                         https://wch-ic.com
+
+
+3.3.9 RST Pin Characteristics
+                                        Table 3-16 External reset pin characteristics
+   Symbol                 Parameter                         Condition                   Min.        Typ.       Max.      Unit
+   VF(RST)         RST input pulse width                                                300                               ns
+
+
+Circuit reference design and requirements:
+                                  Figure 3-3 Typical circuit for external reset pin
+
+                                                                  VDD
+                                                                  RPU
+                                                     RST
+
+                                                                               Filter
+                                                    0.1uF
+
+
+
+
+3.3.10 USB PD Interface Characteristics
+                      Table 3-17 PD interface I/O characteristics, application: PD communication
+   Symbol             Parameter                         Condition                       Min.        Typ.      Max.      Unit
+                                       Time between 10% and 90% of the range,
+        tRise        Rising time                                                        300                    600       ns
+                                       minimum value for no-load conditions.
+                                       Time between 10% and 90% of the range,
+        tFall        Falling time                                                       300                    600       ns
+                                       minimum value for no-load conditions.
+                   Output voltage
+       vSwing          swing           Low voltage output mode, CL=50pF                 1.04        1.12       1.20       V
+                   (peak-to-peak)
+                                       Pin voltage < VDD - 1V，PUCC[1:0] = 11             64           80        96       uA
+                     CC pull-up
+         Ipu                           Pin voltage < VDD - 1V，PUCC[1:0] = 10            144         180        216       uA
+                      current
+                                       Pin voltage < VDD - 1V，PUCC[1:0] = 01            264         330        396       uA
+Note: Adding the Type-C/PD high-voltage interface chip CH211 enables 28V tolerant voltage for PD pins and
+incorporates the 5K1 controllable pull-down resistor specified by the Type-C standard.
+
+
+3.3.11 TIM Timer Characteristics
+                                                Table 3-18 TIMx characteristics
+   Symbol                           Parameter                           Condition              Min.         Max.        Unit
+                                                                                                                       tTIMxC
+                                                                                                1
+       tres(TIM)    Timer reference clock                                                                                LK
+
+                                                              fTIMxCLK = 48MHz                 20.8                      ns
+                                                                                                           fTIMxCLK/
+                    Timer external clock frequency on                                           0                      MHz
+        FEXT                                                                                                   2
+                    CH1 to CH4
+                                                              fTIMxCLK = 48MHz                  0             24       MHz
+       ResTIM       Timer resolution                                                                          16        Bit
+
+
+V2.3                                                         29
+CH32X035 Datasheet                                                                                                          https://wch-ic.com
+
+
+                                                                                                                                           tTIMxC
+                         16-bit counter clock cycle when the                                                     1           65536
+   tCOUNTER                                                                                                                                   LK
+                         internal clock is selected
+                                                                         fTIMxCLK = 48MHz                 0.0208              1363            us
+                                                                                                                                           tTIMxC
+                                                                                                                             65535
+  tMAX_COUNT             Maximum possible count                                                                                               LK
+
+                                                                         fTIMxCLK = 48MHz                                     1363            us
+
+
+3.3.12 I2C Interface Characteristics
+                                                        Figure 3-4 I2C bus timing diagram
+                                         tw(SCKH)
+                                                      tr(SCL)
+                              tw(SCKL)
+   SCL        th(STA)                      tf(SCL)
+                                                                                                   tSU(STO)
+                                                     tSU(SDA)        th(SDA)
+                        tf(SDA)
+                                                                                                                        Repeat start condition
+   SDA                                                                                             tw(STO:STA)
+                         tr(SDA)                                                                                             Stop condition
+           Start condition                                                                            tSU(STA)
+
+
+
+
+                                                     Table 3-19 I2C interface characteristics
+                                                                                 Standard I2C                        Fast I2C
+   Symbol                                        Parameter                                                                                Unit
+                                                                                Min.        Max.              Min.           Max.
+   tw(SCKL)              SCL clock low level time                               4.7                           1.2                             us
+   tw(SCKH)              SCL clock high level time                              4.0                           0.6                             us
+   tSU(SDA)              SDA data setup time                                    250                           100                             ns
+       th(SDA)           SDA data hold time                                      0                               0            900             ns
+ tr(SDA)/tr(SCL)         SDA and SCL rise time                                              1000                 20                           ns
+ tf(SDA)/tf(SCL)         SDA and SCL fall time                                              300                                               ns
+       th(STA)           Start condition hold time                              4.0                           0.6                             us
+    tSU(STA)             Repeated start condition setup time                    4.7                           0.6                             us
+    tSU(STO)             Stop condition setup time                              4.0                           0.6                             us
+                         Time from stop condition to start condition
+  tw(STO:STA)                                                                   4.7                           1.2                             us
+                         (bus free)
+         Cb              Capacitive load for each bus                                       400                               400             pF
+
+
+
+
+V2.3                                                                    30
+CH32X035 Datasheet                                                                                  https://wch-ic.com
+
+
+3.3.13 SPI Interface Characteristics
+                                    Figure 3-5 SPI timing diagram in Master mode
+
+
+
+
+                         Figure 3-6-1 SPI timing diagram in Slave mode (CPHA=0, CPOL=0)
+
+       NSS Input
+
+
+                                                                                          th(NSS)
+                                                tSCK                   tr(SCK)
+                                                                       tf(SCK)
+       SCK Input         tsu(NSS)
+        CPHA=0
+        CPOL=0
+
+                   tsu(SI)             th(SI)
+
+   MOSI Input                Input highest bit         Input 6-1 bit             Input lowest bit
+
+
+
+
+V2.3                                                      31
+CH32X035 Datasheet                                                                                                               https://wch-ic.com
+
+
+                          Figure 3-6-2 SPI timing diagram in Slave mode (CPHA=0, CPOL=1)
+        NSS Input
+
+
+                                                        tSCK                                                      th(NSS)
+                                                                                             tr(SCK)
+                                                                                             tf(SCK)
+                           tsu(NSS)
+        SCK Input
+         CPHA=0
+         CPOL=1
+                               ta(SO)                      tV(SO)
+                                                                                                 th(SO)
+                                                                                                                                     tdis(SO)
+  MISO Output                           Output highest bit                Output 6-1 bit                  Output lowest bit
+
+                     tsu(SI)                   th(SI)
+
+       MOSI Input                  Input highest bit                    Input 6-1 bit                  Input lowest bit
+
+
+
+
+                          Figure 3-7-1 SPI timing diagram in Slave mode (CPHA=1, CPOL=0)
+   NSS Input
+
+
+                                                                                                                th(NSS)
+                                                    tSCK                                   tr(SCK)
+                                                                                           tf(SCK)
+    SCK Input           tsu(NSS)
+     CPHA=1
+     CPOL=0
+                                              tsu(SI)          th(SI)
+
+  MOSI Input                                   Input highest bit                   Input 6-1 bit              Input lowest bit
+
+
+
+
+V2.3                                                                       32
+CH32X035 Datasheet                                                                                                         https://wch-ic.com
+
+
+                              Figure 3-7-2 SPI timing diagram in Slave mode (CPHA=1, CPOL=1)
+       NSS Input
+
+
+                                                      tSCK                                               th(NSS)
+                                                                                       tr(SCK)
+                                                                                       tf(SCK)
+                              tsu(NSS)
+       SCK Input
+        CPHA=1
+         CPOL=1
+
+
+                     ta(SO)                                  tV(SO)                       th(SO)                          tdis(SO)
+
+ MISO Output                                  Output highest bit              Output 6-1 bit            Output lowest
+                                                                                                             bit
+                                         tsu(SI)             th(SI)
+
+  MOSI Input                                       Input highest bit             Input 6-1 bit      Input lowest bit
+
+
+
+
+                                                   Table 3-20 SPI interface characteristics
+       Symbol                            Parameter                                Condition                   Min.          Max.       Unit
+                                                                       Master mode                                            24      MHz
+       fSCK/tSCK         SPI clock frequency
+                                                                       Slave mode                                             24      MHz
+   tr(SCK)/tf(SCK)       SPI clock rise and fall time                  Load capacitance: CL = 30pF                            20        ns
+       tSU(NSS)          NSS setup time                                Slave mode                            2tHCLK                     ns
+        th(NSS)          NSS hold time                                 Slave mode                            2tHCLK                     ns
+                         SCK high-level and low-level                  Master mode, fHCLK = 24MHz,
+ tw(SCKH)/tw(SCKL)                                                                                             70            100        ns
+                         time                                          Prescaler factor = 4
+        tSU(MI)                                                        Master mode                                 5                    ns
+                         Data input setup time
+        tSU(SI)                                                        Slave mode                                  5                    ns
+         th(MI)                                                        Master mode                                 5                    ns
+                         Data input hold time
+         th(SI)                                                        Slave mode                                  4                    ns
+         ta(SO)          Data output access time                       Slave mode, fHCLK = 20MHz                   0       1tHCLK       ns
+        tdis(SO)         Data output disable time                      Slave mode                                  0          10        ns
+        tV(SO)                                                         Slave mode (After enable edge)                         25        ns
+                         Data output valid time
+        tV(MO)                                                         Master mode (After enable edge)                         5        ns
+         th(SO)                                                        Slave mode (After enable edge)          15                       ns
+                         Data output hold time
+        th(MO)                                                         Master mode (After enable edge)             0                    ns
+
+
+3.3.14 USART Characteristics
+                                                     Table 3-21 USART characteristics
+  Symbol                             Parameter                                    Condition                        Min.       Max.      Unit
+                                                                      FHCLK = 48MHz, prescaler factor
+       fCK         CK pin output clock frequency                                                                                24     MHz
+                                                                      =2
+ tr(CK)/tf(CK)     CK pin output clock rise and fall                  FHCLK = 48MHz, CL = 30pF                                 13.2      ns
+
+V2.3                                                                     33
+  CH32X035 Datasheet                                                                                            https://wch-ic.com
+
+
+                       time
+
+
+  3.3.15 USB Interface Characteristics
+                                            Table 3-22 USB interface I/O characteristics
+Symbol                        Parameter                           Condition                 Min.         Typ.          Max.         Unit
+                                                        Selection of USB parameters
+ VDD             USB operating voltage                                                       3.0                       5.3             V
+                                                        according to VDD voltage
+ VSE             Single-ended receiver threshold        Nominal voltage                      1.2                       1.9             V
+ VOL             Static output low level                                                                               0.3             V
+ VOH             Static output high level                                                    2.8                                       V
+VBC_REF          BC comparator reference voltage                                                          0.4                          V
+VBC_SRC          BC protocol output voltage                                                               0.6                          V
+
+
+  3.3.16 12-bit ADC Characteristics
+                                                    Table 3-23 ADC characteristics
+       Symbol                         Parameter                         Condition     Min.         Typ.         Max.          Unit
+                                                                 Rated performance    3.0           5            5.3            V
+          VDD            Supply voltage                          Performance may
+                                                                                      2.5                        5.5            V
+                                                                 be reduced
+           IDD           Supply current                                                            560                         uA
+                                                                 VDD ≥ 3.2V            3                          8           MHz
+          fADC           ADC clock frequency
+                                                                 VDD < 3.2V            3                          6           MHz
+                                                                 VDD ≥ 3.2V           125                        470          KHz
+            fS           Sampling rate
+                                                                 VDD < 3.2V           125                        353          KHz
+          VAIN           Conversion voltage range                                      0                        VDD             V
+          RADC           Sampling switch resistance                                   0.5          0.6           1.5           kΩ
+                         Internal sample          and     hold
+          CADC                                                                                     21                          pF
+                         capacitor
+           tIat          Injected trigger conversion latency                                        1                         1/fADC
+           tIatr         Regular trigger conversion latency                                         1                         1/fADC
+            ts           Sampling time                                                             3.5                        1/fADC
+                         Total conversion time (including
+          tCONV                                                                        17                        24           1/fADC
+                         sampling time)
+  Note: The above are guaranteed design parameters.
+
+  Formula: Maximum RAIN
+
+
+
+  The above formula is used to determine the maximum external impedance that allows the error to be less than 1/4
+  LSB. Among them, N=12 (indicating 12-bit resolution).
+
+
+
+
+  V2.3                                                             34
+CH32X035 Datasheet                                                                                        https://wch-ic.com
+
+
+                                       Table 3-24 Maximum RAIN when fADC = 8MHz
+                           TS (cycle)                    tS (us)               Maximum RAIN (kΩ)
+                                  4                       0.5                        1.85
+                                  5                      0.625                       2.46
+                                  6                       0.75                       3.07
+                                  7                      0.875                       3.69
+                                  8                       1.0                        4.30
+                                  9                      1.125                       4.91
+                                 10                       1.25                       5.53
+                                 11                      1.375                       6.14
+Note: The above are guaranteed design parameters.
+
+
+                                                    Table 3-25 ADC error
+    Symbol                     Parameter                           Condition          Min.        Typ.    Max.        Unit
+       EO       Offset error                              fADC = 3MHz,                             ±4
+       ED       Differential nonlinearity error           RAIN < 10kΩ,                             ±1      ±10        LSB
+       EL       Integral nonlinearity error               VDD = 5V                                 ±4      ±20
+Note: The above are guaranteed design parameters.
+
+Cp represents the parasitic capacitance on the PCB and the pad (about 5pF), which may be related to the quality of
+the pad and PCB layout. A larger Cp value will reduce the conversion accuracy, the solution is to reduce the fADC
+value.
+
+                                        Figure 3-8 ADC typical connection diagram
+
+                                                                   VD D
+
+                                                                    VT    Sample and hold ADC converter
+                                RAIN             AINx              0.6V    RADC
+                                                                                            12-bit
+                                                                                           converter
+                                                                    VT               CA DC
+                                            CP                     0.6V
+                VAIN         Parasitic
+                            capacitance
+
+
+
+
+                        Figure 3-9 Analog power supply and decoupling circuit reference
+
+
+                                                                               VDD
+                                                 4.7uF      0.1uF
+
+
+
+                                                                               GND
+
+
+
+
+V2.3                                                        35
+CH32X035 Datasheet                                                                          https://wch-ic.com
+
+
+
+
+3.3.17 OPA Characteristics
+                                          Table 3-26 OPA characteristics
+ Symbol              Parameter                 Condition: VDD = 5V          Min.     Typ.       Max.        Unit
+  VDD        Supply voltage              Recommended not less than 2.5V      2        5          5.5         V
+             Common mode input
+  VCM                                                                        0                  VDD          V
+             voltage
+                                         Common mode input VCM = 0.5V                ±5          ±13
+                                         Common mode input VCM = VDD/2               ±3          ±10
+VIOFFSET     Input offset voltage                                                                           mV
+                                         Common mode input VCM = VDD-
+                                                                                     ±5          ±17
+                                         0.5V
+  ILOAD      Drive current               RLOAD = 5kΩ                                              1         mA
+ILOAD_PGA    PGA mode drive current                                                              400        uA
+IDDOPAMP     Current consumption         No load, static mode                        210                    uA
+             Common              mode
+ CMRR(1)                                 @1kHz                                       110                     dB
+             rejection ratio
+             Power supply rejection
+ PSRR(1)                                 @1kHz                                       71                      dB
+             ratio
+  Av(1)      Open loop gain              CLOAD = 5pF                                 110                     dB
+ GBW(1)      Unit gain bandwidth         CLOAD = 5pF                                 13                    MHz
+  PM   (1)   Phase margin                CLOAD = 5pF                                 88
+  SR(1)      Slew rate limited           CLOAD = 5pF                                  5                     V/us
+             Setup   time    from
+                                         Input VDD/2,
+tWAKUP(1)    shutdown to wake up,                                                                 1          us
+                                         CLOAD = 50pF，RLOAD = 5kΩ
+             0.1%
+ RLOAD       Resistive load                                                  5                              kΩ
+ CLOAD       Capacitive load                                                                     50          pF
+             High saturation output      RLOAD = 5kΩ                       VDD-300
+VOHSAT(2)                                                                                                   mV
+             voltage                     RLOAD = 20kΩ                      VDD-50
+             Low saturation output       RLOAD = 5kΩ                                             10
+VOLSAT(2)                                                                                                   mV
+             voltage                     RLOAD = 20kΩ                                             7
+             NSEL=010b mode in
+                                         Gain =16, PA1=GND                   -3                   3          %
+             phase
+                                         Gain = 4
+                                                                             -1                   1          %
+                                         VINP < (VDD/7)
+  PGA                                    Gain = 8
+                                                                             -1                   1          %
+ Gain(1)                                 VINP < (VDD/15)
+             Internal in-phase PGA
+                                         Gain = 16
+                                                                             -1                   1          %
+                                         VINP < (VDD/31)
+                                         Gain = 32
+                                                                             -1                   1          %
+                                         VINP < (VDD/63)
+             Absolute change        in
+ Delta R                                                                     -15                 15          %
+             resistance
+
+
+V2.3                                                      36
+CH32X035 Datasheet                                                                                      https://wch-ic.com
+
+
+                                                RLOAD = 5kΩ@1kHz                                  100                   nV/
+                     Equivalent input voltage
+  EN(1)                                                                                                               sqrt(Hz
+                     noise                      RLOAD = 20kΩ@1KHz                                 60
+                                                                                                                         )
+Note: 1. Design parameters guaranteed;
+      2. The load current limits the saturated output voltage.
+
+
+3.3.18 CMP Characteristics
+                                       Table 3-27 CMP voltage comparator characteristics
+  Symbol                        Parameter             Condition: VDD = 5V      Min.        Typ.          Max.        Unit
+                                                      Recommended      not
+       VDD            Supply voltage                                            2           5             5.5         V
+                                                      less than 2.5V
+       VCM            Common mode input voltage                                 0                         VDD         V
+ VIOFFSET      (1)    Input offset voltage                                                 ±5             ±18        mV
+  IDDOPAMP            Current consumption                                                  75                        uA
+       Vhys           Hysteresis voltage                                                   ±24                       mV
+                      Comparator delay.
+                      VINP varies from (VINN-
+       tD(1)                                          0 ≤ VINN ≤ VDD                       15              50         ns
+                      100mV) to (VINN+100mV)
+                      change
+Note: 1. Design parameters guaranteed.
+
+
+
+
+V2.3                                                         37
+CH32X035 Datasheet                                                                   https://wch-ic.com
+
+
+
+                     Chapter 4 Package and Ordering Information
+
+Packages
+  Package Form        Body Size       Pin Pitch             Package Form             Order Model
+       LQFP64M        10*10mm     0.5mm      19.7mil   Low Profile Quad Flat Pack   CH32X035R8T6
+       LQFP48          7*7mm      0.5mm      19.7mil   Low Profile Quad Flat Pack   CH32X035C8T6
+        QFN28          4*4mm      0.4mm      15.7mil   Quad Flat No-Lead Package    CH32X035G8U6
+                                                         Quarter-sized Outline
+       QSOP28         3.9*9.9mm   0.635mm    25.0mil                                CH32X035G8R6
+                                                               Package
+        QFN20          3*3mm      0.4mm      15.7mil   Quad Flat No-Lead Package    CH32X035F8U6
+                                                       Thin Shrink Small Outline
+       TSSOP20        4.4*6.5mm   0.65mm     25.6mil                                CH32X035F7P6
+                                                               Package
+        QFN12          2*2mm      0.4mm      15.7mil   Quad Flat No-Lead Package    CH32X035D8U6
+                                                       Thin Shrink Small Outline
+       TSSOP20        4.4*6.5mm   0.65mm     25.6mil                                CH32X033F8P6
+                                                               Package
+
+
+
+
+V2.3                                              38
+CH32X035 Datasheet                                                                                 https://wch-ic.com
+
+
+Note: All dimensions are in millimeters. The pin center spacing values are nominal values, with no error. Other than
+that, the dimensional error is not greater than the greater of ±0.2mm or 10%.
+
+
+4.1 LQFP64M Package
+
+
+
+
+V2.3                                                    39
+CH32X035 Datasheet        https://wch-ic.com
+
+
+
+4.2 LQFP48 Package
+
+
+
+
+4.3 QFN28 Package
+
+
+
+
+V2.3                 40
+CH32X035 Datasheet        https://wch-ic.com
+
+
+
+4.4 QSOP28 Package
+
+
+
+
+V2.3                 41
+CH32X035 Datasheet         https://wch-ic.com
+
+
+
+4.5 QFN20 Package
+
+
+
+
+4.6 TSSOP20 Package
+
+
+
+
+V2.3                  42
+CH32X035 Datasheet        https://wch-ic.com
+
+
+
+
+4.7 QFN12 Package
+
+
+
+
+V2.3                 43
+CH32X035 Datasheet                                                                       https://wch-ic.com
+
+
+
+                                   Series Product Naming Rules
+Example:                   CH32                    V               3       03    R   8      T         6
+Device family
+F = ARM-based, general-purpose MCU
+V = QingKe RISC-V-based, general-purpose MCU
+L = QingKe RISC-V-based, low power MCU
+X = QingKe RISC-V-based, Dedicated architecture or special IO
+
+Product type
+0 = QingKe V2/V4 core, great value version, main frequency <= 48M
+1 = M3/QingKe V3/V4 core, basic version, main frequency <= 72M
+2 = M3/QingKe V4 non-floating-point core, enhanced version, main
+frequency <= 144M
+3 = QingKe V4F floating-point core, main frequency <= 144M
+
+
+Device subfamily
+03 = General-purpose
+05 = Connectivity (USB high-speed, SDIO, CAN)
+07 = Interconnectivity (USB high-speed, CAN, Ethernet, DVP, SDIO, FSMC)
+08 = Wireless (BLE5.X, CAN, USB, Ethernet)
+35 = Connectivity (USB, USB PD/Type C)
+33 = Connectivity (USB)
+
+Pin count
+J = 8 pins           D = 12 pins     A = 16 pins        F = 20 pins
+G = 28 pins          K = 32 pins     T = 36 pins        C = 48 pins
+R = 64 pins          W = 68 pins      V = 100 pins          Z = 144 pins
+
+
+Flash memory size
+4 = 16 Kbytes of Flash memory
+6 = 32 Kbytes of Flash memory
+7 = 48 Kbytes of Flash memory
+8 = 64 Kbytes of Flash memory
+B = 128 Kbytes of Flash memory
+C = 256 Kbytes of Flash memory
+
+Package
+T = LQFP         U = QFN            R = QSOP           P = TSSOP           M = SOP
+
+
+Temperature range
+6 = -40℃~85℃ (industrial-grade)
+7 = -40℃~105℃ (automotive-grade 2)
+
+V2.3                                                   44
+CH32X035 Datasheet                        https://wch-ic.com
+
+
+3 = -40℃~125℃ (automotive-grade 1)
+D = -40℃~150℃ (automotive-grade 0)
+
+
+
+
+V2.3                                 45
+

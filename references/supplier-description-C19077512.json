@@ -1,0 +1,28 @@
+{
+  "checked_on": "2026-10-08",
+  "command": [
+    "tsci",
+    "search",
+    "C19077512",
+    "--jlcpcb",
+    "--json"
+  ],
+  "evidence_tier": "exact CID CLI supplier description, not manufacturer datasheet; unclear fields or conditions are not assumed",
+  "manufacturer_identity": "not exposed by this CLI response (mfr field is part number)",
+  "results": [
+    {
+      "source": "jlcpcb",
+      "lcsc": 19077512,
+      "mfr": "SMF18A",
+      "package": "SOD-123FL",
+      "description": "-55\u2103~+150\u2103 18V 1uA 200W@10/1000us 22.1V 29.2V 6.8A@10/1000us IEC 61000-4-2 TVS Unidirectional SOD-123FL ESD and Surge Protection (TVS/ESD) ROHS"
+    }
+  ],
+  "not_claimed": [
+    "manufacturer qualification",
+    "thermal/measurement criteria",
+    "live ordering suitability",
+    "ESD system performance",
+    "current stock/pricing"
+  ]
+}

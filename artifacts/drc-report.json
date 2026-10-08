@@ -1,17 +1,36 @@
 {
-  "date": "2026-10-07T23:54:36.317Z",
+  "date": "2026-10-08T22:06:02.812Z",
   "tool": "@tscircuit/checks",
-  "traceCount": 519,
+  "traceCount": 527,
   "currentLimitAmps": 0.350765306122449,
-  "currentLimitEngineeringBudgetAmps": 0.3968801324163417,
-  "currentLimitBudgetIsNotQualified": true,
-  "motorAdcAt35VWorstVolts": 3.240146654445463,
+  "componentOnlyCurrentFormulaHighAmps": 0.3792446152398549,
+  "driverCurrentAccuracyAtSelectedReferenceIsUnspecified": true,
+  "motorDividerInputAt35VWorstVolts": 3.240146654445463,
+  "motorAdcAt35VWorstVolts": 1.6987025468524748,
+  "enabledMotorAdcScaleNominal": 21,
   "errors": [],
-  "warnings": [],
+  "warnings": [
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_35",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "Q_DATA has no pin with requires_power=true",
+      "source_component_id": "source_component_35",
+      "source_port_ids": [
+        "source_port_171",
+        "source_port_172",
+        "source_port_173"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
   "manufacturingRelease": false,
   "releaseBlockers": [
-    "Manufacturer drawing specifies front mounting only; rear adapter fit is unverified.",
+    "Manufacturer drawing specifies front mounting only; direct rear threads are unverified; separate front-mounted carrier requires sample fit.",
     "Hardware has not been assembled or electrically tested.",
-    "Footprint/rating and USB/PD bench validation remain required."
+    "Filled/capped exposed-pad vias and assembly process require fabricator acceptance.",
+    "A4988 accuracy at selected VREF is unspecified; measure phase current before qualification.",
+    "Footprint/rating and USB/PD bench validation remain required.",
+    "Powered-off sensor topology is corrected, but intermediate switch VCC, fast rail collapse/output-filter decay and NPN levels require bounded sequencing qualification; add supervision/clamping if pin limits are violated."
   ]
 }

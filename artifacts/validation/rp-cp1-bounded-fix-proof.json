@@ -1,0 +1,83 @@
+{
+  "inputSha256": "802f620a3b65f6c0a911207cd306703bcca72ecf564b4cccd6b39bb7f440f9f5",
+  "freshSourceSha256": "0850d3b643fcd4aa1431563a39f9d4c484711f75d30509e035e0b340203173fc",
+  "sourcePlacementChange": {
+    "reference": "C_CP",
+    "from": [
+      -4.7,
+      -11.4,
+      270
+    ],
+    "to": [
+      -5.1,
+      -11.4,
+      270
+    ],
+    "unchangedNativeFootprint": true
+  },
+  "freshNativePhysicalRecordsReplaced": [
+    "pcb_component_52",
+    "pcb_smtpad_232",
+    "pcb_solder_paste_220",
+    "pcb_smtpad_233",
+    "pcb_solder_paste_221",
+    "pcb_silkscreen_path_333",
+    "pcb_silkscreen_path_334",
+    "pcb_silkscreen_path_335",
+    "pcb_silkscreen_path_336",
+    "pcb_silkscreen_path_337",
+    "pcb_silkscreen_path_338",
+    "pcb_silkscreen_path_339",
+    "pcb_silkscreen_path_340",
+    "pcb_silkscreen_path_341",
+    "pcb_silkscreen_path_342",
+    "pcb_silkscreen_text_51",
+    "pcb_courtyard_outline_51",
+    "pcb_port_240",
+    "pcb_port_241",
+    "cad_component_51"
+  ],
+  "unrelatedPhysicalRecordsUnchanged": true,
+  "removedRouteIds": [
+    "supplier_repair_control_fanout_U_DRV_ENABLE_N",
+    "supplier_repair_control_fanout_U_DRV_ENABLE_N_via"
+  ],
+  "addedRouteIds": [
+    "supplier_repair_relocated_U_DRV_ENABLE_N",
+    "supplier_repair_relocated_U_DRV_ENABLE_N_via",
+    "engineering_local_12"
+  ],
+  "capEndpointsMovedToExactNativePadCentres": [
+    {
+      "trace": "engineering_local_13",
+      "capPin": "pin2",
+      "old": [
+        -4.7,
+        -12.100024000000001
+      ],
+      "new": [
+        -5.1000000000000005,
+        -12.100024000000001
+      ]
+    },
+    {
+      "trace": "engineering_local_12",
+      "capPin": "pin1",
+      "old": [
+        -4.7,
+        -10.699976
+      ],
+      "new": [
+        -5.1000000000000005,
+        -10.699976
+      ]
+    }
+  ],
+  "routeChangesOnly": [
+    "Driver EN fanout replacement",
+    "CP1 original top route restoration with centered cap endpoint",
+    "CP2 centered cap endpoint"
+  ],
+  "unrelatedCopperUnchanged": true,
+  "resultBeforePresentationSyncSha256": "35a5ac51385191ff965c129e7140074a9cef27bc8dd38b47756e8759d2912d39"
+}

@@ -1,0 +1,48 @@
+{
+  "date": "2026-10-08",
+  "status": "HARDWARE IMPLEMENTED IN SOURCE; final routedPCB checks andphysicalsequencing tests required",
+  "source_sha256": "039bb616aed49050e1e467d8d80de9405b4b59e0ced541f2303d16e58ee7fc7e",
+  "primary_switch": "references/SN74CBTLV1G125-SCDS057H.pdf",
+  "switch_port_map": {
+    "1": "VM_ENABLE_N",
+    "2": "VM_DIV",
+    "3": "GND",
+    "4": "VM_SENSE",
+    "5": "V3V3"
+  },
+  "MCU_enable_pin": "GPIO27physical39",
+  "VM_nominal_factor": 21,
+  "VM15V_nominal_output_V": 0.7142857142857143,
+  "VM35V_off_input_worst1percent_V": 3.240146654445463,
+  "poweredoff_input_test_max_V": 3.6,
+  "switch_Ioff_max_A": 1e-05,
+  "output_bleed_max_ohm": 10100,
+  "off_output_max_V_DC_conditional": 0.101,
+  "IO_railabs_offset_V": 0.5,
+  "VM15V75_on_worst1percent_V": 0.7644161460836136,
+  "on_output_Rth_nom_ohm": 4761.9047619047615,
+  "on_output_tau_nom_s": 4.7619047619047614e-05,
+  "off_output_tau_nom_s": 0.0001,
+  "off_output_tau_worstR_C_s": 0.00011109999999999999,
+  "fall_delay_until_threshold_if_rail_instantly_zero_s": 4.71624206506205e-05,
+  "fall_delay_note": "ConditionalRCscreening only; cannot assumeV3V3 instantaneouszero withoutGPIOclamps. ShowswhyIoff+bleedDCproofalone doesnotqualifyfastrailcollapse.",
+  "host_topology": "C94514NPNbase through10kfromDATA_VBUS,emitterGND,collectorDATA_PRESENT,10kpullV3V3",
+  "host_logic": "activeLOW",
+  "host_base_current_screen_A": 0.0003514851485148515,
+  "host_base_current_screen_note": "VBE=.85Vengineering assumption pendingexactDiodesprimaryconfirmation; notguaranteedcondition",
+  "host_pull_max_current_A": 0.00035,
+  "unknowns": [
+    "exactNPNprimaryDCleakage/VCEsat/partial-powerguarantees",
+    "sub2.3Vswitchbehavior duringrailramp",
+    "MCUresetGPIOrelease andoff-nodeRCduringfastbrownout",
+    "actualESD/hotplugwaveforms",
+    "firmware absent"
+  ],
+  "firmware_required": [
+    "KeepVM_ENABLE_NhighZ/logicHIGHthroughreset/ROM",
+    "AssertVM_ENABLE_NLOWonlyafterconfirmedstableV3V3; wait>=.5ms beforeADC",
+    "UseVM conversionfactor21 pluscalibration",
+    "DATA_PRESENTLOWmeanshostpresent; neverenableUSBpullupwithoutvalidhost",
+    "ReleaseVM_ENABLE_NHIGH/highZbeforeplannedshutdownandpromptlybrownout; verify hardwaredefaultreset timing"
+  ]
+}

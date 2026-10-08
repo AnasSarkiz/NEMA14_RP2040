@@ -1,45 +1,22 @@
 # NEMA14_RP2040
 
-Separate RP2040 hardware prototype derived from the CH32X035 NEMA14 controller. This project has its own source, routing and package identity; it does not replace the CH32 project.
+Independent RP2040 hardware prototype for STEPperONLINE **14HM11-0404S**, with a dedicated **15 V USB-C PD power port** and separate **computer USB-C data port**.
 
-[GitHub](https://github.com/AnasSarkiz/NEMA14_RP2040) · [tscircuit](https://tscircuit.com/AnasSarkiz/NEMA14_RP2040)
+[GitHub](https://github.com/AnasSarkiz/NEMA14_RP2040) · [tscircuit](https://tscircuit.com/AnasSarkiz/NEMA14_RP2040). These project links may show earlier published revisions; this review does not publish or order boards.
 
-For STEPperONLINE **14HM11-0404S**: 0.9° bipolar motor, 0.40 A/phase, 25 Ω windings, 35.2 mm maximum body width. The 35 × 35 mm four-layer PCB has four 3.2 mm holes at 26 mm pitch. The manufacturer specifies those dimensions for **front** mounting only; rear attachment uses an adapter and remains physically unverified.
+The 35 × 35 mm, four-layer board uses top-side component assembly and four Ø3.2 mm PCB holes on a 26 mm square. Motor mounting uses the separate front-thread carrier candidate described in [mechanical fit](docs/mechanical-fit.md); direct rear mounting is unqualified. Both USB-C openings face outward from the same +Y edge: PD at X−5.3 mm, DATA at X+5.3 mm. Use compact cable overmolds ≤10 mm wide and physically verify both plugs fit simultaneously without carrier or screw interference.
 
-- Two top-side USB-C receptacles, openings flush at opposite board edges: CH224K PD sink requests 15 V, separate USB 2.0 data connection to RP2040.
-- RP2040 QFN56, 2 MB GD25Q16EEIGR external QSPI flash, 12 MHz ABM8-272-T3 crystal, 27 Ω USB resistors, all supply bypasses and 1.1 V core-regulator reservoirs.
-- AP63203WU-7 3.3 V buck, diode-OR inputs from PD and data VBUS. Motor rail is supplied only by the PD port; data VBUS cannot supply the motor.
-- A4988 chopper driver: 1/16 stepping, nominal peak phase-current setting 0.351 A. This setting uses 39k/10k VREF and 0.24 Ω sense resistors; 1% divider/sense resistors and the regulator tolerance must be included in the production current review.
-- Top-side component assembly; top/inner2/bottom routing, inner1 ground plane and through-vias. The four-layer PCB costs more than the CH32 two-layer version. SWD/reset solder pads, BOOTSEL solder pads (short to GND while resetting), four motor wire solder holes. These pads avoid connector/button cost.
+- RP2040, 2 MB GD25Q16EEIGR flash, 12 MHz crystal and the required 3.3 V/1.1 V supplies and bypasses.
+- AP63203 fixed 3.3 V buck, diode-OR logic power from either USB port. Only PD powers the motor.
+- A4988 fixed 1/16 stepping: **0.3508 A nominal peak**, 3.9 kΩ/1 kΩ reference divider and 0.24 Ω sense resistors. Low-VREF current accuracy must be measured.
+- Native Panasonic **100 µF / 35 V C178585** bulk capacitor, verified manufacturer ripple/ESR ratings.
+- Native VM isolation switch with default-off OE, **VM voltage conversion ×21**, and **active-low** transistor host detection.
+- **67 fitted components**, each with exact JLCPCB imported footprint and native OBJ/STEP. J_MOTOR, J_DEBUG and J_BOOT are bare PCB interfaces; mounting holes are PCB features.
 
-Motor connection: black A+, green A−, red B+, blue B−. Firmware must keep ENABLE_N high and SLEEP low until the negotiated supply is verified. Data-VBUS sensing is required to disconnect the USB device pull-up when the host cable is absent.
+Motor wiring: black=A+, green=A−, red=B+, blue=B−. Keep ENABLE_N high/SLEEP low until valid PD voltage, initialized firmware and current qualification. Keep VM_ENABLE_N high impedance/HIGH in ROM/reset; GPIO27 (physical 39) asserts LOW only after stable logic power, then wait ≥0.5 ms before ADC sampling.
 
-```sh
-npm ci --legacy-peer-deps
-npm run typecheck
-npm run source:check
-npm run autoroute       # diagnostic copper saved separately
-npm run build           # render/check delivery copper, without rerouting
-npm run export
-npm run shorts
-```
+**Engineering prototype, not a fabrication release.** No motor-control firmware or physical USB/PD/current/thermal test results are supplied. Final software checks and parsed manufacturing outputs must be regenerated for the latest routing; earlier clean reports do not validate new copper.
 
-See [routing](docs/routing.md), [electrical review](docs/electrical.md), and [firmware interface](docs/firmware-interface.md). **Hardware prototype, not a fabrication release.** No firmware or bench-tested USB, PD, current or thermal behavior is included.
+See [engineering review](docs/engineering-review.md), [electrical design](docs/electrical.md), [firmware interface](docs/firmware-interface.md), [BOM source review](docs/bom.md), [supplier CAD](docs/supplier-cad.md), [bring-up checklist](docs/bringup-checklist.md) and [variant comparison](docs/variant-comparison.md). The native bulk CAD has a documented height mismatch; mechanical screening uses the manufacturer's maximum envelope.
 
-Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected across all four copper layers. Power/ground pin metadata and passive connector/crystal classifications are explicit; current DRC reports zero warnings. [BOM](artifacts/bom.csv), [Gerbers](artifacts/nema14-gerbers.zip) and [top preview](artifacts/pcb-top.png) are included. Exact passive purchasing identities, assembly rotations and the inductor footprint still require assembly review.
-
-## Supplier models and A4 schematics
-
-[Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. All **61/61 fitted components** use exact JLCPCB imports with native land patterns and OBJ/STEP models. Motor/debug/boot connections are bare PCB pads. See [supplier CAD details](docs/supplier-cad.md) and [the import report](artifacts/jlcpcb-import-report.json).
-
-## USB and final validation
-
-[USB programming procedure](docs/usb-programming.md) · [Validation details](docs/validation.md) · [Browser schematic analysis](artifacts/validation/schematic-analysis-ui.png). Both board variants support boot-mode entry through their Data USB-C port; flashing still requires assembled-hardware validation. Current software checks report zero DRC errors/warnings, zero schematic-placement findings and no Gerber shorts. Application firmware remains a separate task.
-
-The public main entry point is `index.circuit.tsx`, which exports the board from `src/board.tsx`. `index.circuit.json` is the checked saved layout; publication refreshes it from `artifacts/board.circuit.json` and includes both JSON files. `tscircuit.config.json` selects the root source entry and saved-layout preview.
-
-Publication uses the CLI build-output option: `tsci push index.circuit.tsx --include-dist`. Before uploading, the script runs `tsci build index.circuit.json` and verifies that `dist/index/circuit.json` equals the checked saved routing.
-
-## Copper and electrical review
-
-The [electrical review](docs/electrical.md) records power-trace widening, filled grounds, the corrected 100 kΩ/10 kΩ motor-voltage divider, copper-thickness requirements, and remaining prototype tests. Run `npm run check:copper` for the actual saved-segment audit. The [machine-readable report](artifacts/trace-width-review.json) distinguishes isolated tracks from parallel ground-plane paths; software checks do not certify hardware operation.
+The main source entry is index.circuit.tsx → src/board.tsx. Authoritative saved copper is artifacts/board.circuit.json; root index.circuit.json and exported Gerbers must match it. npm run typecheck, npm run source:check, npm run build, npm run export, npm run shorts and npm run check:copper provide software checks. npm run autoroute produces diagnostic routing; accepted routing and final manufacturing checks remain separate review steps. No publication command is executed by this review.

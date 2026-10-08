@@ -18,17 +18,31 @@ ground_geometry={}
 for layer in ['top','inner1','inner2','bottom']:
     regions=[]
     for e in g.j:
-        if e['type']!='pcb_copper_pour' or e['layer']!=layer:continue
+        if e['type']!='pcb_copper_pour' or e['layer']!=layer or g.nets.get(g.key(e))!='GND':continue
         b=e['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
         regions.append(Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]))
     ground_geometry[layer]=unary_union(regions)
-# This saved PD branch terminates at driver VBB1, after the VM capacitor split.
-# It supplies one bridge, so use the motor's 0.4 A peak phase rating.
-one_bridge='freerouted_trace_163' if board['num_layers']==4 else None
-if one_bridge:
-    t=next(e for e in g.j if e.get('pcb_trace_id')==one_bridge)
-    assert g.nets[g.key(t)]=='PD_VBUS'
-    assert [(p['x'],p['y']) for p in t['route']]==[(-2.6,-6.1782),(-.1618,-6.1782),(1.6811,-8.0211)]
+# A reduced budget is permitted only after physically cutting this exact record
+# separates a sole series-resistor input from the inlet and all motor loads.
+branch_budgets={};branch_proofs=[];original=g.j
+pdkey=next((k for k,n in g.nets.items() if n=='PD_VBUS'),None)
+for trace in [e for e in original if e['type']=='pcb_trace' and g.key(e)==pdkey]:
+    g.j=[e for e in original if e is not trace];es,rs=g.groups(pdkey);groups=collections.defaultdict(set)
+    for e,r in zip(es,rs):
+        if e.get('pcb_port_id'):
+            p=g.ports[e['pcb_port_id']];groups[r].add(g.src[g.comp[p['pcb_component_id']]['source_component_id']]+'.'+g.sp[p['source_port_id']]['name'])
+    if len(groups)!=2:continue
+    for leaf in groups.values():
+        ref='R_VM_H' if leaf=={'R_VM_H.pin1'} else 'R_PD' if leaf=={'R_PD.pin1'} else None
+        if not ref:continue
+        main=next(v for v in groups.values() if v is not leaf)
+        if not {'J_PD.VBUS1','J_PD.VBUS2','U_DRV.VBB1','U_DRV.VBB2'}<=main:continue
+        nominal=100000 if ref=='R_VM_H' else 1000
+        bound=(35+3.6)/(nominal*.99);budget=.001 if ref=='R_VM_H' else .04
+        assert bound<budget
+        branch_budgets[trace['pcb_trace_id']]=budget;branch_proofs.append({'trace':trace['pcb_trace_id'],'leafNativePorts':sorted(leaf),'mainNativePorts':sorted(main),'seriesResistorOhms':nominal,'resistanceToleranceFraction':.01,'voltageDifferenceScreenV':38.6,'calculatedResistorLimitedCurrentA':bound,'screenBudgetA':budget,'method':'Remove exact Cu record; all-layer native-pad/barrel connectivity splits into exactly two pad islands. The leaf contains only the input of the named series resistor. No motor or inlet pad resides on it.','qualification':'Voltage case is conductor screening only; does not approve 35V operation or component/driver surge limits.'})
+g.j=original
+one_bridge=None
 for e in g.j:
     if e['type']!='pcb_trace':continue
     name=g.nets.get(g.key(e),'direct')
@@ -36,7 +50,7 @@ for e in g.j:
         if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
         length=math.hypot(a['x']-b['x'],a['y']-b['y']);width=min(a['width'],b['width'])
         internal=a['layer'].startswith('inner');thickness=.0175 if internal else .035
-        current=.4 if e['pcb_trace_id']==one_bridge else budgets.get(name,0)
+        current=branch_budgets.get(e['pcb_trace_id'],budgets.get(name,0))
         area=width*thickness/(.0254**2);k=.024 if internal else .048
         rise=(current/(k*area**.725))**(1/.44) if current else None
         shunted=name=='GND' and ground_geometry[a['layer']].buffer(.00001).covers(LineString([(a['x'],a['y']),(b['x'],b['y'])]))
@@ -61,12 +75,17 @@ pour_areas=[]
 for e in pours:
     b=e['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
     p=Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])])
-    pour_areas.append({'id':e['pcb_copper_pour_id'],'layer':e['layer'],'areaMm2':p.area})
-if not pours:errors.append('Ground pours missing')
-if board['num_layers']==4 and not any(p['layer']=='inner1' and p['areaMm2']>700 for p in pour_areas):
+    pour_areas.append({'id':e['pcb_copper_pour_id'],'net':g.nets.get(g.key(e),'direct'),'layer':e['layer'],'areaMm2':p.area})
+ground_areas=[p for p in pour_areas if p['net']=='GND']
+if not ground_areas:errors.append('Ground pours missing')
+if board['num_layers']==4 and not any(p['layer']=='inner1' and p['areaMm2']>700 for p in ground_areas):
     errors.append('Large inner1 ground plane missing')
 resistors={e['name']:e['resistance'] for e in g.j if e['type']=='source_component' and 'resistance' in e}
-adcmax=35*resistors['R_VM_L']*1.01/(resistors['R_VM_H']*.99+resistors['R_VM_L']*1.01)
+parallel=lambda a,b:a*b/(a+b)
+adc_load=parallel(resistors['R_VM_L'],resistors['R_VM_BLEED'])
+adc_load_max=parallel(resistors['R_VM_L']*1.01,resistors['R_VM_BLEED']*1.01)
+adcmax=35*adc_load_max/(resistors['R_VM_H']*.99+adc_load_max)
+vm_div_max=35*resistors['R_VM_L']*1.01/(resistors['R_VM_H']*.99+resistors['R_VM_L']*1.01)
 if adcmax>3.3:errors.append('Motor voltage divider exceeds ADC review envelope')
 vias=[]
 for via in [e for e in g.j if e['type']=='pcb_via']:
@@ -83,8 +102,10 @@ for via in [e for e in g.j if e['type']=='pcb_via']:
 report={'viaReview':vias,'sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checksPassed':not errors,'errors':errors,
         'copperSpecification':{'externalUmMinimum':35,'internalUmMinimum':17.5,'boardThicknessMm':1.6,'viaPlatingUmMinimum':20},
         'temperatureRiseScreenLimitC':30,'method':'IPC-2221 k=0.048 external / 0.024 internal; area in square mils',
-        'budgetsA':budgets,'singleBridgePdBranchTrace':one_bridge,'nets':summary,'segments':segments,
-        'groundPours':pour_areas,'adcVoltageAt15V':15*resistors['R_VM_L']/(resistors['R_VM_H']+resistors['R_VM_L']),
+        'budgetsA':budgets,'physicallyVerifiedResistorBranchBudgets':branch_proofs,'singleBridgePdBranchTrace':one_bridge,'nets':summary,'segments':segments,
+        'groundPours':ground_areas,'copperPours':pour_areas,'adcVoltageAt15V':15*adc_load/(resistors['R_VM_H']+adc_load),
+        'switchInputWorstVoltageAt35V':vm_div_max,'enabledAdcNominalScale':(resistors['R_VM_H']+adc_load)/adc_load,
+        'poweredOffDcVoltageBoundVolts':10e-6*resistors['R_VM_BLEED']*1.01,
         'adcWorstVoltageAt35V':adcmax,'qualifiedForManufacture':False,
         'groundThermalCurrentSharingAnalysisPending':True,
         'limits':['Temperature estimates assume specified minimum copper, not a measured fabrication stackup.',

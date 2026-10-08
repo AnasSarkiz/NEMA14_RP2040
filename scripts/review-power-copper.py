@@ -34,7 +34,7 @@ for e in g.j:
     elif e['type']=='pcb_hole':
         for l in layers: fixed[l].append(Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.10)); fixedkeys[l].append(None)
     elif e['type']=='pcb_keepout':
-        c=e['center'];p=box(c['x']-e['width']/2,c['y']-e['height']/2,c['x']+e['width']/2,c['y']+e['height']/2)
+        p=g.keepout_geometry(e)
         for l in e.get('layers',layers):
             if l in fixed:fixed[l].append(p);fixedkeys[l].append(None)
 trees={l:STRtree(p) for l,p in fixed.items()}

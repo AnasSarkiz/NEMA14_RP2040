@@ -1,0 +1,220 @@
+{
+  "additions": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "supplier_repair_CP1_fanout_U_DRV_ENABLE_N",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": -3.1999950000000004,
+          "y": -10.199112999999999,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_212"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.624995000000001,
+          "y": -10.199112999999999,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.8249950000000013,
+          "y": -10.399112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.8249950000000013,
+          "y": -10.424112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.874995000000001,
+          "y": -10.474113,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.874995000000001,
+          "y": -10.499112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.8999950000000014,
+          "y": -10.524113,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.8999950000000014,
+          "y": -10.549112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.924995000000001,
+          "y": -10.574112999999999,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -3.924995000000001,
+          "y": -11.174112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -4.099995000000001,
+          "y": -11.349113,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -4.124995000000001,
+          "y": -11.349113,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -4.149995000000001,
+          "y": -11.374112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -5.349995000000002,
+          "y": -11.374112999999998,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -5.374995000000001,
+          "y": -11.399112999999998,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "pcb_port_ids": [
+        "pcb_port_212"
+      ],
+      "source_net_id": "source_net_15",
+      "source_trace_id": "source_trace_231",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net16",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "supplier_repair_CP1_fanout_U_DRV_ENABLE_N_via",
+      "x": -5.374995000000001,
+      "y": -11.399112999999998,
+      "outer_diameter": 0.4,
+      "hole_diameter": 0.2,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "source_net_id": "source_net_15",
+      "source_trace_id": "source_trace_231",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net16",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "fanout": {
+    "ref": "U_DRV",
+    "pin": "ENABLE_N",
+    "via": [
+      -5.374995000000001,
+      -11.399112999999998
+    ],
+    "points": [
+      [
+        -3.1999950000000004,
+        -10.199112999999999
+      ],
+      [
+        -3.624995000000001,
+        -10.199112999999999
+      ],
+      [
+        -3.8249950000000013,
+        -10.399112999999998
+      ],
+      [
+        -3.8249950000000013,
+        -10.424112999999998
+      ],
+      [
+        -3.874995000000001,
+        -10.474113
+      ],
+      [
+        -3.874995000000001,
+        -10.499112999999998
+      ],
+      [
+        -3.8999950000000014,
+        -10.524113
+      ],
+      [
+        -3.8999950000000014,
+        -10.549112999999998
+      ],
+      [
+        -3.924995000000001,
+        -10.574112999999999
+      ],
+      [
+        -3.924995000000001,
+        -11.174112999999998
+      ],
+      [
+        -4.099995000000001,
+        -11.349113
+      ],
+      [
+        -4.124995000000001,
+        -11.349113
+      ],
+      [
+        -4.149995000000001,
+        -11.374112999999998
+      ],
+      [
+        -5.349995000000002,
+        -11.374112999999998
+      ],
+      [
+        -5.374995000000001,
+        -11.399112999999998
+      ]
+    ],
+    "lengthMm": 3.0674621202458745,
+    "minimumTopForeignClearanceMm": 0.19413779999999828,
+    "minimumViaAllLayerClearanceMm": 0.17454054381316467,
+    "ignoredTraces": [
+      "supplier_repair_U_DRV_OUT2B"
+    ],
+    "gridStepMm": 0.025
+  }
+}

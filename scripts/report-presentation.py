@@ -31,8 +31,10 @@ for sid,s in source.items():
   assert outside<.01,(name,'CAD outside native courtyard',outside)
   alignment.append({'reference':name,'part':id,'min':lo.tolist(),'max':hi.tolist(),'bboxAreaOutsideCourtyard':outside});mapped[name]=id
   if name in ['J_PD','J_DATA']:
-   opening=m['position']['x']-math.sin(a)*(cache[id][:,1].max()-origin[1]);expected=-17.5 if name=='J_PD' else 17.5
-   assert abs(opening-expected)<.001,(name,opening);usb.append({'reference':name,'supplierPart':id,'mouthXmm':opening,'expectedEdgeXmm':expected})
+   opening=m['position']['y']+math.cos(a)*(cache[id][:,1].max()-origin[1]);expected=17.5
+   assert abs(opening-expected)<.001 and abs(math.sin(a))<.001 and math.cos(a)>.999,(name,opening,m['rotation'])
+   assert abs(m['position']['x']-(-5.3 if name=='J_PD' else 5.3))<.001
+   usb.append({'reference':name,'supplierPart':id,'mouthYmm':opening,'expectedEdgeYmm':expected,'cadFacingDegrees':m['rotation']['z'],'centreXmm':m['position']['x']})
  rows.append([name,s.get('manufacturer_part_number',''),id or '',s.get('display_resistance',s.get('display_capacitance',s.get('display_inductance',''))),s.get('max_voltage_rating',''),s.get('tolerance',''),p['center']['x'],p['center']['y'],p.get('rotation',0),p.get('layer','top'),'bare PCB interface' if isbare else 'native supplier import with OBJ and STEP'])
 fresh=json.loads((root/'artifacts/final-source.circuit.json').read_text())
 for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole','pcb_courtyard_outline']:
@@ -54,8 +56,12 @@ for net in [e for e in j if e['type']=='source_net']:
  assert labels.get(net['source_net_id'],0)==expected,(net.get('name'),expected,labels.get(net['source_net_id'],0))
 report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':True,'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicNamedNetStubCoverageVerified':True}
 (root/'artifacts/jlcpcb-import-report.json').write_text(json.dumps(report,indent=2)+'\n');(root/'artifacts/supplier-cad-alignment.json').write_text(json.dumps(alignment,indent=2)+'\n')
-with (root/'artifacts/bom.csv').open('w') as f:
+with (root/'artifacts/source-bom.csv').open('w') as f:
  w=csv.writer(f,lineterminator='\n');w.writerow(['Reference','MPN','JLCPCB part','Value','Voltage rating (V)','Tolerance','PCB X mm','PCB Y mm','Rotation deg','Assembly side','Review note']);w.writerows(rows)
-p=root/'artifacts/verification.json';v=json.loads(p.read_text());v.update({'supplierCadModels':len(mapped),'supplierImportsComplete':True,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True})
+p=root/'artifacts/verification.json';v=json.loads(p.read_text())
+drc=json.loads((root/'artifacts/drc-report.json').read_text()) if (root/'artifacts/drc-report.json').exists() else {}
+connectivity=json.loads((root/'artifacts/physical-connectivity.json').read_text()) if (root/'artifacts/physical-connectivity.json').exists() else {}
+v.pop('usbMouthEdgeXmm',None)
+v.update({'supplierCadModels':len(mapped),'supplierImportsComplete':True,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'componentCount':len(source),'fittedComponentCount':len(mapped),'barePcbInterfaceCount':len(bare),'numberedPinCount':len(ports),'usbMouthEdgeYmm':[u['mouthYmm'] for u in usb],'usbCadCentresXmm':[u['centreXmm'] for u in usb],'drcErrors':len(drc.get('errors',[])),'drcWarnings':len(drc.get('warnings',[])),'physicalConnectivityCheckedNets':connectivity.get('checkedNets'),'manufacturingRelease':False,'hardwareBenchTested':False,'firmwareImplemented':False,'physicalQualificationPending':True,'verified':f'Current native imports/land patterns/CAD hashes, saved physical poses, {len(sheets)} A4 sheets and numbered-pin coverage. Current DRC/connectivity/width/actual-CAM evidence must be read from their named reports; physical prototype qualification remains pending.','releaseBlockers':drc.get('releaseBlockers',[])})
 v['sha256']={str(f.relative_to(root)):hashlib.sha256(f.read_bytes()).hexdigest() for f in (root/'artifacts').iterdir() if f.is_file() and f.suffix in ['.json','.dsn','.ses','.zip','.pdf'] and f!=p};p.write_text(json.dumps(v,indent=2)+'\n')
 print(len(mapped),'fitted supplier imports with OBJ+STEP;',len(sheets),'A4 pages;',len(ports),'numbered pins')

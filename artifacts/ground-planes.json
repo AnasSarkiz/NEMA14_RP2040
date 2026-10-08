@@ -1,61 +1,949 @@
 {
   "clearanceMm": 0.2,
   "edgeMarginMm": 0.35,
+  "minimumPourNeckMm": 0.15,
+  "requiresMappedGroundPadOrAnchoredBarrel": true,
   "regions": [
     {
       "layer": "top",
-      "areaMm2": 502.9407241915695,
-      "holes": 13
+      "areaMm2": 521.0602529473813,
+      "holes": 4
     },
     {
       "layer": "top",
-      "areaMm2": 10.758607435066253,
+      "areaMm2": 26.434294921200298,
       "holes": 0
     },
     {
       "layer": "top",
-      "areaMm2": 17.591659767466226,
+      "areaMm2": 7.066875098994732,
       "holes": 0
     },
     {
       "layer": "top",
-      "areaMm2": 9.834325329938325,
+      "areaMm2": 1.9094269905372763,
       "holes": 0
     },
     {
       "layer": "top",
-      "areaMm2": 51.465666903069796,
+      "areaMm2": 17.27633147870392,
       "holes": 1
     },
     {
       "layer": "top",
-      "areaMm2": 4.148898798041071,
+      "areaMm2": 5.992381567519068,
       "holes": 0
     },
     {
       "layer": "top",
-      "areaMm2": 3.9209035148775087,
+      "areaMm2": 5.002024391123698,
       "holes": 0
     },
     {
       "layer": "inner1",
-      "areaMm2": 979.6440310476319,
-      "holes": 70
+      "areaMm2": 987.1690841183265,
+      "holes": 80
     },
     {
       "layer": "inner2",
-      "areaMm2": 903.4867969268533,
-      "holes": 43
+      "areaMm2": 753.1139984199557,
+      "holes": 20
     },
     {
-      "layer": "bottom",
-      "areaMm2": 841.8674994304592,
-      "holes": 28
-    },
-    {
-      "layer": "bottom",
-      "areaMm2": 10.767272456394965,
+      "layer": "inner2",
+      "areaMm2": 19.85330179660866,
       "holes": 0
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 13.762214087665722,
+      "holes": 0
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 852.0676936427484,
+      "holes": 31
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 18.329035233323985,
+      "holes": 0
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 6.068031586078954,
+      "holes": 0
+    }
+  ],
+  "discardedPolygons": [
+    {
+      "layer": "top",
+      "areaMm2": 0.3102564479948763,
+      "bounds": [
+        14.201399551746322,
+        4.9638,
+        15.322436113386201,
+        5.483023474430486
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 2.160034773726524,
+      "bounds": [
+        11.912457459920928,
+        -6.5896,
+        14.594574052838505,
+        -5.4309
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 1.1462710389796298,
+      "bounds": [
+        11.944214652907572,
+        3.2846,
+        13.861103596220381,
+        5.0168
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.028691865967504056,
+      "bounds": [
+        13.513777810981999,
+        3.2846,
+        13.726893666912442,
+        3.4599804813154877
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.023168412931903238,
+      "bounds": [
+        11.6750054,
+        -6.5896,
+        11.856942540079073,
+        -6.432234063202161
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.2308378357084695,
+      "bounds": [
+        10.989210649943432,
+        -1.7510000000000001,
+        11.454353328164798,
+        -1.0551
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.036786742923648905,
+      "bounds": [
+        10.423396747909015,
+        -8.601408156955188,
+        10.641473532196182,
+        -8.380064213088168
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.018359283057332122,
+      "bounds": [
+        10.17194333349116,
+        -5.7197223957963566,
+        10.3249946,
+        -5.567040584604983
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.7169224920886796,
+      "bounds": [
+        8.2163,
+        -5.220195094116518,
+        9.743507394747915,
+        -3.622433438782805
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.2619692221996492,
+      "bounds": [
+        8.149107115717005,
+        -13.280397441593962,
+        8.450903562900594,
+        -12.37370491055402
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 1.0835091363327523,
+      "bounds": [
+        6.2985892420353125,
+        -4.0183,
+        7.8604278584338925,
+        -2.0058032836163218
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.12868401543804836,
+      "bounds": [
+        7.43105981142521,
+        -0.32571268535755094,
+        7.779998,
+        0.22014212260907356
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.030643494139952945,
+      "bounds": [
+        7.4499415,
+        1.6840578773909263,
+        7.638496112243831,
+        1.8937202822148285
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.27586505186502447,
+      "bounds": [
+        5.4798,
+        -2.8189391885747903,
+        6.21881218857479,
+        -2.2842506135558187
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.05743411230454763,
+      "bounds": [
+        5.539859528086133,
+        2.5737502970761277,
+        5.8756339217299045,
+        2.8189391885747908
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.25325688778290195,
+      "bounds": [
+        5.125414926510857,
+        5.110912170643395,
+        5.4745633325886995,
+        6.075200000000001
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.06040267780634328,
+      "bounds": [
+        2.956455266365323,
+        -11.656,
+        3.2320299877753875,
+        -11.374903891693362
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.5246463747329132,
+      "bounds": [
+        1.2558759912419182,
+        -17.15,
+        2.744124008758082,
+        -16.43961314271405
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.7882873250452462,
+      "bounds": [
+        1.238715132783532,
+        -9.289233000000001,
+        2.416152028564795,
+        -7.8259961591487155
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.14166890742685598,
+      "bounds": [
+        1.7337574248007983,
+        -15.560386857285945,
+        2.2662390078159382,
+        -15.1436
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.1190063239588837,
+      "bounds": [
+        1.1987264022531796,
+        -4.5865,
+        1.8093015315102325,
+        -4.361800000000001
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.27094030614779085,
+      "bounds": [
+        0.5536503499821087,
+        4.361800000000001,
+        1.2179541853575508,
+        5.009638685357552
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.5246463747329139,
+      "bounds": [
+        -0.7441240087580817,
+        -17.15,
+        0.7441240087580819,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.6489906195054695,
+      "bounds": [
+        -0.44493600000000044,
+        -3.9154348433505213,
+        0.5014107579646865,
+        -2.8987162420353134
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.08744144197839422,
+      "bounds": [
+        0.10889265801798345,
+        3.4852999999999996,
+        0.5000562000000002,
+        3.8018
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.03136151671303698,
+      "bounds": [
+        0.1877712976567149,
+        -4.497326065279455,
+        0.390575635737569,
+        -4.291503289684327
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 2.1571869234344616,
+      "bounds": [
+        -2.954937750738037,
+        -15.560386857285945,
+        0.2755631177937488,
+        -14.266000528199568
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.16318665339361021,
+      "bounds": [
+        -0.9433714293002542,
+        2.9495999999999998,
+        -0.402885401276757,
+        3.4219
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.07772236521807957,
+      "bounds": [
+        -0.8728030051902228,
+        -7.716858179788125,
+        -0.5273969948097768,
+        -7.388505100000001
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.021323723312650776,
+      "bounds": [
+        -0.780865354079787,
+        -8.050246808758965,
+        -0.6193346459202129,
+        -7.883141820211875
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.2055592766831294,
+      "bounds": [
+        -1.1966,
+        1.43820762686405,
+        -0.6310598114252095,
+        2.0372683890567553
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.4661352007278009,
+      "bounds": [
+        -2.568854185357551,
+        6.0872,
+        -0.6445851372708217,
+        6.344399999999999
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.01772482448455842,
+      "bounds": [
+        -1.1966,
+        0.5114659082155276,
+        -1.0462558907752686,
+        0.6617923731359515
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.10340793740260963,
+      "bounds": [
+        -1.4999792000000003,
+        2.3819615640085647,
+        -1.1867346673541552,
+        2.858450629300255
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.5246463747329136,
+      "bounds": [
+        -2.744124008758082,
+        -17.15,
+        -1.255875991241918,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.3025444248300022,
+      "bounds": [
+        -2.479285504869455,
+        -0.823080485357549,
+        -1.8965999999999998,
+        0.3017478544149395
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.1801652653770356,
+      "bounds": [
+        -2.1249999999999996,
+        0.44825214558506027,
+        -1.8965999999999998,
+        1.3325671568839972
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.18714017852913922,
+      "bounds": [
+        -3.40016055,
+        6.9044,
+        -2.662745814642448,
+        7.641814735357551
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.09687737652152861,
+      "bounds": [
+        -3.6544818653315625,
+        8.420133430433266,
+        -3.2352141464967894,
+        8.78341412931497
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.745349161147158,
+      "bounds": [
+        -4.512965536573898,
+        -17.15,
+        -3.255875991241918,
+        -15.974935746422881
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 2.3471278489849636,
+      "bounds": [
+        -7.242070134828721,
+        -12.253046117793827,
+        -3.967449088014117,
+        -9.575575160145874
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.13829634918616687,
+      "bounds": [
+        -4.779654885357551,
+        6.8326,
+        -4.019875425305486,
+        7.042050579646165
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.09366613302096459,
+      "bounds": [
+        -4.451130965842784,
+        -12.599085151200333,
+        -4.072031308931032,
+        -12.170040496311897
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.7595865039690438,
+      "bounds": [
+        -5.516447694979077,
+        8.331868053479614,
+        -4.206290144780427,
+        9.144824520972774
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.1035915860165396,
+      "bounds": [
+        -4.870854537235978,
+        -2.871380456882425,
+        -4.328623745789504,
+        -2.5501029
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.021163694134161297,
+      "bounds": [
+        -4.724086851347676,
+        -12.850000900000001,
+        -4.550938948799666,
+        -12.698893134157219
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 2.8105582137478646,
+      "bounds": [
+        -8.6856,
+        1.0953883040941506,
+        -6.266040647836132,
+        3.0256
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.10251510122226097,
+      "bounds": [
+        -7.280053349695924,
+        3.6676,
+        -6.783141917032949,
+        3.9051
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 1.5178413501742032,
+      "bounds": [
+        -8.6856,
+        -2.7431178102797222,
+        -7.072,
+        -0.9139937
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.043037676475243945,
+      "bounds": [
+        -8.313681366124923,
+        -9.727626805871694,
+        -8.09639143035914,
+        -9.447805473965122
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.08193809411278451,
+      "bounds": [
+        -8.4382,
+        3.948082958425687,
+        -8.122483261936608,
+        4.251987977436884
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "top",
+      "areaMm2": 0.40572194685719454,
+      "bounds": [
+        -16.19656025489996,
+        15.892537675839234,
+        -15.603439745100044,
+        17.15
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner1",
+      "areaMm2": 0.5246463747329132,
+      "bounds": [
+        1.2558759912419182,
+        -17.15,
+        2.744124008758082,
+        -16.43961314271405
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner1",
+      "areaMm2": 0.5246463747329139,
+      "bounds": [
+        -0.7441240087580817,
+        -17.15,
+        0.7441240087580819,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner1",
+      "areaMm2": 0.03136151671303698,
+      "bounds": [
+        0.1877712976567149,
+        -4.497326065279455,
+        0.390575635737569,
+        -4.291503289684327
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner1",
+      "areaMm2": 0.5246463747329136,
+      "bounds": [
+        -2.744124008758082,
+        -17.15,
+        -1.255875991241918,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 38.99496203320891,
+      "bounds": [
+        4.043225246450022,
+        -6.7528,
+        10.429400000000001,
+        10.918648683457333
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.7511405762729999,
+      "bounds": [
+        6.275031597657928,
+        -5.220195094116517,
+        9.615668402342072,
+        -1.863404905883483
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.8152576101978288,
+      "bounds": [
+        5.605000000000003,
+        -3.7949385721445292,
+        6.593176245192799,
+        -2.3618741848993117
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.30689728810874184,
+      "bounds": [
+        5.5500000000000025,
+        2.5737502970761277,
+        6.226427440629615,
+        3.360054185357549
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 5.302196209716732,
+      "bounds": [
+        1.9309903834171633,
+        -10.906795409378407,
+        3.9132,
+        -2.474256443502781
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.5246463747329132,
+      "bounds": [
+        1.2558759912419182,
+        -17.15,
+        2.744124008758082,
+        -16.43961314271405
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.3259807464257561,
+      "bounds": [
+        1.3547984195775677,
+        -1.8371868890849292,
+        2.16882379005363,
+        -0.9132516430972126
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.06814229339098561,
+      "bounds": [
+        1.28899472336541,
+        -2.1862105085533576,
+        1.5881488127376744,
+        -1.8305136108345759
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.5246463747329139,
+      "bounds": [
+        -0.7441240087580817,
+        -17.15,
+        0.7441240087580819,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.03136151671303698,
+      "bounds": [
+        0.1877712976567149,
+        -4.497326065279455,
+        0.390575635737569,
+        -4.291503289684327
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "inner2",
+      "areaMm2": 0.5246463747329136,
+      "bounds": [
+        -2.744124008758082,
+        -17.15,
+        -1.255875991241918,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.022288851911261398,
+      "bounds": [
+        9.647722209753852,
+        -1.6067062820566886,
+        9.820735206708706,
+        -1.439640804769322
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.1594505548286999,
+      "bounds": [
+        8.682129444690394,
+        -7.245999999999999,
+        9.191554185357548,
+        -6.736516259093443
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.4673807422873195,
+      "bounds": [
+        1.0517537020027468,
+        -4.0862079052340885,
+        3.2612712352168085,
+        -3.7618
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.5246463747329132,
+      "bounds": [
+        1.2558759912419182,
+        -17.15,
+        2.744124008758082,
+        -16.43961314271405
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 8.562192789258994,
+      "bounds": [
+        0.749,
+        -15.560386857285945,
+        2.6305,
+        -8.198588379692666
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.18487919586377344,
+      "bounds": [
+        1.309400822267245,
+        2.1763000000000003,
+        1.7895244754887414,
+        2.9116
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.11908656854398586,
+      "bounds": [
+        0.24550082226724423,
+        2.6864999999999997,
+        0.8577991777327548,
+        2.9116
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.5246463747329139,
+      "bounds": [
+        -0.7441240087580817,
+        -17.15,
+        0.7441240087580819,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.03598714055745127,
+      "bounds": [
+        0.34893177514065976,
+        -3.966617710315673,
+        0.576446297997254,
+        -3.7618
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.026403093501008737,
+      "bounds": [
+        0.19496465874838498,
+        -4.470499999999999,
+        0.3825185555239216,
+        -4.291503289684327
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.09654320621625241,
+      "bounds": [
+        -0.7918682688124572,
+        -4.214864332310714,
+        -0.49880377514066004,
+        -3.7618
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
+    },
+    {
+      "layer": "bottom",
+      "areaMm2": 0.5246463747329136,
+      "bounds": [
+        -2.744124008758082,
+        -17.15,
+        -1.255875991241918,
+        -16.439613142714055
+      ],
+      "reason": "belowMinimumAreaOrNoMappedGroundPadOrAnchoredBarrel"
     }
   ]
 }

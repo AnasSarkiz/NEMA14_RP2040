@@ -1,0 +1,337 @@
+    CH224 Datasheet                                     1                                         http://wch.cn
+
+
+    USB PD and Other Fast Charging Protocol Sink Controller CH224
+                                                     Datasheet
+                                                   Version: 1F
+                                                   http://wch.cn
+
+
+1. Overview
+CH224 integrates multiple fast charging protocols such as USB PD3.0/2.0, BC1.2, automatically detects VCONN
+and simulates E-Mark chips, and supports up to 100W power. CH224 has a built-in PD communication module,
+with features of high integration and streamlined peripherals. It integrates output voltage detection function, and
+provides over-temperature and over-voltage protection functions, etc. It can be widely used in various electronic
+equipment to expand high-power input, such as wireless charger, electric toothbrush, rechargeable shaver, lithium
+battery power tools and other application scenarios.
+
+
+2. Features
+l     Supports 4V to 22V input voltage
+l     Supports fast charging protocols such as PD3.0/2.0 and BC1.2.
+l     Supports USB Type-C PD. Supports forward and reverse plug detection and automatic switching
+l     Supports E-Mark simulation and automatic detection of VCONN, and supports 100W power PD request
+l     The requested voltage can be dynamically adjusted by a variety of methods
+l     The single chip has features of high integration, simplified peripherals and low costs
+l     Built-in over-voltage protection module and over-temperature protection module
+
+
+3. Applications
+l     Wireless charger
+l     Laptop charging cable
+l     Lithium battery minor electric appliances
+l     Lithium battery electric tool
+l     Power bank
+
+
+4. Pinouts and pin description
+4.1. CH224 pinouts
+
+
+
+
+              QFN20-3*3                                 ESSOP-10                            SOT23-6L
+  CH224 Datasheet                                2                                          http://wch.cn
+
+4.2. CH221K pin description
+      Pin No.       Pin name      Pin type                           Pin description
+                                             Operating power input. An external 1uF decoupling capacitor
+         1            VDD          Power
+                                               is required. Connected in series with a resistor to VBUS.
+         2            GND          Power                               Ground
+                                 Open-drain          Indicate Power Good by default. Active low.
+         3             PG
+                                   output                       Customized functions.
+        4, 5        CC1, CC2    Input/Output                     Type-C CC data line
+         6            CFG       Analog input                  Power configuration input
+
+
+4.3. CH224K pin description
+      Pin No.       Pin name      Pin type                           Pin description
+         0            GND          Power                    Ground. Heat dissipation EPAD.
+                                             Operating power input. An external 1uF decoupling capacitor
+         1            VDD          Power
+                                               is required. Connected in series with a resistor to VBUS.
+        4, 5         DP, DM     Input/Output                        USB data line
+        6, 7        CC1, CC2    Input/Output                     Type-C CC data line
+                     CFG1,
+       2, 3, 9       CFG2,      Analog input                   Power configuration input
+                      CFG3
+                                Analog input    Voltage detection input. It is required to be connected in
+         8           VBUS
+                                                     series with a resistor to external input VBUS.
+                                 Open-drain          Indicate Power Good by default. Active low.
+         10            PG
+                                   output                        Customized functions.
+
+
+4.4. CH224D pin description
+      Pin No.
+                    Pin name      Pin type                           Pin description
+      CH224D
+         0           GND           Power                  Ground. Heat dissipation EPAD
+         2           VBUS          Power                       Operating power input
+                                           Internal voltage regulator output. An external 1uF decoupling
+         7            VDD       Power
+                                                                capacitor is required.
+        8, 9         DP, DM Input/Output                            USB data line
+       10, 11       CC1, CC2 Input/Output                       Type-C CC data line
+                                             CFG1 is analog input. CFG2 and CFG3 are digital inputs,
+     19, 13, 12      CFG1~3      Input
+                                                          with built-in pull-down resistors.
+         1            DRV    Analog output Weak driving output. Used to drive configuration resistor.
+                              Differential
+       14, 15       ISP, ISN                  Used to detect operating current. Customized functions.
+                                 input
+                                                  Used to drive high-side power channel NMOS.
+         5            GATE    HV output
+                                                               Customized functions.
+         6           NMOS# Digital input            GATE pin drive NMOS enable. Active low.
+  CH224 Datasheet                                          3                                          http://wch.cn
+
+
+5. Functional specification
+5.1. Overview
+CH224 is a USB PD sink controller, supports fast charge protocols such as PD3.0/2.0 and BC1.2, supports 4V to
+22V, and can dynamically configure the request-voltage through multiple methods.
+CH221K only supports PD3.0/2.0 protocols.
+CH224K/CH224D supports resistance configuration mode and level configuration mode. CH221K only supports
+resistance configuration mode.
+
+
+5.2. Request-voltage configuration (CH224K/CH224D)
+5.2.1 Resistance configuration mode
+It is suitable for applications to achieve different request-voltages by modifying the value of the resistor in a single
+PCB.
+CFG1 is connected with a resistor to GND. Different request-voltages are available by configuring different
+resistance values. In resistor configuration mode, the CFG2 and CFG3 pins cannot be connected. The resistances
+and the corresponding request-voltages are shown in the table below.
+
+                                Resistance on CFG1                         Request-voltage
+                                      6.8KΩ                                       9V
+                                       24KΩ                                      12V
+                                       56KΩ                                      15V
+                                        NC                                       20V
+
+
+5.2.2 Level configuration mode
+It is suited when an MCU is used to dynamically adjust the request-voltage, or when the PCB circuit is not
+changed.
+CFG1, CFG2 and CFG3 can be directly connected to the external MCU IO ports, or directly connected to the
+VDD/GND pin on CH224K/CH224D.Different request-voltages are available by configuring the level on the 3
+pins, as shown in the table below.
+
+                         CFG1         CFG2       CFG3                Request-voltage
+                            1           -           -                       5V
+                            0           0           0                       9V
+                            0           0           1                      12V
+                            0           1           1                      15V
+                            0           1           0                      20V
+
+In level configuration mode, the voltage on IO ports and default states should be noted.
+For CH224K, the input voltage on CFG2/CFG3 cannot be higher than 3.7V. For CH224D, the input voltage on
+CFG2/CFG3 cannot be higher than 5V.
+If the back-end circuits such as MCU start slowly, or if the MCU pins have a specific default state, CFG1 may be
+in floating state or in IO configuration mode before MCU starts working. In this case, 20V may be requested. If
+the system cannot withstand 20V input, a configuration resistor should be added to the CFG1 pin to ensure that
+CH224K/CH224D can request a suitable voltage by configuring the resistor before MCU starts working.
+  CH224 Datasheet                                             4                                   http://wch.cn
+
+5.3. CH221K voltage configuration
+CFG is connected with a resistor to VDD. Different request voltages are available by configuring different
+resistances, as shown in the table below.
+
+                          Resistance on CFG to VDD                     Request-voltage
+                                      10KΩ                                   5V
+                                      20KΩ                                   9V
+                                      47KΩ                                  12V
+                                      100KΩ                                 15V
+                                      200KΩ                                 20V
+
+
+5.4. E-Mark simulation function
+If you need to simulate E-Mark function to request voltage higher than 20V or power higher than 60W, you must
+use a Type-C male plug, and connect the CC2 pin with a 1 KΩ resistor to GND. (Please contact us for technical
+support)
+
+
+5.5. Only PD protocol used
+If there is no need to use A-port protocols (varies protocols realized by DP.DM communication), CH221K can be
+selected.
+If you want to block these protocols on CH224K/CH224D, the DP/DM pin on CH224K/CH224D is required to be
+disconnected from the DP/DM on the Type-C connector, and the DP pin on CH224 is required to be shorted to the
+DM on CH224. For CH224K, the VBUS pin can be NC.
+
+
+6. Reference schematic diagram
+6.1. Connect CH224K/CH224D with a Type-C female port
+9/12/15/20V request-voltage configuration by resistance (In the figures below, a 6.8 KΩ resistor is used to
+configure 9V request voltage)
+
+
+
+
+                                                                                          Rset    Request-voltage
+                                                                                         6.8 KΩ          9V
+                                                                                         24 KΩ          12V
+                                                                                         56 KΩ          15V
+                                                                                           NC           20V
+ Type-C      VBUS                 2                               5
+                                       VBUS            GATE
+  VCC
+                                  8                               1
+    DP                                 UDP              DRV
+                                  9                               19
+   DM                                  UDM             CFG1
+                                 11                               13        Rset
+   CC1                                 CC1             CFG2
+                                 10                               12        6.8KΩ
+  CC2                                  CC2             CFG3
+                      VBUS VDD
+  GND
+                                  7
+                                       VDD
+          5.1KΩ
+          5.1KΩ     1uF   1uF    0            CH224D              14
+                                       GND              ISP
+                                 6                                15
+                                       NMOS#            ISN
+                                      CH224D
+  CH224 Datasheet                                        5                                        http://wch.cn
+
+6.2. Connect CH224K with a Type-C female port
+5/9/12/15/20V request-voltage configuration by level (In the figure below, the request voltage is configured to
+12V by level)
+                                                                                               Request-
+                                                                     CFG1     CFG2    CFG3
+                                                                                               voltage
+                                                                       1        -        -       5V
+                                                                       0        0        0       9V
+                                                                       0        0        1      12 V
+                                                                       0        1        1      15 V
+                                                                       0        1        0      20 V
+
+
+
+
+6.3. Connect CH224K with a Type-C male port
+Only PD protocol is used, with E-Mark simulation function (In the figure below, the request voltage is configured
+to 20V with the resistor NC)
+
+
+
+
+6.4. Connect CH221K with a Type-C male port
+20V request-voltage configuration by level
+  CH224 Datasheet                                      6                                       http://wch.cn
+
+
+7. Parameters
+7.1. Absolute maximum ratings of CH221K
+Operating in critical ratings or exceeding the absolute maximum ratings may cause the chip to work abnormally or
+even be damaged.
+  Symbol                          Parameter description                           Min.       Max.       Unit
+
+    TA                        Operating ambient temperature                        -40        105        ℃
+    TS                        Storage ambient temperature                          -55        150        ℃
+              Operating supply voltage (VDD is connected to power, GND to
+   VDD                                                                             -0.5       5.8         V
+                                         ground)
+ VODHV              Voltage on high-voltage open-drain output pin PG               -0.5       13.5        V
+  VIOCC                          Voltage on CC1 and CC2                            -0.5        8          V
+ VIOUX                           Voltage on CFG                                    -0.5    VDD+0.5        V
+                     Maximum power consumption of the entire chip
+    PD                                                                                        250       mW
+                              (VDD voltage * current)
+
+7.2. Absolute maximum ratings of CH224K
+Operating in critical ratings or exceeding the absolute maximum ratings may cause the chip to work abnormally or
+even be damaged.
+  Symbol                          Parameter description                           Min.       Max.       Unit
+    TA                        Operating ambient temperature                        -40        90         ℃
+    TS                         Storage ambient temperature                         -55        105        ℃
+              Operating supply voltage (VDD is connected to power, GND to
+   VDD                                                                             3.0        3.6         V
+                                         ground)
+ VIOHV            Voltage on CFG and VBUS which support high voltage               -0.5       13.5        V
+  VIOCC                      Voltage on CC1, CC2 and CFG1                          -0.5        8          V
+ VIOUX                 Voltage on DP, DM, CFG, CFG2 and CFG3                       -0.5    VDD+0.5        V
+  VIOLV                         Voltage on CFGHV                                              0.8         V
+                     Maximum power consumption of the entire chip
+    PD                                                                                        400       mW
+                              (VDD voltage * current)
+
+7.3. Absolute maximum ratings of CH224D
+Operating in critical ratings or exceeding the absolute maximum ratings may cause the chip to work abnormally or
+even be damaged.
+ Symbol                           Parameter description                           Min.       Max.        Unit
+   TA                        Operating ambient temperature                         -40        100         ℃
+    TS                         Storage ambient temperature                         -55        125         ℃
+             Operating supply voltage (VDD is connected to power, GND to
+  VDD                                                                             -0.5         6          V
+                                        ground)
+ VIOHV                             Voltage on VBUS                                -0.5         24         V
+ VIOCC                          Voltage on CC1 and CC2                            -0.5         20         V
+            Voltage on DP, DM, CFG1, CFG2, CFG3, DRV, NMOS#, ISP and
+ VIOUX                                                                            -0.5     VDD+0.5        V
+                                       ISN
+ VIOHX                          Voltage on GATE                                   -0.5    VIOHV+6.5       V
+                     Maximum power consumption of the entire chip
+   PD                                                                                         300        mW
+                              (VDD voltage * current)
+  CH224 Datasheet                                      7                                          http://wch.cn
+
+7.4. Electrical characteristics of CH221K
+Test condition: TA=25℃
+ Symbol                      Parameter description                       Min.      Typ.          Max.       Unit
+
+ VLDOK        CH221K internal power regulator VDD parallel voltage        3.0       3.3          3.6         V
+  ILDO                      Draw current on VDD pin                        0                      30        mA
+   VR                  Voltage threshold of power-on reset                2.2       2.4          2.6         V
+
+
+7.5. Electrical characteristics of CH224K
+Test condition: TA=25℃
+ Symbol                      Parameter description                       Min.      Typ.          Max.       Unit
+
+ VLDOK        CH224K internal power regulator VDD parallel voltage       3.24       3.3          3.36        V
+  ILDO                      Draw current on VDD pin                        0                      30        mA
+  TOTA    Reference threshold of the over-temperature module (OTA)        90        105          120        ℃
+   VR                       Power-on reset threshold                      2.2       2.4          2.6         V
+
+
+7.6. Electrical characteristics of CH224D
+Test condition: TA=25℃
+ Symbol                      Parameter description                       Min.      Typ.          Max.       Unit
+
+  VLDO            Internal power regulator VDD output voltage            4.65       4.7          4.75        V
+  ILDO          Internal power regulator VDD out-load capability                                  10        mA
+   VR                       Power-on reset threshold                      2.2       2.4          2.6         V
+
+
+8. Package
+
+    Package             Body size              Lead pitch                  Description                  Part No.
+
+    QFN20           3*3mm      118mil     0.40mm       15.7mil       Quad flat no-lead package          CH224D
+                                                                 Shrink small outline package with
+   ESSOP10          3.9mm      150mil     1.00mm       39mil                                            CH224K
+                                                                        EPAD 10-pin patch
+   SOT23-6L         1.6mm       63mil     0.95mm       37mil         Small outline 6-pin patch          CH221K
+CH224 Datasheet                      8                       http://wch.cn
+
+
+
+
+                  Note: All dimensions are in millimeters.
+

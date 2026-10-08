@@ -1,0 +1,345 @@
+{
+  "board_sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea",
+  "scope": "Final actual native saved copper; historical seeded-route length records are not treated as current. Lengths are planar centerline measures, not switching loop area/inductance/impedance or thermal qualification. Composite path excludes copper-pad spreading and via barrel length.",
+  "routes": [
+    {
+      "from": "U_DRV.CP1",
+      "to": "C_CP.pin1",
+      "trace_ids": [
+        "engineering_local_12"
+      ],
+      "length_mm": 2.09749253025312,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.CP2",
+      "to": "C_CP.pin2",
+      "trace_ids": [
+        "engineering_local_13"
+      ],
+      "length_mm": 2.0560712062475286,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.VCP",
+      "to": "C_VCP.pin1",
+      "trace_ids": [
+        "engineering_local_14"
+      ],
+      "length_mm": 2.1551746108875776,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.VREG",
+      "to": "C_VREG.pin1",
+      "trace_ids": [
+        "engineering_local_15"
+      ],
+      "length_mm": 4.058922800644187,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.SENSE1",
+      "to": "R_SA.pin1",
+      "trace_ids": [
+        "engineering_local_16"
+      ],
+      "length_mm": 2.303560138739743,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.3,
+        0.3
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.SENSE2",
+      "to": "R_SB.pin1",
+      "trace_ids": [
+        "engineering_local_17"
+      ],
+      "length_mm": 2.4899537351109,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.347,
+        0.347
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.VBB2",
+      "to": "C_VM.pin1",
+      "trace_ids": [
+        "engineering_local_18"
+      ],
+      "length_mm": 2.871508239671795,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.353,
+        0.353
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.VDD",
+      "to": "C_DRV_LOGIC.pin1",
+      "trace_ids": [
+        "engineering_local_19"
+      ],
+      "length_mm": 3.3763685042344287,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_MCU.IOVDD10",
+      "to": "C_IO10.pin1",
+      "length_mm": 5.722548583347935,
+      "layers": [
+        "inner1",
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.227
+      ],
+      "via_ids": [
+        "engineering_local_IOVDD10_cap_via",
+        "engineering_local_IOVDD10_lead_via"
+      ],
+      "vias": 2,
+      "trace_ids": [
+        "engineering_local_IOVDD10_bridge",
+        "engineering_local_IOVDD10_cap",
+        "engineering_local_IOVDD10_lead",
+        "freerouted_trace_276"
+      ],
+      "method": "Shortest actual saved same-net centerline path, true intersections noded, copper pad/via connector contacts; excludes internal pad spreading and vertical barrel length."
+    },
+    {
+      "from": "U_BUCK.VIN",
+      "to": "C_BUCK_IN.pin1",
+      "trace_ids": [
+        "engineering_local_21"
+      ],
+      "length_mm": 2.5459184867458315,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.3,
+        0.3
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_BUCK.BST",
+      "to": "C_BOOTSTRAP.pin1",
+      "trace_ids": [
+        "engineering_local_22"
+      ],
+      "length_mm": 1.7745771387216056,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.16,
+        0.16
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_BUCK.SW",
+      "to": "C_BOOTSTRAP.pin2",
+      "trace_ids": [
+        "engineering_local_23"
+      ],
+      "length_mm": 3.289426293927231,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.348,
+        0.348
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_BUCK.SW",
+      "to": "L_BUCK.pin1",
+      "trace_ids": [
+        "engineering_local_24"
+      ],
+      "length_mm": 3.531440925080371,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.6,
+        0.6
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "L_BUCK.pin2",
+      "to": "C_BUCK_OUT1.pin1",
+      "trace_ids": [
+        "engineering_local_25"
+      ],
+      "length_mm": 4.952723720850874,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.3,
+        0.3
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "L_BUCK.pin2",
+      "to": "C_BUCK_OUT2.pin1",
+      "trace_ids": [
+        "engineering_local_26"
+      ],
+      "length_mm": 8.90771503307349,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.3,
+        0.3
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_BUCK.FB",
+      "to": "C_BUCK_OUT1.pin1",
+      "length_mm": 11.889333746393868,
+      "layers": [
+        "inner2",
+        "top"
+      ],
+      "width_range_mm": [
+        0.204,
+        0.3
+      ],
+      "via_ids": [
+        "supplier_repair_island_net12_2_via0",
+        "supplier_repair_island_net12_2_via1"
+      ],
+      "vias": 2,
+      "trace_ids": [
+        "engineering_local_25",
+        "supplier_repair_island_net12_1",
+        "supplier_repair_island_net12_2"
+      ],
+      "method": "Shortest actual saved same-net centerline path, true intersections noded, copper pad/via connector contacts; excludes internal pad spreading and vertical barrel length."
+    },
+    {
+      "from": "U_DRV.VBB1",
+      "to": "C_VM2.pin1",
+      "trace_ids": [
+        "supplier_repair_VBB1_short_bypass"
+      ],
+      "length_mm": 6.1258592867738635,
+      "layers": [
+        "bottom",
+        "top"
+      ],
+      "width_range_mm": [
+        0.399,
+        0.399
+      ],
+      "vias": 2,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.GND",
+      "to": "U_DRV.EP",
+      "trace_ids": [
+        "supplier_repair_ground_fanout_U_DRV_GND"
+      ],
+      "length_mm": 1.1998712000000005,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.419,
+        0.419
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    },
+    {
+      "from": "U_DRV.GND18",
+      "to": "U_DRV.EP",
+      "trace_ids": [
+        "supplier_repair_ground_fanout_U_DRV_GND18"
+      ],
+      "length_mm": 1.2001252000000002,
+      "layers": [
+        "top"
+      ],
+      "width_range_mm": [
+        0.419,
+        0.419
+      ],
+      "vias": 0,
+      "method": "Complete actual saved trace polyline with both physical endpoint port IDs."
+    }
+  ]
+}

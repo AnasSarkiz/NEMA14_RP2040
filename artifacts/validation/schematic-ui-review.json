@@ -1,90 +1,571 @@
 {
+  "date": "2026-10-08",
   "tool": "Chromium/Playwright",
-  "view": "project read-only UI with native tscircuit A4 SVG and CLI analysis",
+  "view": "existing project schematic-review-ui.py HTML, adaptedread-only to latest native A4 SVG source snapshots and actual CLI output; not official IDE",
+  "source_json_sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+  "source_and_schematic_record_sha256": "6b22be58d4e97ef0c5aa69140133d379ec1b5f1aa173ed2a7d56269af01c74ce",
+  "source_sha_relevance": "PCB placement-only changes may change JSON hash while schematic/connectivity remains unchanged; rerunifnetlist/schematic changes",
   "reviewedPages": [
     {
       "page": 1,
-      "title": "NEMA14_RP2040 1/13",
+      "title": "NEMA14_RP2040 1/14",
+      "native_svg_sha256": "fc5997426cc93a2b0c9c147b653c37610211862d8509612c445cc6ed4b4c45e7",
       "svgVisible": true,
-      "textElements": 212
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 216,
+      "componentLabels": [
+        "U_MCU",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "U_MCU"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 2,
-      "title": "NEMA14_RP2040 2/13",
+      "title": "NEMA14_RP2040 2/14",
+      "native_svg_sha256": "9238fc4732aaa00be3d3a236997117882fbde3ab64ebce3097c3d5b8a8012817",
       "svgVisible": true,
-      "textElements": 128
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 132,
+      "componentLabels": [
+        "U_DRV",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "U_DRV"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 3,
-      "title": "NEMA14_RP2040 3/13",
+      "title": "NEMA14_RP2040 3/14",
+      "native_svg_sha256": "7eb24458b1174417cedaf07e894384775a63b4dabf2f4e8f5572720871ffc03f",
       "svgVisible": true,
-      "textElements": 186
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 190,
+      "componentLabels": [
+        "J_PD",
+        "J_DATA",
+        "U_PD",
+        "R_PD",
+        "C_PD",
+        "R_PG",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "J_PD",
+        "J_DATA",
+        "U_PD",
+        "R_PD",
+        "C_PD",
+        "R_PG"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 4,
-      "title": "NEMA14_RP2040 4/13",
+      "title": "NEMA14_RP2040 4/14",
+      "native_svg_sha256": "d9d1c58095e4ceb2de6d0f511c045c87d3f034830b56a5aaab56d2dd3d855a25",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 67,
+      "componentLabels": [
+        "C_IO1",
+        "C_IO10",
+        "C_IO22",
+        "C_IO33",
+        "C_IO42",
+        "C_IO49",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "C_IO1",
+        "C_IO10",
+        "C_IO22",
+        "C_IO33",
+        "C_IO42",
+        "C_IO49"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 5,
-      "title": "NEMA14_RP2040 5/13",
+      "title": "NEMA14_RP2040 5/14",
+      "native_svg_sha256": "8f3e2918db688806aea8a7f35beb569f137524476a754cd6c8760b22d2833a6a",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 67,
+      "componentLabels": [
+        "C_DV23",
+        "C_DV50",
+        "C_USB",
+        "C_ADC",
+        "C_VREG_IN",
+        "C_VREG_OUT",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "C_DV23",
+        "C_DV50",
+        "C_USB",
+        "C_ADC",
+        "C_VREG_IN",
+        "C_VREG_OUT"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 6,
-      "title": "NEMA14_RP2040 6/13",
+      "title": "NEMA14_RP2040 6/14",
+      "native_svg_sha256": "9c9eccf91b5e2295a7d3a3d66578fac70c12f94fcf98b6f2279887a235b9c1e3",
       "svgVisible": true,
-      "textElements": 94
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 104,
+      "componentLabels": [
+        "U_FLASH",
+        "C_FLASH",
+        "R_FLASH_CS",
+        "R_BOOT",
+        "J_BOOT",
+        "Y_MCU",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "U_FLASH",
+        "C_FLASH",
+        "R_FLASH_CS",
+        "R_BOOT",
+        "J_BOOT",
+        "Y_MCU"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 7,
-      "title": "NEMA14_RP2040 7/13",
+      "title": "NEMA14_RP2040 7/14",
+      "native_svg_sha256": "17b47c8d109275db4d47d7b2f5a9ddce71223faaf0163ca24ed2caaa87e53ede",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 67,
+      "componentLabels": [
+        "R_XOUT",
+        "C_XIN",
+        "C_XOUT",
+        "R_RUN",
+        "R_DM",
+        "R_DP",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "R_XOUT",
+        "C_XIN",
+        "C_XOUT",
+        "R_RUN",
+        "R_DM",
+        "R_DP"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 8,
-      "title": "NEMA14_RP2040 8/13",
+      "title": "NEMA14_RP2040 8/14",
+      "native_svg_sha256": "29a6373b9f2f209521aeb5aa3d4c26e09dedd40e9091684f8f0d565335a97459",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 74,
+      "componentLabels": [
+        "R_CC1",
+        "R_CC2",
+        "R_USB_SENSE_H",
+        "R_USB_SENSE_L",
+        "Q_DATA",
+        "R_VM_H",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "R_CC1",
+        "R_CC2",
+        "R_USB_SENSE_H",
+        "R_USB_SENSE_L",
+        "Q_DATA",
+        "R_VM_H"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 9,
-      "title": "NEMA14_RP2040 9/13",
+      "title": "NEMA14_RP2040 9/14",
+      "native_svg_sha256": "b4c440db289ec26ef3f924154127e36824e924925f0f91e7a02dea4cc283b1c4",
       "svgVisible": true,
-      "textElements": 79
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 80,
+      "componentLabels": [
+        "R_VM_L",
+        "U_VM_ISO",
+        "R_VM_EN",
+        "R_VM_BLEED",
+        "C_VM_ISO",
+        "C_VM_SENSE",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "R_VM_L",
+        "U_VM_ISO",
+        "R_VM_EN",
+        "R_VM_BLEED",
+        "C_VM_ISO",
+        "C_VM_SENSE"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 10,
-      "title": "NEMA14_RP2040 10/13",
+      "title": "NEMA14_RP2040 10/14",
+      "native_svg_sha256": "ca040bb6aafd140e8cff23c31d72136b04205248e3f35ded9428a2e4c64ec747",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 83,
+      "componentLabels": [
+        "U_BUCK",
+        "L_BUCK",
+        "C_BOOTSTRAP",
+        "C_BUCK_IN",
+        "C_BUCK_OUT1",
+        "C_BUCK_OUT2",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "U_BUCK",
+        "L_BUCK",
+        "C_BOOTSTRAP",
+        "C_BUCK_IN",
+        "C_BUCK_OUT1",
+        "C_BUCK_OUT2"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 11,
-      "title": "NEMA14_RP2040 11/13",
+      "title": "NEMA14_RP2040 11/14",
+      "native_svg_sha256": "9eb6e1ef4ee797a8591de0a03c62e6382bfb22c76d80bb5783f736d10f0f4f5c",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 67,
+      "componentLabels": [
+        "D_PD",
+        "D_DATA",
+        "C_CP",
+        "C_VCP",
+        "C_VREG",
+        "C_DRV_LOGIC",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "D_PD",
+        "D_DATA",
+        "C_CP",
+        "C_VCP",
+        "C_VREG",
+        "C_DRV_LOGIC"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 12,
-      "title": "NEMA14_RP2040 12/13",
+      "title": "NEMA14_RP2040 12/14",
+      "native_svg_sha256": "e42ed352ef34ac1cccf89e18ebb18628027dd4445e5444f2af80c87667dce850",
       "svgVisible": true,
-      "textElements": 86
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 67,
+      "componentLabels": [
+        "C_VM",
+        "C_VM2",
+        "C_BULK",
+        "R_SA",
+        "R_SB",
+        "R_REF_H",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "C_VM",
+        "C_VM2",
+        "C_BULK",
+        "R_SA",
+        "R_SB",
+        "R_REF_H"
+      ],
+      "missingComponentLabels": []
     },
     {
       "page": 13,
-      "title": "NEMA14_RP2040 13/13",
+      "title": "NEMA14_RP2040 13/14",
+      "native_svg_sha256": "1bdadb92213dec586025c05f4cd780560a8e02e805191769253c5da47f554647",
       "svgVisible": true,
-      "textElements": 63
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 90,
+      "componentLabels": [
+        "R_REF_L",
+        "C_REF",
+        "R_ENABLE",
+        "R_SLEEP",
+        "J_MOTOR",
+        "J_DEBUG",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "R_REF_L",
+        "C_REF",
+        "R_ENABLE",
+        "R_SLEEP",
+        "J_MOTOR",
+        "J_DEBUG"
+      ],
+      "missingComponentLabels": []
+    },
+    {
+      "page": 14,
+      "title": "NEMA14_RP2040 14/14",
+      "native_svg_sha256": "dc276237c0b68115b6a4799857d2810f25802600a7b3f0ce109420e6f84259bb",
+      "svgVisible": true,
+      "width": "297mm",
+      "height": "210mm",
+      "viewBox": "0 0 2970 2100",
+      "textElements": 71,
+      "componentLabels": [
+        "U_ESD",
+        "D_TVS",
+        "U_MCU - RP2040",
+        "U_FLASH - GD25Q16EEIGR",
+        "Y_MCU - ABM8-272-T3",
+        "U_PD - CH224K",
+        "U_BUCK - AP63203WU-7",
+        "U_DRV - A4988",
+        "U_ESD - USBLC6-2SC6",
+        "U_VM_ISO - SN74CBTLV1G125",
+        "Q_DATA - MMBT3904-7-F"
+      ],
+      "summary": "0 schematic placement findings",
+      "expectedComponents": [
+        "U_ESD",
+        "D_TVS"
+      ],
+      "missingComponentLabels": []
     }
   ],
+  "allPagesOpenedInBrowser": true,
   "schematicPlacementFindings": [],
-  "drcErrors": 0,
-  "drcWarnings": 0,
   "browserScriptErrors": [],
-  "officialIdeSchematicPane": "disabled for saved circuit JSON; native SVG review used",
-  "usbFlashingBenchTested": false
+  "officialIdeSchematicPane": "not used in this pass; previousenvironmentattemptrecorded savedJSON tabdisabled andWebGPUadapterunavailable. ThisnativeSVGprojectUI requiresnoWebGPU anddoesnotclaimofficialIDEanalysis.",
+  "finalPCBAndCAMChecks": "separate parent/agents validation, not inferred from these source-only views",
+  "physicalTestsExecuted": false,
+  "current_same_edge_source_rebind": {
+    "date_utc": "2026-10-08T20:29:40.113568+00:00",
+    "fresh_source_json_sha256": "be47adacb1650c7391ba7258697e5996b43ef2f66cc38186d55bc2160e4c190d",
+    "visually_reviewed_source_json_sha256": "c79f09d5407b39739a688dc940464c808ae9a140c25e07779aabd0f9055b35bb",
+    "every_source_and_schematic_record_equal": true,
+    "source_and_schematic_record_sha256": "6b22be58d4e97ef0c5aa69140133d379ec1b5f1aa173ed2a7d56269af01c74ce",
+    "reviewed_A4_pages": 14,
+    "fresh_source_error_count": 0,
+    "fitted_supplier_count": 67,
+    "fresh_actual_CLI": {
+      "command": "tsci check schematic-placement artifacts/validation/native-a4-review/same-edge-current-source.circuit.json",
+      "version": "0.1.2261",
+      "exit_code": 0,
+      "finding_count": 0,
+      "stdout": "same-edge-placement-cli.txt",
+      "stderr": "same-edge-placement-cli-stderr.txt",
+      "input_binding": "Immutable snapshot copied from actual freshly compiled final-source; reported fresh_source_json_sha256 identifies the exact CLI input."
+    },
+    "ports": [
+      {
+        "reference": "J_PD",
+        "pcb_component_native_bbox_center_mm": {
+          "x": -5.3,
+          "y": 12.57501465
+        },
+        "pcb_rotation_deg": 180,
+        "logical_and_CAD_anchor_y_mm": 12.1499711,
+        "CAD_rotation_deg": 0,
+        "mating_plane_y_mm": 17.5
+      },
+      {
+        "reference": "J_DATA",
+        "pcb_component_native_bbox_center_mm": {
+          "x": 5.3,
+          "y": 12.57501465
+        },
+        "pcb_rotation_deg": 180,
+        "logical_and_CAD_anchor_y_mm": 12.1499711,
+        "CAD_rotation_deg": 0,
+        "mating_plane_y_mm": 17.5
+      }
+    ],
+    "cable_gate": "Compact overmolds no more than10mm wide; actual simultaneous insertion/carrier/screw/bend clearance must be physically qualified.",
+    "validity": "PCB pose changes leave reviewed electrical/schematic records identical. The original24-page browser/visual review remains valid for this source; no new browser run claimed. Final saved copper/CAM metadata rebinding remains parent-owned."
+  },
+  "drc_status": "No PCB/CAM DRC assertion in this source-only UI review; final authoritative saved-copper reports are separate.",
+  "bare_interface_metadata_rebind": {
+    "date_utc": "2026-10-08T20:51:52.336935+00:00",
+    "source_json_sha256": "2ab39b115158e7dc1d6e641f6d1c0fb3c7a7abea31d47ad340c86b5b5c0aa9a8",
+    "visually_reviewed_source_json_sha256": "c79f09d5407b39739a688dc940464c808ae9a140c25e07779aabd0f9055b35bb",
+    "source_and_schematic_record_sha256": "6b22be58d4e97ef0c5aa69140133d379ec1b5f1aa173ed2a7d56269af01c74ce",
+    "every_source_and_schematic_record_equal": true,
+    "reviewed_A4_pages": 14,
+    "change": "Bare J_MOTOR/J_DEBUG/J_BOOT now explicitly declare insertion direction; no electrical/schematic changes.",
+    "scope": "Preserves completed24-page native A4 visual/browser review and prior exact-snapshot schematic-placement CLI result. New root official netlist/pin/source/PCB-placement results are separate; no blanket zero-placement-findings claim."
+  },
+  "final_physical_source_rebind": {
+    "date_utc": "2026-10-08T21:36:34.877863+00:00",
+    "source_json_sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7",
+    "visually_reviewed_source_json_sha256": "c79f09d5407b39739a688dc940464c808ae9a140c25e07779aabd0f9055b35bb",
+    "every_source_and_schematic_record_equal": true,
+    "reviewed_A4_pages": 14,
+    "change": "C_CP placement corrected and J_BOOT moved for native physical clearance; no source electrical/schematic records changed.",
+    "scope": "Retains original 14-page native A4 browser/visual and immutable-input schematic-placement evidence. No fresh browser run or PCB-placement pass implied."
+  }
 }

@@ -1,0 +1,100 @@
+{
+  "removed": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_130",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 15.9,
+          "y": 7.8883,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 14.2757,
+          "y": 9.5126,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 9.6251,
+          "y": 9.5126,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "source_net_id": "source_net_0",
+      "source_trace_id": "source_trace_249",
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_196",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 15.9,
+          "y": 5.7466,
+          "width": 0.16,
+          "layer": "top",
+          "start_pcb_port_id": "pcb_port_163"
+        },
+        {
+          "route_type": "wire",
+          "x": 15.9,
+          "y": 5.7575,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 14.3168,
+          "y": 7.3407,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 14.3168,
+          "y": 8.2558,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 13.519,
+          "y": 9.0536,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 6.5905,
+          "y": 9.0536,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 6.5499,
+          "y": 9.0942,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net5",
+      "source_net_id": "source_net_9",
+      "source_trace_id": "source_trace_132",
+      "pcb_port_ids": [
+        "pcb_port_163"
+      ]
+    }
+  ],
+  "reason": "Raw saved traces physically cross relocated BOOT pad; rerouteCC1 andrefillground againstnewnativepads."
+}

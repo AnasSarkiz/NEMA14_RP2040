@@ -1,0 +1,97 @@
+{
+  "date": "2026-10-08",
+  "status": "INITIAL DEFECT EVIDENCE retained; source hardware corrected, final physicalsequencing qualification NOTEXECUTED",
+  "scope": "historical directdividers beforecurrentbusSW/NPNfix",
+  "source_sha256": "60eadf9d0a5db0711d000ebe8f3bf2f4b56f82b7082eabb9fef20f5fa3ae8b20",
+  "verified_gpio_absolute_limit": "IOVDD + 0.5 V (RP2040 Table627)",
+  "published_permitted_positive_injection_current_A": null,
+  "injection_allowance_note": "No applicable positive injection-current allowance found in retrieved manufacturer datasheet. Drive/sink and ordinary leakage ratings are not injection allowances.",
+  "assumptions": [
+    "V3V3=0 during an attach/startup/shutdown/fault interval",
+    "both divider resistors \u00b11%",
+    "5.5V is a conservative USB input screening level, not a verified source output",
+    "15.75V is a +5% PD15V screening level, not a guaranteed contract tolerance",
+    "29.2V is secondary exactCID TVS supplier clamp metadata at6.8A10/1000us, not a guaranteed bus transient upper bound",
+    "conditional clamp-current calculation assumes MCU pad clamps exactly at the absolute-limit offset; diode IV and dynamic behavior are not specified"
+  ],
+  "formula": "Iconditional=max(0,(VIN\u2212Vnode)/Rtop_min\u2212Vnode/Rbottom_max). Vopen=VIN*Rbottom_max/(Rtop_min+Rbottom_max).",
+  "cases": [
+    {
+      "case": "DATA_present_nominal",
+      "input_V": 5,
+      "top_resistor_min_ohm": 99000.0,
+      "bottom_resistor_max_ohm": 101000.0,
+      "open_circuit_divider_max_V": 2.525,
+      "assumed_VDD_V": 0,
+      "assumed_clamped_node_V": 0.5,
+      "conditional_clamp_current_A": 4.0504050405040504e-05,
+      "conditional_clamp_current_uA": 40.5040504050405,
+      "upper_feed_current_if_node_zero_uA": 50.505050505050505
+    },
+    {
+      "case": "DATA_present_screening",
+      "input_V": 5.5,
+      "top_resistor_min_ohm": 99000.0,
+      "bottom_resistor_max_ohm": 101000.0,
+      "open_circuit_divider_max_V": 2.7775,
+      "assumed_VDD_V": 0,
+      "assumed_clamped_node_V": 0.5,
+      "conditional_clamp_current_A": 4.555455545554556e-05,
+      "conditional_clamp_current_uA": 45.554555455545554,
+      "upper_feed_current_if_node_zero_uA": 55.55555555555556
+    },
+    {
+      "case": "VM_nominal",
+      "input_V": 15,
+      "top_resistor_min_ohm": 99000.0,
+      "bottom_resistor_max_ohm": 10100.0,
+      "open_circuit_divider_max_V": 1.388634280476627,
+      "assumed_VDD_V": 0,
+      "assumed_clamped_node_V": 0.5,
+      "conditional_clamp_current_A": 9.695969596959697e-05,
+      "conditional_clamp_current_uA": 96.95969596959696,
+      "upper_feed_current_if_node_zero_uA": 151.5151515151515
+    },
+    {
+      "case": "VM_5percent_screening",
+      "input_V": 15.75,
+      "top_resistor_min_ohm": 99000.0,
+      "bottom_resistor_max_ohm": 10100.0,
+      "open_circuit_divider_max_V": 1.4580659945004584,
+      "assumed_VDD_V": 0,
+      "assumed_clamped_node_V": 0.5,
+      "conditional_clamp_current_A": 0.00010453545354535453,
+      "conditional_clamp_current_uA": 104.53545354535453,
+      "upper_feed_current_if_node_zero_uA": 159.0909090909091
+    },
+    {
+      "case": "VM_supplier_TVS_point_screening",
+      "input_V": 29.2,
+      "top_resistor_min_ohm": 99000.0,
+      "bottom_resistor_max_ohm": 10100.0,
+      "open_circuit_divider_max_V": 2.7032080659945006,
+      "assumed_VDD_V": 0,
+      "assumed_clamped_node_V": 0.5,
+      "conditional_clamp_current_A": 0.0002403940394039404,
+      "conditional_clamp_current_uA": 240.3940394039404,
+      "upper_feed_current_if_node_zero_uA": 294.9494949494949
+    }
+  ],
+  "sum_DATA5V5_VM15V75_conditional_uA": 150.09000900090007,
+  "sum_DATA5V5_VM15V75_zero_node_feed_upper_uA": 214.64646464646466,
+  "conclusion": "Series resistor dividers limit available current but do not guarantee pin-voltage compliance or permissible injection/backpower. 10nF VM filtering reduces slew but does not prove rail ordering. Firmware and ADC sampling settings cannot protect an unpowered input.",
+  "release_resolution": [
+    "Manufacturer written permission for exact pins, currents, timing, rail states andtemperature, with measurement and guaranteed worst-case bounds; OR",
+    "Guaranteed hardware isolation/protection with exact supplier MPN data proving off-state behavior, all pin absolute limits and prevention of unintended rail backpower over full input/transient/temperature conditions."
+  ],
+  "candidate_architectures": [
+    "V3V3-pulled open-collector transistor host detector, source-domain drive isolated from GPIO; firmware polarity changes and thresholds require review",
+    "VM analog switch/buffer with explicitly specified power-off protection; input voltage, off leakage, sequencing and ADC settling must be verified",
+    "Qualified discrete pad clamps only if maximum forward voltage and rail current-sinking/backpower behavior guarantee compliance; generic Schottky-to-VDD is not sufficient by itself"
+  ],
+  "bench_required": [
+    "Scope VDD/IOVDD and both GPIO voltages simultaneously with low-capacitance probes; capture Vpin\u2212VDD through attach/removal, DATA-only/PD-only/both orders, 5Vfallback andreset",
+    "Measure ghost rail voltage and source current during partial power; a steady DMM result does not qualify short transients",
+    "Test source/cable/input ramps, component temperature and measured worst-case voltage with probe error margins; physical tests alone do not grant a missing injection specification"
+  ]
+}

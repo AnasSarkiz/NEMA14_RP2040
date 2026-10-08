@@ -1,0 +1,151 @@
+{
+  "proposals": [
+    {
+      "inputSha256": "8860c97f914427eda8594918abc6b3f8fa339868cd631d07aeafa65593985b5e",
+      "inputSnapshot": "artifacts/rp-dv23-fanout-input.circuit.json",
+      "proposalOnly": true,
+      "minimumForeignClearanceMm": 0.158,
+      "nativeFootprintsChanged": false,
+      "requiresRootIndependentMergeCheck": true,
+      "additions": [
+        {
+          "type": "pcb_trace",
+          "pcb_trace_id": "supplier_repair_DV23_fanout_C_DV23_pin1",
+          "route": [
+            {
+              "route_type": "wire",
+              "x": 4.1798839999999995,
+              "y": -4.9,
+              "width": 0.16,
+              "layer": "top",
+              "start_pcb_port_id": "pcb_port_118"
+            },
+            {
+              "route_type": "wire",
+              "x": 4.1798839999999995,
+              "y": -5.5,
+              "width": 0.16,
+              "layer": "top"
+            },
+            {
+              "route_type": "wire",
+              "x": 3.5548839999999995,
+              "y": -6.125,
+              "width": 0.16,
+              "layer": "top"
+            }
+          ],
+          "pcb_port_ids": [
+            "pcb_port_118"
+          ],
+          "source_net_id": "source_net_34",
+          "source_trace_id": "source_trace_97",
+          "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net13",
+          "subcircuit_id": "subcircuit_source_group_0"
+        },
+        {
+          "type": "pcb_via",
+          "pcb_via_id": "supplier_repair_DV23_fanout_C_DV23_pin1_via",
+          "x": 3.5548839999999995,
+          "y": -6.125,
+          "outer_diameter": 0.5,
+          "hole_diameter": 0.25,
+          "layers": [
+            "top",
+            "inner1",
+            "inner2",
+            "bottom"
+          ],
+          "tented_on_top": true,
+          "tented_on_bottom": true,
+          "source_net_id": "source_net_34",
+          "source_trace_id": "source_trace_97",
+          "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net13",
+          "subcircuit_id": "subcircuit_source_group_0"
+        }
+      ],
+      "fanouts": [
+        {
+          "ref": "C_DV23",
+          "pin": "pin1",
+          "via": [
+            3.5548839999999995,
+            -6.125
+          ],
+          "points": [
+            [
+              4.1798839999999995,
+              -4.9
+            ],
+            [
+              4.1798839999999995,
+              -5.5
+            ],
+            [
+              3.5548839999999995,
+              -6.125
+            ]
+          ],
+          "lengthMm": 1.483883476483184,
+          "minimumTopForeignClearanceMm": 0.2523639459455255,
+          "minimumViaAllLayerClearanceMm": 0.18655281736527218,
+          "ignoredTraces": [
+            "freerouted_trace_5"
+          ],
+          "gridStepMm": 0.025
+        }
+      ],
+      "removeTraceIds": [
+        "freerouted_trace_5"
+      ]
+    }
+  ],
+  "removedCurrentTraceRecords": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "freerouted_trace_5",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 3.0201,
+          "y": -5.4017,
+          "width": 0.16,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": 5.0201,
+          "y": -5.4017,
+          "width": 0.16,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "source_net_id": "source_net_0",
+      "source_trace_id": "source_trace_249",
+      "pcb_port_ids": []
+    }
+  ],
+  "nativeGeometryChanged": false,
+  "minimumForeignClearanceMm": 0.158,
+  "mergeChecks": [
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1",
+      "minimumForeignGap": [
+        0.2523639459455255,
+        "pcb_smtpad_142",
+        "top"
+      ]
+    },
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1_via",
+      "minimumForeignGap": [
+        0.18655281736527218,
+        "freerouted_trace_456",
+        "inner2"
+      ]
+    }
+  ],
+  "savedSHA256": "eb5e8d7b75af68710be2d53bc421d5900033c0ce50b65d4ef115b0b5e927f159"
+}
