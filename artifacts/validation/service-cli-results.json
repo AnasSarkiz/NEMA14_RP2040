@@ -1,0 +1,67 @@
+{
+  "source_entry_sha256": "15ad1f5d90399ab207943f34bde5b8abbd5880aacd293de7e3e51d480752cedb",
+  "prepared_source_sha256": "383fc9845879010cfe6d82c4709d40fd9eea75dea704f8098ab68a44e5fe3744",
+  "commands": [
+    {
+      "name": "netlist",
+      "command": [
+        "tsci",
+        "check",
+        "netlist",
+        "index.circuit.tsx"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/service-cli-netlist.txt",
+      "output_sha256": "7b419c9315cd1cda71039c1058f84453bb79d24efe9b44e2438a731339ec44dd"
+    },
+    {
+      "name": "pin-specification",
+      "command": [
+        "tsci",
+        "check",
+        "pin_specification",
+        "index.circuit.tsx"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/service-cli-pin-specification.txt",
+      "output_sha256": "e90b7bb01902c5fdc3d49cb01df265d860f63555509bda32b98b06d273788b12"
+    },
+    {
+      "name": "source",
+      "command": [
+        "tsci",
+        "check",
+        "source",
+        "index.circuit.tsx"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/service-cli-source.txt",
+      "output_sha256": "2199f9a7df6aa7d2d569bed157f260f82a1b8b8062e1dcc2e937506168e3ea6f"
+    },
+    {
+      "name": "placement",
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "index.circuit.tsx"
+      ],
+      "exit_code": 1,
+      "output": "artifacts/validation/service-cli-placement.txt",
+      "output_sha256": "821fe96106b6924e9f6c011261a6824034933f5a83bf61121407f4e595cdab36"
+    },
+    {
+      "name": "schematic",
+      "command": [
+        "tsci",
+        "check",
+        "schematic-placement",
+        "artifacts/final-source.circuit.json"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/service-cli-schematic.txt",
+      "output_sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+    }
+  ],
+  "placement_advisories_are_not_suppressed": true
+}

@@ -1,0 +1,53 @@
+{
+  "before": {
+    "type": "pcb_trace",
+    "pcb_trace_id": "freerouted_trace_183_usbtrim_0",
+    "route": [
+      {
+        "route_type": "wire",
+        "x": -11.1285,
+        "y": -8.6497,
+        "width": 0.33,
+        "layer": "inner2"
+      },
+      {
+        "route_type": "wire",
+        "x": -11.411206433900931,
+        "y": -8.366993566099069,
+        "width": 0.33,
+        "layer": "inner2"
+      }
+    ],
+    "subcircuit_id": "subcircuit_source_group_0",
+    "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+    "source_net_id": "source_net_1",
+    "source_trace_id": "source_trace_250",
+    "pcb_port_ids": []
+  },
+  "after": {
+    "type": "pcb_trace",
+    "pcb_trace_id": "freerouted_trace_183_usbtrim_0",
+    "route": [
+      {
+        "route_type": "wire",
+        "x": -11.1285,
+        "y": -8.6497,
+        "width": 0.56,
+        "layer": "inner2"
+      },
+      {
+        "route_type": "wire",
+        "x": -11.411206433900931,
+        "y": -8.366993566099069,
+        "width": 0.56,
+        "layer": "inner2"
+      }
+    ],
+    "subcircuit_id": "subcircuit_source_group_0",
+    "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+    "source_net_id": "source_net_1",
+    "source_trace_id": "source_trace_250",
+    "pcb_port_ids": []
+  },
+  "reason": "Retained short inner2 PD_VBUS fragment failed0.75A/17.5um IPC2221 30C screening at0.33mm; widen to0.56mm and independently recheckclearances/CAM."
+}

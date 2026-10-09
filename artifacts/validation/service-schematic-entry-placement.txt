@@ -1,0 +1,68 @@
+<SchematicBoxPositions>
+<SchematicBoxPlacement componentName="R_PD" positionAnchor="center" schX="-6.22" schY="-4.54" width="0.6" height="0.65" />
+<SchematicBoxPlacement componentName="U_MCU" positionAnchor="center" schX="0" schY="0" width="2" height="6" />
+<SchematicBoxPlacement componentName="C_IO1" positionAnchor="center" schX="-6.935" schY="3.715" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_IO10" positionAnchor="center" schX="-6.43" schY="5.58" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_IO22" positionAnchor="center" schX="4.635" schY="3.11" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_IO33" positionAnchor="center" schX="4.635" schY="5.03" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_IO42" positionAnchor="center" schX="-8.47" schY="5.58" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_IO49" positionAnchor="center" schX="-8.975" schY="3.66" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_USB" positionAnchor="center" schX="2.595" schY="5.065" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_ADC" positionAnchor="center" schX="2.595" schY="6.875" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_VREG_IN" positionAnchor="center" schX="4.975" schY="6.97" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="U_FLASH" positionAnchor="center" schX="3.71" schY="0.95" width="1.4" height="1.2" />
+<SchematicBoxPlacement componentName="C_FLASH" positionAnchor="center" schX="2.595" schY="8.8" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="R_DM" positionAnchor="center" schX="-4.39" schY="-8.23" width="0.6" height="0.65" />
+<SchematicBoxPlacement componentName="R_DP" positionAnchor="center" schX="2.81" schY="-8.5" width="0.6" height="0.65" />
+<SchematicBoxPlacement componentName="Q_DATA" positionAnchor="center" schX="2.91" schY="3.155" width="0.2" height="0.4" />
+<SchematicBoxPlacement componentName="U_VM_ISO" positionAnchor="center" schX="3.942" schY="-1.25" width="1.865" height="0.8" />
+<SchematicBoxPlacement componentName="R_VM_BLEED" positionAnchor="center" schX="8.827" schY="-5.035" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_VM_ISO" positionAnchor="center" schX="-10.51" schY="5.7" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="U_BUCK" positionAnchor="center" schX="-7.62" schY="-0" width="1.4" height="0.8" />
+<SchematicBoxPlacement componentName="C_BOOTSTRAP" positionAnchor="center" schX="-10.585" schY="0.415" width="0.6" height="0.65" />
+<SchematicBoxPlacement componentName="C_BUCK_OUT1" positionAnchor="center" schX="5.095" schY="8.93" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_BUCK_OUT2" positionAnchor="center" schX="-8.01" schY="7.52" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="D_PD" positionAnchor="center" schX="-8.25" schY="-4.54" width="1.04" height="0.54" />
+<SchematicBoxPlacement componentName="U_DRV" positionAnchor="center" schX="-3.96" schY="1.2" width="1.9" height="3.2" />
+<SchematicBoxPlacement componentName="C_DRV_LOGIC" positionAnchor="center" schX="-8.01" schY="9.48" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_VM" positionAnchor="center" schX="-1.711" schY="10.155" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_VM2" positionAnchor="center" schX="-1.711" schY="11.965" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_BULK" positionAnchor="center" schX="-1.711" schY="13.83" width="1.1" height="0.6" />
+<SchematicBoxPlacement componentName="C_REF" positionAnchor="center" schX="-6.813" schY="-10.07" width="0.65" height="0.6" />
+</SchematicBoxPositions>
+<SchematicPlacementIssues>
+<SchematicTextCollision text="U_ESD - USBLC6-2SC6" collidingObjectType="trace" newSchX="8" newSchY="-3.585" message="Text &quot;U_ESD - USBLC6-2SC6&quot; overlaps trace; reposition the text to leave its visible area clear." />
+<SchematicTextCollision text="Clamps ESD on USB D+ and D- at the data port.
+VBUS pin references the protection diodes." collidingObjectType="trace" newSchX="8.9" newSchY="-4.1" message="Text &quot;Clamps ESD on USB D+ and D- at the data port.
+VBUS pin references the protection diodes.&quot; overlaps trace; reposition the text to leave its visible area clear." />
+<SchematicTextCollision text="Clamps ESD on USB D+ and D- at the data port.
+VBUS pin references the protection diodes." collidingObjectType="text" collidingText="VM_SENSE" newSchX="8.9" newSchY="-4.1" message="Text &quot;Clamps ESD on USB D+ and D- at the data port.
+VBUS pin references the protection diodes.&quot; overlaps text VM_SENSE; reposition the text to leave its visible area clear." />
+<SchematicTextCollision text="PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending." collidingObjectType="component" newSchX="-15" newSchY="-10.55" message="Text &quot;PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending.&quot; overlaps component C_REF; reposition the text to leave its visible area clear." />
+<SchematicTextCollision text="PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending." collidingObjectType="trace" newSchX="-15" newSchY="-10.55" message="Text &quot;PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending.&quot; overlaps trace; reposition the text to leave its visible area clear." />
+<SchematicTextCollision text="PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending." collidingObjectType="text" collidingText="VREF" newSchX="-15" newSchY="-10.55" message="Text &quot;PD PORT: motor power, 15 V requested. DATA PORT: USB computer control.
+Motor: 14HM11-0404S, bipolar, 0.4 A/phase. Prototype: firmware/bench/rear-fit validation pending.&quot; overlaps text VREF; reposition the text to leave its visible area clear." />
+<CapacitorSymbolHorizontal componentName="C_BOOTSTRAP" schX="-10.585" schY="0.415" width="0.6" height="0.65" message="Use schOrientation=&quot;vertical&quot; on this capacitor to fix the symbol orientation" />
+<DiodeResistorNotAligned diodeComponentName="D_PD" diodePin="anode" resistorComponentName="R_PD" resistorPin="anode" message="D_PD.anode and R_PD.anode face away from each other — rotate D_PD so D_PD.anode faces R_PD.anode" />
+<ComponentPinsWouldAlignWithVerticalShift firstComponentName="U_MCU" secondComponentName="U_FLASH" targetComponentName="U_FLASH" deltaSchY="1.15" newSchY="2.1" currentlyAlignedPinCount="0" alignedPinCount="3" message="shift U_FLASH vertically by +1.15 to align 3 connected pin pairs" />
+<TwoPinComponentShouldBeVertical componentName="R_PD" railPin="pin1" railType="power" deltaSchRotation="-90" suggestedRailFacingDirection="up" message="rotate R_PD by -90° so its power-connected pin faces up and the component is vertical" />
+<ComponentNetLabelCollision pair1="U_MCU/U_FLASH" pair2="U_MCU/U_VM_ISO" pair3="U_DRV/U_MCU" pair4="C_USB/Q_DATA" pair5="U_BUCK/U_DRV">
+  <SuggestedFix note="Apply all moves simultaneously. Set schAutoLayoutEnabled on your circuit.">
+    <Move componentName="U_BUCK" newSchX="-9.61" newSchY="0" />
+    <Move componentName="U_DRV" newSchX="-5.06" newSchY="1.2" />
+    <Move componentName="U_MCU" newSchX="0.03" newSchY="0" />
+    <Move componentName="U_FLASH" newSchX="4.75" newSchY="0.95" />
+    <Move componentName="U_VM_ISO" newSchX="5.95" newSchY="-1.25" />
+    <Move componentName="C_USB" newSchX="2.54" newSchY="5.06" />
+    <Move componentName="Q_DATA" newSchX="2.97" newSchY="3.15" />
+  </SuggestedFix>
+</ComponentNetLabelCollision>
+<DecouplingCapacitorsNotCloseTogether rail="V3V3" ground="GND" capacitorNames="C_IO1, C_IO10, C_IO22, C_IO33, C_IO42, C_IO49, C_USB, C_ADC, C_VREG_IN, C_FLASH, C_VM_ISO, C_BUCK_OUT1, C_BUCK_OUT2, C_DRV_LOGIC" maxBodyGap="8.375" maxRecommendedBodyGap="1" message="Group the decoupling capacitors between V3V3 and GND closer together in this schematic block. Preserve their net connections." />
+<DecouplingCapacitorsNotCloseTogether rail="PD_VBUS" ground="GND" capacitorNames="C_VM, C_VM2, C_BULK" maxBodyGap="1.265" maxRecommendedBodyGap="1.1" message="Group the decoupling capacitors between PD_VBUS and GND closer together in this schematic block. Preserve their net connections." />
+<UsbSeriesResistorsNotAligned positiveResistorName="R_DP" negativeResistorName="R_DM" signalAxis="horizontal" message="Place R_DP (D+) and R_DM (D−) near each other and draw clear traces to their corresponding USB ports. Exact alignment is not required; preserve pin assignments and leave space for labels." />
+</SchematicPlacementIssues>

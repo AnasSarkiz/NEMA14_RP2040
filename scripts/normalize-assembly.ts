@@ -7,7 +7,7 @@ export function normalizeAssembly(json: AnyCircuitElement[]) {
   const holes = json.filter(e => e.type === "pcb_plated_hole")
   const source = new Map(json.filter(e => e.type === "source_component").map(e => [e.source_component_id, e.name]))
   const components = new Map(json.filter(e => e.type === "pcb_component").map(e => [e.pcb_component_id, source.get(e.source_component_id)]))
-  const bare = new Set(["J_MOTOR", "J_DEBUG", "J_BOOT"])
+  const bare = new Set(["J_DEBUG", "J_BOOT"])
   const pads = new Map(json.filter(e => e.type === "pcb_smtpad").map(e => [e.pcb_smtpad_id, e]))
   const panes: AnyCircuitElement[] = []
   const emitted = new Set<string>()

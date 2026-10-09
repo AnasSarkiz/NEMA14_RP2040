@@ -78,7 +78,10 @@ for e in pours:
     pour_areas.append({'id':e['pcb_copper_pour_id'],'net':g.nets.get(g.key(e),'direct'),'layer':e['layer'],'areaMm2':p.area})
 ground_areas=[p for p in pour_areas if p['net']=='GND']
 if not ground_areas:errors.append('Ground pours missing')
-if board['num_layers']==4 and not any(p['layer']=='inner1' and p['areaMm2']>700 for p in ground_areas):
+# Holeless CAM export splits one physical plane into touching contours.
+# Area is evaluated on their union; connectedness remains independently checked.
+inner1_ground=unary_union([Polygon([(v['x'],v['y']) for v in e['brep_shape']['outer_ring']['vertices']], [[(v['x'],v['y']) for v in r['vertices']] for r in e['brep_shape'].get('inner_rings',[])]) for e in g.j if e['type']=='pcb_copper_pour' and e['layer']=='inner1' and g.key(e)==next(x['subcircuit_connectivity_map_key'] for x in g.j if x['type']=='source_net' and x['name']=='GND')])
+if board['num_layers']==4 and inner1_ground.area<=700:
     errors.append('Large inner1 ground plane missing')
 resistors={e['name']:e['resistance'] for e in g.j if e['type']=='source_component' and 'resistance' in e}
 parallel=lambda a,b:a*b/(a+b)

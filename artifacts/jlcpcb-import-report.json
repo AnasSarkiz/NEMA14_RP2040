@@ -1,6 +1,6 @@
 {
-  "mappedComponents": 67,
-  "distinctParts": 40,
+  "mappedComponents": 68,
+  "distinctParts": 41,
   "references": {
     "J_PD": "C165948",
     "J_DATA": "C165948",
@@ -67,36 +67,42 @@
     "C_REF": "C1589",
     "R_ENABLE": "C25804",
     "R_SLEEP": "C25804",
+    "J_MOTOR": "C131334",
     "U_ESD": "C2687116",
     "D_TVS": "C19077512"
   },
   "pending": [],
   "barePcbPads": [
     "J_BOOT",
-    "J_MOTOR",
     "J_DEBUG"
   ],
   "complete": true,
   "supplierAssetsHashVerified": true,
-  "nativeImportedFootprintsUnchanged": true,
+  "nativeImportedFootprintsUnchanged": false,
+  "footprintExceptions": [
+    "J_MOTOR manufacturer-derived0.75mm finished holes replacing incompatible native1.0mm bores; original import retained."
+  ],
+  "modelExceptions": [
+    "C_BULK drawing-derived height correction7.7mm; original manufacturer/supplier assets retained."
+  ],
   "allFittedPartsHaveObjAndStep": true,
   "cadBoundsWithinSupplierCourtyards": true,
   "usbSupplierModelOpenings": [
     {
       "reference": "J_PD",
       "supplierPart": "C165948",
-      "mouthYmm": 17.50000000000005,
-      "expectedEdgeYmm": 17.5,
+      "mouthYmm": 17.900000000000055,
+      "expectedMouthYmm": 17.9,
       "cadFacingDegrees": 0,
-      "centreXmm": -5.3
+      "centreXmm": -7
     },
     {
       "reference": "J_DATA",
       "supplierPart": "C165948",
-      "mouthYmm": 17.50000000000005,
-      "expectedEdgeYmm": 17.5,
+      "mouthYmm": 17.900000000000055,
+      "expectedMouthYmm": 17.9,
       "cadFacingDegrees": 0,
-      "centreXmm": 5.3
+      "centreXmm": 7
     }
   ],
   "schematicA4PageCount": 14,

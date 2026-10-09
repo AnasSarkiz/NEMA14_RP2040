@@ -1,6 +1,6 @@
 import React from "react"
-const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/EEEFPV101XAP/EEEFPV101XAP.obj"
-const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/EEEFPV101XAP/EEEFPV101XAP.step"
+const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/references/models/EEEFPV101XAP-D8-7p7mm.obj"
+const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/references/models/EEEFPV101XAP-D8-7p7mm.step"
 import type { CapacitorProps } from "@tscircuit/props"
 
 export const EEEFPV101XAP = (props: Omit<CapacitorProps, "capacitance">) => {

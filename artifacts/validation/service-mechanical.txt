@@ -1,0 +1,103 @@
+Imported J_PD
+Imported J_DATA
+Imported U_PD
+Imported R_PD
+Imported C_PD
+Imported R_PG
+Imported U_MCU
+Imported C_IO1
+Imported C_IO10
+Imported C_IO22
+Imported C_IO33
+Imported C_IO42
+Imported C_IO49
+Imported C_DV23
+Imported C_DV50
+Imported C_USB
+Imported C_ADC
+Imported C_VREG_IN
+Imported C_VREG_OUT
+Imported U_FLASH
+Imported C_FLASH
+Imported R_FLASH_CS
+Imported R_BOOT
+Imported Y_MCU
+Imported R_XOUT
+Imported C_XIN
+Imported C_XOUT
+Imported R_RUN
+Imported R_DM
+Imported R_DP
+Imported R_CC1
+Imported R_CC2
+Imported R_USB_SENSE_H
+Imported R_USB_SENSE_L
+Imported Q_DATA
+Imported R_VM_H
+Imported R_VM_L
+Imported U_VM_ISO
+Imported R_VM_EN
+Imported R_VM_BLEED
+Imported C_VM_ISO
+Imported C_VM_SENSE
+Imported U_BUCK
+Imported L_BUCK
+Imported C_BOOTSTRAP
+Imported C_BUCK_IN
+Imported C_BUCK_OUT1
+Imported C_BUCK_OUT2
+Imported D_PD
+Imported D_DATA
+Imported U_DRV
+Imported C_CP
+Imported C_VCP
+Imported C_VREG
+Imported C_DRV_LOGIC
+Imported C_VM
+Imported C_VM2
+Imported C_BULK
+Imported R_SA
+Imported R_SB
+Imported R_REF_H
+Imported R_REF_L
+Imported C_REF
+Imported R_ENABLE
+Imported R_SLEEP
+Imported J_MOTOR
+Imported U_ESD
+Imported D_TVS
+Building separate carrier
+Checking exact component and mechanical intersections
+Motor/carrier exact intersection
+Exporting native STEP assemblies
+/workspace/.routing-venv/lib/python3.12/site-packages/cadquery/utils.py:39: FutureWarning: save will be removed in the next release.
+  warn(f"{f.__name__} will be removed in the next release.", FutureWarning)
+Rendering native STEP triangles
+{
+  "board_cad_model_count": 68,
+  "component_intersections": [],
+  "component_clearances_under_0p2_mm": [],
+  "pcb_fastener_clearances": [],
+  "substrate_penetrations": [
+    {
+      "reference": "J_PD",
+      "distance_below_top_mm": 0.8500109999999995,
+      "intersection_with_drilled_substrate_mm3": 2.99692236885834e-05,
+      "interpretation": "supplier STEP/tab versus native plated-slot fit; physical connector fit needs confirmation"
+    },
+    {
+      "reference": "J_DATA",
+      "distance_below_top_mm": 0.8500109999999995,
+      "intersection_with_drilled_substrate_mm3": 2.9969223688583373e-05,
+      "interpretation": "supplier STEP/tab versus native plated-slot fit; physical connector fit needs confirmation"
+    },
+    {
+      "reference": "J_MOTOR",
+      "distance_below_top_mm": 2.4000000000000012,
+      "intersection_with_drilled_substrate_mm3": 0.05143608588244435,
+      "interpretation": "supplier STEP/tab versus native plated-slot fit; physical connector fit needs confirmation"
+    }
+  ],
+  "nominal_no_carrier_intersections": true,
+  "nominal_no_plug_envelope_intersections": true
+}

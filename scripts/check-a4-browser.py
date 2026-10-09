@@ -1,0 +1,18 @@
+"""Open every current A4 sheet in the read-only project review UI.
+This invokes real CLI findings, but is not the official IDE/WebGPU analyzer.
+"""
+from pathlib import Path
+import importlib.util,json,hashlib,threading,xml.etree.ElementTree as ET
+from http.server import ThreadingHTTPServer
+from playwright.sync_api import sync_playwright
+root=Path(__file__).resolve().parents[1];project='CH32'if root.name=='NEMA17_Controller'else'RP2040';out=root/'artifacts/validation/service-schematic-ui';out.mkdir(exist_ok=True)
+spec=importlib.util.spec_from_file_location('ui',root/'scripts/schematic-review-ui.py');m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m);m.ROOTS={'CH32':Path('/workspace/NEMA17_Controller'),'RP2040':Path('/workspace/NEMA14_RP2040')};m.HTML=m.HTML.replace('<h2>tscircuit schematic analysis</h2>','<h2>Project A4 schematic review</h2>').replace('Native A4 drawings · CLI placement analysis · saved PCB checks','Native A4 drawings · actual CLI analysis · separate from official IDE/WebGPU')
+server=ThreadingHTTPServer(('127.0.0.1',0),m.Handler);threading.Thread(target=server.serve_forever,daemon=True).start();j=json.loads((root/'artifacts/board.circuit.json').read_text());sheets=[e for e in j if e['type']=='schematic_sheet'];errors=[];records=[]
+with sync_playwright()as p:
+ browser=p.chromium.launch(executable_path='/usr/bin/chromium',headless=True,args=['--no-sandbox']);page=browser.new_page(viewport={'width':1800,'height':1300});page.on('pageerror',lambda e:errors.append(str(e)));page.goto('http://127.0.0.1:'+str(server.server_port));page.select_option('#project',project);page.wait_for_function('document.querySelector("#sheet").options.length=='+str(len(sheets)))
+ for no,sheet in enumerate(sheets,1):
+  page.select_option('#sheet',str(no));page.wait_for_function('document.querySelector("#drawing").contentDocument && document.querySelector("#drawing").contentDocument.querySelector("svg") && document.querySelector("#drawing").contentWindow.location.href.endsWith("sheet='+str(no)+'")')
+  info=page.evaluate('''()=>{const svg=document.querySelector('#drawing').contentDocument.querySelector('svg');return{width:svg.getAttribute('width'),height:svg.getAttribute('height'),text:[...svg.querySelectorAll('text')].map(x=>x.textContent),analysis:document.querySelector('#summary').textContent}}''');assert info['width']=='297mm'and info['height']=='210mm';expected=[next(s['name']for s in j if s['type']=='source_component'and s['source_component_id']==c['source_component_id'])for c in j if c['type']=='schematic_component'and c['schematic_sheet_id']==sheet['schematic_sheet_id']];assert all(ref in info['text']for ref in expected),(no,expected);page.screenshot(path=str(out/f'page-{no:02d}.png'),full_page=True);records.append({'page':no,'title':sheet.get('display_name'),'expected_references':expected,'analysis':info['analysis'],'native_svg_sha256':hashlib.sha256((root/f'artifacts/schematic-a4-page-{no:02d}.svg').read_bytes()).hexdigest(),'a4_size_verified':True,'all_component_labels_present':True})
+ browser.close()
+server.shutdown();assert not errors
+report={'board_sha256':hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest(),'pages':records,'browser_script_errors':errors,'actual_cli_report':'../schematic-placement.txt','official_ide_analyzer_executed':False,'scope':'Chromium read-only project UI showing native tscircuit A4 drawings and real CLI schematic-placement analysis. Not official IDE/WebGPU; no physical/electrical simulation claimed.','all_pages_opened':len(records)==len(sheets)};(out/'review.json').write_text(json.dumps(report,indent=2)+'\n');print(project,len(records),'A4 sheets opened; all labels/A4 size verified; browser errors0')

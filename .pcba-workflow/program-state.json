@@ -1,182 +1,26 @@
 {
   "schema": "pcba-program-state-v1",
   "project_id": "NEMA14_RP2040",
-  "updated_at": "2026-10-08T22:12:19.049311+00:00",
-  "stages": {
-    "product_definition": {
-      "status": "USER_REVIEW",
-      "evidence": [
-        "README.md",
-        "docs/engineering-review.md",
-        "docs/motor-compatibility.md",
-        "docs/mechanical-fit.md"
-      ],
-      "disposition": "Controller/motor/interfaces fixed; production quantity/cost ceiling/environment and provisional carrier/cable choices require resolution."
-    },
-    "sourcing": {
-      "status": "BLOCKED",
-      "evidence": [
-        "references/manufacturer-review.json",
-        "docs/component-evidence.md",
-        "artifacts/manufacturing/bom.csv",
-        "docs/supplier-cad.md"
-      ],
-      "disposition": "Primary selected-part/derating evidence incomplete; stock, price and substitute qualification absent. Product-definition gate not PASS."
-    },
-    "circuit": {
-      "status": "BLOCKED",
-      "evidence": [
-        ".pcba-workflow/circuit-review.md",
-        "docs/engineering-review.md",
-        "docs/bringup-checklist.md",
-        "artifacts/validation/power-sequencing-correction.json",
-        "artifacts/validation/motor-electrical-calculations.json"
-      ],
-      "disposition": "Offline reviewed hardware implemented; low-VREF driver accuracy, dynamic sequencing, mounted thermal, protection and USB/firmware operation remain unqualified."
-    },
-    "schematic_visual": {
-      "status": "PASS",
-      "evidence": [
-        "artifacts/validation/schematic-review-final.json",
-        "artifacts/validation/native-a4-review/browser-review.json",
-        "artifacts/validation/native-a4-review/bare-interface-metadata-rebind.json",
-        "artifacts/schematic-a4.pdf"
-      ],
-      "disposition": "All14nativeA4sheets inspected in browser/rendered PNG; exact schematic-placement CLI0findings and finalsource equivalence. Does not imply official IDE analyzer or circuit qualification."
-    },
-    "placement": {
-      "status": "BLOCKED",
-      "evidence": [
-        "artifacts/mechanical/mechanical-review.json",
-        "artifacts/validation/native-cli-final/results.json",
-        "docs/mechanical-fit.md"
-      ],
-      "disposition": "Nominal native STEP/access screens complete; actual cable/carrier/bulk model/pickup/fab acceptance pending and upstream circuit gate BLOCKED. Official placement CLI exit1advisories retained."
-    },
-    "routing": {
-      "status": "BLOCKED",
-      "evidence": [
-        "artifacts/physical-connectivity.json",
-        "artifacts/trace-width-review.json",
-        "artifacts/engineering/route-replay-verification.json",
-        "artifacts/manufacturing/audit.json"
-      ],
-      "disposition": "Final native copper/replay/CAM offline checks pass; placement qualification prerequisite and electrical/thermal current assumptions remain unresolved."
-    },
-    "manufacturing_release": {
-      "status": "BLOCKED",
-      "evidence": [
-        "artifacts/validation/engineering-review-manifest.json",
-        "artifacts/manufacturing/audit.json",
-        "artifacts/nema14-gerbers.zip",
-        "docs/manufacturing-review.md"
-      ],
-      "disposition": "Final export bytes pass independent offline audit; no released manufacturing approval, unqualified upstream gates and supplier process acceptance pending."
-    },
-    "assembly_placement": {
-      "status": "BLOCKED",
-      "evidence": [
-        "artifacts/manufacturing/pick_and_place.csv",
-        "artifacts/manufacturing/audit.json",
-        "docs/supplier-cad.md"
-      ],
-      "disposition": "Local source/CPL coordinate agreement is verified; supplier package pickup/rotation and actual placement-preview review/approval absent."
-    },
-    "order": {
-      "status": "BLOCKED",
-      "evidence": [
-        "artifacts/validation/engineering-review-manifest.json"
-      ],
-      "disposition": "No supplier quote, final price, assembly approval or payment approval; no order requested or placed."
-    }
-  },
-  "artifacts": {
-    "final_engineering_manifest": {
-      "path": "artifacts/validation/engineering-review-manifest.json",
-      "sha256": "79d84d19b3f86f82b5c0bde7f8bfd5f564c4fc3c53e7a22cbbf070c59422e7cb"
-    },
-    "final_source": {
-      "path": "artifacts/final-source.circuit.json",
-      "sha256": "eb6438f4a69633c6c8388ce22cbe6b6cf9e5eaa30349b5efceb4ddcbf6d829b7"
-    },
-    "final_saved_board": {
-      "path": "artifacts/board.circuit.json",
-      "sha256": "d85469ebd8679aae5cb6dc012b8552db9f2bb5a4a3a459f8b5645419adfe31ea"
-    },
-    "final_manufacturing_zip": {
-      "path": "artifacts/nema14-gerbers.zip",
-      "sha256": "c8b9e121c44370eeeec24432ca3bb1704526b683b020821c867378d777caf08c"
-    }
-  },
-  "risks": [
-    {
-      "id": "CURRENT_LOW_VREF",
-      "status": "BLOCKED",
-      "finding": "A4988 regulation accuracy is not specified at the selected ~0.6735V reference. Formula-only nominal phase limit0.350765A and manufacturer-rail/component upper formula value0.364518A do not include driver accuracy. No qualified maximum current claim.",
-      "resolution": "Scope phase/sense peak current over temperature/supply/decay/microstep states; satisfy motor0.4A per-phase limit with margin or change hardware."
-    },
-    {
-      "id": "POWER_SEQUENCE",
-      "status": "BLOCKED",
-      "finding": "Protected VM ADC switch/NPN host detection are implemented, but intermediate-rail behavior, fast collapse and charged10nF discharge are unqualified; VM OE must remain HIGH until rail valid. Firmware absent. PD-only ROM/pull-up ESD ghost-DATA and false active-low host detection are a specific untested boundary.",
-      "resolution": "Scope all PD/DATA connection/removal/order/ramp/brownout conditions at MCU pins and VDD; verify exact absolute limits, obtain manufacturer injection guidance, or add guaranteed hardware supervision/clamps."
-    },
-    {
-      "id": "THERMAL_PRIMARY",
-      "status": "BLOCKED",
-      "finding": "Exact selected SRN4018-4R7M saturation/RMS/DCR criteria and effective buck capacitor values remain unverified; mounted AP63203/inductor/A4988/motor/sense temperatures and ground current sharing unmeasured.",
-      "resolution": "Obtain exact primary specifications, derating and selected-package evidence; run worst-case mounted thermal soak or revise the power components/architecture."
-    },
-    {
-      "id": "PROTECTION_PRIMARY",
-      "status": "BLOCKED",
-      "finding": "Exact selected TVS clamp/energy, ESD device and NPN primary limits, resistor pulse/hot tolerance and ceramic effective capacitance remain incomplete. Regenerative motor/load energy is unqualified.",
-      "resolution": "Complete exact-MPN primary evidence and transient/ripple/temperature qualification; revise protection if required."
-    },
-    {
-      "id": "REAR_MOUNT",
-      "status": "USER_REVIEW",
-      "finding": "Official motor drawing specifies front M3 threads, not independent rear mounting holes. Native rear recesses contain endcap fasteners. Separate front-thread carrier is a machined prototype candidate only.",
-      "resolution": "Prototype carrier/fasteners and qualify actual motor revision, thread engagement, load strength, cable exit and isolation; do not remove endcap fasteners for PCB mounting."
-    },
-    {
-      "id": "SUPPLIER_CAD_HEIGHT",
-      "status": "USER_REVIEW",
-      "finding": "Native C178585 bulk capacitor STEP is5.82mm tall while manufacturer body height is7.7\u00b10.3mm. Native model retained; independent manufacturer-maximum envelope screened.",
-      "resolution": "Verify actual production package and assembly clearance with correct supplier model or physical sample."
-    },
-    {
-      "id": "USB_CABLE_FIT",
-      "status": "USER_REVIEW",
-      "finding": "Both USB-C mouths face+Y atX\u00b15.3mm, pitch10.6mm; compact overmolds\u226410mm are a screening requirement. Physical simultaneous insertion/retention/strain relief not tested.",
-      "resolution": "Use actual intended compact PD/DATA cables and assembled carrier to qualify mating/retention/bend/fastener clearance."
-    },
-    {
-      "id": "FAB_ASSEMBLY_QUOTE",
-      "status": "USER_REVIEW",
-      "finding": "Offline native/CAM audits pass their geometric scope; fab mask/stencil/annulus process acceptance and supplier CPL rotation/pickup orientation are not verified. No stock/price quote or assembly preview approval.",
-      "resolution": "Supplier reviews actual ZIP/BOM/CPL and package pick-up conventions; resolve mask/stencil policy and approve preview before any order."
-    },
-    {
-      "id": "USB_FIRMWARE",
-      "status": "BLOCKED",
-      "finding": "USB hardware paths and boot/debug interfaces exist; firmware/protocol and actual USB enumeration/programming/motion have not been demonstrated.",
-      "resolution": "Implement correct reset-safe active-low host detection and VM OE sequencing, firmware flashing/USB control, then run bring-up checklist."
-    }
+  "updated_at": "2026-10-09T19:49:43.039654+00:00",
+  "offline_service_review": "PASS_WITH_DISCLOSED_ADVISORIES_AND_MODEL_DATA_GATES",
+  "manufacturing_release": false,
+  "hardware_tested": false,
+  "publication_authorized": true,
+  "publication_receipt": "artifacts/validation/service-published-release.json (only valid after actual publication)",
+  "remaining_qualification_items": [
+    "Winding current including low-VREF A4988 accuracy",
+    "USB enumeration/ROM programming/application firmware and15V PD behavior",
+    "All DATA/PD power orders, brownout/reset/OE/ADC pin limits and backfeed",
+    "Regeneration/hot-plug clamp energy and exact selected protection data",
+    "Mounted temperatures and Holtek worst-load thermal/transient margin",
+    "Complete motor/carrier/harness/two-cable physical fit/retention/host loading",
+    "Factory JST post/key/spring CAD versus generic supplier model discrepancy",
+    "Biased/aged effective capacitor values and converter stability/current margins",
+    "Temperature/material/splice certificates and factory motor lead stock",
+    "Supplier pickup/rotation preview and filled/capped-via/drill/stencil process acceptance"
   ],
-  "approvals": {
-    "design_critical_substitution": "PENDING",
-    "assembly_placement": "PENDING",
-    "final_price": "PENDING",
-    "payment": "PENDING"
-  },
-  "approval_evidence": {
-    "design_critical_substitution": [],
-    "assembly_placement": [],
-    "final_price": [],
-    "payment": []
-  },
-  "manual_browser_edits_present": false,
-  "invalidation_log": [],
-  "technical_evidence_scope": "Offline source/copper/CAM/native3D/A4 review complete with explicitly preserved official placement advisories. Software geometric evidence is separate from stage qualification and supplier approval."
+  "placement_cli_exit": 1,
+  "placement_advisories_suppressed": false,
+  "electrical_and_physical_qualification": "BLOCKED",
+  "historical_reports": "Earlier manifests, SES replay and publication receipts do not validate this changed revision."
 }

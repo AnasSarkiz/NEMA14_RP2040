@@ -31,7 +31,7 @@ def main():
         for pad in pads:
             area = hole.intersection(geometry.shape(pad)).area
             if area > 1e-5:
-                ep = pad.get('shape') == 'rect' and min(pad.get('width', 0), pad.get('height', 0)) > 2 and refs[pad['pcb_component_id']] in {'U_PD', 'U_MCU', 'U_DRV'}
+                ep = (via['pcb_via_id']=='service_filled_ground_cap_via' and refs[pad['pcb_component_id']]=='C_USB') or pad.get('shape') == 'rect' and min(pad.get('width', 0), pad.get('height', 0)) > 2 and refs[pad['pcb_component_id']] in {'U_PD', 'U_MCU', 'U_DRV'}
                 overlaps.append({'ref': refs[pad['pcb_component_id']], 'pad_id': pad['pcb_smtpad_id'], 'hole_overlap_mm2': area, 'requires_filled_capped_EP_process': ep})
         filled_ep = bool(overlaps) and all(p['requires_filled_capped_EP_process'] for p in overlaps)
         paste_overlap = paste.intersection(hole).area

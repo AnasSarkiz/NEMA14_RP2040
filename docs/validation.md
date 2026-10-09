@@ -1,19 +1,28 @@
-# Saved-board validation
+# Current validation — RP2040, service revision
 
-Run `npm run typecheck`, `npm run source:check`, `npm run build`, `npm exec -- tsci check artifacts/board.circuit.json`, `npm exec -- tsci check schematic-placement artifacts/board.circuit.json`, `npm run export`, and `npm run shorts`. Source compilation writes its separate unrouted artifact; build/check/render use the saved delivery copper. `scripts/sync-presentation.py` merges source/schematic metadata with assertions that saved PCB records and physical pin/net identities are retained.
+The requested exact local commit `97d4248` was inspected before editing. The frozen delivery is `index.circuit.tsx` → `src/board.tsx`, with accepted copper in `artifacts/board.circuit.json` and an identical `index.circuit.json`. Source compilation regenerates separate `artifacts/final-source.circuit.json`; it must not overwrite accepted routing. The current manifest identifies hashes and current reports. All older SES/replay/publication/validation outputs are historical unless explicitly listed there.
 
-`artifacts/validation/` contains actual command outputs. `artifacts/drc-report.json` contains full checks including power/ground pin attributes. Passive connector/crystal footprints are classified by physical role for ERC. `artifacts/physical-connectivity.json` independently checks the copper islands with Shapely geometry. Gerber shorts are checked on every copper layer at 100 pixels/mm. These are software checks and do not establish physical flashing, assembly, rear fit or thermal behavior.
+| Check | Current result and scope |
+|---|---|
+| `npm run source:check`, `npm run typecheck`, `npm run build` | Pass. Source/schematic compilation and accepted saved-board rendering/DRC. |
+| Native CLI netlist, pin specification, source | Exit0 on `index.circuit.tsx`; real exits/logs in `service-cli-results.json`. |
+| Native CLI build | Routing-disabled source build/PCB PNG passes; not an accepted-routing regeneration. |
+| Native CLI placement | Exit1 advisories retained; native placementDRC0 errors /0 warnings. See disposition below. |
+| Prepared A4 schematic-placement | Exit0, zero findings on `artifacts/final-source.circuit.json`. |
+| Saved native all-check DRC | 0 errors,1 warning: generic Q_DATA NPN symbol has no `requires_power` pin. This discrete transistor has no supply pin; warning retained. |
+| Independent native connectivity | 52 named nets, all copper layers, no disconnected nets. |
+| Trace/via width and current screen | No errors; 35µm outer /17.5µm inner and30°C IPC2221 rise assumptions. This does not prove temperatures or plane-current sharing. |
+| Actual Gerber/drill/CAM audit | PASS: no named opens/shorts or unexpected unassigned copper; actual apertures/drills/paste/mask/outline and BOM/CPL compared against source. |
+| `tsci check shorts ... --mode gerber --layer all --pixels-per-mm 100` | No shorts on any layer. Actual saved command output retained. |
+| Functional silkscreen | All12 labels preserve their original strokes in exported final Gerber; no clipped functional text. |
+| Via/paste/process inspection | PASS ordinary-via overlap screen; explicit filled/capped SMT vias require supplier process acceptance. |
+| Browser schematic UI | All14 native A4 pages opened in Chromium, labels/A4 dimensions verified,0 browser errors. This project UI shows real CLI analysis; official IDE/WebGPU analyzer was not executed. |
+| Mechanical BREP/access | Current model/hash report records checks, dimensions and disclosed generic-model discrepancy; hardware fit/tolerances remain unqualified. |
 
-## Browser schematic review
+`tsci check netlist` supports the TSX entry, not a JSON array; the unsupported-input error from older work is not a board failure. Raw-entry schematic analysis precedes the native A4 preparation stage: the packaged prepared sheets are the reviewed schematic. Source-generated physical pads/holes/poses and numbered-pin/net semantics are compared to saved routing by the import/presentation check and `service-pin-net-invariance.json`.
 
-Run `python3 scripts/schematic-review-ui.py` for a read-only browser UI that displays native tscircuit A4 SVG pages beside actual `tsci check schematic-placement` and DRC findings. The browser review visits every numbered A4 page; screenshots and its result JSON are in `artifacts/validation/`.
+Placement advisories use airwire/orientation/courtyard heuristics without considering accepted routes or probe-only bare interfaces. They are retained in `service-cli-placement.txt`, not suppressed or called a CLI pass. Actual pad connectivity, native placementDRC, copper/CAM and component/probe/access geometry are assessed separately. No failed physical placement is waived by this disposition. Review exact suggestions before future rerouting.
 
-The standalone tscircuit IDE was also launched. In this environment its PCB pane cannot obtain a WebGPU adapter, and the Schematic tab is disabled for the saved circuit-JSON selection. The review UI provides the native SVGs and CLI analysis without requiring GPU access; it is a project review tool, not the IDE's disabled schematic analyzer pane. External telemetry/CDN requests blocked by the cloud allowlist are recorded as environmental limitations.
+Reproduce current checks: `npm run typecheck`, `npm run source:check`, `npm run build`, `python3 scripts/check-service-cli.py`, `/workspace/.routing-venv/bin/python scripts/verify-connectivity.py`, `npm run check:copper`, `npm run export`, `npm run check:manufacturing`, `/workspace/.routing-venv/bin/python scripts/inspect-via-paste.py`, `npm run shorts`, `/workspace/.routing-venv/bin/python scripts/audit-functional-silk.py`, `/workspace/.routing-venv/bin/python scripts/review-mechanical.py`, `python3 scripts/check-a4-browser.py`. Export also uses the official CLI and validates unchanged native copper/drill files. Review manufacturing/assembly requirements before using any generated package.
 
-See [USB programming](usb-programming.md). All fitted components now have exact supplier imports and OBJ/STEP assets; consult the reference-level import report.
-
-## Final native CLI input and advisory results
-
-The latest actual `tsci check netlist`, `pin_specification` and `source` checks on `index.circuit.tsx` exit 0. `tsci check placement` on the source JSON exits **1**, reporting **two courtyard overlaps and seven 180° orientation suggestions**, while its placement DRC summary reports **0 errors and 0 warnings**. Exact command/output/source binding is in [native-cli-final/results.json](../artifacts/validation/native-cli-final/results.json); the advisory result is retained, not rewritten as a pass.
-
-The reported overlaps are J_BOOT/U_ESD (0.5 mm) and C_VM_SENSE/J_DEBUG (0.12 mm). J_BOOT/J_DEBUG are bare PCB contacts; automatic rectangular courtyard overlap is evaluated against actual native pad clearance, fitted STEP bodies and Ø0.5 mm top probe access. Native physical checks provide that separate geometry/access evidence, and actual pad/copper/CAM checks remain mandatory after any repair. No fitted body or access is assumed safe from the generic-box analysis alone. Airwire suggestions rotate C_IO10, C_IO22, C_IO42, C_FLASH, R_RUN, R_VM_BLEED and D_TVS; current actual routed paths, physical pads and final CAM determine connectivity instead of unrouted airwire orientation heuristics. No blanket zero-findings or official placement CLI exit 0 claim is made.
+Hardware tests unperformed: windingcurrent, USB enumeration/programming/PD, power transitions/brownout/backfeed, regeneration, mountedtemperatures and complete physicalfit. External effective-C, exact protection/model/material data, pickup/rotation preview and fabrication acceptance remain open. Software PASS is not production release.

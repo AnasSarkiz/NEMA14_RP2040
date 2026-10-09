@@ -66,7 +66,8 @@
     "Q_DATA": "C94514",
     "R_VM_EN": "C25804",
     "R_VM_BLEED": "C25804",
-    "C_VM_ISO": "C1525"
+    "C_VM_ISO": "C1525",
+    "J_MOTOR": "C131334"
   },
   "parts": {
     "C11702": {
@@ -778,12 +779,12 @@
       "symbol": "EEEFPV101XAP",
       "importPath": "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.tsx",
       "modelFiles": [
-        "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.obj",
-        "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.step"
+        "references/models/EEEFPV101XAP-D8-7p7mm.obj",
+        "references/models/EEEFPV101XAP-D8-7p7mm.step"
       ],
       "sha256": {
-        "obj": "d2a82f339551bccf8ac1358cc8f9756f50a5d9d445ffb49c9395fe01969b4225",
-        "step": "0520d085e6aa1b712b8127b1de76907f64951f608caa5f1d495a693c6ae742fb"
+        "obj": "471426a29996b14ff415f904118dbc00e040c8642c06d0850a16fc21a36ee810",
+        "step": "9dbe34572d5bc86bf588aa59dc645f41fd0555b13535f35d7e7dbd88c43cd2f8"
       },
       "originalImportSha256": "ed725099799971ad41fef6df856cf7db452d0345383c5feafdd895f9f31fc011",
       "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C178585",
@@ -796,7 +797,23 @@
       "capacitanceUF": 100,
       "rippleCurrentRmsAAt100kHz105C": 0.6,
       "esrOhmAt100kHz20C": 0.16,
-      "evidence": "references/Panasonic-FP-2025.pdf; FP35V100uFD8 exact EEEFPV101XAP row"
+      "evidence": "references/Panasonic-FP-2025.pdf; FP35V100uFD8 exact EEEFPV101XAP row",
+      "originalSupplierModelFiles": [
+        "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.obj",
+        "imports/supplier/EEEFPV101XAP/EEEFPV101XAP.step"
+      ],
+      "originalSupplierModelSha256": {
+        "obj": "d2a82f339551bccf8ac1358cc8f9756f50a5d9d445ffb49c9395fe01969b4225",
+        "step": "0520d085e6aa1b712b8127b1de76907f64951f608caa5f1d495a693c6ae742fb"
+      },
+      "modelCorrection": {
+        "authority": "Panasonic-FP-2025.pdf D8",
+        "nominalHeightMm": 7.7,
+        "heightToleranceMm": 0.3,
+        "assemblyStandOffAllowanceMm": 0.3,
+        "method": "explicit Z dimension correction; original XY and datum retained",
+        "factoryCad": false
+      }
     },
     "C131992": {
       "manufacturerPartNumber": "SN74CBTLV1G125DCKR",
@@ -836,6 +853,25 @@
       "cadAnchorCorrectionLocalMm": {
         "x": 0,
         "y": 0
+      }
+    },
+    "C131334": {
+      "manufacturerPartNumber": "B4B-PH-K-S(LF)(SN)",
+      "symbol": "B4B_PH_K_S_LF__SN_",
+      "importPath": "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.tsx",
+      "originalImportSha256": "d8315c04e63e4eccabd8ac997166c8f96cf8dd9a659e5d68bbc4b42743146486",
+      "modelFiles": [
+        "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj",
+        "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step"
+      ],
+      "sha256": {
+        "obj": "333d51fc2722f28c1a73c3ef4b240453d4ce90bba01e4b2a7b6d8c059fa62d0f",
+        "step": "330cfdeb167726774e998328867b10007c6ca195a3a7aab25f476c0c19b5a7a1"
+      },
+      "geometryAuthority": "JST PH manufacturer drawing; src/motor-connector.tsx replaces oversized native bores and explicitly aligns model pin1. Original import remains intact.",
+      "activeModelUrls": {
+        "obj": "https://modelcdn.tscircuit.com/easyeda_models/assets/C131334.obj?uuid=3b95b8b4d5d24ff4a871a43c952e432a&cachebust_origin=",
+        "step": "https://modelcdn.tscircuit.com/easyeda_models/assets/C131334.step?uuid=3b95b8b4d5d24ff4a871a43c952e432a&cachebust_origin="
       }
     }
   }

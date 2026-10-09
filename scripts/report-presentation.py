@@ -2,6 +2,7 @@
 import csv,hashlib,json,pathlib,math,re
 import numpy as np
 from shapely.geometry import Polygon,box
+from shapely import affinity
 root=pathlib.Path(__file__).resolve().parents[1]
 j=json.loads((root/'artifacts/board.circuit.json').read_text());cat=json.loads((root/'src/jlcpcb-catalog.json').read_text())
 source={e['source_component_id']:e for e in j if e['type']=='source_component'}
@@ -9,6 +10,9 @@ pcb={e['source_component_id']:e for e in j if e['type']=='pcb_component'}
 models={e['source_component_id']:e for e in j if e['type']=='cad_component' and e.get('model_obj_url')}
 courts={e['pcb_component_id']:Polygon([(p['x'],p['y']) for p in e['outline']]) for e in j if e['type']=='pcb_courtyard_outline'}
 rows=[];bare=[];mapped={};usb=[];alignment=[];cache={}
+for e in j:
+ if e['type']=='pcb_courtyard_rect':
+  c=e['center'];g=box(c['x']-e['width']/2,c['y']-e['height']/2,c['x']+e['width']/2,c['y']+e['height']/2);courts[e['pcb_component_id']]=affinity.rotate(g,e.get('ccw_rotation',0),origin=(c['x'],c['y']))
 for id,part in cat['parts'].items():
  p=root/part['importPath'];original=pathlib.Path(str(p)+'.original')
  assert hashlib.sha256(original.read_bytes()).hexdigest()==part['originalImportSha256']
@@ -19,22 +23,23 @@ for id,part in cat['parts'].items():
  cache[id]=np.array([list(map(float,l.split()[1:4])) for l in (root/next(f for f in part['modelFiles'] if f.endswith('.obj'))).read_text().splitlines() if l.startswith('v ')])
  assert len(cache[id]) and np.isfinite(cache[id]).all()
 for sid,s in source.items():
- name=s['name'];p=pcb[sid];id=cat['components'].get(name);isbare=name in ['J_MOTOR','J_DEBUG','J_BOOT']
+ name=s['name'];p=pcb[sid];id=cat['components'].get(name);isbare=name in ['J_DEBUG','J_BOOT']
  if isbare:bare.append(name)
  else:
   assert id,name+' missing exact supplier import';part=cat['parts'][id];m=models[sid]
   assert s['supplier_part_numbers']['jlcpcb']==[id]
   assert s['manufacturer_part_number']==part['manufacturerPartNumber'],name
-  for ext,field in [('obj','model_obj_url'),('step','model_step_url')]:assert m[field].endswith('/'+next(f for f in part['modelFiles'] if f.endswith('.'+ext)))
+  for ext,field in [('obj','model_obj_url'),('step','model_step_url')]:
+   assert (m[field]==part['activeModelUrls'][ext] if 'activeModelUrls' in part else m[field].endswith('/'+next(f for f in part['modelFiles'] if f.endswith('.'+ext))))
   origin=np.array([m['model_origin_position'][a] for a in ['x','y','z']]);v=cache[id]-origin;a=math.radians(m['rotation']['z']);r=np.array([[math.cos(a),-math.sin(a),0],[math.sin(a),math.cos(a),0],[0,0,1]])
   v=v@r.T+np.array([m['position'][a] for a in ['x','y','z']]);lo=v.min(axis=0);hi=v.max(axis=0);outside=box(*lo[:2],*hi[:2]).difference(courts[p['pcb_component_id']].buffer(.15)).area
   assert outside<.01,(name,'CAD outside native courtyard',outside)
   alignment.append({'reference':name,'part':id,'min':lo.tolist(),'max':hi.tolist(),'bboxAreaOutsideCourtyard':outside});mapped[name]=id
   if name in ['J_PD','J_DATA']:
-   opening=m['position']['y']+math.cos(a)*(cache[id][:,1].max()-origin[1]);expected=17.5
+   opening=m['position']['y']+math.cos(a)*(cache[id][:,1].max()-origin[1]);expected=17.9
    assert abs(opening-expected)<.001 and abs(math.sin(a))<.001 and math.cos(a)>.999,(name,opening,m['rotation'])
-   assert abs(m['position']['x']-(-5.3 if name=='J_PD' else 5.3))<.001
-   usb.append({'reference':name,'supplierPart':id,'mouthYmm':opening,'expectedEdgeYmm':expected,'cadFacingDegrees':m['rotation']['z'],'centreXmm':m['position']['x']})
+   assert abs(m['position']['x']-(-7 if name=='J_PD' else 7))<.001
+   usb.append({'reference':name,'supplierPart':id,'mouthYmm':opening,'expectedMouthYmm':expected,'cadFacingDegrees':m['rotation']['z'],'centreXmm':m['position']['x']})
  rows.append([name,s.get('manufacturer_part_number',''),id or '',s.get('display_resistance',s.get('display_capacitance',s.get('display_inductance',''))),s.get('max_voltage_rating',''),s.get('tolerance',''),p['center']['x'],p['center']['y'],p.get('rotation',0),p.get('layer','top'),'bare PCB interface' if isbare else 'native supplier import with OBJ and STEP'])
 fresh=json.loads((root/'artifacts/final-source.circuit.json').read_text())
 for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole','pcb_courtyard_outline']:
@@ -54,7 +59,7 @@ for e in j:
 for net in [e for e in j if e['type']=='source_net']:
  expected=sum(p.get('subcircuit_connectivity_map_key')==net['subcircuit_connectivity_map_key'] for p in ports)
  assert labels.get(net['source_net_id'],0)==expected,(net.get('name'),expected,labels.get(net['source_net_id'],0))
-report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':True,'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicNamedNetStubCoverageVerified':True}
+report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':False,'footprintExceptions':['J_MOTOR manufacturer-derived0.75mm finished holes replacing incompatible native1.0mm bores; original import retained.'],'modelExceptions':['C_BULK drawing-derived height correction7.7mm; original manufacturer/supplier assets retained.'],'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicNamedNetStubCoverageVerified':True}
 (root/'artifacts/jlcpcb-import-report.json').write_text(json.dumps(report,indent=2)+'\n');(root/'artifacts/supplier-cad-alignment.json').write_text(json.dumps(alignment,indent=2)+'\n')
 with (root/'artifacts/source-bom.csv').open('w') as f:
  w=csv.writer(f,lineterminator='\n');w.writerow(['Reference','MPN','JLCPCB part','Value','Voltage rating (V)','Tolerance','PCB X mm','PCB Y mm','Rotation deg','Assembly side','Review note']);w.writerows(rows)

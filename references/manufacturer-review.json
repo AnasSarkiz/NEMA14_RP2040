@@ -1,7 +1,7 @@
 {
-  "reviewed_on": "2026-10-08",
+  "reviewed_on": "2026-10-09",
   "scope": "Component manufacturer/supplier evidence only. This is not fabrication release, current-stock verification, bench validation or a claim that pending design corrections have been completed.",
-  "network": "Direct manufacturer and supplier PDF/catalog requests failed through mandatory proxy HTTP CONNECT403; legitimate GitHub manufacturer-document mirrors used without proxy bypass.",
+  "network": "Official Holtek/Bourns/Samsung/JST/Tensility/Belden references retrieved using allowed manufacturer hosts; earlier failed requests are historical. Remaining primary/material/supplier-preview gaps are explicit.",
   "manufacturing_release": false,
   "verified_manufacturer_documents": [
     {
@@ -374,6 +374,34 @@
         "4": "B",
         "5": "VCC"
       }
+    },
+    {
+      "part": "HT7533-1",
+      "file": "HT75xx-1v281.pdf",
+      "official_url": "https://www.holtek.com.cn/webapi/116711/HT75xx-1v281.pdf",
+      "sha256": "823163c61d381f85362450e2840f9f6fd5e27f881f73aa4849181348a94ffd87",
+      "evidence": "Manufacturer-authored primary document downloaded from manufacturer; thermal/effectiveC qualification is separate."
+    },
+    {
+      "part": "SRN4018-4R7M",
+      "file": "SRN4018.pdf",
+      "official_url": "https://www.bourns.com/docs/product-datasheets/srn4018.pdf",
+      "sha256": "3733a494f0443726e01072217fd8d58c7a0e7dad152ae121815edf4a8a8e741e",
+      "evidence": "Manufacturer-authored primary document downloaded from manufacturer; thermal/effectiveC qualification is separate."
+    },
+    {
+      "part": "CL21A226MAQNNNE",
+      "file": "Samsung-CL21A226MAQNNNE-spec.pdf",
+      "official_url": "https://product.samsungsem.com/part/download.do",
+      "sha256": "5cdb985c64fd8b79f6c54cb77bd282ba189586d533ad8c3c82c96c435bece6ba",
+      "evidence": "Manufacturer-authored primary document downloaded from manufacturer; thermal/effectiveC qualification is separate."
+    },
+    {
+      "part": "CL31A106KBHNNNE",
+      "file": "Samsung-CL31A106KBHNNNE-spec.pdf",
+      "official_url": "https://product.samsungsem.com/part/download.do",
+      "sha256": "23d0c65c65188eebbe1a1e30b702ee4e2fc249e232c1f293e7f282f1e86fbfbc",
+      "evidence": "Manufacturer-authored primary document downloaded from manufacturer; thermal/effectiveC qualification is separate."
     }
   ],
   "cached_supplier_capacitors": [
@@ -449,7 +477,7 @@
   "unresolved_component_evidence": [
     {
       "part": "HT7533-1",
-      "status": "BLOCKED exact primary electrical/thermal evidence",
+      "status": "PRIMARY_LIMITS_RESOLVED_THERMAL_QUALIFICATION_PENDING",
       "known_secondary": "wagiminator/CH32X035-USB-PD-Adapter describes100mA/30V but explicitly requests selecting30Vvariant",
       "official_url": "https://www.holtek.com/documents/10179/116711/HT75xx-1v250.pdf",
       "unverified": [
@@ -461,7 +489,9 @@
       ],
       "thermal_note": "40mA and70mA are screening scenarios, not measured or typical CH32 current. At14.6V input/3.3V output losses0.452W/0.791W; actual typical MCU4.2mA+drivermax8mA is much lower, but max system/USB current remains unqualified.",
       "exact_supplier_description": "-40\u2103~+85\u2103@(Ta) 1 100mA 2.5uA 25mV@(1mA) 3.3V 30V Fixed Positive SOT-89-3 Voltage Regulators - Linear, Low Drop Out (LDO) Regulators ROHS",
-      "supplier_description_evidence": "supplier-description-C14289.json"
+      "supplier_description_evidence": "supplier-description-C14289.json",
+      "current_primary": "HT75xx-1v281.pdf",
+      "current_limits": "30V operating/33V absolute; SOT89theta200C/W; operatingambient-40..85C; no guaranteedTj max located. See service-power-review.json."
     },
     {
       "part": "SMF18A",
@@ -683,5 +713,6 @@
     "poweredoff_max_node_V_from_Ioff": 0.101,
     "host_polarity": "LOWwhenDATA_VBUSpresent; HIGHwhenabsentandV3V3powered",
     "physical_validation": "notexecuted; lowVDDtransition, fastoutputcapacitor discharge, NPNunpoweredcollector andrailbackpower remain gates"
-  }
+  },
+  "service_revision_power_review": "../artifacts/engineering/service-power-review.json"
 }

@@ -22,7 +22,7 @@ def frame(j,cat):
    rows.append({k:e.get(k) for k in keys})
   if t=='cad_component' and e.get('model_step_url'):
    n=name(e);cid=cat['components'][n];p=cat['parts'][cid];step=next(f for f in p['modelFiles'] if f.endswith('.step'))
-   assert e['model_step_url'].endswith(step),(n,'active model differs from catalog')
+   assert (e['model_step_url']==p['activeModelUrls']['step'] if 'activeModelUrls' in p else e['model_step_url'].endswith(step)),(n,'active model differs from catalog')
    assert source[e['source_component_id']]['manufacturer_part_number']==p['manufacturerPartNumber'],(n,'manufacturer mismatch')
    assert sha(ROOT/step)==p['sha256']['step'],(n,'native supplier model hash mismatch')
    rows.append({'type':t,'name':n,'supplier':cid,'mpn':p['manufacturerPartNumber'],'step':step,'step_sha256':p['sha256']['step'],**{k:e.get(k) for k in ['position','rotation','model_origin_position','model_unit_to_mm_scale_factor','model_object_fit']}})

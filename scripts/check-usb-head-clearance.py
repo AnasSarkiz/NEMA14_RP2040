@@ -14,11 +14,11 @@ for e in circles:
  assert e['shape']=='circle' and abs(e['radius']-2.7)<1e-6 and set(e['layers'])=={'top','inner1','inner2','bottom'}
  assert set(e.get('excluded_pcb_component_ids',[]))==port_ids,'Mounting keepout exclusions must target only the two independently checked USB native components'
 records=[]
-for name,x in [('J_PD',-5.3),('J_DATA',5.3)]:
+for name,x in [('J_PD',-7),('J_DATA',7)]:
  s=next(e for e in src.values() if e['name']==name);c=next(e for e in pcs.values() if e['source_component_id']==s['source_component_id']);m=next(e for e in j if e['type']=='cad_component' and e['source_component_id']==s['source_component_id']);part=cat['parts'][cat['components'][name]]
- assert abs(m['position']['x']-x)<1e-6 and abs(m['position']['y']-12.1499711)<1e-6
+ assert abs(m['position']['x']-x)<1e-6 and abs(m['position']['y']-12.5499711)<1e-6
  a=math.radians(m['rotation']['z']);assert abs(math.sin(a))<1e-6 and math.cos(a)>.999999
- opening=m['position']['y']+math.cos(a)*(2.6-m['model_origin_position']['y']);assert abs(opening-17.5)<1e-6
+ opening=m['position']['y']+math.cos(a)*(2.6-m['model_origin_position']['y']);assert abs(opening-17.9)<1e-6
  obj=root/next(p for p in part['modelFiles'] if p.endswith('.obj'));assert hashlib.sha256(obj.read_bytes()).hexdigest()==part['sha256']['obj']
  verts=[];faces=[]
  for line in obj.read_text().splitlines():
@@ -37,5 +37,5 @@ for name,x in [('J_PD',-5.3),('J_DATA',5.3)]:
   assert copper.distance(circle)>=.15-1e-6,(name,'native outer copper violates mounting circle',copper.distance(circle))
   assert body.distance(circle)>=.15-1e-6,(name,'native OBJ body violates mounting circle',body.distance(circle))
  records.append({'reference':name,'nativePadCount':len(pads),'minimumCopperTo5p4mmCircleMm':mincu,'nativeObjProjectedBodyToCircleMm':minbody,'mouthYmm':opening,'cadAngleDeg':m['rotation']['z']})
-report={'boardSha256':hashlib.sha256(path.read_bytes()).hexdigest(),'input':str(path.relative_to(root)),'exactNativePadsChecked':True,'nativeObjHashVerified':True,'courtyardExclusionScope':'J_PD/J_DATA only; supplier rectangle preserved; actual pad and native projected-body checked independently','cableRequirement':'maximum 10 mm overmold width at 10.6 mm pitch; qualify selected physical cables','nativeSTEPFinalMechanicalReviewRequired':True,'ports':records,'passed':True}
+report={'boardSha256':hashlib.sha256(path.read_bytes()).hexdigest(),'input':str(path.relative_to(root)),'exactNativePadsChecked':True,'nativeObjHashVerified':True,'courtyardExclusionScope':'J_PD/J_DATA only; supplier rectangle preserved; actual pad and native projected-body checked independently','cableRequirement':'Tensility10-06137 PD /10-06139 data, maximum12.5mm overmolds at14mm pitch; qualify physical samples','nativeSTEPFinalMechanicalReviewRequired':True,'ports':records,'passed':True}
 (root/'artifacts/usb-head-clearance.json').write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))

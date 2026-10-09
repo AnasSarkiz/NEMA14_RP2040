@@ -191,13 +191,13 @@ def main():
  unresolved=[i for i in isolated if not i['no_connect_pads'] and i['area_mm2']>1e-5]
  if unresolved:report['issues'].append({'kind':'unassigned-copper-islands','islands':unresolved})
  if shorts or opens or unconnected:report['issues'].append({'kind':'physical-netlist-failure','short_count':len(shorts),'open_count':len(opens),'unconnected_pads':unconnected})
- bare={'J_MOTOR','J_DEBUG','J_BOOT'};bare_pc={p['pcb_component_id'] for p in pc.values() if src[p['source_component_id']]['name'] in bare};bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc]);paste={};pth=unary_union([shape(e) for e in j if e['type']=='pcb_plated_hole'])
+ bare={'J_DEBUG','J_BOOT'};bare_pc={p['pcb_component_id'] for p in pc.values() if src[p['source_component_id']]['name'] in bare};bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc]);paste={};pth=unary_union([shape(e) for e in j if e['type']=='pcb_plated_hole'])
  for l in ['F_Paste','B_Paste']:
   g=geo.get(l,Polygon());paste[l]={'bare_interface_overlap_mm2':g.intersection(bare_pads).area,'manual_plated_joint_overlap_mm2':g.intersection(pth).area,'outside_smt_copper_mm2':g.difference(unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['layer']==('top' if l=='F_Paste' else 'bottom')]).buffer(.0002)).area}
   if g.intersection(bare_pads).area>1e-6 or g.intersection(pth).area>1e-6 or (l=='B_Paste' and g.area>1e-6):report['issues'].append({'kind':'assembly-paste-policy','layer':l,**paste[l]})
  report['paste']=paste;table={}
- for filename in ['bom.csv','pick_and_place.csv']:
-  rows=list(csv.DictReader((directory/filename).open()));refs={r['Designator'] for r in rows};fit={s['name'] for s in src.values() if s['name'] not in bare};table[filename]={'rows':len(rows),'bare_rows':sorted(refs&bare),'missing_fitted':sorted(fit-refs),'unexpected':sorted(refs-fit-bare)}
+ for filename in ['bom.csv','pick_and_place.csv','manual_assembly.csv']:
+  rows=list(csv.DictReader((directory/filename).open()));refs={r['Designator'] for r in rows};fit=({'J_MOTOR'} if filename=='manual_assembly.csv' else {s['name'] for s in src.values() if s['name'] not in bare and (filename!='pick_and_place.csv' or s['name']!='J_MOTOR')});table[filename]={'rows':len(rows),'bare_rows':sorted(refs&bare),'missing_fitted':sorted(fit-refs),'unexpected':sorted(refs-fit-bare)}
   duplicates=sorted(ref for ref,count in Counter(r['Designator'] for r in rows).items() if count>1)
   table[filename]['duplicate_refs']=duplicates
   if refs&bare or fit-refs or refs-fit-bare or duplicates:report['issues'].append({'kind':'assembly-table-policy','table':filename,**table[filename]})

@@ -1,0 +1,89 @@
+{
+  "primary_sources": {
+    "Holtek": "references/HT75xx-1v281.pdf Rev2.81 Dec3,2025, https://www.holtek.com.cn/webapi/116711/HT75xx-1v281.pdf",
+    "Bourns": "references/SRN4018.pdf https://www.bourns.com/docs/product-datasheets/srn4018.pdf",
+    "Samsung": "Exact-E part spec sheets references/Samsung-CL21A226MAQNNNE-spec.pdf and Samsung-CL31A106KBHNNNE-spec.pdf; Samsung manufacturer POST masterKey without final packagingE, type=specsheet."
+  },
+  "HT7533_1": {
+    "operating_input_max_V": 30,
+    "absolute_input_max_V": 33,
+    "operating_ambient_C": [
+      -40,
+      85
+    ],
+    "SOT89_theta_JA_max_C_per_W": 200,
+    "rated_dissipation_W_at_25C": 0.5,
+    "datasheet_explicit_max_junction_temperature_found": false,
+    "derived_25C_plus_PD_times_theta_C": 125,
+    "derived_temperature_is_not_guaranteed_junction_rating": true,
+    "VOUT_min_at_specified_5p3V_10mA_25C_V": 3.201,
+    "planning_cases": [
+      {
+        "load_A": 0.015,
+        "input_V": 15.75,
+        "conservative_power_W": 0.188298,
+        "ambient_C": 60,
+        "estimated_junction_C_at_datasheet_theta": 97.6596,
+        "not_measured_or_guaranteed_load": true
+      },
+      {
+        "load_A": 0.018,
+        "input_V": 15.75,
+        "conservative_power_W": 0.22594499999999998,
+        "ambient_C": 60,
+        "estimated_junction_C_at_datasheet_theta": 105.189,
+        "not_measured_or_guaranteed_load": true
+      },
+      {
+        "load_A": 0.025,
+        "input_V": 15.75,
+        "conservative_power_W": 0.313788,
+        "ambient_C": 60,
+        "estimated_junction_C_at_datasheet_theta": 122.7576,
+        "not_measured_or_guaranteed_load": true
+      }
+    ]
+  },
+  "RP_L_BUCK": {
+    "MPN": "SRN4018-4R7M",
+    "supplier": "C780206",
+    "nominal_uH": 4.7,
+    "tolerance_percent": 20,
+    "DCR_max_ohms": 0.084,
+    "Irms_A_at_40C_rise": 1.9,
+    "Isat_A_at_30percent_inductance_loss": 2,
+    "operating_C_including_self_heating": [
+      -40,
+      125
+    ],
+    "AP63203_typical_switch_frequency_Hz": 1100000,
+    "guaranteed_frequency_min_not_specified": true,
+    "ripple_A_at_15p75V_3p33V_Lmin_typical_f_minus_6percent": 0.675424620648704
+  },
+  "RP_capacitors": {
+    "input": "C13585 CL31A106KBHNNNE 10uF50V10%X5R1206",
+    "output": "2xC45783 CL21A226MAQNNNE 22uF25V20%X5R0805",
+    "output_min_uF_tolerance_only": 35.2,
+    "output_min_uF_tolerance_times_0p85_temp_only": 29.92,
+    "input_min_uF_tolerance_only": 9,
+    "input_min_uF_tolerance_times_0p85_temp_only": 7.65,
+    "DC_bias_and_aging_effective_minimum_verified": false,
+    "effective_capacitance_disposition": "Nominal ratings confirmed; tolerance/temperature arithmetic is not effective capacitance. Exact bias/aging data required; measure or obtain curves, verify stability/load transient at voltage/temperature before qualification."
+  },
+  "current_setting": {
+    "nominal_A": 0.350765306122449,
+    "formula_only_high_A": 0.3792446152398549,
+    "A4988_error_at_selected_VREF_guaranteed": false,
+    "motor_per_phase_max_A": 0.4
+  },
+  "regen": {
+    "bulk_nominal_F": 0.0001,
+    "bulk_tolerance_min_F": 8e-05,
+    "initial_V": 15.75,
+    "illustrative_bus_ceiling_V": 18,
+    "energy_J_to_18V_with_bulk_min_only": 0.0030375000000000003,
+    "unknown_machine_kinetic_energy": true,
+    "TVS_primary_exact_variant_energy_not_verified": true,
+    "no_continuous_braking_sink": true
+  }
+}

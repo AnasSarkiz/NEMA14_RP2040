@@ -1,4 +1,5 @@
 import React from "react"
+import { MotorConnector } from "./motor-connector"
 import { pinProps } from "./pin-attributes"
 import { SupplierPart } from "./supplier-parts"
 import placements from "./supplier-placement.json"
@@ -10,8 +11,8 @@ const resistorSpecs = (name: string) => (electricalSpecs.resistors as Record<str
 const place=(name:string)=>(placements as Record<string,{pcbX:number,pcbY:number,pcbRotation:number}>)[name]
 import { SchematicNotes } from "./schematic-notes"
 
-// 26 mm square mounting is a parameter, not a verified rear-motor dimension.
-export const mechanical = { width: 35, height: 35, holePitch: 26, holeDiameter: 3.2 }
+// PCB supports are independent of the documented 26 mm front motor threads.
+export const mechanical = { width: 35, height: 35, lowerHolePitch: 26, upperHolePitch: 29.6, holeDiameter: 3.2 }
 const n = (name: string) => `net.${name}`
 const mcuPins = {"pin1": "IOVDD1", "pin2": "GPIO0", "pin3": "GPIO1", "pin4": "GPIO2", "pin5": "GPIO3", "pin6": "GPIO4", "pin7": "GPIO5", "pin8": "GPIO6", "pin9": "GPIO7", "pin10": "IOVDD10", "pin11": "GPIO8", "pin12": "GPIO9", "pin13": "GPIO10", "pin14": "GPIO11", "pin15": "GPIO12", "pin16": "GPIO13", "pin17": "GPIO14", "pin18": "GPIO15", "pin19": "TESTEN", "pin20": "XIN", "pin21": "XOUT", "pin22": "IOVDD22", "pin23": "DVDD23", "pin24": "SWCLK", "pin25": "SWDIO", "pin26": "RUN", "pin27": "GPIO16", "pin28": "GPIO17", "pin29": "GPIO18", "pin30": "GPIO19", "pin31": "GPIO20", "pin32": "GPIO21", "pin33": "IOVDD33", "pin34": "GPIO22", "pin35": "GPIO23", "pin36": "GPIO24", "pin37": "GPIO25", "pin38": "GPIO26", "pin39": "GPIO27", "pin40": "GPIO28", "pin41": "GPIO29", "pin42": "IOVDD42", "pin43": "ADC_AVDD", "pin44": "VREG_IN", "pin45": "VREG_OUT", "pin46": "USB_DM", "pin47": "USB_DP", "pin48": "USB_VDD", "pin49": "IOVDD49", "pin50": "DVDD50", "pin51": "QSPI_SD3", "pin52": "QSPI_SCLK", "pin53": "QSPI_SD0", "pin54": "QSPI_SD2", "pin55": "QSPI_SD1", "pin56": "QSPI_SS", "pin57": "GND"} as const
 const driverPins = {pin1:"OUT2B",pin2:"ENABLE_N",pin3:"GND",pin4:"CP1",pin5:"CP2",pin6:"VCP",pin7:"NC7",pin8:"VREG",pin9:"MS1",pin10:"MS2",pin11:"MS3",pin12:"RESET_N",pin13:"ROSC",pin14:"SLEEP",pin15:"VDD",pin16:"STEP",pin17:"REF",pin18:"GND18",pin19:"DIR",pin20:"NC20",pin21:"OUT1B",pin22:"VBB1",pin23:"SENSE1",pin24:"OUT1A",pin25:"NC25",pin26:"OUT2A",pin27:"SENSE2",pin28:"VBB2",pin29:"EP"} as const
@@ -27,7 +28,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled>
   <schematicsheet name="NEMA14_RP2040" sheetSize="A4">
   {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_LEGACY_DATA','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','DATA_BASE','VM_DIV','VM_ENABLE_N','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'].includes(name)?0.45:0.16} /></React.Fragment>)}
-  {[-13,13].flatMap(x=>[-13,13].map(y=><React.Fragment key={`${x},${y}`}><hole name={`M${x}_${y}`} pcbX={x} pcbY={y} diameter={3.2} /><keepout pcbX={x} pcbY={y} shape="circle" radius={2.7} excludeRefs={[".J_PD",".J_DATA"]} layers={['top','inner1','inner2','bottom']} /><silkscreencircle pcbX={x} pcbY={y} radius={2.7} strokeWidth={0.1} /></React.Fragment>))}
+  {[-13,13].flatMap(x=>[-13,13].map(y=><React.Fragment key={`${x},${y}`}><hole name={`M${x}_${y}`} pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} diameter={3.2} /><keepout pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} shape="circle" radius={2.7} excludeRefs={[".J_PD",".J_DATA"]} layers={['top','inner1','inner2','bottom']} /><silkscreencircle pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} radius={2.7} strokeWidth={0.1} /></React.Fragment>))}
   <SupplierPart name="J_PD" {...pinProps("J_PD")}    noConnect={['DP1','DP2','DN1','DN2','SBU1','SBU2']} {...place("J_PD")} connections={{...baseUsb,VBUS1:n('PD_VBUS'),VBUS2:n('PD_VBUS'),CC1:n('PD_CC1'),CC2:n('PD_CC2')}} />
   <SupplierPart name="J_DATA" {...pinProps("J_DATA")}    noConnect={['SBU1','SBU2']} {...place("J_DATA")} connections={{...baseUsb,VBUS1:n('DATA_VBUS'),VBUS2:n('DATA_VBUS'),CC1:n('DATA_CC1'),CC2:n('DATA_CC2'),DP1:n('USB_DP'),DP2:n('USB_DP'),DN1:n('USB_DM'),DN2:n('USB_DM')}} />
   <SupplierPart name="U_PD" {...pinProps("U_PD")}  pinLabels={pdPins} noConnect={['VBUS']} {...place("U_PD")} connections={{VDD:n('PD_VDD'),CFG2:n('PD_VDD'),CFG3:n('PD_VDD'),CFG1:n('GND'),DP:n('PD_LEGACY_DATA'),DM:n('PD_LEGACY_DATA'),CC1:n('PD_CC1'),CC2:n('PD_CC2'),PG:n('PD_GOOD'),GND:n('GND')}} />
@@ -94,14 +95,22 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {cap('C_REF','10nF','VREF')}
   {resistor('R_ENABLE','10k','V3V3','ENABLE_N')}
   {resistor('R_SLEEP','10k','SLEEP','GND')}
-  <chip name="J_MOTOR" doNotPlace {...pinProps("J_MOTOR")}  cadModel={null} pinLabels={{pin1:'A_PLUS',pin2:'A_MINUS',pin3:'B_PLUS',pin4:'B_MINUS'}} footprint={<footprint insertionDirection="from_above">{[-3,-1,1,3].map((x,i)=><React.Fragment key={i}><platedhole portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} shape="circle" holeDiameter={0.9} outerDiameter={1.7} /></React.Fragment>)}<courtyardrect width={8} height={2.2} /></footprint>} pcbX={0} pcbY={-16} connections={{A_PLUS:n('A_PLUS'),A_MINUS:n('A_MINUS'),B_PLUS:n('B_PLUS'),B_MINUS:n('B_MINUS')}} />
+  <MotorConnector name="J_MOTOR" {...pinProps("J_MOTOR")} pinLabels={{pin1:"A_PLUS",pin2:"A_MINUS",pin3:"B_PLUS",pin4:"B_MINUS"}} pcbX={1.5} pcbY={-16.4} connections={{A_PLUS:n("A_PLUS"),A_MINUS:n("A_MINUS"),B_PLUS:n("B_PLUS"),B_MINUS:n("B_MINUS")}} />
   <chip name="J_DEBUG" doNotPlace {...pinProps("J_DEBUG")}  cadModel={null} pcbRotation={90} pinLabels={{pin1:'VDD',pin2:'GND',pin3:'SWCLK',pin4:'SWDIO',pin5:'RUN'}} footprint={<footprint insertionDirection="from_above">{[0,1.1,2.2,3.3,4.4].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={.8} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={6} height={2} pcbX={2.2} /></footprint>} pcbX={15.5} pcbY={-8.5} connections={{VDD:n('V3V3'),GND:n('GND'),SWCLK:n('SWCLK'),SWDIO:n('SWDIO'),RUN:n('RUN')}} />
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
-  <silkscreentext text="NEMA14 RP2040" pcbX={0} pcbY={8.8} fontSize={.5} />
-  <silkscreentext text="PD 15V" pcbX={-5.3} pcbY={8.8} fontSize={.5} />
-  <silkscreentext text="USB DATA" pcbX={5.3} pcbY={8.8} fontSize={.5} />
-  <silkscreentext text="A+ A- B+ B-" pcbX={0} pcbY={-14.65} fontSize={.55} />
+  <silkscreentext text="PD" pcbX={-1} pcbY={16.8} fontSize={0.7} layer="top" />
+  <silkscreentext text="15V" pcbX={-1} pcbY={15.7} fontSize={0.6} layer="top" />
+  <silkscreentext text="USB" pcbX={1} pcbY={16.8} fontSize={0.7} layer="top" />
+  <silkscreentext text="DATA" pcbX={1} pcbY={15.7} fontSize={0.6} layer="top" />
+  <silkscreentext text="MOTOR" pcbX={9.1} pcbY={-16.4} fontSize={0.6} layer="top" />
+  <silkscreentext text="PD 15V" pcbX={-7} pcbY={15.7} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="USB DATA" pcbX={7} pcbY={15.7} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="NEMA14 RP2040" pcbX={0} pcbY={3} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="1 A+" pcbX={-1.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="2 A-" pcbX={0.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="3 B+" pcbX={2.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="4 B-" pcbX={4.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
   <SchematicNotes />
   </schematicsheet>
  </board>

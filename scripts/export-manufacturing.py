@@ -34,7 +34,7 @@ def main():
   binding_path.write_text(json.dumps({'source_sha256':source_sha,'raw_archive_sha256':hashlib.sha256(raw.read_bytes()).hexdigest()},indent=2)+'\n')
  if args.raw_only:return
  spec=importlib.util.spec_from_file_location('audit',ROOT/'scripts/audit-manufacturing.py');a=importlib.util.module_from_spec(spec);spec.loader.exec_module(a)
- j=json.loads(source_bytes);out=ROOT/'artifacts/manufacturing';out.mkdir(exist_ok=True);bare={'J_MOTOR','J_DEBUG','J_BOOT'};catalog=json.loads((ROOT/'src/jlcpcb-catalog.json').read_text());src={e['source_component_id']:e for e in j if e['type']=='source_component'};pc={e['pcb_component_id']:e for e in j if e['type']=='pcb_component'};ref=lambda e:src[pc[e['pcb_component_id']]['source_component_id']]['name'];changed={};original={}
+ j=json.loads(source_bytes);out=ROOT/'artifacts/manufacturing';out.mkdir(exist_ok=True);bare={'J_DEBUG','J_BOOT'};catalog=json.loads((ROOT/'src/jlcpcb-catalog.json').read_text());src={e['source_component_id']:e for e in j if e['type']=='source_component'};pc={e['pcb_component_id']:e for e in j if e['type']=='pcb_component'};ref=lambda e:src[pc[e['pcb_component_id']]['source_component_id']]['name'];changed={};original={}
  for stale in out.iterdir():
   if stale.is_file() and stale.suffix in ['.gbr','.drl','.csv']:stale.unlink()
  with zipfile.ZipFile(raw) as z:
@@ -95,7 +95,7 @@ def main():
   change(name,write_geometry(final,'Reviewed silkscreen clear of solder openings and board edge'),'Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings')
  (out/'mask-web-policy.json').write_text(json.dumps(mask_report,indent=2)+'\n')
  for name in ['bom.csv','pick_and_place.csv']:
-  path=out/name;reader=csv.DictReader(io.StringIO(path.read_text()));fields=list(reader.fieldnames);rows=[r for r in reader if r['Designator'] not in bare]
+  path=out/name;reader=csv.DictReader(io.StringIO(path.read_text()));fields=list(reader.fieldnames);rows=[r for r in reader if r['Designator'] not in bare and (name!='pick_and_place.csv' or r['Designator']!='J_MOTOR')]
   if name=='bom.csv':
    for field in ['Manufacturer Part Number','Assembly Process']:
     if field not in fields:fields.append(field)
@@ -104,18 +104,24 @@ def main():
     if cid not in source.get('supplier_part_numbers',{}).get('jlcpcb',[]):raise ValueError(f'Catalog/source supplier identity mismatch for {row["Designator"]}')
     if row['JLCPCB Part #']!=cid:raise ValueError(f'Raw export/catalog identity mismatch for {row["Designator"]}')
     if source.get('manufacturer_part_number')!=row['Manufacturer Part Number']:raise ValueError(f'MPN/source identity mismatch for {row["Designator"]}')
-    row['Comment']=row['Manufacturer Part Number'];row['Value']=source.get('display_resistance',source.get('display_capacitance',row['Manufacturer Part Number']));row['Assembly Process']='Top SMT reflow; shield slots hand solder' if row['Designator'] in {'J_PD','J_DATA'} else 'Top SMT reflow'
+    row['Comment']=row['Manufacturer Part Number'];row['Value']=source.get('display_resistance',source.get('display_capacitance',row['Manufacturer Part Number']));row['Assembly Process']='Top-side through-hole; hand solder after reflow' if row['Designator']=='J_MOTOR' else ('Top SMT reflow; shield slots hand solder' if row['Designator'] in {'J_PD','J_DATA'} else 'Top SMT reflow')
     if not row['Manufacturer Part Number']:raise ValueError(f'Missing exact MPN for {row["Designator"]}')
-  stream=io.StringIO(newline='');writer=csv.DictWriter(stream,fieldnames=fields,lineterminator='\n');writer.writeheader();writer.writerows(rows);data=stream.getvalue().encode();path.write_bytes(data);(ROOT/'artifacts'/name).write_bytes(data);changed[name]={'reason':'exclude bare motor/debug/boot interfaces; identify exact fitted MPNs','before_sha256':original[name],'after_sha256':hashlib.sha256(data).hexdigest()}
+  stream=io.StringIO(newline='');writer=csv.DictWriter(stream,fieldnames=fields,lineterminator='\n');writer.writeheader();writer.writerows(rows);data=stream.getvalue().encode();path.write_bytes(data);(ROOT/'artifacts'/name).write_bytes(data);changed[name]={'reason':'Exclude bare debug/boot; motor header in BOM and manual manifest, excluded from automated CPL','before_sha256':original[name],'after_sha256':hashlib.sha256(data).hexdigest()}
+ manual=out/'manual_assembly.csv'
+ with manual.open('w',newline='') as stream:
+  writer=csv.DictWriter(stream,fieldnames=['Designator','Manufacturer Part Number','JLCPCB Part #','Process','Pin 1','Inspection'],lineterminator='\n');writer.writeheader();writer.writerow({'Designator':'J_MOTOR','Manufacturer Part Number':'B4B-PH-K-S(LF)(SN)','JLCPCB Part #':'C131334','Process':'Top THT; hand solder after reflow; trim tails <=0.8 mm below PCB; insulate','Pin 1':'Leftmost pad viewed from component side; black A+','Inspection':'Header seated; polarity; wetting; tail length; plug retention; insulation'})
+ (ROOT/'artifacts/manual_assembly.csv').write_bytes(manual.read_bytes())
+ for name in ['fabrication-notes.md','via_process.csv']:
+  (out/name).write_bytes((ROOT/'artifacts/assembly'/name).read_bytes())
  preserved={}
  for name,sha in original.items():
   if name not in changed:
    actual=hashlib.sha256((out/name).read_bytes()).hexdigest();assert actual==sha;preserved[name]=sha
  if source_path.read_bytes()!=source_bytes:raise ValueError('Source changed during CAM correction; freeze and regenerate')
  software=record_versions(out)
- manifest={'software_versions':software,'source_sha256':source_sha,'raw_cli_archive_sha256':hashlib.sha256(raw.read_bytes()).hexdigest(),'intentional_CAM_changes':changed,'preserved_original_files':preserved,'policy':{'assembly':'top SMT reflow; USB shield slots and motor wires manually soldered afterward','DNP':sorted(bare),'exposed_pad_vias':'filled and capped (VIPPO) required; supplier capability/quote approval remains pending','solder_mask':'0.05 mm nominal opening expansion reduced locally to guarantee 0.10 mm webs; source native copper unchanged','silkscreen':'0.15 mm clearance from mask apertures; 0.10 mm edge inset; full untrimmed refs on assembly drawing','lead_stencil':'Fine-pitch MCU/driver rectangular leads 90% native dimensions; rounded driver leads use safe inscribed rectangles; candidate foil 0.10 mm; native copper unchanged','exposed_pad_stencil':'four panes, nominal 60% native copper-pad coverage, 0.20 mm cross-gap'},'status':'PROTOTYPE CANDIDATE; fabrication and assembly approvals pending'}
+ manifest={'software_versions':software,'source_sha256':source_sha,'raw_cli_archive_sha256':hashlib.sha256(raw.read_bytes()).hexdigest(),'intentional_CAM_changes':changed,'preserved_original_files':preserved,'policy':{'assembly':'top SMT reflow; USB shield slots and keyed JST motor header manually soldered afterward','DNP':sorted(bare),'exposed_pad_vias':'filled and capped (VIPPO) required; supplier capability/quote approval remains pending','solder_mask':'0.05 mm nominal opening expansion reduced locally to guarantee 0.10 mm webs; source native copper unchanged','silkscreen':'0.15 mm clearance from mask apertures; 0.10 mm edge inset; full untrimmed refs on assembly drawing','lead_stencil':'Fine-pitch MCU/driver rectangular leads 90% native dimensions; rounded driver leads use safe inscribed rectangles; candidate foil 0.10 mm; native copper unchanged','exposed_pad_stencil':'four panes, nominal 60% native copper-pad coverage, 0.20 mm cross-gap'},'status':'PROTOTYPE CANDIDATE; fabrication and assembly approvals pending'}
  (out/'export-manifest.json').write_text(json.dumps(manifest,indent=2)+'\n');zipout=ROOT/'artifacts/nema14-gerbers.zip'
  with zipfile.ZipFile(zipout,'w',zipfile.ZIP_DEFLATED) as z:
-  for name in sorted(original):z.write(out/name,name)
+  for name in sorted(set(original)|{'manual_assembly.csv','fabrication-notes.md','via_process.csv'}):z.write(out/name,name)
  print(f'Reviewed archive: {zipout}; {len(preserved)} CAM files byte-identical to official CLI export; assembly tables, paste, mask and silk reviewed.')
 if __name__=='__main__':main()

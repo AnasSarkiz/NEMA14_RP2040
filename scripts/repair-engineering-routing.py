@@ -11,7 +11,7 @@ j=g.j;ROOT=g.ROOT;path=g.path;ports=g.ports;sp=g.sp;comp=g.comp;src=g.src
 STEP=.025;LOW=-17.5;N=1401;layers=['top','inner2','bottom'];xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP));world=lambda p:(LOW+p[0]*STEP,LOW+p[1]*STEP);key=g.key
 traces={e['subcircuit_connectivity_map_key']:e['source_trace_id'] for e in j if e['type']=='source_trace'};nets={e['subcircuit_connectivity_map_key']:e for e in j if e['type']=='source_net'}
 def obstacle(net,width,via=False):
- imgs=[Image.new('L',(N,N)) for l in layers];draws=[ImageDraw.Draw(i) for i in imgs];margin=.15+(.25 if via else width/2)+.008
+ imgs=[Image.new('L',(N,N)) for l in layers];draws=[ImageDraw.Draw(i) for i in imgs];margin=.15+(.25 if via else width/2)+.04
  def add(l,geom):
   if l not in layers:return
   geom=geom.buffer(.15+.008+(.25 if via else (.6 if net==next((k for k,n in nets.items() if n['name']=='PD_VBUS'),None) and l=='inner2' else width)/2))
@@ -55,10 +55,17 @@ def points(e):
  return out
 repairs=[]
 selected=sys.argv[sys.argv.index("--nets")+1].split(",") if "--nets" in sys.argv else None
-for net in dict.fromkeys([*nets,*traces]):
+selected=set(sys.argv[sys.argv.index('--nets')+1].split(',')) if '--nets' in sys.argv else None
+priority=['PD_CC2','PD_CC1','USB_DP','USB_DM','PD_CC2','PD_CC1','DATA_CC2','DATA_CC1','SLEEP','DATA_VBUS','PD_VBUS'] if selected is not None else []
+ordered=list(dict.fromkeys([*nets,*traces]));ordered.sort(key=lambda k:priority.index(nets.get(k,{}).get('name')) if nets.get(k,{}).get('name') in priority else len(priority))
+for net in ordered:
+ if selected is not None and nets.get(net,{}).get('name') not in selected:continue
  if selected and nets.get(net,{}).get("name") not in selected:continue
- for attempt in range(24):
-  elems,roots=g.groups(net);padroots={r for e,r in zip(elems,roots) if e.get('pcb_port_id')}
+ for attempt in range(100):
+  if '--explicit-ground' in sys.argv and nets.get(net,{}).get('name')=='GND':
+   g.j=[e for e in j if e['type']!='pcb_copper_pour'];elems,roots=g.groups(net);g.j=j
+  else:elems,roots=g.groups(net)
+  padroots={r for e,r in zip(elems,roots) if e.get('pcb_port_id')}
   if len(padroots)<2:break
   # Prefer the island with most existing vias: escape to free routing space first.
   startroot=max(padroots,key=lambda r:sum(e['type']=='pcb_via' for e,rr in zip(elems,roots) if rr==r));starts={};goals={}

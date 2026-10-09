@@ -1,0 +1,1050 @@
+    30V, 100mA Low Power LDO
+
+            HT75xx-1
+
+
+
+
+Revision: V2.81   Date: December 03, 2025
+                                                                                                           HT75xx-1
+                                                                                           30V, 100mA Low Power LDO
+
+
+Table of Contents
+   Features. ................................................................................................................ 3
+   Applications........................................................................................................... 3
+   General Description. ............................................................................................. 3
+   Selection Table. ..................................................................................................... 3
+   Block Diagram. ...................................................................................................... 4
+   Pin Assignment. .................................................................................................... 4
+   AbsolutemAximum Ratings. ................................................................................ 4
+   Thermal Information.............................................................................................. 4
+   Pin Descriptions.................................................................................................... 5
+   Electrical Characteristics. .................................................................................... 5
+        HT7521-1, +2.1V Output Type.......................................................................................................5
+        HT7523-1, +2.3V Output Type.......................................................................................................5
+        HT7525-1, +2.5V Output Type.......................................................................................................6
+        HT7527-1, +2.7V Output Type.......................................................................................................6
+        HT7530-1, +3.0V Output Type.......................................................................................................6
+        HT7533-1, +3.3V Output Type.......................................................................................................7
+        HT7536-1, +3.6V Output Type.......................................................................................................7
+        HT7540-1, +4.0V Output Type.......................................................................................................7
+        HT7541-1, +4.15V Output Type.....................................................................................................8
+        HT7544-1, +4.4V Output Type.......................................................................................................8
+        HT7550-1, +5.0V Output Type.......................................................................................................8
+        HT7560-1, +6.0V Output Type.......................................................................................................9
+        HT7570-1, +7.0V Output Type.......................................................................................................9
+        HT7580-1, +8.0V Output Type.......................................................................................................9
+        HT7590-1, +9.0V Output Type.....................................................................................................10
+        HT75A0-1, +10.0V Output Type. .................................................................................................10
+        HT75C0-1, +12.0V Output Type. .................................................................................................10
+   Typical Performance Characteristics. ............................................................... 11
+   Application Circuits. ........................................................................................... 13
+        Basic Circuit.................................................................................................................................13
+        High Output Current Positive Voltage Regulator. ........................................................................13
+        Short-Circuit Protection for Tr1. ...................................................................................................13
+        Circuit for Increasing Output Voltage...........................................................................................13
+        Circuit for Increasing Output Voltage...........................................................................................14
+        Constant Current Regulator.........................................................................................................14
+        Dual Supply. ................................................................................................................................14
+   Package Information........................................................................................... 15
+        3-pin SOT89 Outline Dimensions. ...............................................................................................16
+        5-pin SOT23 Outline Dimensions. ...............................................................................................17
+
+
+
+
+Rev. 2.81                                                                 2                                                   December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+Features
+            • Low power consumption
+            • Low voltage drop
+            • Low temperature coefficient
+            • High input voltage (up to 30V)
+            • Quiescent current 2.5μA
+            • High output current : 100mA
+            • Output voltage accuracy: tolerance ±3%
+            • 3-pin SOT89 and 5-pin SOT23 packages
+
+
+Applications
+            • Battery-powered equipment
+            • Communication equipment
+            • Audio/Video equipment
+
+
+General Description
+            The HT75xx-1 series is a set of three-terminal low power high voltage implemented in CMOS
+            technology. They can deliver 100mA output current and allow an input voltage as high as 30V. They
+            are available with several fixed output voltages ranging from 2.1V to 12.0V. CMOS technology
+            ensures low voltage drop and low quiescent current.
+            Although designed primarily as fixed voltage regulators, these devices can be used with external
+            components to obtain variable voltages and currents.
+
+
+Selection Table
+                    Part No.              Output Voltage            Package                 Marking
+                   HT7521-1                    2.1V
+                   HT7523-1                    2.3V
+                   HT7525-1                    2.5V
+                   HT7527-1                    2.7V
+                   HT7530-1                    3.0V
+                   HT7533-1                    3.3V
+                   HT7536-1                    3.6V
+                   HT7540-1                    4.0V                  SOT89             75xx-1 (for SOT89)
+                   HT7544-1                    4.4V                 SOT23-5            5xx1 (for SOT23-5)
+                   HT7550-1                    5.0V
+                   HT7560-1                    6.0V
+                   HT7570-1                    7.0V
+                   HT7580-1                    8.0V
+                   HT7590-1                    9.0V
+                   HT75A0-1                    10.0V
+                   HT75C0-1                    12.0V
+                   HT7541-1                    4.15V                 SOT89                   7541-1
+
+            Note: “xx” stands for output voltages.
+
+
+Rev. 2.81                                              3                                  December 03, 2025
+                                                                                                                             HT75xx-1
+                                                                                                             30V, 100mA Low Power LDO
+
+
+Block Diagram
+
+                                                                                                                                            
+
+
+
+
+                                                                                              
+
+
+
+
+                                                                   
+
+
+
+
+Pin Assignment
+                                                                                                     
+
+
+                                                                                                                                  
+                                    
+
+
+
+                                                                                                                                                 
+                                                                                                                           
+
+
+
+
+                                                                                                           
+
+
+
+
+                                             
+                                                                                                                               
+                                                                                       
+
+
+
+AbsolutemAximum Ratings
+                       Supply Voltage ................................................................................................................ −0.3V to 33V
+                       Storage Temperature . .................................................................................................. −60°C to 150°C
+                       Operating Temperature . ................................................................................................ −40°C to 85°C
+                       Maximum Junction Temperature. ................................................................................................ 150°C
+
+
+                       Note: These are stress ratings only. Stresses exceeding the range specified under “Absolute Maximum
+                             Ratings” may cause substantial damage to the device. Functional operation of this device at
+                             other conditions beyond those listed in the specification is not implied and prolonged exposure
+                             to extreme conditions may affect device reliability.
+
+
+Thermal Information
+                          Symbol                                        Parameter                                 Package                             Max.               Unit
+                                              Thermal Resistance (Junction to Ambient)                            SOT23-5                             500               °C/W
+                          θJA
+                                              (Assume no ambient airflow, no heat sink)                             SOT89                             200               °C/W
+                                                                                                                  SOT23-5                             0.20                W
+                          PD                  Power Dissipation
+                                                                                                                    SOT89                             0.50                W
+                       Note: PD is measured at Ta=25°C
+
+Rev. 2.81                                                                                            4                                                           December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+Pin Descriptions
+                                                  Pin No.                  Pin Name   Pin Description
+                                                    1                          GND      Ground pin
+                                                    2                          VIN         Input pin
+                                                    3                          VOUT     Output pin
+
+
+
+Electrical Characteristics
+
+       HT7521-1, +2.1V Output Type
+                                                                                                                  Ta=25°C
+                                                                   Test Conditions
+   Symbol                      Parameter                                              Min.       Typ.     Max.     Unit
+                                                                     Conditions
+VIN                    Input Voltage                                       —           —          —        30       V
+VOUT                   Output Voltage                   VIN=4.1V, IOUT=10mA           2.037     2.100     2.163     V
+IOUT                   Output Current                   VIN=4.1V                       70        100       —       mA
+∆VOUT                  Load Regulation                  VIN=4.1V, 1mA≤IOUT≤50mA        —          25       60      mV
+VDIF                   Dropout Voltage (Note)           IOUT=1mA, ∆VOUT=2%             —          30       100     mV
+ISS                    Quiescent Current                No load                        —         2.5       4.0      μA
+         
+                       Line Regulation                  3.1V≤VIN≤30V, IOUT=1mA         —          —        0.2     %/V
+         
+         
+                       Temperature Coefficient          IOUT=10mA, -40°C<Ta<85°C       —         100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7523-1, +2.3V Output Type
+                                                                                                                  Ta=25°C
+                                                                   Test Conditions
+    Symbol                     Parameter                                              Min.       Typ.     Max.     Unit
+                                                                     Conditions
+VIN                    Input Voltage                                       —           —          —        30       V
+VOUT                   Output Voltage Tolerance         VIN=4.3V, IOUT=10mA           2.231     2.300     2.369     V
+IOUT                   Output Current                   VIN=4.3V                       70        100       —        mA
+∆VOUT                  Load Regulation                  VIN=4.3V, 1mA≤IOUT≤50mA        —          25       60      mV
+VDIF                   Dropout Voltage   (Note)
+                                                        IOUT=1mA, ∆VOUT=2%             —          30       100     mV
+ISS                    Quiescent Current                No load                        —         2.5       4.0      μA
+         
+                       Line Regulation                  3.3V≤VIN≤30V, IOUT=1mA         —          —        0.2     %/V
+         
+         
+                       Temperature Coefficient          IOUT=10mA, -40°C<Ta<85°C       —         100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+
+
+
+Rev. 2.81                                                              5                                December 03, 2025
+                                                                                              HT75xx-1
+                                                                              30V, 100mA Low Power LDO
+
+
+       HT7525-1, +2.5V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=4.5V, IOUT=10mA               2.425   2.500     2.575     V
+IOUT                   Output Current            VIN=4.5V                           70     100        —        mA
+∆VOUT                  Load Regulation           VIN=4.5V, 1mA≤IOUT≤50mA            —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       30        100     mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0      μA
+         
+                       Line Regulation           3.5V≤VIN≤30V, IOUT=1mA             —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —      100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7527-1, +2.7V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=4.7V, IOUT=10mA               2.619   2.700     2.781     V
+IOUT                   Output Current            VIN=4.7V                           70     100        —        mA
+∆VOUT                  Load Regulation           VIN=4.7V, 1mA≤IOUT≤50mA            —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       30        100     mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0      μA
+         
+                       Line Regulation           3.7V≤VIN≤30V, IOUT=1mA             —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —      100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7530-1, +3.0V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=5.0V, IOUT=10mA               2.910   3.000     3.090     V
+IOUT                   Output Current            VIN=5.0V                           70     100        —        mA
+∆VOUT                  Load Regulation           VIN=5.0V, 1mA≤IOUT≤50mA            —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       30        100     mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0      μA
+         
+                       Line Regulation           4.0V≤VIN≤30V, IOUT=1mA             —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —      100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+
+Rev. 2.81                                                       6                                  December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+       HT7533-1, +3.3V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=5.3V, IOUT=10mA          3.201   3.300     3.399     V
+IOUT                   Output Current            VIN=5.3V                      70      100       —        mA
+∆VOUT                  Load Regulation           VIN=5.3V, 1mA≤IOUT≤50mA       —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55      mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0      μA
+         
+                       Line Regulation           4.3V≤VIN≤30V, IOUT=1mA        —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7536-1, +3.6V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=5.6V, IOUT=10mA          3.492   3.600     3.708     V
+IOUT                   Output Current            VIN=5.6V                      70      100       —        mA
+∆VOUT                  Load Regulation           VIN=5.6V, 1mA≤IOUT≤50mA       —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55      mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0      μA
+         
+                       Line Regulation           4.6V≤VIN≤30V, IOUT=1mA        —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7540-1, +4.0V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=6.0V, IOUT=10mA          3.880   4.000     4.120     V
+IOUT                   Output Current            VIN=6.0V                      70      100       —        mA
+∆VOUT                  Load Regulation           VIN=6.0V, 1mA≤IOUT≤50mA       —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55      mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0      μA
+         
+                       Line Regulation           5.0V≤VIN≤30V, IOUT=1mA        —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+
+Rev. 2.81                                                       7                             December 03, 2025
+                                                                                              HT75xx-1
+                                                                              30V, 100mA Low Power LDO
+
+
+       HT7541-1, +4.15V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=6.15V, IOUT=10mA              4.025   4.150     4.274     V
+IOUT                   Output Current            VIN=6.15V                          70      100       —        mA
+∆VOUT                  Load Regulation           VIN=6.15V, 1mA≤IOUT≤50mA           —       25        60       mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       25        55       mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0      μA
+         
+                       Line Regulation           5.15V≤VIN≤30V, IOUT=1mA            —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7544-1, +4.4V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=6.4V, IOUT=10mA               4.268   4.400     4.532     V
+IOUT                   Output Current            VIN=6.4V                           70      100       —        mA
+∆VOUT                  Load Regulation           VIN=6.4V, 1mA≤IOUT≤50mA            —       25        60       mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       25        55       mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0      μA
+         
+                       Line Regulation           5.4V≤VIN≤30V, IOUT=1mA             —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7550-1, +5.0V Output Type
+                                                                                                             Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —               —       —         30       V
+VOUT                   Output Voltage            VIN=7.0V, IOUT=10mA               4.850   5.000     5.150     V
+IOUT                   Output Current            VIN=7.0V                          100     150        —       mA
+∆VOUT                  Load Regulation           VIN=7.0V, 1mA≤IOUT≤70mA            —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%                 —       25        55      mV
+ISS                    Quiescent Current         No load                            —       2.5       4.0     μA
+         
+                       Line Regulation           6.0V≤VIN≤30V, IOUT=1mA             —       —         0.2     %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C           —      100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+
+Rev. 2.81                                                       8                                  December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+       HT7560-1, +6.0V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=8.0V, IOUT=10mA          5.820   6.000     6.180     V
+IOUT                   Output Current            VIN=8.0V                     150      —         —        mA
+∆VOUT                  Load Regulation           VIN=8.0V, 1mA≤IOUT≤70mA       —       25        60       mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55       mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0      μA
+         
+                       Line Regulation           7.0V≤VIN≤30V, IOUT=1mA        —       0.2       —       %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7570-1, +7.0V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=9.0V, IOUT=10mA          6.790   7.000     7.210     V
+IOUT                   Output Current            VIN=9.0V                     150      —         —        mA
+∆VOUT                  Load Regulation           VIN=9.0V, 1mA≤IOUT≤70mA       —       25        60       mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55       mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0      μA
+         
+                       Line Regulation           8.0V≤VIN≤30V, IOUT=1mA        —       0.2       —       %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —       100       —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT7580-1, +8.0V Output Type
+                                                                                                        Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                      Min.    Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                                —          —       —         30       V
+VOUT                   Output Voltage            VIN=10.0V, IOUT=10mA         7.760   8.000     8.240     V
+IOUT                   Output Current            VIN=10.0V                    150      —         —       mA
+∆VOUT                  Load Regulation           VIN=10.0V, 1mA≤IOUT≤70mA      —       25        60      mV
+VDIF                   Dropout Voltage (Note)    IOUT=1mA, ∆VOUT=2%            —       25        55      mV
+ISS                    Quiescent Current         No load                       —       2.5       4.0     μA
+         
+                       Line Regulation           9.0V≤VIN≤30V, IOUT=1mA        —       0.2       —       %/V
+         
+         
+                       Temperature Coefficient   IOUT=10mA, -40°C<Ta<85°C      —      100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+
+Rev. 2.81                                                       9                             December 03, 2025
+                                                                                              HT75xx-1
+                                                                              30V, 100mA Low Power LDO
+
+
+       HT7590-1, +9.0V Output Type
+                                                                                                               Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.     Typ.       Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                              —                 —        —          30       V
+VOUT                   Output Voltage             VIN=11.0V, IOUT=10mA             8.730    9.000      9.270     V
+IOUT                   Output Current             VIN=11.0V                         150      —          —       mA
+∆VOUT                  Load Regulation            VIN=11.0V, 1mA≤IOUT≤70mA          —        25         70      mV
+VDIF                   Dropout Voltage (Note)     IOUT=1mA, ∆VOUT=2%                —        25         55      mV
+ISS                    Quiescent Current          No load                           —        2.5        4.0     μA
+         
+                       Line Regulation            10.0V≤VIN≤30V, IOUT=1mA           —        0.2        —       %/V
+         
+         
+                       Temperature Coefficient    IOUT=10mA, -40°C<Ta<85°C          —        100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT75A0-1, +10.0V Output Type
+                                                                                                               Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.      Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                              —                 —         —         30       V
+VOUT                   Output Voltage             VIN=12.0V, IOUT=10mA             9.700    10.000    10.300     V
+IOUT                   Output Current             VIN=12.0V                         150       —         —       mA
+∆VOUT                  Load Regulation            VIN=12.0V, 1mA≤IOUT≤70mA          —        25         70      mV
+VDIF                   Dropout Voltage   (Note)
+                                                  IOUT=1mA, ∆VOUT=2%                —        25         55      mV
+ISS                    Quiescent Current          No load                           —        2.5        4.0      μA
+         
+                       Line Regulation            11.0V≤VIN≤30V, IOUT=1mA           —        0.2        —       %/V
+         
+         
+                       Temperature Coefficient    IOUT=10mA, -40°C<Ta<85°C          —        100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+       HT75C0-1, +12.0V Output Type
+                                                                                                               Ta=25°C
+                                                            Test Conditions
+   Symbol                      Parameter                                           Min.      Typ.      Max.     Unit
+                                                              Conditions
+VIN                    Input Voltage                              —                 —         —         30       V
+VOUT                   Output Voltage             VIN=14.0V, IOUT=10mA             11.640   12.000    12.360     V
+IOUT                   Output Current             VIN=14.0V                         150       —         —        mA
+∆VOUT                  Load Regulation            VIN=14.0V, 1mA≤IOUT≤70mA          —        25         70       mV
+VDIF                   Dropout Voltage (Note)     IOUT=1mA, ∆VOUT=2%                —        25         55       mV
+ISS                    Quiescent Current          No load                           —        2.5        4.0      μA
+         
+                       Line Regulation            13.0V≤VIN≤30V, IOUT=1mA           —        0.2        —       %/V
+         
+         
+                       Temperature Coefficient    IOUT=10mA, -40°C<Ta<85°C          —        100        —      ppm/°C
+         
+
+Note: Dropout voltage is defined as the input voltage minus the output voltage that produces a 2% change in the
+      output voltage from the value at VIN= VOUT+2V with a fixed load.
+
+Rev. 2.81                                                       10                                   December 03, 2025
+  HT75xx-1
+  30V, 100mA Low Power LDO
+
+
+ Typical Performance Characteristics
+                                                                                                                Test Condition: VIN=VOUT+2V, IOUT=10mA, TJ=25°C, unless otherwise noted
+                                                                                            HT7533-1                                                                                                                  HT7550-1
+                        3.50                                                                                                                                              5.20
+                                                         Iout=10mA
+                        3.45                                                                                                                                              5.15                  Iout=10mA
+                        3.40                                                                                                                                              5.10
+Output voltage(V)
+
+
+
+
+                                                                                                                                                  Output voltage(V)
+                        3.35                                                                                                                                              5.05
+                        3.30                                                                                                                                              5.00
+                        3.25                                                                                                                                              4.95
+                        3.20                                                                                                                                              4.90
+                        3.15                                                                                                                                              4.85
+                        3.10                                                                                                                                              4.80
+                                            5                      10                 15             20               25                30                                        6               10           14          18         22             26             30
+                                                                                       Input Voltage(V)                                                                                                             Input Voltage (V)
+
+                                       Output Voltage vs Input Voltage: HT7533-1                                                                                                 Output Voltage vs Input Voltage: HT7550-1
+                                                                                                                                                                                                                      HT7550-1
+                                                                                            HT7533-1                                                                       4.00
+                                     4.00                                                                                                                                                  Vin=7V
+                                                           Vin=5.3V                                                                                                        3.50
+                                     3.50                                                                                                                                                  Vin=30V
+
+
+
+
+                                                                                                                                                  Quiescent current(uA)
+                                                           Vin=30V
+                                                                                                                                                                           3.00
+             Quiescent current(uA)
+
+
+
+
+                                     3.00
+                                                                                                                                                                           2.50
+                                     2.50
+                                     2.00                                                                                                                                  2.00
+
+                                     1.50                                                                                                                                  1.50
+
+                                     1.00                                                                                                                                  1.00
+                                     0.50                                                                                                                                  0.50
+                                     0.00                                                                                                                                  0.00
+                                            -40     -30      -20        -10       0   10   20    30    40       50    60    70    80                                              -40    -30      -20    -10   0    10  20    30    40     50   60        70   80
+                                                                                       Temperature(OC)                                                                                                              Temperature(OC)
+
+                                     Quiescent Current vs Temperature: HT7533-1                                                                                             Quiescent Current vs Temperature: HT7550-1
+                                                     (IOUT=0mA)                                                                                                                             (IOUT=0mA)
+                                                                                                                                                                                                                       HT7550-1
+                                                                                             HT7533-1                                                                      5.20
+                        3.50
+                                                                                                                                                                                               Iout=10mA
+                                                        Iout=10mA                                                                                                          5.15                Iout=30mA
+                        3.45
+                                                        Iout=30mA                                                                                                                              Iout=80mA
+                                                                                                                                                                           5.10
+                        3.40                            Iout=80mA                                                                                                                              Iout=120mA
+                                                                                                                                                      Output voltage(V)
+Output votlage(V)
+
+
+
+
+                                                                                                                                                                           5.05
+                        3.35
+                        3.30                                                                                                                                               5.00
+
+                        3.25                                                                                                                                               4.95
+
+                        3.20                                                                                                                                               4.90
+
+                        3.15                                                                                                                                               4.85
+                        3.10                                                                                                                                               4.80
+                                       -40        -30      -20      -10       0       10   20    30    40        50    60    70    80                                             -40    -30      -20    -10   0    10   20    30    40    50   60        70   80
+                                                                                       Temperature(OC)                                                                                                               Temperature(OC)
+
+                                            Output Voltage vs Temperature: HT7533-1                                                                                               Output Voltage vs Temperature: HT7550-1
+                                                                                              HT7533-1                                                                                                               HT7550-1
+                    3.50                                                                                                                                                   5.20
+                                                        Vin=5.3V                                                                                                                               Vin=7V
+                    3.45                                                                                                                                                   5.15
+                                                        Vin=30V                                                                                                                                Vin=30V
+                    3.40                                                                                                                                                   5.10
+                                                                                                                                                       Output voltage(V)
+    Output voltage(V)
+
+
+
+
+                    3.35                                                                                                                                                   5.05
+
+                    3.30                                                                                                                                                   5.00
+
+                    3.25                                                                                                                                                   4.95
+
+                    3.20                                                                                                                                                   4.90
+
+                    3.15                                                                                                                                                   4.85
+
+                    3.10                                                                                                                                                   4.80
+                                      -40         -30     -20       -10       0       10      20     30    40   50    60    70     80                                             -40    -30      -20    -10   0    10  20    30    40     50   60        70   80
+                                                                                           Temperature(OC)                                                                                                          Temperature(OC)
+
+                                            Output Voltage vs Temperature: HT7533-1                                                                                               Output Voltage vs Temperature: HT7550-1
+
+
+
+
+                                                Load Transient Response: HT7533-1                                                                                                       Load Transient Response: HT7550-1
+                                                    (VIN=5.3V, IOUT=0mA~40mA)                                                                                                                (VIN=7V, IOUT=0mA~40mA)
+
+
+
+
+Rev. 2.81                                                                                                                                    11                                                                                    December 03, 2025
+                                                                        HT75xx-1
+                                                        30V, 100mA Low Power LDO
+
+
+
+
+        Line Transient Response: HT7533-1              Line Transient Response: HT7550-1
+            (VIN=4.3V~5.3V, IOUT=10mA)                       (VIN=6V~7V, IOUT=10mA)
+
+
+
+
+        Power ON/OFF Response: HT7533-1                 Power ON/OFF Response: HT7550-1
+     (VIN=12V, IOUT=0mA, TRISE=TFALL=0.1ms)          (VIN=12V, IOUT=0mA, TRISE=TFALL=0.1ms)
+
+
+
+
+        Power ON/OFF Response: HT7533-1                  Power ON/OFF Response: HT7550-1
+    (VIN=12V, IOUT=0mA, TRISE=TFALL=100ms)           (VIN=12V, IOUT=0mA, TRISE=TFALL=100ms)
+
+
+
+
+        Power ON/OFF Response: HT7533-1                 Power ON/OFF Response: HT7550-1
+    (VIN=12V, IOUT=100mA, TRISE=TFALL=0.1ms)        (VIN=12V, IOUT=100mA, TRISE=TFALL=0.1ms)
+
+
+
+
+        Power ON/OFF Response: HT7533-1                  Power ON/OFF Response: HT7550-1
+   (VIN=12V, IOUT=100mA, TRISE=TFALL=100ms)         (VIN=12V, IOUT=100mA, TRISE=TFALL=100ms)
+
+
+
+
+Rev. 2.81                                      12                             December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+Application Circuits
+
+    Basic Circuit
+                                                                                                           
+                                                                                                                
+                                                                                                                                                           
+                                                                                                                                                       
+
+
+
+
+                                                                                                                                                                                   
+                                                                                                                                
+
+
+
+
+    High Output Current Positive Voltage Regulator
+                                                              T r1
+
+
+                       V IN                                                             V IN                                      V O U T                                      V O U T
+
+                                                R 1                                                         S e r ie s
+
+                                                             C 1                                          G N D                                              C 2
+                                                           1 0  F                                                                                         1 0  F
+
+
+
+
+                    C o m m o n                                                                                                                                                     C o m m o n
+                                                                                                                        S in g le p o in t G N D
+
+
+
+
+    Short-Circuit Protection for Tr1
+                        V IN                                 R s
+                                                                                 T r1
+
+
+
+
+                                                                                               V IN                                  V O U T                                       V O U T
+                                          R 1                                                                 S e r ie s
+                                                                        C 1                                     G N D                                             C 2
+                                                                      1 0  F                                                                                   1 0  F
+
+
+
+
+                    C o m m o n                                                                                                                                                     C o m m o n
+                                                                                                                           S in g le p o in t G N D
+
+
+    Circuit for Increasing Output Voltage
+                                   V IN                                   V IN                                                  V O U T                                          V O U T
+                                                                                                      
+                                                                                                   S e r ie s
+                                                   C 1                                                                                          C 2
+                                                 1 0  F                                                                                      1 0  F   V X X             R 1
+                                                                                                 G N D
+                                                                                                                IS S
+
+
+
+                                                                                                                                                                          R 2
+
+
+
+                         C o m m o n                                                                        S in g le p o in t G N D                                            C o m m o n
+
+                                                                                 VOUT=VXX (1+R2/R1)+ISS×R2
+
+Rev. 2.81                                                                                         13                                                                             December 03, 2025
+                                                                                                                                            HT75xx-1
+                                                                                                                            30V, 100mA Low Power LDO
+
+
+    Circuit for Increasing Output Voltage
+                                     V IN                                     V IN                                           V O U T                                                V O U T
+                                                                                              
+                                                                                           S e r ie s
+                                                           C 1                                                                                   C 2 V X X
+                                                         1 0  F                                                                               1 0  F                     R 1
+                                                                                         G N D
+                                                                                                     IS S
+
+
+                                                                                                     D 1
+
+                              C o m m o n                                                         S in g le p o in t G N D                                                       C o m m o n
+
+                                                                                             VOUT=VXX+VD1
+
+    Constant Current Regulator
+                                                                                                                  
+                                                                                           
+                                                                                            
+                                                                                                                                    
+                                                                                                                                                 
+                                                                                                   
+                                                                                                                                                                       
+
+
+                                                                                                                                                                                                 
+
+                          
+                                                                                         IOUT=VXX/RA+ISS
+
+    Dual Supply
+                                                                                                                       
+
+                                                                                           
+                                                                                                               
+                                                                                                                
+                                                                                                                                                               
+                                                                                                                                                             
+                                                                                                                 
+                                                                       
+                                                                           
+                                                                                                          
+                                                                                                                      
+
+
+
+                                                                                                                                                                                         
+
+
+
+
+Rev. 2.81                                                                                14                                                                                       December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+Package Information
+
+            Note that the package information provided here is for consultation purposes only. As this
+            information may be updated at regular intervals users are reminded to consult the Holtek website for
+            the latest version of the Package/Carton Information.
+
+            Additional supplementary information with regard to packaging is listed below. Click on the relevant
+            section to be transferred to the relevant website page.
+
+            • Package Information (include Outline Dimensions, Product Tape and Reel Specifications)
+
+            • The Operation Instruction of Packing Materials
+
+            • Carton information
+
+
+
+
+Rev. 2.81                                            15                                     December 03, 2025
+                                                                               HT75xx-1
+                                                               30V, 100mA Low Power LDO
+
+
+    3-pin SOT89 Outline Dimensions
+                                                                          
+                                    
+                                                                             
+
+
+
+
+                                                         
+                     
+
+
+
+
+                                                         
+
+
+
+                                        
+                         
+                                            
+
+
+                                                     Dimensions in inch
+            Symbol
+                             Min.                              Nom.                 Max.
+              A              0.173                              —                  0.185
+              B              0.053                              —                  0.072
+              C              0.090                              —                  0.106
+              D              0.031                              —                  0.047
+              E              0.155                              —                  0.173
+              F              0.014                              —                  0.019
+              G              0.017                              —                  0.022
+              H                                              0.059 BSC
+              I              0.055                              —                  0.063
+              J              0.014                              —                  0.017
+
+                                                     Dimensions in mm
+            Symbol
+                             Min.                              Nom.                 Max.
+              A              4.40                               —                   4.70
+              B              1.35                               —                   1.83
+              C              2.29                               —                   2.70
+              D              0.80                               —                   1.20
+              E              3.94                               —                   4.40
+              F              0.36                               —                   0.48
+              G              0.44                               —                   0.56
+              H                                              1.50 BSC
+              I              1.40                               —                   1.60
+              J              0.35                               —                   0.44
+
+
+
+
+Rev. 2.81                                       16                                December 03, 2025
+HT75xx-1
+30V, 100mA Low Power LDO
+
+
+    5-pin SOT23 Outline Dimensions
+
+
+
+
+                     H
+
+
+
+
+                                          Dimensions in inch
+            Symbol
+                             Min.               Nom.             Max.
+              A              —                    —             0.057
+             A1              —                    —             0.006
+             A2             0.035               0.045           0.051
+              b             0.012                 —             0.020
+              C             0.003                 —             0.009
+              D                               0.114 BSC
+              E                               0.063 BSC
+              e                               0.037 BSC
+              e1                              0.075 BSC
+              H                               0.110 BSC
+              L1                              0.024 BSC
+              θ               0°                  —               8°
+
+                                          Dimensions in mm
+            Symbol
+                             Min.               Nom.             Max.
+              A               —                   —              1.45
+              A1              —                   —              0.15
+              A2             0.90                1.15            1.30
+              b              0.30                 —              0.50
+              C              0.08                 —              0.22
+              D                               2.90 BSC
+              E                               1.60 BSC
+              e                               0.95 BSC
+              e1                              1.90 BSC
+              H                               2.80 BSC
+              L1                              0.60 BSC
+              θ               0°                  —               8°
+
+
+Rev. 2.81                            17                        December 03, 2025
+                                                                                 HT75xx-1
+                                                                 30V, 100mA Low Power LDO
+
+
+
+
+   Copyright© 2025 by HOLTEK SEMICONDUCTOR INC. All Rights Reserved.
+
+   The information provided in this document has been produced with reasonable care and attention
+   before publication, however, HOLTEK does not guarantee that the information is completely
+   accurate. The information contained in this publication is provided for reference only and may
+   be superseded by updates. HOLTEK disclaims any expressed, implied or statutory warranties,
+   including but not limited to suitability for commercialization, satisfactory quality, specifications,
+   characteristics, functions, fitness for a particular purpose, and non-infringement of any third-
+   party’s rights. HOLTEK disclaims all liability arising from the information and its application. In
+   addition, HOLTEK does not recommend the use of HOLTEK’s products where there is a risk of
+   personal hazard due to malfunction or other reasons. HOLTEK hereby declares that it does not
+   authorise the use of these products in life-saving, life-sustaining or safety critical components. Any
+   use of HOLTEK’s products in life-saving/sustaining or safety applications is entirely at the buyer’s
+   risk, and the buyer agrees to defend, indemnify and hold HOLTEK harmless from any damages,
+   claims, suits, or expenses resulting from such use. The information provided in this document,
+   including but not limited to the content, data, examples, materials, graphs, and trademarks, is the
+   intellectual property of HOLTEK (and its licensors, where applicable) and is protected by copyright
+   law and other intellectual property laws. No license, express or implied, to any intellectual property
+   right, is granted by HOLTEK herein. HOLTEK reserves the right to revise the information described
+   in the document at any time without prior notice. For the latest information, please contact us.
+
+
+
+
+Rev. 2.81                                           18                                   December 03, 2025
+

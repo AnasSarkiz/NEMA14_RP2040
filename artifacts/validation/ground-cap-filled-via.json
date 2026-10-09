@@ -1,0 +1,26 @@
+{
+  "via": {
+    "type": "pcb_via",
+    "pcb_via_id": "service_filled_ground_cap_via",
+    "pcb_trace_id": "service_ground_spoke_C_USB",
+    "x": 4.3,
+    "y": 7.8201160000000005,
+    "hole_diameter": 0.25,
+    "outer_diameter": 0.5,
+    "layers": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "tented_on_top": false,
+    "tented_on_bottom": false,
+    "source_trace_id": "source_trace_0",
+    "source_net_id": "source_net_0",
+    "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+    "subcircuit_id": "subcircuit_source_group_0"
+  },
+  "process": "IPC4761TypeVII resin filled and copper capped, explicit C_USB ground pad; requires fabricator acceptance; do not substitute open via",
+  "reason": "Top GND capacitor island cannot accept an ordinary off-pad barrel without touching adjacent routes/lands. Filled/capped via reconnects to the reference plane using the existing VIPPO process.",
+  "minimum_rule_disposition": "0.25mm finished drill/0.50mm Cu matches declared board minima and existing VIPPO process; no global rule relaxed."
+}
