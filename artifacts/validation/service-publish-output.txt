@@ -1,17 +1,832 @@
-Official command: tsci push index.circuit.tsx --include-dist --compress
-CLI request bodies and routine file-by-file progress omitted. Downloaded package/model verification is recorded separately.
+Prepared source package: {"github_revision": "6abc2225a42f1a5a5dd38c2d877b84b0c3577ad8", "review_board_sha256": "de234ef7f1ef69e0f6d2de040e6c4f26cf4de451d7913f73f38ae2b1ee548e28", "published_board_sha256": "125eb0264a19b014ffdf1f688512cb887bfd4a7e974053e65efc96a47b6b7abd", "only_cad_url_metadata_changed": true, "saved_routing_preserved": true, "pinned_cad_components": 68}
+Building 1 file(s)...
+Building index.circuit.json...
+Generating circuit JSON...
+Circuit JSON written to dist/index/circuit.json
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+The "Y" prefix is being used with a <chip />, try using it with a <crystal />
+The "Q" prefix is being used with a <chip />, try using it with a <transistor />
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+The "J" prefix is being used with a <chip />, try using it with a <connector /> or <jumper />
+J_PD has no pin with requires_power=true
+J_PD has no pin with requires_ground=true
+J_DATA has no pin with requires_power=true
+J_DATA has no pin with requires_ground=true
+J_BOOT has no pin with requires_power=true
+J_BOOT has no pin with requires_ground=true
+Y_MCU has no pin with requires_power=true
+Q_DATA has no pin with requires_power=true
+J_MOTOR has no pin with requires_power=true
+J_MOTOR has no pin with requires_ground=true
+J_DEBUG has no pin with requires_power=true
+J_DEBUG has no pin with requires_ground=true
+D_TVS has no pin with requires_power=true
+D_TVS has no pin with requires_ground=true
+All pins on D_TVS are underspecified (no pinAttributes set)
 
-Prepared source package: {"github_revision": "e9cf7fb6157f97a38449228f4683b3666e3ffdf7", "review_board_sha256": "18a2bde55e821ed2649d1cccc17b7e0e05d2fcf746bf1a2455880a9a368f53d1", "published_board_sha256": "f6c13f91384a51187c5263fc8204f4b0f502524340b1a6a28720d9ee1f4c3027", "only_cad_url_metadata_changed": true, "saved_routing_preserved": true, "pinned_cad_components": 68}
 Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
 Build exiting with code 0: build finished successfully
 Including verified compact native dist/index/circuit.json
 Incrementing Package Version 1.1.6 -> 1.1.7
 Incrementing Package Version 1.1.7 -> 1.1.8
 Incrementing Package Version 1.1.8 -> 1.1.9
+Incrementing Package Version 1.1.9 -> 1.1.10
 Uploading package archive...
-Archive upload failed, falling back to file-by-file upload: Error: FAIL [502]: POST /package_files/upload_archive
+Archive upload failed, falling back to file-by-file upload: TimeoutError: Request timed out: POST https://registry-api.tscircuit.com/package_files/upload_archive
+  README.md - failed
+  artifacts/bom.csv - failed
+  artifacts/drc-report.json - failed
+  artifacts/jlcpcb-import-report.json - failed
+  artifacts/physical-connectivity.json - failed
+  artifacts/pick_and_place.csv - failed
+  artifacts/publication-provenance.json - failed
+  artifacts/schematic-a4-page-01.svg - failed
+  artifacts/schematic-a4-page-02.svg - failed
+  artifacts/schematic-a4-page-03.svg - failed
+  artifacts/schematic-a4-page-04.svg - failed
+  artifacts/schematic-a4-page-05.svg - failed
+  artifacts/schematic-a4-page-06.svg - failed
+  artifacts/schematic-a4-page-07.svg - failed
+  artifacts/schematic-a4-page-08.svg - failed
+  artifacts/schematic-a4-page-09.svg - failed
+  artifacts/schematic-a4-page-10.svg - failed
+  artifacts/schematic-a4-page-11.svg - failed
+  artifacts/schematic-a4-page-12.svg - failed
+  artifacts/schematic-a4-page-13.svg - failed
+  artifacts/schematic-a4-page-14.svg - failed
+  artifacts/schematic.svg - failed
+  artifacts/source-bom.csv - failed
+  dist/index/circuit.json - failed
+  docs/bom.md - failed
+  docs/bringup-checklist.md - failed
+  docs/cloud-start.md - failed
+  docs/component-evidence.md - failed
+  docs/electrical.md - failed
+  docs/engineering-review.md - failed
+  docs/fabrication-requirements.md - failed
+  docs/firmware-interface.md - failed
+  docs/inside-board-jst.md - failed
+  docs/manufacturing-review.md - failed
+  docs/mechanical-fit.md - failed
+  docs/motor-compatibility.md - failed
+  docs/motor-wiring.svg - failed
+  docs/routing.md - failed
+  docs/schematic-review.md - failed
+  docs/sources.md - failed
+  docs/supplier-cad.md - failed
+  docs/usb-programming.md - failed
+  docs/validation.md - failed
+  docs/variant-comparison.md - failed
+  imports/supplier/A4988SETTR_T/A4988SETTR_T.tsx - failed
+  imports/supplier/ABM8_272_T3/ABM8_272_T3.tsx - failed
+  imports/supplier/AP63203WU_7/AP63203WU_7.tsx - failed
+  imports/supplier/A_0402CG150J500NT/A_0402CG150J500NT.tsx - failed
+  imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.tsx - failed
+  imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.tsx - failed
+  imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.tsx - failed
+  imports/supplier/A_0402WGF270JTCE/A_0402WGF270JTCE.tsx - failed
+  imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.tsx - failed
+  imports/supplier/A_0603WAF1001T5E/A_0603WAF1001T5E.tsx - failed
+  imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.tsx - failed
+  imports/supplier/A_0603WAF1003T5E/A_0603WAF1003T5E.tsx - failed
+  imports/supplier/A_0603WAF2202T5E/A_0603WAF2202T5E.tsx - failed
+  imports/supplier/A_0603WAF3901T5E/A_0603WAF3901T5E.tsx - failed
+  imports/supplier/A_0603WAF3902T5E/A_0603WAF3902T5E.tsx - failed
+  imports/supplier/A_0603WAF5101T5E/A_0603WAF5101T5E.tsx - failed
+  imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.tsx - failed
+  imports/supplier/B5819W_SL/B5819W_SL.tsx - failed
+  imports/supplier/CC0603KRX7R9BB104/CC0603KRX7R9BB104.tsx - failed
+  imports/supplier/CC0805KRX7R9BB104/CC0805KRX7R9BB104.tsx - failed
+  imports/supplier/CH224K/CH224K.tsx - failed
+  imports/supplier/CL05A105KA5NQNC/CL05A105KA5NQNC.tsx - failed
+  imports/supplier/CL05B103KB5NNNC/CL05B103KB5NNNC.tsx - failed
+  imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.tsx - failed
+  imports/supplier/CL10A105KB8NNNC/CL10A105KB8NNNC.tsx - failed
+  imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.tsx - failed
+  imports/supplier/CL10B224KA8NNNC/CL10B224KA8NNNC.tsx - failed
+  imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.tsx - failed
+  imports/supplier/CL31A106KBHNNNE/CL31A106KBHNNNE.tsx - failed
+  imports/supplier/EEEFPV101XAP/EEEFPV101XAP.tsx - failed
+  imports/supplier/ERJPA3F1001V/ERJPA3F1001V.tsx - failed
+  imports/supplier/FRL0805FR240TS/FRL0805FR240TS.tsx - failed
+  imports/supplier/GD25Q16EEIGR/GD25Q16EEIGR.tsx - failed
+  imports/supplier/MMBT3904_7_F/MMBT3904_7_F.tsx - failed
+  imports/supplier/RP2040/RP2040.tsx - failed
+  imports/supplier/RVT1V470M0605/RVT1V470M0605.tsx - failed
+  imports/supplier/SMF18A/SMF18A.tsx - failed
+  imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR.tsx - failed
+  imports/supplier/SRN4018_4R7M/SRN4018_4R7M.tsx - failed
+  imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.tsx - failed
+  imports/supplier/USBLC6_2SC6/USBLC6_2SC6.tsx - failed
+  index.circuit.json - failed
+  index.circuit.tsx - failed
+  package-lock.json - failed
+  package.json - failed
+  scripts/add-service-return-stitches.py - failed
+  scripts/add-verified-fanouts.py - failed
+  scripts/align-escape-source-ports.py - failed
+  scripts/apply-rp-cp1-bounded-fix.py - failed
+  scripts/apply-saved-adjustments.py - failed
+  scripts/apply-service-revision.py - failed
+  scripts/apply-usb-spacing-revision.py - failed
+  scripts/audit-functional-silk.py - failed
+  scripts/audit-manufacturing.py - failed
+  scripts/audit-trace-widths.py - failed
+  scripts/build.tsx - failed
+  scripts/check-a4-browser.py - failed
+  scripts/check-motor-body.py - failed
+  scripts/check-service-cli.py - failed
+  scripts/check-usb-head-clearance.py - failed
+  scripts/check.ts - failed
+  scripts/classify-source.ts - failed
+  scripts/clear-head-routing-intrusions.py - failed
+  scripts/cloud-install.sh - failed
+  scripts/connect-native-pad-centers.py - failed
+  scripts/correct-bulk-model.py - failed
+  scripts/draw-service-harness.py - failed
+  scripts/escape-trapped-pads.py - failed
+  scripts/export-a4-pdf.py - failed
+  scripts/export-manufacturing.py - failed
+  scripts/export-router.py - failed
+  scripts/export-supplier-router.py - failed
+  scripts/fill-ground.py - failed
+  scripts/finalize-inside-review.py - failed
+  scripts/finalize-motor-repairs.py - failed
+  scripts/finish-usb-ground-and-sensor.py - failed
+  scripts/freerouting-api.py - failed
+  scripts/freeze-escape-routes.py - failed
+  scripts/holeless-pour-export.py - failed
+  scripts/import-session.py - failed
+  scripts/import-supplier-session.py - failed
+  scripts/inspect-inner1-bridge.py - failed
+  scripts/inspect-via-paste.py - failed
+  scripts/install-enable-escape.py - failed
+  scripts/install-ground-escapes.py - failed
+  scripts/install-logic-escapes.py - failed
+  scripts/install-mcu-step-escape.py - failed
+  scripts/install-phase-escapes.py - failed
+  scripts/install-power-escapes.py - failed
+  scripts/install-sense-escapes.py - failed
+  scripts/install-step-escape.py - failed
+  scripts/install-xin-escape.py - failed
+  scripts/merge-reviewed-fanouts.py - failed
+  scripts/normalize-assembly.ts - failed
+  scripts/prepare-inside-motor-routing.py - failed
+  scripts/prepare-motor-routing.py - failed
+  scripts/prepare-schematic.ts - failed
+  scripts/prepare-usb-cable-models.py - failed
+  scripts/propose-rp-control-fanouts.py - failed
+  scripts/propose-rp-cp1-escapes.py - failed
+  scripts/propose-rp-dv23-fanout.py - failed
+  scripts/propose-rp-ground-fanouts.py - failed
+  scripts/propose-rp-iovdd10-fanouts.py - failed
+  scripts/propose-rp-vref-fanout.py - failed
+  scripts/prune-cam-ground.py - failed
+  scripts/prune-service-stubs.py - failed
+  scripts/prune-unanchored-copper.py - failed
+  scripts/publish-tscircuit.sh - failed
+  scripts/rebind-mechanical-review.py - failed
+  scripts/reclear-service-pours.py - failed
+  scripts/record-supplier-adjustments.py - failed
+  scripts/refill-service-ground.py - failed
+  scripts/render-mechanical-access.py - failed
+  scripts/render.ts - failed
+  scripts/repair-engineering-routing.py - failed
+  scripts/repair-inside-drc.py - failed
+  scripts/repair-supplier-routing.py - failed
+  scripts/replay-supplier-adjustments.py - failed
+  scripts/report-manufacturing.py - failed
+  scripts/report-presentation.py - failed
+  scripts/report.py - failed
+  scripts/requirements-manufacturing.txt - failed
+  scripts/requirements-router.txt - failed
+  scripts/reserve-router-fanouts.py - failed
+  scripts/review-mechanical.py - failed
+  scripts/review-power-copper.py - failed
+  scripts/routing_grid.py - failed
+  scripts/schematic-review-ui.py - failed
+  scripts/seed-engineering-routes.py - failed
+  scripts/seed-output-escapes.py - failed
+  scripts/seed-service-usb.py - failed
+  scripts/seed-vbb-fanout.py - failed
+  scripts/service-harness.py - failed
+  scripts/service-release-drawings.py - failed
+  scripts/shorten-driver-ground.py - failed
+  scripts/sync-presentation.py - failed
+  scripts/trace-linter.sha256 - failed
+  scripts/translate-usb-outward.py - failed
+  scripts/trim-service-usb.py - failed
+  scripts/verify-connectivity.py - failed
+  scripts/verify_supplier_connectivity.py - failed
+  src/board.tsx - failed
+  src/jlcpcb-catalog.json - failed
+  src/motor-connector.tsx - failed
+  src/pin-attributes.ts - failed
+  src/schematic-notes.json - failed
+  src/schematic-notes.tsx - failed
+  src/supplier-electrical-specs.json - failed
+  src/supplier-parts.tsx - failed
+  src/supplier-placement.json - failed
+  tscircuit.config.json - failed
+  tsconfig.json - failed
+
+
 Upload Summary
-  Succeeded: 180 files
-"@tsci/AnasSarkiz.NEMA14_RP2040@1.1.9" published!
-https://tscircuit.com/AnasSarkiz/NEMA14_RP2040
-Published registry version: 1.1.9
+  Succeeded: 0 files
+  Failed: 196 files
+    - README.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/bom.csv
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/drc-report.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/jlcpcb-import-report.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/physical-connectivity.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/pick_and_place.csv
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/publication-provenance.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-01.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-02.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-03.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-04.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-05.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-06.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-07.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-08.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-09.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-10.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-11.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-12.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-13.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic-a4-page-14.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/schematic.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - artifacts/source-bom.csv
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - dist/index/circuit.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/bom.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/bringup-checklist.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/cloud-start.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/component-evidence.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/electrical.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/engineering-review.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/fabrication-requirements.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/firmware-interface.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/inside-board-jst.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/manufacturing-review.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/mechanical-fit.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/motor-compatibility.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/motor-wiring.svg
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/routing.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/schematic-review.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/sources.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/supplier-cad.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/usb-programming.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/validation.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - docs/variant-comparison.md
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A4988SETTR_T/A4988SETTR_T.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/ABM8_272_T3/ABM8_272_T3.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/AP63203WU_7/AP63203WU_7.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402CG150J500NT/A_0402CG150J500NT.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402WGF270JTCE/A_0402WGF270JTCE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF1001T5E/A_0603WAF1001T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF1003T5E/A_0603WAF1003T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF2202T5E/A_0603WAF2202T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF3901T5E/A_0603WAF3901T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF3902T5E/A_0603WAF3902T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/A_0603WAF5101T5E/A_0603WAF5101T5E.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/B5819W_SL/B5819W_SL.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CC0603KRX7R9BB104/CC0603KRX7R9BB104.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CC0805KRX7R9BB104/CC0805KRX7R9BB104.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CH224K/CH224K.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL05A105KA5NQNC/CL05A105KA5NQNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL05B103KB5NNNC/CL05B103KB5NNNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL10A105KB8NNNC/CL10A105KB8NNNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL10B224KA8NNNC/CL10B224KA8NNNC.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/CL31A106KBHNNNE/CL31A106KBHNNNE.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/EEEFPV101XAP/EEEFPV101XAP.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/ERJPA3F1001V/ERJPA3F1001V.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/FRL0805FR240TS/FRL0805FR240TS.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/GD25Q16EEIGR/GD25Q16EEIGR.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/MMBT3904_7_F/MMBT3904_7_F.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/RP2040/RP2040.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/RVT1V470M0605/RVT1V470M0605.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/SMF18A/SMF18A.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/SRN4018_4R7M/SRN4018_4R7M.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - imports/supplier/USBLC6_2SC6/USBLC6_2SC6.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - index.circuit.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - index.circuit.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - package-lock.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - package.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/add-service-return-stitches.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/add-verified-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/align-escape-source-ports.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/apply-rp-cp1-bounded-fix.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/apply-saved-adjustments.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/apply-service-revision.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/apply-usb-spacing-revision.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/audit-functional-silk.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/audit-manufacturing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/audit-trace-widths.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/build.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/check-a4-browser.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/check-motor-body.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/check-service-cli.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/check-usb-head-clearance.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/check.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/classify-source.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/clear-head-routing-intrusions.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/cloud-install.sh
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/connect-native-pad-centers.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/correct-bulk-model.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/draw-service-harness.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/escape-trapped-pads.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/export-a4-pdf.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/export-manufacturing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/export-router.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/export-supplier-router.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/fill-ground.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/finalize-inside-review.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/finalize-motor-repairs.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/finish-usb-ground-and-sensor.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/freerouting-api.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/freeze-escape-routes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/holeless-pour-export.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/import-session.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/import-supplier-session.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/inspect-inner1-bridge.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/inspect-via-paste.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-enable-escape.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-ground-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-logic-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-mcu-step-escape.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-phase-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-power-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-sense-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-step-escape.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/install-xin-escape.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/merge-reviewed-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/normalize-assembly.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prepare-inside-motor-routing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prepare-motor-routing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prepare-schematic.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prepare-usb-cable-models.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-control-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-cp1-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-dv23-fanout.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-ground-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-iovdd10-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/propose-rp-vref-fanout.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prune-cam-ground.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prune-service-stubs.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/prune-unanchored-copper.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/publish-tscircuit.sh
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/rebind-mechanical-review.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/reclear-service-pours.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/record-supplier-adjustments.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/refill-service-ground.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/render-mechanical-access.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/render.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/repair-engineering-routing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/repair-inside-drc.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/repair-supplier-routing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/replay-supplier-adjustments.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/report-manufacturing.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/report-presentation.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/report.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/requirements-manufacturing.txt
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/requirements-router.txt
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/reserve-router-fanouts.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/review-mechanical.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/review-power-copper.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/routing_grid.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/schematic-review-ui.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/seed-engineering-routes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/seed-output-escapes.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/seed-service-usb.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/seed-vbb-fanout.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/service-harness.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/service-release-drawings.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/shorten-driver-ground.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/sync-presentation.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/trace-linter.sha256
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/translate-usb-outward.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/trim-service-usb.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/verify-connectivity.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - scripts/verify_supplier_connectivity.py
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/board.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/jlcpcb-catalog.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/motor-connector.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/pin-attributes.ts
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/schematic-notes.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/schematic-notes.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/supplier-electrical-specs.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/supplier-parts.tsx
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - src/supplier-placement.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - tscircuit.config.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+    - tsconfig.json
+      Error: FAIL [500]: POST /package_files/create
+internal_server_error: duplicate key value violates unique constraint "package_release_filepath_pkey"
+
+Publish completed with 196 failed upload(s)
