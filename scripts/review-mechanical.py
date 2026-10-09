@@ -319,6 +319,13 @@ service_report['plug_removal_envelope_collisions']=[{'part':n,'intersection_mm3'
 service_report['barrier_to_trimmed_header_clearance_mm']=parts['J_MOTOR'].distance(service_parts['Nomex410_INS001'])
 service_report['carrier_with_harness_bbox_mm']=bounds(cq.Compound.makeCompound([carrier]+list(service_parts.values())+list(cable_parts.values())))
 service_report['nominal_connector_to_neighbours']=[{'part':n,'distance_mm':parts['J_MOTOR'].distance(s),'after_0p1mm_placement_per_part_mm':parts['J_MOTOR'].distance(s)-.2} for n,s in parts.items() if n!='J_MOTOR' and broad(parts['J_MOTOR'],s,1)]
+header_bounds=bounds(parts['J_MOTOR']); housing_bounds=bounds(service_parts['PHR4_mating_housing_envelope'])
+inside_screen=[]
+for label,bb in [('native_header',header_bounds),('PHR4_mating_housing',housing_bounds)]:
+ margin=min(bb[0]+b['width']/2,bb[1]+b['height']/2,b['width']/2-bb[3],b['height']/2-bb[4])
+ inside_screen.append({'part':label,'bbox_mm':bb,'nominal_edge_margin_mm':margin,'after_0p2_outline_0p1_placement_mm':margin-.3})
+ assert margin-.3>0,('JST body edge clearance',label,margin)
+service_report['full_connector_inside_board_screen']=inside_screen
 report['service_harness']=service_report
 report['adapter'].update({'front_hardware':'M3x8 ISO4762 with0.5mm washer; plate4.00+/-0.05mm; bounded thread engagement3.2..3.8mm below documented4mm minimum depth','front_hole_pattern_tolerance_mm':.05,'front_hole_min_radial_clearance_mm':.525,'required_diagonal_pattern_misalignment_mm':.354,'host_front_face_z_mm':front-8,'pcb_boss_top_z_mm':-1.8,'pcb_hardware':'M2.5x8 ISO4762 bounded head diameter4.5, PEEK top washer0.5, PEEK lower support1mm; nominal metal engagement4.9mm','nominal_metal_engagement_mm':4.9,'host_front_threads':'4xM3 at X+/-21.6,Y+/-13, 6mm available, 4.5..5.5mm engagement'})
 report['mounted_assembly_bbox_mm']=bounds(cq.Compound.makeCompound([pcb,motor,carrier]+list(parts.values())+list(hardware.values())+list(service_parts.values())+list(cable_parts.values())))

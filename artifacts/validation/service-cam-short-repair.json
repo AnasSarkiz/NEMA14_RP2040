@@ -1,0 +1,196 @@
+{
+  "reason": "Finished CAM exposes obsolete VREF route ending at former divider position after bootstrap capacitor restored. It contacts BUCK_BST pad192. Remove exact stale trace and its via, reroute against final native pad positions.",
+  "removed": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "supplier_repair_island_net49_1",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 2.9,
+          "y": -9.35,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.3000000000000007,
+          "y": -6.149999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.34999999999999787,
+          "y": -6.149999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.375,
+          "y": -6.125,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.4250000000000007,
+          "y": -6.125,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.4499999999999993,
+          "y": -6.1,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.47499999999999787,
+          "y": -6.1,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.5249999999999986,
+          "y": -6.049999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.5500000000000007,
+          "y": -6.049999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.5999999999999979,
+          "y": -6.0,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.5999999999999979,
+          "y": -5.975,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6499999999999986,
+          "y": -5.924999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6499999999999986,
+          "y": -5.899999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6750000000000007,
+          "y": -5.875,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6750000000000007,
+          "y": -5.85,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6999999999999993,
+          "y": -5.824999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -0.6999999999999993,
+          "y": -5.049999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -1.3499999999999979,
+          "y": -4.399999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -1.375,
+          "y": -4.399999999999999,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -1.7749999999999986,
+          "y": -4.0,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -1.8249999999999993,
+          "y": -4.0,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": -1.8249999999999993,
+          "y": -4.0,
+          "width": 0.16,
+          "layer": "bottom"
+        }
+      ],
+      "pcb_port_ids": [],
+      "source_trace_id": "source_trace_228",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net49",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "source_net_id": "source_net_23"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "supplier_repair_island_net49_1_via0",
+      "pcb_trace_id": "supplier_repair_island_net49_1",
+      "x": -1.8249999999999993,
+      "y": -4.0,
+      "hole_diameter": 0.25,
+      "outer_diameter": 0.5,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "source_trace_id": "source_trace_228",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net49",
+      "subcircuit_id": "subcircuit_source_group_0",
+      "source_net_id": "source_net_23"
+    }
+  ],
+  "restored": "Original clear bottom VREF route and transition via only. Obsolete top spur to former divider location removed; existing net49_2 connects via to current divider.",
+  "orphan_sleep_removed": [
+    "freerouted_trace_450_upperbay_0",
+    "freerouted_via_65"
+  ]
+}

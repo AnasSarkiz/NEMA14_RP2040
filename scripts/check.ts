@@ -13,6 +13,10 @@ checks.push(...checkViasInPads(strict))
 const renderErrors=json.filter((e:any)=>e.type.endsWith('_error'))
 const errors=[...renderErrors,...checks.filter((e:any)=>e.type.endsWith('_error'))]
 const unique=[...new Map(errors.map((e:any)=>[e.message,e])).values()]
+for (const type of ['pcb_trace','pcb_via','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_copper_pour']) {
+ const ids=json.filter((e:any)=>e.type===type).map((e:any)=>e[type+'_id'])
+ if(new Set(ids).size!==ids.length) unique.push({type:'validation_error',message:'Duplicate circuit record IDs: '+type})
+}
 const warnings=checks.filter((e:any)=>e.type.endsWith('_warning'))
 const traceCount=json.filter((e:any)=>e.type==='pcb_trace').length
 if(traceCount===0) unique.push({type:'validation_error',message:'No routed copper was produced.'})
@@ -51,6 +55,8 @@ const holes=json.filter((e:any)=>e.type==='pcb_hole' && e.hole_diameter===3.2)
 if(holes.length!==4) unique.push({type:'validation_error',message:'Expected four 3.2 mm mounting holes.'})
 const expectedHoles=[[-13,-13],[13,-13],[-14.8,13],[14.8,13]]
 if(expectedHoles.some(([x,y])=>!holes.some((h:any)=>Math.abs(h.x-x)<1e-6 && Math.abs(h.y-y)<1e-6))) unique.push({type:'validation_error',message:'Carrier support hole positions must match the reviewed service revision.'})
+const motorBody=spawnSync('/workspace/.routing-venv/bin/python',['scripts/check-motor-body.py'],{encoding:'utf8'})
+if(motorBody.status!==0) unique.push({type:'validation_error',message:'Motor header/housing extends outside the board or lacks the required tolerance margin: '+motorBody.stdout+motorBody.stderr})
 const motorSource=json.find((e:any)=>e.type==='source_component' && e.name==='J_MOTOR')
 const motorPcb=json.find((e:any)=>e.type==='pcb_component' && e.source_component_id===motorSource?.source_component_id)
 if(motorSource?.manufacturer_part_number!=='B4B-PH-K-S(LF)(SN)' || motorPcb?.do_not_place===true) unique.push({type:'validation_error',message:'Motor keyed header must be fitted JST B4B-PH-K-S(LF)(SN).'})

@@ -18,7 +18,7 @@ def shape(e):
 def ring(r):return {'vertices':[{'x':x,'y':y} for x,y in list(r.coords)[:-1]]}
 records=[];delta=[]
 for layer in layers:
-    prev=unary_union([shape(e) for e in original if e['layer']==layer]);candidate=prev.union(box(-8,-17.15,8,-14)).union(box(-17.15,7.2,17.15,17.15))
+    prev=unary_union([shape(e) for e in original if e['layer']==layer]);candidate=prev.union(box(-10.15,-17.15,10.15,-3.9)).union(box(-17.15,7.2,17.15,17.15))
     cuts=[]
     for e in j:
         typ=e['type'];foreign=g.key(e)!=key

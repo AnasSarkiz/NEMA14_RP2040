@@ -1,0 +1,44 @@
+{
+  "source_before_sha256": "8c387898abd35c5b4a9db46ef46be2bdfea7d431c7a07268c76cb0c7725967db",
+  "removed_concrete_error_traces": {
+    "supplier_repair_island_net1_8": {
+      "net": "PD_VBUS",
+      "error": {
+        "type": "pcb_trace_error",
+        "error_type": "pcb_trace_error",
+        "message": "PCB trace .D_TVS > .pin2 to net.PD_VBUS overlaps with pcb_via \"unnamed via\" (accidental contact)",
+        "pcb_trace_id": "supplier_repair_island_net1_8",
+        "center": {
+          "x": 0.5752481404895006,
+          "y": -4.79247518595105
+        },
+        "source_trace_id": "",
+        "pcb_trace_error_id": "overlap_supplier_repair_island_net1_8_inside_ground_escape_R_REF_L_pin2_via",
+        "pcb_component_ids": [],
+        "pcb_port_ids": []
+      }
+    },
+    "supplier_repair_island_net16_0": {
+      "net": "ENABLE_N",
+      "error": {
+        "type": "pcb_via_trace_clearance_error",
+        "pcb_via_trace_clearance_error_id": "via_trace_clearance_supplier_repair_island_net0_26x_via0_supplier_repair_island_net16_0",
+        "error_type": "pcb_via_trace_clearance_error",
+        "message": "Via unnamed via and trace .R_ENABLE > .pin2 to net.ENABLE_N are too close (clearance: 0.028mm, minimum: 0.15mm)",
+        "pcb_via_id": "supplier_repair_island_net0_26x_via0",
+        "pcb_trace_id": "supplier_repair_island_net16_0",
+        "minimum_clearance": 0.15,
+        "actual_clearance": 0.027945526581908367,
+        "center": {
+          "x": -2.564676547682537,
+          "y": -2.8393800549157504
+        }
+      }
+    }
+  },
+  "affected_nets_requiring_repair": [
+    "ENABLE_N",
+    "PD_VBUS"
+  ],
+  "status": "REROUTE_REBUILD_CONNECTIVITY_AND_CAM_REQUIRED"
+}

@@ -1,6 +1,6 @@
 # Fabrication requirements — NEMA14_RP2040, service revision
 
-Source SHA256 `18a2bde55e821ed2649d1cccc17b7e0e05d2fcf746bf1a2455880a9a368f53d1`. Prototype fabrication/assembly acceptance remains pending.
+Source SHA256 `de234ef7f1ef69e0f6d2de040e6c4f26cf4de451d7913f73f38ae2b1ee548e28`. Prototype fabrication/assembly acceptance remains pending.
 
 - Board35x35x1.6mm, 4layers. ExternalCu>=35um, internalCu>=17.5um, plated barrels>=20um. Confirm actual stackup/copper and all process limits before manufacture.
 - JST finished plated bores0.75+/-0.05mm, 2.00mm pitch; native hole size is deliberately overridden using official JST PH drawing. Other drills remain as exported. FourNPTHmounting holes3.2mm lowerpitch26,upper29.6mm; exactcenters in drawings/CAM. USBshellslotsPLATED milling. No untreated open SMT via-in-pad substitutions.

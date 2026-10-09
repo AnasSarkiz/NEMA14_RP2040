@@ -95,7 +95,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {cap('C_REF','10nF','VREF')}
   {resistor('R_ENABLE','10k','V3V3','ENABLE_N')}
   {resistor('R_SLEEP','10k','SLEEP','GND')}
-  <MotorConnector name="J_MOTOR" {...pinProps("J_MOTOR")} pinLabels={{pin1:"A_PLUS",pin2:"A_MINUS",pin3:"B_PLUS",pin4:"B_MINUS"}} pcbX={1.5} pcbY={-16.4} connections={{A_PLUS:n("A_PLUS"),A_MINUS:n("A_MINUS"),B_PLUS:n("B_PLUS"),B_MINUS:n("B_MINUS")}} />
+  <MotorConnector name="J_MOTOR" {...pinProps("J_MOTOR")} pinLabels={{pin1:"A_PLUS",pin2:"A_MINUS",pin3:"B_PLUS",pin4:"B_MINUS"}} pcbX={1.7} pcbY={-14.1} connections={{A_PLUS:n("A_PLUS"),A_MINUS:n("A_MINUS"),B_PLUS:n("B_PLUS"),B_MINUS:n("B_MINUS")}} />
   <chip name="J_DEBUG" doNotPlace {...pinProps("J_DEBUG")}  cadModel={null} pcbRotation={90} pinLabels={{pin1:'VDD',pin2:'GND',pin3:'SWCLK',pin4:'SWDIO',pin5:'RUN'}} footprint={<footprint insertionDirection="from_above">{[0,1.1,2.2,3.3,4.4].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={.8} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={6} height={2} pcbX={2.2} /></footprint>} pcbX={15.5} pcbY={-8.5} connections={{VDD:n('V3V3'),GND:n('GND'),SWCLK:n('SWCLK'),SWDIO:n('SWDIO'),RUN:n('RUN')}} />
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
@@ -103,14 +103,14 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <silkscreentext text="15V" pcbX={-1} pcbY={15.7} fontSize={0.6} layer="top" />
   <silkscreentext text="USB" pcbX={1} pcbY={16.8} fontSize={0.7} layer="top" />
   <silkscreentext text="DATA" pcbX={1} pcbY={15.7} fontSize={0.6} layer="top" />
-  <silkscreentext text="MOTOR" pcbX={9.1} pcbY={-16.4} fontSize={0.6} layer="top" />
+  <silkscreentext text="MOTOR" pcbX={10.4} pcbY={-16.9} fontSize={0.6} layer="top" />
   <silkscreentext text="PD 15V" pcbX={-7} pcbY={15.7} fontSize={0.7} layer="bottom" />
   <silkscreentext text="USB DATA" pcbX={7} pcbY={15.7} fontSize={0.7} layer="bottom" />
   <silkscreentext text="NEMA14 RP2040" pcbX={0} pcbY={3} fontSize={0.7} layer="bottom" />
-  <silkscreentext text="1 A+" pcbX={-1.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
-  <silkscreentext text="2 A-" pcbX={0.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
-  <silkscreentext text="3 B+" pcbX={2.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
-  <silkscreentext text="4 B-" pcbX={4.5} pcbY={-15.0} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="1 A+" pcbX={-1.3} pcbY={-16.4} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="2 A-" pcbX={0.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="3 B+" pcbX={2.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
+  <silkscreentext text="4 B-" pcbX={4.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
   <SchematicNotes />
   </schematicsheet>
  </board>

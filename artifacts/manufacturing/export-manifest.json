@@ -17,59 +17,59 @@
     },
     "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
   },
-  "source_sha256": "18a2bde55e821ed2649d1cccc17b7e0e05d2fcf746bf1a2455880a9a368f53d1",
-  "raw_cli_archive_sha256": "4c4812a52bfbf1112360ad25cf4143eca50ee8f552eae5eb700eedb7e6b19624",
+  "source_sha256": "de234ef7f1ef69e0f6d2de040e6c4f26cf4de451d7913f73f38ae2b1ee548e28",
+  "raw_cli_archive_sha256": "4d06184dde09fbc3ae960333e7734d916f39c4ca62a9c0d31933049d6fba4d10",
   "intentional_CAM_changes": {
     "F_Paste.gbr": {
       "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
-      "before_sha256": "5e8a1517270ffaf5f04ea3aff54f7e751c4dd601af684b92ee0a012f64f58a86",
-      "after_sha256": "c9fa978fd97b61c42b638405f2371710594445e94a9654ef47a660139bb9118b"
+      "before_sha256": "4afbc04a6730da437dd7dfeb42a687f84ac66f081a9fefdb6720fbc43fc7aff6",
+      "after_sha256": "777e6210de14338d9840b92d83706e8eb26d67d1e853c66628a3743b39693f6e"
     },
     "B_Paste.gbr": {
       "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
-      "before_sha256": "fc665fff4bb616e3e3220a01d7af9854c87329b6e6654710f1065457e1233183",
+      "before_sha256": "155f5d5299ff59cc30c2aea8b82de7162fe9d51dc3e6d8a10455e51c670e62d1",
       "after_sha256": "21880a5d8ccf86520b8d968436a0584871c3b32228b6ac256a0e08bffa396018"
     },
     "F_Mask.gbr": {
       "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
-      "before_sha256": "e22d6c665e669232cad1fb9f210e50e01c55a20691709e2f41d22011fa773d69",
-      "after_sha256": "b2e5c457e4f3eb7ce7a6fb3908dc437b26bfd0ffe5c4216c88c47d64f38d4e08"
+      "before_sha256": "355ff817da782bb0418bbf1e049721c49fad4fe7116df38c2e3b1ccd4bf5a760",
+      "after_sha256": "e31e8837efa5b16f6c5eb237f0e86eef4157f32e60a4977e3d3117fc29698b8d"
     },
     "B_Mask.gbr": {
       "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
-      "before_sha256": "aa0304808e8bb8dc3bf5230fe524a86b86a7fdd1afe5b6aba42a8eba4414ac15",
-      "after_sha256": "17dfb984b0f9a8225a6e5396d3a00b43ca47a7b48c33b0654bca621a2da795c4"
+      "before_sha256": "b974c36f2b95ef5d5b3d334d31c634dbc08d4091c4cd4224fed875ab23100fdb",
+      "after_sha256": "0a347fe238ef90c4ea82785d2a0c0eebe998846ac6a794ddee9da9d980928637"
     },
     "F_SilkScreen.gbr": {
       "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
-      "before_sha256": "763cc8859398ab412c812baf278d27ae6276cc9505fd7023be6080116b982f66",
-      "after_sha256": "e9f38ac406599758df87bf710af2bf3e1b8737bd7690f8fd3ddc3a328d8c3a91"
+      "before_sha256": "779405006b3ba3e7a00fcdbfa6895b9e857e184c7dbfcf07f14be35c21547911",
+      "after_sha256": "51c7b3fa6c30c07bd9ccc1c12c01b6d0b2edb212a7d96c271bfab620323b28d5"
     },
     "B_SilkScreen.gbr": {
       "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
-      "before_sha256": "ea3759f8b449bc6fb20b8c9460a80290913cf0250de0544e9972b3bcb747ff54",
-      "after_sha256": "3328710dafaf033abb8143acd7a1375178a80ca54befcd11ef9f15a790825ab6"
+      "before_sha256": "e9158944b5e78471de0572e5af283e0c5b07c2d81a211e0a8d03bae50f8e6b0c",
+      "after_sha256": "6749df52a00079fb655f0f1970e707d5710aea434c3487c6a3bc8958fa03cdd8"
     },
     "bom.csv": {
       "reason": "Exclude bare debug/boot; motor header in BOM and manual manifest, excluded from automated CPL",
-      "before_sha256": "baca81799d0790a83b90dfa706a0491d9a2b9d2be30c2ad32f7f7637812e59f9",
-      "after_sha256": "f8559867d4e3a6003dbb1d4b57e741ab511ac5a55c33bd224d826a0b037c9c90"
+      "before_sha256": "6afbe2ccade80f52638cd81c663a28b153f144c4122e370eca9149ba2d5309eb",
+      "after_sha256": "7267a1082d3c3341b42f30a3972f083c39c251cb326328eb016d7c6ccbc53821"
     },
     "pick_and_place.csv": {
       "reason": "Exclude bare debug/boot; motor header in BOM and manual manifest, excluded from automated CPL",
-      "before_sha256": "6b81d8a79ad1b13013e513deaf896b3a1a76778b258b68fd4fc88d547ad31d1d",
-      "after_sha256": "56fdd2224fb7e9380056f6c05d90fe2cacd63e844e344432434a5eea646ef515"
+      "before_sha256": "9458e8e749b1a268db6488b37f5596f3414741ac0d73d39da98c1bb5b35a9cd3",
+      "after_sha256": "f5e986170c5023ef46bb4cbf111621b6835c87a84b5a4760ad7946d465ea3759"
     }
   },
   "preserved_original_files": {
-    "F_Cu.gbr": "3df931ecd6a72806daded8c1da7031160283e6d079db2e1a41cb322cacadd4e6",
-    "B_Cu.gbr": "cc57e47fb23e73409808b8b436642c92e9188741dee7ffa3aae704ea8d7e70d1",
-    "Edge_Cuts.gbr": "07b06f53599c359776169a612035b97e44bea37a28a0d4fd1b19f628c47db117",
-    "In1_Cu.gbr": "cf558aaca4133e4f616942d5ab2a8307c68499aaccc66ba01d69b34fcebf80f5",
-    "In2_Cu.gbr": "b27a1c368be0f71a49aab9538dd2f06881fe4799f65d954c464c3504f56ff6ea",
-    "F_Fab.gbr": "5d5d0350019a8eea5ed924b0df52f4365594921c097e36b43073778cb25d9616",
-    "drill-L1-L4.drl": "6779f0baf72827f00b6023b0c7fbba059e13986ed3ffe453ab9d2f94222c35a4",
-    "drill_npth.drl": "99c4f9706e73b1276e035968af5bce6be0256023f8632e65c7a5d55640124668"
+    "F_Cu.gbr": "48c2231f083cb2cdb8abce035e0953a466ad9af51d0da0e119bc6e9a3bc4aa47",
+    "B_Cu.gbr": "d9694a900ec8dcc271d2fa8d99317a79441fa2849ceef7d74eec2676c636d2cf",
+    "Edge_Cuts.gbr": "f06d2ccfcd782b4594b2a4dcfad6503e083954e99cc83580183160f6e78c681e",
+    "In1_Cu.gbr": "11f81c3748ff3f2c8544b70859947f115aaec4c7a155b42ea4f86d0501d44105",
+    "In2_Cu.gbr": "46703b978e1243da2b7364e295a52480d6ba02a2a2fd235a8e182710b2ef658a",
+    "F_Fab.gbr": "cb31e957fcb405a123c5fb5a4175f191d3693dabd20115bd0322f2a6a71c8107",
+    "drill-L1-L4.drl": "0d407972bbdb3b4c6b580f395e8fcf9f67996e8654f8daf69a50fa7cd36ecac4",
+    "drill_npth.drl": "4711bb4c6ddeb272f933b1eff262f7a4f76e040563a8e52b7cd37637d61c1339"
   },
   "policy": {
     "assembly": "top SMT reflow; USB shield slots and keyed JST motor header manually soldered afterward",

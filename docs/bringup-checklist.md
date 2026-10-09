@@ -12,3 +12,5 @@
 - [ ] Simultaneously fit selected Tensility cables, measure shoulder/metal registration/gaps/bends, verify plug insertion/removal and10mm motorplug withdrawal. Check hardware/preload/host shaft engagement/structure/vibration and cable strain relief.
 
 Record equipment, revision/hash, measured waveforms/limits/uncertainty and disposition for each test. All boxes remain unperformed until actual records exist.
+
+The inward JST revision and required body-edge/plug-access checks are documented in [inside-board-jst](inside-board-jst.md). Fabricate only from its current manifest-bound artifacts.

@@ -8,7 +8,7 @@ worst issues:
 5. C_IO42 connections cross the routing path between its pads. Suggested move: rotate C_IO42 180 degrees.
 
 board top-layer utilization:
-- occupied: 59.637% (730.556mm^2 of 1225mm^2)
+- occupied: 61.31% (751.05mm^2 of 1225mm^2)
 - empty spaces over 5% of board area: none
 
 board-edge status:
@@ -25,7 +25,7 @@ board-edge status:
 - C_IO33: 8.98mm inside right edge
 - C_IO42: 8.98mm inside right edge
 - C_IO49: 11.53mm inside bottom edge
-- C_DV23: 12.23mm inside right edge
+- C_DV23: 12.03mm inside right edge
 - C_DV50: 11.53mm inside bottom edge
 - C_USB: 9.43mm inside bottom edge
 - C_ADC: 10.13mm inside right edge
@@ -36,10 +36,10 @@ board-edge status:
 - R_FLASH_CS: 8.884mm inside bottom edge
 - R_BOOT: 2.084mm inside right edge
 - J_BOOT: 1.65mm inside right edge
-- Y_MCU: 8.65mm inside top edge
+- Y_MCU: 8.75mm inside top edge
 - R_XOUT: 8.23mm inside right edge
-- C_XIN: 8.33mm inside top edge
-- C_XOUT: 8.13mm inside top edge
+- C_XIN: 8.73mm inside top edge
+- C_XOUT: 8.23mm inside right edge
 - R_RUN: 9.884mm inside right edge
 - R_DM: 11.33mm inside right edge
 - R_DP: 11.484mm inside bottom edge
@@ -63,22 +63,22 @@ board-edge status:
 - C_BUCK_OUT2: 1.325mm inside top edge
 - D_PD: 11.2mm inside left edge
 - D_DATA: 6.025mm inside right edge
-- U_DRV: 3.35mm inside top edge
-- C_CP: 5mm inside top edge
-- C_VCP: 3.55mm inside top edge
-- C_VREG: 0.6mm inside top edge
-- C_DRV_LOGIC: 4.05mm inside top edge
-- C_VM: 9.3mm inside top edge
-- C_VM2: 6.8mm inside top edge
+- U_DRV: 5.7mm inside top edge
+- C_CP: 6.8mm inside top edge
+- C_VCP: 2.05mm inside top edge
+- C_VREG: 3.55mm inside top edge
+- C_DRV_LOGIC: 5.68mm inside top edge
+- C_VM: 10mm inside top edge
+- C_VM2: 6.89mm inside top edge
 - C_BULK: 3.15mm inside left edge
-- R_SA: 10.311mm inside top edge
-- R_SB: 10.311mm inside top edge
-- R_REF_H: 4.168mm inside top edge
-- R_REF_L: 5.668mm inside top edge
-- C_REF: 5.4mm inside top edge
+- R_SA: 6.761mm inside top edge
+- R_SB: 3.134mm inside top edge
+- R_REF_H: 12.318mm inside top edge
+- R_REF_L: 12.268mm inside top edge
+- C_REF: 1.45mm inside top edge
 - R_ENABLE: 14.043mm inside left edge
 - R_SLEEP: 4.068mm inside bottom edge
-- J_MOTOR: 0.3mm inside top edge
+- J_MOTOR: 2.6mm inside top edge
 - J_DEBUG: 1.25mm inside right edge
 - U_ESD: 3.415mm inside right edge
 - D_TVS: 2mm inside left edge
@@ -92,7 +92,7 @@ flagged components:
   - C_IO10 connections cross the routing path between its pads. Suggested move: rotate C_IO10 180 degrees.
 - C_IO22
   source placement: placement_mode=none
-  resolved placement: center=(2.6mm, -4.9mm) on top; bounds=(minX=1.93mm, maxX=3.27mm, minY=-5.17mm, maxY=-4.63mm); size=(width=1.34mm, height=0.54mm); anchor_alignment="center"
+  resolved placement: center=(2.9mm, -4.9mm) on top; bounds=(minX=2.23mm, maxX=3.57mm, minY=-5.17mm, maxY=-4.63mm); size=(width=1.34mm, height=0.54mm); anchor_alignment="center"
   board edge status: 12.33mm inside top edge
   issues:
   - C_IO22 connections cross the routing path between its pads. Suggested move: rotate C_IO22 180 degrees.
