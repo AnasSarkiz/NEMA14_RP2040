@@ -1,0 +1,94 @@
+{
+  "releasedNets": [
+    "QSPI_SD1",
+    "QSPI_SD2"
+  ],
+  "removedCopper": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "diagnostics_3c928318_trace_310_new_0",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 2.925,
+          "y": 2.1,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 2.925,
+          "y": 1.3532,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 9.9782,
+          "y": -5.7,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 11.6,
+          "y": -5.7,
+          "width": 0.16,
+          "layer": "bottom"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net35",
+      "pcb_port_ids": [],
+      "source_trace_id": "source_trace_104",
+      "source_net_id": "source_net_36"
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "diagnostics_3c928318_trace_311_new_0",
+      "route": [
+        {
+          "route_type": "wire",
+          "x": 12.2792,
+          "y": -3.9616,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 12.2675,
+          "y": -3.9499,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 8.6688,
+          "y": -3.9499,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 3.3999,
+          "y": 1.319,
+          "width": 0.16,
+          "layer": "bottom"
+        },
+        {
+          "route_type": "wire",
+          "x": 3.3999,
+          "y": 2.75,
+          "width": 0.16,
+          "layer": "bottom"
+        }
+      ],
+      "subcircuit_id": "subcircuit_source_group_0",
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net36",
+      "pcb_port_ids": [],
+      "source_trace_id": "source_trace_105",
+      "source_net_id": "source_net_37"
+    }
+  ],
+  "reason": "Explicit manually chosen fanouts require rerouting obstructing signal copper with the official router; no connectivity acceptance is claimed."
+}

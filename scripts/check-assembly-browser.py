@@ -25,7 +25,7 @@ try:
   for view in ['isometric','top','side','underside','controller']:
    page.evaluate('(v)=>assemblyReview.setView(v)',view)
    page.wait_for_timeout(800)
-   target=OUT/(view+'.png');page.screenshot(path=str(target));screens.append({'view':view,'path':str(target.relative_to(ROOT)),'sha256':sha(target)})
+   target=OUT/(view+'.png');page.screenshot(path=str(target),timeout=60000);screens.append({'view':view,'path':str(target.relative_to(ROOT)),'sha256':sha(target)})
   browser.close()
  assert not errors and not console_errors and not http_errors,{'pageerrors':errors,'console_errors':console_errors,'http_errors':http_errors}
  review={'source_board_sha256':report['source_board_sha256'],'assembly_entry_sha256':report['assembly_entry_sha256'],'installed_glb_sha256':sha(OUT/'installed-assembly.glb'),'viewer_js_sha256':sha(OUT/'viewer.js'),'viewer_html_sha256':sha(OUT/'viewer.html'),'renderer':'Chromium WebGL/SwiftShader; actual exported GLB and bundled Three.js viewer','loaded':data,'expected_export_gltf_bounds_mm':expected,'screenshots':screens,'page_errors':errors,'console_errors':console_errors,'http_errors':http_errors,'hardware_fit_verified':False}

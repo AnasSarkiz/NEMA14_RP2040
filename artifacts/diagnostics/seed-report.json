@@ -1,0 +1,2549 @@
+{
+  "baselineCommit": "56222094968d6ebefd37adfe6f32623149403b10",
+  "baselineSha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "freshSourceSha256": "57234ef04ae62edc62b43e32a9eb8cc6ad4d3fb8a94f71d305a890abacd8dc1b",
+  "changedPads": [
+    [
+      "C_FLASH",
+      1
+    ],
+    [
+      "C_FLASH",
+      2
+    ],
+    [
+      "C_IO1",
+      1
+    ],
+    [
+      "C_IO1",
+      2
+    ],
+    [
+      "C_VM_SENSE",
+      1
+    ],
+    [
+      "C_VM_SENSE",
+      2
+    ],
+    [
+      "D_DATA",
+      1
+    ],
+    [
+      "D_DATA",
+      2
+    ],
+    [
+      "D_PD",
+      1
+    ],
+    [
+      "D_PD",
+      2
+    ],
+    [
+      "R_ENABLE",
+      1
+    ],
+    [
+      "R_ENABLE",
+      2
+    ],
+    [
+      "R_FLASH_CS",
+      1
+    ],
+    [
+      "R_FLASH_CS",
+      2
+    ],
+    [
+      "R_PG",
+      1
+    ],
+    [
+      "R_PG",
+      2
+    ],
+    [
+      "R_REF_H",
+      1
+    ],
+    [
+      "R_REF_H",
+      2
+    ],
+    [
+      "R_REF_L",
+      1
+    ],
+    [
+      "R_REF_L",
+      2
+    ],
+    [
+      "R_RUN",
+      1
+    ],
+    [
+      "R_RUN",
+      2
+    ],
+    [
+      "R_SLEEP",
+      1
+    ],
+    [
+      "R_SLEEP",
+      2
+    ],
+    [
+      "R_VM_BLEED",
+      1
+    ],
+    [
+      "R_VM_BLEED",
+      2
+    ],
+    [
+      "R_VM_H",
+      1
+    ],
+    [
+      "R_VM_H",
+      2
+    ],
+    [
+      "R_VM_L",
+      1
+    ],
+    [
+      "R_VM_L",
+      2
+    ],
+    [
+      "U_FLASH",
+      1
+    ],
+    [
+      "U_FLASH",
+      2
+    ],
+    [
+      "U_FLASH",
+      3
+    ],
+    [
+      "U_FLASH",
+      4
+    ],
+    [
+      "U_FLASH",
+      5
+    ],
+    [
+      "U_FLASH",
+      6
+    ],
+    [
+      "U_FLASH",
+      7
+    ],
+    [
+      "U_FLASH",
+      8
+    ],
+    [
+      "U_FLASH",
+      9
+    ],
+    [
+      "U_PD",
+      1
+    ],
+    [
+      "U_PD",
+      2
+    ],
+    [
+      "U_PD",
+      3
+    ],
+    [
+      "U_PD",
+      4
+    ],
+    [
+      "U_PD",
+      5
+    ],
+    [
+      "U_PD",
+      6
+    ],
+    [
+      "U_PD",
+      7
+    ],
+    [
+      "U_PD",
+      8
+    ],
+    [
+      "U_PD",
+      9
+    ],
+    [
+      "U_PD",
+      10
+    ],
+    [
+      "U_PD",
+      11
+    ]
+  ],
+  "retainedCopperRecords": 880,
+  "removed": [
+    {
+      "id": "independent_freerouted_trace_1",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_2",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_3",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_4",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_5",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_6",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_7",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_8",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_9",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_10",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_11",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_12",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_13",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_14",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_15",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_16",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_17",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_18",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_19",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_20",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_21",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_22",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_23",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_24",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_25",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_26",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_27",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_28",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_29",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_30",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_31",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_32",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_33",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_34",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_35",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_36",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_37",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_38",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_39",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_40",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_41",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_42",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_43",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_44",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_45",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_46",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_47",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_48",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_49",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_50",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_51",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_52",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_53",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_54",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_55",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_56",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_57",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_58",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_59",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_60",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_61",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_62",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_63",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_64",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_65",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_66",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_67",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_68",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_69",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_70",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_71",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_72",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_73",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_74",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_75",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_76",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_77",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_78",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_79",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_80",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_81",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_82",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_83",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_84",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_85",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_86",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_87",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_88",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_89",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_90",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_91",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_92",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_93",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_94",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_95",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_96",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_97",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_98",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_99",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_100",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_101",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_102",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_103",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_104",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_105",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_106",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_107",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_108",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_109",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_110",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_111",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_112",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_113",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_114",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_115",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_116",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_117",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_118",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_119",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_120",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_121",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_122",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_123",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_124",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_125",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_126",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_127",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_128",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_129",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_130",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_131",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_132",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_133",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_134",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_135",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_136",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_137",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_138",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_139",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_140",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_141",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_142",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_143",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_144",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_145",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_146",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_147",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_148",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_149",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_150",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_151",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_152",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_153",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_154",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_155",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_156",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_157",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_158",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_159",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_163",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "independent_freerouted_trace_169",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "independent_freerouted_trace_169",
+      "segment": 1,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "independent_freerouted_trace_194",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_195",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_196",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_197",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_198",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_199",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_3",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_4",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_200",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_201",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_202",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_203",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_204",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_205",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_206",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_207",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_208",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_209",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_210",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_211",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_212",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_213",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_214",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_215",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_216",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_217",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_218",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_219",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_220",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_221",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_222",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_223",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_224",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_225",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_226",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_227",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_228",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_229",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_230",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_231",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_232",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_233",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_234",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_235",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_236",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_237",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_238",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_239",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_240",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_241",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_242",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_243",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_244",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_245",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_246",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_247",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_248",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_249",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_250",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_251",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_252",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_253",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_254",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_255",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_256",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_257",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_258",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_259",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_260",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_261",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_262",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_263",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_264",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_265",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_266",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_267",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_268",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_269",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_270",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_271",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_272",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_273",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_274",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_275",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_276",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_277",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_278",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_279",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_280",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_281",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_282",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_283",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_284",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_285",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_286",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_287",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_288",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_289",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_290",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_291",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_292",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_293",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_294",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_295",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_296",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_297",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_298",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_299",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_300",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_5",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_6",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_7",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_8",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_9",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_10",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_11",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_12",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_13",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_14",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_15",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_16",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_301",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_302",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_303",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_304",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_305",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_306",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_307",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_308",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_309",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_17",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_18",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_19",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_20",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_310",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_311",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_312",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_313",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_314",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_315",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_21",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_22",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_23",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_316",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_317",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_318",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_319",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_320",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_321",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_322",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_24",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_25",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_323",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_324",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_325",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_326",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_327",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_328",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_329",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_26",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_27",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_330",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_331",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_332",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_333",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_334",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_335",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_336",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_337",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_338",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_339",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_340",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_341",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_342",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_343",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_344",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_28",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_29",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_30",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_350",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_351",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_352",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_353",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_354",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_355",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_356",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_357",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_31",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_32",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_358",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_359",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_360",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_361",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_362",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_363",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_364",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_365",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_366",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_367",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_368",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_369",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_370",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_33",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_34",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_371",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_372",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_373",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_374",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_375",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_376",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_377",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_35",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_36",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_37",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_378",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_379",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_380",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_381",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_38",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_39",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_382",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_383",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_384",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_385",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_40",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_41",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_386",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_387",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_388",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_389",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_390",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_42",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_43",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_391",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_392",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_393",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_394",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_395",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_396",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_397",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_398",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_399",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_400",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_401",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_402",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_403",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_404",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_405",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_406",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_407",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_408",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_409",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_410",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_44",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_45",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_46",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_411",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_412",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_413",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_414",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_415",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_416",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_417",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_418",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_47",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_48",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_419",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_420",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_421",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_422",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_49",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_50",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_423",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_424",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_425",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_426",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_427",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_428",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_429",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_430",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_431",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_432",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_433",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_434",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_435",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_436",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_437",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_438",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_439",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_440",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_441",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_442",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_443",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_444",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_445",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_446",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_447",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_via_51",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_via_52",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_freerouted_trace_448",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_449",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_450",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_451",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_452",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_453",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_freerouted_trace_454",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_165",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "freerouted_trace_168",
+      "segment": 1,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_168",
+      "segment": 2,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_via_9",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "freerouted_trace_170",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_170",
+      "segment": 1,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_171",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_225",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_228_usbtrim_0",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_230",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_231",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_232",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_233",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_234",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_235",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_236",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_via_23",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "freerouted_via_24",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "freerouted_trace_244",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "freerouted_trace_245",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_246",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_250",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_251",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_251",
+      "segment": 1,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_252",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_253",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "freerouted_trace_254",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "freerouted_trace_255",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "freerouted_via_27",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "freerouted_trace_471",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_472",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_473",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_474",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_trace_475",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "freerouted_via_71",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "freerouted_via_72",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "freerouted_via_77",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net34_0_upperbay_0_upperbay_0",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net34_0_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net4_1",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net4_1_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net4_1_via1",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net4_2",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net4_2_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net34_1",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net34_1_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net9_0",
+      "segment": 0,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "supplier_repair_island_net0_11_via0",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net0_18_via1",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net0_21_via0",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "service_qspi_return_stitch",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net47_0",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net48_0",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net48_0_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net48_0_via1",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net35_0",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net35_1",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "supplier_repair_island_net35_1_via0",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net35_1_via1",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "supplier_repair_island_net0_26xx_via0",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 1,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 2,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 3,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 4,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 5,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 6,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 7,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 8,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 9,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 11,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 12,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 13,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 14,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 15,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 16,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 17,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 18,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 19,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_0",
+      "segment": 20,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "outer_pd_remote_bridge",
+      "segment": 0,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "outer_pd_remote_bridge_via",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net1_8",
+      "segment": 22,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_8",
+      "segment": 23,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_8",
+      "segment": 24,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_8",
+      "segment": 25,
+      "reason": "new foreign pad clearance"
+    },
+    {
+      "id": "supplier_repair_island_net1_8_via0",
+      "reason": "new foreign pad clearance or moved exposed pad"
+    },
+    {
+      "id": "supplier_repair_island_net1_9",
+      "segment": 84,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "supplier_repair_island_net1_9",
+      "segment": 85,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "supplier_repair_island_net1_9",
+      "segment": 86,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "supplier_repair_island_net1_9",
+      "segment": 87,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "supplier_repair_island_net1_9",
+      "segment": 88,
+      "reason": "changed supplier land pattern"
+    },
+    {
+      "id": "independent_CP1",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_CP2_driver",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_CP2_driver_via",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_CP2_cap",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_CP2_cap_via",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_CP2_bottom",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_enable_left",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_enable_right",
+      "reason": "released revised signal via"
+    },
+    {
+      "id": "independent_enable_inner2",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_enable_right_top",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_ADC_ground_escape",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    },
+    {
+      "id": "independent_native_C_USB_ground_spoke",
+      "reason": "released for official router to reconnect revised logic/diagnostic layout"
+    }
+  ],
+  "routingComplete": false
+}

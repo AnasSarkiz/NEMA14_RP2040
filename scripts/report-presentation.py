@@ -53,12 +53,26 @@ for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole'
 ports=[e for e in j if e['type']=='source_port' and 'pin_number' in e];schports={e['source_port_id'] for e in j if e['type']=='schematic_port'}
 assert all(p['source_port_id'] in schports for p in ports)
 sheets=[e for e in j if e['type']=='schematic_sheet'];assert sheets and all(e['sheet_size']=='a4' and e['sheet_width']==297 and e['sheet_height']==210 for e in sheets)
-labels={}
-for e in j:
- if e['type']=='schematic_net_label' and 'source_net_id' in e:labels[e['source_net_id']]=labels.get(e['source_net_id'],0)+1
-for net in [e for e in j if e['type']=='source_net']:
- expected=sum(p.get('subcircuit_connectivity_map_key')==net['subcircuit_connectivity_map_key'] for p in ports)
- assert labels.get(net['source_net_id'],0)==expected,(net.get('name'),expected,labels.get(net['source_net_id'],0))
+# Validate real schematic connectivity; a wired bank legitimately shares one label.
+from shapely.geometry import Point, LineString
+from shapely.ops import unary_union
+net_by_key={n['subcircuit_connectivity_map_key']:n for n in j if n['type']=='source_net'}
+schematic_ports={p['source_port_id']:p for p in j if p['type']=='schematic_port'}
+coverage=[]
+for p in ports:
+ net=net_by_key.get(p.get('subcircuit_connectivity_map_key'))
+ if net is None:continue # Explicit NC/direct terminals are separately numbered above.
+ q=schematic_ports[p['source_port_id']];sheet=q['schematic_sheet_id'];point=Point(q['center']['x'],q['center']['y'])
+ traces=[LineString([(edge['from']['x'],edge['from']['y']),(edge['to']['x'],edge['to']['y'])]) for t in j if t['type']=='schematic_trace'and t.get('schematic_sheet_id')==sheet and t.get('subcircuit_connectivity_map_key')==net['subcircuit_connectivity_map_key'] for edge in t['edges']]
+ conductor=unary_union(traces).buffer(.00001)
+ islands=[conductor]if conductor.geom_type=='Polygon'else list(conductor.geoms)
+ island=next((g for g in islands if g.covers(point)),None)
+ assert island is not None,(source[p['source_component_id']]['name'],p['pin_number'],'no schematic wire')
+ labels=[e for e in j if e['type']=='schematic_net_label'and e.get('source_net_id')==net['source_net_id']and e.get('schematic_sheet_id')==sheet and island.covers(Point(e['anchor_position']['x'],e['anchor_position']['y']))]
+ assert labels,(source[p['source_component_id']]['name'],p['pin_number'],'no reachable correct net label',net['name'])
+ assert all(e['text']==net['name']for e in labels)
+ coverage.append({'component':source[p['source_component_id']]['name'],'pin':p['pin_number'],'net':net['name'],'sheet':sheet,'reachable_label_ids':[e['schematic_net_label_id']for e in labels]})
+(root/'artifacts/validation/schematic-port-net-coverage.json').write_text(json.dumps({'source_sha256':hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest(),'named_physical_ports_checked':len(coverage),'wire_geometry_tolerance_mm':.00001,'every_named_port_reaches_correct_net_label':True,'ports':coverage},indent=2)+'\n')
 report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':False,'footprintExceptions':['J_MOTOR manufacturer-derived0.75mm finished holes replacing incompatible native1.0mm bores; original import retained.'],'modelExceptions':['C_BULK drawing-derived height correction7.7mm; original manufacturer/supplier assets retained.'],'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicNamedNetStubCoverageVerified':True}
 (root/'artifacts/jlcpcb-import-report.json').write_text(json.dumps(report,indent=2)+'\n');(root/'artifacts/supplier-cad-alignment.json').write_text(json.dumps(alignment,indent=2)+'\n')
 with (root/'artifacts/source-bom.csv').open('w') as f:

@@ -1,0 +1,419 @@
+{
+  "source_sha256": "0e401e33f71b9262a4857b777a2aeea0c405b64fe4f8740b37805d98e9d22471",
+  "date": "2026-10-10T22:10:22.152Z",
+  "tool": "@tscircuit/checks",
+  "traceCount": 1358,
+  "currentLimitAmps": 0.2387152777777778,
+  "componentOnlyCurrentFormulaHighAmps": 0.26897917779501784,
+  "driverCurrentAccuracyAtSelectedReferenceIsUnspecified": true,
+  "motorDividerInputAt35VWorstVolts": 0.16003358778874402,
+  "motorAdcAt35VWorstVolts": 0.16003358778874402,
+  "enabledMotorAdcScaleNominal": 223.76595744680853,
+  "errors": [
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO4] is not connected to net [TEMP_ALERT_N] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_54"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_58"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO7] is not connected to net [DIR] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_57"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_60"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.GPIO10] is not connected to net [PD_GOOD] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_61"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_63"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD0] is not connected to net [QSPI_SD0] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_101"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_75"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD1] is not connected to net [QSPI_SD1] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_103"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_76"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_MCU.QSPI_SD2] is not connected to net [QSPI_SD2] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_102"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_6"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_77"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_USB.pin2] is not connected to net [GND] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_123"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_15"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_96"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_IN.pin2] is not connected to net [GND] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_127"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_17"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_100"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_OUT.pin1] is not connected to net [V1V1] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_128"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_18"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_101"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VREG_OUT.pin2] is not connected to net [GND] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_129"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_18"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_102"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO1] is not connected to net [QSPI_SD1] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_131"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_19"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_104"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO2] is not connected to net [QSPI_SD2] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_132"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_19"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_105"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_FLASH.IO0] is not connected to net [QSPI_SD0] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_134"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_19"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_107"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.VCP] is not connected to net [VCP] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_209"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_49"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_188"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.DIR] is not connected to net [DIR] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_222"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_49"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_197"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.ENABLE_N] is not connected to net [ENABLE_N] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_205"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_49"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_198"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [C_VCP.pin1] is not connected to net [VCP] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_235"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_51"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_205"
+    },
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "message": "PCB trace .C_BUZZER > .pin1 to net.V3V3 overlaps with pcb_keepout \"unnamed keepout\" (accidental contact)",
+      "pcb_trace_id": "freerouted_trace_243_new_0",
+      "source_trace_id": "",
+      "pcb_trace_error_id": "overlap_freerouted_trace_243_new_0_pcb_keepout_2",
+      "pcb_component_ids": [],
+      "center": {
+        "x": 11.3897,
+        "y": -10.3
+      },
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_via_clearance_error",
+      "pcb_error_id": "same_net_vias_close_freerouted_via_88_independent_mcu_ep_ground",
+      "message": "Vias unnamed via and unnamed via are too close together (gap: -0.050mm)",
+      "error_type": "pcb_via_clearance_error",
+      "pcb_via_ids": [
+        "freerouted_via_88",
+        "independent_mcu_ep_ground"
+      ],
+      "minimum_clearance": 0.1,
+      "actual_clearance": -0.04999999999999982,
+      "pcb_center": {
+        "x": 5.300000000000001,
+        "y": 0.000127
+      }
+    },
+    {
+      "type": "pcb_trace_error",
+      "message": "Trace [.U_MCU > .GPIO10 to net.PD_GOOD] is missing a connection to SMD pad U_MCU.GPIO10",
+      "source_trace_id": "source_trace_63",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_id": "freerouted_trace_192_new_0",
+      "pcb_trace_error_id": "missing_connection_freerouted_trace_192_new_0_pcb_port_61",
+      "center": {
+        "x": -11.4718,
+        "y": 7.7
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": [
+        "pcb_port_61"
+      ]
+    },
+    {
+      "type": "pcb_trace_error",
+      "message": "Trace [.C_VREG_OUT > .pin1 to net.V1V1] is missing a connection to SMD pad C_VREG_OUT.pin1",
+      "source_trace_id": "source_trace_101",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_id": "freerouted_trace_341_new_0",
+      "pcb_trace_error_id": "missing_connection_freerouted_trace_341_new_0_pcb_port_128",
+      "center": {
+        "x": 4.9998,
+        "y": 3.4251
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": [
+        "pcb_port_128"
+      ]
+    },
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_error_id": "disconnected_endpoint_freerouted_trace_167_seed_0_start",
+      "message": "Trace [.U_PD > .CC1 to net.PD_CC1] has dangling endpoint at (-9.26, 2.94)",
+      "source_trace_id": "source_trace_30",
+      "pcb_trace_id": "freerouted_trace_167_seed_0",
+      "center": {
+        "x": -9.2618,
+        "y": 2.936
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_error_id": "disconnected_endpoint_freerouted_trace_248_seed_0_start",
+      "message": "Trace [.C_PD > .pin1 to net.PD_VDD] has dangling endpoint at (-14.29, 6.18)",
+      "source_trace_id": "source_trace_36",
+      "pcb_trace_id": "freerouted_trace_248_seed_0",
+      "center": {
+        "x": -14.2892,
+        "y": 6.1793
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_error_id": "disconnected_endpoint_supplier_repair_island_net1_9_seed_81_end",
+      "message": "Trace [.D_TVS > .pin2 to net.PD_VBUS] has dangling endpoint at (-16.60, 15.55)",
+      "source_trace_id": "source_trace_247",
+      "pcb_trace_id": "supplier_repair_island_net1_9_seed_81",
+      "center": {
+        "x": -16.6,
+        "y": 15.550000000000004
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": []
+    },
+    {
+      "type": "validation_error",
+      "message": "Duplicate circuit record IDs: pcb_via"
+    },
+    {
+      "type": "validation_error",
+      "message": "Actual saved outer-layer motor/PD routing policy failed: {\n  \"checksPassed\": false,\n  \"errors\": [\n    \"inside_phase_escape_A_PLUS_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_A_PLUS_seed_1: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_B_PLUS_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_A_MINUS_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_A_MINUS_seed_1: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_B_MINUS_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_phase_escape_B_MINUS_seed_1: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_power_escape_U_DRV_VBB1_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_power_escape_U_DRV_VBB1_seed_1: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_power_escape_U_DRV_VBB2_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"inside_power_escape_C_VM_pin1_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"outer_usb_power_pin_escape_VBUS1_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"outer_usb_power_pin_escape_VBUS2_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_0: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_1: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_2: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_3: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_4: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_5: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_6: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_7: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_9: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_10: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_11: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_12: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_13: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_14: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_15: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_16: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_20: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_21: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_22: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_23: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_24: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_25: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_26: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_27: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_28: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_29: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_30: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_31: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_32: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_33: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_34: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_35: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_36: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_37: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_38: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_39: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_40: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_41: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_42: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_43: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_44: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_45: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_46: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_47: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_48: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_49: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_50: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_51: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_52: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_53: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_54: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_55: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_56: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_57: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_58: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_59: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_60: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_61: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_62: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_63: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_64: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_65: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_66: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_67: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_68: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_69: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_70: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_71: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_72: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_73: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_74: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_75: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_76: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_77: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_78: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_79: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_80: width below 0.45 mm outside proven pin escape/resistor leaf\",\n    \"supplier_repair_island_net1_9_seed_81: width below 0.45 mm outside proven pin escape/resistor leaf\"\n  ],\n  \"nets\": [\n    {\n      \"net\": \"A_PLUS\",\n      \"wireLayers\": [\n        \"bottom\",\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.3,\n      \"mainBranchedLengthMm\": 10.055148566719438,\n      \"allBranchedLengthMm\": 10.055148566719438,\n      \"totalThroughVias\": 1,\n      \"viaIds\": [\n        \"inside_phase_via_A_PLUS\"\n      ],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"A_MINUS\",\n      \"wireLayers\": [\n        \"bottom\",\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.2,\n      \"mainBranchedLengthMm\": 9.182273356648698,\n      \"allBranchedLengthMm\": 9.182273356648698,\n      \"totalThroughVias\": 1,\n      \"viaIds\": [\n        \"inside_phase_via_A_MINUS\"\n      ],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"B_PLUS\",\n      \"wireLayers\": [\n        \"bottom\",\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.3,\n      \"mainBranchedLengthMm\": 16.30255881286598,\n      \"allBranchedLengthMm\": 16.30255881286598,\n      \"totalThroughVias\": 1,\n      \"viaIds\": [\n        \"inside_phase_via_B_PLUS\"\n      ],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"B_MINUS\",\n      \"wireLayers\": [\n        \"bottom\",\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.3,\n      \"mainBranchedLengthMm\": 18.885528385671048,\n      \"allBranchedLengthMm\": 18.885528385671048,\n      \"totalThroughVias\": 1,\n      \"viaIds\": [\n        \"inside_phase_via_B_MINUS\"\n      ],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"PD_VBUS\",\n      \"wireLayers\": [\n        \"bottom\",\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.16,\n      \"mainBranchedLengthMm\": 121.24591670394031,\n      \"allBranchedLengthMm\": 123.6215263693813,\n      \"totalThroughVias\": 11,\n      \"viaIds\": [\n        \"freerouted_via_4\",\n        \"freerouted_via_5\",\n        \"freerouted_via_6\",\n        \"inside_power_escape_U_DRV_VBB1_via\",\n        \"inside_power_escape_U_DRV_VBB2_via\",\n        \"inside_power_escape_C_VM_pin1_via\",\n        \"outer_usb_power_pin_escape_VBUS1_via\",\n        \"outer_native_escape_C_VM2_pin1_via\",\n        \"supplier_repair_island_net1_9_via0\",\n        \"supplier_repair_island_net1_9_via1\",\n        \"supplier_repair_island_net1_9x_via0\"\n      ],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"SENSE1\",\n      \"wireLayers\": [\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.3,\n      \"mainBranchedLengthMm\": 2.0989822674771688,\n      \"allBranchedLengthMm\": 2.0989822674771688,\n      \"totalThroughVias\": 0,\n      \"viaIds\": [],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    },\n    {\n      \"net\": \"SENSE2\",\n      \"wireLayers\": [\n        \"top\"\n      ],\n      \"mainMinimumWidthMm\": 0.3,\n      \"mainBranchedLengthMm\": 2.0979075809448866,\n      \"allBranchedLengthMm\": 2.0979075809448866,\n      \"totalThroughVias\": 0,\n      \"viaIds\": [],\n      \"notes\": \"Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted.\"\n    }\n  ]\n}\n"
+    }
+  ],
+  "warnings": [
+    {
+      "type": "source_component_pins_underspecified_warning",
+      "source_component_pins_underspecified_warning_id": "source_component_pins_underspecified_warning_source_component_76",
+      "warning_type": "source_component_pins_underspecified_warning",
+      "message": "All pins on Q_BUZZER are underspecified (no pinAttributes set)",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_35",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "Q_DATA has no pin with requires_power=true",
+      "source_component_id": "source_component_35",
+      "source_port_ids": [
+        "source_port_171",
+        "source_port_172",
+        "source_port_173"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_75",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "BZ_ALARM has no pin with requires_power=true",
+      "source_component_id": "source_component_75",
+      "source_port_ids": [
+        "source_port_296",
+        "source_port_297",
+        "source_port_298"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_76",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "Q_BUZZER has no pin with requires_power=true",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_ground_pin_defined_warning",
+      "source_no_ground_pin_defined_warning_id": "source_no_ground_pin_defined_warning_source_component_75",
+      "warning_type": "source_no_ground_pin_defined_warning",
+      "message": "BZ_ALARM has no pin with requires_ground=true",
+      "source_component_id": "source_component_75",
+      "source_port_ids": [
+        "source_port_296",
+        "source_port_297",
+        "source_port_298"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_ground_pin_defined_warning",
+      "source_no_ground_pin_defined_warning_id": "source_no_ground_pin_defined_warning_source_component_76",
+      "warning_type": "source_no_ground_pin_defined_warning",
+      "message": "Q_BUZZER has no pin with requires_ground=true",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "manufacturingRelease": false,
+  "releaseBlockers": [
+    "Manufacturer drawing specifies front mounting only; direct rear threads are unverified; separate front-mounted carrier requires sample fit.",
+    "Hardware has not been assembled or electrically tested.",
+    "Filled/capped exposed-pad vias and assembly process require fabricator acceptance.",
+    "A4988 accuracy at selected VREF is unspecified; measure phase current before qualification.",
+    "Footprint/rating and USB/PD bench validation remain required.",
+    "Passive monitor has a bounded below0.3V DC/stored-charge voltage at zero/partial VDD; high-frequency coupling, reset defaults, NPN levels and power handover still require prototype tests."
+  ]
+}

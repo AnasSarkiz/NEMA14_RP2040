@@ -15,7 +15,8 @@ const fill = new THREE.DirectionalLight(0xffffff, 1.8)
 fill.position.set(-80, 40, -80); scene.add(fill)
 const camera = new THREE.PerspectiveCamera(35, innerWidth / innerHeight, .1, 2000)
 const controls = new OrbitControls(camera, renderer.domElement)
-controls.enableDamping = true
+controls.enableDamping = false
+controls.addEventListener("change", () => renderer.render(scene, camera))
 let model
 const status = document.querySelector("#status")
 const views = {
@@ -32,7 +33,7 @@ function setView(name) {
   const extent = bb.getSize(new THREE.Vector3())
   const distance = Math.max(extent.x, extent.y, extent.z) * 2.15
   camera.position.copy(center).addScaledVector(views[name], distance / views[name].length())
-  camera.up.set(...(name === "top" ? [0,0,1] : [0,1,0]));camera.lookAt(center);controls.target.copy(center);controls.update()
+  camera.up.set(...(name === "top" ? [0,0,1] : [0,1,0]));camera.lookAt(center);controls.target.copy(center);controls.update();renderer.render(scene,camera)
 }
 for (const button of document.querySelectorAll("button[data-view]")) {
   button.onclick = () => setView(button.dataset.view)
@@ -55,6 +56,7 @@ new GLTFLoader().load("./installed-assembly.glb", (gltf) => {
   console.error(error)
 })
 window.onresize = () => {
-  camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight)
+  camera.aspect=innerWidth/innerHeight;camera.updateProjectionMatrix();renderer.setSize(innerWidth,innerHeight);renderer.render(scene,camera)
 }
-renderer.setAnimationLoop(() => { controls.update();renderer.render(scene,camera) })
+// Imported native CAD has thousands of meshes. Render only on view changes.
+renderer.render(scene,camera)

@@ -31175,7 +31175,8 @@ fill.position.set(-80, 40, -80);
 scene.add(fill);
 var camera = new PerspectiveCamera(35, innerWidth / innerHeight, 0.1, 2000);
 var controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
+controls.enableDamping = false;
+controls.addEventListener("change", () => renderer.render(scene, camera));
 var model;
 var status = document.querySelector("#status");
 var views = {
@@ -31197,6 +31198,7 @@ function setView(name) {
   camera.lookAt(center);
   controls.target.copy(center);
   controls.update();
+  renderer.render(scene, camera);
 }
 for (const button of document.querySelectorAll("button[data-view]")) {
   button.onclick = () => setView(button.dataset.view);
@@ -31226,8 +31228,6 @@ window.onresize = () => {
   camera.aspect = innerWidth / innerHeight;
   camera.updateProjectionMatrix();
   renderer.setSize(innerWidth, innerHeight);
-};
-renderer.setAnimationLoop(() => {
-  controls.update();
   renderer.render(scene, camera);
-});
+};
+renderer.render(scene, camera);

@@ -89,7 +89,7 @@ if(current>.4) unique.push({type:'validation_error',message:'Nominal phase curre
 const sourceComponents=json.filter((e:any)=>e.type==='source_component')
 const mcu=sourceComponents.find((e:any)=>e.name==='U_MCU')
 if(mcu?.manufacturer_part_number!=='RP2040') unique.push({type:'validation_error',message:'Expected RP2040 in this separate project.'})
-const expectedPins:Record<number,string>={1:'V3V3',8:'STEP',9:'DIR',10:'V3V3',11:'ENABLE_N',12:'SLEEP',13:'PD_GOOD',19:'GND',20:'XIN',21:'XOUT',22:'V3V3',23:'V1V1',24:'SWCLK',25:'SWDIO',26:'RUN',33:'V3V3',40:'VM_SENSE',41:'DATA_PRESENT',42:'V3V3',43:'V3V3',44:'V3V3',45:'V1V1',46:'MCU_DM',47:'MCU_DP',48:'V3V3',49:'V3V3',50:'V1V1',51:'QSPI_SD3',52:'QSPI_SCLK',53:'QSPI_SD0',54:'QSPI_SD2',55:'QSPI_SD1',56:'QSPI_SS',57:'GND'}
+const expectedPins:Record<number,string>={27:'TEMP_SDA',3:'TEMP_SCL',4:'BUZZER_PWM',5:'STATUS_N',6:'TEMP_ALERT_N',1:'V3V3',8:'STEP',9:'DIR',10:'V3V3',11:'ENABLE_N',12:'SLEEP',13:'PD_GOOD',19:'GND',20:'XIN',21:'XOUT',22:'V3V3',23:'V1V1',24:'SWCLK',25:'SWDIO',26:'RUN',33:'V3V3',40:'VM_SENSE',41:'DATA_PRESENT',42:'V3V3',43:'V3V3',44:'V3V3',45:'V1V1',46:'MCU_DM',47:'MCU_DP',48:'V3V3',49:'V3V3',50:'V1V1',51:'QSPI_SD3',52:'QSPI_SCLK',53:'QSPI_SD0',54:'QSPI_SD2',55:'QSPI_SD1',56:'QSPI_SS',57:'GND'}
 for(const [pin,netName] of Object.entries(expectedPins)) {
  const port=json.find((e:any)=>e.type==='source_port' && e.source_component_id===mcu?.source_component_id && e.pin_number===Number(pin))
  const net=json.find((e:any)=>e.type==='source_net' && e.name===netName)
@@ -112,6 +112,11 @@ const reviewedPhysicalPins:Record<string,Record<number,string>>={
  R_USB_SENSE_H:{1:'DATA_VBUS',2:'DATA_BASE'},R_USB_SENSE_L:{1:'V3V3',2:'DATA_PRESENT'},
  C_VM_SENSE:{1:'VM_SENSE',2:'GND'},
 }
+reviewedPhysicalPins.U_TEMP={1:'TEMP_SCL',2:'GND',3:'TEMP_ALERT_N',4:'GND',5:'V3V3',6:'TEMP_SDA'}
+reviewedPhysicalPins.Q_BUZZER={1:'BUZZER_GATE',2:'GND',3:'BUZZER_SINK'}
+reviewedPhysicalPins.BZ_ALARM={1:'V3V3',2:'BUZZER_SINK'}
+reviewedPhysicalPins.D_BUZZER={1:'V3V3',2:'BUZZER_SINK'}
+reviewedPhysicalPins.D_STATUS={1:'STATUS_N',2:'LED_ANODE'}
 reviewedPhysicalPins.U_BUCK={1:'V3V3',2:'LOGIC_IN',3:'LOGIC_IN',4:'GND',5:'BUCK_SW',6:'BUCK_BST'}
 for(const [reference,pins] of Object.entries(reviewedPhysicalPins)) {
  const component=json.find((e:any)=>e.type==='source_component' && e.name===reference)

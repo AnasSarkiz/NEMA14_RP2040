@@ -1,13 +1,13 @@
 {
-  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-  "actual_archive_sha256": "01cd456b0e39021b6f03a0ccec98b45e49988b6ef8ed81ed777a0b2aeaf90374",
-  "actual_F_Paste_sha256": "e3b8dad31f09b8c992c1814098673d5fc209081115b499f8c4ed6f4732c4b039",
+  "source_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+  "actual_archive_sha256": "18fdced636dbbb657cc64c6bffb7cf80aebe474be63a1691ff1282a615156b20",
+  "actual_F_Paste_sha256": "5854e0469371afc438572ebe6e80cb33e2923e15fe89800ef72925b13b304c79",
   "actual_drill_sha256": {
-    "drill-L1-L4.drl": "51c179cd93286c36e8a6354ec481063add787b1547d7e61c842a9af3b65db228",
-    "drill_npth.drl": "3390d99671f7038ab6e727eb0befff77a40c773f6b710c0741ca692b503bae31"
+    "drill-L1-L4.drl": "f26d30f13490d734db660479cda16141284559369bfc52ef3318bad37e4b8d72",
+    "drill_npth.drl": "4aed2acdca806e29ae94df54d0c2258e965a373336042ba8189a89c73f0e6379"
   },
   "status": "PASS",
-  "top_spanning_vias_checked": 115,
+  "top_spanning_vias_checked": 153,
   "filled_capped_EP_vias": [
     {
       "via_id": "independent_mcu_ep_ground",
@@ -26,26 +26,6 @@
         }
       ],
       "actual_paste_drill_overlap_mm2": 0.0051073982614121185,
-      "process": "filled and copper capped; supplier acceptance pending",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.0
-    },
-    {
-      "via_id": "freerouted_via_77",
-      "center_mm": [
-        -12.699872999999998,
-        5.7
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [
-        {
-          "ref": "U_PD",
-          "pad_id": "pcb_smtpad_34",
-          "hole_overlap_mm2": 0.04908245704582457,
-          "requires_filled_capped_EP_process": true
-        }
-      ],
-      "actual_paste_drill_overlap_mm2": 0.0,
       "process": "filled and copper capped; supplier acceptance pending",
       "minimum_drill_to_native_top_SMT_land_mm": 0.0
     },
@@ -153,6 +133,929 @@
   "ordinary_via_drill_paste_or_SMT_overlap_errors": [],
   "via_measurements": [
     {
+      "via_id": "diagnostics_d1c63192_via_1",
+      "center_mm": [
+        10.3736,
+        8.9732
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6277926999999988
+    },
+    {
+      "via_id": "diagnostics_d1c63192_via_2",
+      "center_mm": [
+        4.0415,
+        9.1815
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.4193403000000018
+    },
+    {
+      "via_id": "diagnostics_d1c63192_via_3",
+      "center_mm": [
+        2.9066,
+        6.2923
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5376029459255321
+    },
+    {
+      "via_id": "diagnostics_d1c63192_via_4",
+      "center_mm": [
+        -6.1097,
+        6.7835
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.7502750186356595
+    },
+    {
+      "via_id": "diagnostics_d1c63192_via_5",
+      "center_mm": [
+        -11.6459,
+        4.7757
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2810224999999988
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_1",
+      "center_mm": [
+        -8.845,
+        -10.8232
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2767949999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_2",
+      "center_mm": [
+        14.9438,
+        6.7075
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.418255186148277
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_3",
+      "center_mm": [
+        10.9866,
+        -0.6858
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5415979999999987
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_4",
+      "center_mm": [
+        -11.1212,
+        -3.7067
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 1.8077868682978862
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_5",
+      "center_mm": [
+        11.767,
+        -6.8003
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2920006999999991
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_6",
+      "center_mm": [
+        5.525,
+        11.8443
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.696835218841055
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_7",
+      "center_mm": [
+        8.5001,
+        11.4605
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.32092397406553336
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_8",
+      "center_mm": [
+        11.3738,
+        4.5394
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2823967999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_9",
+      "center_mm": [
+        -8.0395,
+        2.187
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5620026999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_10",
+      "center_mm": [
+        -11.7985,
+        7.7075
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.43336850000000027
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_11",
+      "center_mm": [
+        -15.5511,
+        2.936
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.36181261558420413
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_12",
+      "center_mm": [
+        2.9835,
+        7.0672
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3214980000000005
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_13",
+      "center_mm": [
+        -15.64,
+        8.4815
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.36681031351951365
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_14",
+      "center_mm": [
+        -15.3225,
+        0.7243
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2857025999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_15",
+      "center_mm": [
+        11.8159,
+        -8.971
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.34090069999999884
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_16",
+      "center_mm": [
+        -9.466,
+        0.7764
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.28295500000000007
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_17",
+      "center_mm": [
+        1.3428,
+        3.1174
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2923968823469632
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_18",
+      "center_mm": [
+        8.5142,
+        4.1511
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.36759439248968356
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_19",
+      "center_mm": [
+        -8.7067,
+        1.9787
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3537026999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_20",
+      "center_mm": [
+        2.0623,
+        3.5386
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3127562000000003
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_21",
+      "center_mm": [
+        10.9848,
+        -4.4732
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2901700500000004
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_22",
+      "center_mm": [
+        12.1715,
+        2.4857
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.7054343184800824
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_23",
+      "center_mm": [
+        12.2792,
+        -3.9616
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3366004
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_24",
+      "center_mm": [
+        13.2948,
+        -2.59
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2989742968688029
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_25",
+      "center_mm": [
+        12.3579,
+        -0.7677
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5853708840781001
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_26",
+      "center_mm": [
+        7.1656,
+        1.2741
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2906031000000002
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_27",
+      "center_mm": [
+        10.1468,
+        0.7516
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5581247999999981
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_28",
+      "center_mm": [
+        14.6821,
+        3.0165
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.600630401021636
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_29",
+      "center_mm": [
+        16.1817,
+        -1.7622
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2866979999999994
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_30",
+      "center_mm": [
+        11.759,
+        -7.5235
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.38399679999999853
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_31",
+      "center_mm": [
+        5.2798,
+        8.623
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.29689697737121973
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_32",
+      "center_mm": [
+        -1.0135,
+        -3.4889
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.29837717524414226
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_33",
+      "center_mm": [
+        7.7607,
+        -1.6783
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.31476479677218966
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_34",
+      "center_mm": [
+        14.7856,
+        -0.7348
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3193979999999996
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_35",
+      "center_mm": [
+        13.8665,
+        -3.9016
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6531168612901991
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_36",
+      "center_mm": [
+        7.2152,
+        0.0169
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3402031000000001
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_37",
+      "center_mm": [
+        13.9749,
+        -5.1652
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6501000000000001
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_38",
+      "center_mm": [
+        13.6709,
+        -6.0724
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.41389679999999984
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_39",
+      "center_mm": [
+        9.7273,
+        -6.7725
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.33229799999999976
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_40",
+      "center_mm": [
+        5.0349,
+        -9.1569
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2818902000000012
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_41",
+      "center_mm": [
+        1.546,
+        14.2323
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2889968000000001
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_42",
+      "center_mm": [
+        3.514,
+        -2.0169
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.36143891496321506
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_43",
+      "center_mm": [
+        8.0521,
+        -4.9459
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6569844999999992
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_44",
+      "center_mm": [
+        2.6123,
+        -0.2
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.28723049999999967
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_45",
+      "center_mm": [
+        3.0255,
+        -9.8506
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6505059008370406
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_46",
+      "center_mm": [
+        -1.0744,
+        1.8544
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.4091045168938543
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_47",
+      "center_mm": [
+        1.9982,
+        -3.332
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.37685620000000064
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_48",
+      "center_mm": [
+        -8.7266,
+        2.6798
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3452006999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_49",
+      "center_mm": [
+        15.8214,
+        3.5845
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3060531571715949
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_50",
+      "center_mm": [
+        12.9381,
+        9.1
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.28689999999999927
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_51",
+      "center_mm": [
+        -7.8268,
+        -3.0201
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2781979999999997
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_52",
+      "center_mm": [
+        -3.9773,
+        -5.4816
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3054628316635069
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_53",
+      "center_mm": [
+        -2.8087,
+        4.4068
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.48212939792045356
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_54",
+      "center_mm": [
+        -6.6926,
+        0.081
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2822970000000007
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_55",
+      "center_mm": [
+        -3.4073,
+        -2.2203
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.29379490000000036
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_56",
+      "center_mm": [
+        -3.325,
+        -12.4407
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.7500008999999999
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_57",
+      "center_mm": [
+        -5.5184,
+        -13.55
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2934008999999991
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_58",
+      "center_mm": [
+        -3.303,
+        8.1819
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 1.4316174234333658
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_59",
+      "center_mm": [
+        -9.2562,
+        -3.6068
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.30013736431495613
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_60",
+      "center_mm": [
+        -1.9886,
+        8.1
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 1.3635337
+    },
+    {
+      "via_id": "diagnostics_3c928318_via_61",
+      "center_mm": [
+        -1.4524,
+        11.498
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2784785999643804
+    },
+    {
+      "via_id": "freerouted_via_3",
+      "center_mm": [
+        -10.5667,
+        2.975
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.30000459999999984
+    },
+    {
+      "via_id": "freerouted_via_4",
+      "center_mm": [
+        -7.8,
+        8.3772
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3999543000000001
+    },
+    {
+      "via_id": "diagnostics_seed_via_-2.4538_1.6612",
+      "center_mm": [
+        -2.4538,
+        1.6612
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3046191742697695
+    },
+    {
+      "via_id": "freerouted_via_6",
+      "center_mm": [
+        -10.4709,
+        1.8019
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.37602469999999855
+    },
+    {
+      "via_id": "diagnostics_seed_via_-14.8882_3.8243",
+      "center_mm": [
+        -14.8882,
+        3.8243
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2900691190131073
+    },
+    {
       "via_id": "independent_freerouted_via_1",
       "center_mm": [
         7.06,
@@ -177,656 +1080,6 @@
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
       "minimum_drill_to_native_top_SMT_land_mm": 0.36722229327145106
-    },
-    {
-      "via_id": "independent_freerouted_via_3",
-      "center_mm": [
-        -6.9996,
-        4.4167
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.34458847535017517
-    },
-    {
-      "via_id": "independent_freerouted_via_4",
-      "center_mm": [
-        4.0992,
-        -2.0988
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.42393010000000014
-    },
-    {
-      "via_id": "independent_freerouted_via_5",
-      "center_mm": [
-        1.4141,
-        -4.0716
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.9005948999999999
-    },
-    {
-      "via_id": "independent_freerouted_via_6",
-      "center_mm": [
-        0.9317,
-        2.4917
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2934440782640847
-    },
-    {
-      "via_id": "independent_freerouted_via_7",
-      "center_mm": [
-        9.1618,
-        -14.3627
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2810983
-    },
-    {
-      "via_id": "independent_freerouted_via_8",
-      "center_mm": [
-        13.7366,
-        -8.5
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.8884000000000009
-    },
-    {
-      "via_id": "independent_freerouted_via_9",
-      "center_mm": [
-        2.6301,
-        4.8011
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3349845
-    },
-    {
-      "via_id": "independent_freerouted_via_10",
-      "center_mm": [
-        11.5737,
-        2.2816
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.8613968000000002
-    },
-    {
-      "via_id": "independent_freerouted_via_11",
-      "center_mm": [
-        -6.5719,
-        3.7081
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.30496610525791934
-    },
-    {
-      "via_id": "independent_freerouted_via_12",
-      "center_mm": [
-        3.8676,
-        8.413
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.1878403000000013
-    },
-    {
-      "via_id": "independent_freerouted_via_13",
-      "center_mm": [
-        9.1084,
-        7.5776
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.41339799999999904
-    },
-    {
-      "via_id": "independent_freerouted_via_14",
-      "center_mm": [
-        -5.0547,
-        -3.2647
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3094036812785664
-    },
-    {
-      "via_id": "independent_freerouted_via_15",
-      "center_mm": [
-        -6.185,
-        -13.8
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.28499960000000163
-    },
-    {
-      "via_id": "independent_freerouted_via_16",
-      "center_mm": [
-        -8.0976,
-        -8.5091
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.27744939999999835
-    },
-    {
-      "via_id": "independent_freerouted_via_17",
-      "center_mm": [
-        -1.1228,
-        8.1573
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.28219799999999995
-    },
-    {
-      "via_id": "independent_freerouted_via_18",
-      "center_mm": [
-        -5.0212,
-        5.4384
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3366004000000001
-    },
-    {
-      "via_id": "independent_freerouted_via_19",
-      "center_mm": [
-        2.0897,
-        3.4864
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2853562000000003
-    },
-    {
-      "via_id": "independent_freerouted_via_20",
-      "center_mm": [
-        14.1989,
-        3.3251
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.27989800000000015
-    },
-    {
-      "via_id": "independent_freerouted_via_21",
-      "center_mm": [
-        2.721,
-        2.5801
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.29547949137614793
-    },
-    {
-      "via_id": "independent_freerouted_via_22",
-      "center_mm": [
-        -4.5561,
-        3.2174
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.41892320000000005
-    },
-    {
-      "via_id": "independent_freerouted_via_23",
-      "center_mm": [
-        -5.8033,
-        4.3082
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2782700499999997
-    },
-    {
-      "via_id": "independent_freerouted_via_24",
-      "center_mm": [
-        2.042,
-        6.9329
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.7378980000000004
-    },
-    {
-      "via_id": "independent_freerouted_via_25",
-      "center_mm": [
-        3.8823,
-        2.5914
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2836574999999999
-    },
-    {
-      "via_id": "independent_freerouted_via_26",
-      "center_mm": [
-        4.548,
-        2.5112
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3638574999999999
-    },
-    {
-      "via_id": "independent_freerouted_via_27",
-      "center_mm": [
-        4.5306,
-        7.9409
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.174398
-    },
-    {
-      "via_id": "independent_freerouted_via_28",
-      "center_mm": [
-        8.7633,
-        -4.4511
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.7550983000000019
-    },
-    {
-      "via_id": "independent_freerouted_via_29",
-      "center_mm": [
-        5.2418,
-        2.5791
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2999562053421855
-    },
-    {
-      "via_id": "independent_freerouted_via_30",
-      "center_mm": [
-        5.2418,
-        6.9277
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.4631980000000002
-    },
-    {
-      "via_id": "independent_freerouted_via_31",
-      "center_mm": [
-        7.7819,
-        2.0111
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3023925040153822
-    },
-    {
-      "via_id": "independent_freerouted_via_32",
-      "center_mm": [
-        16.761,
-        2.7143
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3039968000000002
-    },
-    {
-      "via_id": "independent_freerouted_via_33",
-      "center_mm": [
-        5.5515,
-        16.7071
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 5.356002991184184
-    },
-    {
-      "via_id": "independent_freerouted_via_34",
-      "center_mm": [
-        9.6666,
-        1.1054
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.4916867990472101
-    },
-    {
-      "via_id": "independent_freerouted_via_35",
-      "center_mm": [
-        0.4741,
-        1.795
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.7509585000000001
-    },
-    {
-      "via_id": "independent_freerouted_via_36",
-      "center_mm": [
-        7.4622,
-        -1.112
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5872030999999999
-    },
-    {
-      "via_id": "independent_freerouted_via_37",
-      "center_mm": [
-        16.0098,
-        -3.0855
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.4894999999999996
-    },
-    {
-      "via_id": "independent_freerouted_via_38",
-      "center_mm": [
-        8.8048,
-        -3.7866
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.713598300000001
-    },
-    {
-      "via_id": "independent_freerouted_via_39",
-      "center_mm": [
-        12.9001,
-        -5.4775
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.9900791935361295
-    },
-    {
-      "via_id": "independent_freerouted_via_40",
-      "center_mm": [
-        14.29,
-        -5.5458
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.33500000000000085
-    },
-    {
-      "via_id": "independent_freerouted_via_41",
-      "center_mm": [
-        6.6287,
-        -2.4525
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.42255749999999986
-    },
-    {
-      "via_id": "independent_freerouted_via_42",
-      "center_mm": [
-        5.8,
-        -2.5097
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3653575
-    },
-    {
-      "via_id": "independent_freerouted_via_43",
-      "center_mm": [
-        8.2641,
-        -6.9089
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3390273999999991
-    },
-    {
-      "via_id": "independent_freerouted_via_44",
-      "center_mm": [
-        2.6023,
-        -1.6907
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2773375374824399
-    },
-    {
-      "via_id": "independent_freerouted_via_45",
-      "center_mm": [
-        0.0847,
-        -12.4423
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5465598824688224
-    },
-    {
-      "via_id": "independent_freerouted_via_46",
-      "center_mm": [
-        -0.1185,
-        12.2093
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.30198954119931004
-    },
-    {
-      "via_id": "independent_freerouted_via_47",
-      "center_mm": [
-        2.8388,
-        -0.5985
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5137304999999999
-    },
-    {
-      "via_id": "independent_freerouted_via_48",
-      "center_mm": [
-        4.0932,
-        -9.1528
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.29169920763643153
-    },
-    {
-      "via_id": "independent_freerouted_via_49",
-      "center_mm": [
-        3.2296,
-        1.0085
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.29540310000000014
-    },
-    {
-      "via_id": "independent_freerouted_via_50",
-      "center_mm": [
-        2.831,
-        -9.8506
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.45600590119406315
-    },
-    {
-      "via_id": "independent_freerouted_via_51",
-      "center_mm": [
-        -3.8387,
-        -2.369
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.4113342000000002
-    },
-    {
-      "via_id": "independent_freerouted_via_52",
-      "center_mm": [
-        11.1694,
-        -8.14
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5350231999999996
     },
     {
       "via_id": "independent_mcu_ep_ground",
@@ -859,7 +1112,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.8429967999999995
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3172051069390915
     },
     {
       "via_id": "freerouted_via_7",
@@ -872,20 +1125,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.3890469811506627
-    },
-    {
-      "via_id": "freerouted_via_9",
-      "center_mm": [
-        -9.2618,
-        2.936
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3390046
+      "minimum_drill_to_native_top_SMT_land_mm": 1.305531542850303
     },
     {
       "via_id": "freerouted_via_11",
@@ -898,46 +1138,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.296680499999999
-    },
-    {
-      "via_id": "freerouted_via_23",
-      "center_mm": [
-        11.8847,
-        -6
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2846945999999999
-    },
-    {
-      "via_id": "freerouted_via_24",
-      "center_mm": [
-        10.5278,
-        3.6466
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2905983000000009
-    },
-    {
-      "via_id": "freerouted_via_27",
-      "center_mm": [
-        -14.2892,
-        6.1793
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.41432910000000156
+      "minimum_drill_to_native_top_SMT_land_mm": 0.37819430000000054
     },
     {
       "via_id": "freerouted_via_28",
@@ -951,52 +1152,6 @@
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
       "minimum_drill_to_native_top_SMT_land_mm": 0.29679680000000014
-    },
-    {
-      "via_id": "freerouted_via_71",
-      "center_mm": [
-        15.0343,
-        4.6838
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.28879799999999983
-    },
-    {
-      "via_id": "freerouted_via_72",
-      "center_mm": [
-        15.0343,
-        -0.2043
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5392247999999995
-    },
-    {
-      "via_id": "freerouted_via_77",
-      "center_mm": [
-        -12.699872999999998,
-        5.7
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [
-        {
-          "ref": "U_PD",
-          "pad_id": "pcb_smtpad_34",
-          "hole_overlap_mm2": 0.04908245704582457,
-          "requires_filled_capped_EP_process": true
-        }
-      ],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "filled and copper capped; supplier acceptance pending",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.0
     },
     {
       "via_id": "freerouted_via_78",
@@ -1058,19 +1213,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.3179968000000013
     },
     {
-      "via_id": "supplier_repair_island_net34_0_via0",
-      "center_mm": [
-        15.675000000000004,
-        4.875
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.34339829999999955
-    },
-    {
       "via_id": "supplier_repair_island_net3_1_via0",
       "center_mm": [
         -8.625,
@@ -1097,71 +1239,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.4796251325280354
     },
     {
-      "via_id": "supplier_repair_island_net4_1_via0",
-      "center_mm": [
-        12.450000000000003,
-        7.325000000000003
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.46011214489939917
-    },
-    {
-      "via_id": "supplier_repair_island_net4_1_via1",
-      "center_mm": [
-        9.100000000000001,
-        11.450000000000003
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2990353000000035
-    },
-    {
-      "via_id": "supplier_repair_island_net4_2_via0",
-      "center_mm": [
-        4.900000000000002,
-        11.450000000000003
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2991877367047848
-    },
-    {
-      "via_id": "supplier_repair_island_net34_1_via0",
-      "center_mm": [
-        14.475000000000001,
-        7.400000000000002
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3061185421743224
-    },
-    {
-      "via_id": "supplier_repair_island_net0_11_via0",
-      "center_mm": [
-        2.7117,
-        6.5135
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.2089856451621908
-    },
-    {
       "via_id": "supplier_repair_island_net0_18_via0",
       "center_mm": [
         14.350000000000001,
@@ -1173,32 +1250,6 @@
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
       "minimum_drill_to_native_top_SMT_land_mm": 0.30220781907255123
-    },
-    {
-      "via_id": "supplier_repair_island_net0_18_via1",
-      "center_mm": [
-        12.5,
-        -4.649999999999999
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.43106603468281457
-    },
-    {
-      "via_id": "supplier_repair_island_net0_21_via0",
-      "center_mm": [
-        13.75,
-        -2.7749999999999986
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.5179967999999988
     },
     {
       "via_id": "supplier_repair_island_net0_22_via1",
@@ -1245,19 +1296,6 @@
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
       "minimum_drill_to_native_top_SMT_land_mm": 1.3490734
-    },
-    {
-      "via_id": "service_qspi_return_stitch",
-      "center_mm": [
-        -1,
-        9.425
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.8424530229767939
     },
     {
       "via_id": "inside_phase_via_A_PLUS",
@@ -1312,32 +1350,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.28372819999999965
     },
     {
-      "via_id": "supplier_repair_island_net48_0_via0",
-      "center_mm": [
-        -3.3999999999999986,
-        -12.55
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.675000900455586
-    },
-    {
-      "via_id": "supplier_repair_island_net48_0_via1",
-      "center_mm": [
-        -5.524999999999999,
-        -13.55
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3000008999999979
-    },
-    {
       "via_id": "inside_power_escape_U_DRV_VBB1_via",
       "center_mm": [
         2.55,
@@ -1348,7 +1360,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 1.2013216212809192
+      "minimum_drill_to_native_top_SMT_land_mm": 0.8641736042755358
     },
     {
       "via_id": "inside_power_escape_U_DRV_VBB2_via",
@@ -1377,45 +1389,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.12497680000000067
     },
     {
-      "via_id": "supplier_repair_island_net35_1_via0",
-      "center_mm": [
-        6.050000000000001,
-        -7.299999999999999
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3051885237536124
-    },
-    {
-      "via_id": "supplier_repair_island_net35_1_via1",
-      "center_mm": [
-        8.325000000000003,
-        -8.475
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3019432071369421
-    },
-    {
-      "via_id": "supplier_repair_island_net0_26xx_via0",
-      "center_mm": [
-        -3.25,
-        0.1750000000000007
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.3179968000000006
-    },
-    {
       "via_id": "outer_usb_power_pin_escape_VBUS1_via",
       "center_mm": [
         -9.4001603,
@@ -1429,19 +1402,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.47501400000000155
     },
     {
-      "via_id": "outer_pd_remote_bridge_via",
-      "center_mm": [
-        -10.200016,
-        1.7999999999999998
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.6469086999999991
-    },
-    {
       "via_id": "outer_native_escape_C_VM2_pin1_via",
       "center_mm": [
         10.1,
@@ -1452,20 +1412,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.32911335299358213
-    },
-    {
-      "via_id": "supplier_repair_island_net1_8_via0",
-      "center_mm": [
-        -2.5749999999999993,
-        0.5500000000000007
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.696442624365326
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5249767999999992
     },
     {
       "via_id": "supplier_repair_island_net1_9_via0",
@@ -1479,19 +1426,6 @@
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
       "minimum_drill_to_native_top_SMT_land_mm": 2.3952314574078875
-    },
-    {
-      "via_id": "supplier_repair_island_net1_9_via1",
-      "center_mm": [
-        -16.6,
-        15.550000000000004
-      ],
-      "outer_diameter_mm": 0.5,
-      "hole_diameter_mm": 0.25,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.29299679999999384
     },
     {
       "via_id": "supplier_repair_island_net2_0_via0",
@@ -1557,7 +1491,7 @@
       "native_SMT_pad_overlaps": [],
       "actual_paste_drill_overlap_mm2": 0.0,
       "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 2.050134179806414
+      "minimum_drill_to_native_top_SMT_land_mm": 1.246556999747604
     },
     {
       "via_id": "supplier_repair_island_net0_25x_via0",
@@ -1613,59 +1547,6 @@
       "minimum_drill_to_native_top_SMT_land_mm": 0.0
     },
     {
-      "via_id": "independent_CP2_driver_via",
-      "center_mm": [
-        -3.84,
-        -9.350253
-      ],
-      "outer_diameter_mm": 0.4,
-      "hole_diameter_mm": 0.2,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.09000589999999997,
-      "required_off_pad_process": "IPC4761 TypeVI nonconductive resin fill and mask cover, both faces; copper cap not required; supplier capability/inspection pending"
-    },
-    {
-      "via_id": "independent_CP2_cap_via",
-      "center_mm": [
-        -5.4,
-        -10.600024
-      ],
-      "outer_diameter_mm": 0.4,
-      "hole_diameter_mm": 0.2,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.20000090000000004
-    },
-    {
-      "via_id": "independent_enable_left",
-      "center_mm": [
-        -5.3328,
-        -6.95
-      ],
-      "outer_diameter_mm": 0.4,
-      "hole_diameter_mm": 0.2,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.2671534000000007
-    },
-    {
-      "via_id": "independent_enable_right",
-      "center_mm": [
-        -4.01,
-        -8.37
-      ],
-      "outer_diameter_mm": 0.4,
-      "hole_diameter_mm": 0.2,
-      "native_SMT_pad_overlaps": [],
-      "actual_paste_drill_overlap_mm2": 0.0,
-      "process": "ordinary plated via",
-      "minimum_drill_to_native_top_SMT_land_mm": 0.26043996268458514
-    },
-    {
       "via_id": "independent_ADC_ground_via",
       "center_mm": [
         9.75,
@@ -1697,6 +1578,593 @@
       "actual_paste_drill_overlap_mm2": 0.04908245704582459,
       "process": "filled and copper capped; supplier acceptance pending",
       "minimum_drill_to_native_top_SMT_land_mm": 0.0
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_6_via",
+      "center_mm": [
+        0.925,
+        0.325
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2974709247855672
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_9_via",
+      "center_mm": [
+        1.1,
+        -0.55
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.15005849999999987
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_10_via",
+      "center_mm": [
+        0.9,
+        -1.2
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.12999800000000006
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_13_via",
+      "center_mm": [
+        1.05,
+        -2.2
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.20005849999999994
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_52_via",
+      "center_mm": [
+        4.200002,
+        4.15
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.19993150000000037
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_53_via",
+      "center_mm": [
+        3.875,
+        2.1
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.44987609999999995
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_54_via",
+      "center_mm": [
+        3.3999,
+        2.75
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.15005749999999995
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_55_via",
+      "center_mm": [
+        2.925,
+        2.1
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6249305003595915
+    },
+    {
+      "via_id": "diagnostics_manual_U_DRV_2_via",
+      "center_mm": [
+        -4.01,
+        -8.37
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.26043996268458514
+    },
+    {
+      "via_id": "diagnostics_manual_C_BUZZER_1_via",
+      "center_mm": [
+        -1.65,
+        10.500002
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3749949999999998
+    },
+    {
+      "via_id": "diagnostics_manual_C_USB_1_via",
+      "center_mm": [
+        5.9,
+        6.25
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.30474902732408393
+    },
+    {
+      "via_id": "diagnostics_manual_C_VREG_IN_1_via",
+      "center_mm": [
+        9.2,
+        7.3
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5338953285013502
+    },
+    {
+      "via_id": "diagnostics_manual_C_FLASH_1_via",
+      "center_mm": [
+        14.3,
+        -3.45
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3798845000000002
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_27_via",
+      "center_mm": [
+        7.399894,
+        -4.25
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.29993149999999996
+    },
+    {
+      "via_id": "diagnostics_manual_U_DRV_19_via",
+      "center_mm": [
+        2.57,
+        -8.349493
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.22000589999999942
+    },
+    {
+      "via_id": "diagnostics_manual_U_DRV_5_via",
+      "center_mm": [
+        -3.85,
+        -9.350253
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.1000059000000002,
+      "required_off_pad_process": "IPC4761 TypeVI nonconductive resin fill and mask cover, both faces; copper cap not required; supplier capability/inspection pending"
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_20_via",
+      "center_mm": [
+        4.600052,
+        -4.23
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.27993150000000044
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_24_via",
+      "center_mm": [
+        6.199998,
+        -4.25
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.27999800000000086
+    },
+    {
+      "via_id": "diagnostics_manual_R_VM_H_2_via",
+      "center_mm": [
+        -0.1,
+        16.6
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.26799680000000003
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_22_via",
+      "center_mm": [
+        5.65,
+        -2.5
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.40254596352738625
+    },
+    {
+      "via_id": "diagnostics_manual_C_IO22_1_via",
+      "center_mm": [
+        3.5,
+        -4.6
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.43073638195843755
+    },
+    {
+      "via_id": "diagnostics_manual_C_DRV_LOGIC_1_via",
+      "center_mm": [
+        3.079884,
+        -12.3
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3799980000000005
+    },
+    {
+      "via_id": "diagnostics_manual_J_DEBUG_1_via",
+      "center_mm": [
+        14.2,
+        -8.5
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.450000000000001
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_45_via",
+      "center_mm": [
+        6.999844,
+        2.3
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.6000575000000001
+    },
+    {
+      "via_id": "diagnostics_manual_C_DV50_1_via",
+      "center_mm": [
+        3.4,
+        4.879884
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.42999800000000027
+    },
+    {
+      "via_id": "diagnostics_manual_C_DV23_1_via",
+      "center_mm": [
+        6.179884,
+        -5.5
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.22999800000000015
+    },
+    {
+      "via_id": "diagnostics_manual_C_VREG_OUT_1_via",
+      "center_mm": [
+        6.725,
+        6.979884
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.10499800000000103,
+      "required_off_pad_process": "IPC4761 TypeVI nonconductive resin fill and mask cover, both faces; copper cap not required; supplier capability/inspection pending"
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_21_via",
+      "center_mm": [
+        4.999848,
+        -2.4
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5000575
+    },
+    {
+      "via_id": "diagnostics_manual_D_DATA_1_via",
+      "center_mm": [
+        11,
+        -7.6
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.44746499999999934
+    },
+    {
+      "via_id": "diagnostics_manual_U_BUCK_3_via",
+      "center_mm": [
+        -6.54996,
+        -3.5
+      ],
+      "outer_diameter_mm": 0.5,
+      "hole_diameter_mm": 0.25,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5248970999999996
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_40_via",
+      "center_mm": [
+        9.45,
+        1.65
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.30316752432728566
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_41_via",
+      "center_mm": [
+        9.4,
+        2.200021
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2500585000000015
+    },
+    {
+      "via_id": "diagnostics_manual_Q_DATA_3_via",
+      "center_mm": [
+        12.5,
+        0.9
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5000748000000003
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_12_via",
+      "center_mm": [
+        -0.5,
+        -1.45
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.38373439999999975
+    },
+    {
+      "via_id": "diagnostics_manual_U_DRV_14_via",
+      "center_mm": [
+        -0.1,
+        -12.3
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.4077424406936243
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_5_via",
+      "center_mm": [
+        2.65,
+        1.000025
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3499304999999997
+    },
+    {
+      "via_id": "diagnostics_manual_D_STATUS_1_via",
+      "center_mm": [
+        -16.4489952,
+        8.4
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3000046000000003
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_3_via",
+      "center_mm": [
+        0.85,
+        1.95
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.4025550448360736
+    },
+    {
+      "via_id": "diagnostics_manual_U_TEMP_1_via",
+      "center_mm": [
+        -1.5500142,
+        -0.6
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.5500012999999999
+    },
+    {
+      "via_id": "diagnostics_manual_R_TEMP_SCL_2_via",
+      "center_mm": [
+        3.0082,
+        7.932816
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.3217980000000002
+    },
+    {
+      "via_id": "diagnostics_manual_U_FLASH_2_via",
+      "center_mm": [
+        11.6,
+        -5.7
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.31205174624977616
+    },
+    {
+      "via_id": "diagnostics_manual_U_MCU_4_via",
+      "center_mm": [
+        3.2,
+        1.45
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.35000309999999984
+    },
+    {
+      "via_id": "diagnostics_manual_R_BUZZER_GATE_1_via",
+      "center_mm": [
+        -8.4,
+        -3.65
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.2798844999999996
+    },
+    {
+      "via_id": "diagnostics_manual_R_REF_H_1_via",
+      "center_mm": [
+        8.8,
+        -12.9
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.15012629999999838
+    },
+    {
+      "via_id": "diagnostics_manual_C_REF_2_via",
+      "center_mm": [
+        10.05,
+        -15.6
+      ],
+      "outer_diameter_mm": 0.4,
+      "hole_diameter_mm": 0.2,
+      "native_SMT_pad_overlaps": [],
+      "actual_paste_drill_overlap_mm2": 0.0,
+      "process": "ordinary plated via",
+      "minimum_drill_to_native_top_SMT_land_mm": 0.24997680000000064
     }
   ],
   "scope": "Actual independently parsed stencil; native via drills reconciled against actual Excellon by the bound CAM audit. No physical filling/capping or reflow qualification is claimed."

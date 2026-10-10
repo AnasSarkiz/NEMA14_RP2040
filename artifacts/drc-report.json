@@ -1,8 +1,8 @@
 {
-  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-  "date": "2026-10-10T10:42:39.612Z",
+  "source_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+  "date": "2026-10-10T23:38:01.513Z",
   "tool": "@tscircuit/checks",
-  "traceCount": 536,
+  "traceCount": 695,
   "currentLimitAmps": 0.2387152777777778,
   "componentOnlyCurrentFormulaHighAmps": 0.26897917779501784,
   "driverCurrentAccuracyAtSelectedReferenceIsUnspecified": true,
@@ -11,6 +11,19 @@
   "enabledMotorAdcScaleNominal": 223.76595744680853,
   "errors": [],
   "warnings": [
+    {
+      "type": "source_component_pins_underspecified_warning",
+      "source_component_pins_underspecified_warning_id": "source_component_pins_underspecified_warning_source_component_76",
+      "warning_type": "source_component_pins_underspecified_warning",
+      "message": "All pins on Q_BUZZER are underspecified (no pinAttributes set)",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
     {
       "type": "source_no_power_pin_defined_warning",
       "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_35",
@@ -21,6 +34,58 @@
         "source_port_171",
         "source_port_172",
         "source_port_173"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_75",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "BZ_ALARM has no pin with requires_power=true",
+      "source_component_id": "source_component_75",
+      "source_port_ids": [
+        "source_port_296",
+        "source_port_297",
+        "source_port_298"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "source_no_power_pin_defined_warning_id": "source_no_power_pin_defined_warning_source_component_76",
+      "warning_type": "source_no_power_pin_defined_warning",
+      "message": "Q_BUZZER has no pin with requires_power=true",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_ground_pin_defined_warning",
+      "source_no_ground_pin_defined_warning_id": "source_no_ground_pin_defined_warning_source_component_75",
+      "warning_type": "source_no_ground_pin_defined_warning",
+      "message": "BZ_ALARM has no pin with requires_ground=true",
+      "source_component_id": "source_component_75",
+      "source_port_ids": [
+        "source_port_296",
+        "source_port_297",
+        "source_port_298"
+      ],
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "source_no_ground_pin_defined_warning",
+      "source_no_ground_pin_defined_warning_id": "source_no_ground_pin_defined_warning_source_component_76",
+      "warning_type": "source_no_ground_pin_defined_warning",
+      "message": "Q_BUZZER has no pin with requires_ground=true",
+      "source_component_id": "source_component_76",
+      "source_port_ids": [
+        "source_port_299",
+        "source_port_300",
+        "source_port_301"
       ],
       "subcircuit_id": "subcircuit_source_group_0"
     }

@@ -6,6 +6,18 @@
 <GenericSchematicBoxTooWide message="Shrink schematic box width" componentName="Q_DATA" currentSchWidth="3.4" measuredInnerLabelHorizontalEmptySpace="1.68" maxAllowedInnerLabelHorizontalEmptySpace="1" suggestedSchWidth="2.72" />
 </SchematicPlacementIssues>
 </SchematicSheet>
+<SchematicSheet name="Status, Temperature &amp; Audible Alarm" id="schematic_sheet_4">
+<SchematicBoxPositions>
+<SchematicBoxPlacement componentName="U_TEMP" positionAnchor="center" schX="1.8" schY="4.5" width="2.8" height="1.9" />
+<SchematicBoxPlacement componentName="BZ_ALARM" positionAnchor="center" schX="10" schY="-4.6" width="2.8" height="1.5" />
+<SchematicBoxPlacement componentName="Q_BUZZER" positionAnchor="center" schX="3" schY="-4.6" width="2.8" height="1.5" />
+</SchematicBoxPositions>
+<SchematicPlacementIssues>
+<GenericSchematicBoxTooWide message="Shrink schematic box width" componentName="U_TEMP" currentSchWidth="2.8" measuredInnerLabelHorizontalEmptySpace="1.65" maxAllowedInnerLabelHorizontalEmptySpace="1" suggestedSchWidth="2.15" />
+<GenericSchematicBoxTooWide message="Shrink schematic box width" componentName="BZ_ALARM" currentSchWidth="2.8" measuredInnerLabelHorizontalEmptySpace="2.03" maxAllowedInnerLabelHorizontalEmptySpace="1" suggestedSchWidth="1.77" />
+<GenericSchematicBoxTooWide message="Shrink schematic box width" componentName="Q_BUZZER" currentSchWidth="2.8" measuredInnerLabelHorizontalEmptySpace="2.41" maxAllowedInnerLabelHorizontalEmptySpace="1" suggestedSchWidth="1.39" />
+</SchematicPlacementIssues>
+</SchematicSheet>
 <SchematicSheet name="USB-C PD &amp; Logic Power" id="schematic_sheet_0">
 <SchematicBoxPositions>
 <SchematicBoxPlacement componentName="C_BUCK_OUT1" positionAnchor="center" schX="9.6" schY="-3.1" width="0.65" height="0.6" />

@@ -17,22 +17,30 @@
   ],
   [
     "U_BUCK - AP63203WU-7",
-    "Efficient 3.3 V supply for MCU and logic.\nDiode OR accepts USB data power or PD.\nInductor and capacitors smooth switching."
+    "AP63203 supplies 3.3 V logic and buzzer pulses.\n4.7 uH Bourns, 10 uF/50 V input, 3x22 uF outputs.\nRipple, startup, biased capacitance and thermal tests pending."
   ],
   [
     "U_DRV - A4988",
-    "Fixed 1/16 steps; 10k enable/sleep defaults.\n3.9k/1k REF divider, 0.24 ohm sense resistors:\n0.351 A nominal; measure peak phase current."
+    "Fixed 1/16 microsteps; enable/sleep defaults off.\n6.2k/1k REF and 0.24 ohm shunts: 0.239 A nominal.\nCalibrate actual phase peaks to <=0.25 A."
   ],
   [
     "U_ESD - USBLC6-2SC6",
     "Clamps ESD on USB D+ and D- at the data port.\nVBUS pin references the protection diodes."
   ],
   [
-    "U_VM_ISO - SN74CBTLV1G125",
-    "Isolates VM ADC when logic power is off.\n10k OE pull-up defaults off; MCU gates ON.\nBus/21 when ON; wait 0.5 ms then sample."
-  ],
-  [
     "Q_DATA - MMBT3904-7-F",
     "Detects host 5 V without direct GPIO feed.\n10k base feed and 10k 3.3 V collector pull.\nDATA_PRESENT LOW means host attached."
+  ],
+  [
+    "D_STATUS - green LED",
+    "1k series resistor; active-low MCU status indication."
+  ],
+  [
+    "U_TEMP - TMP102",
+    "Local PCB temperature, I2C address 0x48.\n5.1k bus pull-ups, 10k ALERT pull-up and 100nF bypass.\nNot a motor winding or driver junction measurement."
+  ],
+  [
+    "BZ_ALARM / Q_BUZZER",
+    "MLT-5020 driven at 4 kHz, 50% PWM through AO3400A.\n100R gate, 100k pull-down, flyback diode, 22uF bypass.\nDefault off; PD-only short bursts, firmware required."
   ]
 ]

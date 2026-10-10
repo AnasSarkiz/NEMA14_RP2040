@@ -14,6 +14,7 @@ export function prepareSchematic(json:any[]) {
  const nets=new Map<string,any>(json.filter(e=>e.type==='source_net').map(e=>[e.subcircuit_connectivity_map_key,e]))
  const byName=new Map<string,any>(json.filter(e=>e.type==='schematic_component').map(e=>[source.get(e.source_component_id).name,e]))
  const isRp=source.get(byName.get('U_MCU').source_component_id).manufacturer_part_number==='RP2040'
+ const hasBuck=byName.has('U_BUCK')
  const design=isRp?'NEMA14 RP2040':'NEMA14 CH32X035G8U6'
  const pinGroups=new Map<string,any[]>()
  for(const p of sourcePorts.values())if(p.subcircuit_connectivity_map_key)pinGroups.set(p.subcircuit_connectivity_map_key,[...(pinGroups.get(p.subcircuit_connectivity_map_key)??[]),p])
@@ -21,7 +22,7 @@ export function prepareSchematic(json:any[]) {
  const pages:Page[]=[{name:'USB-C PD & Logic Power',sections:[
   {title:'15 V USB-C PD negotiation',bounds:[-15,2,1.0,8.8],parts:{J_PD:[-12.1,5.4],U_PD:[-4.2,5.4],R_PD:[-.8,7],C_PD:[-.8,4.8],R_PG:[1,2.7]},note:[-14.8,.2,'U_PD / CH224K requests 15 V (CFG1=0, CFG2=CFG3=1).\nOpen-drain PG is active low. DP/DM short: PD-only mode.\nR_PD + C_PD supply/filter the negotiation IC.']},
   {title:'USB / PD diode OR',bounds:[2.6,15,3.2,8.8],parts:{D_PD:[7,6.8],D_DATA:[7,4.7]},note:[3,3.4,'Schottky diodes accept either supply and block crossfeed.']},
-  isRp?{title:'3.3 V buck supply',bounds:[2.6,15,-5.6,2.5],parts:{U_BUCK:[6,-.3],L_BUCK:[11,-.3],C_BOOTSTRAP:[9,1.2],C_BUCK_IN:[3.9,-3.1],C_BUCK_OUT1:[9.6,-3.1],C_BUCK_OUT2:[11.4,-3.1],C_BUCK_OUT3:[13.2,-3.1]},banks:[['C_BUCK_OUT1','C_BUCK_OUT2','C_BUCK_OUT3']],note:[3,-6.1,'U_BUCK / AP63203 converts LOGIC_IN to 3.3 V.\n4.7 uH L_BUCK and output capacitors filter the switching node.\nC_BOOTSTRAP supports the high-side gate driver.']}:
+  hasBuck?{title:'3.3 V buck supply',bounds:[2.6,15,-5.6,2.5],parts:{U_BUCK:[6,-.3],L_BUCK:[11,-.3],C_BOOTSTRAP:[9,1.2],C_BUCK_IN:[3.9,-3.1],C_BUCK_OUT1:[9.6,-3.1],C_BUCK_OUT2:[11.4,-3.1],C_BUCK_OUT3:[13.2,-3.1]},banks:[['C_BUCK_OUT1','C_BUCK_OUT2','C_BUCK_OUT3']],note:[3,-6.1,'U_BUCK / AP63203 converts LOGIC_IN to 3.3 V.\n4.7 uH L_BUCK and output capacitors filter the switching node.\nC_BOOTSTRAP supports the high-side gate driver.']}:
   {title:'3.3 V logic regulator',bounds:[2.6,15,-4.7,2.5],parts:{U_LDO:[8,-.2],C_LDO_IN:[3.8,-2.9],C_LDO_OUT:[12,-2.9]},note:[3,-5.4,'U_LDO / HT7533-1 supplies the low-current CH32 logic.\n30 V operating input, 33 V absolute maximum.\nInput spikes and mounted thermal margins remain bench gates.']}
  ]},{name:isRp?'RP2040 & USB Control':'CH32 & USB Control',sections:[
   {title:isRp?'Application MCU / physical pin map':'Application MCU & local bypass',bounds:[-15,-5.7,isRp?-7.4:-7.4,8.8],parts:{U_MCU:[-10.1,isRp?.4:2.3],...(isRp?{}:{C_MCU:[-12.3,-3.2],C_LOGIC:[-10.7,-3.2]})},banks:isRp?[]:[['C_MCU','C_LOGIC']],note:[-14.8,-8.1,isRp?'U_MCU / RP2040 generates STEP/DIR and reads power status.\nInternal regulator: 1.1 V core. Flash/clock/bypass: next sheet.': 'U_MCU / CH32X035 controls USB and STEP/DIR.\nInternal clock avoids an external crystal.']},
@@ -40,6 +41,11 @@ export function prepareSchematic(json:any[]) {
   {title:'Current reference & safe defaults',bounds:[3.2,15,.1,8.8],parts:{R_REF_H:[5.2,6.2],R_REF_L:[5.2,3.7],C_REF:[8.2,3.7],R_ENABLE:[11,6.2],R_SLEEP:[14,6.2],C_DRV_LOGIC:[12.1,2.1]},note:[3.4,.5,'6.2k / 1k VREF and 0.24 ohm shunts: 0.239 A nominal.\nENABLE pull-up / SLEEP pull-down keep the driver off.' ]},
   {title:'Charge pump, motor decoupling & clamp',bounds:[-15,.1,-7.0,-1.8],parts:{C_CP:[-13,-3.6],C_VCP:[-9.9,-3.6],C_VREG:[-6.7,-3.6],C_VM:[-13,-6],C_VM2:[-11.4,-6],C_BULK:[-9.6,-6],D_TVS:[-2.3,-4.8]},banks:[['C_VM','C_VM2','C_BULK']],note:[-14.8,-7.7,'U_DRV regulates both windings at fixed 1/16 microsteps.\nC_CP / C_VCP / C_VREG support the internal driver rails.\nBulk capacitance and TVS limit transients; regeneration needs bench tests.']},
   {title:'Motor-voltage monitor / power-off isolation',bounds:[.8,15,-8.8,-1.0],parts:{R_VM_H:[3,-3.3],R_VM_L:[3,-5.7],R_VM_BLEED:[7,-5.7],C_VM_SENSE:[11,-5.7]},note:[1,-8.2,'Passive 100k / (10k || 470R) divider: VM / 223.77.\nInput stays below 0.3 V even when MCU power is absent.' ]}
+ ]})
+ pages.push({name:'Status, Temperature & Audible Alarm',sections:[
+  {title:'Low-current green status LED',bounds:[-15,-5.4,1.0,8.8],parts:{R_LED:[-12,5.5],D_STATUS:[-8,5.5]},note:[-14.8,1.5,'D_STATUS + 1k R_LED: active-low MCU status indicator.\nPower-up input/high = off; low = on. Verify visibility.']},
+  {title:'Local board-temperature telemetry',bounds:[-4.8,15,-1.1,8.8],parts:{U_TEMP:[1.8,4.5],C_TEMP:[-2.8,4.5],R_TEMP_SCL:[8,6.7],R_TEMP_SDA:[11,6.7],R_TEMP_ALERT:[8,3.7]},note:[-4.6,-.6,'U_TEMP / TMP102: I2C address 0x48 (ADD0 grounded).\n5.1k SCL/SDA pull-ups; 10k ALERT pull-up; 100nF bypass.\nReports local PCB temperature, not measured motor/winding temperature.']},
+  {title:'PWM sounder / default-off transistor drive',bounds:[-15,15,-8.8,-1.8],parts:{BZ_ALARM:[10,-4.6],Q_BUZZER:[3,-4.6],D_BUZZER:[13,-4.6],R_BUZZER_GATE:[-4,-4.6],R_BUZZER_PD:[-1,-7.3],C_BUZZER:[7,-7.3]},note:[-14.8,-7.6,'MLT-5020 sounder: external PWM near 4 kHz; default OFF.\nAO3400A low-side switch; 100 ohm gate + 100k pull-down.\n1N5819WS flyback clamp + 22uF bypass. Acoustic/current tests pending.']}
  ]})
  const out=json.filter(e=>!e.type.startsWith('schematic_'));let seq=0
  const text=(sheet:string,value:string,x:number,y:number,size=.21,anchor='left',component?:string)=>out.push({type:'schematic_text',schematic_text_id:`functional_text_${seq++}`,schematic_sheet_id:sheet,text:value,position:{x,y},anchor,rotation:0,font_size:size,color:'#006464',...(component?{schematic_component_id:component}:{})})

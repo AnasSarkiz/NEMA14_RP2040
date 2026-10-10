@@ -1,0 +1,32 @@
+{
+  "source_sha256": "eae1079dc7634178b0e9499c3b6b9f7bb97932ecb2aab4fbcb08a36aeb498c21",
+  "removed": {
+    "type": "pcb_via",
+    "pcb_via_id": "supplier_repair_island_net1_9_via1",
+    "pcb_trace_id": "supplier_repair_island_net1_9",
+    "x": -16.6,
+    "y": 15.550000000000004,
+    "hole_diameter": 0.25,
+    "outer_diameter": 0.5,
+    "layers": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "tented_on_top": true,
+    "tented_on_bottom": true,
+    "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+    "subcircuit_id": "subcircuit_source_group_0",
+    "pcb_port_ids": [],
+    "source_trace_id": "source_trace_247",
+    "source_net_id": "source_net_1"
+  },
+  "actualCamUnassignedBoundsMm": [
+    -16.85,
+    15.3,
+    -16.35,
+    15.8
+  ],
+  "reason": "Actual all-layer island has no physical terminal; remove isolated barrel rather than suppress CAM audit."
+}

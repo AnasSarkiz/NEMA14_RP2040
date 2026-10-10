@@ -3,6 +3,12 @@
 IPC-2221 equations are a conservative screening estimate, not qualification.
 External copper: 35 um. Internal copper: 17.5 um. Allowed estimate: 30 C rise.
 Power budgets are deliberately higher than normal logic/phase consumption.
+BUCK_SW 0.48A is an RMS thermal screen: sqrt(0.55*0.31 + 0.741**2/12)=0.465A,
+rounded up; 0.921A transient peak remains separately checked. GND 0.8A includes
+two 0.25A phase ceilings, 0.1A baseline and 0.4A sounder pulses at 50% carrier/
+10% burst duty (0.0895A RMS), conservatively summed and rounded up.
+Parallel-plane disposition is only used where actual same-net fill covers
+the complete centerline. Current sharing/return impedance require bench testing.
 """
 import json, math, hashlib, collections
 import verify_supplier_connectivity as g
@@ -11,10 +17,11 @@ from shapely.ops import unary_union
 
 board=next(e for e in g.j if e['type']=='pcb_board')
 budgets={'PD_VBUS':.75,'A_PLUS':.4,'A_MINUS':.4,'B_PLUS':.4,'B_MINUS':.4,
-         'SENSE1':.4,'SENSE2':.4,'LOGIC_IN':.15,'DATA_VBUS':.15,
-         'V3V3':.15,'V1V1':.10,'BUCK_SW':.20,'GND':.8}
+         'SENSE1':.4,'SENSE2':.4,'LOGIC_IN':.25,'DATA_VBUS':.15,
+         'V3V3':.55,'V1V1':.10,'BUCK_SW':.48,'BUZZER_SINK':.4,'GND':.8}
 segments=[]; errors=[]; netrows=collections.defaultdict(list)
 ground_geometry={}
+supply_geometry={}
 for layer in ['top','inner1','inner2','bottom']:
     regions=[]
     for e in g.j:
@@ -22,6 +29,12 @@ for layer in ['top','inner1','inner2','bottom']:
         b=e['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
         regions.append(Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]))
     ground_geometry[layer]=unary_union(regions)
+    power=[]
+    for e in g.j:
+        if e['type']!='pcb_copper_pour' or e['layer']!=layer or g.nets.get(g.key(e))!='V3V3':continue
+        b=e['brep_shape'];pts=lambda ring:[(p['x'],p['y']) for p in ring['vertices']]
+        power.append(Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]))
+    supply_geometry[layer]=unary_union(power)
 # A reduced budget is permitted only after physically cutting this exact record
 # separates a sole series-resistor input from the inlet and all motor loads.
 branch_budgets={};branch_proofs=[];original=g.j
@@ -53,6 +66,24 @@ errors.extend(policy['errors'])
 if q.returncode and not policy['errors']:errors.append('Outer power policy failed')
 allowed_necks={p['trace'] for p in policy['boundedExceptions']}
 neck_proofs=policy['boundedExceptions']
+# Prove the driver-only VDD leaf by removing its actual conductor from the graph.
+# Motor bridge/buzzer/current-setting references are not on this branch.
+branch='diagnostics_3c928318_trace_191_new_0'
+t=next((e for e in g.j if e.get('pcb_trace_id')==branch),None)
+driver_proof=None
+if t:
+    index=g.j.index(t);g.j.pop(index)
+    items,roots=g.groups(g.key(t));sets={}
+    for item,root in zip(items,roots):
+        if item.get('pcb_port_id'):
+            port=g.ports[item['pcb_port_id']]
+            ref=g.src[g.comp[port['pcb_component_id']]['source_component_id']]
+            sets.setdefault(root,set()).add((ref,g.sp[port['source_port_id']]['pin_number']))
+    g.j.insert(index,t)
+    expected={('U_DRV',pin) for pin in [9,10,11,12,15]}|{('C_DRV_LOGIC',1)}
+    assert len(sets)==2 and expected in sets.values(), 'Driver leaf topology changed; review branch load again'
+    branch_budgets[branch]=.020
+    driver_proof={'trace':branch,'physicallyIsolatedTerminals':sorted(expected),'screenCurrentA':.020,'datasheetLogicSupplyMaximumA':.008,'datasheetCondition':'A4988 Rev5, fPWM <50kHz; input leakage20uA/pin. 20mA branch budget adds margin for transient/bypass currents; scope actual ripple/current and fPWM. Not measured.'}
 one_bridge=None
 for e in g.j:
     if e['type']!='pcb_trace':continue
@@ -64,12 +95,13 @@ for e in g.j:
         current=branch_budgets.get(e['pcb_trace_id'],budgets.get(name,0))
         area=width*thickness/(.0254**2);k=.024 if internal else .048
         rise=(current/(k*area**.725))**(1/.44) if current else None
-        shunted=name=='GND' and ground_geometry[a['layer']].buffer(.00001).covers(LineString([(a['x'],a['y']),(b['x'],b['y'])]))
+        plane=ground_geometry[a['layer']] if name=='GND' else supply_geometry[a['layer']] if name=='V3V3' else None
+        shunted=plane is not None and plane.buffer(.00001).covers(LineString([(a['x'],a['y']),(b['x'],b['y'])]))
         row={'trace':e['pcb_trace_id'],'net':name,'layer':a['layer'],'widthMm':width,'lengthMm':length,
              'copperThicknessUm':thickness*1000,'currentBudgetA':current,
              'ipc2221TemperatureRiseEstimateC':rise,'resistanceAt20CMilliohm':.01724*length/(width*thickness),
-             'groundPourCoversCenterline':shunted,
-             'thermalScreenDisposition':'parallel-plane-requires-ground-current-sharing-review' if shunted else 'isolated-track-screen'}
+             'sameNetPourCoversCenterline':shunted,
+             'thermalScreenDisposition':'parallel-plane-requires-prototype-current-sharing-review' if shunted else 'isolated-track-screen'}
         segments.append(row);netrows[name].append(row)
         if width<.16-1e-6:errors.append('Trace below 0.16 mm: '+e['pcb_trace_id'])
         if rise is not None and rise>30 and not shunted:errors.append('Thermal screening budget exceeded: '+e['pcb_trace_id'])
@@ -113,7 +145,7 @@ for via in [e for e in g.j if e['type']=='pcb_via']:
                  'voltageDropAtNetBudgetMillivolt':current*resistance})
     if name in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] and via['hole_diameter']<.25:
         errors.append('Power via drill below reviewed 0.25 mm: '+via['pcb_via_id'])
-report={'bounded_output_neck_proofs':neck_proofs,'viaReview':vias,'sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checksPassed':not errors,'errors':errors,
+report={'driverLogicBranchProof':driver_proof,'bounded_output_neck_proofs':neck_proofs,'viaReview':vias,'sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checksPassed':not errors,'errors':errors,
         'copperSpecification':{'externalUmMinimum':35,'internalUmMinimum':17.5,'boardThicknessMm':1.6,'viaPlatingUmMinimum':20},
         'temperatureRiseScreenLimitC':30,'method':'IPC-2221 k=0.048 external / 0.024 internal; area in square mils',
         'budgetsA':budgets,'physicallyVerifiedResistorBranchBudgets':branch_proofs,'singleBridgePdBranchTrace':one_bridge,'nets':summary,'segments':segments,

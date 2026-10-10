@@ -1,6 +1,8 @@
+> Diagnostic hardware revision: adds a green status LED, TMP102 board-temperature sensor and PWM sounder. Both variants now use AP63203 buck power. See [diagnostics](docs/diagnostics.md) and the updated [prototype envelope](docs/supported-operating-envelope.md). Firmware, electrical/thermal tests and physical qualification remain required; this is not a production release.
+
 # NEMA14_RP2040
 
-Service revision for STEPperONLINE14HM11-0404S,35×35mmPCB,topcomponentassembly,fourcopperlayers. **Hardware qualification remains unperformed.**
+Service revision for STEPperONLINE14HM11-0404S,35×35mmPCB,topcomponentassembly,four copper layers. **Hardware qualification remains unperformed.**
 
 - Two USB-C mouths face+Y,14mm pitch,0.4mm beyondPCB. PD requests15V; DATA is computerUSB. Selected Tensility cables and hostbend/access envelopes are documented.
 - Keyed JSTB4B-PH-K-S(LF)(SN) /PHR-4 motor harness:1BlackA+,2GreenA−,3RedB+,4BlueB−. Includes restrained BeldenAWG24 extensions, service loop and captured insulating barrier. Factory lead/splice/material qualification remains pending.

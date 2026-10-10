@@ -1,6 +1,6 @@
 {
   "schema": "outer-power-routing-policy-1",
-  "sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
   "checksPassed": true,
   "errors": [],
   "rules": {
@@ -88,19 +88,19 @@
         "top"
       ],
       "mainMinimumWidthMm": 0.45,
-      "mainBranchedLengthMm": 88.85874669698008,
-      "allBranchedLengthMm": 104.93433896937248,
+      "mainBranchedLengthMm": 113.33724167654722,
+      "allBranchedLengthMm": 120.80806122746438,
       "totalThroughVias": 10,
       "viaIds": [
+        "freerouted_via_4",
+        "diagnostics_seed_via_-2.4538_1.6612",
+        "freerouted_via_6",
         "inside_power_escape_U_DRV_VBB1_via",
         "inside_power_escape_U_DRV_VBB2_via",
         "inside_power_escape_C_VM_pin1_via",
         "outer_usb_power_pin_escape_VBUS1_via",
-        "outer_pd_remote_bridge_via",
         "outer_native_escape_C_VM2_pin1_via",
-        "supplier_repair_island_net1_8_via0",
         "supplier_repair_island_net1_9_via0",
-        "supplier_repair_island_net1_9_via1",
         "supplier_repair_island_net1_9x_via0"
       ],
       "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
@@ -249,7 +249,7 @@
       "endsAtStandardViaOrFullWidthTopMain": true
     },
     {
-      "trace": "supplier_repair_island_net1_9",
+      "trace": "supplier_repair_island_net1_9_seed_17",
       "net": "PD_VBUS",
       "kind": "physically_proven_resistor_only_branch",
       "leaf": [
@@ -261,6 +261,146 @@
     }
   ],
   "traces": [
+    {
+      "trace": "diagnostics_85ca7134_trace_175_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 5.320596901439672,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_168_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 7.50717653430307,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_169_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.08305382386916228,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_170_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.161402683759619,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_171_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.7267000000000001,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_172_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.7100080153851074,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_173_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.0798870057685095,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_174_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.27156274169979805,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_175_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.7798999999999996,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_176_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 9.899664983474242,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_177_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.27280000000000015,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_178_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.6242828427124745,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_179_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.9253044291799608,
+      "exception": false
+    },
+    {
+      "trace": "freerouted_trace_180_new_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.27500000000000036,
+      "exception": false
+    },
     {
       "trace": "independent_freerouted_trace_161",
       "net": "PD_VBUS",
@@ -279,16 +419,6 @@
       ],
       "minimumWidthMm": 0.45,
       "lengthMm": 1.1812067811865474,
-      "exception": false
-    },
-    {
-      "trace": "independent_freerouted_trace_163",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "top"
-      ],
-      "minimumWidthMm": 0.45,
-      "lengthMm": 0.75,
       "exception": false
     },
     {
@@ -339,16 +469,6 @@
       ],
       "minimumWidthMm": 0.45,
       "lengthMm": 0.025900000000000034,
-      "exception": false
-    },
-    {
-      "trace": "independent_freerouted_trace_169",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "top"
-      ],
-      "minimumWidthMm": 0.45,
-      "lengthMm": 0.41390832611206857,
       "exception": false
     },
     {
@@ -452,26 +572,6 @@
       "exception": true
     },
     {
-      "trace": "supplier_repair_island_net1_0",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "top"
-      ],
-      "minimumWidthMm": 0.45,
-      "lengthMm": 5.339132571454907,
-      "exception": false
-    },
-    {
-      "trace": "outer_pd_remote_bridge",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "top"
-      ],
-      "minimumWidthMm": 0.45,
-      "lengthMm": 1.3499999999999996,
-      "exception": false
-    },
-    {
       "trace": "supplier_repair_island_net1_1",
       "net": "PD_VBUS",
       "wireLayers": [
@@ -530,28 +630,6 @@
       "minimumWidthMm": 0.45,
       "lengthMm": 1.0499759999999991,
       "exception": false
-    },
-    {
-      "trace": "supplier_repair_island_net1_8",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "bottom",
-        "top"
-      ],
-      "minimumWidthMm": 0.45,
-      "lengthMm": 5.648401871576777,
-      "exception": false
-    },
-    {
-      "trace": "supplier_repair_island_net1_9",
-      "net": "PD_VBUS",
-      "wireLayers": [
-        "bottom",
-        "top"
-      ],
-      "minimumWidthMm": 0.16,
-      "lengthMm": 10.655382386916237,
-      "exception": true
     },
     {
       "trace": "supplier_repair_island_net41_0",
@@ -633,6 +711,966 @@
       "minimumWidthMm": 0.45,
       "lengthMm": 8.15,
       "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_10",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_21",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_22",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_23",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_24",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_25",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.05000000000000071,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_26",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_27",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_28",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059327875,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_29",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_30",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_31",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_32",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_33",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_34",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_35",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.05000000000000071,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_36",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_37",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_38",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_39",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_40",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_41",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_42",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059327875,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_43",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_44",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_45",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.05000000000000071,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_46",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_47",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_48",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_49",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_50",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_51",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_52",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_53",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_54",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_55",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.049999999999998934,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_56",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_57",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_58",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_59",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_60",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_61",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_62",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_63",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_64",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_65",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.049999999999998934,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_66",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_67",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_68",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_69",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_70",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_71",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_72",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_73",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_74",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0_seed_75",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.024957099999999954,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 2.4748737341529177,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.125,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_2",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_3",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.049999999999998934,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_4",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_5",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_6",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_7",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_8",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_9",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_10",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_11",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_12",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.07071067811865199,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_13",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.025000000000000355,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_14",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.07071067811865575,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_15",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_16",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.07071067811865199,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_17",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_18",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.07071067811865575,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_19",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.6499999999999986,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_26",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_27",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059327875,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_28",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_29",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_30",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_31",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_32",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_33",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_34",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.05000000000000071,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_35",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_36",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_37",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.035355339059325364,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_38",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_39",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_40",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_41",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932913,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_42",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02499999999999858,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_43",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.03535533905932662,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8_seed_44",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 0.02500000000000213,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_9_seed_17",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.16,
+      "lengthMm": 2.050609665440987,
+      "exception": true
     }
   ],
   "hardwareQualified": false

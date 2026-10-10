@@ -1,4 +1,5 @@
 import React from "react"
+import { Diagnostics } from "./diagnostics"
 import { MotorConnector } from "./motor-connector"
 import { pinProps } from "./pin-attributes"
 import { SupplierPart } from "./supplier-parts"
@@ -22,7 +23,7 @@ const resistor = (name:string,value:string,a:string,b:string) => <SupplierPart k
 const cap = (name:string,value:string,a:string,b="GND") => <SupplierPart key={name} name={name}  capacitance={value} {...capacitorSpecs(name)} {...place(name)} connections={{pin1:n(a),pin2:n(b)}} />
 
 export default function Nema14Controller({ routingDisabled = false }: { routingDisabled?: boolean } = {}) {
- return <board width={35} height={35} layers={4} thickness={1.6}
+ return <board isViaInPadAllowed width={35} height={35} layers={4} thickness={1.6}
   routingDisabled={routingDisabled} minTraceWidth={0.16} minTraceToPadEdgeClearance={0.15} minPadEdgeToPadEdgeClearance={0.15}
   minViaHoleDiameter={0.2} minViaPadDiameter={0.4} minBoardEdgeClearance={0.25}
   autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled>
@@ -35,7 +36,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_PD','1k','PD_VBUS','PD_VDD')}
   {cap('C_PD','1uF','PD_VDD')}
   {resistor('R_PG','10k','V3V3','PD_GOOD')}
-  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO0", "GPIO1", "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26", "GPIO27"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
+  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO0", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26", "GPIO27"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO16:n("TEMP_SDA"),GPIO1:n("TEMP_SCL"),GPIO2:n("BUZZER_PWM"),GPIO3:n("STATUS_N"),GPIO4:n("TEMP_ALERT_N"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
   {cap('C_IO1','100nF','V3V3','GND')}
   {cap('C_IO10','100nF','V3V3','GND')}
   {cap('C_IO22','100nF','V3V3','GND')}
@@ -97,10 +98,8 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <chip name="J_DEBUG" doNotPlace {...pinProps("J_DEBUG")}  cadModel={null} pcbRotation={90} pinLabels={{pin1:'VDD',pin2:'GND',pin3:'SWCLK',pin4:'SWDIO',pin5:'RUN'}} footprint={<footprint insertionDirection="from_above">{[0,1.1,2.2,3.3,4.4].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={.8} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={6} height={2} pcbX={2.2} /></footprint>} pcbX={15.5} pcbY={-8.5} connections={{VDD:n('V3V3'),GND:n('GND'),SWCLK:n('SWCLK'),SWDIO:n('SWDIO'),RUN:n('RUN')}} />
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
-  <silkscreentext text="PD" pcbX={-1} pcbY={16.8} fontSize={0.7} layer="top" />
-  <silkscreentext text="15V" pcbX={-1} pcbY={15.7} fontSize={0.6} layer="top" />
-  <silkscreentext text="USB" pcbX={1} pcbY={16.8} fontSize={0.7} layer="top" />
-  <silkscreentext text="DATA" pcbX={1} pcbY={15.7} fontSize={0.6} layer="top" />
+  <silkscreentext text="PD" pcbX={-2} pcbY={17.2} fontSize={0.5} layer="top" />
+  <silkscreentext text="DATA" pcbX={1.65} pcbY={17.2} fontSize={0.5} layer="top" />
   <silkscreentext text="MOTOR" pcbX={10.4} pcbY={-16.9} fontSize={0.6} layer="top" />
   <silkscreentext text="PD 15V" pcbX={-7} pcbY={15.7} fontSize={0.7} layer="bottom" />
   <silkscreentext text="USB DATA" pcbX={7} pcbY={15.7} fontSize={0.7} layer="bottom" />
@@ -109,6 +108,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <silkscreentext text="2 A-" pcbX={0.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
   <silkscreentext text="3 B+" pcbX={2.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
   <silkscreentext text="4 B-" pcbX={4.7} pcbY={-16.4} fontSize={0.7} layer="bottom" />
+  <Diagnostics />
   <SchematicNotes />
   </schematicsheet>
  </board>

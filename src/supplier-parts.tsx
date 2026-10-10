@@ -1,3 +1,9 @@
+import { A_1N5819WS } from "../imports/supplier/A_1N5819WS/A_1N5819WS"
+import { A_0402WGF1000TCE } from "../imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE"
+import { A_19_217_GHC_YR1S2_3T } from "../imports/supplier/A_19_217_GHC_YR1S2_3T/A_19_217_GHC_YR1S2_3T"
+import { AO3400A } from "../imports/supplier/AO3400A/AO3400A"
+import { MLT_5020 } from "../imports/supplier/MLT_5020/MLT_5020"
+import { TMP102AIDRLR } from "../imports/supplier/TMP102AIDRLR/TMP102AIDRLR"
 import { MMBT3904_7_F } from "../imports/supplier/MMBT3904_7_F/MMBT3904_7_F"
 import { SN74CBTLV1G125DCKR } from "../imports/supplier/SN74CBTLV1G125DCKR/SN74CBTLV1G125DCKR"
 import { EEEFPV101XAP } from "../imports/supplier/EEEFPV101XAP/EEEFPV101XAP"
@@ -46,6 +52,12 @@ import { A_0603WAF6201T5E } from "../imports/supplier/A_0603WAF6201T5E/A_0603WAF
 import { SMF4L16A } from "../imports/supplier/SMF4L16A/SMF4L16A"
 import { CL32B106KBJNNNE } from "../imports/supplier/CL32B106KBJNNNE/CL32B106KBJNNNE"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C191023": A_1N5819WS,
+ "C25076": A_0402WGF1000TCE,
+ "C72043": A_19_217_GHC_YR1S2_3T,
+ "C20917": AO3400A,
+ "C94598": MLT_5020,
+ "C99269": TMP102AIDRLR,
  "C138687": CL32B106KBJNNNE,
  "C1973135": SMF4L16A,
  "C94514": MMBT3904_7_F,

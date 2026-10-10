@@ -1,25 +1,13 @@
 {
-  "schema": "independent-engineering-review-v1",
+  "schema": "nema14-diagnostics-review-v1",
   "project": "NEMA14_RP2040",
-  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-  "local_artifact_checks": "PASS_WITH_DISCLOSED_CLI_ADVISORIES",
+  "source_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+  "local_artifact_checks": "PASS_WITH_DISCLOSED_ADVISORIES",
   "hardware_tested": false,
+  "firmware_implemented": false,
   "manufacturing_release": false,
   "order_ready": false,
-  "publication_authorized": false,
   "published_this_task": false,
   "official_ide_analyzer_executed": false,
-  "schematic_project_browser_review": true,
-  "placement_advisories_suppressed": false,
-  "remaining_qualification_items": [
-    "Actual phase peaks/balance and sense/return bounce over microsteps/temperature",
-    "USB enumeration/ROM programming/application control and15V PD",
-    "All supply insertion/removal/reset/brownout/backfeed and fast ADC collapse/ringing",
-    "Regeneration peak<=18V/repetition and no sustained backdrive",
-    "Mounted temperatures and actual logic-load limits",
-    "RP biased/aged capacitance, loop/load-step/startup/fault and inductor heating",
-    "Exact JST factory post evidence/insertion coupon, crimp/splice pull strength and material certificates",
-    "Full front-thread carrier, barrier, tails, clamp, service and two-USB physical fit",
-    "Supplier fine-drill/TypeVI/TypeVII/slots/stencil and pickup/rotation approval"
-  ]
+  "remaining_qualification_items": "Primary arithmetic only. Measure actual loads, USB budget at all transitions, dropout, loop/ripple, inductor current/startup/fault, switching ringing, hot saturation and mounted temperatures. No production readiness."
 }

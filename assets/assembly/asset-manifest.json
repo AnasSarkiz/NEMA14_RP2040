@@ -1,9 +1,9 @@
 {
   "schema": "nema14-tscircuit-assembly-assets-v1",
-  "source_board_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-  "mechanical_review_sha256": "442c918708c4f888cf4c1777f89b0e72a7927a40c07f0f4c7d2d7bab1a93fd41",
-  "mounted_step_archive_sha256": "8ae37997e9f420927d8bb74148c26582bff1c5e8a0d257145f7ab89d55dc0b4c",
-  "mounted_step_member_sha256": "594d291ca8aee9656ed87b7db285dccfc60dde2b81fa7609ab4511f09135ee5a",
+  "source_board_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+  "mechanical_review_sha256": "e242b5d55a99b179804990cfee2c1b3c4ea4452ee2c164d9e6112c8e6fba3218",
+  "mounted_step_archive_sha256": "4c1fef175eaed8df7453a7e5ab544dec95fbeac1e0be3d475dd31518a07e563b",
+  "mounted_step_member_sha256": "553241cb4a46cd21d90c3ea89b21a6faeaa396dc36e96d70095857ea57bcbb56",
   "export_script_sha256": "f9f59cf874a053de5795372966d9506ae3331964f027bd5a7d2a0ec330134755",
   "cadquery_version": "2.6.1",
   "coordinates": "Native CAD mm, PCB midplane Z0. Root +90deg X cancels CadQuery -90deg export without editing mesh/BIN bytes. tscircuit loader maps CAD(x,y,z) to Scene3D(x,z,y); final tscircuit glTF export maps to(-x,z,y).",
@@ -37,8 +37,8 @@
   "models": {
     "CONTROLLER": {
       "path": "assets/assembly/controller.glb",
-      "sha256": "710efdefbe1b8f103180e5222a1a93ddde00b7cdf75980d719ce4fc796c20700",
-      "bytes": 22321796,
+      "sha256": "44c5dbd718d1db3897d64b4b37539006aae538871a28bb7019f02b952f1c660d",
+      "bytes": 25728528,
       "native_world_bbox_mm": [
         -17.500000100000012,
         -17.500000100000012,
@@ -50,9 +50,9 @@
       "mounted_step_children": [
         "Board"
       ],
-      "meshes": 67,
-      "CadQuery_Y_up_glb_sha256": "224442a9150b1c7c77f83dfe423d234817e3fe7e2fcfa3759abed71571f0a033",
-      "mesh_BIN_bytes_unchanged_sha256": "f214a07b0648910c04ff50c99eab88d0663115f65a0663b5d3a3fe01d0e0e5b8"
+      "meshes": 80,
+      "CadQuery_Y_up_glb_sha256": "9f407d59b11243403a244c163839ff7c8f649c75ca9551b66611e027979179af",
+      "mesh_BIN_bytes_unchanged_sha256": "3a90bd233d8e9f6020fb7464831b0dcc4a4a02c2dcaee1341a83aef65a4d1b2b"
     },
     "MOTOR": {
       "path": "assets/assembly/motor.glb",
@@ -232,7 +232,7 @@
       "mesh_BIN_bytes_unchanged_sha256": "272e97be2284f1c619c6e40d72a1cd205c6cdb6f4aedd992dafb4fa9e923a59c"
     }
   },
-  "portable_models_json_sha256": "4d76203797d6b0e384c694a61ba79e1e17fff0abbb59f1df3be87bb660cc4ef8",
+  "portable_models_json_sha256": "b8f02e639f84d025fd6dbedc07a806c0c814350a3c008afde76854e9e960e1c7",
   "hardware_fit_verified": false,
   "limitations": [
     "STEP solid collision tests are nominal supplier-model screens, not physical tolerance proof.",
@@ -244,6 +244,12 @@
     "Cable STEP and maximum envelope evaluated separately; physical fit and bend life remain unperformed.",
     "No structural, thermal, material certificate or physical-fit qualification claimed."
   ],
+  "exact_step_rebind_proof": {
+    "previous_source_board_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+    "unchanged_mounted_step_sha256": "553241cb4a46cd21d90c3ea89b21a6faeaa396dc36e96d70095857ea57bcbb56",
+    "all_mesh_hashes_verified": true,
+    "scope": "Metadata/copper revisions only; exact native mounted STEP geometry and every exported mesh unchanged"
+  },
   "tscircuit_native_Z_up_normalized": true,
   "normalization_script_sha256": "38b8c99c5ae1a1c8623d02a02f221dcdc6faa3f54cd85eb7b39340f48f2f35c5"
 }

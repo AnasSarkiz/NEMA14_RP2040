@@ -9,33 +9,33 @@
   "matplotlib_version": "3.11.2",
   "numpy_version": "2.3.5",
   "renderer": "native STEP tessellation, true orthographic software Z-buffer, fixed same-scale views",
-  "board_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "board_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
   "input_current_at_finish": true,
-  "catalog_sha256": "d15a3cda4e87abe3ab5f4e99998f7a4b94309142fd9b8de98b403585452d9c79",
-  "board_cad_model_count": 66,
+  "catalog_sha256": "d1546720836408d1a22d5732f76cec562784485372d696ff76e2f94c3cae3c37",
+  "board_cad_model_count": 79,
   "step_assembly_archives": [
     {
       "archive": "board-fitted-components.step.zip",
       "member": "board-fitted-components.step",
-      "uncompressed_step_sha256": "afafe8b6dd6b9b566651c5f5591cd18264a92df3bb4d91059dd2d7f1fc65ea82",
-      "uncompressed_bytes": 116108126,
-      "archive_sha256": "3cfaa1d4b5b328e736fa7f5bf54fd4d7304b66d02b25cf5ec9ba141e90b5001d",
+      "uncompressed_step_sha256": "a8f28f0b17241b03e3907b9003a24a9c4d241967ca0965dc5366f09792988065",
+      "uncompressed_bytes": 137591799,
+      "archive_sha256": "74299967641dea1c193bc109663fa54b25ed6c47d8f3f721d660ab12a8780971",
       "archive_crc_verified": true
     },
     {
       "archive": "mounted-front-carrier.step.zip",
       "member": "mounted-front-carrier.step",
-      "uncompressed_step_sha256": "594d291ca8aee9656ed87b7db285dccfc60dde2b81fa7609ab4511f09135ee5a",
-      "uncompressed_bytes": 127273668,
-      "archive_sha256": "8ae37997e9f420927d8bb74148c26582bff1c5e8a0d257145f7ab89d55dc0b4c",
+      "uncompressed_step_sha256": "553241cb4a46cd21d90c3ea89b21a6faeaa396dc36e96d70095857ea57bcbb56",
+      "uncompressed_bytes": 148757413,
+      "archive_sha256": "4c1fef175eaed8df7453a7e5ab544dec95fbeac1e0be3d475dd31518a07e563b",
       "archive_crc_verified": true
     },
     {
       "archive": "harness-and-insulation.step.zip",
       "member": "harness-and-insulation.step",
-      "uncompressed_step_sha256": "ba15be0f09a057c0c2a35c6e7570d18243bb956d3e0a90ef79b53d4f16f4702e",
+      "uncompressed_step_sha256": "aa9f8efd789ef6b8c3451677808ee424ba61229d55ce3548d87c3a2ed8047464",
       "uncompressed_bytes": 1103773,
-      "archive_sha256": "fea0f64b2117b4deef047901d45999a78d099183528e3cb358d89e21ec3b08b8",
+      "archive_sha256": "ff92d56115e589dd6e05a63cba1c9559c34824f555d0380d48d804881671604b",
       "archive_crc_verified": true
     }
   ],
@@ -132,10 +132,10 @@
       "valid_brep": true,
       "native_solid_count": 14,
       "world_bbox_mm": [
-        -15.7,
+        -16.490000000000002,
         3.250063500000122,
         0.7999999999999998,
-        -9.7,
+        -10.490000000000002,
         8.150063500000124,
         2.3410001
       ],
@@ -143,7 +143,7 @@
         "type": "cad_component",
         "cad_component_id": "cad_component_2",
         "position": {
-          "x": -12.7,
+          "x": -13.490000000000002,
           "y": 5.7,
           "z": 0.8
         },
@@ -255,19 +255,19 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        -8.305,
-        3.289999999999999,
+        -16.905,
+        0.6899999999999997,
         0.8,
-        -7.4949999,
-        4.91,
+        -16.094999899999998,
+        2.3100000000000005,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_5",
         "position": {
-          "x": -7.9,
-          "y": 4.1,
+          "x": -16.5,
+          "y": 1.5,
           "z": 0.8
         },
         "rotation": {
@@ -337,25 +337,25 @@
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        1.0,
-        4.549987199999927,
+        0.8499871999999274,
+        10.0,
         0.7999999000000001,
-        2.0,
-        5.049987399999931,
+        1.3499873999999308,
+        11.0,
         1.3000001000000003
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_7",
         "position": {
-          "x": 1.5,
-          "y": 4.8,
+          "x": 1.1,
+          "y": 10.5,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 180
+          "z": 90
         },
         "pcb_component_id": "pcb_component_7",
         "source_component_id": "source_component_7",
@@ -829,19 +829,19 @@
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        -5.505107950000001,
-        4.5999999,
+        11.29489205,
+        -4.800000099999999,
         0.8,
-        -3.495107850000001,
-        7.600000100000001,
+        13.304892149999999,
+        -1.7999998999999989,
         1.2700001
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_19",
         "position": {
-          "x": -4.5,
-          "y": 6.1,
+          "x": 12.3,
+          "y": -3.3,
           "z": 0.8
         },
         "rotation": {
@@ -870,25 +870,25 @@
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        -7.5,
-        7.750012600000069,
+        14.04998719999993,
+        -2.8,
         0.7999999000000001,
-        -6.5,
-        8.250012800000071,
+        14.54998739999993,
+        -1.7999999999999998,
         1.3000001000000003
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_20",
         "position": {
-          "x": -7,
-          "y": 8,
+          "x": 14.3,
+          "y": -2.3,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 0
+          "z": 90
         },
         "pcb_component_id": "pcb_component_20",
         "source_component_id": "source_component_20",
@@ -911,19 +911,19 @@
       "valid_brep": true,
       "native_solid_count": 3,
       "world_bbox_mm": [
-        -2.0510128000000702,
-        7.4,
+        -9.951012800000068,
+        1.4,
         0.7999999999999999,
-        -1.55001270000007,
-        8.4,
+        -9.45001270000007,
+        2.4,
         1.1600000000000001
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_21",
         "position": {
-          "x": -1.8,
-          "y": 7.9,
+          "x": -9.7,
+          "y": 1.9,
           "z": 0.8
         },
         "rotation": {
@@ -1157,19 +1157,19 @@
       "valid_brep": true,
       "native_solid_count": 3,
       "world_bbox_mm": [
-        -1.0510128000000705,
-        1.1,
+        15.248987199999931,
+        -1.6,
         0.7999999999999999,
-        -0.5500127000000702,
-        2.1,
+        15.74998729999993,
+        -0.6000000000000001,
         1.1600000000000001
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_27",
         "position": {
-          "x": -0.8,
-          "y": 1.6,
+          "x": 15.5,
+          "y": -1.1,
           "z": 0.8
         },
         "rotation": {
@@ -1485,25 +1485,25 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        -16.71,
-        15.994999899999998,
+        -1.3050000000000002,
+        14.889999999999999,
         0.8,
-        -15.089999999999998,
-        16.805,
+        -0.4949998999999997,
+        16.51,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_35",
         "position": {
-          "x": -15.899999999999999,
-          "y": 16.4,
+          "x": -0.9,
+          "y": 15.7,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 90
+          "z": 180
         },
         "pcb_component_id": "pcb_component_36",
         "source_component_id": "source_component_36",
@@ -1526,19 +1526,19 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        13.889999999999999,
-        -2.1050001,
+        14.089999999999998,
+        -9.9050001,
         0.8,
-        15.51,
-        -1.2949999999999995,
+        15.709999999999999,
+        -9.094999999999999,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_36",
         "position": {
-          "x": 14.7,
-          "y": -1.6999999999999997,
+          "x": 14.899999999999999,
+          "y": -9.5,
           "z": 0.8
         },
         "rotation": {
@@ -1567,25 +1567,25 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        9.99,
-        -4.5050001,
+        12.294999999999998,
+        -7.710000000000001,
         0.8,
-        11.610000000000001,
-        -3.6949999999999994,
+        13.1050001,
+        -6.09,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_37",
         "position": {
-          "x": 10.8,
-          "y": -4.1,
+          "x": 12.7,
+          "y": -6.9,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 90
+          "z": 180
         },
         "pcb_component_id": "pcb_component_38",
         "source_component_id": "source_component_38",
@@ -1608,19 +1608,19 @@
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        13.2,
-        -4.349987399999931,
+        15.4,
+        -2.9499873999999306,
         0.7999999000000001,
-        14.2,
-        -3.8499871999999273,
+        16.4,
+        -2.449987199999928,
         1.3000001000000003
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_38",
         "position": {
-          "x": 13.7,
-          "y": -4.1,
+          "x": 15.9,
+          "y": -2.7,
           "z": 0.8
         },
         "rotation": {
@@ -1930,66 +1930,66 @@
     },
     {
       "reference": "D_PD",
-      "jlcpcb": "C8598",
-      "step": "imports/supplier/B5819W_SL/B5819W_SL.step",
-      "sha256": "f2468af30d27a00c11bf5070ed3293c491829997423ccad7906ca52893418de7",
+      "jlcpcb": "C191023",
+      "step": "imports/supplier/A_1N5819WS/A_1N5819WS.step",
+      "sha256": "9d3d6f4ee4b582bb1ba7152befc7da6217084253623b730b996aacec436ec089",
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        -5.925,
-        2.0499871999999995,
-        0.7999999999999999,
-        -2.075,
-        3.7499873999999997,
-        2.25
+        1.4501142000000635,
+        4.7749999999999995,
+        0.7999999999999998,
+        2.7501144000000646,
+        7.425,
+        1.7500000000000002
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_46",
         "position": {
-          "x": -4,
-          "y": 2.9,
+          "x": 2.1,
+          "y": 6.1,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 0
+          "z": 90
         },
         "pcb_component_id": "pcb_component_47",
         "source_component_id": "source_component_47",
-        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B5819W_SL/B5819W_SL.obj",
-        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B5819W_SL/B5819W_SL.step",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.step",
         "model_origin_alignment": "center_of_component_on_board_surface",
         "anchor_alignment": "center_of_component_on_board_surface",
         "model_origin_position": {
           "x": 0,
-          "y": 1.2699999999199463e-05,
-          "z": -0.6
+          "y": 0.00011430000006384944,
+          "z": 0
         }
       }
     },
     {
       "reference": "D_DATA",
-      "jlcpcb": "C8598",
-      "step": "imports/supplier/B5819W_SL/B5819W_SL.step",
-      "sha256": "f2468af30d27a00c11bf5070ed3293c491829997423ccad7906ca52893418de7",
+      "jlcpcb": "C191023",
+      "step": "imports/supplier/A_1N5819WS/A_1N5819WS.step",
+      "sha256": "9d3d6f4ee4b582bb1ba7152befc7da6217084253623b730b996aacec436ec089",
       "valid_brep": true,
       "native_solid_count": 1,
       "world_bbox_mm": [
-        10.150012599999998,
-        -9.625,
-        0.7999999999999999,
-        11.8500128,
-        -5.775,
-        2.25
+        10.350114200000064,
+        -9.025000000000002,
+        0.7999999999999998,
+        11.650114400000064,
+        -6.375000000000001,
+        1.7500000000000002
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_47",
         "position": {
           "x": 11,
-          "y": -7.7,
+          "y": -7.700000000000001,
           "z": 0.8
         },
         "rotation": {
@@ -1999,14 +1999,14 @@
         },
         "pcb_component_id": "pcb_component_48",
         "source_component_id": "source_component_48",
-        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B5819W_SL/B5819W_SL.obj",
-        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B5819W_SL/B5819W_SL.step",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.step",
         "model_origin_alignment": "center_of_component_on_board_surface",
         "anchor_alignment": "center_of_component_on_board_surface",
         "model_origin_position": {
           "x": 0,
-          "y": 1.2699999999199463e-05,
-          "z": -0.6
+          "y": 0.00011430000006384944,
+          "z": 0
         }
       }
     },
@@ -2428,25 +2428,25 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        8.495,
-        -13.610000000000001,
+        7.889999999999999,
+        -13.305000000000001,
         0.8,
-        9.3050001,
-        -11.99,
+        9.51,
+        -12.494999900000002,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_58",
         "position": {
-          "x": 8.9,
-          "y": -12.8,
+          "x": 8.7,
+          "y": -12.9,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 180
+          "z": 270
         },
         "pcb_component_id": "pcb_component_59",
         "source_component_id": "source_component_59",
@@ -2469,19 +2469,19 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        4.289999999999999,
-        -10.455000100000001,
+        14.089999999999998,
+        -16.905000100000002,
         0.8,
-        5.91,
-        -9.645,
+        15.709999999999999,
+        -16.095,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_59",
         "position": {
-          "x": 5.1,
-          "y": -10.05,
+          "x": 14.899999999999999,
+          "y": -16.5,
           "z": 0.8
         },
         "rotation": {
@@ -2551,25 +2551,25 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        -3.1100000000000003,
-        -1.105,
+        9.694999999999999,
+        -4.510000000000001,
         0.8,
-        -1.4899999999999995,
-        -0.2949998999999997,
+        10.5050001,
+        -2.8899999999999997,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_61",
         "position": {
-          "x": -2.3,
-          "y": -0.7,
+          "x": 10.1,
+          "y": -3.7,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 270
+          "z": 180
         },
         "pcb_component_id": "pcb_component_62",
         "source_component_id": "source_component_62",
@@ -2592,25 +2592,25 @@
       "valid_brep": true,
       "native_solid_count": 4,
       "world_bbox_mm": [
-        -0.8100000000000003,
-        12.5949999,
+        0.29499999999999993,
+        14.289999999999997,
         0.8,
-        0.8100000000000002,
-        13.405000000000001,
+        1.1050001000000003,
+        15.909999999999998,
         1.25
       ],
       "cad_record": {
         "type": "cad_component",
         "cad_component_id": "cad_component_62",
         "position": {
-          "x": 0,
-          "y": 13,
+          "x": 0.7,
+          "y": 15.099999999999998,
           "z": 0.8
         },
         "rotation": {
           "x": 0,
           "y": 0,
-          "z": 90
+          "z": 180
         },
         "pcb_component_id": "pcb_component_63",
         "source_component_id": "source_component_63",
@@ -2745,6 +2745,539 @@
           "x": -1.2700000013410317e-05,
           "y": 1.2699999999199463e-05,
           "z": -0.16
+        }
+      }
+    },
+    {
+      "reference": "D_STATUS",
+      "jlcpcb": "C72043",
+      "step": "imports/supplier/A_19_217_GHC_YR1S2_3T/A_19_217_GHC_YR1S2_3T.step",
+      "sha256": "9bdeb63033ceac88354455674ee121da881bc361a6060cf18c61c33411b46b19",
+      "valid_brep": true,
+      "native_solid_count": 2,
+      "world_bbox_mm": [
+        -16.50998729999993,
+        8.889987300000044,
+        0.8,
+        -14.889987299999929,
+        9.709987300000044,
+        1.36
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_66",
+        "position": {
+          "x": -15.7,
+          "y": 9.3,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "pcb_component_id": "pcb_component_68",
+        "source_component_id": "source_component_68",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/A_19_217_GHC_YR1S2_3T/A_19_217_GHC_YR1S2_3T.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/A_19_217_GHC_YR1S2_3T/A_19_217_GHC_YR1S2_3T.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": -1.2700000070253736e-05,
+          "y": 1.2699999956566899e-05,
+          "z": -0.01
+        }
+      }
+    },
+    {
+      "reference": "R_LED",
+      "jlcpcb": "C11702",
+      "step": "imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        -13.15101280000007,
+        9.0,
+        0.7999999999999999,
+        -12.65001270000007,
+        10.0,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_67",
+        "position": {
+          "x": -12.9,
+          "y": 9.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 90
+        },
+        "pcb_component_id": "pcb_component_69",
+        "source_component_id": "source_component_69",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "U_TEMP",
+      "jlcpcb": "C99269",
+      "step": "imports/supplier/TMP102AIDRLR/TMP102AIDRLR.step",
+      "sha256": "2fa2e0f7cefa8b58279161303b6e060e28345b91cc712c9c548aa9b06a56d4b6",
+      "valid_brep": true,
+      "native_solid_count": 14,
+      "world_bbox_mm": [
+        -3.100050799999997,
+        -0.07007889999999611,
+        0.8,
+        -1.5000507999999966,
+        1.5299213000000043,
+        1.4110001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_68",
+        "position": {
+          "x": -2.3,
+          "y": 0.7,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 180
+        },
+        "pcb_component_id": "pcb_component_70",
+        "source_component_id": "source_component_70",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/TMP102AIDRLR/TMP102AIDRLR.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/TMP102AIDRLR/TMP102AIDRLR.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": -5.079999999679785e-05,
+          "y": 0.029921200000003978,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "C_TEMP",
+      "jlcpcb": "C1525",
+      "step": "imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.step",
+      "sha256": "b49e77a39a55d45c078607d8c791cc5521719fc0140e660f44a3e122fe57af14",
+      "valid_brep": true,
+      "native_solid_count": 1,
+      "world_bbox_mm": [
+        -0.4,
+        0.8500126000000696,
+        0.7999999000000001,
+        0.6000000000000001,
+        1.3500128000000728,
+        1.3000001000000003
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_69",
+        "position": {
+          "x": 0.10000000000000003,
+          "y": 1.1,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "pcb_component_id": "pcb_component_71",
+        "source_component_id": "source_component_71",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": -0.25
+        }
+      }
+    },
+    {
+      "reference": "R_TEMP_SCL",
+      "jlcpcb": "C25905",
+      "step": "imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        3.44898719999993,
+        7.0,
+        0.7999999999999999,
+        3.94998729999993,
+        8.0,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_70",
+        "position": {
+          "x": 3.7,
+          "y": 7.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 90
+        },
+        "pcb_component_id": "pcb_component_72",
+        "source_component_id": "source_component_72",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "R_TEMP_SDA",
+      "jlcpcb": "C25905",
+      "step": "imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        4.6489871999999295,
+        7.0,
+        0.7999999999999999,
+        5.14998729999993,
+        8.0,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_71",
+        "position": {
+          "x": 4.9,
+          "y": 7.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 90
+        },
+        "pcb_component_id": "pcb_component_73",
+        "source_component_id": "source_component_73",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "R_TEMP_ALERT",
+      "jlcpcb": "C25744",
+      "step": "imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        1.1999999999999997,
+        -4.951012800000071,
+        0.7999999999999999,
+        2.2,
+        -4.45001270000007,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_72",
+        "position": {
+          "x": 1.7,
+          "y": -4.7,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 180
+        },
+        "pcb_component_id": "pcb_component_74",
+        "source_component_id": "source_component_74",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "BZ_ALARM",
+      "jlcpcb": "C94598",
+      "step": "imports/supplier/MLT_5020/MLT_5020.step",
+      "sha256": "867309604960a2d7b111a32890275508b957a192f906f17a71728fc991489fac",
+      "valid_brep": true,
+      "native_solid_count": 1,
+      "world_bbox_mm": [
+        -4.532989661958084,
+        2.8999743235451443,
+        0.7999999999999998,
+        0.7428372619581504,
+        8.099974523545143,
+        2.8100000000000005
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_73",
+        "position": {
+          "x": -1.8999999999999997,
+          "y": 5.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "pcb_component_id": "pcb_component_75",
+        "source_component_id": "source_component_75",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/MLT_5020/MLT_5020.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/MLT_5020/MLT_5020.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 7.619999996677507e-05,
+          "y": 0.06042139999991303,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "Q_BUZZER",
+      "jlcpcb": "C20917",
+      "step": "imports/supplier/AO3400A/AO3400A.step",
+      "sha256": "404e2c1e10e1ebdc38126eb298c04d95ad998039e4ddaf854293dcb8b285a876",
+      "valid_brep": true,
+      "native_solid_count": 17,
+      "world_bbox_mm": [
+        -9.149987400000043,
+        5.847198081552904,
+        0.8000000027270486,
+        -6.249987200000043,
+        8.352827318447236,
+        1.8502051000000002
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_74",
+        "position": {
+          "x": -7.7,
+          "y": 7.1,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 270
+        },
+        "pcb_component_id": "pcb_component_76",
+        "source_component_id": "source_component_76",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/AO3400A/AO3400A.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/AO3400A/AO3400A.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 1.2700000070253736e-05,
+          "y": -1.2699999956566899e-05,
+          "z": 0.050795
+        }
+      }
+    },
+    {
+      "reference": "D_BUZZER",
+      "jlcpcb": "C191023",
+      "step": "imports/supplier/A_1N5819WS/A_1N5819WS.step",
+      "sha256": "9d3d6f4ee4b582bb1ba7152befc7da6217084253623b730b996aacec436ec089",
+      "valid_brep": true,
+      "native_solid_count": 1,
+      "world_bbox_mm": [
+        -8.425,
+        2.8498855999999364,
+        0.7999999999999998,
+        -5.7749999999999995,
+        4.149885799999937,
+        1.7500000000000002
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_75",
+        "position": {
+          "x": -7.1,
+          "y": 3.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "pcb_component_id": "pcb_component_77",
+        "source_component_id": "source_component_77",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/A_1N5819WS/A_1N5819WS.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": 0.00011430000006384944,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "R_BUZZER_GATE",
+      "jlcpcb": "C25076",
+      "step": "imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        -9.0,
+        -4.551012800000071,
+        0.7999999999999999,
+        -8.0,
+        -4.05001270000007,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_76",
+        "position": {
+          "x": -8.5,
+          "y": -4.3,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 180
+        },
+        "pcb_component_id": "pcb_component_78",
+        "source_component_id": "source_component_78",
+        "model_obj_url": "/workspace/NEMA14_RP2040/imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE.obj",
+        "model_step_url": "/workspace/NEMA14_RP2040/imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "R_BUZZER_PD",
+      "jlcpcb": "C25741",
+      "step": "imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.step",
+      "sha256": "055d10977e0e0b859b0b263328e4e4bfd98261ad252688cb3736f72f67aa4729",
+      "valid_brep": true,
+      "native_solid_count": 3,
+      "world_bbox_mm": [
+        0.8489871999999298,
+        12.0,
+        0.7999999999999999,
+        1.34998729999993,
+        13.0,
+        1.1600000000000001
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_77",
+        "position": {
+          "x": 1.1,
+          "y": 12.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 90
+        },
+        "pcb_component_id": "pcb_component_79",
+        "source_component_id": "source_component_79",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": 0
+        }
+      }
+    },
+    {
+      "reference": "C_BUZZER",
+      "jlcpcb": "C45783",
+      "step": "imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.step",
+      "sha256": "67f86cfc9ebba2ff889d65b12f5d49d5a90b265b73635a931d68c6a27d34e11f",
+      "valid_brep": true,
+      "native_solid_count": 1,
+      "world_bbox_mm": [
+        -1.1500128000000767,
+        10.5,
+        0.7999999,
+        0.1499873999999319,
+        12.5,
+        2.1000001000000004
+      ],
+      "cad_record": {
+        "type": "cad_component",
+        "cad_component_id": "cad_component_78",
+        "position": {
+          "x": -0.5,
+          "y": 11.5,
+          "z": 0.8
+        },
+        "rotation": {
+          "x": 0,
+          "y": 0,
+          "z": 90
+        },
+        "pcb_component_id": "pcb_component_80",
+        "source_component_id": "source_component_80",
+        "model_obj_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.obj",
+        "model_step_url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.step",
+        "model_origin_alignment": "center_of_component_on_board_surface",
+        "anchor_alignment": "center_of_component_on_board_surface",
+        "model_origin_position": {
+          "x": 0,
+          "y": -1.2700000070253736e-05,
+          "z": -0.65
         }
       }
     }
@@ -3101,15 +3634,15 @@
     },
     {
       "hardware": "PCB_M2p5_head_1",
-      "controlling_model_bbox": "R_VM_H",
-      "minimum_all_component_distance_lower_bound_mm": 0.7466758674284358,
-      "remaining_lower_bound_after_0p35mm_hole_play": 0.39667586742843586
+      "controlling_model_bbox": "R_LED",
+      "minimum_all_component_distance_lower_bound_mm": 0.7629547824084989,
+      "remaining_lower_bound_after_0p35mm_hole_play": 0.4129547824084989
     },
     {
       "hardware": "PCB_M2p5_head_2",
-      "controlling_model_bbox": "D_DATA",
-      "minimum_all_component_distance_lower_bound_mm": 1.125,
-      "remaining_lower_bound_after_0p35mm_hole_play": 0.775
+      "controlling_model_bbox": "R_VM_L",
+      "minimum_all_component_distance_lower_bound_mm": 0.8464778975259833,
+      "remaining_lower_bound_after_0p35mm_hole_play": 0.49647789752598337
     },
     {
       "hardware": "PCB_M2p5_head_3",
@@ -3540,6 +4073,84 @@
       "minimum_distance_lower_bound_mm": 2.5999999999999996,
       "method": "actual BREP Z-extrema prove separation",
       "intersection_mm3": 0
+    },
+    {
+      "item": "D_STATUS",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_LED",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "U_TEMP",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "C_TEMP",
+      "minimum_distance_lower_bound_mm": 2.5999999,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_TEMP_SCL",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_TEMP_SDA",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_TEMP_ALERT",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "BZ_ALARM",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "Q_BUZZER",
+      "minimum_distance_lower_bound_mm": 2.6000000027270485,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "D_BUZZER",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_BUZZER_GATE",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "R_BUZZER_PD",
+      "minimum_distance_lower_bound_mm": 2.5999999999999996,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
+    },
+    {
+      "item": "C_BUZZER",
+      "minimum_distance_lower_bound_mm": 2.5999999,
+      "method": "actual BREP Z-extrema prove separation",
+      "intersection_mm3": 0
     }
   ],
   "usb_access": {
@@ -3560,7 +4171,13 @@
       {
         "port": "J_PD",
         "other": "R_VM_H",
-        "distance_mm": 2.141173743534166,
+        "distance_mm": 1.3900000000000574,
+        "intersection_mm3": 0
+      },
+      {
+        "port": "J_PD",
+        "other": "R_SLEEP",
+        "distance_mm": 2.247693261991108,
         "intersection_mm3": 0
       },
       {
@@ -3573,6 +4190,18 @@
         "port": "J_DATA",
         "other": "R_CC2",
         "distance_mm": 1.2490292898616355,
+        "intersection_mm3": 0
+      },
+      {
+        "port": "J_DATA",
+        "other": "R_VM_H",
+        "distance_mm": 1.8727319616005262,
+        "intersection_mm3": 0
+      },
+      {
+        "port": "J_DATA",
+        "other": "R_SLEEP",
+        "distance_mm": 1.990000000000057,
         "intersection_mm3": 0
       }
     ],
@@ -3841,28 +4470,16 @@
       "audited_native_pad_id": "pcb_smtpad_158"
     },
     {
-      "reference": "R_VM_H",
-      "native_pad_id": "pcb_smtpad_166",
+      "reference": "R_VM_L",
+      "native_pad_id": "pcb_smtpad_169",
       "mount_xy_mm": [
-        -14.8,
-        13
+        13,
+        -13
       ],
-      "outer_copper_to_5p4mm_circle_mm": 0.26799679999999837,
-      "outer_copper_to_5p2mm_swept_head_mm": 0.36799679999999846,
+      "outer_copper_to_5p4mm_circle_mm": 0.4567776920862081,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.5567776920862082,
       "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
-      "audited_native_pad_id": "pcb_smtpad_166"
-    },
-    {
-      "reference": "R_VM_H",
-      "native_pad_id": "pcb_smtpad_167",
-      "mount_xy_mm": [
-        -14.8,
-        13
-      ],
-      "outer_copper_to_5p4mm_circle_mm": 0.6033121697414434,
-      "outer_copper_to_5p2mm_swept_head_mm": 0.7033121697414435,
-      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
-      "audited_native_pad_id": "pcb_smtpad_167"
+      "audited_native_pad_id": "pcb_smtpad_169"
     },
     {
       "reference": "C_BUCK_OUT1",
@@ -3889,18 +4506,6 @@
       "audited_native_pad_id": "pcb_smtpad_190"
     },
     {
-      "reference": "D_DATA",
-      "native_pad_id": "pcb_smtpad_195",
-      "mount_xy_mm": [
-        13,
-        -13
-      ],
-      "outer_copper_to_5p4mm_circle_mm": 0.66533560443261,
-      "outer_copper_to_5p2mm_swept_head_mm": 0.7653356044326101,
-      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
-      "audited_native_pad_id": "pcb_smtpad_195"
-    },
-    {
       "reference": "C_BULK",
       "native_pad_id": "pcb_smtpad_238",
       "mount_xy_mm": [
@@ -3919,10 +4524,58 @@
         13,
         -13
       ],
-      "outer_copper_to_5p4mm_circle_mm": 0.9710677507725083,
-      "outer_copper_to_5p2mm_swept_head_mm": 1.0710677507725084,
+      "outer_copper_to_5p4mm_circle_mm": 0.443398300000001,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.5433983000000011,
       "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
       "audited_native_pad_id": "pcb_smtpad_244"
+    },
+    {
+      "reference": "R_REF_L",
+      "native_pad_id": "pcb_smtpad_246",
+      "mount_xy_mm": [
+        13,
+        -13
+      ],
+      "outer_copper_to_5p4mm_circle_mm": 0.4567776920862081,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.5567776920862082,
+      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
+      "audited_native_pad_id": "pcb_smtpad_246"
+    },
+    {
+      "reference": "D_STATUS",
+      "native_pad_id": "pcb_smtpad_266",
+      "mount_xy_mm": [
+        -14.8,
+        13
+      ],
+      "outer_copper_to_5p4mm_circle_mm": 0.5998737999999988,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.6998737999999989,
+      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
+      "audited_native_pad_id": "pcb_smtpad_266"
+    },
+    {
+      "reference": "D_STATUS",
+      "native_pad_id": "pcb_smtpad_267",
+      "mount_xy_mm": [
+        -14.8,
+        13
+      ],
+      "outer_copper_to_5p4mm_circle_mm": 0.8285740043746901,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.9285740043746902,
+      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
+      "audited_native_pad_id": "pcb_smtpad_267"
+    },
+    {
+      "reference": "R_LED",
+      "native_pad_id": "pcb_smtpad_268",
+      "mount_xy_mm": [
+        -14.8,
+        13
+      ],
+      "outer_copper_to_5p4mm_circle_mm": 0.5263797429981794,
+      "outer_copper_to_5p2mm_swept_head_mm": 0.6263797429981794,
+      "interpretation": "native pad copper, actual circle; 0.35mm hole play included in swept head, solder/placement tolerance excluded",
+      "audited_native_pad_id": "pcb_smtpad_268"
     }
   ],
   "usb_same_edge_cable_fit": {
@@ -4740,40 +5393,40 @@
     ]
   },
   "artifact_hashes": {
-    "audited-input.circuit.json": "8bc139a00933d9c4cadccf2ac25aab86a6f2302d9ab4df621a97721a86412435",
+    "audited-input.circuit.json": "57234ef04ae62edc62b43e32a9eb8cc6ad4d3fb8a94f71d305a890abacd8dc1b",
     "board-bottom.png": "59710ad5d41d87498a368a9f04d7ec560490b2cf2ae6684847e48e3005404e12",
-    "board-fitted-components.step.zip": "3cfaa1d4b5b328e736fa7f5bf54fd4d7304b66d02b25cf5ec9ba141e90b5001d",
-    "board-isometric.png": "1b8dc123363364a245d01080f807186fac2bfc483cba609f3000556182f800ff",
-    "board-top.png": "d6b6126d9aa1df336584e67f9acff394357ab71be366bc37ebce1a13c2898703",
-    "bulk-capacitor-height-review.png": "67ec83c9086961398008fd6a0b950bd2141fe276ca649000e2537c52b8436504",
-    "bulk-manufacturer-maximum-envelope.step": "05fe7382933095ec3711a34b76f3abb70fe5bbe430887d1eaaa943fd5e9887ad",
+    "board-fitted-components.step.zip": "74299967641dea1c193bc109663fa54b25ed6c47d8f3f721d660ab12a8780971",
+    "board-isometric.png": "3af2f5fb5f528a20c014b654c4a2dc0f2a22fa41358e4dc1ce4cd05a8dd921d4",
+    "board-top.png": "25595d57de195d385594ae6a263f88a0ee8eb110c2195506fffbac41ffa4817a",
+    "bulk-capacitor-height-review.png": "d327ce525a3a49c9b0ecb46493a9c674a9e73b539a07a2d86f0c205467e7410a",
+    "bulk-manufacturer-maximum-envelope.step": "5c7488b92f72fbad4579ea3819d4dab39fc586c4afa4d89e80922ad8e64732fd",
     "dimensions.png": "fc1fb7bd771d5df68e03b5617055dc9ec681afca8e87db05328bacbd81f59a09",
-    "dimensions.svg": "93d7fb28dd9bc0c924cfb606f6e362348908e60b5e4d1ebca97b0526c5dbfa00",
-    "fastener-clearance-envelopes.step": "1773384f3e0c44033a89cfb8c7a8f981477d121e34b7186ea35d2028426bcb56",
+    "dimensions.svg": "e926ee95c45de1d5355b264a96e1680e957bd41d06e1278e8cff7ee2721e4507",
+    "fastener-clearance-envelopes.step": "689ab4ecfa6fd2afa2fede6fe509eb1640828b7b1bf4b8554492d67e7dab1645",
     "generated-step-validation.json": "1b0bbb78584690556c5965f535e42c2729a3483fe45841c398c9c64107511090",
-    "harness-and-insulation.step.zip": "fea0f64b2117b4deef047901d45999a78d099183528e3cb358d89e21ec3b08b8",
-    "input-board.circuit.json": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-    "input-jlcpcb-catalog.json": "d15a3cda4e87abe3ab5f4e99998f7a4b94309142fd9b8de98b403585452d9c79",
+    "harness-and-insulation.step.zip": "ff92d56115e589dd6e05a63cba1c9559c34824f555d0380d48d804881671604b",
+    "input-board.circuit.json": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+    "input-jlcpcb-catalog.json": "d1546720836408d1a22d5732f76cec562784485372d696ff76e2f94c3cae3c37",
     "input-review-mechanical.py": "97a1c608b437f1911a1479795575cdfa5d59a6ca5a28bb6f1e8818a1cd4cf616",
     "motor-front-detail.png": "fb864314deed2c3ab18ec53a67fbdf6bf33f4bc61226caf7054daeec54241258",
     "motor-rear-detail.png": "c74b257f21f40b81ee2ce7ad82ed7902b1b2bfb05cba4af92c8bfaa06254e186",
     "mounted-bottom.png": "292e5fe304a54f33e49a07c440f8bbfce328efc0744ce12abc2f701f56da86db",
-    "mounted-front-carrier.step.zip": "8ae37997e9f420927d8bb74148c26582bff1c5e8a0d257145f7ab89d55dc0b4c",
-    "mounted-isometric.png": "a612d2400de1c294d5ab6802398bfb71f67a4ca761e10405062fb7c08dbae072",
-    "mounted-side.png": "d15bc8e1056e8c48ed319395e6863bdc8be1434740c2d20464a5b4b702957c97",
-    "mounted-top.png": "f94c0364509c844839a3a6aca91b3b152522409db53ab36a234d08f396934414",
+    "mounted-front-carrier.step.zip": "4c1fef175eaed8df7453a7e5ab544dec95fbeac1e0be3d475dd31518a07e563b",
+    "mounted-isometric.png": "3bba76b57ff5b9e10fa95ea1d4d903157b41c38dd977d096118684ebf610c83f",
+    "mounted-side.png": "23f38e8f33620bacde811c14b69485632784f039d1fb49da074a9d7c776ace8e",
+    "mounted-top.png": "ea671f580f2fd53f1925379977180206e3bb0460bc7229f0d1911fa703410251",
     "programming-access-plan.png": "3be60b591c57eb399bc331973c9ba47effd5fb874905d930487857f727460dc8",
     "programming-access-plan.svg": "9ce3f1b7acb848aa2f87ab95acb951305cf5bc2b3ac1450f3cc4faabdd24675e",
     "same-edge-provisional-screen.json": "027f1c5b6110b8b4524049004b94fcecf5d0acc6efeb51e146232ad1ff045350",
-    "separate-front-carrier.step": "b06c71cbf252cab6c6450abe38b604fd5683d5d0a55038f02f5f6eda845e7d3b",
+    "separate-front-carrier.step": "9e958ebe37e376c090997ca093aa052f16fa9bec66e3b2eb45841572d9205d58",
     "service-harness-review.json": "7e9cdc0fc7e10d856ab587a92de88bb0cbd2d73e3fe3a263b5733e156f94638f",
-    "service-tolerance-review.json": "8d87e85fcd0f14a21afbd7c3a53144c3a4ece1aee2eb38d7a129e680c7e71e34"
+    "service-tolerance-review.json": "431e753afde565776fbd7a9cac260fb91a95c2e00900336b124e5e04bd7e0dd2"
   },
   "rebind_proof": {
-    "audited_input_sha256": "8bc139a00933d9c4cadccf2ac25aab86a6f2302d9ab4df621a97721a86412435",
-    "previous_input_sha256": "8bc139a00933d9c4cadccf2ac25aab86a6f2302d9ab4df621a97721a86412435",
-    "saved_board_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
-    "mechanical_fingerprint_sha256": "e8d5f13f0fd7e8d8d589ba491aebdb044f1f4f9f004e8a09887988b9bb182233",
+    "audited_input_sha256": "57234ef04ae62edc62b43e32a9eb8cc6ad4d3fb8a94f71d305a890abacd8dc1b",
+    "previous_input_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+    "saved_board_sha256": "b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd",
+    "mechanical_fingerprint_sha256": "cc6a9674d08c4037a9137e547d736d708511d67d2c9031b2b54529bee191b152",
     "coordinate_comparison_resolution_mm": 1e-09,
     "geometry_equivalent": true,
     "verified_geometry": [

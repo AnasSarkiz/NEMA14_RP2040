@@ -1,13 +1,13 @@
-# Current outer-layer routing review
+# Current outer-power routing
 
-Final saved source SHA256`0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a`. Main motor/PD width≥0.45 mm on top/bottom only; sense≥0.30 mm on outer layers. Short native driver/USB escapes and resistor-only leaves are individually proved and checked; no thermal arithmetic waives the main rule. Actual Gerber/drill topology independently passes source/copper agreement, shorts/opens and available series-via transitions.
+Final saved board SHA256 `b28a7426d8bedbb10ae2eef10f6111f28326407e30352b2011bd0beab7ab33bd`. Main motor and15V routes use top/bottom only, minimum0.45mm with individually proved native pin escapes/resistor leaves; sense0.30mm.
 
-- A_PLUS: main minimum 0.450 mm; total branched vias 1.
-- A_MINUS: main minimum 0.450 mm; total branched vias 1.
-- B_PLUS: main minimum 0.450 mm; total branched vias 1.
-- B_MINUS: main minimum 0.450 mm; total branched vias 1.
-- PD_VBUS: main minimum 0.450 mm; total branched vias 10.
-- SENSE1: main minimum 0.300 mm; total branched vias 0.
-- SENSE2: main minimum 0.300 mm; total branched vias 0.
+- A_PLUS: 0.45mm main minimum; 1 branched through vias.
+- A_MINUS: 0.45mm main minimum; 1 branched through vias.
+- B_PLUS: 0.45mm main minimum; 1 branched through vias.
+- B_MINUS: 0.45mm main minimum; 1 branched through vias.
+- PD_VBUS: 0.45mm main minimum; 10 branched through vias.
+- SENSE1: 0.3mm main minimum; 0 branched through vias.
+- SENSE2: 0.3mm main minimum; 0 branched through vias.
 
-Total branched via counts differ from series-path transitions; see`service-outer-power-cam.json`. Motor phases retain nonzero vias and are not claimed via-free. RP SENSE1/2 are 2.099/2.098 mm,0.30 mm top, no sense vias. Its single-inner-plane/full-barrel DC return screen is in`artifacts/engineering/independent-sense-return-review.json`; switching/thermal/current balance still needs measurement. CH sense forward copper retains its separately reported trace/barrel screen; ground return is not inferred from that sum. The native router/FreeRouting attempts and explicit local repairs are recorded; diagnostics do not constitute acceptance.
+Phase vias are present. All-branch counts are not series transition counts. Actual CAM series transitions are in service-outer-power-cam.json. New ground/supply planes invalidate old return-resistance calculations; bench ground-bounce/current-sharing review remains required. BUCK_SW RMS thermal budget0.48A derives from pulse/average and ripple screens; transient≈0.921A is checked separately.
