@@ -1,0 +1,539 @@
+                                                                                                                                                            TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+                                                                                                                                                                                RoHS Pb e3
+
+
+                                                                                                           Description
+          Uni-directional
+                                                                                                           The SMF4L series of SOD-123FL small and flat lead low-profile
+                                                                                                           plastic package is designed specifically to protect sensitive
+                                                                                                           electronic equipment from voltage transients induced by lightning
+                                                                                                           and other transient voltage events.
+
+
+                                                                                                           Features & Benefits
+                                                                                                           ■ 400 W peak pulse power                ■ Glass passivated chip junction
+                                                                            Bi-directional
+                                                                                                              capability at 10/1000 μs              ■ Low dynamic resistance
+                                                                                                              waveform, repetition rate
+                                                                                                              (duty cycles):0.01 %                  ■ VBR @ TJ= VBR @ 25 °C x (1+αT
+                                                                                                                                                       x (TJ - 25))(αT:Temperature
+                                                                                                           ■ Compatible with industrial               Coefficient, typical value is
+                                                                                                              standard package SOD-123FL               0.1 %)
+                                                                                                           ■ Low profile: maximum height            ■ UL recognized compound
+                                                                                                             of 1.1 mm                                 meeting flammability rating
+Additional Information                                                                                     ■ SMD low profile surface                   V-0
+                                                                                                             mount package minimizing               ■ Halogen-free and RoHS
+                                                                                                             PCB footprint                            compliant
+                                                                                                           ■ Typical failure mode is short         ■ Pb-free E3 means 2nd level
+                                                                                                              from over-specified voltage or          interconnect is Pb-free and
+                                                                                                              current                                 the terminal finish material is
+                                                                                                           ■ Whisker test is conducted               tin(Sn) (IPC/JEDEC J-STD-
+         Resources                          Accessories                           Samples
+                                                                                                              based on JEDEC JESD201A                 609A.01)
+                                                                                                              per its table 4a and 4c pass          ■ Recognized to UL 497B
+                                                                                                              Class 1 and Class 2                     as an Isolated Loop Circuit
+                                    Agency Approvals                                                       ■ IEC-61000-4-2 ESD 30 kV(Air),           Protector
+                                                                                                              30 kV (Contact)
+    Agency                                     Agency File Number
+
+                                                       E230531
+
+
+
+          Maximum Ratings and Thermal Characteristics
+               (TA = 25OC unless otherwise noted)
+
+                         Parameter                               Symbol          Value          Unit
+Peak Pulse Power          8/20 μs (Note 2)                                       2000            W
+Dissipation at TA= 25 ºC                      PPPM
+(Note 1)                 10/1000  μs (Note 3)                                     400            W
+Power Dissipation On Infinite Heat Sink at
+                                                                                                           Applications
+                                               PD                                   1            W
+TL=50 ºC                                                                                                   SMF4L devices are ideal for the protection of I/O interfaces, VCC
+Thermal Resistance Junction to Ambient                              RƟJA          220           °C/W       bus and other vulnerable circuit used in cellular phones, portable
+Thermal Resistance Junction to Lead                                 RƟJL          100           °C/W       devices, business machines, power supplies and other consumer
+                                                                                                           applications.
+Operating and Storage Temperature Range                            TJ,TSTG -55 to 150            °C
+Notes:
+1. Non-repetitive current pulse, per Fig. 4 and derated above TJ (initial) =25 ºC per Fig. 3.
+2. SMF4L5.0A~SMF4L8.5A Peak Pulse Power Dissipation is 1850 W min, 2000 W typical @ 8/20 μs                                       Functional Diagram
+3. SMF4L5.0A~SMF4L8.5A Peak Pulse Power Dissipation is 370 W min, 400 W typical @ 10/1000 μs,
+    SMF4L90A~SMF4L250A Peak Pulse Power Dissipation is 200 W typical @ 10/1000 μs
+
+
+
+                                                                                                                                          Bi-directional
+
+
+
+                                                                                                                  Cathode                                                 Anode
+
+                                                                                                                                          Uni-directional
+                                                                                                                                                                               © 2025 Littelfuse, Inc.
+                                                                                                       1                                        Specifications are subject to change without notice.
+                                                                                                                                                                             Revised: JC. 04/22/25 v.2
+                                                                                                                                            TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+
+
+                                                          Electrical Characteristics (TA = 25 °C unless otherwise noted)
+                                                                                                                                          Maximum
+                    Part                                         Marking            Breakdown Voltage               Reverse   Maximum                 Maximum Agency
+                                                                                                           Test                             Peak
+                   Number                                         Code                VBR (Volts) @ IT              Stand off  Reverse                Clamping Approval
+                                                                                                         Current                            Pulse
+                                                                                                                   Voltage VR Leakage @                Voltage
+                                                                                                         IT (mA)                          Current Ipp
+  Uni-directional           Bi-directional        Uni-directional Bi-directional    Min           Max                  (V)     VR IR (µA)             @Ipp VC (V)
+                                                                                                                                             (A)
+  SMF4L5.0A                   -                         KE                     -     6.40         7.00     10        5.0        800           40.1             9.2            X
+  SMF4L6.0A                   -                         KG                     -     6.67         7.37     10        6.0        800           35.9            10.3            X
+  SMF4L6.5A                   -                         KK                     -     7.22         7.98     10        6.5        500           33.1            11.2            X
+  SMF4L7.0A                   -                         KM                     -     7.78         8.60     10        7.0        200           30.9            12.0            X
+  SMF4L7.5A                   -                         KP                     -     8.33         9.21     1         7.5        100           28.7            12.9            X
+  SMF4L8.0A                   -                         KR                     -     8.89         9.83     1         8.0         50           27.2            13.6            X
+  SMF4L8.5A                   -                         KT                     -     9.44        10.40     1         8.5         20           25.7            14.4            X
+  SMF4L9.0A               SMF4L9.0CA                    KV                    AV    10.00        11.10     1         9.0         5            26.4            15.4            X
+   SMF4L10A               SMF4L10CA                     KX                    AX    11.10        12.30     1          10         5            23.5            17.0            X
+   SMF4L11A               SMF4L11CA                     KZ                    AZ     12.2        13.50     1          11         1            22.0            18.2            X
+   SMF4L12A               SMF4L12CA                     LE                    BE    13.30        14.70     1          12         1            20.1            19.9            X
+   SMF4L13A               SMF4L13CA                     LG                    BG    14.40        15.90     1          13         1            18.6            21.5            X
+   SMF4L14A               SMF4L14CA                     LK                    BK    15.60        17.20     1          14         1            17.2            23.2            X
+   SMF4L15A               SMF4L15CA                     LM                    BM    16.70        18.50     1          15         1            16.4            24.4            X
+   SMF4L16A               SMF4L16CA                     LP                    BP    17.80        19.70     1          16         1            15.4            26.0            X
+   SMF4L17A               SMF4L17CA                     LR                    BR    18.90        20.90     1          17         1            14.5            27.6            X
+   SMF4L18A               SMF4L18CA                     LT                    BT    20.00        22.10     1          18         1            13.7            29.2            X
+  SMF4L20A                SMF4L20CA                     LV                    BV    22.20        24.50     1          20         1            12.3            32.4            X
+  SMF4L22A                SMF4L22CA                     LX                    BX    24.40        26.90     1          22         1            11.3            35.5            X
+  SMF4L24A                SMF4L24CA                     LZ                    BZ    26.70        29.50     1          24         1            10.3            38.9            X
+  SMF4L26A                SMF4L26CA                     ME                    CE    28.90        31.90     1          26         1            9.5             42.1            X
+  SMF4L28A                SMF4L28CA                     MG                    CG    31.10        34.40     1          28         1            8.8             45.4            X
+  SMF4L30A                SMF4L30CA                     MK                    CK    33.30        36.80     1          30         1            8.3             48.4            X
+  SMF4L33A                SMF4L33CA                     MM                    CM    36.70        40.60     1          33         1             7.5            53.3            X
+  SMF4L36A                SMF4L36CA                     MP                    CP    40.00        44.20     1          36         1            6.9             58.1            X
+  SMF4L40A                SMF4L40CA                     MR                    CR    44.40        49.10     1          40         1            6.2             64.5            X
+  SMF4L43A                SMF4L43CA                     MT                    CT    47.80        52.80     1          43         1            5.8             69.4            X
+  SMF4L45A                SMF4L45CA                     MV                    CV    50.00        55.30     1          45         1            5.5             72.7            X
+  SMF4L48A                SMF4L48CA                     MX                    CX    53.30        58.90     1          48         1            5.2             77.4            X
+  SMF4L51A                SMF4L51CA                     MZ                    CZ    56.70        62.70     1          51         1            4.9             82.4            X
+  SMF4L54A                SMF4L54CA                     NE                    DE    60.00        66.30     1          54         1            4.6             87.1            X
+  SMF4L58A                SMF4L58CA                     NG                    DG    64.40        71.20     1          58         1            4.3             93.6            X
+  SMF4L60A                SMF4L60CA                     NK                    DK    66.70        73.70     1          60         1            4.1             96.8            X
+  SMF4L64A                SMF4L64CA                     NM                    DM    71.10        78.60     1          64          1            3.9           103.0            X
+  SMF4L70A                SMF4L70CA                     NP                    DP    77.80        86.00     1          70          1            3.5           113.0            X
+  SMF4L75A                SMF4L75CA                     NR                    DR    83.30        92.10     1          75          1            3.3           121.0            X
+  SMF4L78A                SMF4L78CA                     NT                    DT    86.70        95.80     1          78         1             3.2           126.0            X
+  SMF4L85A                SMF4L85CA                     NV                    DV    94.40       104.00     1          85         1             2.9           137.0            X
+  SMF4L90A                    -                         NX                     -   100.00       111.00     1          90         1             1.4           146.0            X
+  SMF4L100A                   -                         NZ                     -   111.00       123.00     1         100         1             1.2           162.0            X
+  SMF4L110A                   -                         OE                     -   122.00       135.00     1         110         1             1.1           177.0            X
+  SMF4L120A                   -                         OG                     -   133.00       147.00     1         120         1             1.0           193.0            X
+  SMF4L130A                   -                         OK                     -   144.00       159.00     1         130         1             1.0           209.0            X
+  SMF4L150A                   -                         OM                     -   167.00       185.00     1         150         1            0.8            243.0            X
+  SMF4L160A                   -                         OP                     -   178.00       197.00     1         160         1            0.8            259.0            X
+  SMF4L170A                   -                         OR                     -   189.00       209.00     1         170         1            0.7            275.0            X
+  SMF4L180A                   -                         OT                     -   201.00       222.00     1         180         1            0.7            292.0            -
+  SMF4L188A                   -                         OV                     -   209.00       231.00     1         188         1            0.7            304.0            -
+  SMF4L200A                   -                         OX                     -   224.00       247.00     1         200         1            0.6            324.0            -
+  SMF4L220A                   -                         OZ                     -   246.00       272.00     1         220         1            0.6            356.0            -
+  SMF4L250A                   -                         PE                     -   279.00       309.00     1         250         1            0.5            405.0            -
+Notes:
+
+1. Surge current waveform per 10/1000 µs exponential wave and derated per Fig.3.
+
+
+                                                                                                                                                                © 2025 Littelfuse, Inc.
+                                                                                            2                                    Specifications are subject to change without notice.
+                                                                                                                                                              Revised: JC. 04/22/25 v.2
+                                                                                                                                                                                    TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+
+
+I-V Curve Characteristics
+                          Uni-directional                                                                                                   Bi-directional
+                                                                                                                                                                   Ipp
+
+
+
+
+                                                                                                                                                                   IT
+                          Vc VBR VR                                                                                                   Vc VBR VR                    IR
+                                                                          V                                                                                                                                      V
+                                                      IR VF                                                                                                              IR                 VR VBR Vc
+                                                      IT                                                                                                                 IT
+
+
+
+
+                                                      Ipp                                                                                                                Ipp
+
+
+
+PPPM Peak Pulse Power Dissipation (IPP x VC) -- Max power dissipation
+VR Stand-off Voltage -- Maximum voltage that can be applied to the TVS without operation
+VBR Breakdown Voltage -- Maximum voltage that flows though the TVS at a specified test current (IT)
+VC Clamping Voltage -- Peak voltage measured across the TVS at a specified IPPM (peak impulse current)
+IR   Reverse Leakage Current -- Current measured at VR
+VF Forward Voltage Drop for Uni-directional
+
+
+
+Ratings and Characteristic Curves (TA=25 °C unless otherwise noted)
+                                          Figure 1:                                                                                                    Figure 2 -
+                             TVS Transients Clamping Waveform                                                                            Typical Peak Pulse Power Rating Curve
+                                                                                                                                       10
+                                                                                                         PPPM-Peak Pulse Power (kW)
+
+
+
+
+                                      Transient Voltage
+     Voltage or Current
+
+
+
+
+                                                                                                                                        1
+
+
+
+
+                                                                                                                                               0.2x0.2" (5.0x5.0mm)
+                                                                                                                                               Copper Pad Area
+                                                                                                                                       0.1
+                                        Current Through TVS                                                                              0.000001                0.00001               0.0001                 0.001
+                                                                                                                                                                 td-Pulse Width (sec.)
+                                                                       Time
+
+
+
+
+                                                                                                                                                                                                        © 2025 Littelfuse, Inc.
+                                                                                             3                                                                           Specifications are subject to change without notice.
+                                                                                                                                                                                                      Revised: JC. 04/22/25 v.2
+                                                                                                                                                                                                                                                                                                                                       TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+
+
+Ratings and Characteristic Curves (TA=25 °C unless otherwise noted) (Continued)
+                                                                                                                   Figure 3 -                                                                                                                                                              Figure 4 -
+                                                                                                        Peak Pulse Power Derating Curve                                                                                                                                            Pulse Waveform - 10/1000 µS
+
+                                                                                             100                                                                                                                                                                             150
+                                  Peak Pulse Power (PPP) or Current (IPP)
+
+
+
+
+                                                                                                                                                                                                                                                                                        tr=10µsec                                  TJ=25°C
+
+
+
+
+                                                                                                                                                                                                                                      IPPM- Peak Pulse Current, % IRSM
+                                                                                                                                                                                                                                                                                                                                   Pulse Width(td) is defined
+                                                                                                   80                                                                                                                                                                                                                              as the point where the peak
+                                        Derating in Percentage %
+
+
+
+
+                                                                                                                                                                                                                                                                                                                                   current decays to 50% of IPPM
+                                                                                                                                                                                                                                                                                                 Peak Value
+                                                                                                                                                                                                                                                                             100                 IPPM
+                                                                                                   60
+                                                                                                                                                                                                                                                                                                                Half Value
+
+                                                                                                   40
+                                                                                                                                                                                                                                                                                                                IPPM IPPM     ( )  2
+
+                                                                                                                                                                                                                                                                             50                                                    10/1000µsec. Waveform
+                                                                                                                                                                                                                                                                                                                                   as defined by R.E.A
+                                                                                                   20
+
+                                                                                                                                                                                                                                                                                       td
+                                                                                                   0
+                                                                                                                                                                                                                                                                              0
+                                                                                                         0         25      50       75     100  125 150           175                                                                                                              0              1.0                   2.0                   3.0                  4.0
+                                                                                                                     TJ - Initial Junction Temperature (ºC)                                                                                                                                                    t-Time (ms)
+
+
+
+
+                                                                                                                           Figure 5 -                                                                                                                                                        Figure 6 -
+                                                                                                                        Forward Voltage                                                                                                                                            Typical Junction Capacitance
+                                                                                                                                                                                             10000
+                                                                                                   0.9
+                                                       Vf - Typical forward dropped voltage@10mA
+
+
+
+
+                                                                                                   0.8
+                                                                                                                                                                                                  1000                                                                                           Uni-directional V=0V
+
+                                                                                                                                                                                                                                                                                                             Bi-directional V=0V
+                                                                                                   0.7
+                                                                                                                                                                                      Cj(pF)
+
+
+
+
+                                                                                                   0.6                                                                                                  100
+
+
+
+                                                                                                   0.5
+                                                                                                                                                                                                                                                                                                  Uni & Bi-directional V=VR
+                                                                                                                                                                                                             10
+                                                                                                   0.4
+
+
+                                                                                                       0
+                                                                                                        -55                  10               75                  140                                              1
+                                                                                                                                                                                                                                  1                                                         10                                          100                              1000
+                                                                                                                              Temperature (ºC)
+                                                                                                                                                                                                                                                                                            VBR-Reverse Breakdown Voltage (V)
+
+
+                                   Figure 7 -                                                                                                                                                                                      Figure 8 -
+              Peak Forward Voltage Drop vs. Peak Forward Current                                                                                                                                                   Maximum Non-Repetitive Forward Surge Current
+                                (Typical Values)                                                                                                                                                                              Uni-Directional Only
+
+                                                                                                                                                                                                                                  35
+                                                                                                                                                                                           IFSM - Peak Forward Surve Current(A)
+
+
+
+
+                                            10                                                                                                                                                                                    30
+  I F - Peak Forward Current(A)
+
+
+
+
+                                                                                                                                                                                                                                  25
+
+                                                     1                                                                                                                                                                            20
+
+                                                                                                                                                                                                                                  15
+
+                                         0.1                                                                                                                                                                                      10
+
+                                                                                                                                                                                                                                       5
+
+                                  0.01                                                                                                                                                                                                 0
+                                                                                 0                           0.5       1          1.5    2         2.5        3         3.5   4                                                                                          1                                              10                                                  100
+                                                                                                                           V F - Peak Forward Voltage(V)                                                                                                                                         Number of Cycles at 60 Hz
+
+                                                                                                                                                                                                                                                                                                                                               © 2025 Littelfuse, Inc.
+                                                                                                                                                                                  4                                                                                                                             Specifications are subject to change without notice.
+                                                                                                                                                                                                                                                                                                                                             Revised: JC. 04/22/25 v.2
+                                                                                                                                                  TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+
+
+                                                                    Soldering Parameters
+Reflow Condition                                        Lead–free assembly
+              - Temperature Min (Ts(min))               150 °C
+                                                                                                                                                        tp
+Pre Heat      - Temperature Max (Ts(max))               200 °C                                          TP
+
+              - Time (min to max) (ts)                  60 – 120 secs                                                                   Ramp-up                             Critical Zone
+                                                                                                                                                                              TL to TP
+                                                                                                        TL
+Average ramp up rate (Liquidus Temp (TL) to peak 3 °C/second max                                                                                              tL
+
+
+
+
+                                                                                  Temperature (T)
+TS(max) to TL - Ramp-up Rate                            3 °C/second max                             Ts(max)
+
+              - Temperature (TL) (Liquidus)             217 °C                                                                                                         Ramp-down
+Reflow                                                                                              Ts(min)
+              - Time (min to max) (tL)                  60 – 150 seconds                                            ts
+                                                                                                                  Preheat
+Peak Temperature (TP)                                   260+0/-5 °C
+Time within 5°C of actual peak Temperature (tp)         30 seconds Max                               25˚C
+                                                                                                                   t 25˚C to Peak
+Ramp-down Rate                                          6 °C/second max                                                              Time (t)
+Time 25 °C to peak Temperature (TP)                     8 minutes Max.
+Do not exceed                                           260 °C
+
+
+                        Physical Specifications                                                               Environmental Specifications
+                          SOD-123FL plastic over glass passivated
+ Case                                                                             High Temp Voltage                      100 % DC reverse voltage rated 150 °C,
+                          junction                                                Blocking (HTRB)                        1008 hours JEDEC, JESD22-A-108
+                          Uni-directional products are denoted with a
+ Polarity
+                           cathode band                                           Biased Temp &                          80 % breakdown voltage (+85 °C) 85
+                           Matte tin-plated leads, solderable per                 Humidity (H3TRB)                       %RH, 1008 hours JEDEC, JESD22-A-101
+ Terminal
+                           JESD22-B102
+                                                                                  Unbiased Highly
+                                                                                                                         96 hours at TA = 130 °C/85 %RH. JEDEC,
+                                                                                  Accelerated
+                                                                                  Stress Test (UHAST)                    JESD22-A-118
+
+               Dimensions - SOD-123FL Package                                                                             -55 °C to +150 °C, 15 min. dwell, 1000
+                                                                                  Temp Cycling (TC)
+                                                                                                                         cycles. JEDEC, JESD22-A104
+
+                          J
+                                                                                                                         85 %RH, +85 °C, 168 hours, 3 reflow
+                                                                                  Moisture Sensitivity
+                                                                                  Level (MSL)
+                                                                                                                         cycles (+260 °C Peak). JEDEC, JEDEC-J-
+                                                                                                                         STD-020, Level 1
+              I
+                                                             E
+
+
+
+
+                                                                                  Resistance to Solder                   +260 °C, 30 seconds JEDEC, JEDEC
+                                                                                  Heat (RSH)                             JESD22-A-111
+                                          B
+                                     A
+
+
+
+
+                                                             E
+
+
+
+
+                                                                F                                                   Millimeters                                    Inches
+                          C                                                             Dimensions
+                                                                                                                 Min                 Max                 Min                 Max
+                          D
+                                                                                                         A      2.70                3.10               0.106                0.122
+                                                                                                         B      3.50                3.90               0.138                0.154
+                                                                                                         C      0.85                1.05               0.033                0.041
+                                  H
+
+
+
+
+                                                                                                         D      1.70                2.00               0.067                0.079
+                                 G
+
+
+
+
+                                                                                                         E      0.43                0.83               0.017                0.033
+                                                                                                         F      0.10                0.25               0.004                0.010
+                         Mounting Pad Layout
+                                                                                                         G      0.00                0.10               0.000                0.004
+                                2.24(0.088)                                                              H      0.90                1.08               0.035                0.043
+                                                                                                         I      0.00                0.20               0.000                0.008
+                                                                                                         J      0.40                0.60               0.016                0.024
+                                                           1.25
+                                                          (0.049)
+
+
+                                               0.98
+                                              (0.039)
+                                                                                                                                                                   © 2025 Littelfuse, Inc.
+                                                                              5                                                     Specifications are subject to change without notice.
+                                                                                                                                                                 Revised: JC. 04/22/25 v.2
+                                                                                                                                                                                           TVS Diode Datasheet
+
+
+SMF4L Series
+Surface Mount – 400 W
+
+
+
+                                  Part Numbering System                                                                                                      Part Marking System
+
+                   SMF4L xx C A
+
+
+
+                                                          5% VBR Voltage Tolerance
+                                                                                                                                                              LF
+                                                                                                                                                              XX
+                                                                                                                                                                             Cathode Band
+                                                                                                                                                                             (For Uni-directional Products Only)
+
+
+                                                                                                                                                              YMX            Marking Code
+                                                                                                                                                                             Trace Code Marking
+                                                   Bi - directional                                                                                                           Y: Year Code
+                                                                                                                                                                              M: Month Code
+                                                                                                                                                                              X: Plant Code
+                                              VR Voltage
+                                  Series
+
+
+
+
+                                                                                                   Packaging Options
+
+          Part number                        Component Package                                Quantity                                     Packaging Option                                     Packaging Specification
+
+          SMF4LXXX                                SOD-123FL                                     3000                        Tape & Reel – 8 mm tape/ 7” reel                                            EIA RS-481
+
+
+
+
+                                                                                          Tape and Reel Specification
+
+                         0.157
+                          (4.0)
+                                                                                                                                                                                                                            Cathode
+             0.31
+             (8.0)
+
+
+                                            0.157                                              0.059 DIA            Cover tape
+                                            (4.0)                                              (1.5)
+
+
+                                                    7” 7.0 (178)
+                                                                                                  Dimensions are in inches
+         0.80 (20.2)                                                                              (and millimeters).
+    Arbor Hole Dia.
+
+
+                                                                                                    Direction of Feed
+           0.33
+           (8.5)
+
+                                                                               Label
+
+
+
+
+Disclaimer Notice - Information furnished is believed to be accurate and reliable. However, users should independently evaluate the suitability of and test each product selected for their own applications. Littelfuse products are
+not designed for, and may not be used in, all applications. Read complete Disclaimer Notice at: www.littelfuse.com/disclaimer-electronics.
+                                                                                                                                                                                                             © 2025 Littelfuse, Inc.
+                                                                                                                   6                                                          Specifications are subject to change without notice.
+                                                                                                                                                                                                           Revised: JC. 04/22/25 v.2
+

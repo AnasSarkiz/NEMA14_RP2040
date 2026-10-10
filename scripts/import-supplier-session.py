@@ -52,7 +52,7 @@ for net in children(children(routes,'network_out')[0],'net'):
   path=children(wire,'path')[0];layer={'F.Cu':'top','In2.Cu':'inner2','B.Cu':'bottom'}[path[1]];width=float(path[2])/scale;coords=list(map(float,path[3:]));assert len(coords)%2==0
   route=[{'route_type':'wire','x':coords[i]/scale,'y':coords[i+1]/scale,'width':width,'layer':layer} for i in range(0,len(coords),2)]
   if len(route)<2:continue
-  count+=1;elem={'type':'pcb_trace','pcb_trace_id':f'freerouted_trace_{count}','route':route,'subcircuit_id':'subcircuit_source_group_0'}
+  count+=1;elem={'type':'pcb_trace','pcb_trace_id':f'{"independent_" if prefix=="independent" else ""}freerouted_trace_{count}','route':route,'subcircuit_id':'subcircuit_source_group_0'}
   if key:elem['subcircuit_connectivity_map_key']=key
   if netid:elem['source_net_id']=netid
   if key in traceids:elem['source_trace_id']=traceids[key]
@@ -62,7 +62,9 @@ for net in children(children(routes,'network_out')[0],'net'):
   elem['pcb_port_ids']=list({point[k] for point in route for k in ['start_pcb_port_id','end_pcb_port_id'] if k in point})
   j.append(elem)
  for via in children(net,'via'):
-  vcount+=1;elem={'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':float(via[2])/scale,'y':float(via[3])/scale,'hole_diameter':(.25 if via[1]=='via500' else .3),'outer_diameter':(.5 if via[1]=='via500' else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':key}
+  vcount+=1;diameter=float(via[1].split('fixed_via_')[1])/1000 if via[1].startswith('fixed_via_') else (.5 if via[1]=='via500' else .6)
+  drill=next((v['hole_diameter'] for v in json.loads((ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).read_text()) if v['type']=='pcb_via' and abs(v['x']-float(via[2])/scale)<.0001 and abs(v['y']-float(via[3])/scale)<.0001), .25 if diameter==.5 else .3) if prefix=='independent' else (.25 if via[1]=='via500' else .3)
+  elem={'type':'pcb_via','pcb_via_id':f'{"independent_" if prefix=="independent" else ""}freerouted_via_{vcount}','x':float(via[2])/scale,'y':float(via[3])/scale,'hole_diameter':drill,'outer_diameter':diameter,'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':key}
   if netid:elem['source_net_id']=netid
   if key in traceids:elem['source_trace_id']=traceids[key]
   j.append(elem)
@@ -79,9 +81,12 @@ for t in meta['thermalVias']:
 # Thermal vias are explicit engineering choices and permitted only inside grounded exposed pads.
 for t in meta['thermalVias']:
  if not any(e['type']=='pcb_via' and math.hypot(e['x']-t['x'],e['y']-t['y'])<.01 for e in j):
-  vcount+=1;j.append({'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':t['x'],'y':t['y'],'hole_diameter':(.25 if prefix else .3),'outer_diameter':(.5 if prefix else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','source_net_id':netids['GND'],'subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':netkeys['GND']})
+  vcount+=1;j.append({'type':'pcb_via','pcb_via_id':f'{"independent_" if prefix=="independent" else ""}freerouted_via_{vcount}','x':t['x'],'y':t['y'],'hole_diameter':(.25 if prefix else .3),'outer_diameter':(.5 if prefix else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','source_net_id':netids['GND'],'subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':netkeys['GND']})
 if prefix and (ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).exists():
  seeds=json.loads((ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).read_text())
+ # SES serializes fixed vias too: retain their original drilling and IDs exactly once.
+ seedvias=[e for e in seeds if e['type']=='pcb_via']
+ j=[e for e in j if not(e['type']=='pcb_via' and any(v.get('subcircuit_connectivity_map_key')==e.get('subcircuit_connectivity_map_key') and math.hypot(v['x']-e['x'],v['y']-e['y'])<.0001 for v in seedvias))]
  j.extend(e for e in seeds if e['type'] in ['pcb_trace','pcb_via'])
 if next(e for e in j if e['type']=='pcb_board')['num_layers']==4:
  for e in j:

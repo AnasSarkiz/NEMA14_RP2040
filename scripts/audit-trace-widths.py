@@ -100,7 +100,7 @@ adc_load=parallel(resistors['R_VM_L'],resistors['R_VM_BLEED'])
 adc_load_max=parallel(resistors['R_VM_L']*1.01,resistors['R_VM_BLEED']*1.01)
 adcmax=35*adc_load_max/(resistors['R_VM_H']*.99+adc_load_max)
 vm_div_max=35*resistors['R_VM_L']*1.01/(resistors['R_VM_H']*.99+resistors['R_VM_L']*1.01)
-if adcmax>3.3:errors.append('Motor voltage divider exceeds ADC review envelope')
+if adcmax+1e-6*resistors['R_VM_BLEED']*1.01>.3:errors.append('Passive motor monitor exceeds powered-off0.3V ADC limit')
 vias=[]
 for via in [e for e in g.j if e['type']=='pcb_via']:
     name=g.nets.get(g.key(via),'direct');current=budgets.get(name,0)
@@ -118,8 +118,8 @@ report={'bounded_output_neck_proofs':neck_proofs,'viaReview':vias,'sha256':hashl
         'temperatureRiseScreenLimitC':30,'method':'IPC-2221 k=0.048 external / 0.024 internal; area in square mils',
         'budgetsA':budgets,'physicallyVerifiedResistorBranchBudgets':branch_proofs,'singleBridgePdBranchTrace':one_bridge,'nets':summary,'segments':segments,
         'groundPours':ground_areas,'copperPours':pour_areas,'adcVoltageAt15V':15*adc_load/(resistors['R_VM_H']+adc_load),
-        'switchInputWorstVoltageAt35V':vm_div_max,'enabledAdcNominalScale':(resistors['R_VM_H']+adc_load)/adc_load,
-        'poweredOffDcVoltageBoundVolts':10e-6*resistors['R_VM_BLEED']*1.01,
+        'passiveAdcWorstVoltageAt35V':adcmax,'enabledAdcNominalScale':(resistors['R_VM_H']+adc_load)/adc_load,
+        'poweredOffDcVoltageBoundVolts':adcmax+1e-6*resistors['R_VM_BLEED']*1.01,
         'adcWorstVoltageAt35V':adcmax,'qualifiedForManufacture':False,
         'groundThermalCurrentSharingAnalysisPending':True,
         'limits':['Temperature estimates assume specified minimum copper, not a measured fabrication stackup.',

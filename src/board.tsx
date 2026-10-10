@@ -27,7 +27,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   minViaHoleDiameter={0.2} minViaPadDiameter={0.4} minBoardEdgeClearance={0.25}
   autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled>
   <schematicsheet name="NEMA14_RP2040" sheetSize="A4">
-  {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_LEGACY_DATA','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','DATA_BASE','VM_DIV','VM_ENABLE_N','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={name==='PD_VBUS'?0.45:['A_PLUS','A_MINUS','B_PLUS','B_MINUS'].includes(name)?0.45:['SENSE1','SENSE2'].includes(name)?0.30:0.16} /></React.Fragment>)}
+  {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_LEGACY_DATA','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','DATA_BASE','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={name==='PD_VBUS'?0.45:['A_PLUS','A_MINUS','B_PLUS','B_MINUS'].includes(name)?0.45:['SENSE1','SENSE2'].includes(name)?0.30:0.16} /></React.Fragment>)}
   {[-13,13].flatMap(x=>[-13,13].map(y=><React.Fragment key={`${x},${y}`}><hole name={`M${x}_${y}`} pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} diameter={3.2} /><keepout pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} shape="circle" radius={2.7} excludeRefs={[".J_PD",".J_DATA"]} layers={['top','inner1','inner2','bottom']} /><silkscreencircle pcbX={y>0?Math.sign(x)*14.8:x} pcbY={y} radius={2.7} strokeWidth={0.1} /></React.Fragment>))}
   <SupplierPart name="J_PD" {...pinProps("J_PD")}    noConnect={['DP1','DP2','DN1','DN2','SBU1','SBU2']} {...place("J_PD")} connections={{...baseUsb,VBUS1:n('PD_VBUS'),VBUS2:n('PD_VBUS'),CC1:n('PD_CC1'),CC2:n('PD_CC2')}} />
   <SupplierPart name="J_DATA" {...pinProps("J_DATA")}    noConnect={['SBU1','SBU2']} {...place("J_DATA")} connections={{...baseUsb,VBUS1:n('DATA_VBUS'),VBUS2:n('DATA_VBUS'),CC1:n('DATA_CC1'),CC2:n('DATA_CC2'),DP1:n('USB_DP'),DP2:n('USB_DP'),DN1:n('USB_DM'),DN2:n('USB_DM')}} />
@@ -35,7 +35,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_PD','1k','PD_VBUS','PD_VDD')}
   {cap('C_PD','1uF','PD_VDD')}
   {resistor('R_PG','10k','V3V3','PD_GOOD')}
-  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO0", "GPIO1", "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO27:n("VM_ENABLE_N"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
+  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO0", "GPIO1", "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26", "GPIO27"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
   {cap('C_IO1','100nF','V3V3','GND')}
   {cap('C_IO10','100nF','V3V3','GND')}
   {cap('C_IO22','100nF','V3V3','GND')}
@@ -65,12 +65,9 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_USB_SENSE_H','10k','DATA_VBUS','DATA_BASE')}
   {resistor('R_USB_SENSE_L','10k','V3V3','DATA_PRESENT')}
   <SupplierPart name="Q_DATA" {...pinProps("Q_DATA")} pinLabels={{pin1:'BASE',pin2:'EMITTER',pin3:'COLLECTOR'}} {...place('Q_DATA')} connections={{BASE:n('DATA_BASE'),EMITTER:n('GND'),COLLECTOR:n('DATA_PRESENT')}} />
-  {resistor('R_VM_H','100k','PD_VBUS','VM_DIV')}
-  {resistor('R_VM_L','10k','VM_DIV','GND')}
-  <SupplierPart name="U_VM_ISO" schWidth={1.865} {...pinProps("U_VM_ISO")} pinLabels={{pin1:'OE_N',pin2:'A',pin3:'GND',pin4:'B',pin5:'VCC'}} {...place('U_VM_ISO')} connections={{OE_N:n('VM_ENABLE_N'),A:n('VM_DIV'),GND:n('GND'),B:n('VM_SENSE'),VCC:n('V3V3')}} />
-  {resistor('R_VM_EN','10k','V3V3','VM_ENABLE_N')}
-  {resistor('R_VM_BLEED','10k','VM_SENSE','GND')}
-  {cap('C_VM_ISO','100nF','V3V3','GND')}
+  {resistor('R_VM_H','100k','PD_VBUS','VM_SENSE')}
+  {resistor('R_VM_L','10k','VM_SENSE','GND')}
+  {resistor('R_VM_BLEED','470','VM_SENSE','GND')}
   {cap('C_VM_SENSE','10nF','VM_SENSE','GND')}
   <SupplierPart name="U_BUCK" {...pinProps("U_BUCK")}   pinLabels={{pin1:'FB',pin2:'EN',pin3:'VIN',pin4:'GND',pin5:'SW',pin6:'BST'}} {...place("U_BUCK")} connections={{FB:n('V3V3'),EN:n('LOGIC_IN'),VIN:n('LOGIC_IN'),GND:n('GND'),SW:n('BUCK_SW'),BST:n('BUCK_BST')}} />
   <SupplierPart name="L_BUCK" inductance="4.7uH" {...place("L_BUCK")} connections={{pin1:n('BUCK_SW'),pin2:n('V3V3')}} />
@@ -78,6 +75,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {cap('C_BUCK_IN','10uF','LOGIC_IN','GND')}
   {cap('C_BUCK_OUT1','22uF','V3V3','GND')}
   {cap('C_BUCK_OUT2','22uF','V3V3','GND')}
+  {cap('C_BUCK_OUT3','22uF','V3V3','GND')}
   <SupplierPart name="D_PD" {...place("D_PD")} connections={{anode:n('PD_VBUS'),cathode:n('LOGIC_IN')}} />
   <SupplierPart name="D_DATA" {...place("D_DATA")} connections={{anode:n('DATA_VBUS'),cathode:n('LOGIC_IN')}} />
   <SupplierPart name="U_DRV" {...pinProps("U_DRV")}  pinLabels={driverPins} noConnect={['NC7','NC20','NC25']} {...place("U_DRV")} connections={{OUT1A:n('A_PLUS'),OUT1B:n('A_MINUS'),OUT2A:n('B_PLUS'),OUT2B:n('B_MINUS'),VBB1:n('PD_VBUS'),VBB2:n('PD_VBUS'),GND:n('GND'),GND18:n('GND'),EP:n('GND'),CP1:n('CP1'),CP2:n('CP2'),VCP:n('VCP'),VREG:n('VREG'),MS1:n('V3V3'),MS2:n('V3V3'),MS3:n('V3V3'),RESET_N:n('V3V3'),VDD:n('V3V3'),ROSC:n('GND'),STEP:n('STEP'),DIR:n('DIR'),ENABLE_N:n('ENABLE_N'),SLEEP:n('SLEEP'),REF:n('VREF'),SENSE1:n('SENSE1'),SENSE2:n('SENSE2')}} />
@@ -90,7 +88,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   <SupplierPart name="C_BULK" capacitance="100uF" maxVoltageRating={35} {...place("C_BULK")} connections={{pin1:n("PD_VBUS"),pin2:n("GND")}} />
   {resistor('R_SA','0.24','SENSE1','GND')}
   {resistor('R_SB','0.24','SENSE2','GND')}
-  {resistor('R_REF_H','3.9k','V3V3','VREF')}
+  {resistor('R_REF_H','6.2k','V3V3','VREF')}
   {resistor('R_REF_L','1k','VREF','GND')}
   {cap('C_REF','10nF','VREF')}
   {resistor('R_ENABLE','10k','V3V3','ENABLE_N')}

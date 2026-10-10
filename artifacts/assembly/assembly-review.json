@@ -1,22 +1,22 @@
 {
-  "source_sha256": "bbc797d355b58701a1d94c09494d27eea6c09d83d65ad280dc7e3d06a6a446d7",
-  "fitted_parts": 68,
+  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "fitted_parts": 66,
   "filled_capped_vias": [
     {
-      "Via ID": "freerouted_via_77",
-      "Reference": "U_PD",
-      "X mm": -12.699872999999998,
-      "Y mm": 5.7,
+      "Via ID": "independent_mcu_ep_ground",
+      "Reference": "U_MCU",
+      "X mm": 5.4,
+      "Y mm": 0.000127,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Layers": "top-inner1-inner2-bottom",
       "Required process": "IPC4761 TypeVII nonconductive resin filled; copper capped both faces; planar SMT land"
     },
     {
-      "Via ID": "freerouted_via_78",
-      "Reference": "U_MCU",
-      "X mm": 3.4,
-      "Y mm": 0.000127,
+      "Via ID": "freerouted_via_77",
+      "Reference": "U_PD",
+      "X mm": -12.699872999999998,
+      "Y mm": 5.7,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Layers": "top-inner1-inner2-bottom",
@@ -35,8 +35,38 @@
     {
       "Via ID": "service_filled_ground_cap_via",
       "Reference": "C_USB",
-      "X mm": 4.3,
+      "X mm": 6.1,
       "Y mm": 7.8201160000000005,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Layers": "top-inner1-inner2-bottom",
+      "Required process": "IPC4761 TypeVII nonconductive resin filled; copper capped both faces; planar SMT land"
+    },
+    {
+      "Via ID": "independent_star_R_SA",
+      "Reference": "R_SA",
+      "X mm": -0.29999999999999993,
+      "Y mm": -2.500002,
+      "Finished drill mm": 0.3,
+      "Copper diameter mm": 0.6,
+      "Layers": "top-inner1-inner2-bottom",
+      "Required process": "IPC4761 TypeVII nonconductive resin filled; copper capped both faces; planar SMT land"
+    },
+    {
+      "Via ID": "independent_star_R_SB",
+      "Reference": "R_SB",
+      "X mm": -2.3,
+      "Y mm": -2.500002,
+      "Finished drill mm": 0.3,
+      "Copper diameter mm": 0.6,
+      "Layers": "top-inner1-inner2-bottom",
+      "Required process": "IPC4761 TypeVII nonconductive resin filled; copper capped both faces; planar SMT land"
+    },
+    {
+      "Via ID": "independent_filled_C_VM_ground",
+      "Reference": "C_VM",
+      "X mm": -4.65,
+      "Y mm": -6.249976,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Layers": "top-inner1-inner2-bottom",
@@ -45,6 +75,578 @@
   ],
   "ordinary_vias": [
     {
+      "Via ID": "independent_freerouted_via_1",
+      "X mm": 7.06,
+      "Y mm": 11.4355,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2865159149717751,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_2",
+      "X mm": 9.298,
+      "Y mm": 6.4454,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.36722229327145106,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_3",
+      "X mm": -6.9996,
+      "Y mm": 4.4167,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.34458847535017517,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_4",
+      "X mm": 4.0992,
+      "Y mm": -2.0988,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.42393010000000014,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_5",
+      "X mm": 1.4141,
+      "Y mm": -4.0716,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.9005948999999999,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_6",
+      "X mm": 0.9317,
+      "Y mm": 2.4917,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2934440782640847,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_7",
+      "X mm": 9.1618,
+      "Y mm": -14.3627,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2810983,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_8",
+      "X mm": 13.7366,
+      "Y mm": -8.5,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.8884000000000009,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_9",
+      "X mm": 2.6301,
+      "Y mm": 4.8011,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3349845,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_10",
+      "X mm": 11.5737,
+      "Y mm": 2.2816,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.8613968000000002,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_11",
+      "X mm": -6.5719,
+      "Y mm": 3.7081,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.30496610525791934,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_12",
+      "X mm": 3.8676,
+      "Y mm": 8.413,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 1.1878403000000013,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_13",
+      "X mm": 9.1084,
+      "Y mm": 7.5776,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.41339799999999904,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_14",
+      "X mm": -5.0547,
+      "Y mm": -3.2647,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3094036812785664,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_15",
+      "X mm": -6.185,
+      "Y mm": -13.8,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.28499960000000163,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_16",
+      "X mm": -8.0976,
+      "Y mm": -8.5091,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.27744939999999835,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_17",
+      "X mm": -1.1228,
+      "Y mm": 8.1573,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.28219799999999995,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_18",
+      "X mm": -5.0212,
+      "Y mm": 5.4384,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3366004000000001,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_19",
+      "X mm": 2.0897,
+      "Y mm": 3.4864,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2853562000000003,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_20",
+      "X mm": 14.1989,
+      "Y mm": 3.3251,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.27989800000000015,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_21",
+      "X mm": 2.721,
+      "Y mm": 2.5801,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.29547949137614793,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_22",
+      "X mm": -4.5561,
+      "Y mm": 3.2174,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.41892320000000005,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_23",
+      "X mm": -5.8033,
+      "Y mm": 4.3082,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2782700499999997,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_24",
+      "X mm": 2.042,
+      "Y mm": 6.9329,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 1.7378980000000004,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_25",
+      "X mm": 3.8823,
+      "Y mm": 2.5914,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2836574999999999,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_26",
+      "X mm": 4.548,
+      "Y mm": 2.5112,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3638574999999999,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_27",
+      "X mm": 4.5306,
+      "Y mm": 7.9409,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 1.174398,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_28",
+      "X mm": 8.7633,
+      "Y mm": -4.4511,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.7550983000000019,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_29",
+      "X mm": 5.2418,
+      "Y mm": 2.5791,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2999562053421855,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_30",
+      "X mm": 5.2418,
+      "Y mm": 6.9277,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.4631980000000002,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_31",
+      "X mm": 7.7819,
+      "Y mm": 2.0111,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3023925040153822,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_32",
+      "X mm": 16.761,
+      "Y mm": 2.7143,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3039968000000002,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_33",
+      "X mm": 5.5515,
+      "Y mm": 16.7071,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 5.356002991184184,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_34",
+      "X mm": 9.6666,
+      "Y mm": 1.1054,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.4916867990472101,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_35",
+      "X mm": 0.4741,
+      "Y mm": 1.795,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.7509585000000001,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_36",
+      "X mm": 7.4622,
+      "Y mm": -1.112,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.5872030999999999,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_37",
+      "X mm": 16.0098,
+      "Y mm": -3.0855,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.4894999999999996,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_38",
+      "X mm": 8.8048,
+      "Y mm": -3.7866,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.713598300000001,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_39",
+      "X mm": 12.9001,
+      "Y mm": -5.4775,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.9900791935361295,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_40",
+      "X mm": 14.29,
+      "Y mm": -5.5458,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.33500000000000085,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_41",
+      "X mm": 6.6287,
+      "Y mm": -2.4525,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.42255749999999986,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_42",
+      "X mm": 5.8,
+      "Y mm": -2.5097,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3653575,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_43",
+      "X mm": 8.2641,
+      "Y mm": -6.9089,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.3390273999999991,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_44",
+      "X mm": 2.6023,
+      "Y mm": -1.6907,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.2773375374824399,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_45",
+      "X mm": 0.0847,
+      "Y mm": -12.4423,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.5465598824688224,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_46",
+      "X mm": -0.1185,
+      "Y mm": 12.2093,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.30198954119931004,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_47",
+      "X mm": 2.8388,
+      "Y mm": -0.5985,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.5137304999999999,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_48",
+      "X mm": 4.0932,
+      "Y mm": -9.1528,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.29169920763643153,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_49",
+      "X mm": 3.2296,
+      "Y mm": 1.0085,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.29540310000000014,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_50",
+      "X mm": 2.831,
+      "Y mm": -9.8506,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.45600590119406315,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_51",
+      "X mm": -3.8387,
+      "Y mm": -2.369,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.4113342000000002,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_freerouted_via_52",
+      "X mm": 11.1694,
+      "Y mm": -8.14,
+      "Finished drill mm": 0.25,
+      "Copper diameter mm": 0.5,
+      "Nominal annulus mm": 0.125,
+      "Nominal aspect ratio": 6.4,
+      "Minimum drill-to-top-SMT-land mm": 0.5350231999999996,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
       "Via ID": "freerouted_via_5",
       "X mm": 11.2115,
       "Y mm": -2.7,
@@ -52,7 +654,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2865747999999986,
+      "Minimum drill-to-top-SMT-land mm": 0.8429967999999995,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -63,7 +665,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5639844999999999,
+      "Minimum drill-to-top-SMT-land mm": 1.3890469811506627,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -89,31 +691,9 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "freerouted_via_17",
-      "X mm": 7.2175,
-      "Y mm": 6.3817,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2865845,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_19",
-      "X mm": 3.7665,
-      "Y mm": 6.3726,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2774844999999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "freerouted_via_23",
       "X mm": 11.8847,
-      "Y mm": -6.0,
+      "Y mm": -6,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
@@ -130,28 +710,6 @@
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
       "Minimum drill-to-top-SMT-land mm": 0.2905983000000009,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_25",
-      "X mm": -6.5759,
-      "Y mm": 4.1851,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.8056342339720075,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_26",
-      "X mm": 1.9877,
-      "Y mm": -2.1295,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4546301000000002,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -177,347 +735,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "freerouted_via_29",
-      "X mm": 13.4349,
-      "Y mm": -9.0638,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 1.200261752228612,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_30",
-      "X mm": 3.8615,
-      "Y mm": -2.4709,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.40555256924158845,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_31",
-      "X mm": 4.3385,
-      "Y mm": 2.5837,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2913575000000002,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_34",
-      "X mm": -0.4711,
-      "Y mm": 5.8072,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.6121980000000001,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_35",
-      "X mm": 9.6466,
-      "Y mm": 6.9799,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.9433005000000013,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_36",
-      "X mm": 13.8693,
-      "Y mm": -0.809,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3339967999999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_38",
-      "X mm": 0.0197,
-      "Y mm": 3.1916,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.36652920000000044,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_39",
-      "X mm": 8.9876,
-      "Y mm": 3.8895,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.651075666707138,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_40",
-      "X mm": 1.0836,
-      "Y mm": 2.4065,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4687805933248221,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_41",
-      "X mm": -4.242,
-      "Y mm": 5.4582,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.31680040000000004,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_42",
-      "X mm": 2.1205,
-      "Y mm": 6.9362,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.8411381266737646,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_43",
-      "X mm": 2.1205,
-      "Y mm": 2.5838,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.291764368678314,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_44",
-      "X mm": 2.5699,
-      "Y mm": 2.0111,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.33597609999999994,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_45",
-      "X mm": -6.1628,
-      "Y mm": 7.1205,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5069854574592095,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_46",
-      "X mm": 5.997,
-      "Y mm": 2.2571,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2779305000000001,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_47",
-      "X mm": 10.2277,
-      "Y mm": 1.1511,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4772247999999984,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_48",
-      "X mm": 9.443,
-      "Y mm": -3.2612,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.28599679999999955,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_49",
-      "X mm": 5.7695,
-      "Y mm": 0.4123,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5115178554445572,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_50",
-      "X mm": 5.9979,
-      "Y mm": 1.0699,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2770305000000004,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_51",
-      "X mm": 9.2706,
-      "Y mm": -1.2584,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.6043268000000008,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_52",
-      "X mm": 9.9981,
-      "Y mm": -6.1051,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4018945999999985,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_53",
-      "X mm": 5.8257,
-      "Y mm": -1.9327,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.45016738850969024,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_54",
-      "X mm": 16.0443,
-      "Y mm": -3.2895,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.28549999999999986,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_55",
-      "X mm": 10.065,
-      "Y mm": -5.1509,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3981041880872887,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_56",
-      "X mm": 5.9815,
-      "Y mm": -1.263,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.29506473647058445,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_57",
-      "X mm": 6.7342,
-      "Y mm": -3.6055,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5092562000000012,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_58",
-      "X mm": 9.9983,
-      "Y mm": -6.8696,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.46669942819319327,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_59",
-      "X mm": 3.1627,
-      "Y mm": -2.4752,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3998575,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_60",
-      "X mm": 8.2813,
-      "Y mm": -7.0328,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.32369800000000026,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_64",
-      "X mm": 1.1384,
-      "Y mm": -1.5382,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5866030999999998,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_67",
-      "X mm": 1.0978,
-      "Y mm": -0.1175,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5727305000000005,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "freerouted_via_71",
       "X mm": 15.0343,
       "Y mm": 4.6838,
@@ -540,47 +757,14 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "freerouted_via_73",
-      "X mm": 9.5839,
-      "Y mm": -2.031,
+      "Via ID": "freerouted_via_78",
+      "X mm": 3.4,
+      "Y mm": 0.000127,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2910268000000009,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_75",
-      "X mm": 11.0,
-      "Y mm": -8.2293,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.44572319999999976,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "freerouted_via_76",
-      "X mm": -6.722,
-      "Y mm": -2.883,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.40789710000000046,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_fanout_U_MCU_GPIO7_via0",
-      "X mm": -0.92494,
-      "Y mm": 0.09993,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.30289655070703836,
+      "Minimum drill-to-top-SMT-land mm": 0.12500310000000026,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -592,72 +776,6 @@
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
       "Minimum drill-to-top-SMT-land mm": 0.324994199999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_2_via0",
-      "X mm": -7.199999999999999,
-      "Y mm": -3.424999999999999,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.31229779365716787,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_2_via1",
-      "X mm": -5.35,
-      "Y mm": -2.7749999999999986,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.29989709999999853,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net13_0_via0",
-      "X mm": 5.200000000000003,
-      "Y mm": 2.375,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5000575,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_DV23_fanout_C_DV23_pin1_via",
-      "X mm": 3.5548839999999995,
-      "Y mm": -6.125,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5200434000000005,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net13_1_via0",
-      "X mm": 11.725000000000001,
-      "Y mm": -1.5249999999999986,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.350074799999998,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net13_1_via1",
-      "X mm": 10.025000000000002,
-      "Y mm": -8.299999999999999,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5821193680385358,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -683,61 +801,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "engineering_local_IOVDD10_lead_via",
-      "X mm": 1.0,
-      "Y mm": -0.9,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.49993050000000033,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "engineering_local_IOVDD10_cap_via",
-      "X mm": -1.15,
-      "Y mm": -3.945116,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.2843999654728554,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "engineering_local_IOVDD10_restore_PD_GOOD_via0",
-      "X mm": -0.875,
-      "Y mm": 1.0500000000000007,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.30005849999999973,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "engineering_local_IOVDD10_restore_PD_GOOD_via1",
-      "X mm": 1.4250000000000007,
-      "Y mm": 1.2250000000000014,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3000030999999992,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net17_1_via0",
-      "X mm": 0.9750000000000014,
-      "Y mm": 0.5500000000000007,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.44993050000000173,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net3_1_via0",
       "X mm": -8.625,
       "Y mm": 9.3,
@@ -749,17 +812,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net8_1_via0",
-      "X mm": 6.875,
-      "Y mm": 11.450000000000003,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2990734000000028,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net5_2_via0",
       "X mm": 11.05,
       "Y mm": 9.475000000000001,
@@ -768,17 +820,6 @@
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
       "Minimum drill-to-top-SMT-land mm": 0.4796251325280354,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net17_2_via0",
-      "X mm": -0.75,
-      "Y mm": 12.125,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3179967999999995,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -815,28 +856,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net12_7_via0",
-      "X mm": -1.0,
-      "Y mm": 7.475000000000001,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.40499799999999997,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net37_1_via0",
-      "X mm": -13.149999999999999,
-      "Y mm": 16.475,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 1.4683983000000023,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net34_1_via0",
       "X mm": 14.475000000000001,
       "Y mm": 7.400000000000002,
@@ -848,39 +867,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net13_2_via0",
-      "X mm": 4.825000000000003,
-      "Y mm": 8.975000000000001,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.6258403000000001,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net13_2_via1",
-      "X mm": 6.350000000000001,
-      "Y mm": 8.75,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5548845,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net28_0_via0",
-      "X mm": -1.0,
-      "Y mm": 8.325000000000003,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4049979999999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net0_11_via0",
       "X mm": 2.7117,
       "Y mm": 6.5135,
@@ -888,7 +874,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.419982761803058,
+      "Minimum drill-to-top-SMT-land mm": 1.2089856451621908,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -922,17 +908,6 @@
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
       "Minimum drill-to-top-SMT-land mm": 0.5179967999999988,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net0_22_via0",
-      "X mm": 9.275000000000002,
-      "Y mm": 5.725000000000001,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 1.3149004999999985,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -970,24 +945,24 @@
     },
     {
       "Via ID": "inside_phase_via_A_PLUS",
-      "X mm": -0.199747,
-      "Y mm": -5.648,
+      "X mm": -0.35,
+      "Y mm": -5.48,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.12700589999999945,
+      "Minimum drill-to-top-SMT-land mm": 0.28873440000000095,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
       "Via ID": "inside_phase_via_B_PLUS",
-      "X mm": -1.200507,
+      "X mm": -1.13,
       "Y mm": -5.648,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.12700590000000034,
+      "Minimum drill-to-top-SMT-land mm": 0.13330861805586303,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1035,72 +1010,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net17_17_via0",
-      "X mm": 1.375,
-      "Y mm": -11.35,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3089822000000009,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_ref_escape_via",
-      "X mm": 2.9,
-      "Y mm": -9.35,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.45566043210891133,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_signal_escape_DIR_via",
-      "X mm": 2.6,
-      "Y mm": -8.1,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.27127206289251365,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_12_via0",
-      "X mm": -5.35,
-      "Y mm": -11.399999999999999,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.30510185161638115,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_12_via1",
-      "X mm": -1.9749999999999996,
-      "Y mm": -12.175,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.29752148264731315,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_16_via1",
-      "X mm": 2.525000000000002,
-      "Y mm": -12.1,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.28895245100165545,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "inside_power_escape_U_DRV_VBB1_via",
       "X mm": 2.55,
       "Y mm": -5.95,
@@ -1108,7 +1017,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.654998,
+      "Minimum drill-to-top-SMT-land mm": 1.2013216212809192,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1125,56 +1034,12 @@
     {
       "Via ID": "inside_power_escape_C_VM_pin1_via",
       "X mm": -4.65,
-      "Y mm": -7.9,
+      "Y mm": -8.3,
       "Finished drill mm": 0.25,
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.27497680000000013,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_logic_escape_R_REF_H_pin1_via",
-      "X mm": -3.6,
-      "Y mm": -5.45,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.1464972063337213,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_signal_escape_ENABLE_N_via",
-      "X mm": -3.9,
-      "Y mm": -7.87,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.1255727044880689,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net49_2_via0",
-      "X mm": 7.5,
-      "Y mm": -14.725,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3000009000000005,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_mcu_escape_XIN_via",
-      "X mm": 2.8,
-      "Y mm": -4.15,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.17493150000000002,
+      "Minimum drill-to-top-SMT-land mm": 0.12497680000000067,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1200,28 +1065,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net0_26x_via0",
-      "X mm": -2.3249999999999993,
-      "Y mm": -2.9499999999999993,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.49180674928450274,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net16_0_via0",
-      "X mm": -3.3999999999999986,
-      "Y mm": -1.875,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.3298844999999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net0_26xx_via0",
       "X mm": -3.25,
       "Y mm": 0.1750000000000007,
@@ -1244,28 +1087,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "inside_sense_escape_SENSE1_via",
-      "X mm": 0.5,
-      "Y mm": -5.5,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.31065143735956396,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "inside_sense_escape_SENSE2_via",
-      "X mm": -2.4,
-      "Y mm": -3.65,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.4049980000000004,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "outer_pd_remote_bridge_via",
       "X mm": -10.200016,
       "Y mm": 1.7999999999999998,
@@ -1273,7 +1094,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5750013000000003,
+      "Minimum drill-to-top-SMT-land mm": 0.6469086999999991,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1321,39 +1142,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net50_0_via1",
-      "X mm": 0.07499999999999929,
-      "Y mm": -12.175,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.297268733117778,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net26_1x_via0",
-      "X mm": 3.5,
-      "Y mm": -6.799999999999999,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.5055985919552337,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net49_1x_via0",
-      "X mm": -0.375,
-      "Y mm": -4.0,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.2679968000000006,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net2_0_via0",
       "X mm": -5.549999999999999,
       "Y mm": 11.450000000000003,
@@ -1365,94 +1153,6 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net16_0x_via0",
-      "X mm": -3.875,
-      "Y mm": -2.2749999999999986,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.30870751025512505,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_4_via0",
-      "X mm": 7.100000000000001,
-      "Y mm": 4.200000000000003,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.30488449999999645,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_8_via0",
-      "X mm": -1.7249999999999996,
-      "Y mm": 0.15000000000000213,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2929968000000022,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_17_via0",
-      "X mm": -7.574999999999999,
-      "Y mm": -13.125,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.9249949999999991,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net12_17_via1",
-      "X mm": -7.949999999999999,
-      "Y mm": -14.4,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.2999949999999991,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "outer_native_escape_C_IO22_pin1_via",
-      "X mm": 1.97,
-      "Y mm": -5.45,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.28176283025809123,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "outer_native_escape_U_DRV_VDD_via",
-      "X mm": 2.425,
-      "Y mm": -10.351013,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.07500590000000118,
-      "Required process": "IPC4761 TypeVI nonconductive resin filled and solder-mask covered both faces; drill outside SMT/paste; cap copper not required; >=20um barrel Cu; supplier acceptance/coupon inspection pending"
-    },
-    {
-      "Via ID": "outer_native_escape_U_DRV_STEP_via",
-      "X mm": 2.925,
-      "Y mm": -10.025,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.5087344000000003,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
       "Via ID": "supplier_repair_island_net0_24x_via0",
       "X mm": 6.000075,
       "Y mm": -6.6520526594254905,
@@ -1461,17 +1161,6 @@
       "Nominal annulus mm": 0.1,
       "Nominal aspect ratio": 8.0,
       "Minimum drill-to-top-SMT-land mm": 0.30000040000000094,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "outer_native_escape_R_REF_L_pin2_via",
-      "X mm": 0.425,
-      "Y mm": -4.1,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.2716473454330973,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1493,29 +1182,7 @@
       "Copper diameter mm": 0.4,
       "Nominal annulus mm": 0.1,
       "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.07999799999999979,
-      "Required process": "IPC4761 TypeVI nonconductive resin filled and solder-mask covered both faces; drill outside SMT/paste; cap copper not required; >=20um barrel Cu; supplier acceptance/coupon inspection pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net15_0_via0",
-      "X mm": 4.200000000000003,
-      "Y mm": -1.9499999999999993,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.30013009999999923,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net15_0_via1",
-      "X mm": 6.775000000000002,
-      "Y mm": -5.449999999999999,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.28082293857779644,
+      "Minimum drill-to-top-SMT-land mm": 0.45962636251709454,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1526,29 +1193,7 @@
       "Copper diameter mm": 0.5,
       "Nominal annulus mm": 0.125,
       "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 1.911494899999999,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net51_0_via0",
-      "X mm": 7.625,
-      "Y mm": -11.05,
-      "Finished drill mm": 0.25,
-      "Copper diameter mm": 0.5,
-      "Nominal annulus mm": 0.125,
-      "Nominal aspect ratio": 6.4,
-      "Minimum drill-to-top-SMT-land mm": 0.31500090000000114,
-      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
-    },
-    {
-      "Via ID": "supplier_repair_island_net38_0_via0",
-      "X mm": -5.274999999999999,
-      "Y mm": -7.85,
-      "Finished drill mm": 0.2,
-      "Copper diameter mm": 0.4,
-      "Nominal annulus mm": 0.1,
-      "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.29129202108566243,
+      "Minimum drill-to-top-SMT-land mm": 2.050134179806414,
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
@@ -1563,25 +1208,61 @@
       "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     },
     {
-      "Via ID": "supplier_repair_island_net0_26xxx_via0",
-      "X mm": -4.683178678609426,
-      "Y mm": -6.300025,
+      "Via ID": "independent_CP2_driver_via",
+      "X mm": -3.84,
+      "Y mm": -9.350253,
       "Finished drill mm": 0.2,
       "Copper diameter mm": 0.4,
       "Nominal annulus mm": 0.1,
       "Nominal aspect ratio": 8.0,
-      "Minimum drill-to-top-SMT-land mm": 0.10004979999999986,
+      "Minimum drill-to-top-SMT-land mm": 0.09000589999999997,
       "Required process": "IPC4761 TypeVI nonconductive resin filled and solder-mask covered both faces; drill outside SMT/paste; cap copper not required; >=20um barrel Cu; supplier acceptance/coupon inspection pending"
+    },
+    {
+      "Via ID": "independent_CP2_cap_via",
+      "X mm": -5.4,
+      "Y mm": -10.600024,
+      "Finished drill mm": 0.2,
+      "Copper diameter mm": 0.4,
+      "Nominal annulus mm": 0.1,
+      "Nominal aspect ratio": 8.0,
+      "Minimum drill-to-top-SMT-land mm": 0.20000090000000004,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_enable_left",
+      "X mm": -5.3328,
+      "Y mm": -6.95,
+      "Finished drill mm": 0.2,
+      "Copper diameter mm": 0.4,
+      "Nominal annulus mm": 0.1,
+      "Nominal aspect ratio": 8.0,
+      "Minimum drill-to-top-SMT-land mm": 0.2671534000000007,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_enable_right",
+      "X mm": -4.01,
+      "Y mm": -8.37,
+      "Finished drill mm": 0.2,
+      "Copper diameter mm": 0.4,
+      "Nominal annulus mm": 0.1,
+      "Nominal aspect ratio": 8.0,
+      "Minimum drill-to-top-SMT-land mm": 0.26043996268458514,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
+    },
+    {
+      "Via ID": "independent_ADC_ground_via",
+      "X mm": 9.75,
+      "Y mm": 5.720014,
+      "Finished drill mm": 0.2,
+      "Copper diameter mm": 0.4,
+      "Nominal annulus mm": 0.1,
+      "Nominal aspect ratio": 8.0,
+      "Minimum drill-to-top-SMT-land mm": 0.47999800000000015,
+      "Required process": "Ordinary plated; >=20um finished barrel Cu; tent both faces; no open drill in SMT/paste; supplier registration/coupon acceptance pending"
     }
   ],
   "supplier_pickup_rotation_verified": false,
-  "hardware_assembly_verified": false,
-  "schematic_only_evidence_binding": {
-    "proof": "artifacts/validation/functional-schematic-evidence-binding.json",
-    "previous_report_sha256": "5128decd4dff7a800073b52a8b728683967bc28e17a899d495ac6811bb25fe37",
-    "original_source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
-    "current_source_sha256": "bbc797d355b58701a1d94c09494d27eea6c09d83d65ad280dc7e3d06a6a446d7",
-    "non_schematic_inputs_equal": true,
-    "original_test_repeated": false
-  }
+  "hardware_assembly_verified": false
 }

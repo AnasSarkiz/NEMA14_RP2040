@@ -1,5 +1,3 @@
-# Current electrical review — service revision
+# Current electrical review
 
-See [engineering-review.md](engineering-review.md) for the current revision and limitations. Older review text is preserved under `artifacts/historical-review-2026-10-08/` and must not be used as current instructions.
-
-Current BOM/PnP/manual-header tables are under `artifacts/manufacturing/`. Exact manufacturer imports and unchanged originals are under `imports/supplier/`; manufacturer PDFs/STEP are under `references/`. Header drilling is manufacturer-derived; capacitor nominal CAD height is corrected with originals retained. This is an unqualified prototype with pending supplier pickup/rotation and hardware tests.
+See [engineering review](engineering-review.md), [operating envelope](supported-operating-envelope.md), [firmware contract](firmware-interface.md) and `artifacts/engineering/service-power-review.json`. Current winding setting is 6.2 kΩ / 1 kΩ over unchanged 0.24 Ω shunts; nominal 0.238715 A,3.6 V/25 °C component-only screen 0.268979 A, accepted measured peak≤0.25 A after calibration. Resistor temperature/low-reference driver accuracy are not qualified. Passive VM scale 223.76596 replaces all historical switched-divider scales. Primary protection/regulator/MLCC evidence and current source hashes are recorded in the final manifest; no bench qualification is claimed.

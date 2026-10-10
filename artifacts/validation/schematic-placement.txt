@@ -1,1 +1,18 @@
-
+<SchematicSheet name="RP2040 &amp; USB Control" id="schematic_sheet_1">
+<SchematicBoxPositions>
+<SchematicBoxPlacement componentName="Q_DATA" positionAnchor="center" schX="7.8" schY="-3.4" width="3.4" height="1.5" />
+</SchematicBoxPositions>
+<SchematicPlacementIssues>
+<GenericSchematicBoxTooWide message="Shrink schematic box width" componentName="Q_DATA" currentSchWidth="3.4" measuredInnerLabelHorizontalEmptySpace="1.68" maxAllowedInnerLabelHorizontalEmptySpace="1" suggestedSchWidth="2.72" />
+</SchematicPlacementIssues>
+</SchematicSheet>
+<SchematicSheet name="USB-C PD &amp; Logic Power" id="schematic_sheet_0">
+<SchematicBoxPositions>
+<SchematicBoxPlacement componentName="C_BUCK_OUT1" positionAnchor="center" schX="9.6" schY="-3.1" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_BUCK_OUT2" positionAnchor="center" schX="11.4" schY="-3.1" width="0.65" height="0.6" />
+<SchematicBoxPlacement componentName="C_BUCK_OUT3" positionAnchor="center" schX="13.2" schY="-3.1" width="0.65" height="0.6" />
+</SchematicBoxPositions>
+<SchematicPlacementIssues>
+<DecouplingCapacitorsNotCloseTogether rail="V3V3" ground="GND" capacitorNames="C_BUCK_OUT1, C_BUCK_OUT2, C_BUCK_OUT3" maxBodyGap="1.15" maxRecommendedBodyGap="1" message="Group the decoupling capacitors between V3V3 and GND closer together in this schematic block. Preserve their net connections." />
+</SchematicPlacementIssues>
+</SchematicSheet>

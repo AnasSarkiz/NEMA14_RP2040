@@ -1,0 +1,72 @@
+{
+  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "timestamp_utc": "2026-10-10T10:43:16.611973+00:00",
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/typecheck.txt",
+      "output_sha256": "ea085edc7c9edc6d36baf9ff0f4a892871ec682948fe2d76c996ebf160c60dee"
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/build.txt",
+      "output_sha256": "89840025f12c914493faddb23153917c3d491c3d561c7ba99d5c5297032f118e"
+    },
+    {
+      "name": "connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-connectivity.py"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/connectivity.txt",
+      "output_sha256": "9a159a489eff88760ff7f03b953a1014653e9fa80eafb9260d37daf1774350c1"
+    },
+    {
+      "name": "width",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-trace-widths.py"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/width.txt",
+      "output_sha256": "9c3d7c885e2f5e582eea8267403fe1a09d728abb9ccfcef7ff9ef711c77d4d63"
+    },
+    {
+      "name": "shorts",
+      "command": [
+        "npm",
+        "run",
+        "shorts"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/shorts.txt",
+      "output_sha256": "2a259e203a2f7a67873a500a873c0aec3f05ea19e756dc643308db69ad27f2ef"
+    },
+    {
+      "name": "silkscreen",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-functional-silk.py"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/validation/independent-checks/silkscreen.txt",
+      "output_sha256": "22f937c963c69970b691982fc1dd09d4690e594a23dda7c433257d162f4155f1"
+    }
+  ],
+  "all_commands_passed": true,
+  "hardware_tested": false,
+  "manufacturing_release": false
+}

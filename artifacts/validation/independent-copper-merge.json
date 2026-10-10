@@ -1,0 +1,1478 @@
+{
+  "source_sha256": "16ac5bc03d72dde2869be647f4853e6e417d9b4c9af21e85b25d60de1c10003e",
+  "baseline_sha256": "bbc797d355b58701a1d94c09494d27eea6c09d83d65ad280dc7e3d06a6a446d7",
+  "moved_components": [
+    "C_ADC",
+    "C_BOOTSTRAP",
+    "C_BUCK_IN",
+    "C_BUCK_OUT1",
+    "C_BUCK_OUT2",
+    "C_CP",
+    "C_DV23",
+    "C_DV50",
+    "C_IO1",
+    "C_IO10",
+    "C_IO22",
+    "C_IO33",
+    "C_IO42",
+    "C_IO49",
+    "C_USB",
+    "C_VM",
+    "C_VREG_IN",
+    "C_VREG_OUT",
+    "D_PD",
+    "D_TVS",
+    "L_BUCK",
+    "R_DM",
+    "R_DP",
+    "R_REF_H",
+    "R_REF_L",
+    "R_RUN",
+    "R_SA",
+    "R_SB",
+    "U_BUCK",
+    "U_MCU"
+  ],
+  "rebuild_nets": [
+    "PD_GOOD",
+    "V3V3",
+    "V1V1",
+    "STEP",
+    "DIR",
+    "ENABLE_N",
+    "SLEEP",
+    "VM_SENSE",
+    "DATA_PRESENT",
+    "MCU_DM",
+    "MCU_DP",
+    "RUN",
+    "SWCLK",
+    "SWDIO",
+    "XIN",
+    "XOUT",
+    "QSPI_SS",
+    "QSPI_SCLK",
+    "QSPI_SD0",
+    "QSPI_SD1",
+    "QSPI_SD2",
+    "QSPI_SD3",
+    "LOGIC_IN",
+    "BUCK_SW",
+    "BUCK_BST",
+    "CP1",
+    "CP2",
+    "VREF",
+    "SENSE1",
+    "SENSE2",
+    "USB_DP",
+    "USB_DM"
+  ],
+  "retained_copper_records": 209,
+  "dropped": [
+    {
+      "id": "freerouted_trace_64",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_74",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_75",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_76",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_87",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_88",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_98",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_108",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_144",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_146",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_157",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "freerouted_trace_197",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_199_usbtrim_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_200",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_201",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_204",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_205",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_206",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_208",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_211",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_17",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_212",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_213_usbtrim_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_216",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_19",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_238",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_240_upperbay_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_241",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_242",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_243",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_25",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_26",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_260",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_262",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_263",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_264",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_265",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_266",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_267",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_268",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_269",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_274",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_277",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_278",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_279_upperbay_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_280",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_284",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_287",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_288",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_289",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_290",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_292",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_293",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_294",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_295",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_296",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_297",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_298",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_299",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_301",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_302",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_303",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_304",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_305",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_307",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_308",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_309",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_310",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_311",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_312",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_313",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_316",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_317",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_318",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_320",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_322",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_323",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_324",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_325",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_326",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_327",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_328",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_332",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_333",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_334",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_335",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_336",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_337",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_338",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_339",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_343",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_346",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_347",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_348",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_29",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_30",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_31",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_34",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_35",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_36",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_352",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_353",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_354",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_355",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_357",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_358",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_359",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_361",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_38",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_39",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_362",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_363",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_364",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_365",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_366",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_367",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_368",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_40",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_41",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_369",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_371",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_372",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_373",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_374_upperbay_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_375",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_42",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_43",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_378",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_379",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_44",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_45",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_381",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_382",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_383",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_384",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_385",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_386",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_387",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_388",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_389",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_390",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_391",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_392",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_393",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_394",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_395",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_396",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_397",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_46",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_47",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_398",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_399",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_400",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_401",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_402",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_403",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_404",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_405",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_406",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_407",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_408",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_48",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_49",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_409",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_410",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_411",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_412",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_413",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_414",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_415",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_50",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_51",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_416",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_417",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_418",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_419",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_420",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_421",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_422",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_52",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_53",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_54",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_423",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_424",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_425",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_426",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_55",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_56",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_427",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_428",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_429",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_430",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_57",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_58",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_431",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_432",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_433",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_434",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_59",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_60",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_64",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_67",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_476",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_477",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_478",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_480",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_481",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_73",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_483",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_484",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_485",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_486",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_487",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_488",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_489",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_490",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_trace_491",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_75",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "freerouted_via_76",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_21",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_fanout_U_MCU_GPIO7",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_fanout_U_MCU_GPIO7_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_U_MCU_GPIO8_inside_0_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_U_MCU_GPIO8_inside_1_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_U_MCU_GPIO8_inside_2_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_U_MCU_GPIO8_inside_3_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_U_MCU_GPIO8_inside_4_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_control_fanout_C_VREG_OUT_pin1_upperbay_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_2_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_2_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1_inside_0_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1_inside_1_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1_inside_1_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_DV23_fanout_C_DV23_pin1_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_1_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_1_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_lead",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_lead_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_cap_inside_0_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_cap_inside_1_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_cap_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_bridge",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_restore_ENABLE_N",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_restore_PD_GOOD",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_restore_PD_GOOD_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_IOVDD10_restore_PD_GOOD_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net8_0_upperbay_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_1_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net7_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net7_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net7_2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net7_3",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net8_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net8_1_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net8_2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_2_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_5",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_6",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_7",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_7_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net37_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net37_1_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net11_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_2_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_2_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net28_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net28_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net29_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net30_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net33_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "service_sensor_inner2_detour",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_17_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_ref_escape_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_signal_escape_DIR_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_12_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_12_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_16_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net13_3",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_22",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_23",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "engineering_local_24",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_logic_escape_R_REF_H_pin1_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_signal_escape_ENABLE_N_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_mcu_escape_STEP",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net49_2_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_mcu_escape_XIN",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_mcu_escape_XIN_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net26_1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net16_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_sense_escape_SENSE1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_sense_escape_SENSE1_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_sense_escape_SENSE2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "inside_sense_escape_SENSE2_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net50_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net50_0_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net26_1x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net26_1x_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net45_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net46_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net49_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net49_1x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net49_1x_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net49_2",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_U_DRV_ENABLE_N",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net16_0x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net16_0x_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_2x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net17_3",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_4",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_4_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_5x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_6x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_7x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_8",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_8_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_9",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_10",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_11",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_12x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_13",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_14",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_15",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_16x",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_17",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_17_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_17_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_18",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_C_IO22_pin1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_C_IO22_pin1_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_U_DRV_VDD",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_U_DRV_VDD_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_U_DRV_STEP",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_U_DRV_STEP_via",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_19",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net12_20",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "outer_native_escape_R_REF_L_pin2",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "outer_native_escape_C_IO22_pin2",
+      "reason": "obsolete moved-part ground route"
+    },
+    {
+      "id": "supplier_repair_island_net14_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net15_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net15_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net15_0_via1",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net51_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net51_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net38_0",
+      "reason": "removed net or component movement requires native reroute"
+    },
+    {
+      "id": "supplier_repair_island_net38_0_via0",
+      "reason": "removed net or component movement requires native reroute"
+    }
+  ],
+  "state": "intermediate; not release or checked CAM"
+}

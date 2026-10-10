@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Check actual top stencil against physical via drills and native solder pads."""
-import hashlib, importlib.util, json, pathlib
+import hashlib, importlib.util, json, pathlib, csv
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 
@@ -22,6 +22,7 @@ def main():
     source_refs = {e['source_component_id']: e['name'] for e in circuit if e['type'] == 'source_component'}
     refs = {e['pcb_component_id']: source_refs[e['source_component_id']] for e in circuit if e['type'] == 'pcb_component'}
     pads = [e for e in circuit if e['type'] == 'pcb_smtpad' and e['layer'] == 'top']
+    filled_ids={r['Via ID'] for r in csv.DictReader((ROOT/'artifacts/assembly/via_process.csv').open()) if 'TypeVII' in r['Required process']}
     rows, errors = [], []
     for via in circuit:
         if via['type'] != 'pcb_via' or 'top' not in via['layers']:
@@ -31,7 +32,10 @@ def main():
         for pad in pads:
             area = hole.intersection(geometry.shape(pad)).area
             if area > 1e-5:
-                ep = (via['pcb_via_id']=='service_filled_ground_cap_via' and refs[pad['pcb_component_id']]=='C_USB') or pad.get('shape') == 'rect' and min(pad.get('width', 0), pad.get('height', 0)) > 2 and refs[pad['pcb_component_id']] in {'U_PD', 'U_MCU', 'U_DRV'}
+                ep = via['pcb_via_id'] in filled_ids
+                # Classification is a fabrication requirement, not a verified fill/cap.
+                if ep:
+                    assert next(n['name'] for n in circuit if n['type']=='source_net' and n['source_net_id']==via['source_net_id'])=='GND'
                 overlaps.append({'ref': refs[pad['pcb_component_id']], 'pad_id': pad['pcb_smtpad_id'], 'hole_overlap_mm2': area, 'requires_filled_capped_EP_process': ep})
         filled_ep = bool(overlaps) and all(p['requires_filled_capped_EP_process'] for p in overlaps)
         paste_overlap = paste.intersection(hole).area

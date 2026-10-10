@@ -1,35 +1,44 @@
-# Variant comparison — 2026-10-10 routing revision
+# Variant comparison — independent engineering revision, 2026-10-10
+
+Both requested baseline commits were inspected locally: CH32 `d75e2c9b9cf83313d7fda65f32b942dcada092dd`, RP2040 `f3811f8a1722df5bad88abdf638cb14bca0c5d59`. Final source/artifact identities and exact validation receipts are in each current engineering manifest. Historical receipts do not validate these changed boards.
 
 | Feature | CH32 | RP2040 |
 |---|---|---|
-| MCU | CH32X035G8U6 | RP2040, external flash and crystal |
-| Board | 35 × 35 mm, 2 layers, top assembly | 35 × 35 mm, 4 layers, top assembly |
-| Fitted parts | 45, including manual motor header | 68, including manual motor header |
-| Main phases / PD | ≥0.45 mm, top/bottom wire segments only | Same |
-| Phase routing vias, A+/A−/B+/B− | 1 / 1 / 2 / 3 | 1 / 1 / 1 / 1 |
-| PD routing vias across all branches | 3 | 10 |
-| Actual minimum PD via transitions to VBB1 / VBB2 | 2 / 0, from either VBUS pad | 2 / 2, from either VBUS pad |
-| Sense wires | ≥0.30 mm, outer layers | Same |
-| Sum of sense trace/barrel resistance / 240 mΩ shunt, A / B | 3.66% / 1.40% | 9.55% / 20.94% |
-| Logic supply | HT7533-1: official 30 V operating / 33 V absolute; mounted thermal/transient qualification pending | AP63203, exact Bourns SRN4018-4R7M; bias-capacitance, stability and current qualification pending |
-| Type VII filled/copper-capped SMT vias | 3 | 4, including C_USB GND |
-| Ordinary 0.20 mm finished-drill vias | 22 | 17 |
-| Close off-pad ordinary barrels requiring Type VI resin fill/mask cover | 3 | 4 |
-| USB | Both openings face +Y, 14 mm pitch, selected Tensility plugs | Same |
-| Motor | 14HM11-0404S, keyed PH four-pin header and mating housing fully inside PCB | Same |
-| Mounting | Front M3 carrier, insulation, cable restraint and service loop | Same |
-| Programming | ROM USB path and WCH debug, hardware unperformed | ROM BOOTSEL USB path and SWD, hardware unperformed |
+| MCU | CH32X035G8U6 | RP2040 with external flash/crystal |
+| PCB and assembly | 35 × 35 × 1.6 mm, 2 layers, top components | Same outline/thickness, 4 layers, top components |
+| Fitted parts including manual JST header | 42 | 66 |
+| Logic supply | HT7533-1; proposed total load ≤20 mA | AP63203; proposed total load ≤100 mA |
+| Winding reference/shunts | 6.2 kΩ / 1 kΩ; unchanged 0.24 Ω | Same |
+| Winding current | 0.238715 A nominal; measured/calibrated peak ≤0.25 A | Same |
+| VM monitor | Passive; scale 223.76596, RC 4.47 µs, powered-off voltage screen <0.160034 V | Same |
+| Exact protection | Littelfuse SMF4L16A, ST USBLC6-2SC6 | Same |
+| Main phase/PD routes | ≥0.45 mm, top/bottom | Same |
+| Phase vias A+/A−/B+/B− | 1 / 1 / 2 / 3 | 1 / 1 / 1 / 1 |
+| PD vias, all branches | 3 | 10 |
+| Actual minimum PD series transitions VBB1/VBB2 | 2 / 0 | 2 / 2 |
+| Sense routing | ≥0.30 mm, outer layers; 2 / 0 vias | 2.099 / 2.098 mm, 0.30 mm top, no sense vias |
+| Sense DC screening at 20 °C | Forward trace/barrel sum only; ground return not included | Forward wires 3.446 / 3.445 mΩ; including plane/barrel return 7.902 / 7.924 mΩ |
+| Required Type VII filled/copper-capped SMT vias | 3 | 7 |
+| Ordinary 0.20 mm finished-drill vias | 19 | 9 |
+| Close off-pad ordinary barrels requiring Type VI resin fill/mask cover | 2 | 2 |
+| USB | Both openings +Y; 14 mm pitch; specified Tensility PD/data cables | Same |
+| Motor/harness | 14HM11-0404S; keyed JST-PH black/green/red/blue mapping | Same |
+| Mounting | Front M3 threads, carrier, barrier, positive harness clamp/service loop | Same |
+| Schematic | 3 functional A4 landscape sheets | 4 functional A4 landscape sheets |
+| USB programming | ROM boot path/WCH debug; hardware untested | ROM BOOTSEL path/SWD; hardware untested |
 
-Via counts and lengths over all branches are different from series-path transitions. The minimum transitions above come from actual parsed copper/drill topology. A strict zero-phase-via target is not met. Short native pin fanouts remain 0.20/0.30 mm within explicit bounds; only main routes use the 0.45 mm floor. See [outer-power-routing.md](outer-power-routing.md) and its source/archive-bound reports.
+The 3.6 V, 25 °C resistor/leakage component-only current screen is 0.268979 A. It excludes resistor temperature changes, unknown low-reference A4988 accuracy and switching ground error; it is not a guaranteed current bound. Measure each phase over microsteps, supply and temperature, and trim the reference if required to meet the 0.25 A acceptance ceiling. Neither shunt was changed to cancel calculated copper resistance.
 
-Sense resistance figures are conservative sums of source trace records and ideal plated barrels at 20 °C, excluding distributed overlap/current sharing and ground-return resistance. They are not measured values or a phase-current prediction. The RP2040 sense-path imbalance must be qualified for current balance and torque; revise the hardware if unacceptable. The A4988 has one shared analog reference and no per-phase current-setting register. The nominal 0.350765 A shunt-only formula and 0.379245 A component-only corner exclude PCB parasitics and driver error at low VREF.
+RP2040 now has short balanced sense wires and direct filled/capped shunt-ground vias into the ground plane. Its DC return screen uses one 17.5 µm inner plane, full 1.6 mm/20 µm-plated barrels, and actual copper/drill geometry. Mesh refinement changes plane resistance by about 2.5%; this is a screening model, not a rigorous bound. The totals are about 3.3% of the 240 mΩ shunts at 20 °C and 11.16 / 11.19 mΩ at 125 °C. Solder/contact effects, shared switching currents, inductance and ground bounce remain unmodeled and require measurement.
 
-CH32 has fewer parts/layers. Both designs have source/build/native DRC/connectivity, actual CAM/drill/stencil/shorts, A4 browser and mechanical-equivalence evidence for the bound revision. Native placement CLI retains supplier-orientation advisories; saved native DRC reports have zero errors. The installed CLI has no `pcb-style` command; its attempted exit and supported-command inventory are retained rather than represented as a passing style check.
+Holtek primary Rev 2.81 ratings are 30 V operating input, 33 V absolute input and 150 °C absolute junction; 125 °C is the design target. With the proposed 20 mA ceiling/local 45 °C, the arithmetic screen is about 96 °C junction at 15.75 V, but actual load, full-temperature regulation, dropout and mounted temperature remain unproved. RP2040 uses exact Bourns SRN4018-4R7M, revised Samsung CL32B106KBJNNNE input and three CL21A226MAQNNNE output capacitors. Typical DC-bias curves and separate tolerance/temperature/endurance screens do not guarantee aged effective capacitance or converter stability.
 
-The bulk capacitor uses the corrected Panasonic 7.7 ±0.3 mm body with an 8.3 mm maximum assembly screen including stand-off. JST row Y−14.1 mm gives 0.4 mm full-header and 0.5 mm mating-housing nominal edge margins; documented placement/outline allowances reduce those margins. Pin-row X is −1.5 mm CH32 / +1.7 mm RP2040. Exact internal mating/post profiles and the generic supplier model discrepancy require an actual coupon/sample fit.
+Main power routes satisfy the outer-layer policy with individually bounded native pin escapes. Phase vias remain and are explicitly disclosed. Series transitions differ from all-branch via counts. Native routing and official FreeRouting attempts were followed by local copper repairs; final source and actual CAM connectivity, widths and clearances are the acceptance evidence.
 
-The front-mounted carrier and full factory-lead service loop enlarge the host envelope beyond the PCB; follow the mechanical report and harness/carrier drawings for host clearance and mounting loads. Rear end-cap screws are not used. Minimum copper/plating, all Type VI/Type VII/fine-drill processes, pickup centers/rotations, material certificates and factory lead stock require supplier acceptance. Process costs and capability are unverified.
+Both boards pass fresh typecheck/build, zero-error native DRC, physical connectivity, trace widths, real Gerber shorts, actual CAM copper/drill/clearance/mask/paste audits, functional silkscreen, native mechanical review and project schematic-browser checks. One generic Q_DATA power-pin warning and supplier placement/pickup advisories remain disclosed. The installed CLI lacks `pcb-style`; official IDE/WebGPU/electrical simulation was not performed.
 
-Neither design is released for manufacture or production. Hardware winding current/balance, USB programming/enumeration and 15 V PD, all power transitions, reset/brownout, regeneration/hot-plug, mounted temperatures and full physical fit/retention remain unperformed. Historical clean reports do not validate another changed revision; use the current engineering manifest.
+Both preserve the corrected Panasonic 7.7 ±0.3 mm bulk-capacitor body plus 0.3 mm assembly allowance. The keyed header/mating housing remain inside the board; manufacturer-derived bores are unchanged. Generic CAD post dimensions require exact factory evidence or a real insertion coupon. Full reserved host envelope is approximately 49.204 × 157.480 × 102.771 mm, before host tolerances, movement and access. Rear end-cap screws are not used.
 
-The schematic presentation now uses three named A4 sheets for CH32 and four for RP2040, with functional sections and local chip-purpose notes. This presentation change leaves all electrical and PCB/CAD records and manufacturing bytes unchanged. See [schematic-review.md](schematic-review.md).
+The [operating envelope](supported-operating-envelope.md) is a prototype qualification target: 15 V PD, actual phase peaks ≤0.25 A, room 0–40 °C, local PCB air ≤45 °C, motor case ≤60 °C, mechanical returned energy ≤0.10 mJ per stop at ≤1 Hz, no sustained back-driving. No continuous duty, torque or speed is guaranteed. Higher-energy hosts need separately qualified braking/protection.
+
+Neither design is ready to order. Winding current, USB/PD, all power transitions, regeneration, mounted temperatures, buck qualification and full physical fit remain unperformed. Supplier via-fill/cap/fine-drill/slots/stencil/pickup acceptance and material/crimp/splice certificates remain open. This task makes local commits and publishes nothing.

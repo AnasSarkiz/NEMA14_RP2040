@@ -1,95 +1,185 @@
 {
-  "primary_sources": {
-    "Holtek": "references/HT75xx-1v281.pdf Rev2.81 Dec3,2025, https://www.holtek.com.cn/webapi/116711/HT75xx-1v281.pdf",
-    "Bourns": "references/SRN4018.pdf https://www.bourns.com/docs/product-datasheets/srn4018.pdf",
-    "Samsung": "Exact-E part spec sheets references/Samsung-CL21A226MAQNNNE-spec.pdf and Samsung-CL31A106KBHNNNE-spec.pdf; Samsung manufacturer POST masterKey without final packagingE, type=specsheet."
-  },
+  "schema": "independent-power-review-2026-10-10",
+  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "inspected_baseline_commit": "f3811f8a1722df5bad88abdf638cb14bca0c5d59",
+  "hardwareMeasurementsPerformed": false,
+  "manufacturingRelease": false,
   "HT7533_1": {
     "operating_input_max_V": 30,
     "absolute_input_max_V": 33,
-    "operating_ambient_C": [
-      -40,
-      85
-    ],
+    "absolute_junction_max_C": 150,
+    "design_junction_target_C": 125,
     "SOT89_theta_JA_max_C_per_W": 200,
-    "rated_dissipation_W_at_25C": 0.5,
-    "datasheet_explicit_max_junction_temperature_found": false,
-    "derived_25C_plus_PD_times_theta_C": 125,
-    "derived_temperature_is_not_guaranteed_junction_rating": true,
-    "VOUT_min_at_specified_5p3V_10mA_25C_V": 3.201,
-    "planning_cases": [
-      {
-        "load_A": 0.015,
-        "input_V": 15.75,
-        "conservative_power_W": 0.188298,
-        "ambient_C": 60,
-        "estimated_junction_C_at_datasheet_theta": 97.6596,
-        "not_measured_or_guaranteed_load": true
-      },
-      {
-        "load_A": 0.018,
-        "input_V": 15.75,
-        "conservative_power_W": 0.22594499999999998,
-        "ambient_C": 60,
-        "estimated_junction_C_at_datasheet_theta": 105.189,
-        "not_measured_or_guaranteed_load": true
-      },
-      {
-        "load_A": 0.025,
-        "input_V": 15.75,
-        "conservative_power_W": 0.313788,
-        "ambient_C": 60,
-        "estimated_junction_C_at_datasheet_theta": 122.7576,
-        "not_measured_or_guaranteed_load": true
-      }
-    ]
-  },
-  "RP_L_BUCK": {
-    "MPN": "SRN4018-4R7M",
-    "supplier": "C780206",
-    "nominal_uH": 4.7,
-    "tolerance_percent": 20,
-    "DCR_max_ohms": 0.084,
-    "Irms_A_at_40C_rise": 1.9,
-    "Isat_A_at_30percent_inductance_loss": 2,
-    "operating_C_including_self_heating": [
-      -40,
-      125
-    ],
-    "AP63203_typical_switch_frequency_Hz": 1100000,
-    "guaranteed_frequency_min_not_specified": true,
-    "ripple_A_at_15p75V_3p33V_Lmin_typical_f_minus_6percent": 0.675424620648704
+    "Iq_max_A": 4e-06,
+    "logicLoadCeiling_A": 0.02,
+    "localAirCeiling_C": 45,
+    "lossAt15p75V_W": 0.255063,
+    "junctionScreenAt15p75V_C": 96.0126,
+    "junctionScreenAt18V_C": 105.0144,
+    "regulationScreen25C5p3To18V_min_V": 3.0596946000000003,
+    "regulationScreen25C5p3To18V_max_V": 3.5453346000000003,
+    "temperatureCoefficient_ppm_per_C_typical": 100,
+    "fullTemperatureOutputBoundGuaranteed": false,
+    "actualWorstLoadMeasured": false,
+    "thermalScreenMeasured": false,
+    "disposition": "Conditional prototype LDO retained within20mA/local45C. Verify DATA-only dropout/full-temperature rail3.0..3.6V. Any failed gate requires regulator redesign; no production rating."
   },
   "RP_capacitors": {
-    "input": "C13585 CL31A106KBHNNNE 10uF50V10%X5R1206",
-    "output": "2xC45783 CL21A226MAQNNNE 22uF25V20%X5R0805",
-    "output_min_uF_tolerance_only": 35.2,
-    "output_min_uF_tolerance_times_0p85_temp_only": 29.92,
-    "input_min_uF_tolerance_only": 9,
-    "input_min_uF_tolerance_times_0p85_temp_only": 7.65,
-    "DC_bias_and_aging_effective_minimum_verified": false,
-    "effective_capacitance_disposition": "Nominal ratings confirmed; tolerance/temperature arithmetic is not effective capacitance. Exact bias/aging data required; measure or obtain curves, verify stability/load transient at voltage/temperature before qualification."
+    "inputMPN": "CL32B106KBJNNNE",
+    "inputSupplier": "C138687",
+    "inputNominal_uF": 10,
+    "inputDielectric": "X7R",
+    "inputPackage": "1210",
+    "inputTypicalAt18V25C_uF": 6.2007218826739425,
+    "outputMPN": "CL21A226MAQNNNE",
+    "outputSupplier": "C45783",
+    "outputCount": 3,
+    "outputNominalBank_uF": 66,
+    "outputTypicalBankAt3p33V25C_uF": 40.81876956977581,
+    "inputTolerancePercent": 10,
+    "outputTolerancePercent": 20,
+    "temperatureCharacteristicPercent": 15,
+    "reliabilityHighTemperature1000hChangePercent": 12.5,
+    "dcBiasCurvesGuaranteedBounds": false,
+    "lifetimeAgingRateGuaranteed": false,
+    "acceptedMeasuredInputFloor_uF": 4,
+    "acceptedMeasuredOutputBankFloor_uF": 24,
+    "floorsAreRequirementsNotMeasurements": true,
+    "inputCombinedScreen_uF": 4.1506082102148705,
+    "outputCombinedScreen_uF": 24.287167894016605,
+    "screenCaveat": "Combines typical DC-bias curve and separately specified tolerance/temperature/1000h endurance change. Not a jointly guaranteed limit; 1000h change is not a universal lifetime aging factor."
+  },
+  "RP_L_BUCK": {
+    "part": "SRN4018-4R7M",
+    "supplier": "C780206",
+    "L_nominal_uH": 4.7,
+    "L_tolerancePercent": 20,
+    "DCR_max_ohm": 0.084,
+    "Irms_at40C_rise_A": 1.9,
+    "Isat_at30PercentLoss_A": 2,
+    "maxLoadCeiling_A": 0.1,
+    "rippleScreenAt18V_A": 0.6980611342030537,
+    "CCM_peakScreen_A": 0.4490305671015269,
+    "lowLoadSingleCyclePeakScreen_A": 0.6980611342030537,
+    "frequencyScreen_Hz": 1033999.9999999999,
+    "frequencyMinimumGuaranteed": false,
+    "startupOverloadPeakMayReachConverterLimit_A": 3.1,
+    "faultSaturationHeatingQualificationRequired": true,
+    "rippleCurrentModelCaveat": "CCM/one-cycle formula screens; pulse-skipping/DCM/startup measurements required."
   },
   "current_setting": {
-    "nominal_A": 0.350765306122449,
-    "formula_only_high_A": 0.3792446152398549,
-    "A4988_error_at_selected_VREF_guaranteed": false,
-    "motor_per_phase_max_A": 0.4
+    "nominal_A": 0.2387152777777778,
+    "component_only_high_A": 0.26897917779501784,
+    "accepted_measured_phase_peak_A": 0.25,
+    "driverLowReferenceAccuracyGuaranteed": false,
+    "shunt_ohms": 0.24,
+    "formulaScreenRail_V": 3.6,
+    "formulaScreenTemperature_C": 25,
+    "resistorTemperatureAccuracyGuaranteed": false,
+    "acceptance": "Measure phase peaks<=0.25A over all qualified corners; trim VREF divider and requalify if exceeded. Nominal formula is not a supported measured-current guarantee."
   },
   "regen": {
-    "bulk_nominal_F": 0.0001,
-    "bulk_tolerance_min_F": 8e-05,
-    "initial_V": 15.75,
-    "illustrative_bus_ceiling_V": 18,
-    "energy_J_to_18V_with_bulk_min_only": 0.0030375000000000003,
-    "unknown_machine_kinetic_energy": true,
-    "TVS_primary_exact_variant_energy_not_verified": true,
-    "no_continuous_braking_sink": true
+    "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+    "revision": "independent-review-2026-10-10",
+    "status": "proposed prototype qualification envelope; not a qualified product rating",
+    "hardwareTestsPerformed": false,
+    "manufacturingRelease": false,
+    "motor": "14HM11-0404S",
+    "normalPdBusV": [
+      14.25,
+      15.75
+    ],
+    "busOperatingCeilingV": 18,
+    "phaseCurrentNominalA": 0.2387152777777778,
+    "maximumAcceptedMeasuredPhasePeakA": 0.25,
+    "motorManufacturerPhaseLimitA": 0.4,
+    "ambientRoomC": [
+      0,
+      40
+    ],
+    "maximumLocalPcbAmbientC": 45,
+    "maximumMotorCaseC": 60,
+    "logicOutputMaximumLoadA": 0.1,
+    "minimumAcceptedLogicRailV": 3.0,
+    "maximumAcceptedLogicRailV": 3.6,
+    "maximumMechanicalEnergyPerStopJ": 0.0001,
+    "maximumStopRateHz": 1,
+    "busMinimumBulkCapacitanceF": 5.6e-05,
+    "bulkMinimumMethod": "100uF x initial tolerance0.8 x endurance capacitance change0.7. This is an endurance-test screening corner, not a lifetime or high-frequency guarantee.",
+    "windingInductanceMaximumH": 0.0288,
+    "windingEnergyJ": 0.0018,
+    "totalStopEnergyJ": 0.0019,
+    "energyBudgetTo18VJ": 0.00212625,
+    "idealBusPeakV": 17.774128469692766,
+    "excludedFromIdealBusPeak": [
+      "ESR/ESL",
+      "cable inductance",
+      "capacitor bias and temperature/aging beyond cited endurance",
+      "switching overshoot",
+      "continued backdrive",
+      "PD-source absorption"
+    ],
+    "adcScaleNominal": 223.76595744680853,
+    "adcWorstPassive35VBoundV": 0.15955888778874402,
+    "adcLeakageAllowanceA": 1e-06,
+    "adcLeakageVoltageAllowanceV": 0.0004747,
+    "adcOffLimitV": 0.3,
+    "adcTimeConstantNominalS": 4.4689550251973e-06,
+    "prototypeGates": [
+      "phase-current accuracy and mismatch over supply/temperature/microstep",
+      "mounted temperatures and thermal soak",
+      "USB enumeration/programming and DATA current",
+      "15V PD negotiation and loss",
+      "startup/reset/brownout/source handover and ADC fast collapse",
+      "regeneration bus peak and repetition",
+      "buck biased/aged capacitance and loop/load response",
+      "harness fit/pull/abrasion and connector insertion",
+      "supplier fabrication and pickup acceptance"
+    ]
   },
-  "current_routing_revision_binding": {
-    "source_sha256": "bbc797d355b58701a1d94c09494d27eea6c09d83d65ad280dc7e3d06a6a446d7",
-    "unchanged_component_data_from_commit": "20a3c326502208f25e0126b6f33d30936caece59",
-    "component_data_sha256": "f8307ca2802a09a4ac9355d94d2b59cd5421bba12cf8ba8565c7aac30fba476f",
-    "scope": "Existing primary datasheet/component arithmetic remains applicable because all component identities/values are unchanged. Current trace/via resistance and outer-layer checks are separately recorded in trace-width-review.json and outer-power-routing.md. No hardware test or regulator/transient qualification is claimed."
-  }
+  "exact_TVS": {
+    "part": "SMF4L16A",
+    "manufacturer": "Littelfuse",
+    "supplier": "C1973135",
+    "VRWM_V": 16,
+    "VBR_V_at1mA_25C": [
+      17.8,
+      19.7
+    ],
+    "VC_max_V_at15p4A_10_1000us_25C": 26,
+    "Ppeak_10_1000us_W": 400,
+    "Ppeak_8_20us_W": 2000,
+    "ratedPulseDutyPercent": 0.01,
+    "temperatureCoefficientPercentPerC_typical": 0.1,
+    "temperatureCoefficientGuaranteed": false,
+    "hotClampGuaranteedBelow30V": false,
+    "notARegenerativeBrake": true,
+    "normalBusAcceptanceCeiling_V": 18,
+    "partPolarity": "pin1A GND; pin2K PD_VBUS; PCB rotation accounts for imported pin-order reversal",
+    "continuousOrRepetitiveSystemClampQualified": false
+  },
+  "exact_USB_ESD": {
+    "manufacturer": "STMicroelectronics",
+    "part": "USBLC6-2SC6",
+    "supplier": "C7519",
+    "primaryFile": "ST-USBLC6-2-DS4260-Rev7.pdf",
+    "lineCapacitanceMax_pF": 3.5,
+    "IRM_max_nA_at5p25V": 150,
+    "VCmax_at5A_8_20us_V": 17,
+    "systemESDQualified": false
+  },
+  "primary_sources": {
+    "AP63203.pdf": "ef99daa3789d835bc025dfcb4c605c5c2e6d3e7223e86d40b33e6b497ea5a722",
+    "HT75xx-1v281.pdf": "823163c61d381f85362450e2840f9f6fd5e27f881f73aa4849181348a94ffd87",
+    "SRN4018.pdf": "3733a494f0443726e01072217fd8d58c7a0e7dad152ae121815edf4a8a8e741e",
+    "Samsung-CL21A226MAQNNNE-spec.pdf": "5cdb985c64fd8b79f6c54cb77bd282ba189586d533ad8c3c82c96c435bece6ba",
+    "Samsung-CL31A106KBHNNNE-spec.pdf": "23d0c65c65188eebbe1a1e30b702ee4e2fc249e232c1f293e7f282f1e86fbfbc",
+    "Samsung-CL32B106KBJNNN-DCBias-25C.json": "734195318eeeefc33632de248faa8bdd033e8b4ae1d9a2197ae421cd1bdf013a",
+    "Littelfuse-SMF4L-primary.pdf": "7b07189fba5b346a8a7121fdc3ada876b74a49e9d610267af2d0de974e694578",
+    "Samsung-CL31A106KBHNNN-DCBias-25C.json": "31e978cd592165d07bf62776af016917578d753ed67b01f50cca2db43c96ac2c",
+    "Samsung-CL21A226MAQNNN-DCBias-25C.json": "500066f7faecc1e93ab2f42fd4800aad97091db2d05195e73f38c05ee03f1d94",
+    "Samsung-CL32B106KBJNNNE-spec.pdf": "f5e74b1afd82227433ea9e4103b90903b3e0a4596d029627079e30fbfce2316f",
+    "ST-USBLC6-2-DS4260-Rev7.pdf": "bc30154f310cd631043214ed52571daefe04270587ec55072d49a23bd18b9068"
+  },
+  "status": "source calculations and primary evidence; prototype/supplier qualification pending"
 }

@@ -1,34 +1,15 @@
-# Current validation — RP2040, service revision
+# Final local validation — RP2040,2026-10-10
 
-The requested exact local commit `97d4248` was inspected before editing. The frozen delivery is `index.circuit.tsx` → `src/board.tsx`, with accepted copper in `artifacts/board.circuit.json` and an identical `index.circuit.json`. Source compilation regenerates separate `artifacts/final-source.circuit.json`; it must not overwrite accepted routing. The current manifest identifies hashes and current reports. All older SES/replay/publication/validation outputs are historical unless explicitly listed there.
+Exact inspected baseline commit:`f3811f8a1722df5bad88abdf638cb14bca0c5d59`. Final saved circuit SHA256:`0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a`. `index.circuit.json` is byte-identical. Fresh source physical pins, native pad geometry and component values/MPNs match the saved routed board; only documented topology changes differ from the baseline.
 
-| Check | Current result and scope |
-|---|---|
-| `npm run source:check`, `npm run typecheck`, `npm run build` | Pass. Source/schematic compilation and accepted saved-board rendering/DRC. |
-| Native CLI netlist, pin specification, source | Exit0 on `index.circuit.tsx`; real exits/logs in `service-cli-results.json`. |
-| Native CLI build | Routing-disabled source build/PCB PNG passes; not an accepted-routing regeneration. |
-| Native CLI placement | Exit1 advisories retained; native placementDRC0 errors /0 warnings. See disposition below. |
-| Prepared A4 schematic-placement | Exit0, zero findings on `artifacts/final-source.circuit.json`. |
-| Saved native all-check DRC | 0 errors,1 warning: generic Q_DATA NPN symbol has no `requires_power` pin. This discrete transistor has no supply pin; warning retained. |
-| Independent native connectivity | 52 named nets, all copper layers, no disconnected nets. |
-| Trace/via width and current screen | No errors; 35µm outer /17.5µm inner and30°C IPC2221 rise assumptions. This does not prove temperatures or plane-current sharing. |
-| Actual Gerber/drill/CAM audit | PASS: no named opens/shorts or unexpected unassigned copper; actual apertures/drills/paste/mask/outline and BOM/CPL compared against source. |
-| `tsci check shorts ... --mode gerber --layer all --pixels-per-mm 100` | No shorts on any layer. Actual saved command output retained. |
-| Functional silkscreen | All12 labels preserve their original strokes in exported final Gerber; no clipped functional text. |
-| Via/paste/process inspection | PASS ordinary-via overlap screen; explicit filled/capped SMT vias require supplier process acceptance. |
-| Browser schematic UI | All 4 functional native A4 pages opened in Chromium, labels/A4 dimensions verified,0 browser errors. This project UI shows real CLI analysis; official IDE/WebGPU analyzer was not executed. |
-| Mechanical BREP/access | Current model/hash report records checks, dimensions and disclosed generic-model discrepancy; hardware fit/tolerances remain unqualified. |
+`artifacts/validation/independent-checks.json` records real command exits and log hashes: typecheck, build/native DRC, physical connectivity, trace widths, Gerber shorts and functional silkscreen all pass. Saved DRC has zero errors and one generic Q_DATA power-pin warning. Actual CAM audit passes zero shorts/opens, source-to-copper/drill equality, archive-member equality, clearances, mask/web and stencil checks. The 35 unassigned copper islands are exclusively intentional no-connect terminals; no unanchored non-NC islands remain.
 
-`tsci check netlist` supports the TSX entry, not a JSON array; the unsupported-input error from older work is not a board failure. Raw-entry schematic analysis precedes the native A4 preparation stage: the packaged prepared sheets are the reviewed schematic. Source-generated physical pads/holes/poses and numbered-pin/net semantics are compared to saved routing by the import/presentation check and `service-pin-net-invariance.json`.
+Actual outer-layer audit verifies motor/PD main widths≥0.45 mm and sense≥0.30 mm with individually bounded native fanout/resistor-leaf exceptions. Nonzero phase vias remain disclosed. Every required SMT via-in-pad is listed in TypeVII process CSVs; all ordinary drill/stencil intersections pass.
 
-Placement advisories use airwire/orientation/courtyard heuristics without considering accepted routes or probe-only bare interfaces. They are retained in `service-cli-placement.txt`, not suppressed or called a CLI pass. Actual pad connectivity, native placementDRC, copper/CAM and component/probe/access geometry are assessed separately. No failed physical placement is waived by this disposition. Review exact suggestions before future rerouting.
+All 4 actual PDF pages were rasterized and visually inspected. Passive references/values use≥6.5 pt DejaVu Sans. Project Chromium schematic-review UI opened every A4 sheet with all labels present and no browser errors. This is a project review interface, not official IDE/WebGPU/electrical simulation. CLI source/netlist/pin/schematic checks exit 0; placement exits 1 with supplier orientation/pickup advisories while its Errors/Warnings counts are 0. The generic Q_DATA width suggestion is retained to provide legible BASE/COLLECTOR separation. The installed CLI's historical`pcb-style` attempt was unavailable, not passed.
 
-Reproduce current checks: `npm run typecheck`, `npm run source:check`, `npm run build`, `python3 scripts/check-service-cli.py`, `/workspace/.routing-venv/bin/python scripts/verify-connectivity.py`, `npm run check:copper`, `npm run export`, `npm run check:manufacturing`, `/workspace/.routing-venv/bin/python scripts/inspect-via-paste.py`, `npm run shorts`, `/workspace/.routing-venv/bin/python scripts/audit-functional-silk.py`, `/workspace/.routing-venv/bin/python scripts/review-mechanical.py`, `python3 scripts/check-a4-browser.py`. Export also uses the official CLI and validates unchanged native copper/drill files. Review manufacturing/assembly requirements before using any generated package.
+Full native STEP review/rebind passes nominal component/fastener/carrier/plug/wire intersection checks and bounded clearance screens. Complete installation reservation≈49.204×157.480×102.771 mm before host tolerances/motion/access. JST CAD post/real insertion and cable-body CAD/PDF discrepancies remain unresolved physical gates.
 
-Hardware tests unperformed: windingcurrent, USB enumeration/programming/PD, power transitions/brownout/backfeed, regeneration, mountedtemperatures and complete physicalfit. External effective-C, exact protection/model/material data, pickup/rotation preview and fabrication acceptance remain open. Software PASS is not production release.
+Current assembly/BOM/PnP/manual-header tables, Gerber/drill ZIP, A4 PDF and mechanical/harness drawings are regenerated and bound in`artifacts/validation/engineering-review-manifest.json`. Every listed manifest entry is rehashed by this script. Historical router outputs, prior publication receipts and old power reports are not final acceptance evidence.
 
-## Verified outer-layer routing revision
-
-See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.
-
-The current schematic presentation and exact PCB/fabrication invariance evidence are described in [schematic-review.md](schematic-review.md). Current sheets have native function names; text overlap and CLI schematic findings are zero.
+Neither board is released for ordering/production. All hardware tests and supplier approvals are unperformed. See [operating envelope](supported-operating-envelope.md), [engineering review](engineering-review.md) and [bring-up checklist](bringup-checklist.md). This task makes local commits only and publishes nothing.

@@ -1,13 +1,14 @@
 {
-  "date": "2026-10-10T08:12:06.902Z",
+  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "date": "2026-10-10T10:42:39.612Z",
   "tool": "@tscircuit/checks",
-  "traceCount": 417,
-  "currentLimitAmps": 0.350765306122449,
-  "componentOnlyCurrentFormulaHighAmps": 0.3792446152398549,
+  "traceCount": 536,
+  "currentLimitAmps": 0.2387152777777778,
+  "componentOnlyCurrentFormulaHighAmps": 0.26897917779501784,
   "driverCurrentAccuracyAtSelectedReferenceIsUnspecified": true,
-  "motorDividerInputAt35VWorstVolts": 3.240146654445463,
-  "motorAdcAt35VWorstVolts": 1.6987025468524748,
-  "enabledMotorAdcScaleNominal": 21,
+  "motorDividerInputAt35VWorstVolts": 0.16003358778874402,
+  "motorAdcAt35VWorstVolts": 0.16003358778874402,
+  "enabledMotorAdcScaleNominal": 223.76595744680853,
   "errors": [],
   "warnings": [
     {
@@ -31,6 +32,6 @@
     "Filled/capped exposed-pad vias and assembly process require fabricator acceptance.",
     "A4988 accuracy at selected VREF is unspecified; measure phase current before qualification.",
     "Footprint/rating and USB/PD bench validation remain required.",
-    "Powered-off sensor topology is corrected, but intermediate switch VCC, fast rail collapse/output-filter decay and NPN levels require bounded sequencing qualification; add supervision/clamping if pin limits are violated."
+    "Passive monitor has a bounded below0.3V DC/stored-charge voltage at zero/partial VDD; high-frequency coupling, reset defaults, NPN levels and power handover still require prototype tests."
   ]
 }

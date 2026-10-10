@@ -1,5 +1,3 @@
-# Current BOM and assembly — service revision
+# Current fitted assembly
 
-See [fabrication-requirements.md](fabrication-requirements.md) for the current revision and limitations. Older review text is preserved under `artifacts/historical-review-2026-10-08/` and must not be used as current instructions.
-
-Current BOM/PnP/manual-header tables are under `artifacts/manufacturing/`. Exact manufacturer imports and unchanged originals are under `imports/supplier/`; manufacturer PDFs/STEP are under `references/`. Header drilling is manufacturer-derived; capacitor nominal CAD height is corrected with originals retained. This is an unqualified prototype with pending supplier pickup/rotation and hardware tests.
+66 fitted parts including the manually soldered motor header; top components only. `artifacts/manufacturing/bom.csv` contains exact MPN/JLC identifiers; `pick_and_place.csv` is automatic SMT scope, and`manual_assembly.csv` describes JST installation/tail trim. Bare boot/debug pads are excluded. ST USBLC6-2SC6/C7519, Littelfuse SMF4L16A/C1973135,470 Ω monitor bleed and 6.2 k reference are current. RP2040 input is CL32B106KBJNNNE/C138687 and output is 3 × CL21A226MAQNNNE/C45783; CH32 uses the documented LDO. Stock/substitutions and supplier pickup/rotation approvals remain external gates. See assembly calibration/drawings and the final manifest.

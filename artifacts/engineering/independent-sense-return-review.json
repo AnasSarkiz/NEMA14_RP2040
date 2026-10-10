@@ -1,0 +1,89 @@
+{
+  "source_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "method": "Finite-volume DC resistor mesh of actual inner1 GND copper minus drilled voids. Four-neighbor cells;1A distributed over shunt via annulus, zero volts at one driver EP via annulus. Only one17.5um inner plane used; other parallel planes/pins excluded. Full1.6mm lengths for both20um plated barrels screen unknown stack spacing. Cell-center mesh convergence is a screen, not a mathematically rigorous bound.",
+  "rho20_mOhm_mm": 0.01724,
+  "copperMinimumUm": {
+    "outer": 35,
+    "inner": 17.5,
+    "barrel": 20
+  },
+  "meshes": [
+    {
+      "cellPitchMm": 0.15,
+      "conductiveCells": 44514,
+      "cases": [
+        {
+          "shunt": "R_SA",
+          "spreadingResistanceAt20C_mOhm": 1.2360273160096598,
+          "groundBarrelsFull1p6mmConservative_mOhm": 3.2194286301810164,
+          "feedCells": 10,
+          "sinkCells": 6
+        },
+        {
+          "shunt": "R_SB",
+          "spreadingResistanceAt20C_mOhm": 1.2598262612776308,
+          "groundBarrelsFull1p6mmConservative_mOhm": 3.2194286301810164,
+          "feedCells": 10,
+          "sinkCells": 6
+        }
+      ]
+    },
+    {
+      "cellPitchMm": 0.1,
+      "conductiveCells": 99950,
+      "cases": [
+        {
+          "shunt": "R_SA",
+          "spreadingResistanceAt20C_mOhm": 1.2059715601521432,
+          "groundBarrelsFull1p6mmConservative_mOhm": 3.2194286301810164,
+          "feedCells": 28,
+          "sinkCells": 13
+        },
+        {
+          "shunt": "R_SB",
+          "spreadingResistanceAt20C_mOhm": 1.227675700387497,
+          "groundBarrelsFull1p6mmConservative_mOhm": 3.2194286301810164,
+          "feedCells": 28,
+          "sinkCells": 13
+        }
+      ]
+    }
+  ],
+  "sense": [
+    {
+      "net": "SENSE1",
+      "lengthMm": 2.0989822674771688,
+      "widthFloorMm": 0.3,
+      "resistanceAt20C_mOhm": 3.446328980124418,
+      "senseViaCount": 0,
+      "planeReturnScreenAt20C_mOhm": 1.2360273160096598,
+      "groundBarrelsScreenAt20C_mOhm": 3.2194286301810164,
+      "totalWirePlaneAndBarrelScreenAt20C_mOhm": 7.901784926315094,
+      "meshVariationPercent": 2.431641717639971,
+      "screenAt125C_mOhm": 11.162456476159017,
+      "screenAt20C_percentOf240mOhmShunt": 3.2924103859646223
+    },
+    {
+      "net": "SENSE2",
+      "lengthMm": 2.0979075809448866,
+      "widthFloorMm": 0.3,
+      "resistanceAt20C_mOhm": 3.4445644471895083,
+      "senseViaCount": 0,
+      "planeReturnScreenAt20C_mOhm": 1.2598262612776308,
+      "groundBarrelsScreenAt20C_mOhm": 3.2194286301810164,
+      "totalWirePlaneAndBarrelScreenAt20C_mOhm": 7.923819338648156,
+      "meshVariationPercent": 2.5519837042870392,
+      "screenAt125C_mOhm": 11.193583388741317,
+      "screenAt20C_percentOf240mOhmShunt": 3.3015913911033983
+    }
+  ],
+  "groundReferenceVia": "freerouted_via_79",
+  "hardwareMeasured": false,
+  "limitations": [
+    "No pad/contact/solder resistance",
+    "No regulator/phase shared-current field or switching inductance/ground bounce",
+    "No thermal or current accuracy qualification",
+    "Cell centers approximate polygon boundaries; supplier actual stackup/plate thickness and Kelvin measurement required"
+  ],
+  "prototypeAcceptance": "Measure effective sense/return resistance and differential ground bounce; phase peaks<=0.25A with required balance across microsteps/temperature."
+}

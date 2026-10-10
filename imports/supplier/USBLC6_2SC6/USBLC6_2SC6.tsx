@@ -1,23 +1,23 @@
 import React from "react"
-const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/USBLC6_2SC6/USBLC6_2SC6.obj"
-const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/USBLC6_2SC6/USBLC6_2SC6.step"
+const objPath = new URL("./USBLC6_2SC6.obj", import.meta.url).href
+const stepPath = new URL("./USBLC6_2SC6.step", import.meta.url).href
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {
-  pin1: ["I1","O11"],
-  pin2: ["GND"],
-  pin3: ["I2","O21"],
-  pin4: ["I3","O22"],
-  pin5: ["VBUS"],
-  pin6: ["I4","O12"]
+  pin1: ["pin1"],
+  pin2: ["pin2"],
+  pin3: ["pin3"],
+  pin4: ["pin4"],
+  pin5: ["pin5"],
+  pin6: ["pin6"]
 } as const
 
 const pinAttributes = {
-  pin2: {requiresGround: true, mustBeConnected: true},
-  pin5: {isPassive: true, mustBeConnected: true, shouldHaveDecouplingCapacitor: true, recommendedDecouplingCapacitorCapacitance: "100nF"},
   pin1: {isPassive: true},
+  pin2: {requiresGround: true, mustBeConnected: true},
   pin3: {isPassive: true},
   pin4: {isPassive: true},
+  pin5: {isPassive: true, mustBeConnected: true, shouldHaveDecouplingCapacitor: true, recommendedDecouplingCapacitorCapacitance: "100nF"},
   pin6: {isPassive: true}
 } satisfies NonNullable<ChipProps["pinAttributes"]>
 
@@ -28,7 +28,7 @@ export const USBLC6_2SC6 = (props: ChipProps<typeof pinLabels>) => {
       pinAttributes={pinAttributes}
       supplierPartNumbers={{
   "jlcpcb": [
-    "C2687116"
+    "C7519"
   ]
 }}
       manufacturerPartNumber="USBLC6-2SC6"
@@ -47,7 +47,6 @@ export const USBLC6_2SC6 = (props: ChipProps<typeof pinLabels>) => {
       </footprint>}
       cadModel={{
         objUrl: objPath,
-        positionOffset: { x: (-0.0) * Math.cos(Number(props.pcbRotation ?? 0) * Math.PI / 180) - (0.0) * Math.sin(Number(props.pcbRotation ?? 0) * Math.PI / 180), y: (-0.0) * Math.sin(Number(props.pcbRotation ?? 0) * Math.PI / 180) + (0.0) * Math.cos(Number(props.pcbRotation ?? 0) * Math.PI / 180), z: 0 },
         stepUrl: stepPath,
         pcbRotationOffset: 90,
         modelOriginPosition: { x: -0.000012700000070253736, y: 0.000012700000070253736, z: -0.048939 },

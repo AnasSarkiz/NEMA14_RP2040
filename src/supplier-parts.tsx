@@ -40,7 +40,14 @@ import { SRN4018_4R7M } from "../imports/supplier/SRN4018_4R7M/SRN4018_4R7M"
 import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
 import { CH224K } from "../imports/supplier/CH224K/CH224K"
+import { A_0603WAF4700T5E } from "../imports/supplier/A_0603WAF4700T5E/A_0603WAF4700T5E"
+import { A_0603WAF4701T5E } from "../imports/supplier/A_0603WAF4701T5E/A_0603WAF4701T5E"
+import { A_0603WAF6201T5E } from "../imports/supplier/A_0603WAF6201T5E/A_0603WAF6201T5E"
+import { SMF4L16A } from "../imports/supplier/SMF4L16A/SMF4L16A"
+import { CL32B106KBJNNNE } from "../imports/supplier/CL32B106KBJNNNE/CL32B106KBJNNNE"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C138687": CL32B106KBJNNNE,
+ "C1973135": SMF4L16A,
  "C94514": MMBT3904_7_F,
  "C131992": SN74CBTLV1G125DCKR,
  "C178585": EEEFPV101XAP,
@@ -68,7 +75,10 @@ const parts: Record<string, React.ComponentType<any>> = {
  "C25803": A_0603WAF1003T5E,
  "C25804": A_0603WAF1002T5E,
  "C25905": A_0402WGF5101TCE,
- "C2687116": USBLC6_2SC6,
+ "C7519": USBLC6_2SC6,
+ "C23179": A_0603WAF4700T5E,
+ "C23162": A_0603WAF4701T5E,
+ "C4260": A_0603WAF6201T5E,
  "C2930216": FRL0805FR240TS,
  "C2986331": GD25Q16EEIGR,
  "C31850": A_0603WAF2202T5E,
