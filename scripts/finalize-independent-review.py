@@ -84,6 +84,24 @@ Neither board is released for ordering/production. All hardware tests and suppli
 {assembly['fitted_parts']} fitted parts including the manually soldered motor header; top components only. `artifacts/manufacturing/bom.csv` contains exact MPN/JLC identifiers; `pick_and_place.csv` is automatic SMT scope, and`manual_assembly.csv` describes JST installation/tail trim. Bare boot/debug pads are excluded. ST USBLC6-2SC6/C7519, Littelfuse SMF4L16A/C1973135,470Ω monitor bleed and6.2k reference are current. RP2040 input is CL32B106KBJNNNE/C138687 and output is 3 × CL21A226MAQNNNE/C45783; CH32 uses the documented LDO. Stock/substitutions and supplier pickup/rotation approvals remain external gates. See assembly calibration/drawings and the final manifest.\n''')
 (root/'docs/outer-power-routing.md').write_text('# Current outer-layer routing review\n\nFinal saved source SHA256`'+bs+'`. Main motor/PD width≥0.45 mm on top/bottom only; sense≥0.30 mm on outer layers. Short native driver/USB escapes and resistor-only leaves are individually proved and checked; no thermal arithmetic waives the main rule. Actual Gerber/drill topology independently passes source/copper agreement, shorts/opens and available series-via transitions.\n\n'+('\n'.join(f"- {n['net']}: main minimum{n['mainMinimumWidthMm']:.3f} mm; total branched vias{n['totalThroughVias']}."for n in policy['nets']))+'\n\nTotal branched via counts differ from series-path transitions; see`service-outer-power-cam.json`. Motor phases retain nonzero vias and are not claimed via-free. RP SENSE1/2 are2.099/2.098 mm,0.30 mm top, no sense vias. Its single-inner-plane/full-barrel DC return screen is in`artifacts/engineering/independent-sense-return-review.json`; switching/thermal/current balance still needs measurement. CH sense forward copper retains its separately reported trace/barrel screen; ground return is not inferred from that sum. The native router/FreeRouting attempts and explicit local repairs are recorded; diagnostics do not constitute acceptance.\n')
 p=root/'docs/publishing.md';text=p.read_text() if p.exists() else '# Publication history\n\n';banner='> This independent-review revision is local only. Publication is explicitly outside the current task; earlier links/receipts refer to their recorded older sources.\n\n';p.write_text((text if text.startswith(banner)else banner+text).rstrip()+'\n')
+# Validate the separate installed-assembly preview when present; PCB release remains unchanged.
+if (root/'assembly.circuit.json').exists():
+ scene=read('artifacts/assembly-scene/build-review.json');checks=read('artifacts/assembly-scene/checks.json');browser=read('artifacts/assembly-scene/browser-review.json');assets=read('assets/assembly/asset-manifest.json');indexed=read('artifacts/assembly-scene/indexed-export-review.json')
+ assert scene['source_board_sha256']==checks['source_board_sha256']==browser['source_board_sha256']==assets['source_board_sha256']==bs
+ assert scene['assembly_entry_sha256']==checks['assembly_entry_sha256']==browser['assembly_entry_sha256']==sha(root/'assembly.circuit.tsx')
+ assert scene['assembly_json_sha256']==sha(root/'assembly.circuit.json')
+ assert scene['installed_glb_sha256']==browser['installed_glb_sha256']==indexed['installed_glb_sha256']==sha(a/'assembly-scene/installed-assembly.glb')
+ assert scene['asset_manifest_sha256']==indexed['asset_manifest_sha256']==sha(root/'assets/assembly/asset-manifest.json')
+ assert scene['model_count']==8 and not scene['assembly_errors'] and checks['all_commands_passed'] and checks['native_cli_model_identities_and_transforms_match']
+ assert browser['loaded']['loaded'] and browser['loaded']['webgl'] and not browser['page_errors'] and not browser['console_errors'] and not browser['http_errors']
+ assert browser['viewer_js_sha256']==sha(a/'assembly-scene/viewer.js') and browser['viewer_html_sha256']==sha(a/'assembly-scene/viewer.html')
+ for screenshot in browser['screenshots']:assert screenshot['sha256']==sha(root/screenshot['path'])
+ for c in checks['commands']:assert c['exit_code']==0 and c['output_sha256']==sha(root/c['output'])
+ for model in assets['models'].values():assert model['sha256']==sha(root/model['path'])
+ assert assets['portable_models_json_sha256']==sha(root/'assets/assembly/models.json')
+ for fn,value in scene['protected_PCB_hashes_unchanged'].items():assert sha(root/fn)==value
+ p=root/'docs/validation.md';p.write_text(p.read_text()+'\nSeparate installed-assembly preview: `assembly.circuit.tsx`/`assembly.circuit.json`, eight imported CAD groups, fresh typecheck and native CLI build, all models loaded and frame/dimensions checked, and five Chromium/WebGL camera views. PCB/index/Gerber hashes are unchanged by scene generation. See [assembly scene](assembly-scene.md) and its `artifacts/assembly-scene/` receipts. This adds visual assembly coverage, not hardware qualification.\n')
+
 # Format newly generated prose; protect inline-code identities and hashes.
 import re
 for doc in ['validation.md','manufacturing-review.md','schematic-review.md','electrical.md','bom.md','outer-power-routing.md']:
@@ -105,6 +123,10 @@ for folder in ['src','imports/supplier','references','scripts','docs','artifacts
  selected.update(p for p in(root/folder).rglob('*')if p.is_file()and'__pycache__'not in p.parts and p.suffix!='.pyc')
 historical_names={'ldo-thermal-copper.json','ldo-thermal-screening.json','route-replay-verification.json','routing-engine-evidence.json'}
 selected={p for p in selected if not (p.parent==a/'engineering' and p.name in historical_names)}
+for fn in ['assembly.circuit.tsx','assembly.circuit.json','tsconfig.json']:
+ if (root/fn).exists():selected.add(root/fn)
+for folder in ['assets/assembly','artifacts/assembly-scene']:
+ selected.update(p for p in(root/folder).rglob('*')if p.is_file())
 for p in a.glob('*.svg'):selected.add(p)
 for p in a.glob('*.png'):selected.add(p)
 for fn in list(required)+['artifacts/validation/independent-source-proof.json','artifacts/validation/independent-pdf-review.json','artifacts/validation/independent-checks.json','artifacts/validation/service-cli-results.json','artifacts/validation/schematic-placement.txt','artifacts/validation/service-motor-inside-board.json']:selected.add(root/fn)

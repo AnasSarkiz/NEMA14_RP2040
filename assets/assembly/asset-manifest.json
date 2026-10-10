@@ -1,0 +1,249 @@
+{
+  "schema": "nema14-tscircuit-assembly-assets-v1",
+  "source_board_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "mechanical_review_sha256": "442c918708c4f888cf4c1777f89b0e72a7927a40c07f0f4c7d2d7bab1a93fd41",
+  "mounted_step_archive_sha256": "8ae37997e9f420927d8bb74148c26582bff1c5e8a0d257145f7ab89d55dc0b4c",
+  "mounted_step_member_sha256": "594d291ca8aee9656ed87b7db285dccfc60dde2b81fa7609ab4511f09135ee5a",
+  "export_script_sha256": "f9f59cf874a053de5795372966d9506ae3331964f027bd5a7d2a0ec330134755",
+  "cadquery_version": "2.6.1",
+  "coordinates": "Native CAD mm, PCB midplane Z0. Root +90deg X cancels CadQuery -90deg export without editing mesh/BIN bytes. tscircuit loader maps CAD(x,y,z) to Scene3D(x,z,y); final tscircuit glTF export maps to(-x,z,y).",
+  "tessellation_mm": 0.05,
+  "angular_tolerance_radians": 0.15,
+  "all_step_children_classified": true,
+  "reviewed_native_bbox_mm": [
+    -24.60209798563481,
+    -70.08166498352686,
+    -60.21146141790351,
+    24.60209798563481,
+    87.39873855640175,
+    42.559160117001355
+  ],
+  "STEP_roundtrip_bbox_delta_mm": [
+    0.0020979856348048997,
+    0.009051883526865367,
+    0.011461317903005863,
+    -0.0020979856348048997,
+    -0.02373855640175293,
+    -0.00916001700135638
+  ],
+  "native_mounted_bbox_mm": [
+    -24.600000000000005,
+    -70.0726131,
+    -60.2000001000005,
+    24.600000000000005,
+    87.375,
+    42.5500001
+  ],
+  "models": {
+    "CONTROLLER": {
+      "path": "assets/assembly/controller.glb",
+      "sha256": "710efdefbe1b8f103180e5222a1a93ddde00b7cdf75980d719ce4fc796c20700",
+      "bytes": 22321796,
+      "native_world_bbox_mm": [
+        -17.500000100000012,
+        -17.500000100000012,
+        -1.600060327189743,
+        17.500000100000012,
+        17.90079152436067,
+        8.504788655484585
+      ],
+      "mounted_step_children": [
+        "Board"
+      ],
+      "meshes": 67,
+      "CadQuery_Y_up_glb_sha256": "224442a9150b1c7c77f83dfe423d234817e3fe7e2fcfa3759abed71571f0a033",
+      "mesh_BIN_bytes_unchanged_sha256": "f214a07b0648910c04ff50c99eab88d0663115f65a0663b5d3a3fe01d0e0e5b8"
+    },
+    "MOTOR": {
+      "path": "assets/assembly/motor.glb",
+      "sha256": "239fa294fc3ada2a90a74d026408f3b5045f5b68f00ff98d0b01c94cc27ecf07",
+      "bytes": 1317744,
+      "native_world_bbox_mm": [
+        -17.606296217170932,
+        -35.60033059614554,
+        -60.21146141789782,
+        17.606296217171366,
+        17.610000100004687,
+        -7.993703782828645
+      ],
+      "mounted_step_children": [
+        "Official_motor"
+      ],
+      "meshes": 1,
+      "CadQuery_Y_up_glb_sha256": "61935c3a7a345850d70faeede7d397df87d59c340bc016fabaaba4798b449f30",
+      "mesh_BIN_bytes_unchanged_sha256": "c28fada97553533c958646384ddb6f261a3fd71369595736c748e056591139aa"
+    },
+    "CARRIER": {
+      "path": "assets/assembly/carrier.glb",
+      "sha256": "d45dfa3ac3149d35ef5c46f326711b222cc75ea4cd8e8b526de40a9a4b60f242",
+      "bytes": 292260,
+      "native_world_bbox_mm": [
+        -24.60209798563481,
+        -49.000000100000015,
+        -44.202097985634815,
+        24.60209798563481,
+        18.200000100000015,
+        -1.798426485773893
+      ],
+      "mounted_step_children": [
+        "Separate_front_carrier"
+      ],
+      "meshes": 1,
+      "CadQuery_Y_up_glb_sha256": "84dfc775405b34459eb96e7d2554f693998cf86a296454adbdeadc32ab211680",
+      "mesh_BIN_bytes_unchanged_sha256": "06fd398eabb0fc786cc38563893ac2ae8e3fb744631f7a429d739cedd8dc0c6e"
+    },
+    "MOTOR_HARNESS": {
+      "path": "assets/assembly/motor_harness.glb",
+      "sha256": "68d727f07f1a4b715492b93b67e48c26161551842e82ebf666e9b5828e285d64",
+      "bytes": 7469232,
+      "native_world_bbox_mm": [
+        -5.333762039763108,
+        -70.08166498352688,
+        -37.00979737150156,
+        6.600000100000002,
+        -12.499999899999999,
+        42.559160117001355
+      ],
+      "mounted_step_children": [
+        "PHR4_mating_housing_envelope",
+        "SPH002_contact_1",
+        "Insulated_solder_tail_1",
+        "Splice_insulation_1",
+        "Wire_1",
+        "SPH002_contact_2",
+        "Insulated_solder_tail_2",
+        "Splice_insulation_2",
+        "Wire_2",
+        "SPH002_contact_3",
+        "Insulated_solder_tail_3",
+        "Splice_insulation_3",
+        "Wire_3",
+        "SPH002_contact_4",
+        "Insulated_solder_tail_4",
+        "Splice_insulation_4",
+        "Wire_4",
+        "FactoryLead_1",
+        "FactoryLead_2",
+        "FactoryLead_3",
+        "FactoryLead_4"
+      ],
+      "meshes": 21,
+      "CadQuery_Y_up_glb_sha256": "efb3b408dab80a88f1425c41f3d808101a61223bf44e85f169a8ebfc7dea9256",
+      "mesh_BIN_bytes_unchanged_sha256": "0a001f80a6a31307df324677e43e583f909d97a65bcda3432db22ec89bf76c84"
+    },
+    "INSULATION_AND_RESTRAINT": {
+      "path": "assets/assembly/insulation_and_restraint.glb",
+      "sha256": "112f13d2ae29bc72b62456d115d31bd1b9ec83305fc2e9a2b0df3394547f3a1a",
+      "bytes": 401352,
+      "native_world_bbox_mm": [
+        -18.05227280943771,
+        -49.00000010000001,
+        -2.8038462236638133,
+        18.05227280943771,
+        17.500000100000012,
+        3.2038462236638137
+      ],
+      "mounted_step_children": [
+        "PEEK_support_0",
+        "PEEK_top_washer_0",
+        "PEEK_support_1",
+        "PEEK_top_washer_1",
+        "PEEK_support_2",
+        "PEEK_top_washer_2",
+        "PEEK_support_3",
+        "PEEK_top_washer_3",
+        "Nomex410_INS001",
+        "PEEK_clamp_left",
+        "PEEK_clamp_right",
+        "Clamp_silicone_liner"
+      ],
+      "meshes": 12,
+      "CadQuery_Y_up_glb_sha256": "9de89cb82a163002ba697a6999626b5c7e99929b7e000c34f6ad3fab6040c5d2",
+      "mesh_BIN_bytes_unchanged_sha256": "a489250dbee8e8bc410a9802db1e91ddab7cf5a7e7e05b575b7e3ad49c52ea18"
+    },
+    "FASTENERS": {
+      "path": "assets/assembly/fasteners.glb",
+      "sha256": "9f4f49a9f00a936b27f6eda920044729ea4a9adc5f05572271ebc03ec3188670",
+      "bytes": 310052,
+      "native_world_bbox_mm": [
+        -17.051573514226106,
+        -44.25157351422611,
+        -43.70192316183191,
+        17.051573514226106,
+        16.50244763324061,
+        5.70157351422611
+      ],
+      "mounted_step_children": [
+        "Front_M3_envelope_0",
+        "Front_M3_envelope_1",
+        "Front_M3_envelope_2",
+        "Front_M3_envelope_3",
+        "PCB_M2p5x8_0",
+        "PCB_M2p5x8_1",
+        "PCB_M2p5x8_2",
+        "PCB_M2p5x8_3",
+        "Clamp_M2p5x10_-9",
+        "Clamp_M2p5x10_9"
+      ],
+      "meshes": 10,
+      "CadQuery_Y_up_glb_sha256": "ae3121f0c525b628ae6c976e8f62d4322459712351249267187ffa4ea518060b",
+      "mesh_BIN_bytes_unchanged_sha256": "92259144be9efff8ae93693ed2d2f200aba15c24640a2c039b231b51a1f1ed25"
+    },
+    "PD_CABLE": {
+      "path": "assets/assembly/pd_cable.glb",
+      "sha256": "2413a42085e695b2e62a6f04d5b4576612a0bd3537e2e5277e65407cdbe48184",
+      "bytes": 3163096,
+      "native_world_bbox_mm": [
+        -13.084003129358647,
+        11.249108426112617,
+        -1.2839802454275713,
+        -0.9154719794497963,
+        87.3987385564017,
+        32.4737385564017
+      ],
+      "mounted_step_children": [
+        "J_PD_selected_cable",
+        "J_PD_cable_bend_0",
+        "J_PD_cable_bend_1"
+      ],
+      "meshes": 3,
+      "CadQuery_Y_up_glb_sha256": "ca6dea249626b772cbfd907613aa1cbdc4b9654c2cc738e251207a7e5a263a2a",
+      "mesh_BIN_bytes_unchanged_sha256": "7648a0e0afd6767655748c43f99793fddfcecfb267e64b7f80d613a0e24b5e23"
+    },
+    "DATA_CABLE": {
+      "path": "assets/assembly/data_cable.glb",
+      "sha256": "353ae2bed6da3c748d9da58bfbb145454147b8a34b43e94db6b3fa5cb942272e",
+      "bytes": 3287380,
+      "native_world_bbox_mm": [
+        0.9159969207220411,
+        11.249108426112617,
+        -1.283980295426214,
+        13.084528070620756,
+        87.3987385564017,
+        32.4737385564017
+      ],
+      "mounted_step_children": [
+        "J_DATA_selected_cable",
+        "J_DATA_cable_bend_0",
+        "J_DATA_cable_bend_1"
+      ],
+      "meshes": 3,
+      "CadQuery_Y_up_glb_sha256": "65cb456a0f063ce2b28b0576e330ca0303053cd10ff731e2e2eff598e44538ea",
+      "mesh_BIN_bytes_unchanged_sha256": "272e97be2284f1c619c6e40d72a1cd205c6cdb6f4aedd992dafb4fa9e923a59c"
+    }
+  },
+  "portable_models_json_sha256": "4d76203797d6b0e384c694a61ba79e1e17fff0abbb59f1df3be87bb660cc4ef8",
+  "hardware_fit_verified": false,
+  "limitations": [
+    "STEP solid collision tests are nominal supplier-model screens, not physical tolerance proof.",
+    "Copper detailed BREP and helical threads are outside mechanical STEP; solder tails, insulation and harness are bounded installation envelopes.",
+    "Support strength, thermal transfer, host front-shaft installation, screw procurement and torque/preload need prototype qualification.",
+    "No direct rear mounting thread pattern is verified; carrier is a separate candidate.",
+    "PHR/contact profile is drawing-derived, internal spring/key fit requires actual parts.",
+    "Wire and solder shapes are installation envelopes; no crimp/solder/pull measurement.",
+    "Cable STEP and maximum envelope evaluated separately; physical fit and bend life remain unperformed.",
+    "No structural, thermal, material certificate or physical-fit qualification claimed."
+  ],
+  "tscircuit_native_Z_up_normalized": true,
+  "normalization_script_sha256": "38b8c99c5ae1a1c8623d02a02f221dcdc6faa3f54cd85eb7b39340f48f2f35c5"
+}

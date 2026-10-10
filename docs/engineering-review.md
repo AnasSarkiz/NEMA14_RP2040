@@ -33,3 +33,7 @@ Every actual via process is listed in assembly CSVs. Grounded SMT via-in-pad req
 PDF export removes background strokes that concealed references and enforces 6.5 pt passive references/values. Q_DATA is a wider pin box with BASE/COLLECTOR separated; TVS and transistor box flags are corrected. Every regenerated PDF page was rasterized and visually inspected. Current source, CAM/DRC/connectivity, mechanical review, archive notes and final manifest must agree; exact validation results are recorded in [validation](validation.md).
 
 Unperformed hardware gates: both winding currents/balance, USB programming/control and PD, all power transitions/reset/brownout, regeneration/hot-plug, biased/aged capacitors and buck stability, mounted temperatures and complete physical harness/USB/carrier fit. Supplier acceptance and material/crimp/splice certificates remain pending. Local artifact checks cannot close these gates.
+
+## Separate installed assembly preview
+
+The additional [assembly entry](assembly-scene.md) uses the documented imported-CAD assembly primitives for the exact NEMA14 motor, carrier, fitted PCB and four-wire/cable hardware. It preserves the reviewed geometry and all electrical/manufacturing hashes. Fresh native CLI/typecheck and WebGL model/frame reviews are recorded separately. Prototype fit and supplier gates above remain open.

@@ -18,7 +18,11 @@
     "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && /workspace/.routing-venv/bin/python scripts/report-presentation.py",
     "check:copper": "/workspace/.routing-venv/bin/python scripts/audit-trace-widths.py",
     "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-outer-power.py && /workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render && /workspace/.routing-venv/bin/python scripts/audit-outer-power-cam.py",
-    "schematic:refresh": "bun scripts/refresh-functional-schematic.ts && bun scripts/render.ts --schematic-only && python3 scripts/audit-functional-schematic.py && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py"
+    "schematic:refresh": "bun scripts/refresh-functional-schematic.ts && bun scripts/render.ts --schematic-only && python3 scripts/audit-functional-schematic.py && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py",
+    "assembly:assets": "/workspace/.routing-venv/bin/python scripts/export-tscircuit-assembly.py && /workspace/.routing-venv/bin/python scripts/normalize-tscircuit-assembly.py",
+    "assembly:build": "bun build scripts/assembly-viewer.js --target browser --outfile artifacts/assembly-scene/viewer.js && bun scripts/build-assembly.tsx",
+    "assembly:dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev assembly.circuit.tsx",
+    "assembly:check": "/workspace/.routing-venv/bin/python scripts/check-assembly.py"
   },
   "repository": {
     "type": "git",

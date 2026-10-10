@@ -1,0 +1,84 @@
+---
+title: <assembly.subassembly />
+description: Import and group mechanical 3D models alongside a board.
+---
+
+import CircuitPreview from "@site/src/components/CircuitPreview"
+import preview1 from "@site/src/data/assembly-previews/assembly-subassembly-1.json"
+import preview2 from "@site/src/data/assembly-previews/assembly-subassembly-2.json"
+
+`assembly.subassembly` groups mechanical models alongside a board. It can have its own model, CAD children, or both.
+
+<CircuitPreview
+  wrapCode
+  circuitJson={preview1}
+  defaultView="3d"
+  hideSchematicTab
+  browser3dView={false}
+  code={`import { assembly } from "@tscircuit/core"
+
+export default () => (
+  <assembly.device name="product">
+    <board
+      width="40mm"
+      height="30mm"
+      thickness="1.6mm"
+    />
+    <assembly.subassembly
+      name="housing"
+      model="https://docs.tscircuit.com/models/assembly/housing.glb"
+    >
+      <cadmodel
+        model="https://docs.tscircuit.com/models/assembly/cover.glb"
+        pcbZ={4}
+      />
+    </assembly.subassembly>
+  </assembly.device>
+)`}
+/>
+
+| Property | Description |
+|----------|-------------|
+| `name` | Required group name. |
+| `displayName` | Optional display label. |
+| `model` | Modelprinter string or HTTP(S) model URL. |
+| `modelUrl` | Imported CAD model URL. |
+| `cadModel` | Model with advanced options; see [`cadmodel`](./cadmodel.mdx). |
+| `children` | CAD models or nested subassemblies. |
+
+Choose one of `model`, `modelUrl`, or `cadModel`. Omit all three for a group with no model of its own.
+
+## Positioning models
+
+Use `cadModel` for offsets and rotation:
+
+<CircuitPreview
+  wrapCode
+  circuitJson={preview2}
+  defaultView="3d"
+  hideSchematicTab
+  browser3dView={false}
+  code={`import { assembly } from "@tscircuit/core"
+
+export default () => (
+  <assembly.device name="product">
+    <board
+      width="40mm"
+      height="30mm"
+      thickness="1.6mm"
+    />
+    <assembly.subassembly
+      name="bracket"
+      cadModel={{
+        glbUrl: "https://docs.tscircuit.com/models/assembly/bracket.glb",
+        positionOffset: { x: 10, y: 0, z: 0.8 },
+        rotationOffset: { x: 0, y: 0, z: 90 },
+      }}
+    />
+  </assembly.device>
+)`}
+/>
+
+Coordinates are in millimetres. The board's center is Z = 0, so the top of a 1.6 mm board is Z = 0.8 mm. A model's offset moves only that model, not its children; position CAD children with `pcbX`, `pcbY`, and `pcbZ`.
+
+See [Mounting 3D models](../guides/tscircuit-essentials/mounting-3d-models.mdx) for screws aligned with holes, or [`assembly.screen`](./assembly-screen.mdx) for connector-relative placement.

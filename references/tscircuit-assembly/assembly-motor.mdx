@@ -1,0 +1,141 @@
+---
+title: <assembly.motor />
+description: Mount a motor to a named assembly face or attach a PCB to its backface.
+---
+
+import CircuitPreview from "@site/src/components/CircuitPreview"
+import preview1 from "@site/src/data/assembly-previews/assembly-motor-1.json"
+
+`assembly.motor` represents a motor in an [`assembly.device`](./assembly-device.mdx). `standard` selects a built-in NEMA model; `model` supplies your own model specification. The examples below use a NEMA17 motor. The motor has no PCB footprint or schematic symbol.
+
+![TSX examples on the left and 3D renders on the right comparing a NEMA17 above and below a PCB, with 6 mm clearance from the motor backface to the nearest PCB surface.](/img/elements/assembly-motor-board-mounting-annotated.snap.png)
+
+## Mount a controller to the motor
+
+Give the motor a `name`, then set the board's `mountedTo` to that name followed by `.backface`. A controller component must forward `mountedTo` and `mountGap` to its underlying [`board`](./board.mdx), as `MotorController` does here:
+
+<CircuitPreview
+  wrapCode
+  circuitJson={preview1}
+  defaultView="3d"
+  hideSchematicTab
+  threeDImageUrl="/img/elements/assembly-motor-cable.png"
+  code={`import { assembly } from "@tscircuit/core"
+import type { BoardProps } from "@tscircuit/props"
+
+const MotorController = (props: BoardProps) => (
+  <board
+    width="42mm" height="42mm"
+    thickness="1.6mm"
+    routingDisabled
+    {...props}
+  >
+    <hole diameter="3.2mm" pcbX={-15.5} pcbY={-15.5} />
+    <hole diameter="3.2mm" pcbX={-15.5} pcbY={15.5} />
+    <hole diameter="3.2mm" pcbX={15.5} pcbY={-15.5} />
+    <hole diameter="3.2mm" pcbX={15.5} pcbY={15.5} />
+    <connector name="J_MOTOR" standard="jst_ph" pinCount={6}
+      footprint="jst6_ph" pcbX={0} pcbY={0} />
+    {/* Add your driver circuit and traces here. */}
+  </board>
+)
+
+export default () => (
+  <assembly.device>
+    <assembly.motor
+      name="NEMA17"
+      standard="nema17"
+      shaftFacingDirection="z-"
+      wireConnection="jst-ph-6"
+    />
+    <MotorController
+      name="CONTROLLER"
+      mountedTo="NEMA17.backface"
+      mountGap="6mm"
+    />
+    <assembly.cable name="MOTOR_CABLE"
+      from="NEMA17.wireside" to=".CONTROLLER > .J_MOTOR" />
+  </assembly.device>
+)`}
+/>
+
+`backface` is the face opposite the shaft. `mountGap` is the clearance between that face and the nearest PCB surface, rather than the PCB center plane. The example places a 1.6 mm board 6 mm from the motor's rear face, with the shaft pointing below the board.
+
+Mounting keeps the board's PCB layout in the XY plane at Z = 0. The motor follows the board's center and rotation in that plane. Add mounting holes and standoffs yourself; mounting props do not create them. The example's four holes use the default NEMA17 rear-hole spacing of 31 mm.
+
+`wireConnection="jst-ph-6"` supplies the motor’s six-pin PH connector. [`assembly.cable`](./assembly-cable.mdx) infers a matching cable between `NEMA17.wireside` and the controller’s six-pin JST PH header; mounting and cabling are independent. This describes physical cabling, not electrical winding connections.
+
+For a printed spacer between the motor and controller, see the [complete motor–spacer–board example](./assembly-printedpart.mdx#mount-a-printed-spacer-between-a-motor-and-a-board).
+
+## Mount the motor to a printed part
+
+Pair `mountedTo` with `mountFace` to attach the motor to a named face on another part. Use `mountFace="frontface"` for the shaft-side body plane or `mountFace="backface"` for the opposite body plane. The mating faces determine position and orientation, so omit `shaftFacingDirection` when mounting the motor.
+
+See [Advanced Assembly](../guides/advanced-assembly.mdx) for complete CircuitPreview examples of a NEMA17 mounted to a printed L bracket, then a controller mounted to the same base.
+
+## Motor properties
+
+| Property | Type | Description |
+|----------|------|-------------|
+| `name` | `string` | Required motor name, used by board mount references. |
+| `displayName` | `string` | Optional display label. |
+| `standard` | `"nema8" \| "nema17" \| "nema23"` | Optional shortcut to a built-in motor model. Use either `standard` or `model`. |
+| `model` | `string` | Custom modelprinter specification. The current motor renderer accepts NEMA specifications. |
+| `shaftFacingDirection` | `"x+" \| "x-" \| "y+" \| "y-" \| "z+" \| "z-"` | Optional shaft direction for an unmounted motor; defaults to `"z+"`. Omit when mounted. |
+| `wireConnection` | `"jst-ph-6" \| "stubs" \| "none"` | Motor wire termination; use `"jst-ph-6"` for the `wireside` cable endpoint. |
+| `mountedTo` | `string` | Target assembly face, such as `"BRACKET.motor"`; supply together with `mountFace`. |
+| `mountFace` | `string` | This motor's mating face: `"frontface"` or `"backface"`. |
+| `mountGap` | `string \| number` | Nonnegative face clearance in mm or a distance string; requires `mountedTo`. Omitted means zero. |
+
+Supply exactly one of `standard` or `model`. With a custom `model`, specify the wire termination in the string (for example, `nema17_backfaceholes_jstph6`) instead of passing `wireConnection`. A built-in standard selects representative dimensions; choose a custom `model` when your motor has a different body or shaft length.
+
+:::note Current custom CAD support
+
+The current `assembly.motor` implementation accepts NEMA modelprinter specifications and does not yet accept imported model URLs or `cadModel`. For an arbitrary motor CAD file, use [`assembly.subassembly`](./assembly-subassembly.mdx) with `model`, `modelUrl`, or `cadModel`. Board-to-motor backface mounting requires `assembly.motor`.
+
+:::
+
+## Customize a NEMA model
+
+Use `model` to specify dimensions without generating or supplying a model URL:
+
+```tsx
+import { assembly } from "@tscircuit/core"
+
+const model =
+  "nema17_bodylength38mm_shaftlength24mm" +
+  "_flatdepth0.5mm_flatlength15mm"
+
+export default () => (
+  <assembly.device>
+    <assembly.motor
+      name="NEMA17"
+      model={model}
+      shaftFacingDirection="z-"
+    />
+  </assembly.device>
+)
+```
+
+This model has a 38 mm body, a 24 mm shaft, and a D-flat 0.5 mm deep over the last 15 mm of the shaft. The `nema8`, `nema17`, and `nema23` standards can all be customized with modelprinter parameters.
+
+## Shaft directions and board mounting
+
+Directions use circuit coordinates: +X right, +Y top, and +Z above.
+
+| Direction | Shaft points |
+|-----------|--------------|
+| `x+`, `x-` | Right, left |
+| `y+`, `y-` | Toward +Y, toward −Y |
+| `z+`, `z-` | Above, below |
+
+All six directions render motor models. Board backface mounting currently supports `z+` and `z-`: the motor is above the PCB for `z+`, and below it for `z-`. Mounting a board to a sideways motor reports an error until rotated PCB boards are supported.
+
+| Board property | Type | Description |
+|----------------|------|-------------|
+| `mountedTo` | `string` | Motor face reference, such as `"NEMA17.backface"`. |
+| `mountGap` | `string \| number` | Nonnegative distance in millimetres, such as `"6mm"` or `6`. Defaults to zero when mounted; only meaningful with `mountedTo`. |
+
+Mount references resolve by exact motor name within the nearest `assembly.device`, regardless of declaration order. Names in sibling devices remain independent. Missing or duplicate targets, unsupported faces, and multiple boards trying to position one motor report errors.
+
+An unmounted motor's origin is at the world origin on its shaft-side mounting face. Its backface lies one body length behind that face, so changing `bodylength` also changes the placement needed for a mounted board.

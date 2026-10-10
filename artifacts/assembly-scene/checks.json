@@ -1,0 +1,39 @@
+{
+  "assembly_entry_sha256": "5ecc143996f43bb3ac9283e9168a19f27edf1d57a4bf6e8f3f9dfdd38615605a",
+  "source_board_sha256": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+  "commands": [
+    {
+      "name": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/assembly-scene/typecheck.txt",
+      "output_sha256": "ea085edc7c9edc6d36baf9ff0f4a892871ec682948fe2d76c996ebf160c60dee"
+    },
+    {
+      "name": "native-cli-build",
+      "command": [
+        "tsci",
+        "build",
+        "assembly.circuit.tsx",
+        "--ignore-config"
+      ],
+      "exit_code": 0,
+      "output": "artifacts/assembly-scene/native-cli-build.txt",
+      "output_sha256": "950b2f3fee36f5e409016f4492add0775606583f2063831f2da7acfcdfe3010c"
+    }
+  ],
+  "all_commands_passed": true,
+  "PCB_artifacts_unchanged": {
+    "index.circuit.tsx": "15ad1f5d90399ab207943f34bde5b8abbd5880aacd293de7e3e51d480752cedb",
+    "index.circuit.json": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+    "artifacts/board.circuit.json": "0d5c64228122dc31dace9bb30ffdf36574f049d332c72365e2a2fd1528a2bc6a",
+    "artifacts/nema14-gerbers.zip": "01cd456b0e39021b6f03a0ccec98b45e49988b6ef8ed81ed777a0b2aeaf90374"
+  },
+  "hardware_tested": false,
+  "native_cli_model_identities_and_transforms_match": true,
+  "native_cli_output_sha256": "309fc98f0cdd8c46d1d17475b0a4a1e27e094288059946740860860f407e6758"
+}

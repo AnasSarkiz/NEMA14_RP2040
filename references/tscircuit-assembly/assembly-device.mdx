@@ -1,0 +1,59 @@
+---
+title: <assembly.device />
+description: Group boards and mechanical parts into a complete device.
+---
+
+import CircuitPreview from "@site/src/components/CircuitPreview"
+import preview1 from "@site/src/data/assembly-previews/assembly-device-1.json"
+import preview2 from "@site/src/data/assembly-previews/assembly-device-2.json"
+
+`assembly.device` groups boards and mechanical parts into a complete device. Add `model` or `modelUrl` to render a model at the world origin.
+
+<CircuitPreview
+  wrapCode
+  circuitJson={preview1}
+  defaultView="3d"
+  hideSchematicTab
+  browser3dView={false}
+  code={`import { assembly } from "@tscircuit/core"
+
+export default () => (
+  <assembly.device
+    name="product"
+    model="https://docs.tscircuit.com/models/assembly/housing.glb"
+  >
+    <board name="B1" width="40mm" height="30mm" />
+  </assembly.device>
+)`}
+/>
+
+| Property | Description |
+|----------|-------------|
+| `name` | Optional device name. |
+| `model` | Modelprinter string or HTTP(S) model URL. |
+| `modelUrl` | Imported CAD model URL. Use either `model` or `modelUrl`. |
+| `children` | Boards, motors, subassemblies, and screens. |
+
+## Modelprinter strings
+
+Use a modelprinter string directly in `model`; no modelcdn URL is needed. This display is 16 × 10 mm with a 5 mm cable.
+
+<CircuitPreview
+  wrapCode
+  circuitJson={preview2}
+  defaultView="3d"
+  hidePCBTab
+  hideSchematicTab
+  code={`import { assembly } from "@tscircuit/core"
+
+export default () => (
+  <assembly.device
+    name="display-demo"
+    model="flexscreen_w16_h10_flex5_sitsflat"
+  />
+)`}
+/>
+
+Assembly models add 3D geometry without creating PCB footprints or electrical connections. For imported models, see [`cadmodel`](./cadmodel.mdx) for supported formats.
+
+Use [`assembly.motor`](./assembly-motor.mdx) to add a motor and mount a controller to its backface, [`assembly.subassembly`](./assembly-subassembly.mdx) to group mechanical parts, or [`assembly.screen`](./assembly-screen.mdx) to attach a display to a connector. See [Mounting 3D models](../guides/tscircuit-essentials/mounting-3d-models.mdx) for screws aligned with board holes.
