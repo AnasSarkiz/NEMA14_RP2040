@@ -69,3 +69,5 @@ The inward JST revision and required body-edge/plug-access checks are documented
 ## Verified outer-layer routing revision
 
 See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.
+
+The schematic presentation now uses three named A4 sheets for CH32 and four for RP2040, with functional sections and local chip-purpose notes. This presentation change leaves all electrical and PCB/CAD records and manufacturing bytes unchanged. See [schematic-review.md](schematic-review.md).

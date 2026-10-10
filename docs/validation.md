@@ -16,7 +16,7 @@ The requested exact local commit `97d4248` was inspected before editing. The fro
 | `tsci check shorts ... --mode gerber --layer all --pixels-per-mm 100` | No shorts on any layer. Actual saved command output retained. |
 | Functional silkscreen | All12 labels preserve their original strokes in exported final Gerber; no clipped functional text. |
 | Via/paste/process inspection | PASS ordinary-via overlap screen; explicit filled/capped SMT vias require supplier process acceptance. |
-| Browser schematic UI | All14 native A4 pages opened in Chromium, labels/A4 dimensions verified,0 browser errors. This project UI shows real CLI analysis; official IDE/WebGPU analyzer was not executed. |
+| Browser schematic UI | All 4 functional native A4 pages opened in Chromium, labels/A4 dimensions verified,0 browser errors. This project UI shows real CLI analysis; official IDE/WebGPU analyzer was not executed. |
 | Mechanical BREP/access | Current model/hash report records checks, dimensions and disclosed generic-model discrepancy; hardware fit/tolerances remain unqualified. |
 
 `tsci check netlist` supports the TSX entry, not a JSON array; the unsupported-input error from older work is not a board failure. Raw-entry schematic analysis precedes the native A4 preparation stage: the packaged prepared sheets are the reviewed schematic. Source-generated physical pads/holes/poses and numbered-pin/net semantics are compared to saved routing by the import/presentation check and `service-pin-net-invariance.json`.
@@ -30,3 +30,5 @@ Hardware tests unperformed: windingcurrent, USB enumeration/programming/PD, powe
 ## Verified outer-layer routing revision
 
 See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.
+
+The current schematic presentation and exact PCB/fabrication invariance evidence are described in [schematic-review.md](schematic-review.md). Current sheets have native function names; text overlap and CLI schematic findings are zero.

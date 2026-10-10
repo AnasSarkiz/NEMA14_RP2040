@@ -17,7 +17,7 @@
     },
     "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
   },
-  "source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
   "raw_cli_archive_sha256": "3df9d5708321c81c707500b5d6bfe5e4b4e60594cd5dfbfd15e1860d181cedfc",
   "intentional_CAM_changes": {
     "F_Paste.gbr": {
@@ -83,5 +83,13 @@
     "lead_stencil": "Fine-pitch MCU/driver rectangular leads 90% native dimensions; rounded driver leads use safe inscribed rectangles; candidate foil 0.10 mm; native copper unchanged",
     "exposed_pad_stencil": "four panes, nominal 60% native copper-pad coverage, 0.20 mm cross-gap"
   },
-  "status": "PROTOTYPE CANDIDATE; fabrication and assembly approvals pending"
+  "status": "PROTOTYPE CANDIDATE; fabrication and assembly approvals pending",
+  "schematic_only_evidence_binding": {
+    "proof": "artifacts/validation/functional-schematic-evidence-binding.json",
+    "previous_report_sha256": "3338a9fe3f8ccfd30f872c4c945a4e3e020a0c69416859ea63e40027da8f1509",
+    "original_source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+    "current_source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
+    "non_schematic_inputs_equal": true,
+    "original_test_repeated": false
+  }
 }

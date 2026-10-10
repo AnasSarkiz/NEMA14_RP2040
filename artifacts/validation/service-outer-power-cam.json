@@ -1,8 +1,8 @@
 {
   "schema": "outer-power-actual-cam-1",
-  "source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
-  "native_policy_sha256": "2df0f488c443217feb8472d343e5b5d597ea81477d8885728dccaa6a6f9794c6",
-  "cam_audit_sha256": "234e2fb40f95565c6dfcc8f102bb0d6b65d0cd0fbc4f06ab59e35548af685e7f",
+  "source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
+  "native_policy_sha256": "754dd5b8d1d2731d0347ec2e7eda18f7957822483b2a6cf5f1a7d683065a5756",
+  "cam_audit_sha256": "51e89d7e5a6cce058b9797b720a0ac8e302ba50f6ca1136d65113e6abd5243e5",
   "archive_sha256": "5d625aaadbfd7331d9d4b40fb97c1fd4549a01ac486a7660a51bfa547b503529",
   "files_sha256": {
     "F_Cu.gbr": "a36adbee1b80c7c7beba0f09c5c1b5cb137dcc76fd6c5795830231abf5ba8224",
@@ -6556,5 +6556,13 @@
       ]
     }
   ],
-  "hardwareQualified": false
+  "hardwareQualified": false,
+  "schematic_only_evidence_binding": {
+    "proof": "artifacts/validation/functional-schematic-evidence-binding.json",
+    "previous_report_sha256": "556947732646d1934ad9908d7c30a2f8671aa539ba4f4ef467ad7e21d6940929",
+    "original_source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+    "current_source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
+    "non_schematic_inputs_equal": true,
+    "original_test_repeated": false
+  }
 }

@@ -1,6 +1,6 @@
 # Outer-layer motor and 15 V routing review — NEMA14_RP2040
 
-Current saved-board SHA256: `a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313`.
+Current saved-board SHA256: `ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573`.
 
 The old RP2040 review found motor wire segments and a long 15 V route on inner2, with main phase widths below the 0.45 mm source setting. Those main-width and wire-layer violations are corrected. Both boards retain the 35 × 35 mm outline and their existing layer counts. Main motor phases and PD_VBUS use **at least 0.45 mm on top/bottom only**. Sense-current wires use at least 0.30 mm on top/bottom. Ordinary motor/power/sense barrels have at least 0.25 mm finished drills; through-barrel annuli also appear on inner layers, but there are no motor/PD/sense wire segments there.
 
@@ -63,3 +63,5 @@ New quiet-net fanouts use ordinary off-pad 0.20/0.40 mm vias. `ordinary_via_proc
 Both USB openings still face the same edge, fitted components remain on top, and the entire JST housing/mating housing remains inside the PCB with the documented assembly-tolerance screen. All native component/pad/hole/model geometry is unchanged by this copper revision. The completed mechanical review is rebound only after proving that physical geometry equivalence. The disclosed generic JST-post model discrepancy and supplier pickup/rotation approval remain open.
 
 Required hardware tests remain unperformed: winding current/balance/torque, USB ROM programming and enumeration, 15 V PD behavior, all power orders and brownout/reset, hot-plug and regenerative clamp energy, mounted temperatures, and actual carrier/harness/two-cable fit and retention. This review does not authorize production release.
+
+Schematic-only refresh: all electrical/PCB/CAD records and CAM ZIP bytes are unchanged from the prior routing release. See `functional-schematic-evidence-binding.json`; fabrication checks remain applicable through exact input equivalence.

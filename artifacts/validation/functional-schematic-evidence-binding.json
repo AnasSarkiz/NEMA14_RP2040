@@ -1,0 +1,98 @@
+{
+  "schema": "schematic-only-evidence-binding-v1",
+  "compared_git_revision": "cd50efab1d701d4121163f344986675f069456bc",
+  "previous_saved_board_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "current_saved_board_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
+  "all_non_schematic_records_equal": true,
+  "non_schematic_records_sha256": "3fda5ac1cb26d998edb07534d73c3186d5a5064797d2596b32a3784d8b7ebebd",
+  "hardware_tested": false,
+  "method": "All non-schematic records, in order with every value, equal the committed engineering release. Actual CAM ZIPs, all exported Gerber/drill/assembly files, BOM and PnP remain byte-identical. Prior results remain applicable to identical inputs; they were not rerun by this binding script.",
+  "unchanged_artifacts": {
+    "artifacts/manufacturing/B_Cu.gbr": "2a19dc56cfd80ab4a80e3f95666fa0d656f1913c0de5d524037631f44918459b",
+    "artifacts/manufacturing/B_Mask.gbr": "0a347fe238ef90c4ea82785d2a0c0eebe998846ac6a794ddee9da9d980928637",
+    "artifacts/manufacturing/B_Paste.gbr": "21880a5d8ccf86520b8d968436a0584871c3b32228b6ac256a0e08bffa396018",
+    "artifacts/manufacturing/B_SilkScreen.gbr": "6749df52a00079fb655f0f1970e707d5710aea434c3487c6a3bc8958fa03cdd8",
+    "artifacts/manufacturing/Edge_Cuts.gbr": "fe90b8f4728ea745820c0b94a1ad81ef1da7a7974ab7f49642af0c4523bc5273",
+    "artifacts/manufacturing/F_Cu.gbr": "a36adbee1b80c7c7beba0f09c5c1b5cb137dcc76fd6c5795830231abf5ba8224",
+    "artifacts/manufacturing/F_Fab.gbr": "0401d8604729f6aa5613d7fb6d4bc3fb6cb0b0158432b926b72e17b122b91643",
+    "artifacts/manufacturing/F_Mask.gbr": "e31e8837efa5b16f6c5eb237f0e86eef4157f32e60a4977e3d3117fc29698b8d",
+    "artifacts/manufacturing/F_Paste.gbr": "777e6210de14338d9840b92d83706e8eb26d67d1e853c66628a3743b39693f6e",
+    "artifacts/manufacturing/F_SilkScreen.gbr": "51c7b3fa6c30c07bd9ccc1c12c01b6d0b2edb212a7d96c271bfab620323b28d5",
+    "artifacts/manufacturing/In1_Cu.gbr": "45221a36b34ebd2f0a62a7f1878e369e98efaff7e9b1adb4b0515a2225a70dcf",
+    "artifacts/manufacturing/In2_Cu.gbr": "a99ffa3a47f6fd6dd3f10ff4d45c23f6ce8032a4840fb448ba4a181cf777c956",
+    "artifacts/manufacturing/bom.csv": "7267a1082d3c3341b42f30a3972f083c39c251cb326328eb016d7c6ccbc53821",
+    "artifacts/manufacturing/drill-L1-L4.drl": "b684bea02d61543a18576a6552438e22dcdd17288ad7c77b33ff2bceb826f1a6",
+    "artifacts/manufacturing/drill_npth.drl": "65a6ce561ad183fb6948e76dbdb4c8846906454de22f3684d9d5d0b830ba6d6b",
+    "artifacts/manufacturing/fabrication-notes.md": "72b8850c2c79ba736554b34f0bf2b03b686de1a532680ec57905edb2afa4b8a3",
+    "artifacts/manufacturing/manual_assembly.csv": "c44879c0fec842ea7b61ebb9f688b5e38c094ab4be0759f9f7aabc1b8f7c8d99",
+    "artifacts/manufacturing/pick_and_place.csv": "f5e986170c5023ef46bb4cbf111621b6835c87a84b5a4760ad7946d465ea3759",
+    "artifacts/manufacturing/via_process.csv": "07f53fe6e42a21ffcb1dc4f82e594eea8212dcf1d441838d520ea9fefdf3cad1",
+    "artifacts/manufacturing/ordinary_via_process.csv": "1a68318cb51e555024b12220a4dfbf0013ea61ba11ce9e73749dcd3831f0e49e",
+    "artifacts/manufacturing/independent-render/B_Cu.png": "cb28a160d443506c926ad70f253303207ddfa74b3102bdc32ea9d16d956b9a76",
+    "artifacts/manufacturing/independent-render/F_Cu.png": "d46d977e23828cbd2e004834e8a980e6fb3bc6f6899ad0abf648b5acad20a6eb",
+    "artifacts/manufacturing/independent-render/In1_Cu.png": "b0d3aa574258353cd29ce2de74faa86121c4371f2c646c19b80154082d8bd1fd",
+    "artifacts/manufacturing/independent-render/In2_Cu.png": "9969802b7c81479fff4e9427d6a6e1db4b45c297f9da9159263cb76522277225",
+    "artifacts/nema14-gerbers.zip": "5d625aaadbfd7331d9d4b40fb97c1fd4549a01ac486a7660a51bfa547b503529",
+    "artifacts/manufacturing-raw.zip": "3df9d5708321c81c707500b5d6bfe5e4b4e60594cd5dfbfd15e1860d181cedfc",
+    "artifacts/bom.csv": "7267a1082d3c3341b42f30a3972f083c39c251cb326328eb016d7c6ccbc53821",
+    "artifacts/source-bom.csv": "e90def9c28a1bc91a44cfdc0de4b07f7368eed4042e04eb96e248689e3a970cd",
+    "artifacts/pick_and_place.csv": "f5e986170c5023ef46bb4cbf111621b6835c87a84b5a4760ad7946d465ea3759"
+  },
+  "rebound_reports": {
+    "artifacts/physical-connectivity.json": {
+      "previous_report_sha256": "06efbf02b2291605dafe5420e44b0c952f9d1ea11e4f85e47405495aed858e65",
+      "current_report_sha256": "704cb3fe6d14b16af823b0611bfc064e707272cfeead08aaf1b85cf41fcc3d8f",
+      "binding": "sha256"
+    },
+    "artifacts/trace-width-review.json": {
+      "previous_report_sha256": "467de221d47f185a0ed71dff28112d652b6cbd1211aa6bc4506209346e852bf9",
+      "current_report_sha256": "ceb391e000225f7aa0ef04aaff0e3ea0d088cca2e65c64f0379659b09adf5902",
+      "binding": "sha256"
+    },
+    "artifacts/raw-cli-export-binding.json": {
+      "previous_report_sha256": "f6777607ad2cd556ab8ca656dcb83e6e31af09cfe062dc25843c4d3a25273d3f",
+      "current_report_sha256": "b09eefd091d7486df74e864d8cd2cfd77d99914ef81600b919b9d6fa33ec78ce",
+      "binding": "source_sha256"
+    },
+    "artifacts/manufacturing/audit.json": {
+      "previous_report_sha256": "234e2fb40f95565c6dfcc8f102bb0d6b65d0cd0fbc4f06ab59e35548af685e7f",
+      "current_report_sha256": "51e89d7e5a6cce058b9797b720a0ac8e302ba50f6ca1136d65113e6abd5243e5",
+      "binding": "source_sha256"
+    },
+    "artifacts/manufacturing/export-manifest.json": {
+      "previous_report_sha256": "3338a9fe3f8ccfd30f872c4c945a4e3e020a0c69416859ea63e40027da8f1509",
+      "current_report_sha256": "8a8133c7550cf48834b07848845e0b3e27de0b96f9445cf89809c2b9f8864592",
+      "binding": "source_sha256"
+    },
+    "artifacts/manufacturing/via-paste-inspection.json": {
+      "previous_report_sha256": "8af05952887e19d089944cf60cd84f5f66f3bac8f4000222bd1ad7e3b92cb317",
+      "current_report_sha256": "fa792075e9462f6635c4d35f804c6dce4e9974f5b7ede94d10d4fdec40e75200",
+      "binding": "source_sha256"
+    },
+    "artifacts/assembly/assembly-review.json": {
+      "previous_report_sha256": "9fd448d6a5e346d5bc4d12f32defdb5f688bb628317af1e8eff70f2cc8c603e9",
+      "current_report_sha256": "5128decd4dff7a800073b52a8b728683967bc28e17a899d495ac6811bb25fe37",
+      "binding": "source_sha256"
+    },
+    "artifacts/assembly/harness-drawings-review.json": {
+      "previous_report_sha256": "526b07a86e99cfdc31b43fa5a8658860044f2b2f02d52e08677a789d21f704d6",
+      "current_report_sha256": "213071ed347149261945d4e42e72e5265ea5df2996875c0d0d3c14931c3d8556",
+      "binding": "source_sha256"
+    },
+    "artifacts/validation/service-silkscreen.json": {
+      "previous_report_sha256": "a4df13673321b036849eafee761949770a525a9572c25c858ac12da131bb9e6c",
+      "current_report_sha256": "80c8bcd1cb1d63d0bf0c0ad72df86d5e511392a927e446a3515e7bb4e1d746ab",
+      "binding": "source_sha256"
+    },
+    "artifacts/validation/service-outer-power-cam.json": {
+      "previous_report_sha256": "556947732646d1934ad9908d7c30a2f8671aa539ba4f4ef467ad7e21d6940929",
+      "current_report_sha256": "e12ff0258df6eac805841dbb701d534b62783c61b947dd50e50a8e960a007f6b",
+      "binding": "source_sha256"
+    },
+    "artifacts/manufacturing/inner1-local-bridge-review.json": {
+      "previous_report_sha256": "117762158ca421daf317b44af552efa9e761647e11f188ce27d33beea2b09718",
+      "current_report_sha256": "10177ba0dee616b5539a5a88cb4046e4b72d561f0f11c611f9369e47b956a213",
+      "binding": "source_sha256"
+    }
+  }
+}

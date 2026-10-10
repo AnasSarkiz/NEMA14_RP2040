@@ -1,5 +1,5 @@
 {
-  "source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
   "actual_archive_sha256": "5d625aaadbfd7331d9d4b40fb97c1fd4549a01ac486a7660a51bfa547b503529",
   "actual_inner1_sha256": "45221a36b34ebd2f0a62a7f1878e369e98efaff7e9b1adb4b0515a2225a70dcf",
   "before_source_sha256": "3522fff70c0c196107cd9c56fb279259cc9f2ca9eb1743688770b11c321a6722",
@@ -2627,5 +2627,13 @@
   "guarded_power_bridge_copper_crossings": [],
   "own_transition_return_stitch_findings": [],
   "classification": "Raw projected overlaps retained. Own same-net signal-via antipads are unavoidable layer transitions, individually identified with nearby GND return stitches. Reject any centerline through unrelated cuts or any conductor over guarded bridge cut. Edge proximity to neighboring antipads remains SI/EMC qualification data, not proof of controlled impedance.",
-  "scope": "Actual independently parsed pre/post inner1 Cu and physical drill holes; GND polygons assigned by overlap with source GND pours after full CAM source/net verification. Signal centerlines projected geometrically. This does not establish USB impedance, return-current density, EMC or physical qualification."
+  "scope": "Actual independently parsed pre/post inner1 Cu and physical drill holes; GND polygons assigned by overlap with source GND pours after full CAM source/net verification. Signal centerlines projected geometrically. This does not establish USB impedance, return-current density, EMC or physical qualification.",
+  "schematic_only_evidence_binding": {
+    "proof": "artifacts/validation/functional-schematic-evidence-binding.json",
+    "previous_report_sha256": "117762158ca421daf317b44af552efa9e761647e11f188ce27d33beea2b09718",
+    "original_source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+    "current_source_sha256": "ea02ea3d5e91a739f12403d7d11a7317891d531808426317c847906b4149e573",
+    "non_schematic_inputs_equal": true,
+    "original_test_repeated": false
+  }
 }
