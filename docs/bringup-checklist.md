@@ -14,3 +14,10 @@
 Record equipment, revision/hash, measured waveforms/limits/uncertainty and disposition for each test. All boxes remain unperformed until actual records exist.
 
 The inward JST revision and required body-edge/plug-access checks are documented in [inside-board-jst](inside-board-jst.md). Fabricate only from its current manifest-bound artifacts.
+
+## Outer-layer routing revision qualification
+
+- Review the exact current native and actual-CAM reports in `docs/outer-power-routing.md`; retain the documented main widths and bounded pin escapes when changing routes.
+- Confirm minimum copper/plating and all Type VI/Type VII/fine-drill process requirements against the actual fabrication order. Inspect barrel/SMT/stencil coupons and every supplier placement orientation.
+- Measure both effective sense/return resistances and both peak winding currents. Record phase balance/torque across microsteps, decay and mounted temperature; the component-only current formula excludes PCB parasitics and low-VREF driver accuracy.
+- Test USB ROM programming and enumeration, PD 15 V negotiation, power-order/brownout/reset behavior, regeneration/hot-plug clamp energy, mounted temperatures, and full motor/carrier/harness/two-plug fit. None of these hardware tests has been performed.

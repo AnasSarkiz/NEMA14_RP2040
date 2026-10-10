@@ -8,7 +8,7 @@ The declared ±0.2 mm outline and ±0.1 mm placement allowances leave 0.1 mm nom
 
 The 35×35×1.6 mm outline, layer count, mounting-hole locations, top assembly, same-edge USB mouths and motor pin identities are retained. Nearby driver parts and local copper were rearranged to preserve clearance and ordinary-via access. The three grounded exposed-pad vias remain filled/capped; RP2040 also retains its C_USB filled/capped via. Additional ordinary vias must be tented; no open via under a solder pad is permitted.
 
-Main motor/sense routing stays at least0.279 mm wide. The explicitly bounded 0.20 mm OUT1B fanout to a standard0.25/0.50 mm via is ≤2 mm long and independently checked for the0.40 A/30°C copper-rise screen. That exception does not reduce the main-route floor. Sense trace resistance/ground offsets and mounted phase current still require hardware qualification. RP2040 retains the previously reviewed regulator bootstrap placement and copper; biased capacitance, converter stability and switching behavior remain unmeasured.
+Main motor and 15 V routing is at least 0.45 mm on the outer layers; sense-current routing is at least 0.30 mm on the outer layers. The explicitly bounded 0.20 mm OUT1B fanout to a standard0.25/0.50 mm via is ≤2 mm long and independently checked for the0.40 A/30°C copper-rise screen. That exception does not reduce the main-route floor. Sense trace resistance/ground offsets and mounted phase current still require hardware qualification. RP2040 retains the previously reviewed regulator bootstrap placement and copper; biased capacitance, converter stability and switching behavior remain unmeasured.
 
 See `artifacts/validation/service-motor-inside-board.json` for exact native-model bounds, `artifacts/mechanical/mechanical-review.json` for assembled component/plug/wire/fastener access and `artifacts/validation/engineering-review-manifest.json` for current acceptance artifacts and hashes. Only reports bound to the final saved circuit JSON validate the release. Routing-workflow intermediate reports are diagnostic history.
 
@@ -17,3 +17,7 @@ After reflow, hand solder the top header, trim/insulate tails, seat the temperat
 Winding current, USB/PD/programming, power-order/brownout, regeneration, mounted temperatures and physical fit remain unperformed hardware tests. Offline source/CAM checks do not establish production readiness.
 
 RP2040 uses an additional ordinary 0.20/0.40 mm ground via between the R_REF_L lands. It is outside both solder pads, with 0.150126 mm nominal land clearance, and must be tented. This preserves the existing 8:1 drill-process requirement and adds no filled/capped via. The assembly remains conditional on supplier process acceptance.
+
+## Verified outer-layer routing revision
+
+See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.

@@ -9,17 +9,18 @@ if '--seed' in sys.argv:
  g.j=json.loads((g.ROOT/'artifacts/final-source.circuit.json').read_text())+json.loads((g.ROOT/'artifacts/supplier-seeds.circuit.json').read_text());g.path=g.ROOT/'artifacts/supplier-seeds.circuit.json'
  g.sp={e['source_port_id']:e for e in g.j if e['type']=='source_port'};g.ports={e['pcb_port_id']:e for e in g.j if e['type']=='pcb_port'};g.comp={e['pcb_component_id']:e for e in g.j if e['type']=='pcb_component'};g.src={e['source_component_id']:e['name'] for e in g.j if e['type']=='source_component'}
 j=g.j;ROOT=g.ROOT;path=g.path;ports=g.ports;sp=g.sp;comp=g.comp;src=g.src
-STEP=.025;LOW=-17.5;N=1401;layers=(['top','bottom']if '--outer-only'in sys.argv else ['top','inner2','bottom']);xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP));world=lambda p:(LOW+p[0]*STEP,LOW+p[1]*STEP);key=g.key
+STEP=.025;LOW=-17.5;N=1401;layers=(['top','bottom']if '--outer-only'in sys.argv else ['top','inner2','bottom']);layers=([sys.argv[sys.argv.index('--wire-layer')+1]]if '--wire-layer'in sys.argv else ['top','bottom']if '--motor-rule'in sys.argv or '--outer-only'in sys.argv else layers);xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP));world=lambda p:(LOW+p[0]*STEP,LOW+p[1]*STEP);key=g.key
+VIA_HOLE=.20 if '--fine-vias'in sys.argv else .25;VIA_DIAM=.40 if '--fine-vias'in sys.argv else .45 if '--compact-vias'in sys.argv else .50
 traces={e['subcircuit_connectivity_map_key']:e['source_trace_id'] for e in j if e['type']=='source_trace'};nets={e['subcircuit_connectivity_map_key']:e for e in j if e['type']=='source_net'}
 def obstacle(net,width,via=False):
- imgs=[Image.new('L',(N,N)) for l in layers];draws=[ImageDraw.Draw(i) for i in imgs];margin=.15+(.25 if via else width/2)+.04
- def add(l,geom):
+ imgs=[Image.new('L',(N,N)) for l in layers];draws=[ImageDraw.Draw(i) for i in imgs];margin=.15+(VIA_DIAM/2 if via else width/2)+.005
+ def add(l,geom,own_smt_drill=False):
   if l not in layers:
    if via:
     # A through-via spans the full stack even when wire routing is outer-only.
-    for target in layers:add(target,geom)
+    for target in layers:add(target,geom,own_smt_drill)
    return
-  geom=geom.buffer(.15+.02+(.25 if via else (.6 if net==next((k for k,n in nets.items() if n['name']=='PD_VBUS'),None) and l=='inner2' else width)/2))
+  geom=geom.buffer(.05+VIA_HOLE/2+.005 if own_smt_drill else .15+.005+(VIA_DIAM/2 if via else (.6 if net==next((k for k,n in nets.items() if n['name']=='PD_VBUS'),None) and l=='inner2' else width)/2))
   for poly in ([geom] if geom.geom_type=='Polygon' else geom.geoms):
    # Draw polygon holes on an isolated local mask: clearing directly on the
    # layer would erase obstacles belonging to other conductors. The previous
@@ -33,7 +34,7 @@ def obstacle(net,width,via=False):
   typ=e['type']
   if typ in ['pcb_smtpad','pcb_plated_hole']:
    if key(e)==net and not via:continue
-   for l in e.get('layers',[e.get('layer','top')]):add(l,g.geometry(e))
+   for l in e.get('layers',[e.get('layer','top')]):add(l,g.geometry(e),via and key(e)==net and typ=='pcb_smtpad')
   elif typ=='pcb_via':
    if key(e)==net and not via:continue
    for l in layers:add(l,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
@@ -49,7 +50,7 @@ def obstacle(net,width,via=False):
    for l in layers:add(l,shape)
   elif typ=='pcb_hole':
    for l in layers:add(l,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
- border=.3+(.25 if via else width/2)
+ border=.3+(VIA_DIAM/2 if via else width/2)
  for d in draws:
   b=math.ceil(border/STEP);d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1);d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
  return [np.asarray(im,dtype=np.bool_) for im in imgs]
@@ -92,22 +93,36 @@ repairs=[]
 selected=sys.argv[sys.argv.index("--nets")+1].split(",") if "--nets" in sys.argv else None
 selected=set(sys.argv[sys.argv.index('--nets')+1].split(',')) if '--nets' in sys.argv else None
 priority=['VCP','CP2','CP1','VREG','ENABLE_N','SLEEP','DIR','STEP','VREF','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','PD_VBUS','V3V3','GND'] if selected is not None else []
+if '--order'in sys.argv:priority=sys.argv[sys.argv.index('--order')+1].split(',')
 ordered=list(dict.fromkeys([*nets,*traces]));ordered.sort(key=lambda k:priority.index(nets.get(k,{}).get('name')) if nets.get(k,{}).get('name') in priority else len(priority))
 for net in ordered:
  if selected is not None and nets.get(net,{}).get('name') not in selected:continue
  if selected and nets.get(net,{}).get("name") not in selected:continue
+ if nets.get(net,{}).get('name')in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] and any(l not in ['top','bottom']for l in layers):raise ValueError('Power and sense wires restricted to outer layers')
+ if '--fine-vias'in sys.argv and nets.get(net,{}).get('name')in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2']:raise ValueError('Fine vias restricted to quiet support nets')
  for attempt in range(100):
   if '--explicit-ground' in sys.argv and nets.get(net,{}).get('name')=='GND':
    g.j=[e for e in j if e['type']!='pcb_copper_pour'];elems,roots=g.groups(net);g.j=j
   else:elems,roots=g.groups(net)
   padroots={r for e,r in zip(elems,roots) if e.get('pcb_port_id')}
+  if '--only-ports'in sys.argv:
+   requested=set(sys.argv[sys.argv.index('--only-ports')+1].split(','))
+   padroots={r for e,r in zip(elems,roots)if e.get('pcb_port_id')and g.src[g.comp[g.ports[e['pcb_port_id']]['pcb_component_id']]['source_component_id']]+'.'+g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']in requested}
   if len(padroots)<2:break
   # Prefer the island with most existing vias: escape to free routing space first.
   startroot=max(padroots,key=lambda r:sum(e['type']=='pcb_via' for e,rr in zip(elems,roots) if rr==r));starts={};goals={}
+  if '--start-port'in sys.argv:
+   requested_start=sys.argv[sys.argv.index('--start-port')+1]
+   startroot=next(r for e,r in zip(elems,roots)if e.get('pcb_port_id')and g.src[g.comp[g.ports[e['pcb_port_id']]['pcb_component_id']]['source_component_id']]+'.'+g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']==requested_start)
+   assert startroot in padroots
   for e,r in zip(elems,roots):
    if r in padroots:(starts if r==startroot else goals).update(points(e))
   width=.35 if nets.get(net,{}).get('name')=='BUCK_SW' else .30 if nets.get(net,{}).get('name') in ['VMOTOR','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','LOGIC_IN','PD_VBUS','V3V3'] else .16
+  if '--motor-rule' in sys.argv:
+   width=.6 if nets.get(net,{}).get('name')=='PD_VBUS' else .45 if nets.get(net,{}).get('name')in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2']else width
+  if '--width'in sys.argv:width=float(sys.argv[sys.argv.index('--width')+1])
   blocked=obstacle(net,width);vb=obstacle(net,width,True)
+  reusable={xy(v['x'],v['y']):v for v in j if v['type']=='pcb_via'and key(v)==net}
   starts={s:p for s,p in starts.items() if not blocked[s[2]][s[1],s[0]]};goals={s:p for s,p in goals.items() if not blocked[s[2]][s[1],s[0]]}
   assert starts and goals,('No accessible island nodes',nets.get(net,{}).get('name',net))
   goalmap=np.ones((N,N),dtype=np.bool_)
@@ -124,7 +139,10 @@ for net in ordered:
    expanded+=1
    if expanded>1800000:break
    x,y,l=s;options=[(x+dx,y+dy,l,1.41421356 if dx and dy else 1) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]]
-   if all(not v[y,x] for v in vb):options += [(x,y,nl,45) for nl in range(len(layers)) if nl!=l]
+   existing=reusable.get((x,y))
+   if existing:
+    options += [(x,y,nl,1)for nl,layer in enumerate(layers)if nl!=l and layer in existing['layers']]
+   elif all(not v[y,x] for v in vb):options += [(x,y,nl,250 if '--motor-rule'in sys.argv else 45) for nl in range(len(layers)) if nl!=l]
    for nx,ny,nl,dc in options:
     if not(0<=nx<N and 0<=ny<N) or blocked[nl][ny,nx]:continue
     if nl==l and nx!=x and ny!=y and (blocked[l][y,nx] or blocked[l][ny,x]):continue
@@ -145,14 +163,19 @@ for net in ordered:
    if i==0:x,y=starts[start]
    if i==len(slim)-1:x,y=goals[end]
    if old and old!=layer:
-    route.append({'route_type':'via','x':x,'y':y,'from_layer':old,'to_layer':layer,'via_diameter':.5,'via_hole_diameter':.25});vias.append((x,y))
+    reuse=reusable.get((s[0],s[1]))
+    if reuse:
+     x,y=reuse['x'],reuse['y']
+     if route and route[-1]['route_type']=='wire':route[-1].update(x=x,y=y)
+    route.append({'route_type':'via','x':x,'y':y,'from_layer':old,'to_layer':layer,'via_diameter':reuse['outer_diameter']if reuse else VIA_DIAM,'via_hole_diameter':reuse['hole_diameter']if reuse else VIA_HOLE})
+    if not reuse:vias.append((x,y))
    route.append({'route_type':'wire','x':x,'y':y,'width':(.6 if nets.get(net,{}).get('name')=='PD_VBUS' and layer=='inner2' else width),'layer':layer});old=layer
   tid='supplier_repair_island_'+net.rsplit('_',1)[-1]+'_'+str(sum(e['type']=='pcb_trace' and e['pcb_trace_id'].startswith('supplier_repair_island_'+net.rsplit('_',1)[-1]+'_') for e in j))
   while any(e.get('pcb_trace_id')==tid for e in j):tid+='x'
   common={'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0'}
   if net in nets:common['source_net_id']=nets[net]['source_net_id']
   j.append({'type':'pcb_trace','pcb_trace_id':tid,'route':route,'pcb_port_ids':[],**common})
-  for i,(x,y) in enumerate(vias):j.append({'type':'pcb_via','pcb_via_id':tid+'_via'+str(i),'pcb_trace_id':tid,'x':x,'y':y,'hole_diameter':.25,'outer_diameter':.5,'layers':['top','inner1','inner2','bottom'],'tented_on_top':True,'tented_on_bottom':True,**common})
+  for i,(x,y) in enumerate(vias):j.append({'type':'pcb_via','pcb_via_id':tid+'_via'+str(i),'pcb_trace_id':tid,'x':x,'y':y,'hole_diameter':VIA_HOLE,'outer_diameter':VIA_DIAM,'layers':['top','inner1','inner2','bottom'],'tented_on_top':True,'tented_on_bottom':True,**common})
   repairs.append({'net':nets.get(net,{}).get('name',net),'route':route,'expandedNodes':expanded});print(repairs[-1]['net'],len(route),'points',len(vias),'vias',expanded,'search nodes',flush=True)
   # Persist completed work even if a later net requires another placement adjustment.
   path.write_text(json.dumps([e for e in j if e['type'] in ['pcb_trace','pcb_via']] if '--seed' in sys.argv else j,indent=2)+'\n')

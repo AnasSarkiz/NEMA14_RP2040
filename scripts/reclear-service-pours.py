@@ -1,11 +1,11 @@
 """Re-clear retained power pours against revised upper-bay pads and routing.
-No power-net reassignment; cuts restricted to changed +Y bay and explicitly widened inner2 power fragment.
+No power-net reassignment; clearance cuts cover all revised outer power and control routes.
 """
 import verify_supplier_connectivity as g
 import json,hashlib
 from shapely.geometry import Polygon,box,Point,LineString
 from shapely.ops import unary_union
-j=g.j;bay=box(-17.2,7.2,17.2,17.2).union(box(-10.35,-17.2,10.35,-3.9)).union(box(-12,-9.5,-10,-7.5));out=[];proof=[]
+j=g.j;bay=box(-17.5,-17.5,17.5,17.5);out=[];proof=[]
 def ring(r):return {'vertices':[{'x':x,'y':y}for x,y in list(r.coords)[:-1]]}
 for e in j:
  if e['type']!='pcb_copper_pour':out.append(e);continue

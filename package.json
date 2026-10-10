@@ -17,7 +17,7 @@
     "publish:tscircuit": "bash scripts/publish-tscircuit.sh",
     "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && /workspace/.routing-venv/bin/python scripts/report-presentation.py",
     "check:copper": "/workspace/.routing-venv/bin/python scripts/audit-trace-widths.py",
-    "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render"
+    "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-outer-power.py && /workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render && /workspace/.routing-venv/bin/python scripts/audit-outer-power-cam.py"
   },
   "repository": {
     "type": "git",

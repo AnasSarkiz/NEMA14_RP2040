@@ -65,3 +65,7 @@ HAR-002 factory lead routing now continues the four actual native-CAD stub endpo
 Revised USB_DM and QSPI_SS transitions have explicit ground-return stitches at(6.625,12.5) and(−1,9.425), approximately1.08/1.10mm from the signal via. Actual inner1 cut analysis retains all raw overlaps and distinguishes own signal transition antipads; no foreign-cut centerline crossing or copper over the guarded power-bridge cut is accepted. Geometric return-path screening does not qualify USB/QSPI signal integrity or EMC.
 
 The inward JST revision and required body-edge/plug-access checks are documented in [inside-board-jst](inside-board-jst.md). Fabricate only from its current manifest-bound artifacts.
+
+## Verified outer-layer routing revision
+
+See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.

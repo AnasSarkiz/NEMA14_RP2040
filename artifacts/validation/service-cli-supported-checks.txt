@@ -1,0 +1,19 @@
+Usage: tsci check [options] [command] [file]
+
+Partially build and validate circuit artifacts
+
+Arguments:
+  file                                         Path to the entry file
+
+Options:
+  -h, --help                                   display help for command
+
+Commands:
+  netlist [file]                               Partially build and validate the netlist
+  pin_specification [file]                     Partially build and validate pin specification checks
+  placement [file] [refdes]                    Partially build and validate the placement
+  routing-difficulty [file]                    Analyze routing difficulty
+  schematic-placement [file]                   Analyze schematic component placement
+  shorts [options] [file]                      Detect unintended shorts between separate PCB copper groups
+  source [file]                                Partially build and validate source diagnostics
+  trace-length [options] <pinOrNetRef> [file]  Analyze trace length for a pin or net

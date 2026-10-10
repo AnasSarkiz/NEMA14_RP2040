@@ -1,0 +1,34 @@
+{
+  "source_before_sha256": "f213341223c8235398d161ff2802ed63509c8a813a7981647fa2dbacc52c0870",
+  "source_after_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "removed": [
+    {
+      "removed_barrel": {
+        "type": "pcb_via",
+        "pcb_via_id": "outer_usb_power_pin_escape_VBUS2_via",
+        "pcb_trace_id": "outer_usb_power_pin_escape_VBUS2",
+        "x": -4.6000429,
+        "y": 9.475,
+        "outer_diameter": 0.5,
+        "hole_diameter": 0.25,
+        "layers": [
+          "top",
+          "inner1",
+          "inner2",
+          "bottom"
+        ],
+        "tented_on_top": true,
+        "tented_on_bottom": true,
+        "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+        "source_net_id": "source_net_1",
+        "source_trace_id": "source_trace_7",
+        "subcircuit_id": "subcircuit_source_group_0"
+      },
+      "native_pin_escape": "outer_usb_power_pin_escape_VBUS2",
+      "full_native_escape_endcap_covered_by_top_main_0p45_Cu": true,
+      "remaining_PD_native_pad_islands": 1,
+      "every_remaining_PD_trace_and_via_anchored": true
+    }
+  ],
+  "method": "Remove only redundant native PD fanout barrels with a complete endcap contact to >=0.45mm TOP main copper, no layer-transition descriptor and unchanged one-island/all-remaining-trace native physical connectivity. No pad/trace widths or paths are changed. Native DRC and actual CAM/drill validation must pass again."
+}

@@ -36,6 +36,10 @@ def main():
         filled_ep = bool(overlaps) and all(p['requires_filled_capped_EP_process'] for p in overlaps)
         paste_overlap = paste.intersection(hole).area
         row = {'via_id': via['pcb_via_id'], 'center_mm': [via['x'], via['y']], 'outer_diameter_mm': via['outer_diameter'], 'hole_diameter_mm': via['hole_diameter'], 'native_SMT_pad_overlaps': overlaps, 'actual_paste_drill_overlap_mm2': paste_overlap, 'process': 'filled and copper capped; supplier acceptance pending' if filled_ep else 'ordinary plated via'}
+        minimum_land_gap=min(hole.distance(geometry.shape(pad)) for pad in pads)
+        row['minimum_drill_to_native_top_SMT_land_mm']=minimum_land_gap
+        if not filled_ep and minimum_land_gap<.12:
+            row['required_off_pad_process']='IPC4761 TypeVI nonconductive resin fill and mask cover, both faces; copper cap not required; supplier capability/inspection pending'
         rows.append(row)
         if not filled_ep and (overlaps or paste_overlap > 1e-7):
             errors.append(row)

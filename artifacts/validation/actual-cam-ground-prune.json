@@ -1,21 +1,77 @@
 {
+  "source_before_sha256": "759cefaa6ea6a20477eb8b01432aa0917558080c1f950f013fe95ae6cec961c3",
+  "boardSha256": "f213341223c8235398d161ff2802ed63509c8a813a7981647fa2dbacc52c0870",
   "isolated_actual_CAM_copper": [
     {
-      "area_mm2": 1.5798385263130004,
+      "area_mm2": 5.757574978608002,
       "bounds_mm": [
-        -0.925,
-        -14.1,
-        0.45,
-        -11.569975
+        -3.804021,
+        -15.425,
+        0.7,
+        -11.933921
       ],
       "layers": [
-        "inner2"
+        "top"
       ],
       "no_connect_pads": [],
-      "classification": "unassigned copper: review"
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
     },
     {
-      "area_mm2": 0.17455090495899997,
+      "area_mm2": 0.024751909422999978,
+      "bounds_mm": [
+        10.483664,
+        -10.19769,
+        10.704937,
+        -9.858628
+      ],
+      "layers": [
+        "bottom"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 0.17455090495899991,
+      "bounds_mm": [
+        -0.668156,
+        -14.875,
+        0.068156,
+        -14.1
+      ],
+      "layers": [
+        "top"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 0.1745509049589999,
+      "bounds_mm": [
+        1.331844,
+        -14.875,
+        2.068156,
+        -14.1
+      ],
+      "layers": [
+        "top"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 0.1745509049589999,
       "bounds_mm": [
         -0.668156,
         -14.875,
@@ -26,11 +82,63 @@
         "bottom"
       ],
       "no_connect_pads": [],
-      "classification": "unassigned copper: review"
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 0.0007795628950000062,
+      "bounds_mm": [
+        1.690114,
+        -14.233845,
+        1.707332,
+        -14.1
+      ],
+      "layers": [
+        "bottom"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 0.17455090495899983,
+      "bounds_mm": [
+        3.331844,
+        -14.875,
+        4.068156,
+        -14.1
+      ],
+      "layers": [
+        "top"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
+    },
+    {
+      "area_mm2": 4.735295341530501,
+      "bounds_mm": [
+        9.944975,
+        -9.625828,
+        12.909074,
+        -6.378141
+      ],
+      "layers": [
+        "inner2"
+      ],
+      "no_connect_pads": [],
+      "classification": "unassigned copper: review",
+      "source_ground_fill_only_proven": true,
+      "no_source_pad_trace_or_via_copper_contact": true,
+      "actual_contour_cut_guard_mm": 0.01
     }
   ],
-  "ground_only_removed_area_mm2": 1.8205960249362747,
-  "cut_guard_mm": 0.01,
-  "method": "Motor/driver-bay-only subtraction of bounding contours of finished CAM unassigned islands; pads and traces untouched. Re-export and independent connectivity/spacing audit required.",
-  "boardSha256": "8b826ed765e89484d6bb48082c93bde31f46f7a7921abc22987adf694ed69306"
+  "ground_only_removed_area_mm2": 11.216615203723563,
+  "method": "Reparse actual RS274X/Excellon. Match each unassigned single-layer conductor by exact bounds/area, prove it lies wholly in source GND fill after drills and contacts no source pad/trace/via Cu. Subtract its actual contour plus0.01mm guard from GND pours only. All pad/trace/via/drill records remain byte-equivalent. Re-export and rerun native and actual CAM checks; no audit errors are excluded."
 }

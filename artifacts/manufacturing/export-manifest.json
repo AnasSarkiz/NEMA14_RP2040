@@ -17,37 +17,37 @@
     },
     "note": "The CLI embeds its own Gerber converter; actual Gerber metadata is authoritative and can differ from the separately installed package version."
   },
-  "source_sha256": "de234ef7f1ef69e0f6d2de040e6c4f26cf4de451d7913f73f38ae2b1ee548e28",
-  "raw_cli_archive_sha256": "4d06184dde09fbc3ae960333e7734d916f39c4ca62a9c0d31933049d6fba4d10",
+  "source_sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "raw_cli_archive_sha256": "3df9d5708321c81c707500b5d6bfe5e4b4e60594cd5dfbfd15e1860d181cedfc",
   "intentional_CAM_changes": {
     "F_Paste.gbr": {
       "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
-      "before_sha256": "4afbc04a6730da437dd7dfeb42a687f84ac66f081a9fefdb6720fbc43fc7aff6",
+      "before_sha256": "f35a7069ebe8ce5f745b56b8e86b9bc06932a1c9148e1b4001aaa9dd710cb50a",
       "after_sha256": "777e6210de14338d9840b92d83706e8eb26d67d1e853c66628a3743b39693f6e"
     },
     "B_Paste.gbr": {
       "reason": "Explicit top SMT stencil policy; manual plated joints and bare interfaces have no paste",
-      "before_sha256": "155f5d5299ff59cc30c2aea8b82de7162fe9d51dc3e6d8a10455e51c670e62d1",
+      "before_sha256": "21622c55b3a549b1a2c173374ed33735aeb7eb7efd6eea41d2a6ad4f1d0541a6",
       "after_sha256": "21880a5d8ccf86520b8d968436a0584871c3b32228b6ac256a0e08bffa396018"
     },
     "F_Mask.gbr": {
       "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
-      "before_sha256": "355ff817da782bb0418bbf1e049721c49fad4fe7116df38c2e3b1ccd4bf5a760",
+      "before_sha256": "61e02ff3e5aeb99571d579dbbd793314cb817d34d5fee55f5ece1ebd32a72b99",
       "after_sha256": "e31e8837efa5b16f6c5eb237f0e86eef4157f32e60a4977e3d3117fc29698b8d"
     },
     "B_Mask.gbr": {
       "reason": "0.05 mm nominal mask expansion reduced locally to guarantee 0.10 mm webs",
-      "before_sha256": "b974c36f2b95ef5d5b3d334d31c634dbc08d4091c4cd4224fed875ab23100fdb",
+      "before_sha256": "1ce7adbad3d97e2d84a253f72b246920b6faeae68d24f7789a5c9e511c5f4642",
       "after_sha256": "0a347fe238ef90c4ea82785d2a0c0eebe998846ac6a794ddee9da9d980928637"
     },
     "F_SilkScreen.gbr": {
       "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
-      "before_sha256": "779405006b3ba3e7a00fcdbfa6895b9e857e184c7dbfcf07f14be35c21547911",
+      "before_sha256": "28842a5d37bc10213e6714aade7ae02bcda72c236f40d6f4b2fc13cf7328e2cf",
       "after_sha256": "51c7b3fa6c30c07bd9ccc1c12c01b6d0b2edb212a7d96c271bfab620323b28d5"
     },
     "B_SilkScreen.gbr": {
       "reason": "Clip native silk against mask openings +0.15 mm and 0.10 mm edge inset; full reference labels remain on assembly drawings",
-      "before_sha256": "e9158944b5e78471de0572e5af283e0c5b07c2d81a211e0a8d03bae50f8e6b0c",
+      "before_sha256": "53345179f21416ba961678088f1d47b57d5bf20bf3909cfc74f4f18519fc28ef",
       "after_sha256": "6749df52a00079fb655f0f1970e707d5710aea434c3487c6a3bc8958fa03cdd8"
     },
     "bom.csv": {
@@ -62,14 +62,14 @@
     }
   },
   "preserved_original_files": {
-    "F_Cu.gbr": "48c2231f083cb2cdb8abce035e0953a466ad9af51d0da0e119bc6e9a3bc4aa47",
-    "B_Cu.gbr": "d9694a900ec8dcc271d2fa8d99317a79441fa2849ceef7d74eec2676c636d2cf",
-    "Edge_Cuts.gbr": "f06d2ccfcd782b4594b2a4dcfad6503e083954e99cc83580183160f6e78c681e",
-    "In1_Cu.gbr": "11f81c3748ff3f2c8544b70859947f115aaec4c7a155b42ea4f86d0501d44105",
-    "In2_Cu.gbr": "46703b978e1243da2b7364e295a52480d6ba02a2a2fd235a8e182710b2ef658a",
-    "F_Fab.gbr": "cb31e957fcb405a123c5fb5a4175f191d3693dabd20115bd0322f2a6a71c8107",
-    "drill-L1-L4.drl": "0d407972bbdb3b4c6b580f395e8fcf9f67996e8654f8daf69a50fa7cd36ecac4",
-    "drill_npth.drl": "4711bb4c6ddeb272f933b1eff262f7a4f76e040563a8e52b7cd37637d61c1339"
+    "F_Cu.gbr": "a36adbee1b80c7c7beba0f09c5c1b5cb137dcc76fd6c5795830231abf5ba8224",
+    "B_Cu.gbr": "2a19dc56cfd80ab4a80e3f95666fa0d656f1913c0de5d524037631f44918459b",
+    "Edge_Cuts.gbr": "fe90b8f4728ea745820c0b94a1ad81ef1da7a7974ab7f49642af0c4523bc5273",
+    "In1_Cu.gbr": "45221a36b34ebd2f0a62a7f1878e369e98efaff7e9b1adb4b0515a2225a70dcf",
+    "In2_Cu.gbr": "a99ffa3a47f6fd6dd3f10ff4d45c23f6ce8032a4840fb448ba4a181cf777c956",
+    "F_Fab.gbr": "0401d8604729f6aa5613d7fb6d4bc3fb6cb0b0158432b926b72e17b122b91643",
+    "drill-L1-L4.drl": "b684bea02d61543a18576a6552438e22dcdd17288ad7c77b33ff2bceb826f1a6",
+    "drill_npth.drl": "65a6ce561ad183fb6948e76dbdb4c8846906454de22f3684d9d5d0b830ba6d6b"
   },
   "policy": {
     "assembly": "top SMT reflow; USB shield slots and keyed JST motor header manually soldered afterward",

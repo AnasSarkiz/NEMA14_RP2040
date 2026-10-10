@@ -26,3 +26,7 @@ Placement advisories use airwire/orientation/courtyard heuristics without consid
 Reproduce current checks: `npm run typecheck`, `npm run source:check`, `npm run build`, `python3 scripts/check-service-cli.py`, `/workspace/.routing-venv/bin/python scripts/verify-connectivity.py`, `npm run check:copper`, `npm run export`, `npm run check:manufacturing`, `/workspace/.routing-venv/bin/python scripts/inspect-via-paste.py`, `npm run shorts`, `/workspace/.routing-venv/bin/python scripts/audit-functional-silk.py`, `/workspace/.routing-venv/bin/python scripts/review-mechanical.py`, `python3 scripts/check-a4-browser.py`. Export also uses the official CLI and validates unchanged native copper/drill files. Review manufacturing/assembly requirements before using any generated package.
 
 Hardware tests unperformed: windingcurrent, USB enumeration/programming/PD, power transitions/brownout/backfeed, regeneration, mountedtemperatures and complete physicalfit. External effective-C, exact protection/model/material data, pickup/rotation preview and fabrication acceptance remain open. Software PASS is not production release.
+
+## Verified outer-layer routing revision
+
+See [outer-power-routing.md](outer-power-routing.md) for the current exact widths, bounded pin/leaf exceptions, actual plated-drill path counts and quantified sense-path parasitics. The saved-copper build rule and independently parsed CAM strip/net/clearance checks pass for the bound source. Retained phase vias and hardware/process qualification are explicitly documented.

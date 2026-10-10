@@ -1,0 +1,579 @@
+{
+  "schema": "outer-power-routing-policy-1",
+  "sha256": "a645933befbeee4a549bea9156301a52ded42df5c3b324bcd51a86c230ed2313",
+  "checksPassed": true,
+  "errors": [],
+  "rules": {
+    "motorMainMm": 0.45,
+    "pdMainMm": 0.45,
+    "senseMainMm": 0.3,
+    "wireLayers": [
+      "top",
+      "bottom"
+    ],
+    "finePitchPinEscapeMaximumMm": 2,
+    "usbPinEscapeMaximumMm": 1.25,
+    "vias": "Minimize; nonzero through-via counts are disclosed, not represented as via-free.",
+    "separateRequiredChecks": [
+      "actual Gerber/drill connectivity, shorts and clearance",
+      "native placement/connectivity",
+      "minimum via plating and thermal/current qualification"
+    ]
+  },
+  "nets": [
+    {
+      "net": "A_PLUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.45,
+      "mainBranchedLengthMm": 8.94905629311512,
+      "allBranchedLengthMm": 9.65106129311512,
+      "totalThroughVias": 1,
+      "viaIds": [
+        "inside_phase_via_A_PLUS"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "A_MINUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.45,
+      "mainBranchedLengthMm": 7.614949493661167,
+      "allBranchedLengthMm": 9.182273356648698,
+      "totalThroughVias": 1,
+      "viaIds": [
+        "inside_phase_via_A_MINUS"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "B_PLUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.45,
+      "mainBranchedLengthMm": 15.595681521475143,
+      "allBranchedLengthMm": 16.297686521475143,
+      "totalThroughVias": 1,
+      "viaIds": [
+        "inside_phase_via_B_PLUS"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "B_MINUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.45,
+      "mainBranchedLengthMm": 17.834671708797583,
+      "allBranchedLengthMm": 18.885528385671048,
+      "totalThroughVias": 1,
+      "viaIds": [
+        "inside_phase_via_B_MINUS"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.45,
+      "mainBranchedLengthMm": 77.96877263758174,
+      "allBranchedLengthMm": 94.19436490997413,
+      "totalThroughVias": 10,
+      "viaIds": [
+        "inside_power_escape_U_DRV_VBB1_via",
+        "inside_power_escape_U_DRV_VBB2_via",
+        "inside_power_escape_C_VM_pin1_via",
+        "outer_usb_power_pin_escape_VBUS1_via",
+        "outer_pd_remote_bridge_via",
+        "outer_native_escape_C_VM2_pin1_via",
+        "supplier_repair_island_net1_8_via0",
+        "supplier_repair_island_net1_9_via0",
+        "supplier_repair_island_net1_9_via1",
+        "supplier_repair_island_net1_9x_via0"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "SENSE1",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.3,
+      "mainBranchedLengthMm": 11.824632046676216,
+      "allBranchedLengthMm": 11.824632046676216,
+      "totalThroughVias": 2,
+      "viaIds": [
+        "inside_sense_escape_SENSE1_via",
+        "supplier_repair_island_net50_0_via1"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    },
+    {
+      "net": "SENSE2",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "mainMinimumWidthMm": 0.3,
+      "mainBranchedLengthMm": 28.46495702465101,
+      "allBranchedLengthMm": 28.46495702465101,
+      "totalThroughVias": 2,
+      "viaIds": [
+        "inside_sense_escape_SENSE2_via",
+        "supplier_repair_island_net51_0_via0"
+      ],
+      "notes": "Counts/lengths include all branches, not series path counts. Standard barrels traverse the stack; no inner-layer wire routes are permitted."
+    }
+  ],
+  "boundedExceptions": [
+    {
+      "trace": "inside_phase_escape_A_PLUS",
+      "net": "A_PLUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "OUT1A",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 0.7020049999999998,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_phase_escape_B_PLUS",
+      "net": "B_PLUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "OUT2A",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 0.7020049999999998,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_phase_escape_A_MINUS",
+      "net": "A_MINUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "OUT1B",
+      "widthMm": 0.2,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 1.567323862987532,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_phase_escape_B_MINUS",
+      "net": "B_MINUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "OUT2B",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 1.0508566768734648,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_power_escape_U_DRV_VBB1",
+      "net": "PD_VBUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "VBB1",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 1.8702526956165129,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_power_escape_U_DRV_VBB2",
+      "net": "PD_VBUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "U_DRV",
+      "pin": "VBB2",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 0.7489897898596478,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "inside_power_escape_C_VM_pin1",
+      "net": "PD_VBUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "C_VM",
+      "pin": "pin1",
+      "widthMm": 0.3,
+      "maximumLengthMm": 2.0,
+      "lengthMm": 0.799976,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "outer_usb_power_pin_escape_VBUS1",
+      "net": "PD_VBUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "J_PD",
+      "pin": "VBUS1",
+      "widthMm": 0.3,
+      "maximumLengthMm": 1.250001,
+      "lengthMm": 1.25,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "standard_0p25_0p50_barrel",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "outer_usb_power_pin_escape_VBUS2",
+      "net": "PD_VBUS",
+      "kind": "bounded_native_pin_escape",
+      "reference": "J_PD",
+      "pin": "VBUS2",
+      "widthMm": 0.3,
+      "maximumLengthMm": 1.250001,
+      "lengthMm": 0.9009914000000006,
+      "startsAtExactNativePin": true,
+      "endConnectionKind": "full_endcap_direct_top_main",
+      "endsAtStandardViaOrFullWidthTopMain": true
+    },
+    {
+      "trace": "supplier_repair_island_net1_9",
+      "net": "PD_VBUS",
+      "kind": "physically_proven_resistor_only_branch",
+      "leaf": [
+        "R_VM_H.pin1"
+      ],
+      "seriesResistorOhms": 100000,
+      "screenCurrentA": 0.001,
+      "proof": "Removing this exact copper record leaves exactly two native-pad islands; the leaf contains only the resistor input, and the other retains both inlet and driver supply pins."
+    }
+  ],
+  "traces": [
+    {
+      "trace": "inside_phase_escape_A_PLUS",
+      "net": "A_PLUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.7020049999999998,
+      "exception": true
+    },
+    {
+      "trace": "inside_phase_escape_B_PLUS",
+      "net": "B_PLUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.7020049999999998,
+      "exception": true
+    },
+    {
+      "trace": "inside_phase_escape_A_MINUS",
+      "net": "A_MINUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.2,
+      "lengthMm": 1.567323862987532,
+      "exception": true
+    },
+    {
+      "trace": "inside_phase_escape_B_MINUS",
+      "net": "B_MINUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 1.0508566768734648,
+      "exception": true
+    },
+    {
+      "trace": "inside_power_escape_U_DRV_VBB1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 1.8702526956165129,
+      "exception": true
+    },
+    {
+      "trace": "inside_power_escape_U_DRV_VBB2",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.7489897898596478,
+      "exception": true
+    },
+    {
+      "trace": "inside_power_escape_C_VM_pin1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.799976,
+      "exception": true
+    },
+    {
+      "trace": "outer_usb_power_pin_escape_VBUS1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 1.25,
+      "exception": true
+    },
+    {
+      "trace": "outer_usb_power_pin_escape_VBUS2",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.9009914000000006,
+      "exception": true
+    },
+    {
+      "trace": "inside_sense_escape_SENSE1",
+      "net": "SENSE1",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 0.8876262781673303,
+      "exception": false
+    },
+    {
+      "trace": "inside_sense_escape_SENSE2",
+      "net": "SENSE2",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 3.262518362887054,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_0",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 5.339132571454907,
+      "exception": false
+    },
+    {
+      "trace": "outer_pd_remote_bridge",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.3499999999999996,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 7.657197157408439,
+      "exception": false
+    },
+    {
+      "trace": "outer_pd_above_phase_bridge",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 7.8,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_2",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 2.147792206135786,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_3",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 6.260660171779821,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_4",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 10.292819253992695,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_5",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.7667261889578032,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_6",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 10.25023086789974,
+      "exception": false
+    },
+    {
+      "trace": "outer_native_escape_C_VM2_pin1",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 1.0499759999999991,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_8",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 5.648401871576777,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_9",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "minimumWidthMm": 0.16,
+      "lengthMm": 10.655382386916237,
+      "exception": true
+    },
+    {
+      "trace": "supplier_repair_island_net41_0",
+      "net": "A_PLUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 8.94905629311512,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net43_0",
+      "net": "B_PLUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 15.595681521475143,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net44_0",
+      "net": "B_MINUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 17.834671708797583,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net50_0",
+      "net": "SENSE1",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 10.937005768508886,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net42_0",
+      "net": "A_MINUS",
+      "wireLayers": [
+        "bottom"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 7.614949493661167,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net1_9x",
+      "net": "PD_VBUS",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "minimumWidthMm": 0.45,
+      "lengthMm": 18.405836348375768,
+      "exception": false
+    },
+    {
+      "trace": "supplier_repair_island_net51_0",
+      "net": "SENSE2",
+      "wireLayers": [
+        "bottom",
+        "top"
+      ],
+      "minimumWidthMm": 0.3,
+      "lengthMm": 25.202438661763956,
+      "exception": false
+    }
+  ],
+  "hardwareQualified": false
+}

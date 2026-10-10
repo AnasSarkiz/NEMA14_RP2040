@@ -1,14 +1,17 @@
 {
   "schema": "pcba-program-state-v1",
   "project_id": "NEMA14_RP2040",
-  "updated_at": "2026-10-09T22:26:14.068709+00:00",
+  "updated_at": "2026-10-10T01:29:32.426653+00:00",
   "offline_service_review": "PASS_WITH_DISCLOSED_ADVISORIES_AND_MODEL_DATA_GATES",
   "manufacturing_release": false,
   "hardware_tested": false,
+  "outer_motor_pd_policy_passed": true,
+  "outer_motor_pd_actual_cam_passed": true,
+  "pcb_style_cli_status": "UNAVAILABLE_IN_INSTALLED_CLI; attempted exit retained",
   "publication_authorized": true,
   "publication_receipt": "artifacts/validation/service-published-release.json (only valid after actual publication)",
   "remaining_qualification_items": [
-    "Winding current including low-VREF A4988 accuracy",
+    "Winding current/balance/torque and sense/return parasitics including low-VREF A4988 accuracy",
     "USB enumeration/ROM programming/application firmware and15V PD behavior",
     "All DATA/PD power orders, brownout/reset/OE/ADC pin limits and backfeed",
     "Regeneration/hot-plug clamp energy and exact selected protection data",
@@ -17,7 +20,7 @@
     "Factory JST post/key/spring CAD versus generic supplier model discrepancy",
     "Biased/aged effective capacitor values and converter stability/current margins",
     "Temperature/material/splice certificates and factory motor lead stock",
-    "Supplier pickup/rotation preview and filled/capped-via/drill/stencil process acceptance"
+    "Supplier pickup/rotation preview, TypeVI off-pad fill, TypeVII SMT cap and fine-drill/stencil process acceptance"
   ],
   "placement_cli_exit": 1,
   "placement_advisories_suppressed": false,

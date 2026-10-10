@@ -42,18 +42,17 @@ for trace in [e for e in original if e['type']=='pcb_trace' and g.key(e)==pdkey]
         assert bound<budget
         branch_budgets[trace['pcb_trace_id']]=budget;branch_proofs.append({'trace':trace['pcb_trace_id'],'leafNativePorts':sorted(leaf),'mainNativePorts':sorted(main),'seriesResistorOhms':nominal,'resistanceToleranceFraction':.01,'voltageDifferenceScreenV':38.6,'calculatedResistorLimitedCurrentA':bound,'screenBudgetA':budget,'method':'Remove exact Cu record; all-layer native-pad/barrel connectivity splits into exactly two pad islands. The leaf contains only the input of the named series resistor. No motor or inlet pad resides on it.','qualification':'Voltage case is conductor screening only; does not approve 35V operation or component/driver surge limits.'})
 g.j=original
-# Three bounded fanout necks are allowed only at the reviewed A4988 output
-# pin-to-ordinary-via escapes; 0.30 mm continues after each escape. This is a
-# positive geometric/current/length rule, not a general reduction of the floor.
-allowed_necks={'inside_phase_escape_A_MINUS':2.0}
-# B_MINUS now uses the ordinary upper-corner escape at full0.30mm.
-neck_proofs=[]
-for tid,max_length in allowed_necks.items():
- trace=next((e for e in g.j if e['type']=='pcb_trace'and e['pcb_trace_id']==tid),None)
- if trace is None:errors.append('Required bounded phase escape missing: '+tid);continue
- name=g.nets[g.key(trace)];port=next(p for p in g.ports.values()if g.src[g.comp[p['pcb_component_id']]['source_component_id']]=='U_DRV'and g.sp[p['source_port_id']].get('subcircuit_connectivity_map_key')==g.key(trace));via=next((v for v in g.j if v['type']=='pcb_via'and v['pcb_via_id']=='inside_phase_via_'+name),None);route=trace['route'];length=sum(math.dist((a['x'],a['y']),(b['x'],b['y']))for a,b in zip(route,route[1:]));valid=via is not None and all(p['route_type']=='wire'and p['layer']=='top'and p['width']==.2 for p in route)and length<=max_length and math.dist((route[0]['x'],route[0]['y']),(port['x'],port['y']))<1e-6 and math.dist((route[-1]['x'],route[-1]['y']),(via['x'],via['y']))<1e-6 and via['outer_diameter']==.5 and via['hole_diameter']==.25
- if not valid:errors.append('Invalid bounded 0.20 mm output escape: '+tid)
- neck_proofs.append({'trace':tid,'net':name,'length_mm':length,'maximum_length_mm':max_length,'width_mm':.2,'source_native_output_pin':g.sp[port['source_port_id']]['pin_number'],'ends_at_standard_0p25_0p50_via':valid,'required_main_route_width_mm':.279,'physical_temperature_test_performed':False})
+# The main-width/layer rule is mandatory and independently bound to this source.
+# Thermal screening does not grant a width exception. The policy positively
+# proves native pin escapes and resistor-only leaves against physical islands.
+import subprocess
+q=subprocess.run([__import__('sys').executable,str(g.ROOT/'scripts/audit-outer-power.py')],capture_output=True,text=True)
+policy=json.loads((g.ROOT/'artifacts/validation/service-outer-power-policy.json').read_text())
+assert policy['sha256']==hashlib.sha256(g.path.read_bytes()).hexdigest()
+errors.extend(policy['errors'])
+if q.returncode and not policy['errors']:errors.append('Outer power policy failed')
+allowed_necks={p['trace'] for p in policy['boundedExceptions']}
+neck_proofs=policy['boundedExceptions']
 one_bridge=None
 for e in g.j:
     if e['type']!='pcb_trace':continue
@@ -74,8 +73,8 @@ for e in g.j:
         segments.append(row);netrows[name].append(row)
         if width<.16-1e-6:errors.append('Trace below 0.16 mm: '+e['pcb_trace_id'])
         if rise is not None and rise>30 and not shunted:errors.append('Thermal screening budget exceeded: '+e['pcb_trace_id'])
-        if name in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] and width<.279-1e-6 and e['pcb_trace_id']not in allowed_necks:
-            errors.append('Motor/sense copper below reviewed 0.279 mm escape floor: '+e['pcb_trace_id'])
+        if name in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','PD_VBUS'] and width < (.30 if name in ['SENSE1','SENSE2'] else .45)-1e-6 and e['pcb_trace_id'] not in allowed_necks:
+            errors.append('Power copper below mandatory main floor without a proved exception: '+e['pcb_trace_id'])
 summary=[]
 for name,rows in sorted(netrows.items()):
     # Total includes all branches; it is not an end-to-end path measurement.

@@ -13,6 +13,9 @@ for e in j:
  queue=[set_precision(original,.000001)];parts=[]
  while queue:
   p=queue.pop()
+  if p.is_empty:continue
+  if p.geom_type=='MultiPolygon':queue.extend(p.geoms);continue
+  assert p.geom_type=='Polygon',p.geom_type
   if not p.interiors:parts.append(p);continue
   y=Polygon(p.interiors[0]).representative_point().y
   ps=list(split(p,LineString([(-100,y),(100,y)])).geoms)

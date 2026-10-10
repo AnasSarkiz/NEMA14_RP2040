@@ -1,0 +1,101 @@
+{
+  "records": [
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "outer_usb_power_pin_escape_VBUS1",
+      "pcb_port_ids": [
+        "pcb_port_14"
+      ],
+      "route": [
+        {
+          "route_type": "wire",
+          "x": -9.4001603,
+          "y": 10.3758263,
+          "width": 0.3,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -9.4001603,
+          "y": 9.1258263,
+          "width": 0.3,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+      "source_net_id": "source_net_1",
+      "source_trace_id": "source_trace_6",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "outer_usb_power_pin_escape_VBUS1_via",
+      "pcb_trace_id": "outer_usb_power_pin_escape_VBUS1",
+      "x": -9.4001603,
+      "y": 9.1258263,
+      "outer_diameter": 0.5,
+      "hole_diameter": 0.25,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+      "source_net_id": "source_net_1",
+      "source_trace_id": "source_trace_6",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_trace",
+      "pcb_trace_id": "outer_usb_power_pin_escape_VBUS2",
+      "pcb_port_ids": [
+        "pcb_port_15"
+      ],
+      "route": [
+        {
+          "route_type": "wire",
+          "x": -4.6000429,
+          "y": 10.3759914,
+          "width": 0.3,
+          "layer": "top"
+        },
+        {
+          "route_type": "wire",
+          "x": -4.6000429,
+          "y": 9.1259914,
+          "width": 0.3,
+          "layer": "top"
+        }
+      ],
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+      "source_net_id": "source_net_1",
+      "source_trace_id": "source_trace_7",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_via",
+      "pcb_via_id": "outer_usb_power_pin_escape_VBUS2_via",
+      "pcb_trace_id": "outer_usb_power_pin_escape_VBUS2",
+      "x": -4.6000429,
+      "y": 9.1259914,
+      "outer_diameter": 0.5,
+      "hole_diameter": 0.25,
+      "layers": [
+        "top",
+        "inner1",
+        "inner2",
+        "bottom"
+      ],
+      "tented_on_top": true,
+      "tented_on_bottom": true,
+      "subcircuit_connectivity_map_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net1",
+      "source_net_id": "source_net_1",
+      "source_trace_id": "source_trace_7",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "scope": "0.30mm/1.25mm bounded necks out of native USB-C 0.30mm-wide pin row before 0.60mm main route. Validate all-layer pads/vias/actual CAM."
+}
