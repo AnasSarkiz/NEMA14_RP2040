@@ -1,0 +1,866 @@
+{
+  "passed": true,
+  "version": "1.4.0",
+  "package_release_id": "106559a4-3b29-4378-b1c4-ba36270236cf",
+  "transport_issue": "CLI archive response timed out; automatic individual fallback reported duplicate existing paths",
+  "registry_archive_completed": true,
+  "all_public_file_paths_and_bytes_equal_prepared_package": true,
+  "verified_public_files": 171,
+  "files": [
+    {
+      "path": "README.md",
+      "sha256": "8fd760f93e5d74c7c4e50ae35ecd33dbe2b5721e4005e08e9ab9153264b824d5",
+      "bytes": 6561
+    },
+    {
+      "path": "artifacts/bom.csv",
+      "sha256": "cf0502ebe88a33b6b1365d834df339ce8e9fd183bd556721583f19ac029215cd",
+      "bytes": 6258
+    },
+    {
+      "path": "artifacts/check-output.txt",
+      "sha256": "ef6f859bcb08de5dd46f0f006c3853fc79fe97b27b53cfe0bfb948126110118c",
+      "bytes": 248
+    },
+    {
+      "path": "artifacts/drc-report.json",
+      "sha256": "86368aac23e4962ed502efe00b419c5d8d2e6179a0d9525e3384c81e4218d4f1",
+      "bytes": 602
+    },
+    {
+      "path": "artifacts/jlcpcb-import-report.json",
+      "sha256": "a2bb62e031db4f8a1d4a180fe56441a671704649a23f2bf965d1b0a5eea797f9",
+      "bytes": 2314
+    },
+    {
+      "path": "artifacts/jst-restoration/R_SA-fanout-spacing.json",
+      "sha256": "0eb30c01db1b7bcf58ef4e7644acf4b79da720ab172aca195a8cf3f566cba415",
+      "bytes": 252
+    },
+    {
+      "path": "artifacts/jst-restoration/baseline.json",
+      "sha256": "25406c27209a1ccca24fe656863ce575cc943f8abee3604a940d4b57db40f192",
+      "bytes": 313
+    },
+    {
+      "path": "artifacts/jst-restoration/connector-verification.json",
+      "sha256": "1ac2818ecd72ad9815cc2af9b7631cbf68d589449250dca3827aae39500ec2da",
+      "bytes": 4094
+    },
+    {
+      "path": "artifacts/jst-restoration/initial-source-mount-usb-screen.json",
+      "sha256": "5d452f22a1bb5e65710107b76ef41341b29158ff5eb16fa9d8e325ebb66fe582",
+      "bytes": 4688
+    },
+    {
+      "path": "artifacts/jst-restoration/local-ripup.json",
+      "sha256": "83467b224d2c5945b036767696942e769ba117e36c023d0becc8ce90ef5820e0",
+      "bytes": 2581
+    },
+    {
+      "path": "artifacts/jst-restoration/rebuilt-b-minus-escape.json",
+      "sha256": "7ebeb17124571000883e0bad3da7fcddc70420728671d9e99e2d15ffd83cd039",
+      "bytes": 238
+    },
+    {
+      "path": "artifacts/jst-restoration/rebuilt-enable-escape.json",
+      "sha256": "a66872da4eb8be0573ec1ced2bf9db0976004940d3e7c896144fab56e2a9ab33",
+      "bytes": 173
+    },
+    {
+      "path": "artifacts/jst-restoration/rebuilt-sense1-fanout.json",
+      "sha256": "001187766bc0e25ce526f174a6fb62372f7e8ccc9c25aea1780eb91c9fc2c02f",
+      "bytes": 469
+    },
+    {
+      "path": "artifacts/jst-restoration/removed-primary-PD-feeder.json",
+      "sha256": "45cf81453eac0b484f80ec12d087028fcd348b242f00d2202cf55d45b1fd8561",
+      "bytes": 744
+    },
+    {
+      "path": "artifacts/jst-restoration/restored-baseline-control-fanout.json",
+      "sha256": "c5ef05f0dfcd0519a32505d279ae802dd4d19e2bafda28851f0a5580f5bfb1ef",
+      "bytes": 2176
+    },
+    {
+      "path": "artifacts/jst-restoration/sense2-straight-fanout.json",
+      "sha256": "a6d7538f6b46f606559f5ac84198285c134701a0077937b5ae8651ec96128315",
+      "bytes": 160
+    },
+    {
+      "path": "artifacts/jst-restoration/unique-route-identities.json",
+      "sha256": "97a4820c5e8cee649034fa717c692f4fea80132180b02527f540bdedf9dee93e",
+      "bytes": 309
+    },
+    {
+      "path": "artifacts/manufacturing/audit.json",
+      "sha256": "07df10a38ff6e0a00a6aae02034b14e547d3616a39df07a3d3213ae4f8a6d065",
+      "bytes": 128830
+    },
+    {
+      "path": "artifacts/mechanical/mount-usb-screen.json",
+      "sha256": "8cece689328891379a1bd11172e2d438b20104b4f1aa714c66e2210c75fcff8f",
+      "bytes": 4681
+    },
+    {
+      "path": "artifacts/mechanical/same-edge-fit.png",
+      "sha256": "6e2564bbbaa47de522b707cff5da5530ec83c4354d0d184c8c59e78a556e222f",
+      "bytes": 116144
+    },
+    {
+      "path": "artifacts/mechanical/same-edge-fit.svg",
+      "sha256": "df016d412cd37c5dc2a36b21a02d6740235e597b0767fe769f6d3d4bc56cb6aa",
+      "bytes": 41618
+    },
+    {
+      "path": "artifacts/mount-drill-verification.json",
+      "sha256": "7edf89c9188474fae16a965cec91d824947df5e01751026fa595960eaeafb26a",
+      "bytes": 1811
+    },
+    {
+      "path": "artifacts/mounting-change-proof.json",
+      "sha256": "bcac574e1f7effbb80acae383f188b4670ee23c5f65907a00d6d1e133c1d0c3c",
+      "bytes": 4481
+    },
+    {
+      "path": "artifacts/native-check.txt",
+      "sha256": "6b1891d669cc7500612cf8bc9c0e22700688013a25bb89ad425f3de2ef1f4ad3",
+      "bytes": 22
+    },
+    {
+      "path": "artifacts/nema14-gerbers.zip",
+      "sha256": "7b2e00429590fff673c2cd6eb15ccecd171d775dcc77ff1003b0ad1342ba5791",
+      "bytes": 2017074
+    },
+    {
+      "path": "artifacts/physical-connectivity.json",
+      "sha256": "fb00cf1c10fab0295b9008152f027e1130dbe9d49400cfd1426b017be762358c",
+      "bytes": 204
+    },
+    {
+      "path": "artifacts/pick_and_place.csv",
+      "sha256": "163af31b0a0152e23a6db9c3e20a35f83dbc61b039bac05cf307916ae2b4d295",
+      "bytes": 1861
+    },
+    {
+      "path": "artifacts/presentation-verification.json",
+      "sha256": "fafe1e10fc0153e32d6dbfe97e465c0ab11fd5dccfc975d0e463ed992bd3a2b5",
+      "bytes": 4635
+    },
+    {
+      "path": "artifacts/publication-provenance.json",
+      "sha256": "f52be68cd90193ccab90310154a2092c2e846710dc5e1b330efc6a6eaa2a9e3e",
+      "bytes": 364
+    },
+    {
+      "path": "artifacts/resume-validation.json",
+      "sha256": "1b17fc00c5107d42a072fdeef05aa87b1ad7052b78bcf4a2609d8f99514ad5ec",
+      "bytes": 51400
+    },
+    {
+      "path": "artifacts/same-side-copper-cleanup.json",
+      "sha256": "4ccd377eef9a87fbd1a5b0956d93af3c13e0da6af2288cca8a13b7177048a715",
+      "bytes": 1130
+    },
+    {
+      "path": "artifacts/same-side-copper-repairs.json",
+      "sha256": "01b41e0904be292f0742fe9928deba66b1ed11f89e0f4912ff4e3610c909690e",
+      "bytes": 12416
+    },
+    {
+      "path": "artifacts/same-side-power-width-repair.json",
+      "sha256": "69daa4a48fade3277460ac5c8dfb3608b73b4d4aed2833adab52cff0d1244fb8",
+      "bytes": 392
+    },
+    {
+      "path": "artifacts/same-side-pruned-stubs.json",
+      "sha256": "d7e5d5c75739ca189f05c06c4ce269ac2cf46c2bdc25836925f0b8b7222c1e5a",
+      "bytes": 747
+    },
+    {
+      "path": "artifacts/same-side-routing-proof.json",
+      "sha256": "821fcb3d579b1566735374bea61229d91673b71333a53f2d0404038c557c7c8f",
+      "bytes": 955
+    },
+    {
+      "path": "artifacts/same-side-trimmed-stubs.json",
+      "sha256": "6129b8567b74d92e44dea2195f54cf9274b7075f5fc2e29a892c6f444ae74b99",
+      "bytes": 1693
+    },
+    {
+      "path": "artifacts/schematic-a4-page-01.svg",
+      "sha256": "34b646a019a8cf151ec3c601e5cbbee6bb62c0a2ff56094364088fb3bded650f",
+      "bytes": 185031
+    },
+    {
+      "path": "artifacts/schematic-a4-page-02.svg",
+      "sha256": "d752735018e0412ec96c1dcfa422de11e1aec56039e687b6171fef76ba4235fb",
+      "bytes": 126853
+    },
+    {
+      "path": "artifacts/schematic-a4-page-03.svg",
+      "sha256": "3604bd2787e24e83af460204d746ea4412dab2598e47dbcf0233989bfb88a384",
+      "bytes": 178821
+    },
+    {
+      "path": "artifacts/schematic-a4-page-04.svg",
+      "sha256": "ab5d7f3b95764e08076cef2428cad3d9c71d435f3aced166aa44700c23481f95",
+      "bytes": 81426
+    },
+    {
+      "path": "artifacts/schematic-a4-page-05.svg",
+      "sha256": "c4e552dc8ffeac885152a71d5d0f97ae36312f868427b1b37078f62090007817",
+      "bytes": 81275
+    },
+    {
+      "path": "artifacts/schematic-a4-page-06.svg",
+      "sha256": "c117bea4e26e6176f409eb72709155bc4a9025ffc8a108cc27df9e960123db15",
+      "bytes": 106289
+    },
+    {
+      "path": "artifacts/schematic-a4-page-07.svg",
+      "sha256": "b97e44e5ffd91301d672dbb90a9f7a92d277d8125455a1c67d3c7fbeb5bdd66d",
+      "bytes": 80484
+    },
+    {
+      "path": "artifacts/schematic-a4-page-08.svg",
+      "sha256": "2699a7e5d77478fc90b0bba43658af1ccf6c2890b27249b60bfe008958565944",
+      "bytes": 80577
+    },
+    {
+      "path": "artifacts/schematic-a4-page-09.svg",
+      "sha256": "7860b85e5b6207beaa6c74dd831c9594dabe13247fb14d5252162f1a5e97761f",
+      "bytes": 106131
+    },
+    {
+      "path": "artifacts/schematic-a4-page-10.svg",
+      "sha256": "0e481632d05c929458d2102aecdeb2c3651b12e54ace1a869cc5f9bb315934aa",
+      "bytes": 81862
+    },
+    {
+      "path": "artifacts/schematic-a4-page-11.svg",
+      "sha256": "c9448b0f4e3f247585452137f24a7746366256f515d8f3d3c8ed0f501596f3eb",
+      "bytes": 82880
+    },
+    {
+      "path": "artifacts/schematic-a4-page-12.svg",
+      "sha256": "098e774c27471011c36318b1ddca07460f8fb4b2b57c244307015349ab8caf3d",
+      "bytes": 97412
+    },
+    {
+      "path": "artifacts/schematic-a4-page-13.svg",
+      "sha256": "220d3fc40fe47941d449fceb362f7e7f34dcac47ce31c69a1b1265990c420a51",
+      "bytes": 69532
+    },
+    {
+      "path": "artifacts/schematic.svg",
+      "sha256": "34b646a019a8cf151ec3c601e5cbbee6bb62c0a2ff56094364088fb3bded650f",
+      "bytes": 185031
+    },
+    {
+      "path": "artifacts/shorts-output.txt",
+      "sha256": "98ccc8689b6a81db2840368894d9370021add369e2d3f747e040164fff805b9a",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/trace-width-review.json",
+      "sha256": "ee0c73ef4025ddab84db92155d55fe451d140e4f767031714edd37b6c3016a9f",
+      "bytes": 1153586
+    },
+    {
+      "path": "artifacts/validation-resume/connectivity.txt",
+      "sha256": "fb00cf1c10fab0295b9008152f027e1130dbe9d49400cfd1426b017be762358c",
+      "bytes": 204
+    },
+    {
+      "path": "artifacts/validation-resume/copper_widths.txt",
+      "sha256": "94ef5a3fd2a392796137da2a660b3cc0d238655e7b75c5b7c82746ede412ec72",
+      "bytes": 105
+    },
+    {
+      "path": "artifacts/validation-resume/drc.txt",
+      "sha256": "3d1d43c0f7974db0209fd145595722dc246a6058ea956d9d669700751bfe667a",
+      "bytes": 248
+    },
+    {
+      "path": "artifacts/validation-resume/exact_mounts_and_actual_drills.txt",
+      "sha256": "7edf89c9188474fae16a965cec91d824947df5e01751026fa595960eaeafb26a",
+      "bytes": 1811
+    },
+    {
+      "path": "artifacts/validation-resume/fitted_JST_and_actual_drills.txt",
+      "sha256": "1ac2818ecd72ad9815cc2af9b7631cbf68d589449250dca3827aae39500ec2da",
+      "bytes": 4094
+    },
+    {
+      "path": "artifacts/validation-resume/full_independent_CAM.txt",
+      "sha256": "d910b8ea730f1b4b6fe4f811c45f3409d37d819e56c58d98fd7e72f9defa2396",
+      "bytes": 47654
+    },
+    {
+      "path": "artifacts/validation-resume/gerber_shorts.txt",
+      "sha256": "98ccc8689b6a81db2840368894d9370021add369e2d3f747e040164fff805b9a",
+      "bytes": 41
+    },
+    {
+      "path": "artifacts/validation-resume/native_json_checks.txt",
+      "sha256": "6b1891d669cc7500612cf8bc9c0e22700688013a25bb89ad425f3de2ef1f4ad3",
+      "bytes": 22
+    },
+    {
+      "path": "artifacts/validation-resume/native_netlist.txt",
+      "sha256": "996ab1fe122fc08af7a59eacba2a3c743a19154b164c5e10c971c5443a5e54ce",
+      "bytes": 15832
+    },
+    {
+      "path": "artifacts/validation-resume/native_pin_specification.txt",
+      "sha256": "6b1891d669cc7500612cf8bc9c0e22700688013a25bb89ad425f3de2ef1f4ad3",
+      "bytes": 22
+    },
+    {
+      "path": "artifacts/validation-resume/native_placement.txt",
+      "sha256": "087b53da9d9b3664761d054ca2f04c06ce0f1559b8793ed592109f640db9cb92",
+      "bytes": 5081
+    },
+    {
+      "path": "artifacts/validation-resume/native_schematic-placement.txt",
+      "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+      "bytes": 1
+    },
+    {
+      "path": "artifacts/validation-resume/native_source.txt",
+      "sha256": "6b1891d669cc7500612cf8bc9c0e22700688013a25bb89ad425f3de2ef1f4ad3",
+      "bytes": 22
+    },
+    {
+      "path": "artifacts/validation-resume/typescript.txt",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    {
+      "path": "dist/index/circuit.json",
+      "sha256": "16c6e5387bd84ea1e7e043fe3fb01b8ad213ab4dc0aa21664aaff9afd2037fc4",
+      "bytes": 3104594
+    },
+    {
+      "path": "docs/cloud-start.md",
+      "sha256": "d329a7f869624bf0126e92f93b19bad2e4bee0deaeaac618591f0bda72b8722a",
+      "bytes": 2106
+    },
+    {
+      "path": "docs/electrical.md",
+      "sha256": "faa24b9ded402fb8cee6ba9bfd82a050c032029e6d54a85952a855821af0e461",
+      "bytes": 7650
+    },
+    {
+      "path": "docs/firmware-interface.md",
+      "sha256": "c97d8171e4c2ae9f94ac56751b11a0b4193a75d85ec657063ad8867631cc861f",
+      "bytes": 1694
+    },
+    {
+      "path": "docs/jst-restoration.md",
+      "sha256": "a76c6b34ebc70683eb51ee54c630c1366079ed03bdfd290db159ffbca04113ac",
+      "bytes": 4475
+    },
+    {
+      "path": "docs/mounting-usb-verification.md",
+      "sha256": "995cca36bc6bed0c4d4a058f3d70cf5cfef395cdf292448bdeed060173c3f686",
+      "bytes": 9793
+    },
+    {
+      "path": "docs/publication-verification.md",
+      "sha256": "d51b1ac92e95ce3a1de50909ea77d7cda1958ee14f5cac7eab60960a901f73b1",
+      "bytes": 1382
+    },
+    {
+      "path": "docs/routing.md",
+      "sha256": "3d8c6c7aca4e091d4c00ad5ea88a5376bb416d7e7b13ddca052897dfec9e48a8",
+      "bytes": 2669
+    },
+    {
+      "path": "docs/sources.md",
+      "sha256": "dcd4c684a9477564a947d48d271510ed56ba93707051b7a8956e675a70153e9d",
+      "bytes": 2968
+    },
+    {
+      "path": "docs/supplier-cad.md",
+      "sha256": "cfefb281ef1da6213631d64b746f5f903ad0e110ce1425285275a4ec4fdb0f60",
+      "bytes": 2234
+    },
+    {
+      "path": "docs/usb-programming.md",
+      "sha256": "978b62efb52da4bbff831584f938d2087a7ead689e02bb3170b30a3710cd9e8f",
+      "bytes": 1193
+    },
+    {
+      "path": "docs/validation.md",
+      "sha256": "c9d14beae75134e587ac12039e362d246aa7ac4862915f7bff31c2b46db3cd20",
+      "bytes": 2410
+    },
+    {
+      "path": "imports/supplier/A4988SETTR_T/A4988SETTR_T.tsx",
+      "sha256": "0431d33affb24689e8069ccaa07be466760ea3fdf6d3055bfd98f2010ec0a8ab",
+      "bytes": 8919
+    },
+    {
+      "path": "imports/supplier/ABM8_272_T3/ABM8_272_T3.tsx",
+      "sha256": "1e33d65cc6ccb4c908895d46a48c8570cb56aad43b4f7d5fccb60d31c692837b",
+      "bytes": 4327
+    },
+    {
+      "path": "imports/supplier/AP63203WU_7/AP63203WU_7.tsx",
+      "sha256": "74665b13fa8f6562c7ca3c4d518e69d8fbadcb620be6a905916ec0aa1528b6b3",
+      "bytes": 3519
+    },
+    {
+      "path": "imports/supplier/A_0402CG150J500NT/A_0402CG150J500NT.tsx",
+      "sha256": "52921cce03f8f4098a253c804cff2ee47f3b513acd345886af0e324d04008032",
+      "bytes": 3579
+    },
+    {
+      "path": "imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE.tsx",
+      "sha256": "4cbb17cc65a47ad1282b1b4fc84aee32ed3a2b6d0cb5f1d5c697d9e66afd3de9",
+      "bytes": 2534
+    },
+    {
+      "path": "imports/supplier/A_0402WGF1002TCE/A_0402WGF1002TCE.tsx",
+      "sha256": "c212152986452089713c57abe77ee1619fde2e5ac3850e0e6781ddc1321b4bd7",
+      "bytes": 2535
+    },
+    {
+      "path": "imports/supplier/A_0402WGF1003TCE/A_0402WGF1003TCE.tsx",
+      "sha256": "50eec906a750921a0f2a776b75761971622841039216d54c8419b35be4b1ea3f",
+      "bytes": 2536
+    },
+    {
+      "path": "imports/supplier/A_0402WGF270JTCE/A_0402WGF270JTCE.tsx",
+      "sha256": "5bf14306ce88e7d98c4cdaa861418d3b1804e4322040aa7b039431f447a6cb91",
+      "bytes": 2364
+    },
+    {
+      "path": "imports/supplier/A_0402WGF5101TCE/A_0402WGF5101TCE.tsx",
+      "sha256": "357f43d2cd0911c68cbc0cdcf5494fc16e336855f5552601d8fea25917751e80",
+      "bytes": 2366
+    },
+    {
+      "path": "imports/supplier/A_0603WAF1001T5E/A_0603WAF1001T5E.tsx",
+      "sha256": "632814b60be57eadc6e1b821fdd47919253601624d7841bb89a8df5c85060ae3",
+      "bytes": 2553
+    },
+    {
+      "path": "imports/supplier/A_0603WAF1002T5E/A_0603WAF1002T5E.tsx",
+      "sha256": "4e37600ca2d5a23c4a67d15eafb837f989220fcc03cd423bfa5d5fc2e7e549dd",
+      "bytes": 2554
+    },
+    {
+      "path": "imports/supplier/A_0603WAF1003T5E/A_0603WAF1003T5E.tsx",
+      "sha256": "fd04dab1cad2dfadef1ebe97645e7fa4f2d8af525974f9b34c6ad37461c955ea",
+      "bytes": 2555
+    },
+    {
+      "path": "imports/supplier/A_0603WAF2202T5E/A_0603WAF2202T5E.tsx",
+      "sha256": "ecf7f25d50e539d0566fc559dcebe9f01c0983c5be93d7d9cfdabac69a79dc6e",
+      "bytes": 2384
+    },
+    {
+      "path": "imports/supplier/A_0603WAF3902T5E/A_0603WAF3902T5E.tsx",
+      "sha256": "f467c7898ae6e929bd37639e9200b9f27c233bb135d646c2838be93d78484a93",
+      "bytes": 2384
+    },
+    {
+      "path": "imports/supplier/A_0603WAF5101T5E/A_0603WAF5101T5E.tsx",
+      "sha256": "0525381b2f861258fe96248204de07cf42a50cee610ae49a980000a071fc620c",
+      "bytes": 2385
+    },
+    {
+      "path": "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.tsx",
+      "sha256": "5b84219998e5aca9b3a9089f2fb3af212587e79751f61eb2ad8d80c19c985386",
+      "bytes": 2742
+    },
+    {
+      "path": "imports/supplier/B5819W_SL/B5819W_SL.tsx",
+      "sha256": "f1366bfd20ed198227dd5d5edbe66cb9dc10f94237c59ceacbdcc661dec55b9b",
+      "bytes": 4675
+    },
+    {
+      "path": "imports/supplier/CC0603KRX7R9BB104/CC0603KRX7R9BB104.tsx",
+      "sha256": "0d2961aae20a29dba48fd204befe20e4521ac7ba3cf4a4959705dc9c43c041bd",
+      "bytes": 3555
+    },
+    {
+      "path": "imports/supplier/CC0805KRX7R9BB104/CC0805KRX7R9BB104.tsx",
+      "sha256": "dc5ca608597783eddb1b209c0466757b7052ec84f61411e0aa9787774cb7f8a0",
+      "bytes": 3405
+    },
+    {
+      "path": "imports/supplier/CH224K/CH224K.tsx",
+      "sha256": "6938e26a2c58100cf9cd85c6be4234aefce1a74cf74c2d517679e07ca8581861",
+      "bytes": 4685
+    },
+    {
+      "path": "imports/supplier/CL05A105KA5NQNC/CL05A105KA5NQNC.tsx",
+      "sha256": "e0faec00a14ee81edf3fcd8bf5af713800ac6bf151d2abe9bdba161ea228ecb9",
+      "bytes": 3569
+    },
+    {
+      "path": "imports/supplier/CL05B103KB5NNNC/CL05B103KB5NNNC.tsx",
+      "sha256": "23b7ee591f5b9d7e209f034ba4091bb382e7b0c3ff3f49b28a1614a1e5b43392",
+      "bytes": 3399
+    },
+    {
+      "path": "imports/supplier/CL05B104KO5NNNC/CL05B104KO5NNNC.tsx",
+      "sha256": "76f87aa85d675e01777900018eb21a19c9a7adcc6b37fcb8703b92e46d269a15",
+      "bytes": 3570
+    },
+    {
+      "path": "imports/supplier/CL10A105KB8NNNC/CL10A105KB8NNNC.tsx",
+      "sha256": "9b25dca4bf04482df97e2846cfbcf5936a127ce807c1d633437ba5ed9d5807b9",
+      "bytes": 3541
+    },
+    {
+      "path": "imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.tsx",
+      "sha256": "122492063d43dbbffdd89fc491125bbcb38918332197ec8e0d7d3f8dcb4fb698",
+      "bytes": 3370
+    },
+    {
+      "path": "imports/supplier/CL10B224KA8NNNC/CL10B224KA8NNNC.tsx",
+      "sha256": "610c922dd7d23bb58a8e524463b1dec9b7b046d2258777c5c031f35369d6ba23",
+      "bytes": 3372
+    },
+    {
+      "path": "imports/supplier/CL21A226MAQNNNE/CL21A226MAQNNNE.tsx",
+      "sha256": "3c461ed8939a99d83e4ccdf5245d7470bca86411ab21852d314775a40f0d1ec2",
+      "bytes": 3388
+    },
+    {
+      "path": "imports/supplier/CL31A106KBHNNNE/CL31A106KBHNNNE.tsx",
+      "sha256": "1fc334d12ed92a652063b2e544d71981439ea553112b743a281fc991173f8d17",
+      "bytes": 3351
+    },
+    {
+      "path": "imports/supplier/ERJPA3F1001V/ERJPA3F1001V.tsx",
+      "sha256": "288b823f67d0cc78c71075a2c4dbb367c9bc0812efafa3046d85df46a1b37ca1",
+      "bytes": 2056
+    },
+    {
+      "path": "imports/supplier/FRL0805FR240TS/FRL0805FR240TS.tsx",
+      "sha256": "870f57376103fa49055254262a63103ccfbca17d37475bf5cce72695cd221a0e",
+      "bytes": 2371
+    },
+    {
+      "path": "imports/supplier/GD25Q16EEIGR/GD25Q16EEIGR.tsx",
+      "sha256": "62e8b24eba27ad95e9a352233033e3c538ca9deb70bdd02d54792fbae64099be",
+      "bytes": 3416
+    },
+    {
+      "path": "imports/supplier/RP2040/RP2040.tsx",
+      "sha256": "da1495a522b7df8b3cfcf196e98190e1fc470565747b10e1e2063620f318f150",
+      "bytes": 22397
+    },
+    {
+      "path": "imports/supplier/RVT1V470M0605/RVT1V470M0605.tsx",
+      "sha256": "46381f53cde41f452db917823e0448528ff4ee5c7019452998d3e7119096fe5d",
+      "bytes": 3372
+    },
+    {
+      "path": "imports/supplier/SMF18A/SMF18A.tsx",
+      "sha256": "7b2d8cd3fe253391c45980f85de789d4acde539e1a2832dc0d497bcec0609f0c",
+      "bytes": 4764
+    },
+    {
+      "path": "imports/supplier/SRN4018_4R7M/SRN4018_4R7M.tsx",
+      "sha256": "e3ed93b102d2ee65bba5a3a42f528a62b36db10df5d15db503ed034ecf6db38d",
+      "bytes": 2234
+    },
+    {
+      "path": "imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.tsx",
+      "sha256": "22fc08367928e046a7adfa618f2a4aefd27f3ef13c61156df0d52b7707bfff83",
+      "bytes": 7448
+    },
+    {
+      "path": "imports/supplier/USBLC6_2SC6/USBLC6_2SC6.tsx",
+      "sha256": "10d57aad9b62f112cb4b3efcabe61b5df3230bbe41d18fcb20fc6cf92ef5cb8e",
+      "bytes": 3231
+    },
+    {
+      "path": "index.circuit.json",
+      "sha256": "e0eb78cb5f08448263799497cc9e18804404e96a8ba2a053866ebdef06fbda9e",
+      "bytes": 3105000
+    },
+    {
+      "path": "index.circuit.tsx",
+      "sha256": "15ad1f5d90399ab207943f34bde5b8abbd5880aacd293de7e3e51d480752cedb",
+      "bytes": 130
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "42ff3b2c8dd01a62df3513aaf0d374f8a4fda9e339ab1943c0b4f9aa514a5e7f",
+      "bytes": 165743
+    },
+    {
+      "path": "package.json",
+      "sha256": "c04ba2e9dde994ef59c7af1f483d21319c611fb3f8efdca087805e2792b0d8b3",
+      "bytes": 2179
+    },
+    {
+      "path": "scripts/apply-saved-adjustments.py",
+      "sha256": "012a1def4f73b944953e7d2fa2fff17caae554a7e7c476088aefd759190c3bae",
+      "bytes": 1027
+    },
+    {
+      "path": "scripts/audit-manufacturing.py",
+      "sha256": "71c9aad6606af8f8d95a3e5a67dda009f7daad7b6b15d59e118ca95c4bb57e41",
+      "bytes": 28148
+    },
+    {
+      "path": "scripts/audit-trace-widths.py",
+      "sha256": "69851821855e919661043c520780563bc747b40205aa634e4c0e654484e3a87d",
+      "bytes": 7771
+    },
+    {
+      "path": "scripts/build.tsx",
+      "sha256": "1afa5c690f257d9340d7a8ca59b1c9b8ad51b64274430a2644ac7856fca16c81",
+      "bytes": 1534
+    },
+    {
+      "path": "scripts/check-mechanical-mounts.py",
+      "sha256": "6081eaddb4634da46c20637c71b4a92aa9bdb35115d16bdef3d65f0a97f772d6",
+      "bytes": 8113
+    },
+    {
+      "path": "scripts/check-motor-connector.py",
+      "sha256": "3e34984d2d00eb28fda5aef7b8e32e6261ce8036cd52106882ec812406c4d88e",
+      "bytes": 4726
+    },
+    {
+      "path": "scripts/check-mount-drills.py",
+      "sha256": "3b2709d94038e643fcb3d54a29a00ea619331b138fb8b7b773c3b804a7449fa4",
+      "bytes": 2324
+    },
+    {
+      "path": "scripts/check.ts",
+      "sha256": "bb940cf06e1df6cf3b7cf19570173917c3a58e1b3e06a31733f2c06260b1581c",
+      "bytes": 11585
+    },
+    {
+      "path": "scripts/classify-source.ts",
+      "sha256": "d65b8b77430a4f85679748f1139c210641aeba338b1cf6f1ce2ae285a8e14452",
+      "bytes": 429
+    },
+    {
+      "path": "scripts/clean-same-side-copper.py",
+      "sha256": "da8eea4c4bad23f12b3eb7e637bf28ed73d6aeffcfd3acef90ff68f9a0d2ce8f",
+      "bytes": 1067
+    },
+    {
+      "path": "scripts/cloud-install.sh",
+      "sha256": "d48d3ade45dbe7aa988b55acbd643c881cdd27ddcdc4c5c087f4374f6ad0316c",
+      "bytes": 1062
+    },
+    {
+      "path": "scripts/export-a4-pdf.py",
+      "sha256": "b55f2932b649835bfd2feb18f712199a75b22e5514d3e73e4b6f95afee70019a",
+      "bytes": 742
+    },
+    {
+      "path": "scripts/export-router.py",
+      "sha256": "606aa0423a866fc19b880c3dfec9311010b1c10aea9878783cbdc5b4385c1ab0",
+      "bytes": 5685
+    },
+    {
+      "path": "scripts/export-supplier-router.py",
+      "sha256": "632db54d0566903c10406fcd45d6174a0e89ca1c49597d13686435a42f2a175c",
+      "bytes": 6904
+    },
+    {
+      "path": "scripts/fill-ground.py",
+      "sha256": "5094b50c28bf0c87f893ab5a3e9d4bd6903196f8b7f4dc1597663b9df5705545",
+      "bytes": 3386
+    },
+    {
+      "path": "scripts/import-session.py",
+      "sha256": "5a3c82d86376ab9b786714131c502ce4ac1df7ce19b8223eb39d8136cda94c75",
+      "bytes": 6026
+    },
+    {
+      "path": "scripts/import-supplier-session.py",
+      "sha256": "7632918ab5c7064377c914d37a491703ac121d7e8cb5a16dac587e0712404047",
+      "bytes": 6992
+    },
+    {
+      "path": "scripts/normalize-assembly.ts",
+      "sha256": "533faf75809610cd3667f3e69e4ed5bd64700f42314f1a141deca172b2e15955",
+      "bytes": 578
+    },
+    {
+      "path": "scripts/prepare-same-side-routing.py",
+      "sha256": "080e492b50af3d644c3a7cc32ebd23da859264e52aa3efe6f16134b36be6d3a1",
+      "bytes": 6438
+    },
+    {
+      "path": "scripts/prepare-schematic.ts",
+      "sha256": "b79fdc8eda8168a297ff5c44f7aa944ca91f41344719eef037da68c8c3cda56a",
+      "bytes": 7728
+    },
+    {
+      "path": "scripts/prune-same-side-stubs.py",
+      "sha256": "a24f46db7e6f10eaaa86b31a6e23b43cf76c8f38c5339c090ae0453ac0431515",
+      "bytes": 1177
+    },
+    {
+      "path": "scripts/publish-tscircuit.sh",
+      "sha256": "0cfe10c8d4917ca12ac7bf5ef0276487162dc7a46c370131d9065b5c764c5f3b",
+      "bytes": 5194
+    },
+    {
+      "path": "scripts/record-same-side-proof.py",
+      "sha256": "be6cf79a76e782ff1900109d2b83d08493d861b1ebae2a8a2bb9941a5177e254",
+      "bytes": 4793
+    },
+    {
+      "path": "scripts/render-same-edge-fit.py",
+      "sha256": "d47eb7b49e542a3b10d0abd1e43518b0b9f594ba8679be0d02d5c3644c54c198",
+      "bytes": 3706
+    },
+    {
+      "path": "scripts/render.ts",
+      "sha256": "e62dc1dac07b0781edf52a8b9e7c804da0a4e3c018e9032a21cfc78b772db7e3",
+      "bytes": 1364
+    },
+    {
+      "path": "scripts/repair-same-side-copper.py",
+      "sha256": "d94f8ee5f2d41b271343d32034420440e1a92a0b8fd8acddda0d26af2b1195c5",
+      "bytes": 12056
+    },
+    {
+      "path": "scripts/repair-supplier-routing.py",
+      "sha256": "196510551d7d24a6c95badc0e2846681f64af55575d7f88831cbd7ac98327b3d",
+      "bytes": 5909
+    },
+    {
+      "path": "scripts/replay-supplier-adjustments.py",
+      "sha256": "360c3ff6adee6d930ba28a2d7aabe43b8714927bd253b8a4be51267bf33c97c2",
+      "bytes": 714
+    },
+    {
+      "path": "scripts/report-presentation.py",
+      "sha256": "7444a966a4557646f054b0ff144311d7578842f23510b1e3dec78bbb9575b4a3",
+      "bytes": 6327
+    },
+    {
+      "path": "scripts/report.py",
+      "sha256": "a77538a283bf5fead0347c222a0821a422d5b91e12b5a351a20b0e154e0787d9",
+      "bytes": 121
+    },
+    {
+      "path": "scripts/requirements-router.txt",
+      "sha256": "0724fcd1e9691bc6a41cb4173d78edbc293fc801621afd8b4653b4227b9d4096",
+      "bytes": 87
+    },
+    {
+      "path": "scripts/reserve-router-fanouts.py",
+      "sha256": "246c2448e4c0a87069a54be12ee7b76975779c668c7a04d9f3e760f873d641d9",
+      "bytes": 8938
+    },
+    {
+      "path": "scripts/review-power-copper.py",
+      "sha256": "473964c8bcabbc0277b3441b0e38d5e7e04302fbbc57ab6817602be88d934a63",
+      "bytes": 3728
+    },
+    {
+      "path": "scripts/routing_grid.py",
+      "sha256": "506bfdfc1b4da36ee5c4b61772723ccac2b51d1d606e2a2852830ef0bd6e5d59",
+      "bytes": 5581
+    },
+    {
+      "path": "scripts/run-resume-checks.py",
+      "sha256": "d10fcdf793003f501ebd8fa5836135316890bf78554df47440e9d05872fd2f1e",
+      "bytes": 2829
+    },
+    {
+      "path": "scripts/schematic-review-ui.py",
+      "sha256": "d61c5b414c5ec6a71db294284a94fd1aee5e32e079af8c56b00932fa2607d4be",
+      "bytes": 4265
+    },
+    {
+      "path": "scripts/sync-presentation.py",
+      "sha256": "1f53bf460508a0fe8447b9421ac22e9f94cf1bab62a4a65c929e726f533236b4",
+      "bytes": 2191
+    },
+    {
+      "path": "scripts/sync-reviewed-mounting.py",
+      "sha256": "653112cfb466f2a18c3fa92d4072926351fc9df56d914ec601d99a643b40f6a5",
+      "bytes": 2610
+    },
+    {
+      "path": "scripts/trace-linter.sha256",
+      "sha256": "3fbf57f9554b2b2b864afd0b754f7643052beef8f060cedbe7200a0fe741c163",
+      "bytes": 1276
+    },
+    {
+      "path": "scripts/trim-same-side-stubs.py",
+      "sha256": "4157e5e6dc40c1541c7c2f052a5f282d6626034185495fa9e3b996185d948248",
+      "bytes": 2945
+    },
+    {
+      "path": "scripts/verify-connectivity.py",
+      "sha256": "56868d157b9dcf72b55fe74b18f6be1b04610721492c8bcef22b913cd0672249",
+      "bytes": 148
+    },
+    {
+      "path": "scripts/verify-publication.py",
+      "sha256": "0ca268c66fac69d419ae2f163ff931da7a02cb48f3faddcc66bb80565107b221",
+      "bytes": 9685
+    },
+    {
+      "path": "scripts/verify_supplier_connectivity.py",
+      "sha256": "51d7063070595f69b4ddfc878f43b7ed6f27d6b3305d54d5cbbd1d9fe01eb08e",
+      "bytes": 3832
+    },
+    {
+      "path": "src/board.tsx",
+      "sha256": "87794c00a1111c0d7b34e3b19b7991ed7f912f94c72a490862ec8edc7cd2ad2b",
+      "bytes": 12335
+    },
+    {
+      "path": "src/jlcpcb-catalog.json",
+      "sha256": "83d35a88c9c46c7361ebfceda95998ebb48ff30f9dc7550c93009891ead96ce3",
+      "bytes": 31197
+    },
+    {
+      "path": "src/pin-attributes.ts",
+      "sha256": "ad06f7c2e6b1a449961871a00b1e53022c455c20b1a7ba936263894b89665f81",
+      "bytes": 1783
+    },
+    {
+      "path": "src/schematic-notes.json",
+      "sha256": "23093356732c9085e2c192697bba59e7ea089c26db30d88bb9a3579ba1b4ede9",
+      "bytes": 1109
+    },
+    {
+      "path": "src/schematic-notes.tsx",
+      "sha256": "00c9561e5b64aa87967fa5def58fe0a699906bc262ba84db1e37c8daa8136b7b",
+      "bytes": 884
+    },
+    {
+      "path": "src/supplier-parts.tsx",
+      "sha256": "c2d89aa0ac297b88a30edd98b9868b4c67cfa42e23523587a493bae16cd913f4",
+      "bytes": 4649
+    },
+    {
+      "path": "src/supplier-placement.json",
+      "sha256": "69b1a85b2518e4214f85e3f6146c4e606b59788ee3f764a4fd08878977479fdf",
+      "bytes": 4761
+    },
+    {
+      "path": "tscircuit.config.json",
+      "sha256": "b1ddd09de066755d41b9428dbbd9a8fa362bf401647480ec36d90d7382b5939b",
+      "bytes": 147
+    },
+    {
+      "path": "tsconfig.json",
+      "sha256": "f1f115c6efe5e681adf51faf26b9217d0a4cbdc20120a57de109ebd80fae6df4",
+      "bytes": 431
+    }
+  ]
+}
