@@ -8,6 +8,7 @@ import json
 import math
 from pathlib import Path
 import sys
+from urllib.parse import parse_qs, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 path = Path(sys.argv[1]) if len(sys.argv) > 1 else ROOT / 'artifacts/board.circuit.json'
@@ -156,7 +157,8 @@ else:
 
 motor_rows = [(1, 'A_PLUS', 'Black', 24), (2, 'A_MINUS', 'Green', 21),
               (3, 'B_PLUS', 'Red', 26), (4, 'B_MINUS', 'Blue', 1)]
-require(ours.components['J_MOTOR'].get('manufacturer_part_number') == 'B4B-PH-K-S(LF)(SN)', 'Exact JST PH header required')
+require(ours.components['J_MOTOR'].get('manufacturer_part_number') == 'B4B-PH-K-S(LF)(SN)' and
+        ours.components['J_MOTOR'].get('supplier_part_numbers', {}).get('jlcpcb') == ['C131334'], 'Exact JST PH header required')
 for pin, expected, color, driver_pin in motor_rows:
     net('J_MOTOR', pin, expected)
     net('U_DRV', driver_pin, expected)
@@ -166,7 +168,16 @@ for pin, expected, color, driver_pin in motor_rows:
     require(abs(ours.pad('J_MOTOR', pin)['hole_diameter'] - .75) < 1e-6, 'JST finished drill requirement changed')
 for circuit, name in [(ours, 'J_MOTOR'), (ref, 'J1')]:
     cad = next(e for e in circuit.rows if e['type'] == 'cad_component' and e['source_component_id'] == circuit.components[name]['source_component_id'])
-    require('C131334' in cad.get('model_step_url', ''), name + ': exact supplier STEP required')
+    model_url = urlsplit(cad.get('model_step_url', ''))
+    supplier_model = model_url.netloc == 'modelcdn.tscircuit.com' and model_url.path == '/easyeda_models/assets/C131334.step'
+    registry_model = False
+    if circuit is ours and model_url.netloc == 'registry-api.tscircuit.com' and model_url.path == '/package_files/download':
+        # Publication changes only the URL, keeping the exact supplier asset bytes.
+        catalog = json.loads((ROOT / 'src/jlcpcb-catalog.json').read_text())
+        expected_paths = [f for f in catalog['parts']['C131334']['modelFiles'] if f.endswith('.step')]
+        query = parse_qs(model_url.query)
+        registry_model = query.get('file_path', [None])[0] in expected_paths
+    require(supplier_model or registry_model, name + ': exact supplier STEP required')
     # Native model terminal row x=0,2,4,6, y=0. Match each terminal to its PCB pad.
     a = math.radians(cad['rotation']['z'])
     for pin in range(1, 5):
