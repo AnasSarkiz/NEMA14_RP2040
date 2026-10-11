@@ -4,6 +4,7 @@ import { readFileSync, writeFileSync } from "node:fs"
 import { runAllChecks, checkViasInPads } from "@tscircuit/checks"
 const json=JSON.parse(readFileSync('artifacts/board.circuit.json','utf8'))
 const checks=await runAllChecks(json)
+const connectorAudit=spawnSync('python3',['scripts/audit-connector-pinout.py'],{encoding:'utf8'})
 // Permit only the three explicit grounded thermal vias inside exposed pads.
 const thermalNames=['U_MCU','U_DRV','U_PD','R_SA','R_SB']
 const thermalCenters:Array<[number,number]>=json.filter((p:any)=>p.type==='pcb_smtpad' && p.width>1 && p.height>1 && json.some((c:any)=>c.type==='pcb_component' && c.pcb_component_id===p.pcb_component_id && json.some((s:any)=>s.type==='source_component' && s.source_component_id===c.source_component_id && thermalNames.includes(s.name)))).map((p:any)=>[p.x,p.y])
@@ -19,6 +20,7 @@ checks.push(...checkViasInPads(strict))
 const renderErrors=json.filter((e:any)=>e.type.endsWith('_error'))
 const errors=[...renderErrors,...checks.filter((e:any)=>e.type.endsWith('_error'))]
 const unique=[...new Map(errors.map((e:any)=>[e.message,e])).values()]
+if(connectorAudit.status!==0) unique.push({type:'validation_error',message:'Numbered USB/JST connector audit failed: '+connectorAudit.stdout+connectorAudit.stderr})
 for (const type of ['pcb_trace','pcb_via','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_copper_pour']) {
  const ids=json.filter((e:any)=>e.type===type).map((e:any)=>e[type+'_id'])
  if(new Set(ids).size!==ids.length) unique.push({type:'validation_error',message:'Duplicate circuit record IDs: '+type})

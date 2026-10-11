@@ -1,0 +1,59 @@
+{
+  "status": "PASS",
+  "input": "artifacts/final-source.circuit.json",
+  "circuit_json_sha256": "2b64308cea7bba8fe1c431950e059fe74c5a571fee6995c43b666f83d1614418",
+  "reference": {
+    "package": "imrishabh18/rp2040-motor-controller@1.0.42",
+    "release_id": "e8d285f7-c3d8-46f5-9a54-344fdde0124e",
+    "url": "https://tscircuit.com/imrishabh18/rp2040-motor-controller",
+    "registry": "https://registry-api.tscircuit.com",
+    "retrieved_utc": "2026-10-11",
+    "circuit_json_sha256": "34707c3ea003cc69b89c381fcfc587d3797e14e8f6cdaee665689d08d022adeb",
+    "source_files_sha256": {
+      "imports/TYPE_C_31_M_12.tsx": "7d3f0afe8f5b014edcfb3716ccf542929ae9d45550701aaa8bc63f2700c77bda",
+      "imports/usb-c-20v.tsx": "a3dd494817360933eda4041639cefdc3b949af219aecbc0cd630b4fa02d5e486",
+      "schematic/MotorOutputsSection.tsx": "a2b35e2b424d0c9cb37382f64d5655a68db2561c8d2d18c2c308c5c3f6e5ecef",
+      "schematic/MotorPowerPdNegotiationSection.tsx": "b8a8b433ca17ca64d34fc1550aa844d0db5ee145ca3922d2ecde761d0f1d7949",
+      "vendor/rp2040.js": "048b1005d26f5fc744fcdd48a321a7ba2d9c12d2c541f289094752afb335e76a"
+    },
+    "extract_scope": "Only named connector, termination, PHY, PD and motor endpoint records; geometry is exact from downloaded release CircuitJSON. Not a reference-board DRC review."
+  },
+  "reference_extract_sha256": "fc7e622bcad1d4c58b4f717ca19654480c7490e69949b92c42da9701ca57758e",
+  "checked_usb_supplier_contacts": 32,
+  "checked_motor_contacts": 4,
+  "reference_geometry_comparison_tolerance_mm": 0.001,
+  "motor_mapping": [
+    {
+      "pin": 1,
+      "phase": "A_PLUS",
+      "wire": "Black",
+      "a4988_pin": 24
+    },
+    {
+      "pin": 2,
+      "phase": "A_MINUS",
+      "wire": "Green",
+      "a4988_pin": 21
+    },
+    {
+      "pin": 3,
+      "phase": "B_PLUS",
+      "wire": "Red",
+      "a4988_pin": 26
+    },
+    {
+      "pin": 4,
+      "phase": "B_MINUS",
+      "wire": "Blue",
+      "a4988_pin": 1
+    }
+  ],
+  "intentional_differences": [
+    "Fixed15V PD-only, no legacy DP/DM negotiation (WCH section5.5); reference supports legacy protocols and configurable5-20V.",
+    "A4988 direct phase outputs; reference DRV8825 positive phases pass through telemetry shunts.",
+    "CH32 uses its WCH PHY circuit; RP2040 retains27ohm series resistors as in reference.",
+    "Existing supplier shell slots0.8x1.2/1.5mm versus reference0.8x1.4/1.6mm. Contact centres and copper outlines match; insertion/wetting require supplier/sample acceptance."
+  ],
+  "qualification": "CAD only. USB reversibility/enumeration/PD/backfeed and numbered housing/winding continuity require prototype tests. JST PH does not define a universal motor pinout.",
+  "errors": []
+}

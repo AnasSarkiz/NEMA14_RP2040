@@ -1,0 +1,30 @@
+{
+  "status": "PASS",
+  "scope": "Synthetic connectivity mutations only; original source and saved PCB were not edited.",
+  "cases": [
+    {
+      "mutation": "J_DATA swap physical pins(8, 9)",
+      "exit_code": 1,
+      "detected_errors": [
+        "J_DATA.8 must connect to USB_DP",
+        "J_DATA.9 must connect to USB_DM"
+      ]
+    },
+    {
+      "mutation": "J_PD swap physical pins(6, 12)",
+      "exit_code": 1,
+      "detected_errors": [
+        "J_PD.6 must connect to PD_CC1",
+        "J_PD.12 must connect to PD_CC2"
+      ]
+    },
+    {
+      "mutation": "J_MOTOR swap physical pins(1, 2)",
+      "exit_code": 1,
+      "detected_errors": [
+        "J_MOTOR.1 must connect to A_PLUS",
+        "J_MOTOR.2 must connect to A_MINUS"
+      ]
+    }
+  ]
+}

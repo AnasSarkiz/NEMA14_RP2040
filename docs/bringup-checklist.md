@@ -26,3 +26,10 @@ Use the proposed [supported operating envelope](supported-operating-envelope.md)
 Orders, publication and production release are outside this task. No hardware or supplier test has been performed.
 
 DATA-only 3V3 target: ≤75 mA, with the buzzer disabled. Measured USB DATA input must remain ≤100 mA in all steady states and source transitions, including PD loss during an alarm; a failed handover gate requires a hardware/power revision. The assumed70% conversion-efficiency screen is not a measured guarantee.
+
+## Connector qualification added by reference review
+
+- [ ] Use the [numbered contact table](connector-compatibility.md); meter the mated PHR-4 cavities to the header and motor. Confirm1blackA+,2greenA−,3redB+,4blueB− and winding pairs before powering. Do not trust a third-party PH cable's color/order.
+- [ ] Demonstrate DATA enumeration and ROM flashing with both USB-C plug orientations; demonstrate the15V PD contract and safe fallback with both power-plug orientations.
+- [ ] Measure both VBUS nets with PD-only, DATA-only, both insertion orders and either source removed. Confirm the computer port never receives the15V bus and assess diode reverse leakage/backfeed.
+- [ ] Obtain supplier/sample acceptance for all shell slot dimensions, stake insertion and solder wetting on1.6mm PCB. The reference has different slot lengths; electrical agreement does not qualify the mechanical fit.

@@ -22,7 +22,8 @@
     "assembly:assets": "/workspace/.routing-venv/bin/python scripts/export-tscircuit-assembly.py && /workspace/.routing-venv/bin/python scripts/normalize-tscircuit-assembly.py",
     "assembly:build": "bun build scripts/assembly-viewer.js --target browser --outfile artifacts/assembly-scene/viewer.js && bun scripts/build-assembly.tsx",
     "assembly:dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev assembly.circuit.tsx",
-    "assembly:check": "/workspace/.routing-venv/bin/python scripts/check-assembly.py"
+    "assembly:check": "/workspace/.routing-venv/bin/python scripts/check-assembly.py",
+    "check:connectors": "python3 scripts/audit-connector-pinout.py"
   },
   "repository": {
     "type": "git",
