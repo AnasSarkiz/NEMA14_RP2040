@@ -9,7 +9,7 @@ python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-for d in ['src','docs','scripts']:shutil.copytree(root/d,stage/d)
+for d in ['src','docs','scripts']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
 for f in ['index.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
