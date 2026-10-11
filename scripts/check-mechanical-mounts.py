@@ -69,9 +69,30 @@ for (a,s),(b,t) in itertools.combinations(plugs.items(),2):
  if v>1e-5:plug_intersections.append({'a':a,'b':b,'volume_mm3':v})
 plug_gap=plugs['J_PD'].distance(plugs['J_DATA'])
 assert plug_gap >= .39999, 'Two simultaneous 12 mm plugs need the reviewed 0.4 mm nominal gap'
-report={'source_path':str(source),'fastener_requirement':{'standard':'DIN 920','thread':'M3','maximum_head_diameter_mm':4,'model_envelope_diameter_mm':4.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'native_STEP_models':len(parts),'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'rear_motor_compatibility_verified':False,'limitations':['Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 12x30x7 mm procurement bound, not tested cable hardware.','Ø4.4 mm fastener envelope is a defined screen budget around Ø4 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
+# PH is a top-entry connector. Verify actual STEP leads, PCB envelope, and an unobstructed vertical insertion region.
+motor=parts['J_MOTOR'];motor_meta=meta['J_MOTOR'];motor_pcb=next(e for e in j if e['type']=='pcb_component' and e['source_component_id']==motor_meta['source_component_id'])
+motor_holes=[e for e in j if e['type']=='pcb_plated_hole' and e['pcb_component_id']==motor_pcb['pcb_component_id']]
+assert len(motor_holes)==4
+lead_section=motor.copy().intersect(cq.Workplane('XY').box(35,35,.0001).val().translate((0,0,-1.2)))
+lead_centres=[]
+for lead in lead_section.Solids():
+ b=lead.BoundingBox();lead_centres.append([(b.xmin+b.xmax)/2,(b.ymin+b.ymax)/2])
+assert len(lead_centres)==4, 'Four original STEP leads must intersect the below-board inspection plane'
+lead_alignment=[{'STEP_lead_xy_mm':p,'minimum_distance_to_native_hole_mm':min(math.hypot(p[0]-h['x'],p[1]-h['y']) for h in motor_holes)} for p in lead_centres]
+assert all(p['minimum_distance_to_native_hole_mm']<.0001 for p in lead_alignment), 'JST model leads do not align with native drill centres'
+mb=bounds(motor);assert all(-17.5<=mb[i]<=17.5 for i in [0,1,3,4]), 'JST body exceeds the fixed PCB outline'
+# This screen adds 0.3 mm around the actual header's XY bounds. It proves free space above the header, not a qualified cable or finger/grip envelope.
+mx=(mb[0]+mb[3])/2;my=(mb[1]+mb[4])/2
+access=cq.Workplane('XY').box(mb[3]-mb[0]+.6,mb[4]-mb[1]+.6,20).val().translate((mx,my,mb[5]+10))
+access_collisions=[]
+for name,other in list(parts.items())+list(heads.items())+list(plugs.items()):
+ if name=='J_MOTOR':continue
+ v=volume(access,other)
+ if v>1e-5:access_collisions.append({'other':name,'volume_mm3':v})
+motor_report={'reference':'J_MOTOR','manufacturer_part_number':'B4B-PH-K-S(LF)(SN)','supplier_id':'C131334','mating_housing':'PHR-4','insertion_direction':'+Z (from above)','body_and_lead_bbox_mm':mb,'body_within_35mm_outline':True,'native_hole_centres_mm':[[h['x'],h['y']] for h in motor_holes],'native_hole_diameter_mm':motor_holes[0]['hole_diameter'],'STEP_lead_alignment':lead_alignment,'vertical_access_envelope_bbox_mm':bounds(access),'vertical_access_intersections':access_collisions,'tail_projection_below_PCB_mm':max(0,-.8-mb[2]),'cable_and_finger_clearance_hardware_tested':False}
+report={'source_path':str(source),'fastener_requirement':{'standard':'DIN 920','thread':'M3','maximum_head_diameter_mm':4,'model_envelope_diameter_mm':4.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'native_STEP_models':len(parts),'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'motor_connector':motor_report,'rear_motor_compatibility_verified':False,'limitations':['Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 12x30x7 mm procurement bound, not tested cable hardware.','Ø4.4 mm fastener envelope is a defined screen budget around Ø4 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
 out=root/'artifacts/mechanical';out.mkdir(exist_ok=True);assert source.read_bytes()==board_bytes, 'Board changed during mechanical audit'
-report['passed']=not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_12x30x7mm_intersections'] for e in usb)
+report['passed']=not access_collisions and not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_12x30x7mm_intersections'] for e in usb)
 (out/('source-mount-usb-screen.json' if len(sys.argv)>1 else 'mount-usb-screen.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 
 raise SystemExit(0 if report['passed'] else 1)

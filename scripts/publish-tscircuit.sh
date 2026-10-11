@@ -24,6 +24,7 @@ for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','
  source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
 
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
+shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
 j=json.loads(board_path.read_text())

@@ -60,7 +60,8 @@
     "C_VREG": "C21120",
     "C_DRV_LOGIC": "C14663",
     "C_VM": "C49678",
-    "C_REF": "C1589"
+    "C_REF": "C1589",
+    "J_MOTOR": "C131334"
   },
   "parts": {
     "C11702": {
@@ -747,6 +748,26 @@
         "y": 0
       },
       "powerRatingWatts": 0.25
+    },
+    "C131334": {
+      "manufacturerPartNumber": "B4B-PH-K-S(LF)(SN)",
+      "symbol": "B4B_PH_K_S_LF__SN_",
+      "importPath": "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.tsx",
+      "modelFiles": [
+        "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj",
+        "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step"
+      ],
+      "sha256": {
+        "obj": "333d51fc2722f28c1a73c3ef4b240453d4ce90bba01e4b2a7b6d8c059fa62d0f",
+        "step": "330cfdeb167726774e998328867b10007c6ca195a3a7aab25f476c0c19b5a7a1"
+      },
+      "originalImportSha256": "65f410e9be84b9c617caf6d514e11c583d01ebf356b80bb6fea5a69fb1609c7c",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C131334",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0,
+        "y": 0.550037
+      },
+      "cadAnchorEvidence": "Native STEP section through leads at Z=-2 mm has pin centres X=0,2,4,6 and Y=0; compensate the Circuit JSON land-pattern centre, preserving every native pad and original STEP byte."
     }
   }
 }

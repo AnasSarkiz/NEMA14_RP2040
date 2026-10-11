@@ -191,7 +191,7 @@ def main():
  unresolved=[i for i in isolated if not i['no_connect_pads'] and i['area_mm2']>1e-5]
  if unresolved:report['issues'].append({'kind':'unassigned-copper-islands','islands':unresolved})
  if shorts or opens or unconnected:report['issues'].append({'kind':'physical-netlist-failure','short_count':len(shorts),'open_count':len(opens),'unconnected_pads':unconnected})
- bare={'J_MOTOR','J_DEBUG','J_BOOT'};bare_pc={p['pcb_component_id'] for p in pc.values() if src[p['source_component_id']]['name'] in bare};bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc]);paste={};pth=unary_union([shape(e) for e in j if e['type']=='pcb_plated_hole'])
+ bare={'J_DEBUG','J_BOOT'};bare_pc={p['pcb_component_id'] for p in pc.values() if src[p['source_component_id']]['name'] in bare};bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc]);paste={};pth=unary_union([shape(e) for e in j if e['type']=='pcb_plated_hole'])
  for l in ['F_Paste','B_Paste']:
   g=geo.get(l,Polygon());paste[l]={'bare_interface_overlap_mm2':g.intersection(bare_pads).area,'manual_plated_joint_overlap_mm2':g.intersection(pth).area,'outside_smt_copper_mm2':g.difference(unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['layer']==('top' if l=='F_Paste' else 'bottom')]).buffer(.0002)).area}
   if g.intersection(bare_pads).area>1e-6 or g.intersection(pth).area>1e-6 or (l=='B_Paste' and g.area>1e-6):report['issues'].append({'kind':'assembly-paste-policy','layer':l,**paste[l]})

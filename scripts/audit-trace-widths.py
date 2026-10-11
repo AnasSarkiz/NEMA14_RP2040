@@ -22,14 +22,23 @@ for layer in ['top','inner1','inner2','bottom']:
         b=e['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
         regions.append(Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]))
     ground_geometry[layer]=unary_union(regions)
-# This saved PD branch terminates at driver VBB1, after the VM capacitor split.
-# It supplies one bridge, so use the motor's 0.4 A peak phase rating.
-branch_path=[(-2.6,-6.1782),(-.1618,-6.1782),(1.6811,-8.0211)]
+# Review terminal PD branches from actual physical connectivity, not trace IDs.
+# Removing a branch must isolate exactly one VBB input or the charge-pump bypass capacitor.
+# The combined driver feeder retains the full 0.75 A budget.
 one_bridge=None
-if board['num_layers']==4:
-    matches=[e for e in g.j if e['type']=='pcb_trace' and g.nets.get(g.key(e))=='PD_VBUS' and [(p['x'],p['y']) for p in e['route']]==branch_path]
-    assert len(matches)==1, 'Reviewed single-bridge branch geometry changed; current budget requires renewed topology review'
-    one_bridge=matches[0]['pcb_trace_id']
+terminal_pd={};pd_key=next(k for k,v in g.nets.items() if v=='PD_VBUS')
+for trace in list(g.j):
+    if trace['type']!='pcb_trace' or g.key(trace)!=pd_key:continue
+    if not any(p.get('layer','').startswith('inner') and p.get('width',1)<.5 for p in trace['route']):continue
+    index=g.j.index(trace);g.j.pop(index);elems,roots=g.groups(pd_key);islands={}
+    for elem,r in zip(elems,roots):
+        if elem.get('pcb_port_id'):
+            port=g.ports[elem['pcb_port_id']];sp=g.sp[port['source_port_id']]
+            islands.setdefault(r,set()).add(g.src[sp['source_component_id']]+'.'+sp['name'])
+    g.j.insert(index,trace)
+    terminals=[v for v in islands.values() if len(v)==1 and next(iter(v)) in ['U_DRV.VBB1','U_DRV.VBB2','C_VCP.pin2']]
+    if len(islands)==2 and len(terminals)==1:
+        terminal_pd[trace['pcb_trace_id']]={'isolated_physical_terminal':next(iter(terminals[0])),'current_budget_A':.4,'cut_verified_against_actual_physical_copper':True}
 for e in g.j:
     if e['type']!='pcb_trace':continue
     name=g.nets.get(g.key(e),'direct')
@@ -37,7 +46,7 @@ for e in g.j:
         if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
         length=math.hypot(a['x']-b['x'],a['y']-b['y']);width=min(a['width'],b['width'])
         internal=a['layer'].startswith('inner');thickness=.0175 if internal else .035
-        current=.4 if e['pcb_trace_id']==one_bridge else budgets.get(name,0)
+        current=terminal_pd.get(e['pcb_trace_id'],{}).get('current_budget_A',budgets.get(name,0))
         area=width*thickness/(.0254**2);k=.024 if internal else .048
         rise=(current/(k*area**.725))**(1/.44) if current else None
         shunted=name=='GND' and ground_geometry[a['layer']].buffer(.00001).covers(LineString([(a['x'],a['y']),(b['x'],b['y'])]))
@@ -84,7 +93,7 @@ for via in [e for e in g.j if e['type']=='pcb_via']:
 report={'viaReview':vias,'sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checksPassed':not errors,'errors':errors,
         'copperSpecification':{'externalUmMinimum':35,'internalUmMinimum':17.5,'boardThicknessMm':1.6,'viaPlatingUmMinimum':20},
         'temperatureRiseScreenLimitC':30,'method':'IPC-2221 k=0.048 external / 0.024 internal; area in square mils',
-        'budgetsA':budgets,'singleBridgePdBranchTrace':one_bridge,'nets':summary,'segments':segments,
+        'budgetsA':budgets,'singleBridgePdBranchTrace':one_bridge,'physicalTerminalPdBranches':terminal_pd,'nets':summary,'segments':segments,
         'groundPours':pour_areas,'adcVoltageAt15V':15*resistors['R_VM_L']/(resistors['R_VM_H']+resistors['R_VM_L']),
         'adcWorstVoltageAt35V':adcmax,'qualifiedForManufacture':False,
         'groundThermalCurrentSharingAnalysisPending':True,

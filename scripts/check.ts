@@ -88,6 +88,17 @@ for(const [reference,pins] of Object.entries(reviewedPhysicalPins)) {
 }
 for(const [ref,expected] of [['R_ENABLE',100000],['R_SLEEP',100000],['R_VM_H',100000],['R_VM_L',10000]] as const)
  if(resistance(ref)!==expected) unique.push({type:'validation_error',message:ref+' differs from its reviewed value.'})
+// The motor interface must be a fitted JST PH part, with its native CAD model and reviewed coil order.
+const motorConnector=json.find((e:any)=>e.type==='source_component' && e.name==='J_MOTOR')
+if(motorConnector?.manufacturer_part_number!=='B4B-PH-K-S(LF)(SN)' || motorConnector?.supplier_part_numbers?.jlcpcb?.[0]!=='C131334')
+ unique.push({type:'validation_error',message:'J_MOTOR must be the fitted 4-pin JST PH B4B-PH-K-S(LF)(SN), C131334.'})
+if(!json.some((e:any)=>e.type==='cad_component' && e.source_component_id===motorConnector?.source_component_id && e.model_step_url && e.model_obj_url))
+ unique.push({type:'validation_error',message:'J_MOTOR requires the actual supplier STEP and OBJ models.'})
+for(const [i,name] of ['A_PLUS','A_MINUS','B_PLUS','B_MINUS'].entries()) {
+ const port=json.find((e:any)=>e.type==='source_port' && e.source_component_id===motorConnector?.source_component_id && e.pin_number===i+1)
+ const net=json.find((e:any)=>e.type==='source_net' && e.name===name)
+ if(!port || !net || port.subcircuit_connectivity_map_key!==net.subcircuit_connectivity_map_key) unique.push({type:'validation_error',message:`J_MOTOR pin ${i+1} must connect to ${name}.`})
+}
 const report={date:new Date().toISOString(),tool:'@tscircuit/checks',traceCount,currentLimitAmps:current,currentLimitEngineeringBudgetAmps:worstCurrent,currentLimitBudgetIsNotQualified:true,motorAdcAt35VWorstVolts:vmAdcWorst,errors:unique,warnings,manufacturingRelease:false,releaseBlockers:['Manufacturer drawing specifies front mounting only; rear adapter fit is unverified.','Hardware has not been assembled or electrically tested.','Footprint/rating and USB/PD bench validation remain required.']}
 writeFileSync('artifacts/drc-report.json',JSON.stringify(report,null,2)+'\n')
 console.log(JSON.stringify({traceCount,currentLimitAmps:current,currentLimitEngineeringBudgetAmps:worstCurrent,currentLimitBudgetIsNotQualified:true,motorAdcAt35VWorstVolts:vmAdcWorst,errors:unique.length,warnings:warnings.length},null,2))

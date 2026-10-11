@@ -1,34 +1,38 @@
 {
-  "baseline_github_commit": "6ae1d99d91e3a3f36c7ffcbff38200b3600102bd",
-  "new_source_sha256": "a6c9d595b1c008f45c5bf65ba6d356595fc67124c93ccb5646d26046902cf0d5",
-  "source_components_ports_nets_traces_identical": true,
+  "baseline_github_commit": "9e83101567b428d581b6217fcee81c1ef0b4ab7b",
+  "new_source_sha256": "788cfc58ab4b3b1fdac433d63d9ab90656efe9ef85665df5aa5e0357202ae417",
+  "source_components_ports_nets_traces_identical": false,
+  "source_ports_nets_traces_identical": true,
+  "motor_connector_added_without_pin_or_net_changes": true,
   "moved_references": [
-    "C_FLASH",
-    "C_PD",
-    "D_PD",
-    "D_TVS",
-    "J_BOOT",
-    "J_DATA",
-    "J_PD",
-    "R_BOOT",
-    "R_CC1",
-    "R_CC2",
-    "R_FLASH_CS",
-    "R_PD",
-    "R_PG",
-    "R_SLEEP",
-    "R_USB_SENSE_H",
-    "R_VM_H",
-    "R_VM_L",
-    "U_ESD",
-    "U_FLASH",
-    "U_PD"
+    "C_BUCK_OUT1",
+    "C_BUCK_OUT2",
+    "C_CP",
+    "C_DRV_LOGIC",
+    "C_REF",
+    "C_VCP",
+    "C_VREG",
+    "C_XOUT",
+    "J_MOTOR",
+    "R_SA",
+    "R_SB",
+    "U_DRV"
   ],
-  "baseline_traces": 519,
-  "retained_fixed_traces": 360,
-  "removed_affected_traces": 159,
-  "baseline_vias": 79,
-  "retained_vias": 71,
+  "baseline_traces": 554,
+  "retained_fixed_traces": 463,
+  "removed_affected_traces": 91,
+  "baseline_vias": 96,
+  "retained_vias": 83,
   "retained_geometry_is_unmoved": true,
-  "all_pours_will_be_regenerated": true
+  "all_pours_will_be_regenerated": true,
+  "additional_native_adjustments": {
+    "R_SA": {
+      "anchor_mm": [
+        8.8,
+        -12.8
+      ],
+      "rotation": 90,
+      "reason": "Separate sense return and output/VBB fanouts"
+    }
+  }
 }

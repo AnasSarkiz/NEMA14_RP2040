@@ -12,14 +12,14 @@ rows=[];bare=[];mapped={};usb=[];alignment=[];cache={}
 for id,part in cat['parts'].items():
  p=root/part['importPath'];original=pathlib.Path(str(p)+'.original')
  assert hashlib.sha256(original.read_bytes()).hexdigest()==part['originalImportSha256']
- footprint=lambda t:re.search(r'<footprint>.*?</footprint>',t,re.S).group(0)
+ footprint=lambda t:re.search(r'<footprint(?:[^>]*)>.*?</footprint>',t,re.S).group(0).replace(' insertionDirection="from_above"','')
  assert footprint(p.read_text())==footprint(original.read_text()),id+' native footprint changed'
  for f in part['modelFiles']:
   p=root/f;assert hashlib.sha256(p.read_bytes()).hexdigest()==part['sha256'][p.suffix[1:]],f
  cache[id]=np.array([list(map(float,l.split()[1:4])) for l in (root/next(f for f in part['modelFiles'] if f.endswith('.obj'))).read_text().splitlines() if l.startswith('v ')])
  assert len(cache[id]) and np.isfinite(cache[id]).all()
 for sid,s in source.items():
- name=s['name'];p=pcb[sid];id=cat['components'].get(name);isbare=name in ['J_MOTOR','J_DEBUG','J_BOOT']
+ name=s['name'];p=pcb[sid];id=cat['components'].get(name);isbare=name in ['J_DEBUG','J_BOOT']
  if isbare:bare.append(name)
  else:
   assert id,name+' missing exact supplier import';part=cat['parts'][id];m=models[sid]
@@ -31,8 +31,8 @@ for sid,s in source.items():
   assert outside<.01,(name,'CAD outside native courtyard',outside)
   alignment.append({'reference':name,'part':id,'min':lo.tolist(),'max':hi.tolist(),'bboxAreaOutsideCourtyard':outside});mapped[name]=id
   if name in ['J_PD','J_DATA']:
-   opening=m['position']['x']-math.sin(a)*(cache[id][:,1].max()-origin[1]);expected=-17.5 if name=='J_PD' else 17.5
-   assert abs(opening-expected)<.001,(name,opening);usb.append({'reference':name,'supplierPart':id,'mouthXmm':opening,'expectedEdgeXmm':expected})
+   opening=m['position']['y']+math.cos(a)*(cache[id][:,1].max()-origin[1]);expected=17.5
+   assert abs(opening-expected)<.001,(name,opening);usb.append({'reference':name,'supplierPart':id,'mouthYmm':opening,'expectedEdgeYmm':expected})
  rows.append([name,s.get('manufacturer_part_number',''),id or '',s.get('display_resistance',s.get('display_capacitance',s.get('display_inductance',''))),s.get('max_voltage_rating',''),s.get('tolerance',''),p['center']['x'],p['center']['y'],p.get('rotation',0),p.get('layer','top'),'bare PCB interface' if isbare else 'native supplier import with OBJ and STEP'])
 fresh=json.loads((root/'artifacts/final-source.circuit.json').read_text())
 for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole','pcb_courtyard_outline']:

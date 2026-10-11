@@ -6,6 +6,7 @@ independent physical/CAM checks are required afterward.
 import json, math, heapq
 import numpy as np
 from PIL import Image,ImageDraw
+from scipy.ndimage import distance_transform_edt
 from shapely.ops import unary_union
 import verify_supplier_connectivity as g
 
@@ -17,7 +18,7 @@ xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP))
 world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
     images=[Image.new('L',(N,N)) for _ in layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=.15+(.25 if via else .08)+.003
+    margin=.15+(current_via_diameter/2 if via else current_width/2)+.003
     def add(ls,geom):
         p=geom.buffer(margin,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
@@ -42,7 +43,7 @@ def blocked(net,via=False):
             # Native trace DRC uses the bounding square even for a circle.
             c=e['center'];r=e['radius'];add(e['layers'],g.box(c['x']-r,c['y']-r,c['x']+r,c['y']+r))
         elif typ=='pcb_hole':add(layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
-    b=math.ceil((.35+(.25 if via else .08))/STEP)
+    b=math.ceil((.35+(current_via_diameter/2 if via else current_width/2))/STEP)
     for d in ds:
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
         d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
@@ -59,13 +60,25 @@ for error in errors:
         j.remove(e)
         repairs.append({'removed_for_conservative_native_keepout':error['pcb_trace_id']})
 
-for net in sorted(nets,key=lambda k:({'PD_GOOD':0,'VM_SENSE':1}.get(nets[k]['name'],2))):
+for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
+    if nets[net]['name']=='GND':continue  # Regenerate plane returns before any separate ground repair.
+    current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] else .16
+    if nets[net]['name']=='PD_VBUS':current_width=.55
+    power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','V1V1','LOGIC_IN','DATA_VBUS','BUCK_SW','GND']
+    board=next(e for e in j if e['type']=='pcb_board')
+    current_via_diameter=max(board['min_via_pad_diameter'],.5 if power else .4)
+    current_via_hole=max(board['min_via_hole_diameter'],.25 if power else .2)
     for attempt in range(12):
         elems,roots=g.groups(net);islands={}
         for e,r in zip(elems,roots):
             if e.get('pcb_port_id'):islands.setdefault(r,[]).append(e)
         if len(islands)<2:break
         startroot=min(islands,key=lambda r:len(islands[r]))
+        if nets[net]['name']=='PD_VBUS':
+            current_width=.55
+            if len(islands[startroot])==1:
+                isolated=islands[startroot][0];port=g.ports[isolated['pcb_port_id']];sp=g.sp[port['source_port_id']];reference=g.src[sp['source_component_id']]
+                if (reference=='U_DRV' and sp['name'] in ['VBB1','VBB2']) or (reference=='C_VCP' and sp['name']=='pin2'):current_width=.3
         # Use a real connected physical land as the start, never an old location.
         startpad=min(islands[startroot],key=lambda e:len(e.get('port_hints',[])))
         startport=g.ports[startpad['pcb_port_id']]
@@ -91,7 +104,10 @@ for net in sorted(nets,key=lambda k:({'PD_GOOD':0,'VM_SENSE':1}.get(nets[k]['nam
         goals={q:v for q,v in goals.items() if not wire[q[2]][q[1],q[0]]}
         assert goals, f'No accessible target copper for {nets[net]["name"]}'
         points=np.array(list(goals));lo=points[:,:2].min(axis=0);hi=points[:,:2].max(axis=0)
-        heuristic=lambda s:max(int(lo[0])-s[0],0,s[0]-int(hi[0]))+max(int(lo[1])-s[1],0,s[1]-int(hi[1]))
+        goal_mask=np.ones((N,N),dtype=np.bool_)
+        for q in goals:goal_mask[q[1],q[0]]=False
+        distance_field=distance_transform_edt(goal_mask)
+        heuristic=lambda s:float(distance_field[s[1],s[0]])
         starts={start:(sx,sy)}
         for anchor,r in zip(elems,roots):
             if r!=startroot:continue
@@ -130,20 +146,22 @@ for net in sorted(nets,key=lambda k:({'PD_GOOD':0,'VM_SENSE':1}.get(nets[k]['nam
             if tuple(b[q]-a[q] for q in range(3))!=tuple(c[q]-b[q] for q in range(3)):slim.append(b)
         slim.append(path[-1]);route=[];newvia=[]
         uid=f'same_side_repair_{len(repairs)}_{nets[net]["name"]}_{attempt}'
+        used_ids={e.get("pcb_trace_id") for e in j if e["type"]=="pcb_trace"}
+        while uid in used_ids:uid+="_rerouted"
         for k,node in enumerate(slim):
             x,y=world(node);l=layers[node[2]]
             if (node[0],node[1]) in existing:x,y=existing[(node[0],node[1])]["x"],existing[(node[0],node[1])]["y"]
             if k and node[2]!=slim[k-1][2]:
-                route.append({'route_type':'via','x':x,'y':y,'from_layer':layers[slim[k-1][2]],'to_layer':l,'via_diameter':.5,'via_hole_diameter':.25})
+                route.append({'route_type':'via','x':x,'y':y,'from_layer':layers[slim[k-1][2]],'to_layer':l,'via_diameter':current_via_diameter,'via_hole_diameter':current_via_hole})
                 all_layers=['top','inner1','inner2','bottom'] if len(layers)==3 else ['top','bottom']
-                v={'type':'pcb_via','pcb_via_id':uid+f'_via_{k}','x':x,'y':y,'outer_diameter':.5,'hole_diameter':.25,'layers':all_layers,'from_layer':'top','to_layer':'bottom','source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','tented_on_top':True,'tented_on_bottom':True}
+                v={'type':'pcb_via','pcb_via_id':uid+f'_via_{k}','x':x,'y':y,'outer_diameter':current_via_diameter,'hole_diameter':current_via_hole,'layers':all_layers,'from_layer':'top','to_layer':'bottom','source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','tented_on_top':True,'tented_on_bottom':True}
                 if not any(e['type']=='pcb_via' and math.hypot(e['x']-x,e['y']-y)<.001 for e in j):j.append(v);newvia.append([x,y])
-            route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':.16})
+            route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':current_width})
         sx,sy=starts[path[0]];route[0].update(x=sx,y=sy)
         if route[0]['layer']==startpad.get('layer','top') and g.geometry(startpad).covers(g.Point(sx,sy)):route[0]['start_pcb_port_id']=startpad['pcb_port_id']
         gx,gy=goals[end];route[-1].update(x=gx,y=gy)
         for e in j:
-            if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and g.key(e)==net and e.get('pcb_port_id') and g.geometry(e).buffer(.001).covers(g.Point(gx,gy)):
+            if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and g.key(e)==net and e.get('pcb_port_id') and route[-1]['layer'] in e.get('layers',[e.get('layer','top')]) and g.geometry(e).buffer(.001).covers(g.Point(gx,gy)):
                 route[-1]['end_pcb_port_id']=e['pcb_port_id'];break
         j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]})
         repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid})

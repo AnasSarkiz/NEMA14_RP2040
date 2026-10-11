@@ -1,6 +1,6 @@
 {
-  "baseline_github_commit": "6ae1d99d91e3a3f36c7ffcbff38200b3600102bd",
-  "board_sha256": "2803c6eddafe285165f7f93b404493091a754ee3aa25536f3c20d4fcc7734ebd",
+  "baseline_github_commit": "9e83101567b428d581b6217fcee81c1ef0b4ab7b",
+  "board_sha256": "fdfa722080d2923545b55bcbd6f9324d113b180ed76eee5c205b92c3f61dd83b",
   "board_dimensions_mm": [
     35,
     35
@@ -24,32 +24,27 @@
     ]
   ],
   "mount_drill_mm": 3.2,
-  "source_components_ports_nets_traces_identical": true,
-  "supplier_imports_and_native_land_patterns_unchanged": true,
+  "source_components_ports_nets_traces_identical": false,
+  "source_ports_nets_traces_identical": true,
+  "only_component_metadata_change": "J_MOTOR gains B4B-PH-K-S(LF)(SN) / C131334",
+  "original_supplier_imports_unchanged": true,
+  "new_motor_connector_uses_native_supplier_land_pattern": true,
   "saved_placements_pads_CAD_and_mounting_equal_native_source": true,
   "native_via_in_pad_flag": true,
   "via_in_pad_policy": "Only the three grounded exposed-pad thermal sites pass the strict independent via-in-pad check; all other via-in-pad placements remain prohibited.",
   "moved_references": [
-    "C_FLASH",
-    "C_PD",
-    "D_PD",
-    "D_TVS",
-    "J_BOOT",
-    "J_DATA",
-    "J_PD",
-    "R_BOOT",
-    "R_CC1",
-    "R_CC2",
-    "R_FLASH_CS",
-    "R_PD",
-    "R_PG",
-    "R_SLEEP",
-    "R_USB_SENSE_H",
-    "R_VM_H",
-    "R_VM_L",
-    "U_ESD",
-    "U_FLASH",
-    "U_PD"
+    "C_BUCK_OUT1",
+    "C_BUCK_OUT2",
+    "C_CP",
+    "C_DRV_LOGIC",
+    "C_REF",
+    "C_VCP",
+    "C_VREG",
+    "C_XOUT",
+    "J_MOTOR",
+    "R_SA",
+    "R_SB",
+    "U_DRV"
   ],
   "all_layer_keepouts": [
     "bottom",
@@ -91,12 +86,88 @@
   "native_DRC_warnings": 0,
   "physical_nets_checked": 48,
   "final_counts": {
-    "pcb_trace": 554,
-    "pcb_via": 96,
-    "pcb_copper_pour": 11
+    "pcb_trace": 544,
+    "pcb_via": 113,
+    "pcb_copper_pour": 10
   },
   "placement_and_affected_copper_changed": true,
   "construction_receipts_are_history": "Routing/pruning/repair receipts include trial and subsequently replaced copper; this proof and current board JSON describe the final geometry.",
+  "motor_connector": {
+    "reference": "J_MOTOR",
+    "manufacturer_part_number": "B4B-PH-K-S(LF)(SN)",
+    "supplier_id": "C131334",
+    "mating_housing": "PHR-4",
+    "insertion_direction": "+Z (from above)",
+    "body_and_lead_bbox_mm": [
+      -9.449987299999929,
+      -17.249961700000036,
+      -2.1999940000000002,
+      0.4510128000000681,
+      -12.549961599999994,
+      6.800006000000001
+    ],
+    "body_within_35mm_outline": true,
+    "native_hole_centres_mm": [
+      [
+        -5.499998,
+        -14.249963000000001
+      ],
+      [
+        -7.499994,
+        -14.249963000000001
+      ],
+      [
+        -3.500002,
+        -14.249963000000001
+      ],
+      [
+        -1.500006,
+        -14.249963000000001
+      ]
+    ],
+    "native_hole_diameter_mm": 0.999998,
+    "STEP_lead_alignment": [
+      {
+        "STEP_lead_xy_mm": [
+          -3.4999872999999297,
+          -14.249961699999995
+        ],
+        "minimum_distance_to_native_hole_mm": 1.4757371109958201e-05
+      },
+      {
+        "STEP_lead_xy_mm": [
+          -5.49998729999993,
+          -14.249961699999995
+        ],
+        "minimum_distance_to_native_hole_mm": 1.077868273555975e-05
+      },
+      {
+        "STEP_lead_xy_mm": [
+          -7.49998729999993,
+          -14.249961699999997
+        ],
+        "minimum_distance_to_native_hole_mm": 6.82495428218031e-06
+      },
+      {
+        "STEP_lead_xy_mm": [
+          -1.4999872999999297,
+          -14.249961699999997
+        ],
+        "minimum_distance_to_native_hole_mm": 1.8745132771933782e-05
+      }
+    ],
+    "vertical_access_envelope_bbox_mm": [
+      -9.74998729999993,
+      -17.549961700000036,
+      6.800006,
+      0.7510128000000682,
+      -12.249961599999995,
+      26.800006
+    ],
+    "vertical_access_intersections": [],
+    "tail_projection_below_PCB_mm": 1.3999940000000002,
+    "cable_and_finger_clearance_hardware_tested": false
+  },
   "rear_motor_compatibility_verified": false,
   "fabrication_approved": false
 }

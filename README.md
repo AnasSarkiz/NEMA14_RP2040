@@ -30,7 +30,7 @@ Saved validation: 0 DRC errors, 48 nets connected and no Gerber shorts detected 
 
 ## Supplier models and A4 schematics
 
-[Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. All **61/61 fitted components** use exact JLCPCB imports with native land patterns and OBJ/STEP models. Motor/debug/boot connections are bare PCB pads. See [supplier CAD details](docs/supplier-cad.md) and [the import report](artifacts/jlcpcb-import-report.json).
+[Printable A4 schematic](artifacts/schematic-a4.pdf): 13 numbered landscape sheets with chip-purpose notes and every numbered physical pin. All **62/62 fitted components** use exact JLCPCB imports with native land patterns and OBJ/STEP models. The motor interface is a fitted JST PH header with a matching PHR-4 cable; debug/boot interfaces remain bare PCB pads. See [supplier CAD details](docs/supplier-cad.md) and [the import report](artifacts/jlcpcb-import-report.json).
 
 ## USB and final validation
 
@@ -49,3 +49,7 @@ The [electrical review](docs/electrical.md) records power-trace widening, filled
 Both original USB-C ports now face the same +Y edge of the exact 35 × 35 mm PCB. The four Ø3.2 mm holes remain exactly (±13, ±13) mm. This layout requires **M3 DIN 920 heads ≤Ø4 mm**. Two bounded 12 mm-wide plug housings have 0.4 mm gap; native STEP bodies clear the conservative Ø4.4 mm screw envelope by 0.13 mm. Actual cable and fastener samples and full assembly tolerances remain untested.
 
 [Mounting and USB verification](docs/mounting-usb-verification.md) records preserved source pins, values and nets, relocated parts, rerouted copper, actual Circuit JSON/Gerber coordinates and all executed checks. Native DRC and physical/CAM connectivity pass. Native placement suggestions and full assembly CAM findings remain documented. **Prototype only; fabrication approval and rear-motor compatibility remain unverified.**
+
+## Restored JST motor connector — 1.4.0
+
+The previously published 1.3.0 boards exposed four bare motor solder holes and omitted the reference’s fitted JST header. This revision adds the actual **B4B-PH-K-S(LF)(SN), C131334**, with its unchanged supplier land pattern, original OBJ/STEP assets, and corrected native-model anchor. It mates with a **PHR-4** housing from above. Physical pins 1–4 remain A+, A−, B+, B−. Nearby placement and affected copper are revised; the board stays exactly 35 × 35 mm, both USB-C ports stay on +Y, and mounting holes stay exactly (±13, ±13), Ø3.2 mm. [JST restoration and validation](docs/jst-restoration.md) records the measured lead/drill alignment, vertical insertion screen and remaining prototype limitations.

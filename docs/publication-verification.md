@@ -1,6 +1,6 @@
 # Public saved-layout verification
 
-Version **1.3.0** of [NEMA14_RP2040](https://tscircuit.com/AnasSarkiz/NEMA14_RP2040) publishes the same-edge USB layout and required DIN 920 head envelope described in [mounting and USB verification](mounting-usb-verification.md).
+Version **1.4.0** of [NEMA14_RP2040](https://tscircuit.com/AnasSarkiz/NEMA14_RP2040) publishes the same-edge USB layout and required DIN 920 head envelope described in [mounting and USB verification](mounting-usb-verification.md).
 
 After uploading, run `python3 scripts/verify-publication.py` to retrieve the finalized public release without authentication. The resulting `artifacts/publication-verification.json` records the release ID, revision, public page status, hashes and verification time. The previous 1.2.0 receipt is archived in `artifacts/publication-history/1.2.0.json`; it does not qualify this geometry.
 

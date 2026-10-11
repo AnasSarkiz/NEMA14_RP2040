@@ -14,13 +14,23 @@ assert not any(e['type'].endswith('_error') for e in new), 'Source must pass bef
 base_commit=subprocess.check_output(['git','rev-parse','origin/main'],cwd=ROOT,text=True).strip()
 proof_path=ROOT/'artifacts/same-side-routing-proof.json'
 if proof_path.exists():base_commit=json.loads(proof_path.read_text())['baseline_github_commit']
+jst_baseline=ROOT/'artifacts/jst-restoration/baseline.json'
+if jst_baseline.exists():base_commit=json.loads(jst_baseline.read_text())['baseline_github_commit']
 old=json.loads(subprocess.check_output(['git','show',base_commit+':artifacts/board.circuit.json'],cwd=ROOT))
 def by_type(j,t):return [e for e in j if e['type']==t]
 def records(j,t):
     # These source records contain no PCB placement or routing coordinates.
     return sorted(json.dumps(e,sort_keys=True) for e in by_type(j,t))
-for t in ['source_component','source_port','source_net','source_trace']:
+for t in ['source_port','source_net','source_trace']:
     assert records(new,t)==records(old,t), f'Functional source record changed: {t}'
+old_components={e['name']:e for e in by_type(old,'source_component')}
+new_components={e['name']:e for e in by_type(new,'source_component')}
+assert old_components.keys()==new_components.keys()
+for name,e in new_components.items():
+    expected=dict(old_components[name])
+    if jst_baseline.exists() and name=='J_MOTOR':
+        expected.update(manufacturer_part_number='B4B-PH-K-S(LF)(SN)',supplier_part_numbers={'jlcpcb':['C131334']})
+    assert e==expected, f'Functional component changed: {name}'
 spec=importlib.util.spec_from_file_location('supplier_geometry',ROOT/'scripts/verify_supplier_connectivity.py')
 g=importlib.util.module_from_spec(spec);spec.loader.exec_module(g)
 sp={e['source_port_id']:e for e in by_type(new,'source_port')}
@@ -80,7 +90,8 @@ for e in by_type(old,'pcb_trace'):
 seeds={'traces':kept_traces,'vias':kept_vias}
 (ROOT/'artifacts/same-side-routing-seeds.json').write_text(json.dumps(seeds,indent=2)+'\n')
 proof={'baseline_github_commit':base_commit,'new_source_sha256':hashlib.sha256(source_bytes).hexdigest(),
-       'source_components_ports_nets_traces_identical':True,
+       'source_components_ports_nets_traces_identical':not jst_baseline.exists(),
+       'source_ports_nets_traces_identical':True,'motor_connector_added_without_pin_or_net_changes':jst_baseline.exists(),
        'moved_references':sorted(src[pc[k]['source_component_id']] for k in moved),
        'baseline_traces':len(by_type(old,'pcb_trace')),'retained_fixed_traces':len(kept_traces),'removed_affected_traces':len(removed_traces),
        'baseline_vias':len(by_type(old,'pcb_via')),'retained_vias':len(kept_vias),

@@ -1,7 +1,7 @@
 """Record actual exit codes and logs for every resumed-board qualification."""
 import hashlib,json,os,pathlib,subprocess
 root=pathlib.Path(__file__).resolve().parents[1];out=root/'artifacts/validation-resume';out.mkdir(exist_ok=True);env=dict(os.environ);env['PATH']=str(root/'node_modules/.bin')+':'+env['PATH'];env['XDG_CONFIG_HOME']='/workspace/.config'
-checks=[('typescript',['tsc','--noEmit']),('drc',['bun','scripts/check.ts']),('connectivity',['/workspace/.routing-venv/bin/python','scripts/verify_supplier_connectivity.py']),('exact_mounts_and_actual_drills',['python3','scripts/check-mount-drills.py']),('native_json_checks',['tsci','check','artifacts/board.circuit.json'])]
+checks=[('typescript',['tsc','--noEmit']),('drc',['bun','scripts/check.ts']),('connectivity',['/workspace/.routing-venv/bin/python','scripts/verify_supplier_connectivity.py']),('fitted_JST_and_actual_drills',['python3','scripts/check-motor-connector.py']),('exact_mounts_and_actual_drills',['python3','scripts/check-mount-drills.py']),('native_json_checks',['tsci','check','artifacts/board.circuit.json'])]
 checks += [(f'native_{name}',['tsci','check',name,'index.circuit.tsx' if name=='netlist' else 'artifacts/board.circuit.json']) for name in ['netlist','pin_specification','source','schematic-placement','placement']]
 checks += [('gerber_shorts',['tsci','check','shorts','artifacts/board.circuit.json','--mode','gerber','--layer','all','--pixels-per-mm','100']),('copper_widths',['/workspace/.routing-venv/bin/python','scripts/audit-trace-widths.py']),('full_independent_CAM',['/workspace/.routing-venv/bin/python','scripts/audit-manufacturing.py'])]
 receipts=[]
