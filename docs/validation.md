@@ -11,3 +11,7 @@ Run `python3 scripts/schematic-review-ui.py` for a read-only browser UI that dis
 The standalone tscircuit IDE was also launched. In this environment its PCB pane cannot obtain a WebGPU adapter, and the Schematic tab is disabled for the saved circuit-JSON selection. The review UI provides the native SVGs and CLI analysis without requiring GPU access; it is a project review tool, not the IDE's disabled schematic analyzer pane. External telemetry/CDN requests blocked by the cloud allowlist are recorded as environmental limitations.
 
 See [USB programming](usb-programming.md). All fitted components now have exact supplier imports and OBJ/STEP assets; consult the reference-level import report.
+
+## 2026-10-11 resumed mounting / USB review
+
+See [mounting and USB verification](mounting-usb-verification.md) and `artifacts/resume-validation.json` for the exact current source/CAM hashes, actual command exit codes and remaining fabrication blockers. This supersedes earlier blanket software-PASS descriptions for assembly CAM. Native DRC/connectivity/shorts and mounting/USB mechanical screens pass; full manufacturing qualification remains FAIL.

@@ -1,0 +1,88 @@
+{
+  "board_sha256": "2cbf6ee9a465527ed7f40d7c818eeb72912a649ba8fb4d9125bf6aba64d7048a",
+  "native_STEP_models": 61,
+  "component_intersections": [],
+  "fastener_clearances": [
+    {
+      "reference": "R_CC1",
+      "mount": "(13, 13)",
+      "distance_to_radius2p7_fastener_mm": 0.7418200127258244,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_CC2",
+      "mount": "(13, 13)",
+      "distance_to_radius2p7_fastener_mm": 0.45001270000006954,
+      "intersection_mm3": 0
+    }
+  ],
+  "usb": [
+    {
+      "native_body_to_mount_envelope_mm": 1.3300000000000018,
+      "reference": "J_PD",
+      "mouth_xy_mm": [
+        -17.50000000000005,
+        4.5
+      ],
+      "outward_unit_vector": [
+        -1.0,
+        6.123233995736766e-17
+      ],
+      "plug_12x30x7mm_intersections": [],
+      "bbox_mm": [
+        -17.500000000000053,
+        0.02999989999999868,
+        -0.05001099999999947,
+        -9.600000000000042,
+        8.970000099999998,
+        4.050989100000001
+      ]
+    },
+    {
+      "native_body_to_mount_envelope_mm": 1.33,
+      "reference": "J_DATA",
+      "mouth_xy_mm": [
+        17.50000000000005,
+        4.499999999999999
+      ],
+      "outward_unit_vector": [
+        1.0,
+        -1.8369701987210297e-16
+      ],
+      "plug_12x30x7mm_intersections": [],
+      "bbox_mm": [
+        9.600000000000042,
+        0.02999989999999956,
+        -0.05001099999999947,
+        17.500000000000053,
+        8.9700001,
+        4.050989100000001
+      ]
+    }
+  ],
+  "mounts": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "rear_motor_compatibility_verified": false,
+  "limitations": [
+    "Nominal PCB/model screen only; no verified mounting to rear motor endcap.",
+    "Cable envelope is a defined 12x30x7 mm procurement bound, not tested cable hardware.",
+    "PCB fastener envelope radius2.7 includes nominal head/play; actual hardware and placement tolerances remain unqualified."
+  ],
+  "passed": true
+}

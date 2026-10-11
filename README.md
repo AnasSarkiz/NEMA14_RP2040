@@ -43,3 +43,9 @@ Publication uses the CLI build-output option: `tsci push index.circuit.tsx --inc
 ## Copper and electrical review
 
 The [electrical review](docs/electrical.md) records power-trace widening, filled grounds, the corrected 100 kΩ/10 kΩ motor-voltage divider, copper-thickness requirements, and remaining prototype tests. Run `npm run check:copper` for the actual saved-segment audit. The [machine-readable report](artifacts/trace-width-review.json) distinguishes isolated tracks from parallel ground-plane paths; software checks do not certify hardware operation.
+
+## Verified mounting and USB screen — 2026-10-11
+
+The fresh GitHub-baseline review is recorded in [mounting and USB verification](docs/mounting-usb-verification.md). Source output, delivery Circuit JSON and regenerated metric Excellon all contain exactly four Ø3.2 mm NPTH holes at (±13, ±13) mm. Both original USB-C mouths remain flush with their opposite side edges at X=±17.5 mm, Y=4.5 mm. Exact supplier STEP models clear the radius-2.7 mm fastener envelopes by 1.33 mm; the bounded 12×30×7 mm plug envelopes do not intersect board components or mounting hardware. These are measured PCB/model clearances; rear-motor attachment and actual cable/fastener samples remain unverified.
+
+All physical connections, pads, component placement, traces, vias and original CAD transforms from the latest GitHub baseline are preserved. The four-layer RP2040 board now enforces mounting keepouts on every copper layer; CH32 ground-fill generation now splits rounding-pinched polygons and discards unanchored islands. The full independent CAM audit still reports assembly/stencil/BOM/silkscreen findings. This publication remains a **work-in-progress prototype, not approved for fabrication**.

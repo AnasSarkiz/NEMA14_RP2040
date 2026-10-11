@@ -1,0 +1,1952 @@
+{
+  "board_sha256": "2cbf6ee9a465527ed7f40d7c818eeb72912a649ba8fb4d9125bf6aba64d7048a",
+  "checks": [
+    {
+      "check": "typescript",
+      "command": [
+        "tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/typescript.txt"
+    },
+    {
+      "check": "drc",
+      "command": [
+        "bun",
+        "scripts/check.ts"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/drc.txt"
+    },
+    {
+      "check": "connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify_supplier_connectivity.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/connectivity.txt"
+    },
+    {
+      "check": "exact_mounts_and_actual_drills",
+      "command": [
+        "python3",
+        "scripts/check-mount-drills.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/exact_mounts_and_actual_drills.txt"
+    },
+    {
+      "check": "native_json_checks",
+      "command": [
+        "tsci",
+        "check",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_json_checks.txt"
+    },
+    {
+      "check": "native_netlist",
+      "command": [
+        "tsci",
+        "check",
+        "netlist",
+        "index.circuit.tsx"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_netlist_source.txt",
+      "input_note": "The netlist command requires the TSX source; the initial saved-JSON input was rejected as a React component array."
+    },
+    {
+      "check": "native_pin_specification",
+      "command": [
+        "tsci",
+        "check",
+        "pin_specification",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_pin_specification.txt"
+    },
+    {
+      "check": "native_source",
+      "command": [
+        "tsci",
+        "check",
+        "source",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_source.txt"
+    },
+    {
+      "check": "native_schematic-placement",
+      "command": [
+        "tsci",
+        "check",
+        "schematic-placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_schematic-placement.txt"
+    },
+    {
+      "check": "native_placement",
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 1,
+      "log": "artifacts/validation-resume/native_placement.txt"
+    },
+    {
+      "check": "gerber_shorts",
+      "command": [
+        "tsci",
+        "check",
+        "shorts",
+        "artifacts/board.circuit.json",
+        "--mode",
+        "gerber",
+        "--layer",
+        "all",
+        "--pixels-per-mm",
+        "100"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/gerber_shorts.txt"
+    },
+    {
+      "check": "copper_widths",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-trace-widths.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/copper_widths.txt"
+    },
+    {
+      "check": "full_independent_CAM",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-manufacturing.py"
+      ],
+      "exit_code": 1,
+      "log": "artifacts/validation-resume/full_independent_CAM.txt"
+    }
+  ],
+  "native_STEP_mechanical_pass": true,
+  "CAD_models_checked": 61,
+  "physical_nets_checked": 48,
+  "counts": {
+    "pcb_trace": 519,
+    "pcb_via": 79,
+    "pcb_copper_pour": 11
+  },
+  "full_CAM_status": "FAIL",
+  "remaining_CAM_findings": [
+    {
+      "kind": "assembly-paste-policy",
+      "layer": "F_Paste",
+      "bare_interface_overlap_mm2": 4.409999999999995,
+      "manual_plated_joint_overlap_mm2": 0.0,
+      "outside_smt_copper_mm2": 0.0
+    },
+    {
+      "kind": "assembly-table-policy",
+      "table": "bom.csv",
+      "rows": 64,
+      "bare_rows": [
+        "J_BOOT",
+        "J_DEBUG",
+        "J_MOTOR"
+      ],
+      "missing_fitted": [],
+      "unexpected": [],
+      "duplicate_refs": []
+    },
+    {
+      "kind": "BOM-source-identity",
+      "errors": [
+        {
+          "ref": "J_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "TYPE-C-31-M-12"
+            },
+            "Comment": {
+              "export": "",
+              "source": "TYPE-C-31-M-12"
+            },
+            "Value": {
+              "export": "C165948",
+              "source": "TYPE-C-31-M-12"
+            }
+          }
+        },
+        {
+          "ref": "J_DATA",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "TYPE-C-31-M-12"
+            },
+            "Comment": {
+              "export": "",
+              "source": "TYPE-C-31-M-12"
+            },
+            "Value": {
+              "export": "C165948",
+              "source": "TYPE-C-31-M-12"
+            }
+          }
+        },
+        {
+          "ref": "U_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CH224K"
+            },
+            "Comment": {
+              "export": "",
+              "source": "CH224K"
+            },
+            "Value": {
+              "export": "C970725",
+              "source": "CH224K"
+            }
+          }
+        },
+        {
+          "ref": "R_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "ERJPA3F1001V"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "ERJPA3F1001V"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "C_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL10A105KB8NNNC"
+            },
+            "Comment": {
+              "export": "1u",
+              "source": "CL10A105KB8NNNC"
+            },
+            "Value": {
+              "export": "1u",
+              "source": "1uF"
+            }
+          }
+        },
+        {
+          "ref": "R_PG",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1002T5E"
+            },
+            "Comment": {
+              "export": "10k",
+              "source": "0603WAF1002T5E"
+            },
+            "Value": {
+              "export": "10k",
+              "source": "10k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "U_MCU",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "RP2040"
+            },
+            "Comment": {
+              "export": "",
+              "source": "RP2040"
+            },
+            "Value": {
+              "export": "C2040",
+              "source": "RP2040"
+            }
+          }
+        },
+        {
+          "ref": "C_IO1",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_IO10",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_IO22",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_IO33",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_IO42",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_IO49",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_DV23",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_DV50",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_USB",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_ADC",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_VREG_IN",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05A105KA5NQNC"
+            },
+            "Comment": {
+              "export": "1u",
+              "source": "CL05A105KA5NQNC"
+            },
+            "Value": {
+              "export": "1u",
+              "source": "1uF"
+            }
+          }
+        },
+        {
+          "ref": "C_VREG_OUT",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05A105KA5NQNC"
+            },
+            "Comment": {
+              "export": "1u",
+              "source": "CL05A105KA5NQNC"
+            },
+            "Value": {
+              "export": "1u",
+              "source": "1uF"
+            }
+          }
+        },
+        {
+          "ref": "U_FLASH",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "GD25Q16EEIGR"
+            },
+            "Comment": {
+              "export": "",
+              "source": "GD25Q16EEIGR"
+            },
+            "Value": {
+              "export": "C2986331",
+              "source": "GD25Q16EEIGR"
+            }
+          }
+        },
+        {
+          "ref": "C_FLASH",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "R_FLASH_CS",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1002TCE"
+            },
+            "Comment": {
+              "export": "10k",
+              "source": "0402WGF1002TCE"
+            },
+            "Value": {
+              "export": "10k",
+              "source": "10k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_BOOT",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1001TCE"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "0402WGF1001TCE"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "Y_MCU",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "ABM8-272-T3"
+            },
+            "Comment": {
+              "export": "",
+              "source": "ABM8-272-T3"
+            },
+            "Value": {
+              "export": "C20625731",
+              "source": "ABM8-272-T3"
+            }
+          }
+        },
+        {
+          "ref": "R_XOUT",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1001TCE"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "0402WGF1001TCE"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "C_XIN",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402CG150J500NT"
+            },
+            "Comment": {
+              "export": "15p",
+              "source": "0402CG150J500NT"
+            },
+            "Value": {
+              "export": "15p",
+              "source": "15pF"
+            }
+          }
+        },
+        {
+          "ref": "C_XOUT",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402CG150J500NT"
+            },
+            "Comment": {
+              "export": "15p",
+              "source": "0402CG150J500NT"
+            },
+            "Value": {
+              "export": "15p",
+              "source": "15pF"
+            }
+          }
+        },
+        {
+          "ref": "R_RUN",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1002TCE"
+            },
+            "Comment": {
+              "export": "10k",
+              "source": "0402WGF1002TCE"
+            },
+            "Value": {
+              "export": "10k",
+              "source": "10k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_DM",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF270JTCE"
+            },
+            "Comment": {
+              "export": "27",
+              "source": "0402WGF270JTCE"
+            },
+            "Value": {
+              "export": "27",
+              "source": "27\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_DP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF270JTCE"
+            },
+            "Comment": {
+              "export": "27",
+              "source": "0402WGF270JTCE"
+            },
+            "Value": {
+              "export": "27",
+              "source": "27\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_CC1",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF5101T5E"
+            },
+            "Comment": {
+              "export": "5.1k",
+              "source": "0603WAF5101T5E"
+            },
+            "Value": {
+              "export": "5.1k",
+              "source": "5.1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_CC2",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF5101TCE"
+            },
+            "Comment": {
+              "export": "5.1k",
+              "source": "0402WGF5101TCE"
+            },
+            "Value": {
+              "export": "5.1k",
+              "source": "5.1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_USB_SENSE_H",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1003T5E"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0603WAF1003T5E"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_USB_SENSE_L",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1003T5E"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0603WAF1003T5E"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_VM_H",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1003T5E"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0603WAF1003T5E"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_VM_L",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1002T5E"
+            },
+            "Comment": {
+              "export": "10k",
+              "source": "0603WAF1002T5E"
+            },
+            "Value": {
+              "export": "10k",
+              "source": "10k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "C_VM_SENSE",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B103KB5NNNC"
+            },
+            "Comment": {
+              "export": "10n",
+              "source": "CL05B103KB5NNNC"
+            },
+            "Value": {
+              "export": "10n",
+              "source": "10nF"
+            }
+          }
+        },
+        {
+          "ref": "U_BUCK",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "AP63203WU-7"
+            },
+            "Comment": {
+              "export": "",
+              "source": "AP63203WU-7"
+            },
+            "Value": {
+              "export": "C780769",
+              "source": "AP63203WU-7"
+            }
+          }
+        },
+        {
+          "ref": "L_BUCK",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "SRN4018-4R7M"
+            },
+            "Comment": {
+              "export": "",
+              "source": "SRN4018-4R7M"
+            },
+            "Value": {
+              "export": "C780206",
+              "source": "SRN4018-4R7M"
+            }
+          }
+        },
+        {
+          "ref": "C_BOOTSTRAP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_BUCK_IN",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL31A106KBHNNNE"
+            },
+            "Comment": {
+              "export": "10u",
+              "source": "CL31A106KBHNNNE"
+            },
+            "Value": {
+              "export": "10u",
+              "source": "10uF"
+            }
+          }
+        },
+        {
+          "ref": "C_BUCK_OUT1",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL21A226MAQNNNE"
+            },
+            "Comment": {
+              "export": "22u",
+              "source": "CL21A226MAQNNNE"
+            },
+            "Value": {
+              "export": "22u",
+              "source": "22uF"
+            }
+          }
+        },
+        {
+          "ref": "C_BUCK_OUT2",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL21A226MAQNNNE"
+            },
+            "Comment": {
+              "export": "22u",
+              "source": "CL21A226MAQNNNE"
+            },
+            "Value": {
+              "export": "22u",
+              "source": "22uF"
+            }
+          }
+        },
+        {
+          "ref": "D_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "B5819W SL"
+            },
+            "Comment": {
+              "export": "",
+              "source": "B5819W SL"
+            },
+            "Value": {
+              "export": "C8598",
+              "source": "B5819W SL"
+            }
+          }
+        },
+        {
+          "ref": "D_DATA",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "B5819W SL"
+            },
+            "Comment": {
+              "export": "",
+              "source": "B5819W SL"
+            },
+            "Value": {
+              "export": "C8598",
+              "source": "B5819W SL"
+            }
+          }
+        },
+        {
+          "ref": "U_DRV",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "A4988SETTR-T"
+            },
+            "Comment": {
+              "export": "",
+              "source": "A4988SETTR-T"
+            },
+            "Value": {
+              "export": "C38437",
+              "source": "A4988SETTR-T"
+            }
+          }
+        },
+        {
+          "ref": "C_CP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_VCP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_VREG",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL10B224KA8NNNC"
+            },
+            "Comment": {
+              "export": "220n",
+              "source": "CL10B224KA8NNNC"
+            },
+            "Value": {
+              "export": "220n",
+              "source": "220nF"
+            }
+          }
+        },
+        {
+          "ref": "C_DRV_LOGIC",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CC0603KRX7R9BB104"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_VM",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CC0805KRX7R9BB104"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CC0805KRX7R9BB104"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "C_BULK",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "RVT1V470M0605"
+            },
+            "Comment": {
+              "export": "47u",
+              "source": "RVT1V470M0605"
+            },
+            "Value": {
+              "export": "47u",
+              "source": "47uF"
+            }
+          }
+        },
+        {
+          "ref": "R_SA",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "FRL0805FR240TS"
+            },
+            "Comment": {
+              "export": "240m",
+              "source": "FRL0805FR240TS"
+            },
+            "Value": {
+              "export": "240m",
+              "source": "240m\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_SB",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "FRL0805FR240TS"
+            },
+            "Comment": {
+              "export": "240m",
+              "source": "FRL0805FR240TS"
+            },
+            "Value": {
+              "export": "240m",
+              "source": "240m\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_REF_H",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF3902T5E"
+            },
+            "Comment": {
+              "export": "39k",
+              "source": "0603WAF3902T5E"
+            },
+            "Value": {
+              "export": "39k",
+              "source": "39k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_REF_L",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1002T5E"
+            },
+            "Comment": {
+              "export": "10k",
+              "source": "0603WAF1002T5E"
+            },
+            "Value": {
+              "export": "10k",
+              "source": "10k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "C_REF",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL10B103KB8NNNC"
+            },
+            "Comment": {
+              "export": "10n",
+              "source": "CL10B103KB8NNNC"
+            },
+            "Value": {
+              "export": "10n",
+              "source": "10nF"
+            }
+          }
+        },
+        {
+          "ref": "R_ENABLE",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1003TCE"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0402WGF1003TCE"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_SLEEP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0603WAF1003T5E"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0603WAF1003T5E"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "U_ESD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "USBLC6-2SC6"
+            },
+            "Comment": {
+              "export": "",
+              "source": "USBLC6-2SC6"
+            },
+            "Value": {
+              "export": "C2687116",
+              "source": "USBLC6-2SC6"
+            }
+          }
+        },
+        {
+          "ref": "D_TVS",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "SMF18A"
+            },
+            "Comment": {
+              "export": "",
+              "source": "SMF18A"
+            },
+            "Value": {
+              "export": "C19077512",
+              "source": "SMF18A"
+            }
+          }
+        }
+      ]
+    },
+    {
+      "kind": "assembly-table-policy",
+      "table": "pick_and_place.csv",
+      "rows": 64,
+      "bare_rows": [
+        "J_BOOT",
+        "J_DEBUG",
+        "J_MOTOR"
+      ],
+      "missing_fitted": [],
+      "unexpected": [],
+      "duplicate_refs": []
+    },
+    {
+      "kind": "stencil-release-screen",
+      "apertures": [
+        {
+          "bounds_mm": [
+            -0.32244,
+            -2.6700709999999996,
+            0.272568,
+            -2.530071
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -2.270021,
+            0.272568,
+            -2.130021
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -1.869971,
+            0.272568,
+            -1.729971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -1.469921,
+            0.272568,
+            -1.329921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -1.069871,
+            0.272568,
+            -0.9298709999999999
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -0.670075,
+            0.272568,
+            -0.5300750000000001
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            -0.270025,
+            0.272568,
+            -0.130025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            0.130025,
+            0.272568,
+            0.270025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            0.5300750000000001,
+            0.272568,
+            0.670075
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            0.9301249999999999,
+            0.272568,
+            1.070125
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            1.329921,
+            0.272568,
+            1.469921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            1.729971,
+            0.272568,
+            1.869971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            2.130021,
+            0.272568,
+            2.270021
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            -0.32244,
+            2.530071,
+            0.272568,
+            2.6700709999999996
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            0.730056,
+            -3.722567,
+            0.8700559999999999,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            2.3300020000000004,
+            -3.722567,
+            2.470002,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            2.730052,
+            -3.722567,
+            2.870052,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.129848,
+            -3.722567,
+            3.2698479999999996,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            1.929952,
+            -3.722567,
+            2.069952,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            3.529898,
+            -3.722567,
+            3.669898,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            1.5299019999999999,
+            -3.722567,
+            1.669902,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            3.929948,
+            -3.722567,
+            4.069948,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            1.1298519999999999,
+            -3.722567,
+            1.269852,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            3.529898,
+            3.127559,
+            3.669898,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.129848,
+            3.127559,
+            3.2698479999999996,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.929948,
+            3.127559,
+            4.069948,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            2.730052,
+            3.127559,
+            2.870052,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            2.3300020000000004,
+            3.127559,
+            2.470002,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            0.730056,
+            3.127559,
+            0.8700559999999999,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            1.1298519999999999,
+            3.127559,
+            1.269852,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            1.5299019999999999,
+            3.127559,
+            1.669902,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            1.929952,
+            3.127559,
+            2.069952,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            5.929944,
+            -3.722567,
+            6.0699440000000005,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            5.529894,
+            -3.722567,
+            5.669894,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            5.129843999999999,
+            -3.722567,
+            5.269844,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            4.730048,
+            -3.722567,
+            4.870048000000001,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            4.329998,
+            -3.722567,
+            4.469998,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -2.6700709999999996,
+            7.12244,
+            -2.530071
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -2.270021,
+            7.12244,
+            -2.130021
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -1.869971,
+            7.12244,
+            -1.729971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -1.469921,
+            7.12244,
+            -1.329921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -1.069871,
+            7.12244,
+            -0.9298709999999999
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -0.670075,
+            7.12244,
+            -0.5300750000000001
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            0.130025,
+            7.12244,
+            0.270025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            0.9301249999999999,
+            7.12244,
+            1.070125
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            1.729971,
+            7.12244,
+            1.869971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            2.130021,
+            7.12244,
+            2.270021
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            5.929944,
+            3.127559,
+            6.0699440000000005,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            4.329998,
+            3.127559,
+            4.469998,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            4.730048,
+            3.127559,
+            4.870048000000001,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            5.129843999999999,
+            3.127559,
+            5.269844,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            5.529894,
+            3.127559,
+            5.669894,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            -0.270025,
+            7.12244,
+            -0.130025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            0.5300750000000001,
+            7.12244,
+            0.670075
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            1.329921,
+            7.12244,
+            1.469921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            6.527432,
+            2.530071,
+            7.12244,
+            2.6700709999999996
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        }
+      ]
+    },
+    {
+      "kind": "silkscreen-clearance",
+      "layer": "F_SilkScreen",
+      "overlap_mask_openings_mm2": 8.393499396101273,
+      "inside_0_15mm_mask_guard_mm2": 14.287893061752756,
+      "outside_board_0_10mm_inset_mm2": 3.320867429732771
+    },
+    {
+      "kind": "EP-stencil-coverage",
+      "ref": "U_PD",
+      "pad": "pcb_smtpad_34",
+      "coverage_fraction": 0.489999899393742
+    },
+    {
+      "kind": "EP-stencil-coverage",
+      "ref": "U_MCU",
+      "pad": "pcb_smtpad_41",
+      "coverage_fraction": 0.4900001535487062
+    },
+    {
+      "kind": "EP-stencil-coverage",
+      "ref": "U_DRV",
+      "pad": "pcb_smtpad_189",
+      "coverage_fraction": 0.49000021000044297
+    },
+    {
+      "kind": "paste-source-mismatch",
+      "missing_mm2": 0.0,
+      "extra_mm2": 4.409999999999995
+    }
+  ],
+  "rear_motor_compatibility_verified": false,
+  "prototype_fabrication_ready": false,
+  "physical_hardware_tested": false,
+  "superseded_input_failures": [
+    {
+      "check": "native_netlist",
+      "command": [
+        "tsci",
+        "check",
+        "netlist",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 1,
+      "log": "artifacts/validation-resume/native_netlist.txt",
+      "reason": "CLI requires a TSX entry point for netlist; corrected TSX command exit code is 0."
+    }
+  ]
+}

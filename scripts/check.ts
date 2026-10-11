@@ -31,7 +31,11 @@ for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
 }
 if(json.some((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) unique.push({type:'validation_error',message:'Inner1 is reserved for ground.'})
 const holes=json.filter((e:any)=>e.type==='pcb_hole' && e.hole_diameter===3.2)
-if(holes.length!==4) unique.push({type:'validation_error',message:'Expected four 3.2 mm mounting holes.'})
+const mountCoordinates=new Set(holes.map((e:{x:number,y:number})=>`${e.x},${e.y}`))
+if(holes.length!==4 || mountCoordinates.size!==4 || [-13,13].some(x=>[-13,13].some(y=>!mountCoordinates.has(`${x},${y}`))))
+ unique.push({type:'validation_error',message:'Mounting holes must be exactly the four (±13, ±13) mm coordinates, Ø3.2 mm.'})
+const mountHoles=json.filter((e:{type:string,pcb_component_id?:string|null})=>e.type==='pcb_hole' && !e.pcb_component_id)
+if(mountHoles.length!==4) unique.push({type:'validation_error',message:'Expected exactly four board mounting holes, excluding connector alignment holes.'})
 const resistance=(name:string)=>json.find((e:any)=>e.type==='source_component' && e.name===name)?.resistance
 const vref=3.3*resistance('R_REF_L')/(resistance('R_REF_H')+resistance('R_REF_L')), current=vref/(8*resistance('R_SA'))
 if(!Number.isFinite(current) || resistance('R_SA')!==resistance('R_SB')) unique.push({type:'validation_error',message:'Missing or mismatched phase-current setting resistors.'})
