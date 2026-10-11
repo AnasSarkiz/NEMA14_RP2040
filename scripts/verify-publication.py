@@ -45,7 +45,7 @@ for e in remote:
         assert e['rotation']['z']==0
         mouth=(e['position']['x'],e['position']['y']+2.6-e['model_origin_position']['y'])
         usb.append(mouth)
-assert sorted(usb)==[(-6.2,17.5),(6.2,17.5)]
+assert sorted((round(x,8),round(y,8)) for x,y in usb)==[(-6.2,17.5),(6.2,17.5)]
 mechanical=json.loads(file('artifacts/mechanical/mount-usb-screen.json'))
 assert mechanical['passed'] and mechanical['board_sha256']==sha(board_bytes)
 assert mechanical['fastener_requirement']['maximum_head_diameter_mm']==4
