@@ -1,61 +1,78 @@
 {
-  "board_sha256": "2cbf6ee9a465527ed7f40d7c818eeb72912a649ba8fb4d9125bf6aba64d7048a",
+  "source_path": "/workspace/nema14-rp2040-current/artifacts/board.circuit.json",
+  "fastener_requirement": {
+    "standard": "DIN 920",
+    "thread": "M3",
+    "maximum_head_diameter_mm": 4,
+    "model_envelope_diameter_mm": 4.4,
+    "conservative_model_height_mm": 3,
+    "radial_screen_allowance_mm": 0.2
+  },
+  "plug_pair_intersections": [],
+  "minimum_simultaneous_plug_gap_mm": 0.40000000000000036,
+  "board_sha256": "2803c6eddafe285165f7f93b404493091a754ee3aa25536f3c20d4fcc7734ebd",
   "native_STEP_models": 61,
   "component_intersections": [],
   "fastener_clearances": [
     {
-      "reference": "R_CC1",
-      "mount": "(13, 13)",
-      "distance_to_radius2p7_fastener_mm": 0.7418200127258244,
+      "reference": "J_PD",
+      "mount": "(-13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.129999999999999,
       "intersection_mm3": 0
     },
     {
-      "reference": "R_CC2",
+      "reference": "J_DATA",
       "mount": "(13, 13)",
-      "distance_to_radius2p7_fastener_mm": 0.45001270000006954,
+      "distance_to_radius2p2_fastener_mm": 0.13000000000000256,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_PD",
+      "mount": "(-13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.5950000000000006,
       "intersection_mm3": 0
     }
   ],
   "usb": [
     {
-      "native_body_to_mount_envelope_mm": 1.3300000000000018,
+      "native_body_to_mount_envelope_mm": 0.129999999999999,
       "reference": "J_PD",
       "mouth_xy_mm": [
-        -17.50000000000005,
-        4.5
+        -6.2,
+        17.50000000000005
       ],
       "outward_unit_vector": [
-        -1.0,
-        6.123233995736766e-17
+        -0.0,
+        1.0
       ],
       "plug_12x30x7mm_intersections": [],
       "bbox_mm": [
-        -17.500000000000053,
-        0.02999989999999868,
+        -10.6700001,
+        9.600000000000042,
         -0.05001099999999947,
-        -9.600000000000042,
-        8.970000099999998,
+        -1.7299999000000006,
+        17.500000000000053,
         4.050989100000001
       ]
     },
     {
-      "native_body_to_mount_envelope_mm": 1.33,
+      "native_body_to_mount_envelope_mm": 0.13000000000000256,
       "reference": "J_DATA",
       "mouth_xy_mm": [
-        17.50000000000005,
-        4.499999999999999
+        6.2,
+        17.50000000000005
       ],
       "outward_unit_vector": [
-        1.0,
-        -1.8369701987210297e-16
+        -0.0,
+        1.0
       ],
       "plug_12x30x7mm_intersections": [],
       "bbox_mm": [
+        1.7299998999999988,
         9.600000000000042,
-        0.02999989999999956,
         -0.05001099999999947,
+        10.6700001,
         17.500000000000053,
-        8.9700001,
         4.050989100000001
       ]
     }
@@ -82,7 +99,7 @@
   "limitations": [
     "Nominal PCB/model screen only; no verified mounting to rear motor endcap.",
     "Cable envelope is a defined 12x30x7 mm procurement bound, not tested cable hardware.",
-    "PCB fastener envelope radius2.7 includes nominal head/play; actual hardware and placement tolerances remain unqualified."
+    "\u00d84.4 mm fastener envelope is a defined screen budget around \u00d84 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified."
   ],
   "passed": true
 }

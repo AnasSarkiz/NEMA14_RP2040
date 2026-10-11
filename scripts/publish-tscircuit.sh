@@ -3,7 +3,7 @@
 set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
 package_stage=$(mktemp -d /tmp/nema14-supplier-package.XXXXXX)
-trap 'rm -rf "$package_stage"' EXIT
+trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$package_stage"; else echo "Publication stage retained for recovery: $package_stage" >&2; fi' EXIT
 export PATH="$project_root/node_modules/.bin:$PATH"
 python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
@@ -18,11 +18,12 @@ for f in (root/'artifacts').glob('schematic-a4-page-*.svg'):shutil.copy2(f,stage
 for f in ['bom.csv','source-bom.csv','pick_and_place.csv','drc-report.json','physical-connectivity.json','jlcpcb-import-report.json']:
  if (root/'artifacts'/f).exists():shutil.copy2(root/'artifacts'/f,stage/'artifacts'/f)
 shutil.copy2(root/'artifacts/schematic-a4-page-01.svg',stage/'artifacts/schematic.svg')
-for name in ['mounting-change-proof.json','mount-drill-verification.json','check-output.txt','native-check.txt','shorts-output.txt','resume-validation.json','nema14-gerbers.zip']:
+for name in ['mounting-change-proof.json','mount-drill-verification.json','check-output.txt','native-check.txt','shorts-output.txt','resume-validation.json','nema14-gerbers.zip','same-side-routing-proof.json','same-side-copper-repairs.json','same-side-pruned-stubs.json','same-side-trimmed-stubs.json','same-side-copper-cleanup.json','same-side-local-ripup.json','same-side-power-width-repair.json','trace-width-review.json','presentation-verification.json']:
  if (root/'artifacts'/name).exists():shutil.copy2(root/'artifacts'/name,stage/'artifacts'/name)
-for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json']:
+for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/same-edge-fit.svg','mechanical/same-edge-fit.png']:
  source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
 
+shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
 j=json.loads(board_path.read_text())

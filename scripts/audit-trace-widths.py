@@ -24,11 +24,12 @@ for layer in ['top','inner1','inner2','bottom']:
     ground_geometry[layer]=unary_union(regions)
 # This saved PD branch terminates at driver VBB1, after the VM capacitor split.
 # It supplies one bridge, so use the motor's 0.4 A peak phase rating.
-one_bridge='freerouted_trace_163' if board['num_layers']==4 else None
-if one_bridge:
-    t=next(e for e in g.j if e.get('pcb_trace_id')==one_bridge)
-    assert g.nets[g.key(t)]=='PD_VBUS'
-    assert [(p['x'],p['y']) for p in t['route']]==[(-2.6,-6.1782),(-.1618,-6.1782),(1.6811,-8.0211)]
+branch_path=[(-2.6,-6.1782),(-.1618,-6.1782),(1.6811,-8.0211)]
+one_bridge=None
+if board['num_layers']==4:
+    matches=[e for e in g.j if e['type']=='pcb_trace' and g.nets.get(g.key(e))=='PD_VBUS' and [(p['x'],p['y']) for p in e['route']]==branch_path]
+    assert len(matches)==1, 'Reviewed single-bridge branch geometry changed; current budget requires renewed topology review'
+    one_bridge=matches[0]['pcb_trace_id']
 for e in g.j:
     if e['type']!='pcb_trace':continue
     name=g.nets.get(g.key(e),'direct')

@@ -1,10 +1,11 @@
-placement summary: 4 suboptimal orientations
+placement summary: 7 suboptimal orientations
 
 worst issues:
-1. C_IO42 connections cross the routing path between its pads. Suggested move: rotate C_IO42 180 degrees.
+1. R_PD connections cross the routing path between its pads. Suggested move: rotate R_PD 180 degrees.
 2. C_DV23 connections cross the routing path between its pads. Suggested move: rotate C_DV23 180 degrees.
-3. C_XOUT connections cross the routing path between its pads. Suggested move: rotate C_XOUT 180 degrees.
-4. C_REF connections cross the routing path between its pads. Suggested move: rotate C_REF 180 degrees.
+3. R_FLASH_CS connections cross the routing path between its pads. Suggested move: rotate R_FLASH_CS 180 degrees.
+4. C_XOUT connections cross the routing path between its pads. Suggested move: rotate C_XOUT 180 degrees.
+5. R_USB_SENSE_L connections cross the routing path between its pads. Suggested move: rotate R_USB_SENSE_L 180 degrees.
 
 board top-layer utilization:
 - occupied: 56.423% (691.179mm^2 of 1225mm^2)
@@ -12,12 +13,12 @@ board top-layer utilization:
   - 5.419% (66.378mm^2); bounds=(minX=7.739mm, maxX=17.5mm, minY=-17.5mm, maxY=-10.7mm)
 
 board-edge status:
-- J_PD: 1.676mm inside left edge
-- J_DATA: 1.676mm inside right edge
-- U_PD: 7mm inside bottom edge
-- R_PD: 5.368mm inside bottom edge
-- C_PD: 5.35mm inside bottom edge
-- R_PG: 5.268mm inside bottom edge
+- J_PD: 1.676mm inside bottom edge
+- J_DATA: 1.676mm inside bottom edge
+- U_PD: 0.65mm inside left edge
+- R_PD: 3.443mm inside left edge
+- C_PD: 0.7mm inside left edge
+- R_PG: 0.543mm inside bottom edge
 - U_MCU: 10.25mm inside right edge
 - C_IO1: 12.43mm inside bottom edge
 - C_IO10: 13.13mm inside left edge
@@ -31,11 +32,11 @@ board-edge status:
 - C_ADC: 10.13mm inside right edge
 - C_VREG_IN: 9.43mm inside bottom edge
 - C_VREG_OUT: 9.43mm inside bottom edge
-- U_FLASH: 7.077mm inside bottom edge
-- C_FLASH: 5.83mm inside bottom edge
-- R_FLASH_CS: 4.63mm inside bottom edge
-- R_BOOT: 4.33mm inside bottom edge
-- J_BOOT: 1.25mm inside bottom edge
+- U_FLASH: 8.877mm inside bottom edge
+- C_FLASH: 9.43mm inside left edge
+- R_FLASH_CS: 10.13mm inside bottom edge
+- R_BOOT: 8.93mm inside bottom edge
+- J_BOOT: 1.25mm inside right edge
 - Y_MCU: 9.89mm inside top edge
 - R_XOUT: 10.23mm inside top edge
 - C_XIN: 9.83mm inside top edge
@@ -43,12 +44,12 @@ board-edge status:
 - R_RUN: 10.33mm inside right edge
 - R_DM: 11.33mm inside right edge
 - R_DP: 11.484mm inside bottom edge
-- R_CC1: 5.068mm inside bottom edge
-- R_CC2: 0.83mm inside bottom edge
-- R_USB_SENSE_H: 1.368mm inside bottom edge
+- R_CC1: 5.843mm inside right edge
+- R_CC2: 1.984mm inside right edge
+- R_USB_SENSE_H: 1.543mm inside right edge
 - R_USB_SENSE_L: 1.643mm inside right edge
-- R_VM_H: 3.068mm inside bottom edge
-- R_VM_L: 2.968mm inside bottom edge
+- R_VM_H: 0.743mm inside left edge
+- R_VM_L: 0.743mm inside left edge
 - C_VM_SENSE: 4.83mm inside right edge
 - U_BUCK: 9.675mm inside left edge
 - L_BUCK: 8.15mm inside top edge
@@ -71,31 +72,49 @@ board-edge status:
 - R_REF_L: 4.843mm inside right edge
 - C_REF: 7.05mm inside top edge
 - R_ENABLE: 14.884mm inside left edge
-- R_SLEEP: 3.568mm inside bottom edge
+- R_SLEEP: 3.543mm inside bottom edge
 - J_MOTOR: 0.65mm inside top edge
 - J_DEBUG: 1.25mm inside right edge
-- U_ESD: 5.784mm inside bottom edge
-- D_TVS: 1.3mm inside bottom edge
+- U_ESD: 4.015mm inside right edge
+- D_TVS: 3.7mm inside left edge
 
 flagged components:
-- C_IO42
+- R_PD
   source placement: placement_mode=none
-  resolved placement: center=(8.25mm, 2.6mm) on top; bounds=(minX=7.98mm, maxX=8.52mm, minY=1.93mm, maxY=3.27mm); size=(width=0.54mm, height=1.34mm); anchor_alignment="center"
-  board edge status: 8.98mm inside right edge
+  resolved placement: center=(-12.9mm, 9.8mm) on top; bounds=(minX=-14.057mm, maxX=-11.743mm, minY=9.368mm, maxY=10.232mm); size=(width=2.313mm, height=0.864mm); anchor_alignment="center"
+  board edge status: 3.443mm inside left edge
   issues:
-  - C_IO42 connections cross the routing path between its pads. Suggested move: rotate C_IO42 180 degrees.
+  - R_PD connections cross the routing path between its pads. Suggested move: rotate R_PD 180 degrees.
 - C_DV23
   source placement: placement_mode=none
   resolved placement: center=(5.2mm, -5.4mm) on top; bounds=(minX=4.93mm, maxX=5.47mm, minY=-6.07mm, maxY=-4.73mm); size=(width=0.54mm, height=1.34mm); anchor_alignment="center"
   board edge status: 11.43mm inside top edge
   issues:
   - C_DV23 connections cross the routing path between its pads. Suggested move: rotate C_DV23 180 degrees.
+- R_FLASH_CS
+  source placement: placement_mode=none
+  resolved placement: center=(-0.8mm, 7.1mm) on top; bounds=(minX=-1.516mm, maxX=-0.084mm, minY=6.83mm, maxY=7.37mm); size=(width=1.431mm, height=0.54mm); anchor_alignment="center"
+  board edge status: 10.13mm inside bottom edge
+  issues:
+  - R_FLASH_CS connections cross the routing path between its pads. Suggested move: rotate R_FLASH_CS 180 degrees.
 - C_XOUT
   source placement: placement_mode=none
   resolved placement: center=(5.5mm, -8.5mm) on top; bounds=(minX=5.23mm, maxX=5.77mm, minY=-9.17mm, maxY=-7.83mm); size=(width=0.54mm, height=1.34mm); anchor_alignment="center"
   board edge status: 8.33mm inside top edge
   issues:
   - C_XOUT connections cross the routing path between its pads. Suggested move: rotate C_XOUT 180 degrees.
+- R_USB_SENSE_L
+  source placement: placement_mode=none
+  resolved placement: center=(14.7mm, -1.65mm) on top; bounds=(minX=13.543mm, maxX=15.857mm, minY=-2.082mm, maxY=-1.218mm); size=(width=2.313mm, height=0.864mm); anchor_alignment="center"
+  board edge status: 1.643mm inside right edge
+  issues:
+  - R_USB_SENSE_L connections cross the routing path between its pads. Suggested move: rotate R_USB_SENSE_L 180 degrees.
+- R_VM_H
+  source placement: placement_mode=none
+  resolved placement: center=(-15.6mm, 2.5mm) on top; bounds=(minX=-16.757mm, maxX=-14.443mm, minY=2.068mm, maxY=2.932mm); size=(width=2.313mm, height=0.864mm); anchor_alignment="center"
+  board edge status: 0.743mm inside left edge
+  issues:
+  - R_VM_H connections cross the routing path between its pads. Suggested move: rotate R_VM_H 180 degrees.
 - C_REF
   source placement: placement_mode=none
   resolved placement: center=(8.7mm, -10mm) on top; bounds=(minX=7.6mm, maxX=9.8mm, minY=-10.45mm, maxY=-9.55mm); size=(width=2.2mm, height=0.9mm); anchor_alignment="center"

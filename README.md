@@ -6,7 +6,7 @@ Separate RP2040 hardware prototype derived from the CH32X035 NEMA14 controller. 
 
 For STEPperONLINE **14HM11-0404S**: 0.9° bipolar motor, 0.40 A/phase, 25 Ω windings, 35.2 mm maximum body width. The 35 × 35 mm four-layer PCB has four 3.2 mm holes at 26 mm pitch. The manufacturer specifies those dimensions for **front** mounting only; rear attachment uses an adapter and remains physically unverified.
 
-- Two top-side USB-C receptacles, openings flush at opposite board edges: CH224K PD sink requests 15 V, separate USB 2.0 data connection to RP2040.
+- Two top-side USB-C receptacles, openings flush on the same +Y board edge: CH224K PD sink requests 15 V, separate USB 2.0 data connection to RP2040.
 - RP2040 QFN56, 2 MB GD25Q16EEIGR external QSPI flash, 12 MHz ABM8-272-T3 crystal, 27 Ω USB resistors, all supply bypasses and 1.1 V core-regulator reservoirs.
 - AP63203WU-7 3.3 V buck, diode-OR inputs from PD and data VBUS. Motor rail is supplied only by the PD port; data VBUS cannot supply the motor.
 - A4988 chopper driver: 1/16 stepping, nominal peak phase-current setting 0.351 A. This setting uses 39k/10k VREF and 0.24 Ω sense resistors; 1% divider/sense resistors and the regulator tolerance must be included in the production current review.
@@ -44,8 +44,8 @@ Publication uses the CLI build-output option: `tsci push index.circuit.tsx --inc
 
 The [electrical review](docs/electrical.md) records power-trace widening, filled grounds, the corrected 100 kΩ/10 kΩ motor-voltage divider, copper-thickness requirements, and remaining prototype tests. Run `npm run check:copper` for the actual saved-segment audit. The [machine-readable report](artifacts/trace-width-review.json) distinguishes isolated tracks from parallel ground-plane paths; software checks do not certify hardware operation.
 
-## Verified mounting and USB screen — 2026-10-11
+## Verified same-edge USB and mounting — 2026-10-11
 
-The fresh GitHub-baseline review is recorded in [mounting and USB verification](docs/mounting-usb-verification.md). Source output, delivery Circuit JSON and regenerated metric Excellon all contain exactly four Ø3.2 mm NPTH holes at (±13, ±13) mm. Both original USB-C mouths remain flush with their opposite side edges at X=±17.5 mm, Y=4.5 mm. Exact supplier STEP models clear the radius-2.7 mm fastener envelopes by 1.33 mm; the bounded 12×30×7 mm plug envelopes do not intersect board components or mounting hardware. These are measured PCB/model clearances; rear-motor attachment and actual cable/fastener samples remain unverified.
+Both original USB-C ports now face the same +Y edge of the exact 35 × 35 mm PCB. The four Ø3.2 mm holes remain exactly (±13, ±13) mm. This layout requires **M3 DIN 920 heads ≤Ø4 mm**. Two bounded 12 mm-wide plug housings have 0.4 mm gap; native STEP bodies clear the conservative Ø4.4 mm screw envelope by 0.13 mm. Actual cable and fastener samples and full assembly tolerances remain untested.
 
-All physical connections, pads, component placement, traces, vias and original CAD transforms from the latest GitHub baseline are preserved. The four-layer RP2040 board now enforces mounting keepouts on every copper layer; CH32 ground-fill generation now splits rounding-pinched polygons and discards unanchored islands. The full independent CAM audit still reports assembly/stencil/BOM/silkscreen findings. This publication remains a **work-in-progress prototype, not approved for fabrication**.
+[Mounting and USB verification](docs/mounting-usb-verification.md) records preserved source pins, values and nets, relocated parts, rerouted copper, actual Circuit JSON/Gerber coordinates and all executed checks. Native DRC and physical/CAM connectivity pass. Native placement suggestions and full assembly CAM findings remain documented. **Prototype only; fabrication approval and rear-motor compatibility remain unverified.**

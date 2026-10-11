@@ -1,7 +1,10 @@
 {
-  "baseline_github_commit": "003da97e355f9392e5e85f5762d08dda637ad6a8",
-  "board_sha256": "2cbf6ee9a465527ed7f40d7c818eeb72912a649ba8fb4d9125bf6aba64d7048a",
-  "native_source_mounting_replayed": true,
+  "baseline_github_commit": "6ae1d99d91e3a3f36c7ffcbff38200b3600102bd",
+  "board_sha256": "2803c6eddafe285165f7f93b404493091a754ee3aa25536f3c20d4fcc7734ebd",
+  "board_dimensions_mm": [
+    35,
+    35
+  ],
   "exact_mounts_mm": [
     [
       -13,
@@ -21,14 +24,79 @@
     ]
   ],
   "mount_drill_mm": 3.2,
+  "source_components_ports_nets_traces_identical": true,
+  "supplier_imports_and_native_land_patterns_unchanged": true,
+  "saved_placements_pads_CAD_and_mounting_equal_native_source": true,
+  "native_via_in_pad_flag": true,
+  "via_in_pad_policy": "Only the three grounded exposed-pad thermal sites pass the strict independent via-in-pad check; all other via-in-pad placements remain prohibited.",
+  "moved_references": [
+    "C_FLASH",
+    "C_PD",
+    "D_PD",
+    "D_TVS",
+    "J_BOOT",
+    "J_DATA",
+    "J_PD",
+    "R_BOOT",
+    "R_CC1",
+    "R_CC2",
+    "R_FLASH_CS",
+    "R_PD",
+    "R_PG",
+    "R_SLEEP",
+    "R_USB_SENSE_H",
+    "R_VM_H",
+    "R_VM_L",
+    "U_ESD",
+    "U_FLASH",
+    "U_PD"
+  ],
   "all_layer_keepouts": [
     "bottom",
     "inner1",
     "inner2",
     "top"
   ],
-  "all_existing_source_pins_nets_components_pads_traces_vias_and_CAD_unchanged": true,
-  "modified_geometry_types": [
-    "pcb_keepout"
-  ]
+  "keepout_shape": "circle",
+  "keepout_radius_mm": 2.2,
+  "keepouts_allow_placements_reason": "Copper constrained on all layers; exact native STEP solids independently verify body/head clearance rather than treating wide rectangular supplier courtyards as solid material.",
+  "same_USB_edge": "+Y",
+  "USB_mouths_mm": [
+    [
+      -6.2,
+      17.50000000000005
+    ],
+    [
+      6.2,
+      17.50000000000005
+    ]
+  ],
+  "USB_port_pitch_mm": 12.4,
+  "required_fastener": {
+    "standard": "DIN 920",
+    "thread": "M3",
+    "maximum_head_diameter_mm": 4,
+    "model_envelope_diameter_mm": 4.4,
+    "conservative_model_height_mm": 3,
+    "radial_screen_allowance_mm": 0.2
+  },
+  "plug_envelope_mm": [
+    12,
+    30,
+    7
+  ],
+  "simultaneous_plug_gap_mm": 0.40000000000000036,
+  "minimum_USB_to_head_envelope_mm": 0.129999999999999,
+  "native_DRC_errors": 0,
+  "native_DRC_warnings": 0,
+  "physical_nets_checked": 48,
+  "final_counts": {
+    "pcb_trace": 554,
+    "pcb_via": 96,
+    "pcb_copper_pour": 11
+  },
+  "placement_and_affected_copper_changed": true,
+  "construction_receipts_are_history": "Routing/pruning/repair receipts include trial and subsequently replaced copper; this proof and current board JSON describe the final geometry.",
+  "rear_motor_compatibility_verified": false,
+  "fabrication_approved": false
 }

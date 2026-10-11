@@ -62,7 +62,7 @@ for net in children(children(routes,'network_out')[0],'net'):
   elem['pcb_port_ids']=list({point[k] for point in route for k in ['start_pcb_port_id','end_pcb_port_id'] if k in point})
   j.append(elem)
  for via in children(net,'via'):
-  vcount+=1;elem={'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':float(via[2])/scale,'y':float(via[3])/scale,'hole_diameter':(.25 if via[1]=='via500' else .3),'outer_diameter':(.5 if via[1]=='via500' else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':key}
+  vcount+=1;elem={'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':float(via[2])/scale,'y':float(via[3])/scale,'hole_diameter':({'via500':.25,'via400':.2}.get(via[1],.3)),'outer_diameter':({'via500':.5,'via400':.4}.get(via[1],.6)),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':key}
   if netid:elem['source_net_id']=netid
   if key in traceids:elem['source_trace_id']=traceids[key]
   j.append(elem)
@@ -80,6 +80,17 @@ for t in meta['thermalVias']:
 for t in meta['thermalVias']:
  if not any(e['type']=='pcb_via' and math.hypot(e['x']-t['x'],e['y']-t['y'])<.01 for e in j):
   vcount+=1;j.append({'type':'pcb_via','pcb_via_id':f'freerouted_via_{vcount}','x':t['x'],'y':t['y'],'hole_diameter':(.25 if prefix else .3),'outer_diameter':(.5 if prefix else .6),'layers':['top','bottom'],'from_layer':'top','to_layer':'bottom','source_net_id':netids['GND'],'subcircuit_id':'subcircuit_source_group_0','subcircuit_connectivity_map_key':netkeys['GND']})
+# Fixed wiring is deliberately omitted from Freerouting's SES response.
+# Reattach exactly the validated DSN input seeds, with fresh element IDs.
+seed_file=ROOT/'artifacts/same-side-routing-seeds.json'
+if prefix=='supplier' and seed_file.exists():
+ seeds=json.loads(seed_file.read_text())
+ for kind in ['traces','vias']:
+  for record in seeds[kind]:
+   e=dict(record);e[e['type']+'_id']='same_side_retained_'+e[e['type']+'_id']
+   if kind=='vias' and any(x['type']=='pcb_via' and math.hypot(x['x']-e['x'],x['y']-e['y'])<.001 for x in j):continue
+   j.append(e)
+ print('Reattached fixed input seeds:',len(seeds['traces']),'traces,',len(seeds['vias']),'vias')
 if prefix and (ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).exists():
  seeds=json.loads((ROOT/'artifacts'/(prefix+'-seeds.circuit.json')).read_text())
  j.extend(e for e in seeds if e['type'] in ['pcb_trace','pcb_via'])

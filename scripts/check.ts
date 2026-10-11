@@ -16,15 +16,26 @@ const traceCount=json.filter((e:any)=>e.type==='pcb_trace').length
 if(traceCount===0) unique.push({type:'validation_error',message:'No routed copper was produced.'})
 const board=json.find((e:any)=>e.type==='pcb_board')
 if(!board || board.width!==35 || board.height!==35) unique.push({type:'validation_error',message:'Expected a 35 by 35 mm PCB.'})
-for (const [name,edge] of [['J_PD',-17.5],['J_DATA',17.5]] as const) {
+const usbMouths:Array<{name:string,x:number,y:number}> = []
+for (const name of ['J_PD','J_DATA']) {
  const source=json.find((e:any)=>e.type==='source_component' && e.name===name)
- const component=json.find((e:any)=>e.type==='pcb_component' && e.source_component_id===source?.source_component_id)
  const cad=json.find((e:any)=>e.type==='cad_component' && e.source_component_id===source?.source_component_id)
- // Exact imported TYPE-C model: mating plane is local Y=2.6 mm, origin Y=-2.7500289 mm.
- const angle=(cad?.rotation?.z??0)*Math.PI/180
- const front=cad ? cad.position.x-Math.sin(angle)*(2.6-cad.model_origin_position.y) : NaN
- if(!Number.isFinite(front) || Math.abs(front-edge)>.001) unique.push({type:'validation_error',message:name+' imported USB-C mating plane is not flush with the board edge.'})
+ const angle=(cad?.rotation?.z??NaN)*Math.PI/180
+ const offset=cad ? 2.6-cad.model_origin_position.y : NaN
+ const x=cad ? cad.position.x-Math.sin(angle)*offset : NaN
+ const y=cad ? cad.position.y+Math.cos(angle)*offset : NaN
+ const expectedX=name==='J_PD'?-6.2:6.2
+ if(!Number.isFinite(y) || Math.abs(y-17.5)>.001 || Math.abs(x-expectedX)>.001 || Math.abs(Math.sin(angle))>.0001 || Math.cos(angle)<.9999)
+  unique.push({type:'validation_error',message:name+' must face +Y with its native mouth at the Y=17.5 mm edge and reviewed X position.'})
+ usbMouths.push({name,x,y})
 }
+if(usbMouths.length!==2 || Math.abs(usbMouths[1].x-usbMouths[0].x-12.4)>.001)
+ unique.push({type:'validation_error',message:'Same-edge USB mouths must have 12.4 mm centre pitch for two 12 mm plug envelopes.'})
+const mountingKeepouts=json.filter((e:any)=>e.type==='pcb_keepout')
+const expectedLayers=board?.num_layers===4?['top','inner1','inner2','bottom']:['top','bottom']
+if(mountingKeepouts.length!==4 || mountingKeepouts.some((e:any)=>e.shape!=='circle' || Math.abs(e.radius-2.2)>.00001 || ![-13,13].includes(e.center.x) || ![-13,13].includes(e.center.y) || expectedLayers.some(l=>!e.layers.includes(l))))
+ unique.push({type:'validation_error',message:'All four mounts require circular Ø4.4 mm head envelopes on every copper layer; DIN 920 M3 Ø4 mm heads are mandatory.'})
+
 if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected four copper layers in the RP2040 board.'})
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
  if(via.hole_diameter<board.min_via_hole_diameter || via.outer_diameter<board.min_via_pad_diameter) unique.push({type:'validation_error',message:'Via violates the declared minimum pad/drill diameter: '+via.pcb_via_id})

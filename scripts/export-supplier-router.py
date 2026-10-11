@@ -34,13 +34,34 @@ for i,e in enumerate(j):
  if e['type']=='pcb_hole':
   for l in layer_names:keep.append(f'(keepout {q("hole"+str(i)+l)} (circle {layer_map[l]} {um(e["hole_diameter"]+.2)} {um(e["x"])} {um(e["y"])}))')
  if e['type']=='pcb_keepout':
-  x,y=e['center']['x'],e['center']['y'];w,h=e['width'],e['height']
+  x,y=e['center']['x'],e['center']['y']
+  if e['shape']=='circle':
+   for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (circle {layer_map[l]} {um(2*e["radius"])} {um(x)} {um(y)}))')
+   continue
+  w,h=e['width'],e['height']
   for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (rect {layer_map[l]} {um(x-w/2)} {um(y-h/2)} {um(x+w/2)} {um(y+h/2)}))')
 wide=['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'];signal=[n for n in netpins if n not in wide];classes=f'(class "signals" '+' '.join(q(n) for n in signal)+' (circuit (use_via "via500")) (rule (width 160) (clearance 150)))';classes+=f'(class "motor_power" '+' '.join(q(n) for n in wide)+' (circuit (use_via "via500")) (rule (width 300) (clearance 150)))'
 via='(padstack "via500" '+' '.join(f'(shape (circle {layer_map[l]} 500))' for l in layer_names)+' (attach off))'
 text='(pcb nema14_supplier (parser (string_quote ") (space_in_quoted_tokens on)) (resolution um 10) (unit um)'
 text+='(structure '+' '.join(f'(layer {layer_map[l]} (type signal) (property (index {i})))' for i,l in enumerate(layer_names))+' (boundary (path pcb 0 -17200 -17200 17200 -17200 17200 17200 -17200 17200 -17200 -17200)) (via "via500") (rule (width 160) (clearance 150)) '+' '.join(keep)+')'
-text+='(placement '+' '.join(placements)+') (library '+' '.join(images+shapes+[via])+') (network '+' '.join(f'(net {q(n)} (pins '+' '.join(p for p in pp)+'))' for n,pp in netpins.items())+' '+classes+')'
-text+='(wiring '+' '.join(f'(via "via500" {um(v["x"])} {um(v["y"])} (net "GND") (type fix))' for v in thermal)+'))\n'
+text+='(placement '+' '.join(placements)+') (library '+' '.join(images+shapes+[via]+[f'(padstack "via400" '+ ' '.join(f'(shape (circle {layer_map[l]} 400))' for l in layer_names)+' (attach off))'])+') (network '+' '.join(f'(net {q(n)} (pins '+' '.join(p for p in pp)+'))' for n,pp in netpins.items())+' '+classes+')'
+wiring=[f'(via "via500" {um(v["x"])} {um(v["y"])} (net "GND") (type fix))' for v in thermal]
+seed_file=ROOT/'artifacts/same-side-routing-seeds.json'
+if seed_file.exists():
+ seeds=json.loads(seed_file.read_text())
+ for via_seed in seeds['vias']:
+  if any(math.hypot(via_seed['x']-v['x'],via_seed['y']-v['y'])<.01 for v in thermal):continue
+  assert (via_seed['outer_diameter'],via_seed['hole_diameter']) in [(0.5,0.25),(0.4,0.2)]
+  via_name='via500' if via_seed['outer_diameter']==.5 else 'via400'
+  net=nets[via_seed['subcircuit_connectivity_map_key']]
+  wiring.append(f'(via {q(via_name)} {um(via_seed["x"])} {um(via_seed["y"])} (net {q(net)}) (type fix))')
+ for trace in seeds['traces']:
+  net=nets[trace['subcircuit_connectivity_map_key']]
+  for a,b in zip(trace['route'],trace['route'][1:]):
+   if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
+   if math.hypot(a['x']-b['x'],a['y']-b['y'])<1e-8:continue
+   assert a['layer'] in layer_names
+   wiring.append(f'(wire (path {layer_map[a["layer"]]} {um(max(a["width"],b["width"]))} {um(a["x"])} {um(a["y"])} {um(b["x"])} {um(b["y"])}) (net {q(net)}) (type fix))')
+text+='(wiring '+' '.join(wiring)+'))\n'
 (ROOT/'artifacts/supplier-input.dsn').write_text(text);(ROOT/'artifacts/supplier-map.json').write_text(json.dumps({'pinmap':pinmap,'thermalVias':thermal,'netids':netids,'netkeys':{v:k for k,v in nets.items()}},indent=2)+'\n');(ROOT/'artifacts/supplier-unrouted.circuit.json').write_text(json.dumps(j,indent=2)+'\n')
 print(count,'exact physical pads exported; ',len(netpins),'routing groups;',len(thermal),'grounded exposed-pad vias')

@@ -36,6 +36,25 @@ assert proof['review_board_sha256'] == sha(board_bytes) and proof['published_boa
 assert proof['only_cad_url_metadata_changed'] and proof['saved_routing_preserved']
 revision = proof['github_revision']
 assert all('/'+revision+'/imports/supplier/' in e[field] for e in remote if e['type']=='cad_component' and e.get('model_obj_url') for field in ['model_obj_url','model_step_url'])
+pcb = next(e for e in remote if e['type']=='pcb_board')
+assert pcb['width']==pcb['height']==35
+names={e['source_component_id']:e['name'] for e in remote if e['type']=='source_component'}
+usb=[]
+for e in remote:
+    if e['type']=='cad_component' and names.get(e.get('source_component_id')) in ('J_PD','J_DATA'):
+        assert e['rotation']['z']==0
+        mouth=(e['position']['x'],e['position']['y']+2.6-e['model_origin_position']['y'])
+        usb.append(mouth)
+assert sorted(usb)==[(-6.2,17.5),(6.2,17.5)]
+mechanical=json.loads(file('artifacts/mechanical/mount-usb-screen.json'))
+assert mechanical['passed'] and mechanical['board_sha256']==sha(board_bytes)
+assert mechanical['fastener_requirement']['maximum_head_diameter_mm']==4
+assert mechanical['fastener_requirement']['model_envelope_diameter_mm']==4.4
+assert abs(mechanical['minimum_simultaneous_plug_gap_mm']-.4)<1e-5
+assert min(u['native_body_to_mount_envelope_mm'] for u in mechanical['usb'])>=.12999
+cam=json.loads(file('artifacts/manufacturing/audit.json'))
+assert cam['board_outline']['valid_35mm_square'] and cam['board_outline']['centerline_bounds_mm']==[-17.5,-17.5,17.5,17.5]
+assert not cam['connectivity']['shorts'] and not cam['connectivity']['opens'] and not cam['connectivity']['unconnected_pads']
 expected = set(itertools.product([-13,13],repeat=2))
 holes = [e for e in remote if e['type']=='pcb_hole' and not e.get('pcb_component_id')]
 assert len(holes)==4 and {(e['x'],e['y']) for e in holes}==expected and all(e['hole_diameter']==3.2 for e in holes)
@@ -55,7 +74,7 @@ with zipfile.ZipFile(io.BytesIO(archive)) as z:
         if match and tools[tool]==D('3.2'): mounts.append((D(match[1]),D(match[2])))
     assert len(mounts)==4 and set(mounts)==expected
 checks=[]
-for path in ['artifacts/mount-drill-verification.json','artifacts/mechanical/mount-usb-screen.json','artifacts/manufacturing/audit.json','artifacts/resume-validation.json','src/board.tsx','docs/mounting-usb-verification.md']:
+for path in ['artifacts/mount-drill-verification.json','artifacts/mechanical/mount-usb-screen.json','artifacts/manufacturing/audit.json','artifacts/resume-validation.json','src/board.tsx','docs/mounting-usb-verification.md','artifacts/mounting-change-proof.json','artifacts/trace-width-review.json']:
     data=file(path); assert data==(root/path).read_bytes(), path+' public evidence differs'
     checks.append({'path':path,'sha256':sha(data)})
 git_remote = subprocess.check_output(['git','-C',str(root),'remote','get-url','origin'],text=True).strip()
@@ -71,6 +90,6 @@ for path in ['artifacts/board.circuit.json','index.circuit.json','artifacts/nema
     github.append({'path':path,'sha256':sha(data),'url':url})
 page='https://tscircuit.com/'+name
 with urllib.request.urlopen(page,timeout=60) as r: page_status=r.status; assert page_status==200
-receipt={'passed':True,'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_package':name,'version':version,'package_release_id':rid,'package_is_private':False,'ready_to_build':True,'public_page':page,'page_http_status':page_status,'github_revision':revision,'github_commit_url':'https://github.com/'+repo+'/commit/'+revision,'public_file_count':len(files),'review_board_sha256':sha(board_bytes),'public_index_sha256':sha(remote_bytes),'public_dist_sha256':sha(dist_bytes),'geometry_and_functional_records_unchanged':True,'cad_urls_pinned_to_revision':True,'mount_coordinates_mm':sorted(expected),'mount_diameter_mm':3.2,'public_gerber_archive_sha256':sha(archive),'public_drill_sha256':sha(drill),'public_drill_coordinates_mm':[[float(x),float(y)] for x,y in mounts],'public_evidence_checks':checks,'public_github_checks':github,'full_manufacturing_audit_passed':False,'rear_motor_compatibility_verified':False,'physical_hardware_tested':False}
+receipt={'passed':True,'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_package':name,'version':version,'package_release_id':rid,'package_is_private':False,'ready_to_build':True,'public_page':page,'page_http_status':page_status,'github_revision':revision,'github_commit_url':'https://github.com/'+repo+'/commit/'+revision,'public_file_count':len(files),'review_board_sha256':sha(board_bytes),'public_index_sha256':sha(remote_bytes),'public_dist_sha256':sha(dist_bytes),'geometry_and_functional_records_unchanged':True,'cad_urls_pinned_to_revision':True,'mount_coordinates_mm':sorted(expected),'mount_diameter_mm':3.2,'board_dimensions_mm':[35,35],'USB_mouth_coordinates_mm':sorted(usb),'same_USB_edge':'+Y','required_maximum_DIN920_head_diameter_mm':4,'simultaneous_12mm_plug_gap_mm':mechanical['minimum_simultaneous_plug_gap_mm'],'actual_Gerber_outline_centerline_bounds_mm':cam['board_outline']['centerline_bounds_mm'],'public_gerber_archive_sha256':sha(archive),'public_drill_sha256':sha(drill),'public_drill_coordinates_mm':[[float(x),float(y)] for x,y in mounts],'public_evidence_checks':checks,'public_github_checks':github,'full_manufacturing_audit_passed':False,'rear_motor_compatibility_verified':False,'physical_hardware_tested':False}
 (root/'artifacts/publication-verification.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps(receipt,indent=2))
