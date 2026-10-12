@@ -20,9 +20,9 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
  return <board width={35} height={35} layers={4} thickness={1.6}
   routingDisabled={routingDisabled} minTraceWidth={0.16} minTraceToPadEdgeClearance={0.15} minPadEdgeToPadEdgeClearance={0.15}
   minViaHoleDiameter={0.2} minViaPadDiameter={0.4} minBoardEdgeClearance={0.25}
-  autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled>
+  autorouter={{local:true, traceClearance:0.15}} autorouterEffortLevel="2x" schAutoLayoutEnabled={false}>
   <schematicsheet name="NEMA14_RP2040" sheetSize="A4">
-  {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'].includes(name)?0.45:0.16} /></React.Fragment>)}
+  {['GND','PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','PD_CC1','PD_CC2','DATA_CC1','DATA_CC2','USB_DP','USB_DM','STEP','DIR','ENABLE_N','SLEEP','PD_GOOD','DATA_PRESENT','VM_SENSE','VREF','CP1','CP2','VCP','VREG','SENSE1','SENSE2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','V1V1','QSPI_SS','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','MCU_DM','MCU_DP','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','BUCK_SW','BUCK_BST','BOOT_PAD','PWR_LED_A','TEMP_SDA','TEMP_SCL','BUZZER_PWM','BUZZER_GATE','BUZZER_SINK','LED_R','LED_G','LED_B','STATUS_R_K','STATUS_G_K','STATUS_B_K','STATUS_R_C','STATUS_G_C','STATUS_B_C'].map(name=><React.Fragment key={name}><net name={name} isGroundNet={name==='GND'} isPowerNet={['PD_VBUS','V3V3','LOGIC_IN','DATA_VBUS','PD_VDD','V1V1'].includes(name)} nominalTraceWidth={['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'].includes(name)?0.45:0.16} /></React.Fragment>)}
   {/* These keepouts constrain copper. Supplier courtyards remain intact; native STEP solids independently validate component/head clearance. */}
   {[-mechanical.holePitch/2,mechanical.holePitch/2].flatMap(x=>[-mechanical.holePitch/2,mechanical.holePitch/2].map(y=><React.Fragment key={`${x},${y}`}><hole name={`M${x}_${y}`} pcbX={x} pcbY={y} diameter={mechanical.holeDiameter} /><keepout pcbX={x} pcbY={y} shape="circle" radius={mechanical.headEnvelopeRadius} allowPlacements={true} layers={['top','inner1','inner2','bottom']} /><silkscreencircle pcbX={x} pcbY={y} radius={mechanical.headEnvelopeRadius} strokeWidth={0.1} /></React.Fragment>))}
   <SupplierPart name="J_PD" {...pinProps("J_PD")}    noConnect={['DP1','DP2','DN1','DN2','SBU1','SBU2']} {...place("J_PD")} connections={{...baseUsb,VBUS1:n('PD_VBUS'),VBUS2:n('PD_VBUS'),CC1:n('PD_CC1'),CC2:n('PD_CC2')}} />
@@ -31,7 +31,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_PD','1k','PD_VBUS','PD_VDD')}
   {cap('C_PD','1uF','PD_VDD')}
   {resistor('R_PG','10k','V3V3','PD_GOOD')}
-  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO0", "GPIO1", "GPIO2", "GPIO3", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO16", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24", "GPIO25", "GPIO26", "GPIO27"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3")}} />
+  <SupplierPart name="U_MCU" {...pinProps("U_MCU")}   pinLabels={mcuPins} noConnect={["GPIO0", "GPIO1", "GPIO4", "GPIO5", "GPIO11", "GPIO12", "GPIO13", "GPIO14", "GPIO15", "GPIO17", "GPIO18", "GPIO19", "GPIO20", "GPIO21", "GPIO22", "GPIO23", "GPIO24"]} {...place("U_MCU")} connections={{IOVDD1:n("V3V3"),IOVDD10:n("V3V3"),IOVDD22:n("V3V3"),IOVDD33:n("V3V3"),IOVDD42:n("V3V3"),IOVDD49:n("V3V3"),DVDD23:n("V1V1"),DVDD50:n("V1V1"),VREG_OUT:n("V1V1"),ADC_AVDD:n("V3V3"),USB_VDD:n("V3V3"),VREG_IN:n("V3V3"),TESTEN:n("GND"),GND:n("GND"),GPIO6:n("STEP"),GPIO7:n("DIR"),GPIO8:n("ENABLE_N"),GPIO9:n("SLEEP"),GPIO10:n("PD_GOOD"),GPIO28:n("VM_SENSE"),GPIO29:n("DATA_PRESENT"),USB_DM:n("MCU_DM"),USB_DP:n("MCU_DP"),RUN:n("RUN"),SWCLK:n("SWCLK"),SWDIO:n("SWDIO"),XIN:n("XIN"),XOUT:n("XOUT"),QSPI_SS:n("QSPI_SS"),QSPI_SCLK:n("QSPI_SCLK"),QSPI_SD0:n("QSPI_SD0"),QSPI_SD1:n("QSPI_SD1"),QSPI_SD2:n("QSPI_SD2"),QSPI_SD3:n("QSPI_SD3"),GPIO26:n("TEMP_SDA"),GPIO27:n("TEMP_SCL"),GPIO16:n("BUZZER_PWM"),GPIO25:n("LED_R"),GPIO2:n("LED_G"),GPIO3:n("LED_B")}} />
   {cap('C_IO1','100nF','V3V3','GND')}
   {cap('C_IO10','100nF','V3V3','GND')}
   {cap('C_IO22','100nF','V3V3','GND')}
@@ -48,7 +48,7 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {cap('C_FLASH','100nF','V3V3','GND')}
   {resistor('R_FLASH_CS','10k','V3V3','QSPI_SS')}
   {resistor('R_BOOT','1k','QSPI_SS','BOOT_PAD')}
-  <chip name="J_BOOT" {...pinProps("J_BOOT")}  cadModel={null} pinLabels={{pin1:'BOOT',pin2:'GND'}} footprint={<footprint>{[-.75,.75].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={1} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={2.8} height={2} /></footprint>} pcbRotation={90} pcbX={15.5} pcbY={3.0} connections={{BOOT:n('BOOT_PAD'),GND:n('GND')}} />
+  <chip name="J_BOOT" {...pinProps("J_BOOT")}  cadModel={null} pinLabels={{pin1:'BOOT',pin2:'GND'}} footprint={<footprint>{[-.75,.75].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={1} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={2.8} height={2} /></footprint>} pcbRotation={90} pcbX={16.1} pcbY={12.0} connections={{BOOT:n('BOOT_PAD'),GND:n('GND')}} />
   <SupplierPart name="Y_MCU" {...pinProps("Y_MCU")}    {...place("Y_MCU")} connections={{pin1:n('XIN'),pin3:n('XTAL_OUT'),pin2:n('GND'),pin4:n('GND')}} />
   {resistor('R_XOUT','1k','XOUT','XTAL_OUT')}
   {cap('C_XIN','15pF','XIN','GND')}
@@ -86,13 +86,33 @@ export default function Nema14Controller({ routingDisabled = false }: { routingD
   {resistor('R_ENABLE','100k','V3V3','ENABLE_N')}
   {resistor('R_SLEEP','100k','SLEEP','GND')}
   <SupplierPart name="J_MOTOR" {...pinProps("J_MOTOR")} pinLabels={{pin1:"A_PLUS",pin2:"A_MINUS",pin3:"B_PLUS",pin4:"B_MINUS"}} {...place("J_MOTOR")} connections={{A_PLUS:n("A_PLUS"),A_MINUS:n("A_MINUS"),B_PLUS:n("B_PLUS"),B_MINUS:n("B_MINUS")}} />
-  <chip name="J_DEBUG" {...pinProps("J_DEBUG")}  cadModel={null} pcbRotation={90} pinLabels={{pin1:'VDD',pin2:'GND',pin3:'SWCLK',pin4:'SWDIO',pin5:'RUN'}} footprint={<footprint>{[0,1.1,2.2,3.3,4.4].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={.8} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={6} height={2} pcbX={2.2} /></footprint>} pcbX={15.5} pcbY={-8.5} connections={{VDD:n('V3V3'),GND:n('GND'),SWCLK:n('SWCLK'),SWDIO:n('SWDIO'),RUN:n('RUN')}} />
+  <chip name="J_DEBUG" {...pinProps("J_DEBUG")} layer="bottom" cadModel={null} pcbRotation={0} pinLabels={{pin1:'VDD',pin2:'GND',pin3:'SWCLK',pin4:'SWDIO',pin5:'RUN'}} footprint={<footprint>{[0,1.1,2.2,3.3,4.4].map((x,i)=><React.Fragment key={i}><smtpad portHints={[`pin${i+1}`]} pcbX={x} pcbY={0} width={.8} height={1.5} shape="rect" /></React.Fragment>)}<courtyardrect width={6} height={2} pcbX={2.2} /></footprint>} pcbX={2.2} pcbY={6.5} connections={{VDD:n('V3V3'),GND:n('GND'),SWCLK:n('SWCLK'),SWDIO:n('SWDIO'),RUN:n('RUN')}} />
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
   <silkscreentext text="NEMA14 RP2040" pcbX={0} pcbY={-16.9} fontSize={1} />
   <silkscreentext text="PD 15V" pcbX={-6.2} pcbY={8.2} fontSize={.7} />
   <silkscreentext text="USB DATA" pcbX={6.2} pcbY={8.2} fontSize={.7} />
   <silkscreentext text="A+ A- B+ B-" pcbX={0} pcbY={-13.7} fontSize={.65} />
+
+  {/* Reference feedback: TMP102 I2C address 0x48; alerts handled by application firmware. */}
+  <SupplierPart name="U_TEMP" {...pinProps("U_TEMP")} {...place("U_TEMP")} noConnect={['ALERT']} connections={{SCL:n('TEMP_SCL'),GND:n('GND'),ADD0:n('GND'),V_POS:n('V3V3'),SDA:n('TEMP_SDA')}} />
+  {cap('C_TEMP','100nF','V3V3')}
+  {resistor('R_TEMP_SDA','4.7k','TEMP_SDA','V3V3')}
+  {resistor('R_TEMP_SCL','4.7k','TEMP_SCL','V3V3')}
+  <SupplierPart name="D_PWR" {...place("D_PWR")} connections={{anode:n('PWR_LED_A'),cathode:n('GND')}} />
+  {resistor('R_PWR_LED','330','V3V3','PWR_LED_A')}
+  {/* Common anode uses fixed programming USB 5 V, never the negotiated PD rail. */}
+  <SupplierPart name="D_STATUS" {...pinProps("D_STATUS")} {...place("D_STATUS")} connections={{_POS:n('DATA_VBUS'),R_NEG:n('STATUS_R_K'),G_NEG:n('STATUS_G_K'),B_NEG:n('STATUS_B_K')}} />
+  {(['R','G','B'] as const).map(color=><React.Fragment key={'status_'+color}>
+    {resistor('R_STATUS_'+color,'1k','STATUS_'+color+'_K','STATUS_'+color+'_C')}
+    <SupplierPart name={'Q_STATUS_'+color} {...pinProps('Q_STATUS_'+color)} {...place('Q_STATUS_'+color)} connections={{E:n('GND'),B:n('LED_'+color),C:n('STATUS_'+color+'_C')}} />
+  </React.Fragment>)}
+  <SupplierPart name="BZ1" {...pinProps("BZ1")} {...place("BZ1")} noConnect={['NC1','NC2']} connections={{_POS:n('V3V3'),_NEG:n('BUZZER_SINK')}} />
+  <SupplierPart name="Q_BUZZER" {...pinProps("Q_BUZZER")} {...place("Q_BUZZER")} connections={{G:n('BUZZER_GATE'),S:n('GND'),D:n('BUZZER_SINK')}} />
+  <SupplierPart name="D_BUZZER" {...place("D_BUZZER")} connections={{cathode:n('V3V3'),anode:n('BUZZER_SINK')}} />
+  {resistor('R_BUZZER_GATE','100','BUZZER_PWM','BUZZER_GATE')}
+  {resistor('R_BUZZER_PD','100k','BUZZER_GATE','GND')}
+  {cap('C_BUZZER','10uF','V3V3')}
   <SchematicNotes />
   </schematicsheet>
  </board>

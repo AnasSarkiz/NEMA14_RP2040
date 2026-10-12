@@ -2,6 +2,7 @@
 # Publish saved copper and pin supplier CAD URLs without modifying review inputs.
 set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
+python3 "$project_root/scripts/verify-publish-readiness.py" --prototype
 package_stage=$(mktemp -d /tmp/nema14-supplier-package.XXXXXX)
 trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$package_stage"; else echo "Publication stage retained for recovery: $package_stage" >&2; fi' EXIT
 export PATH="$project_root/node_modules/.bin:$PATH"
@@ -9,7 +10,7 @@ python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-for d in ['src','docs','scripts']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
 for f in ['index.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
@@ -25,6 +26,7 @@ for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','
 
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
 shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
+shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-feedback')
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
 j=json.loads(board_path.read_text())
@@ -53,7 +55,12 @@ assert built==saved,'Native CLI dist build differs from saved routing'
 (stage/'dist/index/circuit.json').write_text(json.dumps(built,separators=(',',':'))+'\n')
 print('Including verified compact native dist/index/circuit.json')
 PYDIST
-XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist --compress
+if ! XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist --compress; then
+  # The registry may complete an archive after the CLI timeout. Accept recovery
+  # only after fetching and verifying the exact public release, copper, drills,
+  # evidence, pinned models and GitHub bytes; never retry by deleting files.
+  python3 "$project_root/scripts/verify-publication.py" "$project_root"
+fi
 python3 - "$package_stage" <<'PYVERSION'
 import json,pathlib,sys
 p=pathlib.Path(sys.argv[1]);print('Published registry version:',json.loads((p/'package.json').read_text())['version'])

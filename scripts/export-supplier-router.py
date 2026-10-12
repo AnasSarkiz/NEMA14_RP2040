@@ -36,15 +36,19 @@ for i,e in enumerate(j):
  if e['type']=='pcb_keepout':
   x,y=e['center']['x'],e['center']['y']
   if e['shape']=='circle':
-   for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (circle {layer_map[l]} {um(2*e["radius"])} {um(x)} {um(y)}))')
+   for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (rect {layer_map[l]} {um(x-e["radius"])} {um(y-e["radius"])} {um(x+e["radius"])} {um(y+e["radius"])}))')
    continue
   w,h=e['width'],e['height']
   for l in layer_names:keep.append(f'(keepout {q("keep"+str(i)+l)} (rect {layer_map[l]} {um(x-w/2)} {um(y-h/2)} {um(x+w/2)} {um(y+h/2)}))')
-wide=['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'];signal=[n for n in netpins if n not in wide];classes=f'(class "signals" '+' '.join(q(n) for n in signal)+' (circuit (use_via "via500")) (rule (width 160) (clearance 150)))';classes+=f'(class "motor_power" '+' '.join(q(n) for n in wide)+' (circuit (use_via "via500")) (rule (width 300) (clearance 150)))'
+# Ground pad geometry and net identities remain in the native source/map.
+# Autoroute signals; ground is completed with actual plane geometry and
+# stitching, then independently checked for every physical ground pad.
+wide=['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','BUCK_SW','BUZZER_SINK'];signal=[n for n in netpins if n not in wide];wide=[n for n in wide if n!='PD_VBUS'];classes=f'(class "signals" '+' '.join(q(n) for n in signal)+' (circuit (use_via "via400")) (rule (width 160) (clearance 150)))';classes+=f'(class "motor_power" '+' '.join(q(n) for n in wide)+' (circuit (use_via "via500")) (rule (width 300) (clearance 150)))'
+classes+='(class "pd_power" "PD_VBUS" (circuit (use_via "via500")) (rule (width 550) (clearance 150)))'
 via='(padstack "via500" '+' '.join(f'(shape (circle {layer_map[l]} 500))' for l in layer_names)+' (attach off))'
 text='(pcb nema14_supplier (parser (string_quote ") (space_in_quoted_tokens on)) (resolution um 10) (unit um)'
-text+='(structure '+' '.join(f'(layer {layer_map[l]} (type signal) (property (index {i})))' for i,l in enumerate(layer_names))+' (boundary (path pcb 0 -17200 -17200 17200 -17200 17200 17200 -17200 17200 -17200 -17200)) (via "via500") (rule (width 160) (clearance 150)) '+' '.join(keep)+')'
-text+='(placement '+' '.join(placements)+') (library '+' '.join(images+shapes+[via]+[f'(padstack "via400" '+ ' '.join(f'(shape (circle {layer_map[l]} 400))' for l in layer_names)+' (attach off))'])+') (network '+' '.join(f'(net {q(n)} (pins '+' '.join(p for p in pp)+'))' for n,pp in netpins.items())+' '+classes+')'
+text+='(structure '+' '.join(f'(layer {layer_map[l]} (type signal) (property (index {i})))' for i,l in enumerate(layer_names))+' (boundary (path pcb 0 -17200 -17200 17200 -17200 17200 17200 -17200 17200 -17200 -17200)) (via "via500" "via400") (rule (width 160) (clearance 150)) '+' '.join(keep)+')'
+text+='(placement '+' '.join(placements)+') (library '+' '.join(images+shapes+[via]+[f'(padstack "via400" '+ ' '.join(f'(shape (circle {layer_map[l]} 400))' for l in layer_names)+' (attach off))'])+') (network '+' '.join(f'(net {q(n)} (pins '+' '.join(p for p in (pp if n!='GND' else []))+'))' for n,pp in netpins.items())+' '+classes+')'
 wiring=[f'(via "via500" {um(v["x"])} {um(v["y"])} (net "GND") (type fix))' for v in thermal]
 seed_file=ROOT/'artifacts/same-side-routing-seeds.json'
 if seed_file.exists():

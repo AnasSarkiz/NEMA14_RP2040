@@ -4,6 +4,13 @@ const ground=(names:string[])=>Object.fromEntries(names.map(n=>[n,{requiresGroun
 export function pinProps(name:string):Pick<ChipProps,'pinAttributes'> {
  const attributes:Record<string,NonNullable<ChipProps['pinAttributes']>[string]>={
   ...({
+   D_STATUS:{...power(["_POS"]),R_NEG:{mustBeConnected:true},G_NEG:{mustBeConnected:true},B_NEG:{mustBeConnected:true}},
+   BZ1:{...power(["_POS"]),_NEG:{mustBeConnected:true}},
+   Q_BUZZER:{...ground(["S"]),G:{isInput:true,mustBeConnected:true},D:{mustBeConnected:true}},
+   Q_STATUS_R:{...ground(["E"]),B:{isInput:true,mustBeConnected:true},C:{mustBeConnected:true}},
+   Q_STATUS_G:{...ground(["E"]),B:{isInput:true,mustBeConnected:true},C:{mustBeConnected:true}},
+   Q_STATUS_B:{...ground(["E"]),B:{isInput:true,mustBeConnected:true},C:{mustBeConnected:true}},
+   U_TEMP:{...power(["V_POS"]),...ground(["GND","ADD0"]),SCL:{mustBeConnected:true,isInput:true,needsExternalPullup:true,canUseOpenDrain:true},SDA:{mustBeConnected:true,isBidirectional:true,needsExternalPullup:true,canUseOpenDrain:true}},
    U_PD:{...power(['VDD','VBUS']),...ground(['GND'])},
    U_DRV:{...power(['VDD','VBB1','VBB2']),...ground(['GND','GND18','EP'])},
    U_LDO:{...power(['VIN']),...ground(['GND']),VOUT:{providesPower:true,mustBeConnected:true}},

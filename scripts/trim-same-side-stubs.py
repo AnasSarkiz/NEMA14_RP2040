@@ -15,7 +15,12 @@ for err in errors:
  if e is None:continue
  isstart=err['pcb_trace_error_id'].endswith('_start');route=e['route']
  ordered=list(reversed(route)) if not isstart else list(route)
- if any(p['route_type']!='wire' or p['layer']!=ordered[0]['layer'] for p in ordered):continue
+ prefix=[]
+ for point in ordered:
+  if point['route_type']!='wire' or point['layer']!=ordered[0].get('layer'):break
+  prefix.append(point)
+ if len(prefix)<2:continue
+ tail=ordered[len(prefix):];ordered=prefix
  net=g.key(e);layer=ordered[0]['layer'];geoms=[]
  for other in g.j:
   if other is e or g.key(other)!=net:continue
@@ -37,6 +42,7 @@ for err in errors:
  for a,b in zip(ordered,ordered[1:]):
   dist+=math.hypot(b['x']-a['x'],b['y']-a['y'])
   if dist>offset+1e-8:new.append(b)
+ new+=tail
  candidate=new if isstart else list(reversed(new));before=signature(net);old=e['route'];e['route']=candidate
  if signature(net)!=before:e['route']=old;continue
  e['pcb_port_ids']=[p[k] for p in candidate for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]

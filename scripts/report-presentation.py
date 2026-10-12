@@ -27,7 +27,12 @@ for sid,s in source.items():
   assert s['manufacturer_part_number']==part['manufacturerPartNumber'],name
   for ext,field in [('obj','model_obj_url'),('step','model_step_url')]:assert m[field].endswith('/'+next(f for f in part['modelFiles'] if f.endswith('.'+ext)))
   origin=np.array([m['model_origin_position'][a] for a in ['x','y','z']]);v=cache[id]-origin;a=math.radians(m['rotation']['z']);r=np.array([[math.cos(a),-math.sin(a),0],[math.sin(a),math.cos(a),0],[0,0,1]])
-  v=v@r.T+np.array([m['position'][a] for a in ['x','y','z']]);lo=v.min(axis=0);hi=v.max(axis=0);outside=box(*lo[:2],*hi[:2]).difference(courts[p['pcb_component_id']].buffer(.15)).area
+  v=cache[id]-origin
+  for axis in ['x','y','z']:
+   theta=math.radians(m['rotation'][axis]);c,sn=math.cos(theta),math.sin(theta)
+   r=np.array([[1,0,0],[0,c,-sn],[0,sn,c]]) if axis=='x' else np.array([[c,0,sn],[0,1,0],[-sn,0,c]]) if axis=='y' else np.array([[c,-sn,0],[sn,c,0],[0,0,1]])
+   v=v@r.T
+  v=v+np.array([m['position'][a] for a in ['x','y','z']]);lo=v.min(axis=0);hi=v.max(axis=0);outside=box(*lo[:2],*hi[:2]).difference(courts[p['pcb_component_id']].buffer(.15)).area
   assert outside<.01,(name,'CAD outside native courtyard',outside)
   alignment.append({'reference':name,'part':id,'min':lo.tolist(),'max':hi.tolist(),'bboxAreaOutsideCourtyard':outside});mapped[name]=id
   if name in ['J_PD','J_DATA']:

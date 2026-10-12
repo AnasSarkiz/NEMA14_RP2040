@@ -11,8 +11,9 @@ from shapely.ops import unary_union
 
 board=next(e for e in g.j if e['type']=='pcb_board')
 budgets={'PD_VBUS':.75,'A_PLUS':.4,'A_MINUS':.4,'B_PLUS':.4,'B_MINUS':.4,
-         'SENSE1':.4,'SENSE2':.4,'LOGIC_IN':.15,'DATA_VBUS':.15,
-         'V3V3':.15,'V1V1':.10,'BUCK_SW':.20,'GND':.8}
+         'SENSE1':.4,'SENSE2':.4,'LOGIC_IN':.35,'DATA_VBUS':.40,
+         'V3V3':.35,'V1V1':.10,'BUCK_SW':.45,'BUZZER_SINK':.15,'GND':.8,
+         'LED_B':.001,'STATUS_B_K':.006}  # 3.3 V digital-NPN input; USB 5.5 V / 0.99 kohm LED sink bound with margin.
 segments=[]; errors=[]; netrows=collections.defaultdict(list)
 ground_geometry={}
 for layer in ['top','inner1','inner2','bottom']:
@@ -39,6 +40,37 @@ for trace in list(g.j):
     terminals=[v for v in islands.values() if len(v)==1 and next(iter(v)) in ['U_DRV.VBB1','U_DRV.VBB2','C_VCP.pin2']]
     if len(islands)==2 and len(terminals)==1:
         terminal_pd[trace['pcb_trace_id']]={'isolated_physical_terminal':next(iter(terminals[0])),'current_budget_A':.4,'cut_verified_against_actual_physical_copper':True}
+# Physically cut each 3.3 V branch to screen its actual downstream load.
+# Use the full rail budget whenever the cut does not isolate a single load side.
+logic_loads={'U_MCU':.15,'U_FLASH':.03,'U_DRV':.02,'U_TEMP':.001,'BZ1':.12,'R_PWR_LED':.011,'R_TEMP_SDA':.001,'R_TEMP_SCL':.001}
+logic_branches={}
+v3_key=next(k for k,v in g.nets.items() if v=='V3V3')
+for trace in list(g.j):
+    if trace['type']!='pcb_trace' or g.key(trace)!=v3_key:continue
+    index=g.j.index(trace);g.j.pop(index);elems,roots=g.groups(v3_key);islands={}
+    for elem,r in zip(elems,roots):
+        if elem.get('pcb_port_id'):
+            port=g.ports[elem['pcb_port_id']];sp=g.sp[port['source_port_id']]
+            islands.setdefault(r,set()).add(g.src[sp['source_component_id']])
+    g.j.insert(index,trace)
+    if len(islands)==2 and sum('L_BUCK' in group for group in islands.values())==1:
+        downstream=next(group for group in islands.values() if 'L_BUCK' not in group)
+        load=min(.35,max(.03,sum(logic_loads.get(ref,0) for ref in downstream)))
+        logic_branches[trace['pcb_trace_id']]={'downstream_components':sorted(downstream),'current_budget_A':load,'cut_verified_against_actual_physical_copper':True}
+# The RGB anode branch draws at most three 5 V / 1 kohm channels.
+# Keep the full USB supply budget unless a physical cut isolates only D_STATUS.
+data_branches={}
+data_key=next(k for k,v in g.nets.items() if v=='DATA_VBUS')
+for trace in list(g.j):
+    if trace['type']!='pcb_trace' or g.key(trace)!=data_key:continue
+    index=g.j.index(trace);g.j.pop(index);elems,roots=g.groups(data_key);islands={}
+    for elem,r in zip(elems,roots):
+        if elem.get('pcb_port_id'):
+            port=g.ports[elem['pcb_port_id']];sp=g.sp[port['source_port_id']]
+            islands.setdefault(r,set()).add(g.src[sp['source_component_id']])
+    g.j.insert(index,trace)
+    if len(islands)==2 and sum(group=={'D_STATUS'} for group in islands.values())==1:
+        data_branches[trace['pcb_trace_id']]={'downstream_components':['D_STATUS'],'current_budget_A':.02,'cut_verified_against_actual_physical_copper':True}
 for e in g.j:
     if e['type']!='pcb_trace':continue
     name=g.nets.get(g.key(e),'direct')
@@ -46,7 +78,7 @@ for e in g.j:
         if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
         length=math.hypot(a['x']-b['x'],a['y']-b['y']);width=min(a['width'],b['width'])
         internal=a['layer'].startswith('inner');thickness=.0175 if internal else .035
-        current=terminal_pd.get(e['pcb_trace_id'],{}).get('current_budget_A',budgets.get(name,0))
+        current=terminal_pd.get(e['pcb_trace_id'],logic_branches.get(e['pcb_trace_id'],data_branches.get(e['pcb_trace_id'],{}))).get('current_budget_A',budgets.get(name,0))
         area=width*thickness/(.0254**2);k=.024 if internal else .048
         rise=(current/(k*area**.725))**(1/.44) if current else None
         shunted=name=='GND' and ground_geometry[a['layer']].buffer(.00001).covers(LineString([(a['x'],a['y']),(b['x'],b['y'])]))
@@ -88,12 +120,12 @@ for via in [e for e in g.j if e['type']=='pcb_via']:
                  'padMm':via['outer_diameter'],'minimumPlatingUm':20,
                  'estimatedBarrelResistanceMilliohm':resistance,
                  'voltageDropAtNetBudgetMillivolt':current*resistance})
-    if name in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] and via['hole_diameter']<.25:
+    if name in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] and via['hole_diameter']<.25:
         errors.append('Power via drill below reviewed 0.25 mm: '+via['pcb_via_id'])
 report={'viaReview':vias,'sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checksPassed':not errors,'errors':errors,
         'copperSpecification':{'externalUmMinimum':35,'internalUmMinimum':17.5,'boardThicknessMm':1.6,'viaPlatingUmMinimum':20},
         'temperatureRiseScreenLimitC':30,'method':'IPC-2221 k=0.048 external / 0.024 internal; area in square mils',
-        'budgetsA':budgets,'singleBridgePdBranchTrace':one_bridge,'physicalTerminalPdBranches':terminal_pd,'nets':summary,'segments':segments,
+        'budgetsA':budgets,'singleBridgePdBranchTrace':one_bridge,'physicalTerminalPdBranches':terminal_pd,'physicalLogicBranches':logic_branches,'physicalDataLedBranches':data_branches,'logicLoadBudgetsA':logic_loads,'nets':summary,'segments':segments,
         'groundPours':pour_areas,'adcVoltageAt15V':15*resistors['R_VM_L']/(resistors['R_VM_H']+resistors['R_VM_L']),
         'adcWorstVoltageAt35V':adcmax,'qualifiedForManufacture':False,
         'groundThermalCurrentSharingAnalysisPending':True,

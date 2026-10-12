@@ -1,3 +1,15 @@
+import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
+import { CL05B104KB5NNNC } from "../imports/supplier/CL05B104KB5NNNC/CL05B104KB5NNNC"
+import { XL_1608SURC_06 } from "../imports/supplier/XL_1608SURC_06/XL_1608SURC_06"
+import { A_0402WGF3300TCE } from "../imports/supplier/A_0402WGF3300TCE/A_0402WGF3300TCE"
+import { LTST_C19HE1WT } from "../imports/supplier/LTST_C19HE1WT/LTST_C19HE1WT"
+import { DTC114EU3HZGT106 } from "../imports/supplier/DTC114EU3HZGT106/DTC114EU3HZGT106"
+import { TMP102AIDRLR } from "../imports/supplier/TMP102AIDRLR/TMP102AIDRLR"
+import { A_0402WGF4701TCE } from "../imports/supplier/A_0402WGF4701TCE/A_0402WGF4701TCE"
+import { HYG_8503A } from "../imports/supplier/HYG_8503A/HYG_8503A"
+import { AO3400A } from "../imports/supplier/AO3400A/AO3400A"
+import { A_0402WGF1000TCE } from "../imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE"
+import { CL10A106KP8NNNC } from "../imports/supplier/CL10A106KP8NNNC/CL10A106KP8NNNC"
 import { B4B_PH_K_S_LF__SN_ } from "../imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_"
 import { ERJPA3F1001V } from "../imports/supplier/ERJPA3F1001V/ERJPA3F1001V"
 import React from "react"
@@ -38,6 +50,19 @@ import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
 import { CH224K } from "../imports/supplier/CH224K/CH224K"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C478000": PMEG6020ELRX,
+ "C960916": CL05B104KB5NNNC,
+ "C965799": XL_1608SURC_06,
+ "C25104": A_0402WGF3300TCE,
+ "C458749": LTST_C19HE1WT,
+ "C509876": DTC114EU3HZGT106,
+ "C99269": TMP102AIDRLR,
+ "C25900": A_0402WGF4701TCE,
+ "C7544813": HYG_8503A,
+ "C20917": AO3400A,
+ "C25076": A_0402WGF1000TCE,
+ "C19702": CL10A106KP8NNNC,
+
  "C131334": B4B_PH_K_S_LF__SN_,
  "C441922": ERJPA3F1001V,
  "C11702": A_0402WGF1001TCE,

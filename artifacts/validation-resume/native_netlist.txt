@@ -67,6 +67,25 @@ COMPONENTS:
  - J_DEBUG: 
  - U_ESD: USBLC6-2SC6
  - D_TVS: SMF18A
+ - U_TEMP: TMP102AIDRLR
+ - C_TEMP: 100nF capacitor
+ - R_TEMP_SDA: 4.7kΩ resistor
+ - R_TEMP_SCL: 4.7kΩ resistor
+ - D_PWR: D_PWR, source_component
+ - R_PWR_LED: 330Ω resistor
+ - D_STATUS: LTST-C19HE1WT
+ - R_STATUS_R: 1kΩ resistor
+ - Q_STATUS_R: DTC114EU3HZGT106
+ - R_STATUS_G: 1kΩ resistor
+ - Q_STATUS_G: DTC114EU3HZGT106
+ - R_STATUS_B: 1kΩ resistor
+ - Q_STATUS_B: DTC114EU3HZGT106
+ - BZ1: HYG-8503A
+ - Q_BUZZER: AO3400A
+ - D_BUZZER: D_BUZZER, source_component
+ - R_BUZZER_GATE: 100Ω resistor
+ - R_BUZZER_PD: 100kΩ resistor
+ - C_BUZZER: 10uF capacitor
 
 NET: PD_CC1
   - U_PD CC1
@@ -247,7 +266,128 @@ NET: B_MINUS
   - J_MOTOR B_MINUS
   - U_DRV OUT2B
 
+NET: SWCLK
+  - J_DEBUG SWCLK
+  - U_MCU SWCLK
+
+NET: SWDIO
+  - J_DEBUG SWDIO
+  - U_MCU SWDIO
+
+NET: RUN
+  - J_DEBUG RUN
+  - R_RUN pin2
+  - U_MCU RUN
+
+NET: USB_DP
+  - U_ESD DP2
+  - U_ESD DP1
+  - R_DP pin2
+  - J_DATA DP2
+  - J_DATA DP1
+
+NET: USB_DM
+  - U_ESD DM2
+  - U_ESD DM1
+  - R_DM pin2
+  - J_DATA DN2
+  - J_DATA DN1
+
+NET: PD_VBUS
+  - D_TVS pin2
+  - C_BULK pin1 (+)
+  - C_VM pin1 (+)
+  - C_VCP pin2 (-)
+  - U_DRV VBB2
+  - U_DRV VBB1
+  - D_PD anode (+)
+  - R_VM_H pin1
+  - R_PD pin1
+  - U_PD VBUS
+  - J_PD VBUS2
+  - J_PD VBUS1
+
+NET: TEMP_SDA
+  - R_TEMP_SDA pin1
+  - U_TEMP SDA
+  - U_MCU GPIO26
+
+NET: TEMP_SCL
+  - R_TEMP_SCL pin1
+  - U_TEMP SCL
+  - U_MCU GPIO27
+
+NET: PWR_LED_A
+  - R_PWR_LED pin2
+  - D_PWR anode (+)
+
+NET: DATA_VBUS
+  - D_STATUS _POS
+  - U_ESD VBUS
+  - D_DATA anode (+)
+  - R_USB_SENSE_H pin1
+  - J_DATA VBUS2
+  - J_DATA VBUS1
+
+NET: STATUS_R_K
+  - R_STATUS_R pin1
+  - D_STATUS R_NEG
+
+NET: LED_R
+  - Q_STATUS_R pin2
+  - U_MCU GPIO25
+
+NET: STATUS_R_C
+  - Q_STATUS_R pin3
+  - R_STATUS_R pin2
+
+NET: STATUS_G_K
+  - R_STATUS_G pin1
+  - D_STATUS G_NEG
+
+NET: LED_G
+  - Q_STATUS_G pin2
+  - U_MCU GPIO2
+
+NET: STATUS_G_C
+  - Q_STATUS_G pin3
+  - R_STATUS_G pin2
+
+NET: STATUS_B_K
+  - R_STATUS_B pin1
+  - D_STATUS B_NEG
+
+NET: LED_B
+  - Q_STATUS_B pin2
+  - U_MCU GPIO3
+
+NET: STATUS_B_C
+  - Q_STATUS_B pin3
+  - R_STATUS_B pin2
+
+NET: BUZZER_SINK
+  - D_BUZZER anode (+)
+  - Q_BUZZER pin3
+  - BZ1 _NEG
+
+NET: BUZZER_PWM
+  - R_BUZZER_GATE pin1
+  - U_MCU GPIO16
+
+NET: BUZZER_GATE
+  - R_BUZZER_PD pin1
+  - R_BUZZER_GATE pin2
+  - Q_BUZZER pin1
+
 NET: V3V3
+  - C_BUZZER pin1 (+)
+  - D_BUZZER cathode (-)
+  - BZ1 _POS
+  - R_PWR_LED pin1
+  - R_TEMP_SCL pin2
+  - R_TEMP_SDA pin2
+  - C_TEMP pin1 (+)
+  - U_TEMP V_POS
   - J_DEBUG VDD
   - R_ENABLE pin1
   - R_REF_H pin1
@@ -285,41 +425,17 @@ NET: V3V3
   - U_MCU IOVDD1
   - R_PG pin1
 
-NET: SWCLK
-  - J_DEBUG SWCLK
-  - U_MCU SWCLK
-
-NET: SWDIO
-  - J_DEBUG SWDIO
-  - U_MCU SWDIO
-
-NET: RUN
-  - J_DEBUG RUN
-  - R_RUN pin2
-  - U_MCU RUN
-
-NET: USB_DP
-  - U_ESD DP2
-  - U_ESD DP1
-  - R_DP pin2
-  - J_DATA DP2
-  - J_DATA DP1
-
-NET: USB_DM
-  - U_ESD DM2
-  - U_ESD DM1
-  - R_DM pin2
-  - J_DATA DN2
-  - J_DATA DN1
-
-NET: DATA_VBUS
-  - U_ESD VBUS
-  - D_DATA anode (+)
-  - R_USB_SENSE_H pin1
-  - J_DATA VBUS2
-  - J_DATA VBUS1
-
 NET: GND
+  - C_BUZZER pin2 (-)
+  - R_BUZZER_PD pin2
+  - Q_BUZZER pin2
+  - Q_STATUS_B pin1
+  - Q_STATUS_G pin1
+  - Q_STATUS_R pin1
+  - D_PWR cathode (-)
+  - C_TEMP pin2 (-)
+  - U_TEMP ADD0
+  - U_TEMP GND
   - D_TVS pin1
   - U_ESD GND
   - J_DEBUG GND
@@ -382,20 +498,6 @@ NET: GND
   - J_PD EH1
   - J_PD GND2
   - J_PD GND1
-
-NET: PD_VBUS
-  - D_TVS pin2
-  - C_BULK pin1 (+)
-  - C_VM pin1 (+)
-  - C_VCP pin2 (-)
-  - U_DRV VBB2
-  - U_DRV VBB1
-  - D_PD anode (+)
-  - R_VM_H pin1
-  - R_PD pin1
-  - U_PD VBUS
-  - J_PD VBUS2
-  - J_PD VBUS1
 
 
 COMPONENT_PINS:
@@ -464,8 +566,8 @@ U_MCU (RP2040)
 - pin1(IOVDD1): NETS(V3V3)
 - pin2(GPIO0): NOT_CONNECTED
 - pin3(GPIO1): NOT_CONNECTED
-- pin4(GPIO2): NOT_CONNECTED
-- pin5(GPIO3): NOT_CONNECTED
+- pin4(GPIO2): NETS(LED_G)
+- pin5(GPIO3): NETS(LED_B)
 - pin6(GPIO4): NOT_CONNECTED
 - pin7(GPIO5): NOT_CONNECTED
 - pin8(GPIO6): NETS(STEP)
@@ -487,7 +589,7 @@ U_MCU (RP2040)
 - pin24(SWCLK): NETS(SWCLK)
 - pin25(SWDIO): NETS(SWDIO)
 - pin26(RUN): NETS(RUN)
-- pin27(GPIO16): NOT_CONNECTED
+- pin27(GPIO16): NETS(BUZZER_PWM)
 - pin28(GPIO17): NOT_CONNECTED
 - pin29(GPIO18): NOT_CONNECTED
 - pin30(GPIO19): NOT_CONNECTED
@@ -497,9 +599,9 @@ U_MCU (RP2040)
 - pin34(GPIO22): NOT_CONNECTED
 - pin35(GPIO23): NOT_CONNECTED
 - pin36(GPIO24): NOT_CONNECTED
-- pin37(GPIO25): NOT_CONNECTED
-- pin38(GPIO26): NOT_CONNECTED
-- pin39(GPIO27): NOT_CONNECTED
+- pin37(GPIO25): NETS(LED_R)
+- pin38(GPIO26): NETS(TEMP_SDA)
+- pin39(GPIO27): NETS(TEMP_SCL)
 - pin40(GPIO28): NETS(VM_SENSE)
 - pin41(GPIO29): NETS(DATA_PRESENT)
 - pin42(IOVDD42): NETS(V3V3)
@@ -795,4 +897,92 @@ U_ESD (USBLC6-2SC6)
 D_TVS (SMF18A)
 - pin1(A): NETS(GND)
 - pin2(K): NETS(PD_VBUS)
+
+U_TEMP (TMP102AIDRLR)
+- pin1(SCL): NETS(TEMP_SCL)
+- pin2(GND): NETS(GND)
+- pin3(ALERT): NOT_CONNECTED
+- pin4(ADD0): NETS(GND)
+- pin5(V_POS): NETS(V3V3)
+- pin6(SDA): NETS(TEMP_SDA)
+
+C_TEMP (100nF undefined)
+- pin1(pos): NETS(V3V3)
+- pin2(neg): NETS(GND)
+
+R_TEMP_SDA (4.7kΩ undefined)
+- pin1(anode, pos, left): NETS(TEMP_SDA)
+- pin2(cathode, neg, right): NETS(V3V3)
+
+R_TEMP_SCL (4.7kΩ undefined)
+- pin1(anode, pos, left): NETS(TEMP_SCL)
+- pin2(cathode, neg, right): NETS(V3V3)
+
+D_PWR (XL-1608SURC-06)
+- pin1(cathode, neg): NETS(GND)
+- pin2(anode, pos): NETS(PWR_LED_A)
+
+R_PWR_LED (330Ω undefined)
+- pin1(anode, pos, left): NETS(V3V3)
+- pin2(cathode, neg, right): NETS(PWR_LED_A)
+
+D_STATUS (LTST-C19HE1WT)
+- pin1(R_NEG): NETS(STATUS_R_K)
+- pin2(G_NEG): NETS(STATUS_G_K)
+- pin3(B_NEG): NETS(STATUS_B_K)
+- pin4(_POS): NETS(DATA_VBUS)
+
+R_STATUS_R (1kΩ undefined)
+- pin1(anode, pos, left): NETS(STATUS_R_K)
+- pin2(cathode, neg, right): NETS(STATUS_R_C)
+
+Q_STATUS_R (DTC114EU3HZGT106)
+- pin1(E): NETS(GND)
+- pin2(B): NETS(LED_R)
+- pin3(C): NETS(STATUS_R_C)
+
+R_STATUS_G (1kΩ undefined)
+- pin1(anode, pos, left): NETS(STATUS_G_K)
+- pin2(cathode, neg, right): NETS(STATUS_G_C)
+
+Q_STATUS_G (DTC114EU3HZGT106)
+- pin1(E): NETS(GND)
+- pin2(B): NETS(LED_G)
+- pin3(C): NETS(STATUS_G_C)
+
+R_STATUS_B (1kΩ undefined)
+- pin1(anode, pos, left): NETS(STATUS_B_K)
+- pin2(cathode, neg, right): NETS(STATUS_B_C)
+
+Q_STATUS_B (DTC114EU3HZGT106)
+- pin1(E): NETS(GND)
+- pin2(B): NETS(LED_B)
+- pin3(C): NETS(STATUS_B_C)
+
+BZ1 (HYG-8503A)
+- pin1(_POS): NETS(V3V3)
+- pin2(_NEG): NETS(BUZZER_SINK)
+- pin3(NC1): NOT_CONNECTED
+- pin4(NC2): NOT_CONNECTED
+
+Q_BUZZER (AO3400A)
+- pin1(G): NETS(BUZZER_GATE)
+- pin2(S): NETS(GND)
+- pin3(D): NETS(BUZZER_SINK)
+
+D_BUZZER (PMEG6020ELRX)
+- pin1(cathode, neg): NETS(V3V3)
+- pin2(anode, pos): NETS(BUZZER_SINK)
+
+R_BUZZER_GATE (100Ω undefined)
+- pin1(anode, pos, left): NETS(BUZZER_PWM)
+- pin2(cathode, neg, right): NETS(BUZZER_GATE)
+
+R_BUZZER_PD (100kΩ undefined)
+- pin1(anode, pos, left): NETS(BUZZER_GATE)
+- pin2(cathode, neg, right): NETS(GND)
+
+C_BUZZER (10uF undefined)
+- pin1(pos): NETS(V3V3)
+- pin2(neg): NETS(GND)
 

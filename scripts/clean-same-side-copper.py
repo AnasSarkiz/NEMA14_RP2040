@@ -9,7 +9,12 @@ for e in list(g.j):
  else:seen[key]=e['pcb_via_id']
 for net in g.nets:
  elems,roots=g.groups(net);anchored={r for e,r in zip(elems,roots) if e.get('pcb_port_id')}
+ trace_roots={}
  for e,r in zip(elems,roots):
-  if r not in anchored and e['type'] in ['pcb_trace','pcb_via','pcb_copper_pour']:
-   g.j.remove(e);records.append({'unanchored_copper_removed':e.get('pcb_trace_id',e.get('pcb_via_id',e.get('pcb_copper_pour_id'))),'net':g.nets[net]})
+  if e['type']=='pcb_trace':trace_roots.setdefault(e['pcb_trace_id'],set()).add(r);continue
+  if r not in anchored and e['type'] in ['pcb_via','pcb_copper_pour']:
+   g.j.remove(e);records.append({'unanchored_copper_removed':e.get('pcb_via_id',e.get('pcb_copper_pour_id')),'net':g.nets[net]})
+ for id,rs in trace_roots.items():
+  if not rs&anchored:
+   e=next(e for e in g.j if e.get('pcb_trace_id')==id);g.j.remove(e);records.append({'unanchored_copper_removed':id,'net':g.nets[net]})
 g.path.write_text(json.dumps(g.j,indent=2)+'\n');p=g.ROOT/'artifacts/same-side-copper-cleanup.json';h=json.loads(p.read_text()) if p.exists() else [];h.extend(records);p.write_text(json.dumps(h,indent=2)+'\n');print(json.dumps(records))

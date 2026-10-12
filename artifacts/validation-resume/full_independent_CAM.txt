@@ -4,14 +4,21 @@
     {
       "kind": "assembly-paste-policy",
       "layer": "F_Paste",
-      "bare_interface_overlap_mm2": 4.409999999999997,
+      "bare_interface_overlap_mm2": 2.098399711936997,
+      "manual_plated_joint_overlap_mm2": 0.0,
+      "outside_smt_copper_mm2": 0.0
+    },
+    {
+      "kind": "assembly-paste-policy",
+      "layer": "B_Paste",
+      "bare_interface_overlap_mm2": 2.9400000000000026,
       "manual_plated_joint_overlap_mm2": 0.0,
       "outside_smt_copper_mm2": 0.0
     },
     {
       "kind": "assembly-table-policy",
       "table": "bom.csv",
-      "rows": 64,
+      "rows": 83,
       "bare_rows": [
         "J_BOOT",
         "J_DEBUG"
@@ -538,11 +545,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF5101T5E"
+              "source": "0402WGF5101TCE"
             },
             "Comment": {
               "export": "5.1k",
-              "source": "0603WAF5101T5E"
+              "source": "0402WGF5101TCE"
             },
             "Value": {
               "export": "5.1k",
@@ -572,11 +579,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Comment": {
               "export": "100k",
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Value": {
               "export": "100k",
@@ -589,11 +596,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Comment": {
               "export": "100k",
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Value": {
               "export": "100k",
@@ -606,11 +613,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Comment": {
               "export": "100k",
-              "source": "0603WAF1003T5E"
+              "source": "0402WGF1003TCE"
             },
             "Value": {
               "export": "100k",
@@ -623,11 +630,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF1002T5E"
+              "source": "0402WGF1002TCE"
             },
             "Comment": {
               "export": "10k",
-              "source": "0603WAF1002T5E"
+              "source": "0402WGF1002TCE"
             },
             "Value": {
               "export": "10k",
@@ -810,11 +817,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Comment": {
               "export": "100n",
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Value": {
               "export": "100n",
@@ -827,11 +834,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Comment": {
               "export": "100n",
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Value": {
               "export": "100n",
@@ -861,11 +868,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KO5NNNC"
             },
             "Comment": {
               "export": "100n",
-              "source": "CC0603KRX7R9BB104"
+              "source": "CL05B104KO5NNNC"
             },
             "Value": {
               "export": "100n",
@@ -878,11 +885,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "CC0805KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Comment": {
               "export": "100n",
-              "source": "CC0805KRX7R9BB104"
+              "source": "CL05B104KB5NNNC"
             },
             "Value": {
               "export": "100n",
@@ -963,11 +970,11 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "0603WAF1002T5E"
+              "source": "0402WGF1002TCE"
             },
             "Comment": {
               "export": "10k",
-              "source": "0603WAF1002T5E"
+              "source": "0402WGF1002TCE"
             },
             "Value": {
               "export": "10k",
@@ -1076,13 +1083,336 @@
               "source": "SMF18A"
             }
           }
+        },
+        {
+          "ref": "U_TEMP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "TMP102AIDRLR"
+            },
+            "Comment": {
+              "export": "",
+              "source": "TMP102AIDRLR"
+            },
+            "Value": {
+              "export": "C99269",
+              "source": "TMP102AIDRLR"
+            }
+          }
+        },
+        {
+          "ref": "C_TEMP",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL05B104KO5NNNC"
+            },
+            "Comment": {
+              "export": "100n",
+              "source": "CL05B104KO5NNNC"
+            },
+            "Value": {
+              "export": "100n",
+              "source": "100nF"
+            }
+          }
+        },
+        {
+          "ref": "R_TEMP_SDA",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF4701TCE"
+            },
+            "Comment": {
+              "export": "4.7k",
+              "source": "0402WGF4701TCE"
+            },
+            "Value": {
+              "export": "4.7k",
+              "source": "4.7k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_TEMP_SCL",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF4701TCE"
+            },
+            "Comment": {
+              "export": "4.7k",
+              "source": "0402WGF4701TCE"
+            },
+            "Value": {
+              "export": "4.7k",
+              "source": "4.7k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "D_PWR",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "XL-1608SURC-06"
+            },
+            "Comment": {
+              "export": "",
+              "source": "XL-1608SURC-06"
+            },
+            "Value": {
+              "export": "C965799",
+              "source": "XL-1608SURC-06"
+            }
+          }
+        },
+        {
+          "ref": "R_PWR_LED",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF3300TCE"
+            },
+            "Comment": {
+              "export": "330",
+              "source": "0402WGF3300TCE"
+            },
+            "Value": {
+              "export": "330",
+              "source": "330\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "D_STATUS",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "LTST-C19HE1WT"
+            },
+            "Comment": {
+              "export": "",
+              "source": "LTST-C19HE1WT"
+            },
+            "Value": {
+              "export": "C458749",
+              "source": "LTST-C19HE1WT"
+            }
+          }
+        },
+        {
+          "ref": "R_STATUS_R",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1001TCE"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "0402WGF1001TCE"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "Q_STATUS_R",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "DTC114EU3HZGT106"
+            },
+            "Comment": {
+              "export": "",
+              "source": "DTC114EU3HZGT106"
+            },
+            "Value": {
+              "export": "C509876",
+              "source": "DTC114EU3HZGT106"
+            }
+          }
+        },
+        {
+          "ref": "R_STATUS_G",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1001TCE"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "0402WGF1001TCE"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "Q_STATUS_G",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "DTC114EU3HZGT106"
+            },
+            "Comment": {
+              "export": "",
+              "source": "DTC114EU3HZGT106"
+            },
+            "Value": {
+              "export": "C509876",
+              "source": "DTC114EU3HZGT106"
+            }
+          }
+        },
+        {
+          "ref": "R_STATUS_B",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1001TCE"
+            },
+            "Comment": {
+              "export": "1k",
+              "source": "0402WGF1001TCE"
+            },
+            "Value": {
+              "export": "1k",
+              "source": "1k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "Q_STATUS_B",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "DTC114EU3HZGT106"
+            },
+            "Comment": {
+              "export": "",
+              "source": "DTC114EU3HZGT106"
+            },
+            "Value": {
+              "export": "C509876",
+              "source": "DTC114EU3HZGT106"
+            }
+          }
+        },
+        {
+          "ref": "BZ1",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "HYG-8503A"
+            },
+            "Comment": {
+              "export": "",
+              "source": "HYG-8503A"
+            },
+            "Value": {
+              "export": "C7544813",
+              "source": "HYG-8503A"
+            }
+          }
+        },
+        {
+          "ref": "Q_BUZZER",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "AO3400A"
+            },
+            "Comment": {
+              "export": "",
+              "source": "AO3400A"
+            },
+            "Value": {
+              "export": "C20917",
+              "source": "AO3400A"
+            }
+          }
+        },
+        {
+          "ref": "D_BUZZER",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "PMEG6020ELRX"
+            },
+            "Comment": {
+              "export": "",
+              "source": "PMEG6020ELRX"
+            },
+            "Value": {
+              "export": "C478000",
+              "source": "PMEG6020ELRX"
+            }
+          }
+        },
+        {
+          "ref": "R_BUZZER_GATE",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1000TCE"
+            },
+            "Comment": {
+              "export": "100",
+              "source": "0402WGF1000TCE"
+            },
+            "Value": {
+              "export": "100",
+              "source": "100\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "R_BUZZER_PD",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "0402WGF1003TCE"
+            },
+            "Comment": {
+              "export": "100k",
+              "source": "0402WGF1003TCE"
+            },
+            "Value": {
+              "export": "100k",
+              "source": "100k\u03a9"
+            }
+          }
+        },
+        {
+          "ref": "C_BUZZER",
+          "errors": {
+            "Manufacturer Part Number": {
+              "export": null,
+              "source": "CL10A106KP8NNNC"
+            },
+            "Comment": {
+              "export": "10u",
+              "source": "CL10A106KP8NNNC"
+            },
+            "Value": {
+              "export": "10u",
+              "source": "10uF"
+            }
+          }
         }
       ]
     },
     {
       "kind": "assembly-table-policy",
       "table": "pick_and_place.csv",
-      "rows": 64,
+      "rows": 83,
       "bare_rows": [
         "J_BOOT",
         "J_DEBUG"
@@ -1096,10 +1426,10 @@
       "apertures": [
         {
           "bounds_mm": [
-            -0.32244,
-            -1.869971,
-            0.272568,
-            -1.729971
+            1.829848,
+            -3.722567,
+            1.969848,
+            -3.127559
           ],
           "area_mm2": 0.08330112000000008,
           "perimeter_mm": 1.4700160000000002,
@@ -1108,10 +1438,10 @@
         },
         {
           "bounds_mm": [
-            -0.32244,
-            -1.469921,
-            0.272568,
-            -1.329921
+            1.4300519999999999,
+            -3.722567,
+            1.570052,
+            -3.127559
           ],
           "area_mm2": 0.08330112000000008,
           "perimeter_mm": 1.4700160000000002,
@@ -1120,10 +1450,10 @@
         },
         {
           "bounds_mm": [
-            -0.32244,
-            -1.069871,
-            0.272568,
-            -0.9298709999999999
+            1.0300019999999999,
+            -3.722567,
+            1.170002,
+            -3.127559
           ],
           "area_mm2": 0.08330112000000008,
           "perimeter_mm": 1.4700160000000002,
@@ -1132,225 +1462,57 @@
         },
         {
           "bounds_mm": [
-            -0.32244,
-            -0.270025,
-            0.272568,
-            -0.130025
+            0.6299520000000001,
+            -3.722567,
+            0.769952,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            0.229902,
+            -3.722567,
+            0.369902,
+            -3.127559
           ],
           "area_mm2": 0.08330112,
-          "perimeter_mm": 1.470016,
+          "perimeter_mm": 1.4700160000000002,
           "aspect_ratio_at_100um": 1.4000000000000001,
-          "area_ratio_at_100um": 0.5666681178980365
+          "area_ratio_at_100um": 0.5666681178980364
         },
         {
           "bounds_mm": [
-            -0.32244,
-            0.130025,
-            0.272568,
-            0.270025
+            -0.569944,
+            -3.722567,
+            -0.429944,
+            -3.127559
           ],
           "area_mm2": 0.08330112,
-          "perimeter_mm": 1.470016,
+          "perimeter_mm": 1.4700160000000002,
           "aspect_ratio_at_100um": 1.4000000000000001,
-          "area_ratio_at_100um": 0.5666681178980365
+          "area_ratio_at_100um": 0.5666681178980364
         },
         {
           "bounds_mm": [
-            -0.32244,
-            0.5300750000000001,
-            0.272568,
-            0.670075
+            -0.17014800000000002,
+            -3.722567,
+            -0.030147999999999994,
+            -3.127559
           ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            -0.32244,
-            0.9301249999999999,
-            0.272568,
-            1.070125
-          ],
-          "area_mm2": 0.08330112000000008,
+          "area_mm2": 0.08330112,
           "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980364
         },
         {
           "bounds_mm": [
-            -0.32244,
-            1.329921,
-            0.272568,
-            1.469921
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            -0.32244,
-            1.729971,
-            0.272568,
-            1.869971
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            -0.32244,
-            2.130021,
-            0.272568,
-            2.270021
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            -0.32244,
-            2.530071,
-            0.272568,
-            2.6700709999999996
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            3.129848,
-            -3.722567,
-            3.2698479999999996,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            1.929952,
-            -3.722567,
-            2.069952,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            2.3300020000000004,
-            -3.722567,
-            2.470002,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            1.5299019999999999,
-            -3.722567,
-            1.669902,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            2.730052,
-            -3.722567,
-            2.870052,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            1.1298519999999999,
-            -3.722567,
-            1.269852,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            0.730056,
-            -3.722567,
-            0.8700559999999999,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            3.529898,
-            -3.722567,
-            3.669898,
-            -3.127559
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            3.929948,
-            -3.722567,
-            4.069948,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            4.329998,
-            -3.722567,
-            4.469998,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "bounds_mm": [
-            -0.32244,
+            -1.6224399999999999,
             -2.6700709999999996,
-            0.272568,
+            -1.027432,
             -2.530071
           ],
           "area_mm2": 0.08330111999999981,
@@ -1360,9 +1522,9 @@
         },
         {
           "bounds_mm": [
-            -0.32244,
+            -1.6224399999999999,
             -2.270021,
-            0.272568,
+            -1.027432,
             -2.130021
           ],
           "area_mm2": 0.08330111999999981,
@@ -1372,201 +1534,9 @@
         },
         {
           "bounds_mm": [
-            -0.32244,
-            -0.670075,
-            0.272568,
-            -0.5300750000000001
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            2.3300020000000004,
-            3.127559,
-            2.470002,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            1.929952,
-            3.127559,
-            2.069952,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            1.5299019999999999,
-            3.127559,
-            1.669902,
-            3.722567
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            2.730052,
-            3.127559,
-            2.870052,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            1.1298519999999999,
-            3.127559,
-            1.269852,
-            3.722567
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            0.730056,
-            3.127559,
-            0.8700559999999999,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "bounds_mm": [
-            3.129848,
-            3.127559,
-            3.2698479999999996,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            3.529898,
-            3.127559,
-            3.669898,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            3.929948,
-            3.127559,
-            4.069948,
-            3.722567
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "bounds_mm": [
-            5.529894,
-            -3.722567,
-            5.669894,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "bounds_mm": [
-            5.129843999999999,
-            -3.722567,
-            5.269844,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "bounds_mm": [
-            4.730048,
-            -3.722567,
-            4.870048000000001,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "bounds_mm": [
-            5.929944,
-            -3.722567,
-            6.0699440000000005,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "bounds_mm": [
-            6.527432,
-            -2.6700709999999996,
-            7.12244,
-            -2.530071
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            6.527432,
-            -2.270021,
-            7.12244,
-            -2.130021
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             -1.869971,
-            7.12244,
+            -1.027432,
             -1.729971
           ],
           "area_mm2": 0.08330112000000008,
@@ -1576,9 +1546,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             -1.469921,
-            7.12244,
+            -1.027432,
             -1.329921
           ],
           "area_mm2": 0.08330112000000008,
@@ -1588,9 +1558,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             -1.069871,
-            7.12244,
+            -1.027432,
             -0.9298709999999999
           ],
           "area_mm2": 0.08330112000000008,
@@ -1600,9 +1570,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             -0.670075,
-            7.12244,
+            -1.027432,
             -0.5300750000000001
           ],
           "area_mm2": 0.08330111999999994,
@@ -1612,9 +1582,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             -0.270025,
-            7.12244,
+            -1.027432,
             -0.130025
           ],
           "area_mm2": 0.08330112,
@@ -1624,9 +1594,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             0.130025,
-            7.12244,
+            -1.027432,
             0.270025
           ],
           "area_mm2": 0.08330112,
@@ -1636,9 +1606,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             0.5300750000000001,
-            7.12244,
+            -1.027432,
             0.670075
           ],
           "area_mm2": 0.08330111999999994,
@@ -1648,9 +1618,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             0.9301249999999999,
-            7.12244,
+            -1.027432,
             1.070125
           ],
           "area_mm2": 0.08330112000000008,
@@ -1660,9 +1630,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             1.329921,
-            7.12244,
+            -1.027432,
             1.469921
           ],
           "area_mm2": 0.08330112000000008,
@@ -1672,9 +1642,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             1.729971,
-            7.12244,
+            -1.027432,
             1.869971
           ],
           "area_mm2": 0.08330112000000008,
@@ -1684,9 +1654,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             2.130021,
-            7.12244,
+            -1.027432,
             2.270021
           ],
           "area_mm2": 0.08330111999999981,
@@ -1696,9 +1666,9 @@
         },
         {
           "bounds_mm": [
-            6.527432,
+            -1.6224399999999999,
             2.530071,
-            7.12244,
+            -1.027432,
             2.6700709999999996
           ],
           "area_mm2": 0.08330111999999981,
@@ -1708,9 +1678,273 @@
         },
         {
           "bounds_mm": [
-            5.929944,
+            0.6299520000000001,
             3.127559,
-            6.0699440000000005,
+            0.769952,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            1.829848,
+            3.127559,
+            1.969848,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            1.4300519999999999,
+            3.127559,
+            1.570052,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            1.0300019999999999,
+            3.127559,
+            1.170002,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            -0.17014800000000002,
+            3.127559,
+            -0.030147999999999994,
+            3.722567
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980364
+        },
+        {
+          "bounds_mm": [
+            0.229902,
+            3.127559,
+            0.369902,
+            3.722567
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980364
+        },
+        {
+          "bounds_mm": [
+            -0.569944,
+            3.127559,
+            -0.429944,
+            3.722567
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980364
+        },
+        {
+          "bounds_mm": [
+            2.629948,
+            -3.722567,
+            2.769948,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.029998,
+            -3.722567,
+            3.1699979999999996,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.430048,
+            -3.722567,
+            3.570048,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            4.629944,
+            -3.722567,
+            4.769944000000001,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            3.829844,
+            -3.722567,
+            3.9698439999999997,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            4.229894,
+            -3.722567,
+            4.369894,
+            -3.127559
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "bounds_mm": [
+            2.2298980000000004,
+            -3.722567,
+            2.369898,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            -1.069871,
+            5.82244,
+            -0.9298709999999999
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            -0.670075,
+            5.82244,
+            -0.5300750000000001
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            -0.270025,
+            5.82244,
+            -0.130025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            0.130025,
+            5.82244,
+            0.270025
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.470016,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980365
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            2.130021,
+            5.82244,
+            2.270021
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.430048,
+            3.127559,
+            3.570048,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            2.629948,
+            3.127559,
+            2.769948,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            3.029998,
+            3.127559,
+            3.1699979999999996,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            4.629944,
+            3.127559,
+            4.769944000000001,
             3.722567
           ],
           "area_mm2": 0.08330112000000034,
@@ -1720,9 +1954,21 @@
         },
         {
           "bounds_mm": [
-            4.329998,
+            3.829844,
             3.127559,
-            4.469998,
+            3.9698439999999997,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            4.229894,
+            3.127559,
+            4.369894,
             3.722567
           ],
           "area_mm2": 0.08330112000000034,
@@ -1732,54 +1978,145 @@
         },
         {
           "bounds_mm": [
-            5.529894,
+            2.2298980000000004,
             3.127559,
-            5.669894,
+            2.369898,
             3.722567
           ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
         },
         {
           "bounds_mm": [
-            5.129843999999999,
-            3.127559,
-            5.269844,
-            3.722567
+            5.227432,
+            -2.6700709999999996,
+            5.82244,
+            -2.530071
           ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
         },
         {
           "bounds_mm": [
-            4.730048,
-            3.127559,
-            4.870048000000001,
-            3.722567
+            5.227432,
+            -2.270021,
+            5.82244,
+            -2.130021
           ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            -1.869971,
+            5.82244,
+            -1.729971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            -1.469921,
+            5.82244,
+            -1.329921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            0.5300750000000001,
+            5.82244,
+            0.670075
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            0.9301249999999999,
+            5.82244,
+            1.070125
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            1.329921,
+            5.82244,
+            1.469921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            1.729971,
+            5.82244,
+            1.869971
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "bounds_mm": [
+            5.227432,
+            2.530071,
+            5.82244,
+            2.6700709999999996
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
         }
       ]
     },
     {
       "kind": "silkscreen-clearance",
       "layer": "F_SilkScreen",
-      "overlap_mask_openings_mm2": 6.534522255165635,
-      "inside_0_15mm_mask_guard_mm2": 12.491827164954131,
-      "outside_board_0_10mm_inset_mm2": 4.637320869487491
+      "overlap_mask_openings_mm2": 9.495281328476388,
+      "inside_0_15mm_mask_guard_mm2": 17.654005057685765,
+      "outside_board_0_10mm_inset_mm2": 11.402222647193375
+    },
+    {
+      "kind": "silkscreen-clearance",
+      "layer": "B_SilkScreen",
+      "overlap_mask_openings_mm2": 0.3334806907076452,
+      "inside_0_15mm_mask_guard_mm2": 0.48122634244169105,
+      "outside_board_0_10mm_inset_mm2": 0.0
     },
     {
       "kind": "EP-stencil-coverage",
       "ref": "U_PD",
       "pad": "pcb_smtpad_34",
-      "coverage_fraction": 0.4899998993937417
+      "coverage_fraction": 0.48999989939374133
     },
     {
       "kind": "EP-stencil-coverage",
@@ -1796,13 +2133,13 @@
     {
       "kind": "paste-source-mismatch",
       "missing_mm2": 0.0,
-      "extra_mm2": 4.409999999999997
+      "extra_mm2": 1.469999999999997
     }
   ],
   "connectivity": {
-    "named_nets_checked": 48,
-    "actual_copper_islands": 417,
-    "unassigned_islands": 36
+    "named_nets_checked": 63,
+    "actual_copper_islands": 851,
+    "unassigned_islands": 33
   },
   "report": "/workspace/nema14-rp2040-current/artifacts/manufacturing/audit.json"
 }

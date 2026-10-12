@@ -1,0 +1,576 @@
+{
+  "passed": true,
+  "board_sha256": "e5525e09952403e78e5c57617293349fc960532b6b612652418886bf60c3f060",
+  "reference": "e8d285f7-c3d8-46f5-9a54-344fdde0124e",
+  "physical_pin_checks": [
+    {
+      "component": "U_TEMP",
+      "physical_pin": 1,
+      "pin_name": "SCL",
+      "net": "TEMP_SCL"
+    },
+    {
+      "component": "U_TEMP",
+      "physical_pin": 2,
+      "pin_name": "GND",
+      "net": "GND"
+    },
+    {
+      "component": "U_TEMP",
+      "physical_pin": 3,
+      "pin_name": "ALERT",
+      "net": null
+    },
+    {
+      "component": "U_TEMP",
+      "physical_pin": 4,
+      "pin_name": "ADD0",
+      "net": "GND"
+    },
+    {
+      "component": "U_TEMP",
+      "physical_pin": 5,
+      "pin_name": "V_POS",
+      "net": "V3V3"
+    },
+    {
+      "component": "U_TEMP",
+      "physical_pin": 6,
+      "pin_name": "SDA",
+      "net": "TEMP_SDA"
+    },
+    {
+      "component": "BZ1",
+      "physical_pin": 1,
+      "pin_name": "_POS",
+      "net": "V3V3"
+    },
+    {
+      "component": "BZ1",
+      "physical_pin": 2,
+      "pin_name": "_NEG",
+      "net": "BUZZER_SINK"
+    },
+    {
+      "component": "BZ1",
+      "physical_pin": 3,
+      "pin_name": "NC1",
+      "net": null
+    },
+    {
+      "component": "BZ1",
+      "physical_pin": 4,
+      "pin_name": "NC2",
+      "net": null
+    },
+    {
+      "component": "Q_BUZZER",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "BUZZER_GATE"
+    },
+    {
+      "component": "Q_BUZZER",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
+      "component": "Q_BUZZER",
+      "physical_pin": 3,
+      "pin_name": "pin3",
+      "net": "BUZZER_SINK"
+    },
+    {
+      "component": "D_BUZZER",
+      "physical_pin": 1,
+      "pin_name": "cathode",
+      "net": "V3V3"
+    },
+    {
+      "component": "D_BUZZER",
+      "physical_pin": 2,
+      "pin_name": "anode",
+      "net": "BUZZER_SINK"
+    },
+    {
+      "component": "D_PWR",
+      "physical_pin": 1,
+      "pin_name": "cathode",
+      "net": "GND"
+    },
+    {
+      "component": "D_PWR",
+      "physical_pin": 2,
+      "pin_name": "anode",
+      "net": "PWR_LED_A"
+    },
+    {
+      "component": "R_PWR_LED",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "V3V3"
+    },
+    {
+      "component": "R_PWR_LED",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "PWR_LED_A"
+    },
+    {
+      "component": "D_STATUS",
+      "physical_pin": 1,
+      "pin_name": "R_NEG",
+      "net": "STATUS_R_K"
+    },
+    {
+      "component": "D_STATUS",
+      "physical_pin": 2,
+      "pin_name": "G_NEG",
+      "net": "STATUS_G_K"
+    },
+    {
+      "component": "D_STATUS",
+      "physical_pin": 3,
+      "pin_name": "B_NEG",
+      "net": "STATUS_B_K"
+    },
+    {
+      "component": "D_STATUS",
+      "physical_pin": 4,
+      "pin_name": "_POS",
+      "net": "DATA_VBUS"
+    },
+    {
+      "component": "R_TEMP_SDA",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "TEMP_SDA"
+    },
+    {
+      "component": "R_TEMP_SDA",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "V3V3"
+    },
+    {
+      "component": "R_TEMP_SCL",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "TEMP_SCL"
+    },
+    {
+      "component": "R_TEMP_SCL",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "V3V3"
+    },
+    {
+      "component": "C_TEMP",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "V3V3"
+    },
+    {
+      "component": "C_TEMP",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
+      "component": "C_BUZZER",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "V3V3"
+    },
+    {
+      "component": "C_BUZZER",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
+      "component": "R_BUZZER_GATE",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "BUZZER_PWM"
+    },
+    {
+      "component": "R_BUZZER_GATE",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "BUZZER_GATE"
+    },
+    {
+      "component": "R_BUZZER_PD",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "BUZZER_GATE"
+    },
+    {
+      "component": "R_BUZZER_PD",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
+      "component": "J_MOTOR",
+      "physical_pin": 1,
+      "pin_name": "A_PLUS",
+      "net": "A_PLUS"
+    },
+    {
+      "component": "J_MOTOR",
+      "physical_pin": 2,
+      "pin_name": "A_MINUS",
+      "net": "A_MINUS"
+    },
+    {
+      "component": "J_MOTOR",
+      "physical_pin": 3,
+      "pin_name": "B_PLUS",
+      "net": "B_PLUS"
+    },
+    {
+      "component": "J_MOTOR",
+      "physical_pin": 4,
+      "pin_name": "B_MINUS",
+      "net": "B_MINUS"
+    },
+    {
+      "component": "Q_STATUS_R",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "GND"
+    },
+    {
+      "component": "Q_STATUS_R",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "LED_R"
+    },
+    {
+      "component": "Q_STATUS_R",
+      "physical_pin": 3,
+      "pin_name": "pin3",
+      "net": "STATUS_R_C"
+    },
+    {
+      "component": "R_STATUS_R",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "STATUS_R_K"
+    },
+    {
+      "component": "R_STATUS_R",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "STATUS_R_C"
+    },
+    {
+      "component": "Q_STATUS_G",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "GND"
+    },
+    {
+      "component": "Q_STATUS_G",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "LED_G"
+    },
+    {
+      "component": "Q_STATUS_G",
+      "physical_pin": 3,
+      "pin_name": "pin3",
+      "net": "STATUS_G_C"
+    },
+    {
+      "component": "R_STATUS_G",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "STATUS_G_K"
+    },
+    {
+      "component": "R_STATUS_G",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "STATUS_G_C"
+    },
+    {
+      "component": "Q_STATUS_B",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "GND"
+    },
+    {
+      "component": "Q_STATUS_B",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "LED_B"
+    },
+    {
+      "component": "Q_STATUS_B",
+      "physical_pin": 3,
+      "pin_name": "pin3",
+      "net": "STATUS_B_C"
+    },
+    {
+      "component": "R_STATUS_B",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "STATUS_B_K"
+    },
+    {
+      "component": "R_STATUS_B",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "STATUS_B_C"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 5,
+      "pin_name": "GPIO3",
+      "net": "LED_B"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 4,
+      "pin_name": "GPIO2",
+      "net": "LED_G"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 27,
+      "pin_name": "GPIO16",
+      "net": "BUZZER_PWM"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 37,
+      "pin_name": "GPIO25",
+      "net": "LED_R"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 38,
+      "pin_name": "GPIO26",
+      "net": "TEMP_SDA"
+    },
+    {
+      "component": "U_MCU",
+      "physical_pin": 39,
+      "pin_name": "GPIO27",
+      "net": "TEMP_SCL"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 1,
+      "pin_name": "EH2",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 2,
+      "pin_name": "EH1",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 3,
+      "pin_name": "EH4",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 4,
+      "pin_name": "EH3",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 5,
+      "pin_name": "SBU2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 6,
+      "pin_name": "CC1",
+      "net": "PD_CC1"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 7,
+      "pin_name": "DN2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 8,
+      "pin_name": "DP1",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 9,
+      "pin_name": "DN1",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 10,
+      "pin_name": "DP2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 11,
+      "pin_name": "SBU1",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 12,
+      "pin_name": "CC2",
+      "net": "PD_CC2"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 13,
+      "pin_name": "GND1",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 14,
+      "pin_name": "GND2",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 15,
+      "pin_name": "VBUS1",
+      "net": "PD_VBUS"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 16,
+      "pin_name": "VBUS2",
+      "net": "PD_VBUS"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 1,
+      "pin_name": "EH2",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 2,
+      "pin_name": "EH1",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 3,
+      "pin_name": "EH4",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 4,
+      "pin_name": "EH3",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 5,
+      "pin_name": "SBU2",
+      "net": null
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 6,
+      "pin_name": "CC1",
+      "net": "DATA_CC1"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 7,
+      "pin_name": "DN2",
+      "net": "USB_DM"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 8,
+      "pin_name": "DP1",
+      "net": "USB_DP"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 9,
+      "pin_name": "DN1",
+      "net": "USB_DM"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 10,
+      "pin_name": "DP2",
+      "net": "USB_DP"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 11,
+      "pin_name": "SBU1",
+      "net": null
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 12,
+      "pin_name": "CC2",
+      "net": "DATA_CC2"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 13,
+      "pin_name": "GND1",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 14,
+      "pin_name": "GND2",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 15,
+      "pin_name": "VBUS1",
+      "net": "DATA_VBUS"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 16,
+      "pin_name": "VBUS2",
+      "net": "DATA_VBUS"
+    }
+  ],
+  "TMP102_address": "0x48",
+  "TMP102_ALERT": "NC; firmware polls temperature and defines alarms",
+  "temperature_bus": "RP2040 I2C1 GPIO26/27",
+  "RGB_anode": "DATA_VBUS fixed programming-USB 5 V",
+  "buzzer_reset_default": "100 kohm gate-to-ground pull-down; off at reset",
+  "buzzer_flyback": "PMEG6020ELRX C478000, 60 V / 2 A reference power diode used as compatible flyback replacement",
+  "original_imported_footprints_and_courtyards_unchanged": true,
+  "original_OBJ_and_STEP_bytes_hash_verified": true,
+  "native_courtyard_overlap_count": 0,
+  "JST_order": [
+    "A_PLUS",
+    "A_MINUS",
+    "B_PLUS",
+    "B_MINUS"
+  ],
+  "USB_port_roles_match_reference": true,
+  "hardware_operation_verified": false
+}

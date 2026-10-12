@@ -10,8 +10,8 @@
   },
   "plug_pair_intersections": [],
   "minimum_simultaneous_plug_gap_mm": 0.40000000000000036,
-  "board_sha256": "fdfa722080d2923545b55bcbd6f9324d113b180ed76eee5c205b92c3f61dd83b",
-  "native_STEP_models": 62,
+  "board_sha256": "e5525e09952403e78e5c57617293349fc960532b6b612652418886bf60c3f060",
+  "native_STEP_models": 81,
   "component_intersections": [],
   "fastener_clearances": [
     {
@@ -29,13 +29,43 @@
     {
       "reference": "R_PD",
       "mount": "(-13, 13)",
-      "distance_to_radius2p2_fastener_mm": 0.5950000000000006,
+      "distance_to_radius2p2_fastener_mm": 0.9084938713809632,
       "intersection_mm3": 0
     },
     {
-      "reference": "C_REF",
+      "reference": "C_PD",
+      "mount": "(-13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.6602165232027248,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_USB_SENSE_L",
+      "mount": "(13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.6286015021987775,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "C_DRV_LOGIC",
       "mount": "(13, -13)",
-      "distance_to_radius2p2_fastener_mm": 0.24521804309476902,
+      "distance_to_radius2p2_fastener_mm": 0.8379409865857365,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_ENABLE",
+      "mount": "(13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.40381731773546886,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_PWR_LED",
+      "mount": "(13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.7143550000000012,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_STATUS_R",
+      "mount": "(-13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.6290079218941473,
       "intersection_mm3": 0
     }
   ],

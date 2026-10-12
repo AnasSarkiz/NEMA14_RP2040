@@ -3,7 +3,7 @@
 The conservative routing grid is only a construction aid. Native DRC and the
 independent physical/CAM checks are required afterward.
 """
-import json, math, heapq
+import json, math, heapq, sys
 import numpy as np
 from PIL import Image,ImageDraw
 from scipy.ndimage import distance_transform_edt
@@ -11,9 +11,11 @@ from shapely.ops import unary_union
 import verify_supplier_connectivity as g
 
 j=g.j;ROOT=g.ROOT;STEP=.025;LOW=-17.5;N=1401
-layers=['top','bottom'] if next(e for e in j if e['type']=='pcb_board')['num_layers']==2 else ['top','inner2','bottom']
+layers=['top','bottom'] if next(e for e in j if e['type']=='pcb_board')['num_layers']==2 else ['top','inner1','inner2','bottom']
 nets={e['subcircuit_connectivity_map_key']:e for e in j if e['type']=='source_net'}
 traces={e['subcircuit_connectivity_map_key']:e['source_trace_id'] for e in j if e['type']=='source_trace'}
+for k,name in g.nets.items():
+ if k not in nets:nets[k]={'name':name,'source_net_id':None}
 xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP))
 world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
@@ -47,38 +49,48 @@ def blocked(net,via=False):
     for d in ds:
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
         d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
-    return [np.asarray(im,dtype=np.bool_) for im in images]
+    masks=[np.asarray(im,dtype=np.bool_) for im in images]
+    if 'inner1' in layers and nets[net]['name'] not in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL']:
+        masks[layers.index('inner1')]=np.ones((N,N),dtype=np.bool_)
+    return masks
 
 repairs=[]
 # Replace traces that physically clear the circular keepout but fail the
 # native bounding-square trace checker. Do not suppress their DRC errors.
 errors=json.loads((ROOT/'artifacts/drc-report.json').read_text())['errors']
 for error in errors:
-    if 'overlaps with pcb_keepout' in error.get('message',''):
+    if 'pcb_keepout' in error.get('message',''):
         e=next((e for e in j if e.get('pcb_trace_id')==error['pcb_trace_id']),None)
         if e is None:continue
         j.remove(e)
         repairs.append({'removed_for_conservative_native_keepout':error['pcb_trace_id']})
 
-for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
-    if nets[net]['name']=='GND':continue  # Regenerate plane returns before any separate ground repair.
-    current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'] else .16
+for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-3,'USB_DM':-3,'MCU_DP':-3,'MCU_DM':-3,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
+    if '--ground' in sys.argv and nets[net]['name']!='GND':continue
+    if nets[net]['name']=='GND' and '--ground' not in sys.argv:continue  # Regenerate plane returns before any separate ground repair.
+    current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK'] else .16
     if nets[net]['name']=='PD_VBUS':current_width=.55
-    power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','V1V1','LOGIC_IN','DATA_VBUS','BUCK_SW','GND']
+    power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK','GND']
     board=next(e for e in j if e['type']=='pcb_board')
-    current_via_diameter=max(board['min_via_pad_diameter'],.5 if power else .4)
-    current_via_hole=max(board['min_via_hole_diameter'],.25 if power else .2)
-    for attempt in range(12):
+    current_via_diameter=max(board['min_via_pad_diameter'],.5 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .4)
+    current_via_hole=max(board['min_via_hole_diameter'],.25 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .2)
+    for attempt in range(40):
         elems,roots=g.groups(net);islands={}
         for e,r in zip(elems,roots):
             if e.get('pcb_port_id'):islands.setdefault(r,[]).append(e)
         if len(islands)<2:break
-        startroot=min(islands,key=lambda r:len(islands[r]))
+        startroot=min(islands,key=lambda r:(len(islands[r]),not any(e['type']=='pcb_plated_hole' for e in islands[r])))
         if nets[net]['name']=='PD_VBUS':
             current_width=.55
             if len(islands[startroot])==1:
                 isolated=islands[startroot][0];port=g.ports[isolated['pcb_port_id']];sp=g.sp[port['source_port_id']];reference=g.src[sp['source_component_id']]
-                if (reference=='U_DRV' and sp['name'] in ['VBB1','VBB2']) or (reference=='C_VCP' and sp['name']=='pin2'):current_width=.3
+                if (reference=='U_DRV' and sp['name'] in ['VBB1','VBB2']) or (reference=='C_VCP' and sp['name']=='pin2') or reference in ['R_PD','R_VM_H','C_VM']:current_width=.3
+        if nets[net]['name']=='V3V3':
+            refs={g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']] for p in islands[startroot]}
+            load=sum({'U_MCU':.15,'U_FLASH':.03,'U_DRV':.02,'U_TEMP':.001,'BZ1':.12,'R_PWR_LED':.011,'R_TEMP_SDA':.001,'R_TEMP_SCL':.001}.get(ref,0) for ref in refs)
+            current_width=.16 if 'L_BUCK' not in refs and load<=.18 else .3
+            # The independent physical branch-cut and thermal audit verifies
+            # downstream load again on the completed copper, with full-budget fallback.
         # Use a real connected physical land as the start, never an old location.
         startpad=min(islands[startroot],key=lambda e:len(e.get('port_hints',[])))
         startport=g.ports[startpad['pcb_port_id']]
@@ -98,17 +110,19 @@ for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SE
                     if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                         count=max(1,math.ceil(math.hypot(b['x']-a['x'],b['y']-a['y'])/.15))
                         for k in range(count+1):goal(a['x']+(b['x']-a['x'])*k/count,a['y']+(b['y']-a['y'])*k/count,a['layer'])
-        assert goals
+        if not goals:
+            print("UNROUTED: no other physical copper",nets[net]["name"],flush=True);break
         wire=blocked(net);vias=blocked(net,True)
         existing={xy(e["x"],e["y"]):e for e in j if e["type"]=="pcb_via" and g.key(e)==net}
         goals={q:v for q,v in goals.items() if not wire[q[2]][q[1],q[0]]}
-        assert goals, f'No accessible target copper for {nets[net]["name"]}'
+        if not goals:
+            print("UNROUTED: no accessible target copper",nets[net]["name"],flush=True);break
         points=np.array(list(goals));lo=points[:,:2].min(axis=0);hi=points[:,:2].max(axis=0)
         goal_mask=np.ones((N,N),dtype=np.bool_)
         for q in goals:goal_mask[q[1],q[0]]=False
         distance_field=distance_transform_edt(goal_mask)
-        heuristic=lambda s:float(distance_field[s[1],s[0]])
-        starts={start:(sx,sy)}
+        heuristic=lambda s:1.5*float(distance_field[s[1],s[0]])
+        starts={(*xy(sx,sy),layers.index(l)):(sx,sy) for l in startpad.get('layers',[startpad.get('layer','top')]) if l in layers}
         for anchor,r in zip(elems,roots):
             if r!=startroot:continue
             if anchor['type']=='pcb_via':
@@ -137,7 +151,8 @@ for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SE
                 if nl==l and nx!=x and ny!=y and (wire[l][y,nx] or wire[l][ny,x]):continue
                 q=(nx,ny,nl);nc=cost+dc
                 if nc<best.get(q,float('inf')):best[q]=nc;prev[q]=s;heapq.heappush(heap,(nc+heuristic(q),nc,q))
-        assert end is not None, f'No legal grid route for {nets[net]["name"]} after {expanded} nodes'
+        if end is None:
+            print("UNROUTED: no legal grid route",nets[net]["name"],expanded,flush=True);break
         path=[end]
         while path[-1] not in starts:path.append(prev[path[-1]])
         path.reverse();slim=[path[0]]
@@ -153,12 +168,12 @@ for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SE
             if (node[0],node[1]) in existing:x,y=existing[(node[0],node[1])]["x"],existing[(node[0],node[1])]["y"]
             if k and node[2]!=slim[k-1][2]:
                 route.append({'route_type':'via','x':x,'y':y,'from_layer':layers[slim[k-1][2]],'to_layer':l,'via_diameter':current_via_diameter,'via_hole_diameter':current_via_hole})
-                all_layers=['top','inner1','inner2','bottom'] if len(layers)==3 else ['top','bottom']
+                all_layers=['top','inner1','inner2','bottom'] if board['num_layers']==4 else ['top','bottom']
                 v={'type':'pcb_via','pcb_via_id':uid+f'_via_{k}','x':x,'y':y,'outer_diameter':current_via_diameter,'hole_diameter':current_via_hole,'layers':all_layers,'from_layer':'top','to_layer':'bottom','source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','tented_on_top':True,'tented_on_bottom':True}
                 if not any(e['type']=='pcb_via' and math.hypot(e['x']-x,e['y']-y)<.001 for e in j):j.append(v);newvia.append([x,y])
             route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':current_width})
         sx,sy=starts[path[0]];route[0].update(x=sx,y=sy)
-        if route[0]['layer']==startpad.get('layer','top') and g.geometry(startpad).covers(g.Point(sx,sy)):route[0]['start_pcb_port_id']=startpad['pcb_port_id']
+        if route[0]['layer'] in startpad.get('layers',[startpad.get('layer','top')]) and g.geometry(startpad).covers(g.Point(sx,sy)):route[0]['start_pcb_port_id']=startpad['pcb_port_id']
         gx,gy=goals[end];route[-1].update(x=gx,y=gy)
         for e in j:
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and g.key(e)==net and e.get('pcb_port_id') and route[-1]['layer'] in e.get('layers',[e.get('layer','top')]) and g.geometry(e).buffer(.001).covers(g.Point(gx,gy)):
@@ -166,6 +181,8 @@ for net in sorted(nets,key=lambda k:({'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SE
         j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]})
         repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid})
         print(repairs[-1],flush=True)
+        for obj in j:
+            if obj.get('source_net_id',1) is None:obj.pop('source_net_id')
         g.path.write_text(json.dumps(j,indent=2)+'\n')
         p=ROOT/'artifacts/same-side-copper-repairs.json';history=json.loads(p.read_text()) if p.exists() else [];history.append(repairs[-1]);p.write_text(json.dumps(history,indent=2)+'\n')
     else:raise RuntimeError('Repair iteration limit')

@@ -1,7 +1,7 @@
 [
   [
     "U_MCU - RP2040",
-    "USB computer control; generates STEP/DIR.\nChecks PD voltage before enabling the motor.\nInternal regulator supplies the 1.1 V core."
+    "USB computer control; generates STEP/DIR.\nFirmware must check PD before motor enable.\nInternal regulator supplies the 1.1 V core."
   ],
   [
     "U_FLASH - GD25Q16EEIGR",
@@ -26,5 +26,9 @@
   [
     "U_ESD - USBLC6-2SC6",
     "Clamps ESD on USB D+ and D- at the data port.\nVBUS pin references the protection diodes."
+  ],
+  [
+    "U_TEMP / BZ1 / D_STATUS / D_PWR",
+    "TMP102: I2C temperature, address 0x48.\nPWM magnetic buzzer and RGB status need firmware.\nPower LED indicates 3.3 V; RGB uses USB 5 V."
   ]
 ]

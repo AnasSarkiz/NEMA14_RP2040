@@ -32,11 +32,12 @@ traceids={}
 for e in j:
  if e['type']=='source_trace' :traceids[e.get('subcircuit_connectivity_map_key')]=e['source_trace_id']
 pads=[e for e in j if e['type'] in ['pcb_smtpad','pcb_plated_hole']]
-def endpoint(x,y,key):
+def endpoint(x,y,key,layer=None):
  from shapely.geometry import Point,Polygon
  for p in pads:
   pp=ports.get(p.get('pcb_port_id'),{});source=sourceports.get(pp.get('source_port_id'),{})
   if source.get('subcircuit_connectivity_map_key')!=key:continue
+  if layer is not None and layer not in p.get('layers',[p.get('layer','top')]):continue
   if p.get('shape')=='polygon':
    if Polygon([(v['x'],v['y']) for v in p['points']]).buffer(.01).covers(Point(x,y)):return p.get('pcb_port_id')
    continue

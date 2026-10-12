@@ -40,7 +40,11 @@ if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
  if(via.hole_diameter<board.min_via_hole_diameter || via.outer_diameter<board.min_via_pad_diameter) unique.push({type:'validation_error',message:'Via violates the declared minimum pad/drill diameter: '+via.pcb_via_id})
 }
-if(json.some((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) unique.push({type:'validation_error',message:'Inner1 is reserved for ground.'})
+const inner1LocalNets=new Set(['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL'])
+for(const trace of json.filter((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) {
+ const net=json.find((e:any)=>e.type==='source_net' && e.subcircuit_connectivity_map_key===trace.subcircuit_connectivity_map_key)
+ if(!inner1LocalNets.has(net?.name)) unique.push({type:'validation_error',message:'Unreviewed net on inner1: '+trace.pcb_trace_id})
+}
 const holes=json.filter((e:any)=>e.type==='pcb_hole' && e.hole_diameter===3.2)
 const mountCoordinates=new Set(holes.map((e:{x:number,y:number})=>`${e.x},${e.y}`))
 if(holes.length!==4 || mountCoordinates.size!==4 || [-13,13].some(x=>[-13,13].some(y=>!mountCoordinates.has(`${x},${y}`))))
@@ -67,8 +71,15 @@ for(const [pin,netName] of Object.entries(expectedPins)) {
 }
 for(const name of ['R_DP','R_DM']) if(sourceComponents.find((e:any)=>e.name===name)?.resistance!==27) unique.push({type:'validation_error',message:name+' must be 27 ohms.'})
 for(const name of ['U_FLASH','Y_MCU','C_VREG_IN','C_VREG_OUT','C_DV23','C_DV50','U_BUCK','L_BUCK','J_BOOT','J_DEBUG']) if(!sourceComponents.some((e:any)=>e.name===name)) unique.push({type:'validation_error',message:'Missing required RP2040 support component '+name})
-if(json.some((e:any)=>e.type==='pcb_component' && e.layer!=='top')) unique.push({type:'validation_error',message:'Component assembly must be top-side only.'})
-if(json.some((e:any)=>e.type==='pcb_solder_paste' && e.layer!=='top')) unique.push({type:'validation_error',message:'Top assembly must not have bottom solder paste.'})
+const bottomReferences=new Set(['C_DV50','C_IO49','R_XOUT','C_XOUT','J_DEBUG','R_TEMP_SDA'])
+for(const component of json.filter((e:any)=>e.type==='pcb_component')) {
+ const source=json.find((e:any)=>e.type==='source_component' && e.source_component_id===component.source_component_id)
+ if(component.layer!==(bottomReferences.has(source?.name)?'bottom':'top')) unique.push({type:'validation_error',message:'Unreviewed component assembly side: '+source?.name})
+}
+for(const paste of json.filter((e:any)=>e.type==='pcb_solder_paste')) {
+ const component=json.find((e:any)=>e.type==='pcb_component' && e.pcb_component_id===paste.pcb_component_id)
+ if(component && paste.layer!==component.layer) unique.push({type:'validation_error',message:'Paste is on the wrong component assembly side: '+paste.pcb_solder_paste_id})
+}
 const platedHoles=json.filter((e:any)=>e.type==='pcb_plated_hole')
 if(json.some((e:any)=>e.type==='pcb_solder_paste' && platedHoles.some((h:any)=>Math.hypot(h.x-e.x,h.y-e.y)<.001))) unique.push({type:'validation_error',message:'Hand-soldered through holes must not have stencil paste.'})
 // Physical-pin review of motor power, PD request, protection and reset defaults.
