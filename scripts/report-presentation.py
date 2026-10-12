@@ -51,13 +51,10 @@ for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole'
 ports=[e for e in j if e['type']=='source_port' and 'pin_number' in e];schports={e['source_port_id'] for e in j if e['type']=='schematic_port'}
 assert all(p['source_port_id'] in schports for p in ports)
 sheets=[e for e in j if e['type']=='schematic_sheet'];assert sheets and all(e['sheet_size']=='a4' and e['sheet_width']==297 and e['sheet_height']==210 for e in sheets)
-labels={}
-for e in j:
- if e['type']=='schematic_net_label' and 'source_net_id' in e:labels[e['source_net_id']]=labels.get(e['source_net_id'],0)+1
-for net in [e for e in j if e['type']=='source_net']:
- expected=sum(p.get('subcircuit_connectivity_map_key')==net['subcircuit_connectivity_map_key'] for p in ports)
- assert labels.get(net['source_net_id'],0)==expected,(net.get('name'),expected,labels.get(net['source_net_id'],0))
-report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':True,'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicNamedNetStubCoverageVerified':True}
+schematic=json.loads((root/'artifacts/schematic-redesign/analysis.json').read_text())
+assert schematic['passed'] and schematic['board_sha256']==hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest()
+assert schematic['physical_pin_count']==len(ports) and schematic['electrical_source_and_PCB_CAD_preserved']
+report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':True,'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicGeometricConnectivityVerified':True,'schematicAnalysis':'artifacts/schematic-redesign/analysis.json'}
 (root/'artifacts/jlcpcb-import-report.json').write_text(json.dumps(report,indent=2)+'\n');(root/'artifacts/supplier-cad-alignment.json').write_text(json.dumps(alignment,indent=2)+'\n')
 with (root/'artifacts/bom.csv').open('w') as f:
  w=csv.writer(f,lineterminator='\n');w.writerow(['Reference','MPN','JLCPCB part','Value','Voltage rating (V)','Tolerance','PCB X mm','PCB Y mm','Rotation deg','Assembly side','Review note']);w.writerows(rows)

@@ -1,9 +1,11 @@
 """Record actual exit codes and logs for every resumed-board qualification."""
 import hashlib,json,os,pathlib,subprocess
 root=pathlib.Path(__file__).resolve().parents[1];out=root/'artifacts/validation-resume';out.mkdir(exist_ok=True);env=dict(os.environ);env['PATH']=str(root/'node_modules/.bin')+':'+env['PATH'];env['XDG_CONFIG_HOME']='/workspace/.config'
+# Delivered preview and extracted CAM files must be current before qualification.
+subprocess.run(['python3','scripts/finalize-manufacturing-artifacts.py'],cwd=root,env=env,check=True)
 checks=[('typescript',['tsc','--noEmit']),('drc',['bun','scripts/check.ts']),('connectivity',['/workspace/.routing-venv/bin/python','scripts/verify_supplier_connectivity.py']),('fitted_JST_and_actual_drills',['python3','scripts/check-motor-connector.py']),('exact_mounts_and_actual_drills',['python3','scripts/check-mount-drills.py']),('native_json_checks',['tsci','check','artifacts/board.circuit.json'])]
 checks += [(f'native_{name}',['tsci','check',name,'index.circuit.tsx' if name=='netlist' else 'artifacts/board.circuit.json']) for name in ['netlist','pin_specification','source','schematic-placement','placement']]
-checks += [('every_trace_review',['/workspace/.routing-venv/bin/python','scripts/audit-every-trace.py']),('reference_feedback',['/workspace/.routing-venv/bin/python','scripts/check-reference-feedback.py']),('gerber_shorts',['tsci','check','shorts','artifacts/board.circuit.json','--mode','gerber','--layer','all','--pixels-per-mm','100']),('copper_widths',['/workspace/.routing-venv/bin/python','scripts/audit-trace-widths.py']),('full_independent_CAM',['/workspace/.routing-venv/bin/python','scripts/audit-manufacturing.py'])]
+checks += [('schematic_geometry_ERC',['/workspace/.routing-venv/bin/python','scripts/verify-schematic.py']),('every_trace_review',['/workspace/.routing-venv/bin/python','scripts/audit-every-trace.py']),('reference_feedback',['/workspace/.routing-venv/bin/python','scripts/check-reference-feedback.py']),('gerber_shorts',['tsci','check','shorts','artifacts/board.circuit.json','--mode','gerber','--layer','all','--pixels-per-mm','100']),('copper_widths',['/workspace/.routing-venv/bin/python','scripts/audit-trace-widths.py']),('full_independent_CAM',['/workspace/.routing-venv/bin/python','scripts/audit-manufacturing.py'])]
 receipts=[]
 for name,cmd in checks:
  with (out/(name+'.txt')).open('w') as log:r=subprocess.run(cmd,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT)

@@ -10,13 +10,13 @@ python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
+for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
 for f in ['index.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
 (stage/'artifacts').mkdir()
 for f in (root/'artifacts').glob('schematic-a4-page-*.svg'):shutil.copy2(f,stage/'artifacts'/f.name)
-for f in ['bom.csv','source-bom.csv','pick_and_place.csv','drc-report.json','physical-connectivity.json','jlcpcb-import-report.json']:
+for f in ['schematic-a4.pdf','bom.csv','source-bom.csv','pick_and_place.csv','drc-report.json','physical-connectivity.json','jlcpcb-import-report.json']:
  if (root/'artifacts'/f).exists():shutil.copy2(root/'artifacts'/f,stage/'artifacts'/f)
 shutil.copy2(root/'artifacts/schematic-a4-page-01.svg',stage/'artifacts/schematic.svg')
 for name in ['mounting-change-proof.json','mount-drill-verification.json','check-output.txt','native-check.txt','shorts-output.txt','resume-validation.json','nema14-gerbers.zip','same-side-routing-proof.json','same-side-copper-repairs.json','same-side-pruned-stubs.json','same-side-trimmed-stubs.json','same-side-copper-cleanup.json','same-side-local-ripup.json','same-side-power-width-repair.json','trace-width-review.json','presentation-verification.json']:
@@ -24,6 +24,7 @@ for name in ['mounting-change-proof.json','mount-drill-verification.json','check
 for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/same-edge-fit.svg','mechanical/same-edge-fit.png']:
  source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
 
+shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-redesign',ignore=shutil.ignore_patterns('baseline*.json'))
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
 shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
 shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-feedback')
@@ -59,6 +60,7 @@ if ! XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-di
   # The registry may complete an archive after the CLI timeout. Accept recovery
   # only after fetching and verifying the exact public release, copper, drills,
   # evidence, pinned models and GitHub bytes; never retry by deleting files.
+  python3 "$project_root/scripts/recover-publication.py" "$package_stage"
   python3 "$project_root/scripts/verify-publication.py" "$project_root"
 fi
 python3 - "$package_stage" <<'PYVERSION'

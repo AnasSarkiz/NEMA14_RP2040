@@ -1,6 +1,6 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.5.0",
+  "version": "1.6.0",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "index.circuit.tsx",
   "scripts": {
@@ -18,7 +18,8 @@
     "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && /workspace/.routing-venv/bin/python scripts/report-presentation.py",
     "check:copper": "/workspace/.routing-venv/bin/python scripts/audit-trace-widths.py",
     "check:mounts": "python3 scripts/check-mount-drills.py && /workspace/.routing-venv/bin/python scripts/check-mechanical-mounts.py",
-    "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render"
+    "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render",
+    "check:schematic": "tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py"
   },
   "repository": {
     "type": "git",
@@ -42,7 +43,8 @@
     "three": "0.186.1",
     "tscircuit": "^0.0.2764",
     "tsx": "4.20.6",
-    "typescript": "5.9.3"
+    "typescript": "5.9.3",
+    "schematic-symbols": "0.0.248"
   },
   "devDependencies": {
     "bun": "1.4.2"
