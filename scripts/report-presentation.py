@@ -53,7 +53,7 @@ assert all(p['source_port_id'] in schports for p in ports)
 sheets=[e for e in j if e['type']=='schematic_sheet'];assert sheets and all(e['sheet_size']=='a4' and e['sheet_width']==297 and e['sheet_height']==210 for e in sheets)
 schematic=json.loads((root/'artifacts/schematic-redesign/analysis.json').read_text())
 assert schematic['passed'] and schematic['board_sha256']==hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest()
-assert schematic['physical_pin_count']==len(ports) and schematic['electrical_source_and_PCB_CAD_preserved']
+assert schematic['physical_pin_count']==len(ports) and schematic.get('electrical_source_preserved',schematic['electrical_source_and_PCB_CAD_preserved'])
 report={'mappedComponents':len(mapped),'distinctParts':len(cat['parts']),'references':mapped,'pending':[],'barePcbPads':bare,'complete':True,'supplierAssetsHashVerified':True,'nativeImportedFootprintsUnchanged':True,'allFittedPartsHaveObjAndStep':True,'cadBoundsWithinSupplierCourtyards':True,'usbSupplierModelOpenings':usb,'schematicA4PageCount':len(sheets),'allNumberedPhysicalPinsOnSchematic':True,'numberedPinCount':len(ports),'schematicGeometricConnectivityVerified':True,'schematicAnalysis':'artifacts/schematic-redesign/analysis.json'}
 (root/'artifacts/jlcpcb-import-report.json').write_text(json.dumps(report,indent=2)+'\n');(root/'artifacts/supplier-cad-alignment.json').write_text(json.dumps(alignment,indent=2)+'\n')
 with (root/'artifacts/bom.csv').open('w') as f:

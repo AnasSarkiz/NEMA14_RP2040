@@ -1,8 +1,9 @@
-placement summary: 2 suboptimal orientations
+placement summary: 3 suboptimal orientations
 
 worst issues:
 1. C_DV23 connections cross the routing path between its pads. Suggested move: rotate C_DV23 180 degrees.
 2. C_FLASH connections cross the routing path between its pads. Suggested move: rotate C_FLASH 180 degrees.
+3. R_REF_H connections cross the routing path between its pads. Suggested move: rotate R_REF_H 180 degrees.
 
 board top-layer utilization:
 - occupied: 71.035% (870.173mm^2 of 1225mm^2)
@@ -37,14 +38,14 @@ board-edge status:
 - R_XOUT: 12.43mm inside top edge
 - C_XIN: 9.83mm inside top edge
 - C_XOUT: 11.33mm inside top edge
-- R_RUN: 0.37mm inside left edge
+- R_RUN: 0.755mm inside left edge
 - R_DM: 11.484mm inside bottom edge
 - R_DP: 11.484mm inside bottom edge
 - R_CC1: 6.484mm inside bottom edge
 - R_CC2: 6.384mm inside right edge
-- R_USB_SENSE_H: 0.73mm inside left edge
-- R_USB_SENSE_L: 0.539mm inside right edge
-- R_VM_H: 0.549mm inside right edge
+- R_USB_SENSE_H: 0.755mm inside left edge
+- R_USB_SENSE_L: 0.754mm inside right edge
+- R_VM_H: 0.994mm inside bottom edge
 - R_VM_L: 2.51mm inside left edge
 - C_VM_SENSE: 1.04mm inside right edge
 - U_BUCK: 8.69mm inside bottom edge
@@ -64,8 +65,8 @@ board-edge status:
 - C_BULK: 4.85mm inside left edge
 - R_SA: 6.17mm inside top edge
 - R_SB: 7.93mm inside top edge
-- R_REF_H: 0.37mm inside top edge
-- R_REF_L: 0.55mm inside top edge
+- R_REF_H: 0.753mm inside top edge
+- R_REF_L: 0.754mm inside top edge
 - C_REF: 1.63mm inside top edge
 - R_ENABLE: 1.45mm inside bottom edge
 - R_SLEEP: 3.547mm inside bottom edge
@@ -76,15 +77,15 @@ board-edge status:
 - U_TEMP: 4.73mm inside top edge
 - C_TEMP: 6.74mm inside top edge
 - R_TEMP_SDA: 5.03mm inside top edge
-- R_TEMP_SCL: 0.73mm inside left edge
+- R_TEMP_SCL: 0.755mm inside left edge
 - D_PWR: 11.097mm inside bottom edge
-- R_PWR_LED: 0.37mm inside top edge
+- R_PWR_LED: 0.754mm inside top edge
 - D_STATUS: 8.698mm inside bottom edge
 - R_STATUS_R: 1.44mm inside top edge
 - Q_STATUS_R: 7.1mm inside right edge
 - R_STATUS_G: 0.92mm inside left edge
 - Q_STATUS_G: 3.75mm inside right edge
-- R_STATUS_B: 0.37mm inside bottom edge
+- R_STATUS_B: 0.755mm inside bottom edge
 - Q_STATUS_B: 0.4mm inside right edge
 - BZ1: 0.35mm inside right edge
 - Q_BUZZER: 0.755mm inside right edge
@@ -106,6 +107,12 @@ flagged components:
   board edge status: 0.45mm inside right edge
   issues:
   - C_FLASH connections cross the routing path between its pads. Suggested move: rotate C_FLASH 180 degrees.
+- R_REF_H
+  source placement: placement_mode=none
+  resolved placement: center=(12.085mm, -16.315mm) on top; bounds=(minX=10.928mm, maxX=13.242mm, minY=-16.747mm, maxY=-15.883mm); size=(width=2.313mm, height=0.864mm); anchor_alignment="center"
+  board edge status: 0.753mm inside top edge
+  issues:
+  - R_REF_H connections cross the routing path between its pads. Suggested move: rotate R_REF_H 180 degrees.
 
 placement drc:
 Errors: 0

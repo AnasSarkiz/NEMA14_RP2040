@@ -1,5 +1,5 @@
 """Complete a CLI archive upload using bounded native registry archives; never replace existing rows."""
-import base64,gzip,json,pathlib,sys,urllib.parse,urllib.request
+import base64,gzip,json,pathlib,sys,urllib.parse,urllib.request,urllib.error
 stage=pathlib.Path(sys.argv[1]);meta=json.loads((stage/'package.json').read_text());name='AnasSarkiz/'+meta['name'];version=meta['version'];api='https://registry-api.tscircuit.com/'
 token=json.loads(pathlib.Path('/workspace/.config/tscircuit-nodejs/config.json').read_text())['sessionToken']
 def request(endpoint,body):
@@ -24,10 +24,16 @@ def archive(entries):return base64.b64encode(gzip.compress(json.dumps({'files':e
 def upload(group):
  if not group:return
  encoded=archive(group);assert len(encoded)<3_000_000,'Individual compressed file exceeds safe upload size'
- request('package_files/upload_archive',{'package_name_with_version':name+'@'+version,'archive_base64':encoded});print('Uploaded',len(group),'missing files; encoded bytes',len(encoded),flush=True)
+ try:request('package_files/upload_archive',{'package_name_with_version':name+'@'+version,'archive_base64':encoded})
+ except urllib.error.HTTPError as exc:
+  if exc.code not in [500,502,503,504]:raise
+  with urllib.request.urlopen(api+'package_files/list?'+query,timeout=60) as response:present={e['file_path'] for e in json.load(response)['package_files'] if e['package_release_id']==release['package_release_id']}
+  if not all(e['file_path'] in present for e in group):raise
+  print('Gateway reported an error after accepting the archive; all group paths are present',flush=True)
+ print('Uploaded',len(group),'missing files; encoded bytes',len(encoded),flush=True)
 group=[]
 for entry in entries:
- if group and len(archive(group+[entry]))>2_500_000:upload(group);group=[]
+ if group and len(archive(group+[entry]))>1_100_000:upload(group);group=[]
  group.append(entry)
 upload(group)
 request('package_releases/update',{'package_name_with_version':name+'@'+version,'ready_to_build':True,'license':'ISC'})

@@ -1,6 +1,8 @@
-# NEMA14 RP2040 controller — v1.6.0 prototype
+# NEMA14 RP2040 controller — v1.7.0 prototype
 
 A **35 × 35 × 1.6 mm**, four-layer controller with native JLCPCB parts, two USB-C ports on one edge and a fitted JST PH motor connector. The board includes the reference power/debug LED, RGB status LED, TMP102 temperature sensor and PWM magnetic buzzer. USB-C and JST physical-pin roles match Rishabh’s reference, with board-specific MCU GPIOs documented in [reference feedback](docs/reference-feedback.md).
+
+This revision moves or rotates 9 resistors to improve clearance on all four edges. Every resistor pad targets at least **0.75 mm** to the board edge, with all resistor values and pin-to-net assignments retained. Actual native JSON/Gerber evidence is in [resistor edge clearance](docs/resistor-edge-clearance.md).
 
 Four Ø3.2 mm mounting holes remain exactly (±13, ±13). The same-edge USB layout is screened for two 12 mm plug housings and M3 DIN 920 screw heads ≤Ø4 mm. Native STEP screening passes the defined envelopes. **Rear mounting compatibility remains unverified.**
 

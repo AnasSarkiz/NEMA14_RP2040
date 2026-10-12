@@ -14,7 +14,7 @@ else:
    if re.match(r'placement summary: \d+ suboptimal orientations',log):continue
   if prototype and e['check']=='full_independent_CAM':continue
   errors.append('Check failed: '+e['check'])
- required={'schematic_geometry_ERC','typescript','drc','connectivity','fitted_JST_and_actual_drills','exact_mounts_and_actual_drills','native_json_checks','native_netlist','native_pin_specification','native_source','native_schematic-placement','native_placement','every_trace_review','reference_feedback','gerber_shorts','copper_widths','full_independent_CAM'}
+ required={'all_resistor_edge_clearances','schematic_geometry_ERC','typescript','drc','connectivity','fitted_JST_and_actual_drills','exact_mounts_and_actual_drills','native_json_checks','native_netlist','native_pin_specification','native_source','native_schematic-placement','native_placement','every_trace_review','reference_feedback','gerber_shorts','copper_widths','full_independent_CAM'}
  if required-{e['check'] for e in r.get('checks',[])}:errors.append('Qualification receipt is missing required checks.')
  cam=json.loads((root/'artifacts/manufacturing/audit.json').read_text())
  if cam.get('source_sha256')!=sha:errors.append('Independent CAM receipt is stale.')

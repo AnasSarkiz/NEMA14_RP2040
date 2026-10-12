@@ -24,6 +24,7 @@ for name in ['mounting-change-proof.json','mount-drill-verification.json','check
 for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/same-edge-fit.svg','mechanical/same-edge-fit.png']:
  source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
 
+shutil.copytree(root/'artifacts/edge-resistors',stage/'artifacts/edge-resistors')
 shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-redesign',ignore=shutil.ignore_patterns('baseline*.json'))
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
 shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')

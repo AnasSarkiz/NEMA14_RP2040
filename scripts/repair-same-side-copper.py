@@ -21,8 +21,8 @@ world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
     images=[Image.new('L',(N,N)) for _ in layers];ds=[ImageDraw.Draw(im) for im in images]
     margin=.15+(current_via_diameter/2 if via else current_width/2)+.003
-    def add(ls,geom):
-        p=geom.buffer(margin,quad_segs=16)
+    def add(ls,geom,extra=0):
+        p=geom.buffer(margin+extra,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
         for l in ls:
             if l not in layers:continue
@@ -33,7 +33,7 @@ def blocked(net,via=False):
         typ=e['type']
         if typ in ['pcb_smtpad','pcb_plated_hole']:
             if g.key(e)==net and not via:continue
-            add(e.get('layers',[e.get('layer','top')]),g.geometry(e))
+            add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.135 if g.key(e)==net and via else 0)
         elif typ=='pcb_via':
             if g.key(e)==net and not via:continue
             add(layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
@@ -50,9 +50,13 @@ def blocked(net,via=False):
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
         d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
     masks=[np.asarray(im,dtype=np.bool_) for im in images]
-    if 'inner1' in layers and nets[net]['name'] not in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL']:
-        masks[layers.index('inner1')]=np.ones((N,N),dtype=np.bool_)
     return masks
+
+def accessible_pad_points(pad):
+    shape=g.geometry(pad);a,b,c,d=shape.bounds
+    points={(round(x/STEP)*STEP,round(y/STEP)*STEP) for x in np.arange(a+.025,c,.05) for y in np.arange(b+.025,d,.05)}
+    p=g.ports[pad['pcb_port_id']];points.add((p['x'],p['y']))
+    return [(x,y) for x,y in points if shape.buffer(-.002).covers(g.Point(x,y))]
 
 repairs=[]
 # Replace traces that physically clear the circular keepout but fail the
@@ -65,7 +69,7 @@ for error in errors:
         j.remove(e)
         repairs.append({'removed_for_conservative_native_keepout':error['pcb_trace_id']})
 
-for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-3,'USB_DM':-3,'MCU_DP':-3,'MCU_DM':-3,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
+for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-3,'USB_DM':-3,'MCU_DP':-3,'MCU_DM':-3,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'PWR_LED_A':-5,'SLEEP':4,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
     if '--ground' in sys.argv and nets[net]['name']!='GND':continue
     if nets[net]['name']=='GND' and '--ground' not in sys.argv:continue  # Regenerate plane returns before any separate ground repair.
     current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK'] else .16
@@ -102,7 +106,8 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             if r==startroot:continue
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and e.get('pcb_port_id'):
                 p=g.ports[e['pcb_port_id']]
-                for l in e.get('layers',[e.get('layer','top')]):goal(p['x'],p['y'],l)
+                for l in e.get('layers',[e.get('layer','top')]):
+                    for x,y in accessible_pad_points(e):goal(x,y,l)
             elif e['type']=='pcb_via':
                 for l in e['layers']:goal(e['x'],e['y'],l)
             elif e['type']=='pcb_trace':
@@ -122,7 +127,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         for q in goals:goal_mask[q[1],q[0]]=False
         distance_field=distance_transform_edt(goal_mask)
         heuristic=lambda s:1.5*float(distance_field[s[1],s[0]])
-        starts={(*xy(sx,sy),layers.index(l)):(sx,sy) for l in startpad.get('layers',[startpad.get('layer','top')]) if l in layers}
+        starts={(*xy(x,y),layers.index(l)):(x,y) for l in startpad.get('layers',[startpad.get('layer','top')]) if l in layers for x,y in accessible_pad_points(startpad)}
         for anchor,r in zip(elems,roots):
             if r!=startroot:continue
             if anchor['type']=='pcb_via':
@@ -170,7 +175,12 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                 route.append({'route_type':'via','x':x,'y':y,'from_layer':layers[slim[k-1][2]],'to_layer':l,'via_diameter':current_via_diameter,'via_hole_diameter':current_via_hole})
                 all_layers=['top','inner1','inner2','bottom'] if board['num_layers']==4 else ['top','bottom']
                 v={'type':'pcb_via','pcb_via_id':uid+f'_via_{k}','x':x,'y':y,'outer_diameter':current_via_diameter,'hole_diameter':current_via_hole,'layers':all_layers,'from_layer':'top','to_layer':'bottom','source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','tented_on_top':True,'tented_on_bottom':True}
-                if not any(e['type']=='pcb_via' and math.hypot(e['x']-x,e['y']-y)<.001 for e in j):j.append(v);newvia.append([x,y])
+                oldvia=next((e for e in j if e['type']=='pcb_via' and math.hypot(e['x']-x,e['y']-y)<.001),None)
+                if oldvia:
+                    assert g.key(oldvia)==net,'A route cannot reuse a via owned by another net'
+                    assert oldvia['from_layer']=='top' and oldvia['to_layer']=='bottom'
+                    oldvia['layers']=all_layers
+                else:j.append(v);newvia.append([x,y])
             route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':current_width})
         sx,sy=starts[path[0]];route[0].update(x=sx,y=sy)
         if route[0]['layer'] in startpad.get('layers',[startpad.get('layer','top')]) and g.geometry(startpad).covers(g.Point(sx,sy)):route[0]['start_pcb_port_id']=startpad['pcb_port_id']

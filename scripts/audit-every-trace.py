@@ -29,7 +29,7 @@ for t in [e for e in j if e['type']=='pcb_trace']:
    if tag in node and node[tag] in pp and node.get('layer') not in pp[node[tag]]['layers']:issues.append('port endpoint is on the wrong copper layer')
   if node['route_type']=='wire':
    if node['layer'] not in layers:issues.append('undefined copper layer')
-   if node['layer']=='inner1' and names.get(k) not in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL']:issues.append('unreviewed signal net on inner1 ground plane')
+   if node['layer']=='inner1' and names.get(k) not in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','GND']:issues.append('unreviewed signal net on inner1 ground plane')
    if not math.isfinite(node['width']) or node['width']<board['min_trace_width']-1e-6:issues.append('trace below board width rule')
    widths.append(node['width']);used.add(node['layer'])
  for a,b in zip(route,route[1:]):

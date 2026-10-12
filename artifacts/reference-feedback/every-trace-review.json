@@ -1,8 +1,8 @@
 {
   "passed": true,
-  "board_sha256": "10f2a8fd2c6a5bf1d5d0783b761c14a3459c180b3520593dc46d556edca5b55e",
-  "traces_reviewed": 537,
-  "wire_segments_reviewed": 6091,
+  "board_sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
+  "traces_reviewed": 539,
+  "wire_segments_reviewed": 6281,
   "vias_reviewed": 257,
   "errors": [],
   "trace_inventory": [
@@ -1272,7 +1272,7 @@
       "layers": [
         "inner2"
       ],
-      "length_mm": 4.499511628774721,
+      "length_mm": 2.7804702368586507,
       "minimum_width_mm": 0.3,
       "physical_ports": [],
       "issues": []
@@ -1326,20 +1326,6 @@
       "minimum_width_mm": 0.3,
       "physical_ports": [
         "U_BUCK.1 (FB)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "freerouted_trace_153",
-      "net": "V3V3",
-      "source_trace": "source_trace_212",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.7337000000000007,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [
-        "R_REF_H.1 (pin1)"
       ],
       "issues": []
     },
@@ -1759,46 +1745,6 @@
       "issues": []
     },
     {
-      "trace": "freerouted_trace_205",
-      "net": "V3V3",
-      "source_trace": "source_trace_252",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.5716999999999999,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [
-        "R_PWR_LED.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "freerouted_trace_206",
-      "net": "V3V3",
-      "source_trace": "source_trace_37",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.17032379489907418,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "freerouted_trace_207",
-      "net": "V3V3",
-      "source_trace": "source_trace_252",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 2.284957661330557,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [
-        "R_PWR_LED.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "freerouted_trace_209",
       "net": "V3V3",
       "source_trace": "source_trace_273",
@@ -2065,20 +2011,6 @@
       "issues": []
     },
     {
-      "trace": "freerouted_trace_274",
-      "net": "VM_SENSE",
-      "source_trace": "source_trace_145",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.6266999999999996,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_VM_H.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "freerouted_trace_277",
       "net": "TEMP_SCL",
       "source_trace": "source_trace_239",
@@ -2216,20 +2148,6 @@
       "length_mm": 0.29599670965413405,
       "minimum_width_mm": 0.16,
       "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "freerouted_trace_298",
-      "net": "RUN",
-      "source_trace": "source_trace_131",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.5145,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_RUN.2 (pin2)"
-      ],
       "issues": []
     },
     {
@@ -3244,34 +3162,6 @@
       "issues": []
     },
     {
-      "trace": "freerouted_trace_408",
-      "net": "PWR_LED_A",
-      "source_trace": "source_trace_253",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 2.0157651803615617,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_PWR_LED.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "freerouted_trace_410",
-      "net": "STATUS_B_K",
-      "source_trace": "source_trace_268",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.5145,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_STATUS_B.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "freerouted_trace_411",
       "net": "STATUS_B_K",
       "source_trace": "source_trace_257",
@@ -3528,20 +3418,6 @@
       "issues": []
     },
     {
-      "trace": "freerouted_trace_436",
-      "net": "STATUS_B_C",
-      "source_trace": "source_trace_269",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.6266999999999996,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_STATUS_B.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "freerouted_trace_437",
       "net": "STATUS_B_C",
       "source_trace": "source_trace_272",
@@ -3728,35 +3604,6 @@
       "length_mm": 2.4014553582302947,
       "minimum_width_mm": 0.16,
       "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_2_VREF_1",
-      "net": "VREF",
-      "source_trace": "source_trace_213",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 1.213024087566206,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_REF_H.2 (pin2)",
-        "R_REF_L.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "source_trace": "source_trace_214",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 1.773755932875543,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_REF_L.1 (pin1)"
-      ],
       "issues": []
     },
     {
@@ -4366,20 +4213,6 @@
       "issues": []
     },
     {
-      "trace": "feedback_fanout_pcb_port_229",
-      "net": "PD_VBUS",
-      "source_trace": "source_trace_199",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.9263209365763132,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [
-        "C_VCP.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "feedback_fanout_pcb_port_160",
       "net": "USB_DM",
       "source_trace": "source_trace_133",
@@ -4684,20 +4517,6 @@
       "issues": []
     },
     {
-      "trace": "feedback_fanout_pcb_port_169",
-      "net": "DATA_PRESENT",
-      "source_trace": "source_trace_142",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.7816274765993205,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_USB_SENSE_L.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "feedback_fanout_pcb_port_98",
       "net": "V1V1",
       "source_trace": "source_trace_46",
@@ -4742,23 +4561,9 @@
       "layers": [
         "bottom"
       ],
-      "length_mm": 21.25056692237522,
+      "length_mm": 20.401816972184665,
       "minimum_width_mm": 0.16,
       "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "source_trace": "source_trace_144",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 1.444948074186409,
-      "minimum_width_mm": 0.3,
-      "physical_ports": [
-        "R_VM_H.1 (pin1)"
-      ],
       "issues": []
     },
     {
@@ -4936,48 +4741,6 @@
       "issues": []
     },
     {
-      "trace": "feedback_fanout_pcb_port_168",
-      "net": "DATA_PRESENT",
-      "source_trace": "source_trace_141",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 1.1000277677658865,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_USB_SENSE_H.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "feedback_fanout_pcb_port_279",
-      "net": "TEMP_SCL",
-      "source_trace": "source_trace_248",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.6421840000000003,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_TEMP_SCL.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "source_trace": "source_trace_284",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 4.764042568532331,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_RUN.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "same_side_repair_3_V3V3_1_rerouted",
       "net": "V3V3",
       "source_trace": "source_trace_284",
@@ -4987,21 +4750,6 @@
       "length_mm": 1.6458987405050982,
       "minimum_width_mm": 0.16,
       "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "source_trace": "source_trace_284",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 4.343662383440451,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_TEMP_SCL.2 (pin2)",
-        "R_PG.1 (pin1)"
-      ],
       "issues": []
     },
     {
@@ -5026,20 +4774,6 @@
       "length_mm": 3.9616212195774025,
       "minimum_width_mm": 0.3,
       "physical_ports": [],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_7_DATA_VBUS_0_layer_section_0",
-      "net": "DATA_VBUS",
-      "source_trace": "source_trace_254",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 1.3139417506069897,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_USB_SENSE_H.1 (pin1)"
-      ],
       "issues": []
     },
     {
@@ -6833,20 +6567,6 @@
       "issues": []
     },
     {
-      "trace": "feedback_fanout_pcb_port_157",
-      "net": "V3V3",
-      "source_trace": "source_trace_130",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.6529055546133746,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "R_RUN.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "feedback_fanout_pcb_port_278",
       "net": "V3V3",
       "source_trace": "source_trace_247",
@@ -6979,6 +6699,309 @@
       ],
       "length_mm": 4.705203820042827,
       "minimum_width_mm": 0.3,
+      "physical_ports": [],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "source_trace": "source_trace_230",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.6543535265768152,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_RUN.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_1_TEMP_SCL_0_rerouted",
+      "net": "TEMP_SCL",
+      "source_trace": "source_trace_248",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.652539339059326,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_TEMP_SCL.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "source_trace": "source_trace_216",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 5.885262685970366,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_REF_H.2 (pin2)",
+        "C_REF.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "source_trace": "source_trace_216",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 1.6045956106997927,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_REF_L.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "source_trace": "source_trace_238",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.820815461278309,
+      "minimum_width_mm": 0.3,
+      "physical_ports": [
+        "R_VM_H.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.806877461140279,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_RUN.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 4.6242112857109605,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_RUN.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.9628097753990357,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_REF_H.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_1",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "inner2"
+      ],
+      "length_mm": 0.03125184729233832,
+      "minimum_width_mm": 0.3,
+      "physical_ports": [],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 4.353602378221396,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_TEMP_SCL.2 (pin2)",
+        "R_PG.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "source_trace": "source_trace_284",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 3.1939496964965466,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_REF_H.1 (pin1)",
+        "R_PWR_LED.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "source_trace": "source_trace_254",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 1.2890308795234207,
+      "minimum_width_mm": 0.3,
+      "physical_ports": [
+        "R_USB_SENSE_H.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "source_trace": "source_trace_142",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.7762632906573429,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_USB_SENSE_L.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_12_DATA_PRESENT_1",
+      "net": "DATA_PRESENT",
+      "source_trace": "source_trace_142",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 1.0750284135110115,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_USB_SENSE_H.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_0",
+      "net": "PWR_LED_A",
+      "source_trace": "source_trace_253",
+      "layers": [
+        "inner1"
+      ],
+      "length_mm": 3.672700087129358,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "source_trace": "source_trace_253",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.7804881831152565,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_PWR_LED.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "source_trace": "source_trace_268",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.6751736317043489,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_STATUS_B.1 (pin1)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_VM_SENSE_0_rerouted_layer_section_0",
+      "net": "VM_SENSE",
+      "source_trace": "source_trace_148",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.3500000000000014,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_VM_H.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_1_STATUS_B_C_0_layer_section_0",
+      "net": "STATUS_B_C",
+      "source_trace": "source_trace_272",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.2749999999999986,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_STATUS_B.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_1_STATUS_B_C_0_layer_section_1",
+      "net": "STATUS_B_C",
+      "source_trace": "source_trace_272",
+      "layers": [
+        "inner2"
+      ],
+      "length_mm": 0.28331383658409326,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "source_trace": "source_trace_203",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 0.6199747468305833,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "C_DRV_LOGIC.2 (pin2)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "source_trace": "source_trace_203",
+      "layers": [
+        "inner1"
+      ],
+      "length_mm": 2.2679744866002545,
+      "minimum_width_mm": 0.16,
       "physical_ports": [],
       "issues": []
     }
@@ -9554,14 +9577,14 @@
       "net": "V3V3",
       "layer": "inner2",
       "start_mm": [
-        12.3125,
+        10.59345860808393,
         -16.7207
       ],
       "end_mm": [
         9.2091,
         -16.7207
       ],
-      "length_mm": 3.1034000000000006,
+      "length_mm": 1.3843586080839305,
       "width_mm": 0.3
     },
     {
@@ -9697,21 +9720,6 @@
         7.4081
       ],
       "length_mm": 0.8517000000000001,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "freerouted_trace_153",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        4.1032,
-        -16.698
-      ],
-      "end_mm": [
-        4.1032,
-        -15.9643
-      ],
-      "length_mm": 0.7337000000000007,
       "width_mm": 0.3
     },
     {
@@ -10360,81 +10368,6 @@
       "width_mm": 0.3
     },
     {
-      "trace": "freerouted_trace_205",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        12.99,
-        -16.8472
-      ],
-      "end_mm": [
-        12.4183,
-        -16.8472
-      ],
-      "length_mm": 0.5716999999999999,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "freerouted_trace_206",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        12.4183,
-        -16.8472
-      ],
-      "end_mm": [
-        12.4183,
-        -16.8265
-      ],
-      "length_mm": 0.020700000000001495,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "freerouted_trace_206",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        12.4183,
-        -16.8265
-      ],
-      "end_mm": [
-        12.3125,
-        -16.7207
-      ],
-      "length_mm": 0.14962379489907268,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "freerouted_trace_207",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        15.0483,
-        -16.3
-      ],
-      "end_mm": [
-        14.5011,
-        -16.8472
-      ],
-      "length_mm": 0.7738576613305578,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "freerouted_trace_207",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        14.5011,
-        -16.8472
-      ],
-      "end_mm": [
-        12.99,
-        -16.8472
-      ],
-      "length_mm": 1.511099999999999,
-      "width_mm": 0.3
-    },
-    {
       "trace": "freerouted_trace_209",
       "net": "V3V3",
       "layer": "top",
@@ -10885,21 +10818,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "freerouted_trace_274",
-      "net": "VM_SENSE",
-      "layer": "top",
-      "start_mm": [
-        16.6684,
-        15.79
-      ],
-      "end_mm": [
-        16.6684,
-        16.4167
-      ],
-      "length_mm": 0.6266999999999996,
-      "width_mm": 0.16
-    },
-    {
       "trace": "freerouted_trace_277",
       "net": "TEMP_SCL",
       "layer": "top",
@@ -11212,21 +11130,6 @@
         14.9973
       ],
       "length_mm": 0.23249670965413635,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "freerouted_trace_298",
-      "net": "RUN",
-      "layer": "top",
-      "start_mm": [
-        -16.86,
-        14.3184
-      ],
-      "end_mm": [
-        -16.86,
-        14.8329
-      ],
-      "length_mm": 0.5145,
       "width_mm": 0.16
     },
     {
@@ -13405,51 +13308,6 @@
       "width_mm": 0.3
     },
     {
-      "trace": "freerouted_trace_408",
-      "net": "PWR_LED_A",
-      "layer": "top",
-      "start_mm": [
-        12.99,
-        -15.9816
-      ],
-      "end_mm": [
-        10.9847,
-        -15.9816
-      ],
-      "length_mm": 2.0053,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "freerouted_trace_408",
-      "net": "PWR_LED_A",
-      "layer": "top",
-      "start_mm": [
-        10.9847,
-        -15.9816
-      ],
-      "end_mm": [
-        10.9773,
-        -15.9742
-      ],
-      "length_mm": 0.010465180361561634,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "freerouted_trace_410",
-      "net": "STATUS_B_K",
-      "layer": "top",
-      "start_mm": [
-        -15.1816,
-        16.86
-      ],
-      "end_mm": [
-        -14.6671,
-        16.86
-      ],
-      "length_mm": 0.5145,
-      "width_mm": 0.16
-    },
-    {
       "trace": "freerouted_trace_411",
       "net": "STATUS_B_K",
       "layer": "top",
@@ -14230,21 +14088,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "freerouted_trace_436",
-      "net": "STATUS_B_C",
-      "layer": "top",
-      "start_mm": [
-        -16.0472,
-        16.86
-      ],
-      "end_mm": [
-        -16.0472,
-        16.2333
-      ],
-      "length_mm": 0.6266999999999996,
-      "width_mm": 0.16
-    },
-    {
       "trace": "freerouted_trace_437",
       "net": "STATUS_B_C",
       "layer": "top",
@@ -15007,141 +14850,6 @@
         -15.42
       ],
       "length_mm": 0.024018534509830904,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_VREF_1",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        5.609966,
-        -16.697997
-      ],
-      "end_mm": [
-        6.775000000000002,
-        -16.7
-      ],
-      "length_mm": 1.1650357218407532,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_VREF_1",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        6.775000000000002,
-        -16.7
-      ],
-      "end_mm": [
-        6.810002,
-        -16.667171
-      ],
-      "length_mm": 0.04798836572545281,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.9883,
-        -15.42
-      ],
-      "end_mm": [
-        7.525000000000002,
-        -15.9
-      ],
-      "length_mm": 0.6671183478214328,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.525000000000002,
-        -15.9
-      ],
-      "end_mm": [
-        7.525000000000002,
-        -16.0
-      ],
-      "length_mm": 0.09999999999999964,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.525000000000002,
-        -16.0
-      ],
-      "end_mm": [
-        7.300000000000001,
-        -16.225
-      ],
-      "length_mm": 0.3181980515339484,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.300000000000001,
-        -16.225
-      ],
-      "end_mm": [
-        7.300000000000001,
-        -16.25
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.300000000000001,
-        -16.25
-      ],
-      "end_mm": [
-        7.0,
-        -16.55
-      ],
-      "length_mm": 0.4242640687119295,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        7.0,
-        -16.55
-      ],
-      "end_mm": [
-        6.925000000000001,
-        -16.55
-      ],
-      "length_mm": 0.07499999999999929,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_3_VREF_2",
-      "net": "VREF",
-      "layer": "top",
-      "start_mm": [
-        6.925000000000001,
-        -16.55
-      ],
-      "end_mm": [
-        6.810002,
-        -16.667171
-      ],
-      "length_mm": 0.16417546480823486,
       "width_mm": 0.16
     },
     {
@@ -25855,36 +25563,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "feedback_fanout_pcb_port_229",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        5.630231,
-        -15.249998
-      ],
-      "end_mm": [
-        6.184230500000001,
-        -15.249998
-      ],
-      "length_mm": 0.5539995000000006,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "feedback_fanout_pcb_port_229",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        6.184230500000001,
-        -15.249998
-      ],
-      "end_mm": [
-        6.525,
-        -15.100000000000001
-      ],
-      "length_mm": 0.37232143657631256,
-      "width_mm": 0.3
-    },
-    {
       "trace": "feedback_fanout_pcb_port_160",
       "net": "USB_DM",
       "layer": "top",
@@ -32440,36 +32118,6 @@
       "width_mm": 0.3
     },
     {
-      "trace": "feedback_fanout_pcb_port_169",
-      "net": "DATA_PRESENT",
-      "layer": "top",
-      "start_mm": [
-        15.812828999999999,
-        13.930002
-      ],
-      "end_mm": [
-        15.812828999999999,
-        14.434004
-      ],
-      "length_mm": 0.5040019999999998,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "feedback_fanout_pcb_port_169",
-      "net": "DATA_PRESENT",
-      "layer": "top",
-      "start_mm": [
-        15.812828999999999,
-        14.434004
-      ],
-      "end_mm": [
-        15.675,
-        14.675
-      ],
-      "length_mm": 0.27762547659932063,
-      "width_mm": 0.16
-    },
-    {
       "trace": "feedback_fanout_pcb_port_98",
       "net": "V1V1",
       "layer": "top",
@@ -33434,14 +33082,14 @@
       "net": "VM_SENSE",
       "layer": "bottom",
       "start_mm": [
-        16.6684,
-        16.4167
+        15.819651564428083,
+        16.418303453365333
       ],
       "end_mm": [
         12.275000000000002,
         16.425000000000004
       ],
-      "length_mm": 4.393407840162346,
+      "length_mm": 3.5446578899717918,
       "width_mm": 0.16
     },
     {
@@ -34028,171 +33676,6 @@
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        15.802829000000001,
-        15.790002
-      ],
-      "end_mm": [
-        16.050000000000004,
-        15.550000000000004
-      ],
-      "length_mm": 0.3445206281850179,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.050000000000004,
-        15.550000000000004
-      ],
-      "end_mm": [
-        16.050000000000004,
-        15.475000000000001
-      ],
-      "length_mm": 0.07500000000000284,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.050000000000004,
-        15.475000000000001
-      ],
-      "end_mm": [
-        16.075000000000003,
-        15.450000000000003
-      ],
-      "length_mm": 0.035355339059325364,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.075000000000003,
-        15.450000000000003
-      ],
-      "end_mm": [
-        16.075000000000003,
-        15.375
-      ],
-      "length_mm": 0.07500000000000284,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.075000000000003,
-        15.375
-      ],
-      "end_mm": [
-        16.1,
-        15.350000000000001
-      ],
-      "length_mm": 0.035355339059325364,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.1,
-        15.350000000000001
-      ],
-      "end_mm": [
-        16.1,
-        15.325000000000003
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.1,
-        15.325000000000003
-      ],
-      "end_mm": [
-        16.15,
-        15.274999999999999
-      ],
-      "length_mm": 0.07071067811865575,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.15,
-        15.274999999999999
-      ],
-      "end_mm": [
-        16.15,
-        15.125
-      ],
-      "length_mm": 0.14999999999999858,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.15,
-        15.125
-      ],
-      "end_mm": [
-        16.550000000000004,
-        14.725000000000001
-      ],
-      "length_mm": 0.565685424949241,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.550000000000004,
-        14.725000000000001
-      ],
-      "end_mm": [
-        16.550000000000004,
-        14.700000000000003
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_4_PD_VBUS_0",
-      "net": "PD_VBUS",
-      "layer": "top",
-      "start_mm": [
-        16.550000000000004,
-        14.700000000000003
-      ],
-      "end_mm": [
-        16.5848,
-        14.6742
-      ],
-      "length_mm": 0.043320664814842126,
-      "width_mm": 0.3
     },
     {
       "trace": "same_side_repair_5_PD_VBUS_1",
@@ -37375,276 +36858,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "feedback_fanout_pcb_port_168",
-      "net": "DATA_PRESENT",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -0.06718400000000002
-      ],
-      "end_mm": [
-        -15.4,
-        -0.07500000000000001
-      ],
-      "length_mm": 1.1000277677658865,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "feedback_fanout_pcb_port_279",
-      "net": "TEMP_SCL",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -9.682816
-      ],
-      "end_mm": [
-        -16.5,
-        -10.325000000000001
-      ],
-      "length_mm": 0.6421840000000003,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.859998,
-        13.452829
-      ],
-      "end_mm": [
-        -16.5,
-        13.8
-      ],
-      "length_mm": 0.5001262473066191,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        13.8
-      ],
-      "end_mm": [
-        -16.45,
-        13.8
-      ],
-      "length_mm": 0.05000000000000071,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.45,
-        13.8
-      ],
-      "end_mm": [
-        -16.325,
-        13.925
-      ],
-      "length_mm": 0.1767766952966369,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.325,
-        13.925
-      ],
-      "end_mm": [
-        -16.325,
-        13.975000000000001
-      ],
-      "length_mm": 0.05000000000000071,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.325,
-        13.975000000000001
-      ],
-      "end_mm": [
-        -15.75,
-        14.550000000000004
-      ],
-      "length_mm": 0.8131727983645312,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.75,
-        14.550000000000004
-      ],
-      "end_mm": [
-        -15.75,
-        14.575000000000003
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.75,
-        14.575000000000003
-      ],
-      "end_mm": [
-        -15.45,
-        14.875
-      ],
-      "length_mm": 0.424264068711927,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.45,
-        14.875
-      ],
-      "end_mm": [
-        -15.45,
-        15.325000000000003
-      ],
-      "length_mm": 0.45000000000000284,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.45,
-        15.325000000000003
-      ],
-      "end_mm": [
-        -15.4,
-        15.375
-      ],
-      "length_mm": 0.07071067811865199,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.4,
-        15.375
-      ],
-      "end_mm": [
-        -15.4,
-        15.399999999999999
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.4,
-        15.399999999999999
-      ],
-      "end_mm": [
-        -15.375,
-        15.399999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.375,
-        15.399999999999999
-      ],
-      "end_mm": [
-        -15.325,
-        15.450000000000003
-      ],
-      "length_mm": 0.07071067811865826,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.325,
-        15.450000000000003
-      ],
-      "end_mm": [
-        -15.275,
-        15.450000000000003
-      ],
-      "length_mm": 0.049999999999998934,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -15.275,
-        15.450000000000003
-      ],
-      "end_mm": [
-        -14.95,
-        15.774999999999999
-      ],
-      "length_mm": 0.45961940777125365,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -14.95,
-        15.774999999999999
-      ],
-      "end_mm": [
-        -13.399999999999999,
-        15.774999999999999
-      ],
-      "length_mm": 1.5500000000000007,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_2_V3V3_0_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -13.399999999999999,
-        15.774999999999999
-      ],
-      "end_mm": [
-        -13.3817,
-        15.79
-      ],
-      "length_mm": 0.023661994844052167,
-      "width_mm": 0.16
-    },
-    {
       "trace": "same_side_repair_3_V3V3_1_rerouted",
       "net": "V3V3",
       "layer": "top",
@@ -37732,516 +36945,6 @@
         6.1736
       ],
       "length_mm": 0.03150872894929449,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -8.817184
-      ],
-      "end_mm": [
-        -16.5,
-        -8.125
-      ],
-      "length_mm": 0.6921839999999992,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -8.125
-      ],
-      "end_mm": [
-        -16.775,
-        -7.85
-      ],
-      "length_mm": 0.38890872965260037,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.775,
-        -7.85
-      ],
-      "end_mm": [
-        -16.775,
-        -7.824999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.775,
-        -7.824999999999999
-      ],
-      "end_mm": [
-        -16.825,
-        -7.774999999999999
-      ],
-      "length_mm": 0.07071067811865575,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.825,
-        -7.774999999999999
-      ],
-      "end_mm": [
-        -16.825,
-        -7.699999999999999
-      ],
-      "length_mm": 0.07499999999999929,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.825,
-        -7.699999999999999
-      ],
-      "end_mm": [
-        -16.85,
-        -7.674999999999999
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.85,
-        -7.674999999999999
-      ],
-      "end_mm": [
-        -16.85,
-        -6.1
-      ],
-      "length_mm": 1.5749999999999993,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.85,
-        -6.1
-      ],
-      "end_mm": [
-        -16.625,
-        -5.875
-      ],
-      "length_mm": 0.31819805153394715,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.625,
-        -5.875
-      ],
-      "end_mm": [
-        -16.625,
-        -5.549999999999999
-      ],
-      "length_mm": 0.32500000000000107,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.625,
-        -5.549999999999999
-      ],
-      "end_mm": [
-        -16.6,
-        -5.524999999999999
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.6,
-        -5.524999999999999
-      ],
-      "end_mm": [
-        -16.6,
-        -5.5
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.6,
-        -5.5
-      ],
-      "end_mm": [
-        -16.575,
-        -5.475
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.575,
-        -5.475
-      ],
-      "end_mm": [
-        -16.575,
-        -5.449999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.575,
-        -5.449999999999999
-      ],
-      "end_mm": [
-        -16.55,
-        -5.424999999999999
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.55,
-        -5.424999999999999
-      ],
-      "end_mm": [
-        -16.55,
-        -5.375
-      ],
-      "length_mm": 0.049999999999998934,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.55,
-        -5.375
-      ],
-      "end_mm": [
-        -16.525,
-        -5.35
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.525,
-        -5.35
-      ],
-      "end_mm": [
-        -16.525,
-        -5.324999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.525,
-        -5.324999999999999
-      ],
-      "end_mm": [
-        -16.5,
-        -5.299999999999999
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -5.299999999999999
-      ],
-      "end_mm": [
-        -16.5,
-        -5.274999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -5.274999999999999
-      ],
-      "end_mm": [
-        -16.475,
-        -5.25
-      ],
-      "length_mm": 0.035355339059325364,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.475,
-        -5.25
-      ],
-      "end_mm": [
-        -16.475,
-        -5.225
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.475,
-        -5.225
-      ],
-      "end_mm": [
-        -16.45,
-        -5.199999999999999
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.45,
-        -5.199999999999999
-      ],
-      "end_mm": [
-        -16.45,
-        -5.174999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.45,
-        -5.174999999999999
-      ],
-      "end_mm": [
-        -16.425,
-        -5.149999999999999
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.425,
-        -5.149999999999999
-      ],
-      "end_mm": [
-        -16.425,
-        -5.1
-      ],
-      "length_mm": 0.049999999999998934,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.425,
-        -5.1
-      ],
-      "end_mm": [
-        -16.4,
-        -5.074999999999999
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.4,
-        -5.074999999999999
-      ],
-      "end_mm": [
-        -16.4,
-        -5.049999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.4,
-        -5.049999999999999
-      ],
-      "end_mm": [
-        -16.375,
-        -5.024999999999999
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.375,
-        -5.024999999999999
-      ],
-      "end_mm": [
-        -16.375,
-        -5.0
-      ],
-      "length_mm": 0.02499999999999858,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.375,
-        -5.0
-      ],
-      "end_mm": [
-        -16.35,
-        -4.975
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.35,
-        -4.975
-      ],
-      "end_mm": [
-        -16.35,
-        -4.949999999999999
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.35,
-        -4.949999999999999
-      ],
-      "end_mm": [
-        -16.325,
-        -4.924999999999999
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.325,
-        -4.924999999999999
-      ],
-      "end_mm": [
-        -16.325,
-        -4.875
-      ],
-      "length_mm": 0.049999999999998934,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_5_V3V3_3_rerouted",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.325,
-        -4.875
-      ],
-      "end_mm": [
-        -16.298,
-        -4.8468
-      ],
-      "length_mm": 0.03904151636399456,
       "width_mm": 0.16
     },
     {
@@ -38393,36 +37096,6 @@
       ],
       "length_mm": 0.046671725916233954,
       "width_mm": 0.3
-    },
-    {
-      "trace": "same_side_repair_7_DATA_VBUS_0_layer_section_0",
-      "net": "DATA_VBUS",
-      "layer": "top",
-      "start_mm": [
-        -16.5,
-        -0.932816
-      ],
-      "end_mm": [
-        -15.575,
-        -0.9250000000000007
-      ],
-      "length_mm": 0.925033020954388,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_7_DATA_VBUS_0_layer_section_0",
-      "net": "DATA_VBUS",
-      "layer": "top",
-      "start_mm": [
-        -15.575,
-        -0.9250000000000007
-      ],
-      "end_mm": [
-        -15.3,
-        -0.6499999999999986
-      ],
-      "length_mm": 0.38890872965260165,
-      "width_mm": 0.16
     },
     {
       "trace": "same_side_repair_8_PD_CC1_0",
@@ -92800,21 +91473,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "feedback_fanout_pcb_port_157",
-      "net": "V3V3",
-      "layer": "top",
-      "start_mm": [
-        -16.859998,
-        13.452829
-      ],
-      "end_mm": [
-        -16.85,
-        12.8
-      ],
-      "length_mm": 0.6529055546133746,
-      "width_mm": 0.16
-    },
-    {
       "trace": "feedback_fanout_pcb_port_278",
       "net": "V3V3",
       "layer": "bottom",
@@ -98348,6 +97006,4221 @@
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        14.317816
+      ],
+      "end_mm": [
+        -16.475,
+        14.400000000000002
+      ],
+      "length_mm": 0.08218400000000159,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        14.400000000000002
+      ],
+      "end_mm": [
+        -16.55,
+        14.475000000000001
+      ],
+      "length_mm": 0.10606601717798113,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "layer": "top",
+      "start_mm": [
+        -16.55,
+        14.475000000000001
+      ],
+      "end_mm": [
+        -16.55,
+        14.600000000000001
+      ],
+      "length_mm": 0.125,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "layer": "top",
+      "start_mm": [
+        -16.55,
+        14.600000000000001
+      ],
+      "end_mm": [
+        -16.775,
+        14.825000000000003
+      ],
+      "length_mm": 0.31819805153394587,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_RUN_0",
+      "net": "RUN",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        14.825000000000003
+      ],
+      "end_mm": [
+        -16.7965,
+        14.8329
+      ],
+      "length_mm": 0.02290545786488667,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_1_TEMP_SCL_0_rerouted",
+      "net": "TEMP_SCL",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -9.682816
+      ],
+      "end_mm": [
+        -16.475,
+        -10.274999999999999
+      ],
+      "length_mm": 0.5921839999999978,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_1_TEMP_SCL_0_rerouted",
+      "net": "TEMP_SCL",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -10.274999999999999
+      ],
+      "end_mm": [
+        -16.5,
+        -10.3
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_1_TEMP_SCL_0_rerouted",
+      "net": "TEMP_SCL",
+      "layer": "top",
+      "start_mm": [
+        -16.5,
+        -10.3
+      ],
+      "end_mm": [
+        -16.5,
+        -10.325000000000001
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        12.838364000000002,
+        -16.315
+      ],
+      "end_mm": [
+        12.575000000000003,
+        -16.325
+      ],
+      "length_mm": 0.26355378292864545,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        12.575000000000003,
+        -16.325
+      ],
+      "end_mm": [
+        11.950000000000003,
+        -15.7
+      ],
+      "length_mm": 0.8838834764831844,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        11.950000000000003,
+        -15.7
+      ],
+      "end_mm": [
+        11.925,
+        -15.7
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        11.925,
+        -15.7
+      ],
+      "end_mm": [
+        11.875,
+        -15.65
+      ],
+      "length_mm": 0.0707106781186545,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        11.875,
+        -15.65
+      ],
+      "end_mm": [
+        11.850000000000001,
+        -15.65
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        11.850000000000001,
+        -15.65
+      ],
+      "end_mm": [
+        11.825000000000003,
+        -15.625
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        11.825000000000003,
+        -15.625
+      ],
+      "end_mm": [
+        10.8,
+        -15.625
+      ],
+      "length_mm": 1.0250000000000021,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.8,
+        -15.625
+      ],
+      "end_mm": [
+        10.675,
+        -15.75
+      ],
+      "length_mm": 0.1767766952966369,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.675,
+        -15.75
+      ],
+      "end_mm": [
+        10.675,
+        -15.975
+      ],
+      "length_mm": 0.22499999999999964,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.675,
+        -15.975
+      ],
+      "end_mm": [
+        10.650000000000002,
+        -16.0
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.650000000000002,
+        -16.0
+      ],
+      "end_mm": [
+        10.650000000000002,
+        -16.025
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.650000000000002,
+        -16.025
+      ],
+      "end_mm": [
+        10.350000000000001,
+        -16.325
+      ],
+      "length_mm": 0.4242640687119295,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        10.350000000000001,
+        -16.325
+      ],
+      "end_mm": [
+        9.775000000000002,
+        -16.325
+      ],
+      "length_mm": 0.5749999999999993,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.775000000000002,
+        -16.325
+      ],
+      "end_mm": [
+        9.625,
+        -16.475
+      ],
+      "length_mm": 0.21213203435596728,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.625,
+        -16.475
+      ],
+      "end_mm": [
+        9.600000000000001,
+        -16.475
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.600000000000001,
+        -16.475
+      ],
+      "end_mm": [
+        9.575000000000003,
+        -16.5
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.575000000000003,
+        -16.5
+      ],
+      "end_mm": [
+        9.55,
+        -16.5
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.55,
+        -16.5
+      ],
+      "end_mm": [
+        9.525000000000002,
+        -16.525
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.525000000000002,
+        -16.525
+      ],
+      "end_mm": [
+        9.5,
+        -16.525
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.5,
+        -16.525
+      ],
+      "end_mm": [
+        9.475000000000001,
+        -16.55
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.475000000000001,
+        -16.55
+      ],
+      "end_mm": [
+        9.175,
+        -16.55
+      ],
+      "length_mm": 0.3000000000000007,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.175,
+        -16.55
+      ],
+      "end_mm": [
+        9.150000000000002,
+        -16.525
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.150000000000002,
+        -16.525
+      ],
+      "end_mm": [
+        9.125,
+        -16.525
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.125,
+        -16.525
+      ],
+      "end_mm": [
+        9.100000000000001,
+        -16.5
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.100000000000001,
+        -16.5
+      ],
+      "end_mm": [
+        9.075000000000003,
+        -16.5
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.075000000000003,
+        -16.5
+      ],
+      "end_mm": [
+        9.05,
+        -16.475
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.05,
+        -16.475
+      ],
+      "end_mm": [
+        9.025000000000002,
+        -16.475
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        9.025000000000002,
+        -16.475
+      ],
+      "end_mm": [
+        8.875,
+        -16.325
+      ],
+      "length_mm": 0.21213203435596728,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.875,
+        -16.325
+      ],
+      "end_mm": [
+        8.875,
+        -16.275
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.875,
+        -16.275
+      ],
+      "end_mm": [
+        8.850000000000001,
+        -16.25
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.850000000000001,
+        -16.25
+      ],
+      "end_mm": [
+        8.850000000000001,
+        -16.175
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.850000000000001,
+        -16.175
+      ],
+      "end_mm": [
+        8.825000000000003,
+        -16.15
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.825000000000003,
+        -16.15
+      ],
+      "end_mm": [
+        8.825000000000003,
+        -16.1
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.825000000000003,
+        -16.1
+      ],
+      "end_mm": [
+        8.8,
+        -16.075
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.8,
+        -16.075
+      ],
+      "end_mm": [
+        8.8,
+        -16.0
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.8,
+        -16.0
+      ],
+      "end_mm": [
+        8.775000000000002,
+        -15.975
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.775000000000002,
+        -15.975
+      ],
+      "end_mm": [
+        8.775000000000002,
+        -15.925
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.775000000000002,
+        -15.925
+      ],
+      "end_mm": [
+        8.75,
+        -15.9
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.75,
+        -15.9
+      ],
+      "end_mm": [
+        8.75,
+        -15.825
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.75,
+        -15.825
+      ],
+      "end_mm": [
+        8.725000000000001,
+        -15.8
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.725000000000001,
+        -15.8
+      ],
+      "end_mm": [
+        8.725000000000001,
+        -15.75
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.725000000000001,
+        -15.75
+      ],
+      "end_mm": [
+        8.700000000000003,
+        -15.725
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.700000000000003,
+        -15.725
+      ],
+      "end_mm": [
+        8.700000000000003,
+        -15.65
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.700000000000003,
+        -15.65
+      ],
+      "end_mm": [
+        8.675,
+        -15.625
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.675,
+        -15.625
+      ],
+      "end_mm": [
+        8.675,
+        -15.575
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.675,
+        -15.575
+      ],
+      "end_mm": [
+        8.650000000000002,
+        -15.55
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.650000000000002,
+        -15.55
+      ],
+      "end_mm": [
+        8.650000000000002,
+        -15.475
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.650000000000002,
+        -15.475
+      ],
+      "end_mm": [
+        8.625,
+        -15.45
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_2_VREF_0",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        8.625,
+        -15.45
+      ],
+      "end_mm": [
+        8.62,
+        -15.42
+      ],
+      "length_mm": 0.030413812651490596,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        6.81,
+        -16.462816
+      ],
+      "end_mm": [
+        7.150000000000002,
+        -16.125
+      ],
+      "length_mm": 0.4792907779792991,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        7.150000000000002,
+        -16.125
+      ],
+      "end_mm": [
+        7.200000000000003,
+        -16.125
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        7.200000000000003,
+        -16.125
+      ],
+      "end_mm": [
+        7.25,
+        -16.075
+      ],
+      "length_mm": 0.07071067811865324,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        7.25,
+        -16.075
+      ],
+      "end_mm": [
+        7.275000000000002,
+        -16.075
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        7.275000000000002,
+        -16.075
+      ],
+      "end_mm": [
+        7.950000000000003,
+        -15.4
+      ],
+      "length_mm": 0.9545941546018389,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_3_VREF_1",
+      "net": "VREF",
+      "layer": "top",
+      "start_mm": [
+        7.950000000000003,
+        -15.4
+      ],
+      "end_mm": [
+        7.975000000000001,
+        -15.4
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.235,
+        15.357183999999998
+      ],
+      "end_mm": [
+        16.450000000000003,
+        15.125
+      ],
+      "length_mm": 0.31644021529508654,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.450000000000003,
+        15.125
+      ],
+      "end_mm": [
+        16.450000000000003,
+        15.075000000000003
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.450000000000003,
+        15.075000000000003
+      ],
+      "end_mm": [
+        16.475,
+        15.050000000000004
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.475,
+        15.050000000000004
+      ],
+      "end_mm": [
+        16.475,
+        15.0
+      ],
+      "length_mm": 0.05000000000000426,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.475,
+        15.0
+      ],
+      "end_mm": [
+        16.5,
+        14.975000000000001
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.5,
+        14.975000000000001
+      ],
+      "end_mm": [
+        16.5,
+        14.899999999999999
+      ],
+      "length_mm": 0.07500000000000284,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.5,
+        14.899999999999999
+      ],
+      "end_mm": [
+        16.525,
+        14.875
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.525,
+        14.875
+      ],
+      "end_mm": [
+        16.525,
+        14.825000000000003
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.525,
+        14.825000000000003
+      ],
+      "end_mm": [
+        16.550000000000004,
+        14.800000000000004
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.550000000000004,
+        14.800000000000004
+      ],
+      "end_mm": [
+        16.550000000000004,
+        14.725000000000001
+      ],
+      "length_mm": 0.07500000000000284,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.550000000000004,
+        14.725000000000001
+      ],
+      "end_mm": [
+        16.575000000000003,
+        14.700000000000003
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_4_PD_VBUS_0",
+      "net": "PD_VBUS",
+      "layer": "top",
+      "start_mm": [
+        16.575000000000003,
+        14.700000000000003
+      ],
+      "end_mm": [
+        16.5848,
+        14.6742
+      ],
+      "length_mm": 0.027598550686586343,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        13.452183999999999
+      ],
+      "end_mm": [
+        -16.75,
+        13.175
+      ],
+      "length_mm": 0.39045610490296895,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.75,
+        13.175
+      ],
+      "end_mm": [
+        -16.75,
+        13.125
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.75,
+        13.125
+      ],
+      "end_mm": [
+        -16.775,
+        13.100000000000001
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        13.100000000000001
+      ],
+      "end_mm": [
+        -16.775,
+        13.025000000000002
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        13.025000000000002
+      ],
+      "end_mm": [
+        -16.8,
+        13.0
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.8,
+        13.0
+      ],
+      "end_mm": [
+        -16.8,
+        12.950000000000003
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.8,
+        12.950000000000003
+      ],
+      "end_mm": [
+        -16.825,
+        12.925
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        12.925
+      ],
+      "end_mm": [
+        -16.825,
+        12.850000000000001
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        12.850000000000001
+      ],
+      "end_mm": [
+        -16.85,
+        12.825000000000003
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_5_V3V3_0_rerouted",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.85,
+        12.825000000000003
+      ],
+      "end_mm": [
+        -16.85,
+        12.8
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        13.452183999999999
+      ],
+      "end_mm": [
+        -16.15,
+        13.775000000000002
+      ],
+      "length_mm": 0.45807768976015834,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.15,
+        13.775000000000002
+      ],
+      "end_mm": [
+        -16.1,
+        13.775000000000002
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.1,
+        13.775000000000002
+      ],
+      "end_mm": [
+        -16.05,
+        13.825000000000003
+      ],
+      "length_mm": 0.07071067811865575,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.05,
+        13.825000000000003
+      ],
+      "end_mm": [
+        -16.025,
+        13.825000000000003
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.025,
+        13.825000000000003
+      ],
+      "end_mm": [
+        -15.95,
+        13.900000000000002
+      ],
+      "length_mm": 0.10606601717798113,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.95,
+        13.900000000000002
+      ],
+      "end_mm": [
+        -15.95,
+        14.0
+      ],
+      "length_mm": 0.09999999999999787,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.95,
+        14.0
+      ],
+      "end_mm": [
+        -15.45,
+        14.5
+      ],
+      "length_mm": 0.7071067811865476,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.45,
+        14.5
+      ],
+      "end_mm": [
+        -15.45,
+        15.325000000000003
+      ],
+      "length_mm": 0.8250000000000028,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.45,
+        15.325000000000003
+      ],
+      "end_mm": [
+        -15.4,
+        15.375
+      ],
+      "length_mm": 0.07071067811865199,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.4,
+        15.375
+      ],
+      "end_mm": [
+        -15.4,
+        15.399999999999999
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.4,
+        15.399999999999999
+      ],
+      "end_mm": [
+        -15.375,
+        15.399999999999999
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.375,
+        15.399999999999999
+      ],
+      "end_mm": [
+        -15.325,
+        15.450000000000003
+      ],
+      "length_mm": 0.07071067811865826,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -15.325,
+        15.450000000000003
+      ],
+      "end_mm": [
+        -14.55,
+        15.450000000000003
+      ],
+      "length_mm": 0.7749999999999986,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.55,
+        15.450000000000003
+      ],
+      "end_mm": [
+        -14.525,
+        15.475000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.525,
+        15.475000000000001
+      ],
+      "end_mm": [
+        -14.475,
+        15.475000000000001
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.475,
+        15.475000000000001
+      ],
+      "end_mm": [
+        -14.45,
+        15.5
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.45,
+        15.5
+      ],
+      "end_mm": [
+        -14.4,
+        15.5
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.4,
+        15.5
+      ],
+      "end_mm": [
+        -14.375,
+        15.524999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.375,
+        15.524999999999999
+      ],
+      "end_mm": [
+        -14.3,
+        15.524999999999999
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.3,
+        15.524999999999999
+      ],
+      "end_mm": [
+        -14.275,
+        15.550000000000004
+      ],
+      "length_mm": 0.03535533905933165,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.275,
+        15.550000000000004
+      ],
+      "end_mm": [
+        -14.225,
+        15.550000000000004
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.225,
+        15.550000000000004
+      ],
+      "end_mm": [
+        -14.2,
+        15.575000000000003
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.2,
+        15.575000000000003
+      ],
+      "end_mm": [
+        -14.125,
+        15.575000000000003
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.125,
+        15.575000000000003
+      ],
+      "end_mm": [
+        -14.1,
+        15.600000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.1,
+        15.600000000000001
+      ],
+      "end_mm": [
+        -14.05,
+        15.600000000000001
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.05,
+        15.600000000000001
+      ],
+      "end_mm": [
+        -14.025,
+        15.625
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -14.025,
+        15.625
+      ],
+      "end_mm": [
+        -13.95,
+        15.625
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.95,
+        15.625
+      ],
+      "end_mm": [
+        -13.925,
+        15.649999999999999
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.925,
+        15.649999999999999
+      ],
+      "end_mm": [
+        -13.875,
+        15.649999999999999
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.875,
+        15.649999999999999
+      ],
+      "end_mm": [
+        -13.85,
+        15.675000000000004
+      ],
+      "length_mm": 0.03535533905933165,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.85,
+        15.675000000000004
+      ],
+      "end_mm": [
+        -13.775,
+        15.675000000000004
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.775,
+        15.675000000000004
+      ],
+      "end_mm": [
+        -13.75,
+        15.700000000000003
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.75,
+        15.700000000000003
+      ],
+      "end_mm": [
+        -13.7,
+        15.700000000000003
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.7,
+        15.700000000000003
+      ],
+      "end_mm": [
+        -13.675,
+        15.725000000000001
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.675,
+        15.725000000000001
+      ],
+      "end_mm": [
+        -13.6,
+        15.725000000000001
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.6,
+        15.725000000000001
+      ],
+      "end_mm": [
+        -13.575,
+        15.75
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.575,
+        15.75
+      ],
+      "end_mm": [
+        -13.525,
+        15.75
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.525,
+        15.75
+      ],
+      "end_mm": [
+        -13.5,
+        15.774999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.5,
+        15.774999999999999
+      ],
+      "end_mm": [
+        -13.425,
+        15.774999999999999
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.425,
+        15.774999999999999
+      ],
+      "end_mm": [
+        -13.399999999999999,
+        15.800000000000004
+      ],
+      "length_mm": 0.035355339059332906,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_6_V3V3_1",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -13.399999999999999,
+        15.800000000000004
+      ],
+      "end_mm": [
+        -13.3817,
+        15.79
+      ],
+      "length_mm": 0.020854016399725898,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        11.331636,
+        -16.315
+      ],
+      "end_mm": [
+        10.975000000000001,
+        -16.675
+      ],
+      "length_mm": 0.5067437582210542,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        10.975000000000001,
+        -16.675
+      ],
+      "end_mm": [
+        10.650000000000002,
+        -16.675
+      ],
+      "length_mm": 0.3249999999999993,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        10.650000000000002,
+        -16.675
+      ],
+      "end_mm": [
+        10.625,
+        -16.7
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        10.625,
+        -16.7
+      ],
+      "end_mm": [
+        10.600000000000001,
+        -16.7
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_0",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        10.600000000000001,
+        -16.7
+      ],
+      "end_mm": [
+        10.55,
+        -16.75
+      ],
+      "length_mm": 0.07071067811865575,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_7_V3V3_2_layer_section_1",
+      "net": "V3V3",
+      "layer": "inner2",
+      "start_mm": [
+        10.55,
+        -16.75
+      ],
+      "end_mm": [
+        10.539128571428572,
+        -16.7207
+      ],
+      "length_mm": 0.03125184729233832,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -8.817184
+      ],
+      "end_mm": [
+        -16.475,
+        -8.15
+      ],
+      "length_mm": 0.6671839999999989,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -8.15
+      ],
+      "end_mm": [
+        -16.775,
+        -7.85
+      ],
+      "length_mm": 0.424264068711927,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        -7.85
+      ],
+      "end_mm": [
+        -16.775,
+        -7.824999999999999
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        -7.824999999999999
+      ],
+      "end_mm": [
+        -16.825,
+        -7.774999999999999
+      ],
+      "length_mm": 0.07071067811865575,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        -7.774999999999999
+      ],
+      "end_mm": [
+        -16.825,
+        -7.699999999999999
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        -7.699999999999999
+      ],
+      "end_mm": [
+        -16.85,
+        -7.674999999999999
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.85,
+        -7.674999999999999
+      ],
+      "end_mm": [
+        -16.85,
+        -6.199999999999999
+      ],
+      "length_mm": 1.4749999999999996,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.85,
+        -6.199999999999999
+      ],
+      "end_mm": [
+        -16.825,
+        -6.174999999999999
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        -6.174999999999999
+      ],
+      "end_mm": [
+        -16.825,
+        -6.1
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.825,
+        -6.1
+      ],
+      "end_mm": [
+        -16.775,
+        -6.049999999999999
+      ],
+      "length_mm": 0.07071067811865575,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        -6.049999999999999
+      ],
+      "end_mm": [
+        -16.775,
+        -6.024999999999999
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.775,
+        -6.024999999999999
+      ],
+      "end_mm": [
+        -16.575,
+        -5.824999999999999
+      ],
+      "length_mm": 0.282842712474618,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.575,
+        -5.824999999999999
+      ],
+      "end_mm": [
+        -16.575,
+        -5.774999999999999
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.575,
+        -5.774999999999999
+      ],
+      "end_mm": [
+        -16.55,
+        -5.75
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.55,
+        -5.75
+      ],
+      "end_mm": [
+        -16.55,
+        -5.699999999999999
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.55,
+        -5.699999999999999
+      ],
+      "end_mm": [
+        -16.525,
+        -5.674999999999999
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.525,
+        -5.674999999999999
+      ],
+      "end_mm": [
+        -16.525,
+        -5.6
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.525,
+        -5.6
+      ],
+      "end_mm": [
+        -16.5,
+        -5.574999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.5,
+        -5.574999999999999
+      ],
+      "end_mm": [
+        -16.5,
+        -5.524999999999999
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.5,
+        -5.524999999999999
+      ],
+      "end_mm": [
+        -16.475,
+        -5.5
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -5.5
+      ],
+      "end_mm": [
+        -16.475,
+        -5.424999999999999
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -5.424999999999999
+      ],
+      "end_mm": [
+        -16.45,
+        -5.399999999999999
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.45,
+        -5.399999999999999
+      ],
+      "end_mm": [
+        -16.45,
+        -5.35
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.45,
+        -5.35
+      ],
+      "end_mm": [
+        -16.425,
+        -5.324999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.425,
+        -5.324999999999999
+      ],
+      "end_mm": [
+        -16.425,
+        -5.25
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.425,
+        -5.25
+      ],
+      "end_mm": [
+        -16.4,
+        -5.225
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.4,
+        -5.225
+      ],
+      "end_mm": [
+        -16.4,
+        -5.174999999999999
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.4,
+        -5.174999999999999
+      ],
+      "end_mm": [
+        -16.375,
+        -5.149999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.375,
+        -5.149999999999999
+      ],
+      "end_mm": [
+        -16.375,
+        -5.074999999999999
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.375,
+        -5.074999999999999
+      ],
+      "end_mm": [
+        -16.35,
+        -5.049999999999999
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.35,
+        -5.049999999999999
+      ],
+      "end_mm": [
+        -16.35,
+        -5.0
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.35,
+        -5.0
+      ],
+      "end_mm": [
+        -16.325,
+        -4.975
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.325,
+        -4.975
+      ],
+      "end_mm": [
+        -16.325,
+        -4.899999999999999
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.325,
+        -4.899999999999999
+      ],
+      "end_mm": [
+        -16.3,
+        -4.875
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_8_V3V3_3",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        -16.3,
+        -4.875
+      ],
+      "end_mm": [
+        -16.298,
+        -4.8468
+      ],
+      "length_mm": 0.028270833026283644,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        14.025,
+        -16.462816
+      ],
+      "end_mm": [
+        13.950000000000003,
+        -16.475
+      ],
+      "length_mm": 0.07598322088461149,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.950000000000003,
+        -16.475
+      ],
+      "end_mm": [
+        13.875,
+        -16.55
+      ],
+      "length_mm": 0.10606601717798364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.875,
+        -16.55
+      ],
+      "end_mm": [
+        13.825000000000003,
+        -16.55
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.825000000000003,
+        -16.55
+      ],
+      "end_mm": [
+        13.400000000000002,
+        -16.975
+      ],
+      "length_mm": 0.6010407640085664,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.400000000000002,
+        -16.975
+      ],
+      "end_mm": [
+        13.350000000000001,
+        -16.975
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.350000000000001,
+        -16.975
+      ],
+      "end_mm": [
+        13.325000000000003,
+        -17.0
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        13.325000000000003,
+        -17.0
+      ],
+      "end_mm": [
+        12.350000000000001,
+        -17.0
+      ],
+      "length_mm": 0.9750000000000014,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        12.350000000000001,
+        -17.0
+      ],
+      "end_mm": [
+        12.325000000000003,
+        -16.975
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        12.325000000000003,
+        -16.975
+      ],
+      "end_mm": [
+        12.275000000000002,
+        -16.975
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        12.275000000000002,
+        -16.975
+      ],
+      "end_mm": [
+        12.05,
+        -16.75
+      ],
+      "length_mm": 0.3181980515339484,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        12.05,
+        -16.75
+      ],
+      "end_mm": [
+        11.825000000000003,
+        -16.75
+      ],
+      "length_mm": 0.22499999999999787,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        11.825000000000003,
+        -16.75
+      ],
+      "end_mm": [
+        11.425,
+        -16.35
+      ],
+      "length_mm": 0.5656854249492386,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        11.425,
+        -16.35
+      ],
+      "end_mm": [
+        11.375,
+        -16.35
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        11.375,
+        -16.35
+      ],
+      "end_mm": [
+        11.350000000000001,
+        -16.325
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_9_V3V3_4",
+      "net": "V3V3",
+      "layer": "top",
+      "start_mm": [
+        11.350000000000001,
+        -16.325
+      ],
+      "end_mm": [
+        11.331636,
+        -16.315
+      ],
+      "length_mm": 0.020910200764220968,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -0.9328160000000001
+      ],
+      "end_mm": [
+        -16.225,
+        -0.9250000000000007
+      ],
+      "length_mm": 0.2501221498708181,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.225,
+        -0.9250000000000007
+      ],
+      "end_mm": [
+        -16.2,
+        -0.8999999999999986
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.2,
+        -0.8999999999999986
+      ],
+      "end_mm": [
+        -16.15,
+        -0.8999999999999986
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.15,
+        -0.8999999999999986
+      ],
+      "end_mm": [
+        -16.125,
+        -0.875
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.125,
+        -0.875
+      ],
+      "end_mm": [
+        -16.05,
+        -0.875
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.05,
+        -0.875
+      ],
+      "end_mm": [
+        -16.025,
+        -0.8499999999999979
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -16.025,
+        -0.8499999999999979
+      ],
+      "end_mm": [
+        -15.975,
+        -0.8499999999999979
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.975,
+        -0.8499999999999979
+      ],
+      "end_mm": [
+        -15.95,
+        -0.8249999999999993
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.95,
+        -0.8249999999999993
+      ],
+      "end_mm": [
+        -15.875,
+        -0.8249999999999993
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.875,
+        -0.8249999999999993
+      ],
+      "end_mm": [
+        -15.85,
+        -0.8000000000000007
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.85,
+        -0.8000000000000007
+      ],
+      "end_mm": [
+        -15.8,
+        -0.8000000000000007
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.8,
+        -0.8000000000000007
+      ],
+      "end_mm": [
+        -15.775,
+        -0.7749999999999986
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.775,
+        -0.7749999999999986
+      ],
+      "end_mm": [
+        -15.7,
+        -0.7749999999999986
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.7,
+        -0.7749999999999986
+      ],
+      "end_mm": [
+        -15.675,
+        -0.75
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.675,
+        -0.75
+      ],
+      "end_mm": [
+        -15.625,
+        -0.75
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.625,
+        -0.75
+      ],
+      "end_mm": [
+        -15.6,
+        -0.7249999999999979
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.6,
+        -0.7249999999999979
+      ],
+      "end_mm": [
+        -15.525,
+        -0.7249999999999979
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.525,
+        -0.7249999999999979
+      ],
+      "end_mm": [
+        -15.5,
+        -0.6999999999999993
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.5,
+        -0.6999999999999993
+      ],
+      "end_mm": [
+        -15.45,
+        -0.6999999999999993
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.45,
+        -0.6999999999999993
+      ],
+      "end_mm": [
+        -15.425,
+        -0.6750000000000007
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.425,
+        -0.6750000000000007
+      ],
+      "end_mm": [
+        -15.35,
+        -0.6750000000000007
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.35,
+        -0.6750000000000007
+      ],
+      "end_mm": [
+        -15.325,
+        -0.6499999999999986
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_10_DATA_VBUS_0",
+      "net": "DATA_VBUS",
+      "layer": "top",
+      "start_mm": [
+        -15.325,
+        -0.6499999999999986
+      ],
+      "end_mm": [
+        -15.3,
+        -0.6499999999999986
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.3
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.675,
+        14.675
+      ],
+      "end_mm": [
+        15.675000000000004,
+        14.150000000000002
+      ],
+      "length_mm": 0.5249999999999986,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.675000000000004,
+        14.150000000000002
+      ],
+      "end_mm": [
+        15.649999999999999,
+        14.125
+      ],
+      "length_mm": 0.035355339059332906,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.649999999999999,
+        14.125
+      ],
+      "end_mm": [
+        15.649999999999999,
+        14.075000000000003
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.649999999999999,
+        14.075000000000003
+      ],
+      "end_mm": [
+        15.625,
+        14.05
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.625,
+        14.05
+      ],
+      "end_mm": [
+        15.625,
+        13.975000000000001
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.625,
+        13.975000000000001
+      ],
+      "end_mm": [
+        15.600000000000001,
+        13.950000000000003
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_11_DATA_PRESENT_0",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        15.600000000000001,
+        13.950000000000003
+      ],
+      "end_mm": [
+        15.597184,
+        13.93
+      ],
+      "length_mm": 0.020197273479361785,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_12_DATA_PRESENT_1",
+      "net": "DATA_PRESENT",
+      "layer": "top",
+      "start_mm": [
+        -16.475,
+        -0.06718400000000008
+      ],
+      "end_mm": [
+        -15.4,
+        -0.07500000000000001
+      ],
+      "length_mm": 1.0750284135110115,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_0",
+      "net": "PWR_LED_A",
+      "layer": "inner1",
+      "start_mm": [
+        10.9773,
+        -15.9742
+      ],
+      "end_mm": [
+        14.649999999999999,
+        -15.975
+      ],
+      "length_mm": 3.672700087129358,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.649999999999999,
+        -15.975
+      ],
+      "end_mm": [
+        14.375,
+        -15.7
+      ],
+      "length_mm": 0.38890872965260037,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.375,
+        -15.7
+      ],
+      "end_mm": [
+        14.350000000000001,
+        -15.7
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.350000000000001,
+        -15.7
+      ],
+      "end_mm": [
+        14.325000000000003,
+        -15.675
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.325000000000003,
+        -15.675
+      ],
+      "end_mm": [
+        14.25,
+        -15.675
+      ],
+      "length_mm": 0.07500000000000284,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.25,
+        -15.675
+      ],
+      "end_mm": [
+        14.225000000000001,
+        -15.65
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.225000000000001,
+        -15.65
+      ],
+      "end_mm": [
+        14.175,
+        -15.65
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.175,
+        -15.65
+      ],
+      "end_mm": [
+        14.150000000000002,
+        -15.625
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.150000000000002,
+        -15.625
+      ],
+      "end_mm": [
+        14.075000000000003,
+        -15.625
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.075000000000003,
+        -15.625
+      ],
+      "end_mm": [
+        14.05,
+        -15.6
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_13_PWR_LED_A_0_layer_section_1",
+      "net": "PWR_LED_A",
+      "layer": "top",
+      "start_mm": [
+        14.05,
+        -15.6
+      ],
+      "end_mm": [
+        14.025,
+        -15.597184
+      ],
+      "length_mm": 0.025158097225347023,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -14.6671,
+        16.86
+      ],
+      "end_mm": [
+        -15.0,
+        16.525
+      ],
+      "length_mm": 0.4722789535856969,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -15.0,
+        16.525
+      ],
+      "end_mm": [
+        -15.025,
+        16.525
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -15.025,
+        16.525
+      ],
+      "end_mm": [
+        -15.05,
+        16.5
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -15.05,
+        16.5
+      ],
+      "end_mm": [
+        -15.125,
+        16.5
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -15.125,
+        16.5
+      ],
+      "end_mm": [
+        -15.15,
+        16.475
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_14_STATUS_B_K_0",
+      "net": "STATUS_B_K",
+      "layer": "top",
+      "start_mm": [
+        -15.15,
+        16.475
+      ],
+      "end_mm": [
+        -15.182184,
+        16.475
+      ],
+      "length_mm": 0.0321839999999991,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_VM_SENSE_0_rerouted_layer_section_0",
+      "net": "VM_SENSE",
+      "layer": "top",
+      "start_mm": [
+        16.0,
+        16.425
+      ],
+      "end_mm": [
+        15.649999999999999,
+        16.425000000000004
+      ],
+      "length_mm": 0.3500000000000014,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_1_STATUS_B_C_0_layer_section_0",
+      "net": "STATUS_B_C",
+      "layer": "top",
+      "start_mm": [
+        -16.05,
+        16.225
+      ],
+      "end_mm": [
+        -16.05,
+        15.950000000000003
+      ],
+      "length_mm": 0.2749999999999986,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_1_STATUS_B_C_0_layer_section_1",
+      "net": "STATUS_B_C",
+      "layer": "inner2",
+      "start_mm": [
+        -16.05,
+        15.950000000000003
+      ],
+      "end_mm": [
+        -16.0472,
+        16.2333
+      ],
+      "length_mm": 0.28331383658409326,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.8,
+        -14.425
+      ],
+      "end_mm": [
+        9.675,
+        -14.55
+      ],
+      "length_mm": 0.1767766952966369,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.675,
+        -14.55
+      ],
+      "end_mm": [
+        9.675,
+        -14.575
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.675,
+        -14.575
+      ],
+      "end_mm": [
+        9.650000000000002,
+        -14.6
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.650000000000002,
+        -14.6
+      ],
+      "end_mm": [
+        9.650000000000002,
+        -14.625
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.650000000000002,
+        -14.625
+      ],
+      "end_mm": [
+        9.575000000000003,
+        -14.7
+      ],
+      "length_mm": 0.10606601717798113,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.575000000000003,
+        -14.7
+      ],
+      "end_mm": [
+        9.55,
+        -14.7
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.55,
+        -14.7
+      ],
+      "end_mm": [
+        9.525000000000002,
+        -14.725
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.525000000000002,
+        -14.725
+      ],
+      "end_mm": [
+        9.475000000000001,
+        -14.725
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_0",
+      "net": "GND",
+      "layer": "top",
+      "start_mm": [
+        9.475000000000001,
+        -14.725
+      ],
+      "end_mm": [
+        9.375,
+        -14.825
+      ],
+      "length_mm": 0.14142135623731025,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        9.375,
+        -14.825
+      ],
+      "end_mm": [
+        9.125,
+        -14.825
+      ],
+      "length_mm": 0.25,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        9.125,
+        -14.825
+      ],
+      "end_mm": [
+        9.100000000000001,
+        -14.85
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        9.100000000000001,
+        -14.85
+      ],
+      "end_mm": [
+        9.025000000000002,
+        -14.85
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        9.025000000000002,
+        -14.85
+      ],
+      "end_mm": [
+        9.0,
+        -14.875
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        9.0,
+        -14.875
+      ],
+      "end_mm": [
+        8.950000000000003,
+        -14.875
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.950000000000003,
+        -14.875
+      ],
+      "end_mm": [
+        8.925,
+        -14.9
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.925,
+        -14.9
+      ],
+      "end_mm": [
+        8.850000000000001,
+        -14.9
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.850000000000001,
+        -14.9
+      ],
+      "end_mm": [
+        8.775000000000002,
+        -14.975
+      ],
+      "length_mm": 0.10606601717798113,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.775000000000002,
+        -14.975
+      ],
+      "end_mm": [
+        8.75,
+        -14.975
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.75,
+        -14.975
+      ],
+      "end_mm": [
+        8.725000000000001,
+        -15.0
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.725000000000001,
+        -15.0
+      ],
+      "end_mm": [
+        8.675,
+        -15.0
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.675,
+        -15.0
+      ],
+      "end_mm": [
+        8.650000000000002,
+        -15.025
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.650000000000002,
+        -15.025
+      ],
+      "end_mm": [
+        8.625,
+        -15.025
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.625,
+        -15.025
+      ],
+      "end_mm": [
+        8.600000000000001,
+        -15.05
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.600000000000001,
+        -15.05
+      ],
+      "end_mm": [
+        8.350000000000001,
+        -15.05
+      ],
+      "length_mm": 0.25,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.350000000000001,
+        -15.05
+      ],
+      "end_mm": [
+        8.325000000000003,
+        -15.075
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.325000000000003,
+        -15.075
+      ],
+      "end_mm": [
+        8.25,
+        -15.075
+      ],
+      "length_mm": 0.07500000000000284,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.25,
+        -15.075
+      ],
+      "end_mm": [
+        8.225000000000001,
+        -15.1
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.225000000000001,
+        -15.1
+      ],
+      "end_mm": [
+        8.175,
+        -15.1
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.175,
+        -15.1
+      ],
+      "end_mm": [
+        8.150000000000002,
+        -15.125
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.150000000000002,
+        -15.125
+      ],
+      "end_mm": [
+        8.075000000000003,
+        -15.125
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.075000000000003,
+        -15.125
+      ],
+      "end_mm": [
+        8.05,
+        -15.15
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.05,
+        -15.15
+      ],
+      "end_mm": [
+        8.0,
+        -15.15
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        8.0,
+        -15.15
+      ],
+      "end_mm": [
+        7.975000000000001,
+        -15.175
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.975000000000001,
+        -15.175
+      ],
+      "end_mm": [
+        7.900000000000002,
+        -15.175
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.900000000000002,
+        -15.175
+      ],
+      "end_mm": [
+        7.875,
+        -15.2
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.875,
+        -15.2
+      ],
+      "end_mm": [
+        7.825000000000003,
+        -15.2
+      ],
+      "length_mm": 0.04999999999999716,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.825000000000003,
+        -15.2
+      ],
+      "end_mm": [
+        7.800000000000001,
+        -15.225
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.800000000000001,
+        -15.225
+      ],
+      "end_mm": [
+        7.725000000000001,
+        -15.225
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.725000000000001,
+        -15.225
+      ],
+      "end_mm": [
+        7.700000000000003,
+        -15.25
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.700000000000003,
+        -15.25
+      ],
+      "end_mm": [
+        7.650000000000002,
+        -15.25
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.650000000000002,
+        -15.25
+      ],
+      "end_mm": [
+        7.625,
+        -15.275
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.625,
+        -15.275
+      ],
+      "end_mm": [
+        7.550000000000001,
+        -15.275
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.550000000000001,
+        -15.275
+      ],
+      "end_mm": [
+        7.525000000000002,
+        -15.3
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.525000000000002,
+        -15.3
+      ],
+      "end_mm": [
+        7.475000000000001,
+        -15.3
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.475000000000001,
+        -15.3
+      ],
+      "end_mm": [
+        7.450000000000003,
+        -15.325
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.450000000000003,
+        -15.325
+      ],
+      "end_mm": [
+        7.375,
+        -15.325
+      ],
+      "length_mm": 0.07500000000000284,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.375,
+        -15.325
+      ],
+      "end_mm": [
+        7.350000000000001,
+        -15.35
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_GND_0_layer_section_1",
+      "net": "GND",
+      "layer": "inner1",
+      "start_mm": [
+        7.350000000000001,
+        -15.35
+      ],
+      "end_mm": [
+        7.324554,
+        -15.351839
+      ],
+      "length_mm": 0.02551236635437946,
+      "width_mm": 0.16
     }
   ],
   "scope": "Every saved copper trace, wire segment, via net, source identity, attached physical port and layer; geometric DRC/physical/CAM/width reports required separately.",

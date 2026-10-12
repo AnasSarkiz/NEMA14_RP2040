@@ -25,7 +25,11 @@ for err in errors:
  for other in g.j:
   if other is e or g.key(other)!=net:continue
   if other['type'] in ['pcb_smtpad','pcb_plated_hole'] and layer in other.get('layers',[other.get('layer','top')]):geoms.append(g.geometry(other))
-  # A dangling via must not anchor an obsolete branch.
+  elif other['type']=='pcb_via' and layer in other['layers']:
+   vgeom=g.Point(other['x'],other['y']).buffer(other['outer_diameter']/2)
+   live=any(o is not e and o['type']=='pcb_trace' and g.key(o)==net and any(a['route_type']==b['route_type']=='wire' and a['layer']==b['layer'] and g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(min(a['width'],b['width'])/2).intersects(vgeom) for a,b in zip(o['route'],o['route'][1:])) for o in g.j)
+   if live:geoms.append(vgeom)
+  # Only a via with another live conductor may anchor an obsolete branch.
   elif other['type']=='pcb_trace':
    for a,b in zip(other['route'],other['route'][1:]):
     if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']==layer:geoms.append(g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(min(a['width'],b['width'])/2))
