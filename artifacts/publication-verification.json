@@ -3,26 +3,26 @@
   "schematic_geometric_ERC_passed": true,
   "functional_A4_sheet_count": 5,
   "PCB_and_source_preserved_from_schematic_baseline": false,
-  "electrical_source_preserved": true,
-  "qualified_schematic_preserved": true,
+  "electrical_source_preserved": false,
+  "qualified_schematic_preserved": false,
   "reference_feedback_verified": true,
   "every_trace_inventory_verified": true,
   "hardware_operation_verified": false,
   "passed": true,
-  "verified_at_utc": "2026-10-13T06:08:16.446495+00:00",
+  "verified_at_utc": "2026-10-13T12:56:51.039271+00:00",
   "public_package": "AnasSarkiz/NEMA14_RP2040",
-  "version": "1.7.2",
-  "package_release_id": "89c293e9-c7e3-4cab-923e-2fa4fda62af8",
+  "version": "1.8.2",
+  "package_release_id": "f93b7992-28cc-4017-a164-828e5042f5f9",
   "package_is_private": false,
   "ready_to_build": true,
   "public_page": "https://tscircuit.com/AnasSarkiz/NEMA14_RP2040",
   "page_http_status": 200,
-  "github_revision": "6d7a461506223dcdc39b94897265656c636a45e1",
-  "github_commit_url": "https://github.com/AnasSarkiz/NEMA14_RP2040/commit/6d7a461506223dcdc39b94897265656c636a45e1",
-  "public_file_count": 275,
-  "review_board_sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
-  "public_index_sha256": "7229119f6bee94a384e46a1f844885836a261982cacb1c29ce8b2844b935412b",
-  "public_dist_sha256": "b0fecdc2ec68c0b1cce6a9194f0604b735999d3bfcf18323d0e1f8bf51b2f65b",
+  "github_revision": "fc534d7790ae058f747e55e1e595af8245100c9e",
+  "github_commit_url": "https://github.com/AnasSarkiz/NEMA14_RP2040/commit/fc534d7790ae058f747e55e1e595af8245100c9e",
+  "public_file_count": 290,
+  "review_board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "public_index_sha256": "99413d2bd8b1c14ac56baeea9bbb3fb91f9118c00cdb526faec5af6cb94de086",
+  "public_dist_sha256": "692cbf486a00588e4d76a06cdadb2e0a3980a9e8619e4781caa1c1ec9015753c",
   "geometry_and_functional_records_unchanged": true,
   "cad_urls_pinned_to_revision": true,
   "mount_coordinates_mm": [
@@ -60,15 +60,15 @@
   ],
   "same_USB_edge": "+Y",
   "required_maximum_DIN920_head_diameter_mm": 4,
-  "simultaneous_12mm_plug_gap_mm": 0.40000000000000036,
+  "simultaneous_10mm_housing_gap_mm": 2.4000000000000004,
   "actual_Gerber_outline_centerline_bounds_mm": [
     -17.5,
     -17.5,
     17.5,
     17.5
   ],
-  "public_gerber_archive_sha256": "a32d7744a8f7ffa2ceef69ff61bb52fa5d4a99411e84737fa604144d6c0a0c1c",
-  "public_drill_sha256": "4a78c93543ccd3fa7e2e1c3a32e3a6545c92d28546683cb7f54b72a473460878",
+  "public_gerber_archive_sha256": "64769654c1341d3000345a9f9e58f0a249a7b8ff92c6e98b909b8ed2d8cb8f39",
+  "public_drill_sha256": "ad6dd04eae0f5a99178326f04e1c8b13d9f28e3180116d4fdbb9375d05c98507",
   "public_drill_coordinates_mm": [
     [
       -13.0,
@@ -90,7 +90,7 @@
   "public_evidence_checks": [
     {
       "path": "artifacts/edge-resistors/clearance-verification.json",
-      "sha256": "70282d905de5d846b79bee062928606ea94b6bf5b3c02b8bcfc89a4ecabda57e"
+      "sha256": "3b5f7e1e774127ea5be5f45aed166801fcee4c254abedf297873f82689b38b1e"
     },
     {
       "path": "docs/resistor-edge-clearance.md",
@@ -98,7 +98,7 @@
     },
     {
       "path": "artifacts/schematic-redesign/analysis.json",
-      "sha256": "a79592141d8480dab7598997ad8da501f1dd3755b733bae11bc13585a4746df5"
+      "sha256": "10d6dba2c5f20adc037b66259cfc4f485e5cfff6bf756fa49a74adf8b4a396a4"
     },
     {
       "path": "artifacts/schematic-redesign/preservation.json",
@@ -114,47 +114,47 @@
     },
     {
       "path": "artifacts/schematic-a4.pdf",
-      "sha256": "6e29fc4f4e2c7be37493caf6e7ea7175501cc7bcc822041074dbcaa22a8f38b7"
+      "sha256": "6597a241df7968f8b38a73767fc266c4b78a8f9aab82fe0779b88c0ab7769664"
     },
     {
       "path": "artifacts/schematic-a4-page-01.svg",
-      "sha256": "cf6e1e0ce7a486b0fcacc568ea170452add979bae15b1ed3df26d5027ad4638e"
+      "sha256": "386bee6bcb99ac58a073ade006c27570a93e06eff6dea17e75da25f733b11a80"
     },
     {
       "path": "artifacts/schematic-a4-page-02.svg",
-      "sha256": "cb854fdb4afb9a3277ac6313c8129b5290cd42c36884dd6307a1b023c1a233e3"
+      "sha256": "16122a2e1cb54af69d56c0e3f921b0b418d663dfa5950c57927b8b540d25bb79"
     },
     {
       "path": "artifacts/schematic-a4-page-03.svg",
-      "sha256": "a044f8544843376996315d2f3abb37de778c043217eb73994fc7cb2f6d61292b"
+      "sha256": "da13717a48f26d7b1f6672e1b7ca423fa6fa42532ed3296384d64d80dc99d0cc"
     },
     {
       "path": "artifacts/schematic-a4-page-04.svg",
-      "sha256": "9b8d855e96fa6045549b408aedc651d58fa3add4c0fac03981a2c18b5bfba178"
+      "sha256": "37cdf26848b2f971870dd45e7be7c0a36809033ccdb939946fd6f51155d72b20"
     },
     {
       "path": "artifacts/schematic-a4-page-05.svg",
-      "sha256": "bb827fbe48127edf7f097101d525bd9042371717eb95bdc086e26b4740e57887"
+      "sha256": "d71f4bab12bddfd2dc476c752a6c6824b54dd21e161343a1a6cb25b4eb84d9fc"
     },
     {
       "path": "artifacts/mount-drill-verification.json",
-      "sha256": "04bfdd58ee95feedb197941cb4b2214932768c2701ab9a5cf74230d065050962"
+      "sha256": "cde9af2ce0daff3e02f98e40735b159b9ff429c43f56ec941ae91debb9cec9f5"
     },
     {
       "path": "artifacts/mechanical/mount-usb-screen.json",
-      "sha256": "595e83f7b121f418e4f78735b6e3fa8507448ad4da49ab68aa879e8b3093c52d"
+      "sha256": "bc7582d307e763f3abf151b1720019736e73cc94d9a32b76951e58e132ed3118"
     },
     {
       "path": "artifacts/manufacturing/audit.json",
-      "sha256": "34f2c2f7d70cdfe7effad38b0e17748f2b269a6f884ae5009992aebc87c8a8cf"
+      "sha256": "0046e04b8268ff3213de4ca03cfbde35c65a4cda7b5f3368400c6c7784a396dd"
     },
     {
       "path": "artifacts/resume-validation.json",
-      "sha256": "d61678907fe59605356f5dda93c789b405408165731bd469799605c1f34a2851"
+      "sha256": "b37c6e1071b1c7c55849d2842ac5ff5fada92cc35d30e700f22c70e51e2083f4"
     },
     {
       "path": "src/board.tsx",
-      "sha256": "ca07b642ddfdbae74d8b6793838d05c8d3c7da036cc887047372817698bc5e13"
+      "sha256": "0a5b8adcdf600015b1ae52accbeef66622849d109edc6e5e0e3eecb15cc6b372"
     },
     {
       "path": "docs/mounting-usb-verification.md",
@@ -162,113 +162,105 @@
     },
     {
       "path": "artifacts/mounting-change-proof.json",
-      "sha256": "c16bc87bdf7807e79bb2045e8e1d5a41e1f9be65ec13dfcb8a45012940002240"
+      "sha256": "efab56131738fa071671a4734fa8f7c3cc7785b994bcd213d7a701b71351943c"
     },
     {
       "path": "artifacts/trace-width-review.json",
-      "sha256": "00b6c6f3008a2b38ac3930c7917f810480292b2d942206cfc3643da596cb6bbf"
+      "sha256": "92c4bf6bf9e5a2346563166a5daba9bbd48f15ea102f3aa90490bfa016b7bc9d"
     },
     {
       "path": "artifacts/jst-restoration/connector-verification.json",
-      "sha256": "6f9ed77b8c3699336f4170b3279f9341c19976724d313d057d4b30a94f05f8ea"
+      "sha256": "d06d1469b6cc8e392acac878c4e0989f1a8f86e02fc23978b9f7bec467d92121"
     },
     {
       "path": "src/jlcpcb-catalog.json",
-      "sha256": "78427f65eee46ad02b19b39963b7857e78e9b1f12afb08ff456ee11271ca2844"
+      "sha256": "78e3e3e130815f5103366723281f9e1712e2cfad7f23a5dfb165b413a546eae8"
     },
     {
       "path": "artifacts/bom.csv",
-      "sha256": "5e88163ec3652c4162e776031a3a0d9a3f9f38e3bd47e64e810150a25d159239"
+      "sha256": "75278b468216282a8737b11f4cfa762268f3704dbce19fb0dcd21135475cf256"
     },
     {
       "path": "artifacts/reference-feedback/circuit-verification.json",
-      "sha256": "7c1c8555bf1830cd5d448f43179e3e844534d2c0773093739226ab6c9c8201e1"
+      "sha256": "c8217b8143c4d53983a5c9d1cc338be0a4380dbe8e46da42e37b19302e6cb9f4"
     },
     {
       "path": "artifacts/reference-feedback/every-trace-review.json",
-      "sha256": "ca1098fbc42c6a0e9b06ac93235533aba3d2fa7ca883ee7b13d8804451f3f47f"
+      "sha256": "25cb067d06b85e6005385f29ccfdf7f34a6dbc3348bd7c892496c37315c084e7"
     },
     {
       "path": "artifacts/reference-feedback/every-trace-review.csv",
-      "sha256": "284646767da2ee39ed7fd2eedf83432154d3d6b84e2fab0262e98f7a517228e5"
+      "sha256": "d2cbbebe71c883a84071f315a3f98b90a9a230a7e30c8b091af0e355cc932875"
     },
     {
       "path": "artifacts/reference-feedback/preserved-electrical-interfaces.json",
-      "sha256": "405cce7ffb6a189e3305f2902f163de23d0d1b0465dc9dce350cdcf0c6b199fe"
+      "sha256": "4e67c9b792b4832eadb2226cc58bbcd7ec7024a07c7e3920ad0f350f1b1b901d"
     },
     {
       "path": "docs/reference-feedback.md",
       "sha256": "58e59e3e1c4164187e5ef28b1c511e684271e51d04444a4f6869384809d432ff"
+    },
+    {
+      "path": "docs/top-assembly.md",
+      "sha256": "37b8226455563b2273045b75a765436c6f1da5d3179650d1fe9e8ded9c3cb142"
+    },
+    {
+      "path": "artifacts/top-assembly/functional-preservation.json",
+      "sha256": "4e67c9b792b4832eadb2226cc58bbcd7ec7024a07c7e3920ad0f350f1b1b901d"
+    },
+    {
+      "path": "artifacts/top-assembly/connector-decision.json",
+      "sha256": "afda35bac866beda327d09c68085ee2dfbb0e84dc7561965fdeadb496c69b816"
+    },
+    {
+      "path": "artifacts/top-assembly/assembly-preview.circuit.json",
+      "sha256": "72e4bcdf1289664cad4fb7aca414046fc4c544703267dd96a807009408a2360a"
+    },
+    {
+      "path": "assembly-preview.circuit.tsx",
+      "sha256": "5eb79f21c55fe77c5e431e2b748ed4b0f6c9405834ab2a9959d4c76a4ec59aac"
     }
   ],
   "public_github_checks": [
     {
       "path": "artifacts/board.circuit.json",
-      "sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/artifacts/board.circuit.json"
+      "sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/artifacts/board.circuit.json"
     },
     {
       "path": "index.circuit.json",
-      "sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/index.circuit.json"
+      "sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/index.circuit.json"
     },
     {
       "path": "artifacts/nema14-gerbers.zip",
-      "sha256": "a32d7744a8f7ffa2ceef69ff61bb52fa5d4a99411e84737fa604144d6c0a0c1c",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/artifacts/nema14-gerbers.zip"
+      "sha256": "64769654c1341d3000345a9f9e58f0a249a7b8ff92c6e98b909b8ed2d8cb8f39",
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/artifacts/nema14-gerbers.zip"
     },
     {
       "path": "imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.step",
       "sha256": "3806dacd6082a75cfb24d3ba4b86b3d0c96213134c67e1385eb1599a89b2c461",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.step"
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.step"
     },
     {
-      "path": "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step",
-      "sha256": "330cfdeb167726774e998328867b10007c6ca195a3a7aab25f476c0c19b5a7a1",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step"
+      "path": "imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.step",
+      "sha256": "964a6ef3cf073fa6bd9a72a93f3994d14fdd4580a82e79db9f75d96016a47941",
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.step"
     },
     {
-      "path": "imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj",
-      "sha256": "333d51fc2722f28c1a73c3ef4b240453d4ce90bba01e4b2a7b6d8c059fa62d0f",
-      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/6d7a461506223dcdc39b94897265656c636a45e1/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj"
+      "path": "imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.obj",
+      "sha256": "82e116e1a05f42b854ef6ec9bb73f3204d230dc6102f8188bd1e84352918de8a",
+      "url": "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/fc534d7790ae058f747e55e1e595af8245100c9e/imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.obj"
     }
   ],
   "full_manufacturing_audit_passed": false,
   "rear_motor_compatibility_verified": false,
   "physical_hardware_tested": false,
-  "fitted_motor_connector": "B4B-PH-K-S(LF)(SN)",
-  "JST_supplier_id": "C131334",
-  "JST_actual_drills": [
-    {
-      "pin": 1,
-      "net": "A_PLUS",
-      "actual_excellon_x_mm": -7.5,
-      "actual_excellon_y_mm": -14.25,
-      "actual_tool_diameter_mm": 0.999998
-    },
-    {
-      "pin": 2,
-      "net": "A_MINUS",
-      "actual_excellon_x_mm": -5.5,
-      "actual_excellon_y_mm": -14.25,
-      "actual_tool_diameter_mm": 0.999998
-    },
-    {
-      "pin": 3,
-      "net": "B_PLUS",
-      "actual_excellon_x_mm": -3.5,
-      "actual_excellon_y_mm": -14.25,
-      "actual_tool_diameter_mm": 0.999998
-    },
-    {
-      "pin": 4,
-      "net": "B_MINUS",
-      "actual_excellon_x_mm": -1.5,
-      "actual_excellon_y_mm": -14.25,
-      "actual_tool_diameter_mm": 0.999998
-    }
-  ],
-  "JST_native_STEP_lead_alignment_verified": true,
+  "fitted_motor_connector": "BM04B-SRSS-TB(LF)(SN)",
+  "JST_supplier_id": "C160390",
+  "JST_actual_drills": [],
+  "JST_native_STEP_landing_regions_verified": true,
+  "JST_individual_metal_terminal_centers_verified": false,
   "JST_top_entry_access_screen_pass": true,
   "JLCPCB_review_package_verified_public": true,
   "corrected_order_CAM_passed": true,
@@ -277,31 +269,31 @@
   "public_JLCPCB_review_evidence": [
     {
       "path": "artifacts/jlcpcb-review/CAM-audit.json",
-      "sha256": "10479cd6f362a5f37f0718f14504bdcc646b0f643307523351f5924bd78ed753"
+      "sha256": "8daf1737b1251d613429203187d2d0af40d4beb49037c1946eff85b5f49b10d3"
     },
     {
       "path": "artifacts/jlcpcb-review/JLCPCB-BOM.csv",
-      "sha256": "224525c340d01137b022b251b6186403155f8ad1ae102d3d0f59e781515bceac"
+      "sha256": "27e5f135fb9e0c14de45cda79407d130841a031fa60057dafc1d5fd82c36213a"
     },
     {
       "path": "artifacts/jlcpcb-review/JLCPCB-CPL.csv",
-      "sha256": "f450acc4e79a92b0440e19656b545771f363585e2b79ae034647f262c4d31bac"
+      "sha256": "cec4b4732141a5897f6b940993af2f15c5c7575c1d775be14f349e60650fafb9"
     },
     {
       "path": "artifacts/jlcpcb-review/JLCPCB-Gerbers.zip",
-      "sha256": "4e991513dfdf59671a86cab726ecbd416a9ec6f58c898312ce7e477ce50833c2"
+      "sha256": "af097fbc8c536cedbd4c76606f7e4514b98f0b17b6a55bb472a4a18fd94a13fc"
     },
     {
       "path": "artifacts/jlcpcb-review/JLCPCB-OrderReview.zip",
-      "sha256": "eb4cbb48ec99e21c500766de890b0daf70f90103aa569531573731ba4ae7021d"
+      "sha256": "cd8644642ac2dc7e281ff19024bf8e31e3e671d509b11069d30d234f17147adb"
     },
     {
       "path": "artifacts/jlcpcb-review/Manual-THT-BOM.csv",
-      "sha256": "0ffc2579a482b74a6c11fafee08bf71449fc204c55e8ca3a371a7bae200a5048"
+      "sha256": "c19ba2d028e6978f3998954460e5b27dd0b632a1a00236200eb22f3587a957b8"
     },
     {
       "path": "artifacts/jlcpcb-review/REVIEW-INSTRUCTIONS.md",
-      "sha256": "60903d1bfbb936b936144fe5a88bc95fe247a69ed7afc05a0bed123bdb69a59f"
+      "sha256": "7ebe082aa8dc3db4e8434822f822fd939b533723d67a5b46d9de884791a92c71"
     },
     {
       "path": "artifacts/jlcpcb-review/Thermal-Via-Process.csv",
@@ -309,75 +301,75 @@
     },
     {
       "path": "artifacts/jlcpcb-review/Through-Hole-Joint-Plan.csv",
-      "sha256": "e8e2347a42fc0bdc90223312785a2f6177b0fab14229acd800616cb14d2d3366"
+      "sha256": "b616ae046d01f6927ae45bccdfc5decc8b6b7c3127ef46af5c872684e94a8f91"
     },
     {
       "path": "artifacts/jlcpcb-review/bottom-assembly-map.svg",
-      "sha256": "713a809d14275e34a3b82d1d20453b838884d9c5dca3dcd2535631905b34fe5b"
+      "sha256": "717ec866acfc411c331871adbcda2666f812e4a690e82b7a2f9e2ddb7786efbc"
     },
     {
       "path": "artifacts/jlcpcb-review/bottom-order-preview.png",
-      "sha256": "26ab260a4c19d06b3b64e94d578954cbc1983bbcce67230af32c70a9df2016de"
+      "sha256": "189ae9affee1847086bdb359b0d0096d14cd062a415e17515c64c2e6ee9c2c43"
     },
     {
       "path": "artifacts/jlcpcb-review/bottom-order-preview.svg",
-      "sha256": "6e9f3c34f3881de3d09ef6624485ba8084b0d5990e9bf7b84cd64e9cbd38ceca"
+      "sha256": "b423faffe1de766c97f7cf719d9a9aec0b215befba1eb4e4c980b1f9479e3ab0"
     },
     {
       "path": "artifacts/jlcpcb-review/bottom-stencil-preview.png",
-      "sha256": "5cbfc2b15be6aeaac4668d8a163396b7c4fb74c13b2d5cfe50d615af4320efa1"
+      "sha256": "6fbaa84564b9a9ead5451ef83aa461bb96e1ba364e611f6fb27327680b5cd7ed"
     },
     {
       "path": "artifacts/jlcpcb-review/bottom-stencil-preview.svg",
-      "sha256": "6eeb967214b2403e0d75fc280d1e504820ed0243d47b7caf32a827821389a67c"
+      "sha256": "45fe9a5e6c2a5cf63f1c8e1312795de217af36874d904ea859eb1d6f23651e15"
     },
     {
       "path": "artifacts/jlcpcb-review/manifest.json",
-      "sha256": "fb5ca39b523b63f7a3ab3607ca4b5b833b36389f66dc28159dbf2c14e6462d3d"
+      "sha256": "ae006d88d72f5385fe1ae79d1f2df5c5afab033e72c2c3a865b2279809843662"
     },
     {
       "path": "artifacts/jlcpcb-review/native-json-compatibility.json",
-      "sha256": "4f8738ba96fefbaa115a2230beea74fff2d8e3bd9b89d5f095e800db589e9d55"
+      "sha256": "0b62c1626847dabc83e14bbe06102a1b125a2dc3d4423bffd8cfff929f2e53f2"
     },
     {
       "path": "artifacts/jlcpcb-review/order-paste-schema-verification.json",
-      "sha256": "63c26bd50b66e828e634b3c0656bc7e3521d58365771f67077a1d616b2172cb2"
+      "sha256": "a72cfa4fce01b4b851760a30997a1746c3bdf5213e6d6106593b8d995b34fa2b"
     },
     {
       "path": "artifacts/jlcpcb-review/order-review-verification.json",
-      "sha256": "4bf07c4ce33e4708de8612451f19612a9fb3ca4ecedbcb5dc65628348d307bb6"
+      "sha256": "eaefb09251f36fda3b09fc482f891ccc8c941aa631e681890bbb455ead39b9d1"
     },
     {
       "path": "artifacts/jlcpcb-review/placement-orientation-review.json",
-      "sha256": "cbe86e91a951718baf42b3af511fd9db2cb6e0e94412f5d453ca3275335c1910"
+      "sha256": "c15f5eaed3827789e84da1ecc063437c6d39a7a9725fa7f9e8597edc0c310659"
     },
     {
       "path": "artifacts/jlcpcb-review/review-cam.zip",
-      "sha256": "4327a4463c03a7014e966d85687810020080eedf45ddfcd783415512a0177b83"
+      "sha256": "f34672c9a645d1c172b7ae45218366dfc70cd715c9ca63516affaad0b076dd7c"
     },
     {
       "path": "artifacts/jlcpcb-review/schematic-a4.pdf",
-      "sha256": "6e29fc4f4e2c7be37493caf6e7ea7175501cc7bcc822041074dbcaa22a8f38b7"
+      "sha256": "6597a241df7968f8b38a73767fc266c4b78a8f9aab82fe0779b88c0ab7769664"
     },
     {
       "path": "artifacts/jlcpcb-review/top-assembly-map.svg",
-      "sha256": "0d7731c9c754236b49cb352ab22af96e0bb98c5d6ef0bc4c8233476cf22c4619"
+      "sha256": "27ce29fcd91fad9ef1e511d44a1a6fba5e1fb5ea7c8f14a349acc65f3cc36748"
     },
     {
       "path": "artifacts/jlcpcb-review/top-order-preview.png",
-      "sha256": "96c81c3b9631698d1118e64900bb5afb3d7f80f26ebe747d88b066254066389d"
+      "sha256": "1dc210222e78a0ef5f5a3a656396cc0a2dd4f40f8627af030cd670e61ee5d3ea"
     },
     {
       "path": "artifacts/jlcpcb-review/top-order-preview.svg",
-      "sha256": "88e4b5671f25a7d756be91c17dfc9c403b568a0d2f2d2d9ca20f5487bc48727b"
+      "sha256": "40d54d36f2d2f66e9af5ecda2da5e9e5e0db5b208dc920ae3bab565cdf6e005b"
     },
     {
       "path": "artifacts/jlcpcb-review/top-stencil-preview.png",
-      "sha256": "fa2f7a4b63ec250863922b9ffc1780adde71a477ac5e9458f672346fee54f271"
+      "sha256": "f62d11b2d4817732c8a60c2e541c88f1d3c4d789f033996fda0e4b29a6312638"
     },
     {
       "path": "artifacts/jlcpcb-review/top-stencil-preview.svg",
-      "sha256": "df53b0103df0e20bfcf5e82db26af1a684611ec514e49f3c147897fb14345d1e"
+      "sha256": "24de682ecec042f9a6f071b63db0692f4820b5176fa0b4ded16d4c2d2b5aa8af"
     }
   ]
 }
