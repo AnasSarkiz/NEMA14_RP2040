@@ -1,3 +1,4 @@
+import { StandardUsbConnector, SmtMotorConnector } from "./reference-connectors"
 import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
 import { CL05B104KB5NNNC } from "../imports/supplier/CL05B104KB5NNNC/CL05B104KB5NNNC"
 import { XL_1608SURC_06 } from "../imports/supplier/XL_1608SURC_06/XL_1608SURC_06"
@@ -50,6 +51,8 @@ import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
 import { CH224K } from "../imports/supplier/CH224K/CH224K"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C165948": StandardUsbConnector,
+ "C160390": SmtMotorConnector,
  "C478000": PMEG6020ELRX,
  "C960916": CL05B104KB5NNNC,
  "C965799": XL_1608SURC_06,
@@ -73,7 +76,7 @@ const parts: Record<string, React.ComponentType<any>> = {
  "C1548": A_0402CG150J500NT,
  "C15849": CL10A105KB8NNNC,
  "C1589": CL10B103KB8NNNC,
- "C165948": TYPE_C_31_M_12,
+
  "C19077512": SMF18A,
  "C2040": RP2040,
  "C20625731": ABM8_272_T3,

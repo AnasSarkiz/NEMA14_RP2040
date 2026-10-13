@@ -12,7 +12,7 @@ import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
 for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
-for f in ['index.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
+for f in ['index.circuit.tsx','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
 (stage/'artifacts').mkdir()
@@ -31,6 +31,9 @@ shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-r
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
 shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
 shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-feedback')
+top=stage/'artifacts/top-assembly';top.mkdir()
+for name in ['functional-preservation.json','connector-decision.json','placement-plan.json','copper-transfer.json','assembly-preview.circuit.json']:
+ shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
 j=json.loads(board_path.read_text())

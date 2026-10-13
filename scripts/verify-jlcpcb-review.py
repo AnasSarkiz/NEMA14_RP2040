@@ -30,7 +30,7 @@ def main():
         assert {'drill_npth.drl','drill-L1-L4.drl','Edge_Cuts.gbr'}<=set(z.namelist())
     src={e['source_component_id']:e for e in board if e['type']=='source_component'}
     pc={src[e['source_component_id']]['name']:e for e in board if e['type']=='pcb_component'}
-    expected=set(pc)-{'J_DEBUG','J_BOOT','J_MOTOR'}
+    expected={n for n,c in pc.items() if src[c['source_component_id']]['ftype']!='simple_test_point'}
     purchasing={}
     for row in csv.DictReader((OUT/'JLCPCB-BOM.csv').open()):
         for ref in row['Designator'].split(','):
@@ -49,7 +49,7 @@ def main():
         assert row['Layer']==c['layer']
     assert set(placements)==expected
     manual=list(csv.DictReader((OUT/'Manual-THT-BOM.csv').open()))
-    assert len(manual)==1 and manual[0]['Designator']=='J_MOTOR' and manual[0]['JLCPCB Part #']=='C131334'
+    assert not manual, 'All fitted components are top-side SMT; USB shell joints are in the separate joint plan'
     native=json.loads((ROOT/'artifacts/resume-validation.json').read_text())
     assert native['board_sha256']==sha(board_path) and native['native_STEP_mechanical_pass']
     checks={e['check']:e for e in native['checks']}
@@ -68,7 +68,7 @@ def main():
              'order_review_CAM_passed':True,'native_order_paste_schema_passed':True,'native_board_sha256':sha(board_path),
              'order_source_sha256':manifest['order_source_sha256'],
              'JLCPCB_gerber_zip_sha256':sha(OUT/'JLCPCB-Gerbers.zip'),
-             'SMT_components':len(expected),'manual_THT_components':1,
+             'SMT_components':len(expected),'manual_THT_components':0,
              'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
              'every_trace_and_segment_reviewed':True,'electrical_geometry_and_connections_preserved':True,
              'raw_native_export_manufacturing_qualified':False,
@@ -79,7 +79,7 @@ def main():
                  'Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.',
                  'Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.',
                  'Confirm exact BOM availability and quote; no substitutions authorized.',
-                 ('Confirm two-sided SMT support; quote USB shell/JST secondary soldering or use the separate manual THT plan.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote USB shell/JST secondary soldering or use the separate manual THT plan.'),
+                 ('Confirm two-sided SMT support; quote USB shell secondary soldering or use the separate manual THT plan.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.'),
                  'Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.'
              ],
              'remaining_CAD_tooling_review':['Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json.'],

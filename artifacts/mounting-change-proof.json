@@ -1,6 +1,6 @@
 {
   "baseline_github_commit": "622ee8168f3cf815d7db0d9fb3f477e99f96f329",
-  "board_sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
+  "board_sha256": "b2703f81acfe5760d8d662183e6180af1577a4f1964f431bf93a420f76781522",
   "board_dimensions_mm": [
     35,
     35
@@ -29,7 +29,7 @@
   "baseline_connected_physical_pin_roles_preserved": true,
   "reference_feedback_added": true,
   "native_import_land_patterns_courtyards_models_preserved": true,
-  "intentional_changes": "Adds feedback circuits and six MCU GPIO roles; CH32 supply uses AP63203 buck; native smaller equivalent-rated passives where required",
+  "intentional_changes": "Preserve functional net groups; move fitted population to top, replace rectangular debug strips with native circular test points, use standard USB-C symbols and reference SMT JST-SH, reroute affected copper",
   "new_motor_connector_uses_native_supplier_land_pattern": true,
   "saved_placements_pads_CAD_and_mounting_equal_native_source": true,
   "native_via_in_pad_flag": true,
@@ -119,96 +119,125 @@
     "radial_screen_allowance_mm": 0.2
   },
   "plug_envelope_mm": [
-    12,
+    10,
     30,
     7
   ],
-  "simultaneous_plug_gap_mm": 0.40000000000000036,
+  "simultaneous_plug_gap_mm": 2.4000000000000004,
   "minimum_USB_to_head_envelope_mm": 0.129999999999999,
   "native_DRC_errors": 0,
   "native_DRC_warnings": 0,
   "physical_nets_checked": 63,
   "final_counts": {
-    "pcb_trace": 539,
-    "pcb_via": 257,
-    "pcb_copper_pour": 33
+    "pcb_trace": 573,
+    "pcb_via": 281,
+    "pcb_copper_pour": 41
   },
   "placement_and_affected_copper_changed": true,
   "construction_receipts_are_history": "Routing/pruning/repair receipts include trial and subsequently replaced copper; this proof and current board JSON describe the final geometry.",
   "motor_connector": {
     "reference": "J_MOTOR",
-    "manufacturer_part_number": "B4B-PH-K-S(LF)(SN)",
-    "supplier_id": "C131334",
-    "mating_housing": "PHR-4",
+    "manufacturer_part_number": "BM04B-SRSS-TB(LF)(SN)",
+    "supplier_id": "C160390",
+    "mating_housing": "SHR-04V-S",
     "insertion_direction": "+Z (from above)",
     "body_and_lead_bbox_mm": [
-      -9.449987299999929,
-      -17.249961700000036,
-      -2.1999940000000002,
-      0.4510128000000681,
-      -12.549961599999994,
-      6.800006000000001
+      -7.500000100000002,
+      -16.432502999999997,
+      0.8,
+      -1.4999998999999995,
+      -12.822502999999998,
+      5.0600000000000005
     ],
     "body_within_35mm_outline": true,
-    "native_hole_centres_mm": [
+    "native_SMT_pad_centres_mm": [
       [
-        -5.499998,
-        -14.249963000000001
+        -3.0000029999999995,
+        -13.2149963
       ],
       [
-        -7.499994,
-        -14.249963000000001
+        -4.000001,
+        -13.2149963
       ],
       [
-        -3.500002,
-        -14.249963000000001
+        -4.999999,
+        -13.2149963
       ],
       [
-        -1.500006,
-        -14.249963000000001
+        -5.999997,
+        -13.2149963
+      ],
+      [
+        -1.700031,
+        -15.7400103
+      ],
+      [
+        -7.299969,
+        -15.740010299999998
       ]
     ],
-    "native_hole_diameter_mm": 0.999998,
-    "STEP_lead_alignment": [
+    "native_JST_drills": 0,
+    "STEP_landing_regions": [
       {
-        "STEP_lead_xy_mm": [
-          -3.4999872999999297,
-          -14.249961699999995
+        "native_pad_xy_mm": [
+          -3.0000029999999995,
+          -13.2149963
         ],
-        "minimum_distance_to_native_hole_mm": 1.4757371109958201e-05
+        "STEP_landing_region_volume_mm3": 0.03876202265530082,
+        "individual_metal_terminal_center_verified": false
       },
       {
-        "STEP_lead_xy_mm": [
-          -5.49998729999993,
-          -14.249961699999995
+        "native_pad_xy_mm": [
+          -4.000001,
+          -13.2149963
         ],
-        "minimum_distance_to_native_hole_mm": 1.077868273555975e-05
+        "STEP_landing_region_volume_mm3": 0.03876202265530083,
+        "individual_metal_terminal_center_verified": false
       },
       {
-        "STEP_lead_xy_mm": [
-          -7.49998729999993,
-          -14.249961699999997
+        "native_pad_xy_mm": [
+          -4.999999,
+          -13.2149963
         ],
-        "minimum_distance_to_native_hole_mm": 6.82495428218031e-06
+        "STEP_landing_region_volume_mm3": 0.03876202265530081,
+        "individual_metal_terminal_center_verified": false
       },
       {
-        "STEP_lead_xy_mm": [
-          -1.4999872999999297,
-          -14.249961699999997
+        "native_pad_xy_mm": [
+          -5.999997,
+          -13.2149963
         ],
-        "minimum_distance_to_native_hole_mm": 1.8745132771933782e-05
+        "STEP_landing_region_volume_mm3": 0.038762022655300765,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -1.700031,
+          -15.7400103
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842394,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -7.299969,
+          -15.740010299999998
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842416,
+        "individual_metal_terminal_center_verified": false
       }
     ],
+    "individual_STEP_metal_terminal_centers_verified": false,
     "vertical_access_envelope_bbox_mm": [
-      -9.74998729999993,
-      -17.549961700000036,
-      6.800006,
-      0.7510128000000682,
-      -12.249961599999995,
-      26.800006
+      -7.800000100000002,
+      -16.732502999999998,
+      5.0600000000000005,
+      -1.1999999,
+      -12.522502999999997,
+      25.060000000000002
     ],
     "vertical_access_intersections": [],
-    "tail_projection_below_PCB_mm": 1.3999940000000002,
+    "tail_projection_below_PCB_mm": 0,
     "cable_and_finger_clearance_hardware_tested": false
   },
   "rear_motor_compatibility_verified": false,

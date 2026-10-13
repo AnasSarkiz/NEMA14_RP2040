@@ -14,7 +14,7 @@ from shapely.affinity import scale
 ROOT = pathlib.Path(__file__).resolve().parents[1]
 OUT = ROOT / 'artifacts/jlcpcb-review'
 CAM = OUT / 'cam'
-BARE = {'J_BOOT', 'J_DEBUG'}
+BARE = set() # Derived from native simple_test_point records below.
 spec = importlib.util.spec_from_file_location('cam_audit', ROOT / 'scripts/audit-manufacturing.py')
 audit = importlib.util.module_from_spec(spec)
 spec.loader.exec_module(audit)
@@ -62,6 +62,7 @@ def main():
     raw = (ROOT / 'artifacts/board.circuit.json').read_bytes()
     native = json.loads(raw)
     src = {e['source_component_id']: e for e in native if e['type']=='source_component'}
+    BARE.update(s['name'] for s in src.values() if s['ftype']=='simple_test_point')
     pc = {e['pcb_component_id']: e for e in native if e['type']=='pcb_component'}
     pads = [e for e in native if e['type']=='pcb_smtpad']
     original_zip = ROOT / 'artifacts/nema14-gerbers.zip'
@@ -191,8 +192,6 @@ def main():
                     'Mid Y':f"{component['center']['y']:.6f}", 'Layer':component['layer'],
                     'Rotation':component.get('rotation',0)}
         cpl.append(position)
-        if ref=='J_MOTOR':
-            manual.append(row)
         part_pads = [e for e in native if e['type'] in {'pcb_smtpad','pcb_plated_hole'} and e.get('pcb_component_id')==component['pcb_component_id']]
         orientations.append({'reference':ref, 'part':part_numbers[0], 'mpn':mpn,
                              'center_mm':component['center'], 'layer':component['layer'],
@@ -200,11 +199,11 @@ def main():
                              'pin1_location':component.get('pin1_location'),
                              'physical_pads':[{'pin_hints':p.get('port_hints',[]),'center_mm':list(audit.shape(p).centroid.coords)[0]} for p in part_pads],
                              'manufacturer_pickup_datum_and_rotation_approved':False,
-                             'process':'THT hand solder or supplier quoted secondary operation' if ref=='J_MOTOR' else 'SMT'})
+                             'process':'top-side SMT; USB shell tabs need secondary soldering' if ref in {'J_PD','J_DATA'} else 'top-side SMT'})
     bom_fields = list(bom[0])
     write_csv(CAM/'bom.csv', bom_fields, bom)
     write_csv(CAM/'pick_and_place.csv', list(cpl[0]), cpl)
-    smt = [row for row in bom if row['Designator']!='J_MOTOR']
+    smt = bom
     grouped = {}
     for row in smt:
         key = (row['JLCPCB Part #'],row['Comment'],row['Footprint'])
@@ -212,7 +211,7 @@ def main():
     write_csv(OUT/'JLCPCB-BOM.csv', ['Comment','Designator','Footprint','LCSC Part #'],
               [{'Comment':key[1],'Designator':','.join(refs),'Footprint':key[2],'LCSC Part #':key[0]}
                for key,refs in grouped.items()])
-    write_csv(OUT/'JLCPCB-CPL.csv', list(cpl[0]), [row for row in cpl if row['Designator']!='J_MOTOR'])
+    write_csv(OUT/'JLCPCB-CPL.csv', list(cpl[0]), cpl)
     write_csv(OUT/'Manual-THT-BOM.csv', bom_fields, manual)
     (OUT/'placement-orientation-review.json').write_text(json.dumps(orientations,indent=2)+'\n')
     # All CAM used by the independent audit is inside this exact archive.
@@ -248,7 +247,7 @@ def main():
                                     'stencil_thickness_um':100,
                                     'thermal_via_process':'filled and capped/planarized via-in-pad; supplier must confirm capability and quote',
                                     'assembly_sides':'top and bottom' if bottom else 'top',
-                                    'JST_process':'separate manual THT soldering, unless secondary supplier operation is quoted'}}
+                                    'JST_process':'top-side SMT C160390; no drilled JST terminals'}}
     (OUT/'manifest.json').write_text(json.dumps(manifest,indent=2)+'\n')
     print(json.dumps({k:manifest[k] for k in ['native_board_sha256','fitted_components','SMT_components','bottom_SMT_references']},indent=2))
 

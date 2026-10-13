@@ -71,10 +71,15 @@ for error in errors:
 
 for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-3,'USB_DM':-3,'MCU_DP':-3,'MCU_DM':-3,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'PWR_LED_A':-5,'SLEEP':4,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
     if '--ground' in sys.argv and nets[net]['name']!='GND':continue
+    requested=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--net=')),None)
+    if requested and nets[net]['name']!=requested:continue
     if nets[net]['name']=='GND' and '--ground' not in sys.argv:continue  # Regenerate plane returns before any separate ground repair.
     current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK'] else .16
     if nets[net]['name']=='PD_VBUS':current_width=.55
     power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK','GND']
+    if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','LOGIC_IN','BUCK_SW','BUCK_BST','CP1','CP2','VCP','VREG','VREF']:layers=['top','inner2','bottom']
+    elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND']:layers=['top','inner1','inner2','bottom']
+    else:layers=['top','inner2','bottom']
     board=next(e for e in j if e['type']=='pcb_board')
     current_via_diameter=max(board['min_via_pad_diameter'],.5 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .4)
     current_via_hole=max(board['min_via_hole_diameter'],.25 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .2)
@@ -98,6 +103,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         # Use a real connected physical land as the start, never an old location.
         startpad=min(islands[startroot],key=lambda e:len(e.get('port_hints',[])))
         startport=g.ports[startpad['pcb_port_id']]
+        traces[net]=next(t['source_trace_id'] for t in j if t['type']=='source_trace' and t.get('subcircuit_connectivity_map_key')==net and startport['source_port_id'] in t.get('connected_source_port_ids',[]))
         sx,sy=startport['x'],startport['y'];startlayer=startpad.get('layer','top')
         start=(*xy(sx,sy),layers.index(startlayer));goals={}
         def goal(x,y,l):
@@ -147,7 +153,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             if cost!=best.get(s):continue
             if s in goals:end=s;break
             expanded+=1
-            if expanded>1600000:break
+            if expanded>5000000:break
             x,y,l=s
             options=[(x+dx,y+dy,l,math.sqrt(2) if dx and dy else 1) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]]
             if (x,y) in existing or all(not b[y,x] for b in vias):options.extend((x,y,q,45) for q in range(len(layers)) if q!=l)

@@ -3,7 +3,7 @@
 Run before fill-ground.py. All new widths retain 0.15 mm foreign-net clearance.
 The result is recorded alongside the original SES for reproducible replay.
 """
-import json, copy
+import json, copy, sys
 import verify_supplier_connectivity as g
 from shapely.geometry import Point, LineString, box
 from shapely.strtree import STRtree
@@ -34,12 +34,14 @@ for e in g.j:
     elif e['type']=='pcb_hole':
         for l in layers: fixed[l].append(Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.10)); fixedkeys[l].append(None)
     elif e['type']=='pcb_keepout':
-        c=e['center'];p=box(c['x']-e['width']/2,c['y']-e['height']/2,c['x']+e['width']/2,c['y']+e['height']/2)
+        c=e['center'];p=box(c['x']-e.get('width',2*e.get('radius',0))/2,c['y']-e.get('height',2*e.get('radius',0))/2,c['x']+e.get('width',2*e.get('radius',0))/2,c['y']+e.get('height',2*e.get('radius',0))/2)
         for l in e.get('layers',layers):
             if l in fixed:fixed[l].append(p);fixedkeys[l].append(None)
 trees={l:STRtree(p) for l,p in fixed.items()}
 traces=[e for e in g.j if e['type']=='pcb_trace'];changes=[]
+failed={s.split(': ',1)[1] for s in json.loads((g.ROOT/'artifacts/trace-width-review.json').read_text())['errors'] if s.startswith('Thermal screening budget exceeded: ')}
 for e in traces:
+    if '--only-failures' in sys.argv and e['pcb_trace_id'] not in failed:continue
     name=g.nets.get(g.key(e));target=targets.get(name)
     if not target:continue
     points=[p for p in e['route'] if p['route_type']=='wire']

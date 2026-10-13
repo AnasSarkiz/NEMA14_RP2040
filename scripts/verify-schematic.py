@@ -10,24 +10,30 @@ baseline=json.loads(subprocess.check_output(['git','show',revision+':artifacts/b
 sha=lambda b:hashlib.sha256(b).hexdigest()
 errors=[]
 immutable=lambda a:sorted((e for e in a if not e['type'].startswith('schematic_')),key=lambda e:(e['type'],str(e.get(e['type']+'_id',''))))
+def electrical(a):return [e for e in a if e['type'].startswith('source_')]
 edge=root/'artifacts/edge-resistors/baseline.json'
-if edge.exists():
+if edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
  baseline=json.loads(subprocess.check_output(['git','show',json.loads(edge.read_text())['baseline_git_revision']+':artifacts/board.circuit.json'],cwd=root))
  def electrical(a):return [e for e in a if e['type'].startswith('source_')]
  if electrical(j)!=electrical(baseline):errors.append('Electrical source/pin roles changed during resistor relocation')
  if [e for e in j if e['type'].startswith('schematic_')]!=[e for e in baseline if e['type'].startswith('schematic_')]:errors.append('Qualified schematic changed during resistor relocation')
-else:
+elif not (root/'artifacts/top-assembly/baseline.json').exists():
  if immutable(j)!=immutable(baseline):errors.append('Non-schematic source, PCB or CAD records changed')
 archive=(root/'artifacts/nema14-gerbers.zip').read_bytes()
 old_archive=subprocess.check_output(['git','show',revision+':artifacts/nema14-gerbers.zip'],cwd=root)
-if not edge.exists() and archive!=old_archive:errors.append('Gerber ZIP bytes changed')
+if not edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists() and archive!=old_archive:errors.append('Gerber ZIP bytes changed')
 source={e['source_component_id']:e for e in j if e['type']=='source_component'}
 sp={e['source_port_id']:e for e in j if e['type']=='source_port'}
 ports={e['source_port_id']:e for e in j if e['type']=='schematic_port'}
 components=[e for e in j if e['type']=='schematic_component'];sheets=[e for e in j if e['type']=='schematic_sheet']
 if len(sheets)!=5 or any(e.get('sheet_width')!=297 or e.get('sheet_height')!=210 for e in sheets):errors.append('Expected five A4 sheets')
 if collections.Counter(e['source_component_id'] for e in components)!=collections.Counter(source.keys()):errors.append('Component symbol coverage mismatch')
-if ports.keys()!=sp.keys():errors.append('Physical pin coverage mismatch')
+omitted=set(sp)-set(ports)
+for sid in omitted:
+ p=sp[sid];c=source[p['source_component_id']]
+ if c['name']=='J_MOTOR' and p['name'] in ['MOUNT1','MOUNT2'] and not p.get('subcircuit_connectivity_map_key'):continue
+ errors.append('Unrepresented physical pin '+c['name']+'.'+p['name'])
+if set(ports)-set(sp):errors.append('Invented schematic source pin')
 for sid,p in ports.items():
  s=sp[sid]
  if p.get('pin_number')!=s.get('pin_number') or p.get('display_pin_label')!=s.get('name'):errors.append('Physical pin identity mismatch: '+sid)
@@ -112,7 +118,7 @@ for sid,p in ports.items():
  xy=Point(p['center']['x'],p['center']['y']);key=sp[sid].get('subcircuit_connectivity_map_key')
  for e in edges:
   if e['sheet']==p['schematic_sheet_id'] and e['key']!=key and e['line'].distance(xy)<1e-5:errors.append('Pin contacts another net: '+sid)
-report={'board_sha256':sha(board_path.read_bytes()),'passed':not errors,'sheet_count':len(sheets),'sheet_names':[s['name'] for s in sheets],'component_count':len(components),'physical_pin_count':len(ports),'connected_net_count':len(roots),'explicit_NC_pin_count':nc_count,'named_net_label_count':len(labels),'orthogonal_wire_segments':len(edges),'marked_different_net_crossings':bridges,'checked_same_net_branch_intersections':junctions,'electrical_source_and_PCB_CAD_preserved':immutable(j)==immutable(baseline),'electrical_source_preserved':electrical(j)==electrical(baseline) if edge.exists() else immutable(j)==immutable(baseline),'qualified_schematic_preserved':[e for e in j if e['type'].startswith('schematic_')]==[e for e in baseline if e['type'].startswith('schematic_')],'PCB_relocation_authorized':edge.exists(),'actual_Gerber_ZIP_preserved':archive==old_archive,'errors':errors}
+report={'board_sha256':sha(board_path.read_bytes()),'passed':not errors,'sheet_count':len(sheets),'sheet_names':[s['name'] for s in sheets],'component_count':len(components),'physical_pin_count':len(sp),'drawn_electrical_pin_count':len(ports),'NC_mechanical_hold_down_pads_omitted':len(omitted),'connected_net_count':len(roots),'explicit_NC_pin_count':nc_count,'named_net_label_count':len(labels),'orthogonal_wire_segments':len(edges),'marked_different_net_crossings':bridges,'checked_same_net_branch_intersections':junctions,'electrical_source_and_PCB_CAD_preserved':immutable(j)==immutable(baseline),'electrical_source_preserved':electrical(j)==electrical(baseline) if edge.exists() else immutable(j)==immutable(baseline),'qualified_schematic_preserved':[e for e in j if e['type'].startswith('schematic_')]==[e for e in baseline if e['type'].startswith('schematic_')],'PCB_relocation_authorized':edge.exists(),'top_assembly_redesign_authorized':(root/'artifacts/top-assembly/baseline.json').exists(),'actual_Gerber_ZIP_preserved':archive==old_archive,'errors':errors}
 (out/'analysis.json').write_text(json.dumps(report,indent=2)+'\n')
 proof={'baseline_git_revision':revision,'baseline_board_sha256':sha(subprocess.check_output(['git','show',revision+':artifacts/board.circuit.json'],cwd=root)),'current_board_sha256':sha(board_path.read_bytes()),'non_schematic_records_identical':immutable(j)==immutable(baseline),'gerber_zip_bytes_identical':archive==old_archive,'gerber_zip_sha256':sha(archive)}
 if not edge.exists():preservation_path.write_text(json.dumps(proof,indent=2)+'\n')

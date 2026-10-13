@@ -37,9 +37,10 @@ for trace in list(g.j):
             port=g.ports[elem['pcb_port_id']];sp=g.sp[port['source_port_id']]
             islands.setdefault(r,set()).add(g.src[sp['source_component_id']]+'.'+sp['name'])
     g.j.insert(index,trace)
-    terminals=[v for v in islands.values() if len(v)==1 and next(iter(v)) in ['U_DRV.VBB1','U_DRV.VBB2','C_VCP.pin2']]
+    terminals=[v for v in islands.values() if len(v)==1 and next(iter(v)) in ['U_DRV.VBB1','U_DRV.VBB2','C_VCP.pin2','R_PD.pin1','R_VM_H.pin1']]
     if len(islands)==2 and len(terminals)==1:
-        terminal_pd[trace['pcb_trace_id']]={'isolated_physical_terminal':next(iter(terminals[0])),'current_budget_A':.4,'cut_verified_against_actual_physical_copper':True}
+        terminal=next(iter(terminals[0]));budget={'R_PD.pin1':.04,'R_VM_H.pin1':.001}.get(terminal,.4)
+        terminal_pd[trace['pcb_trace_id']]={'isolated_physical_terminal':terminal,'current_budget_A':budget,'cut_verified_against_actual_physical_copper':True}
 # Physically cut each 3.3 V branch to screen its actual downstream load.
 # Use the full rail budget whenever the cut does not isolate a single load side.
 logic_loads={'U_MCU':.15,'U_FLASH':.03,'U_DRV':.02,'U_TEMP':.001,'BZ1':.12,'R_PWR_LED':.011,'R_TEMP_SDA':.001,'R_TEMP_SCL':.001}

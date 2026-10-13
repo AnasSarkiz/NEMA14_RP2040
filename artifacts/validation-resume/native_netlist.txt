@@ -3,8 +3,8 @@ Warnings: 0
 
 Readable Netlist:
 COMPONENTS:
- - J_PD: TYPE-C-31-M-12
- - J_DATA: TYPE-C-31-M-12
+ - J_PD: J_PD, source_component
+ - J_DATA: J_DATA, source_component
  - U_PD: CH224K
  - R_PD: 1kΩ resistor
  - C_PD: 1uF capacitor
@@ -26,7 +26,6 @@ COMPONENTS:
  - C_FLASH: 100nF capacitor
  - R_FLASH_CS: 10kΩ resistor
  - R_BOOT: 1kΩ resistor
- - J_BOOT: 
  - Y_MCU: ABM8-272-T3
  - R_XOUT: 1kΩ resistor
  - C_XIN: 15pF capacitor
@@ -63,8 +62,7 @@ COMPONENTS:
  - C_REF: 10nF capacitor
  - R_ENABLE: 100kΩ resistor
  - R_SLEEP: 100kΩ resistor
- - J_MOTOR: B4B-PH-K-S(LF)(SN)
- - J_DEBUG: 
+ - J_MOTOR: J_MOTOR, source_component
  - U_ESD: USBLC6-2SC6
  - D_TVS: SMF18A
  - U_TEMP: TMP102AIDRLR
@@ -86,6 +84,13 @@ COMPONENTS:
  - R_BUZZER_GATE: 100Ω resistor
  - R_BUZZER_PD: 100kΩ resistor
  - C_BUZZER: 10uF capacitor
+ - TP_3V3: TP_3V3, source_component
+ - TP_GND: TP_GND, source_component
+ - TP_SWCLK: TP_SWCLK, source_component
+ - TP_SWDIO: TP_SWDIO, source_component
+ - TP_RUN: TP_RUN, source_component
+ - TP_BOOT: TP_BOOT, source_component
+ - TP_BOOT_GND: TP_BOOT_GND, source_component
 
 NET: PD_CC1
   - U_PD CC1
@@ -140,10 +145,6 @@ NET: QSPI_SS
   - R_FLASH_CS pin2
   - U_FLASH CS
   - U_MCU QSPI_SS
-
-NET: BOOT_PAD
-  - J_BOOT BOOT
-  - R_BOOT pin2
 
 NET: XOUT
   - R_XOUT pin1
@@ -266,19 +267,6 @@ NET: B_MINUS
   - J_MOTOR B_MINUS
   - U_DRV OUT2B
 
-NET: SWCLK
-  - J_DEBUG SWCLK
-  - U_MCU SWCLK
-
-NET: SWDIO
-  - J_DEBUG SWDIO
-  - U_MCU SWDIO
-
-NET: RUN
-  - J_DEBUG RUN
-  - R_RUN pin2
-  - U_MCU RUN
-
 NET: USB_DP
   - U_ESD DP2
   - U_ESD DP1
@@ -290,8 +278,8 @@ NET: USB_DM
   - U_ESD DM2
   - U_ESD DM1
   - R_DM pin2
-  - J_DATA DN2
-  - J_DATA DN1
+  - J_DATA DM2
+  - J_DATA DM1
 
 NET: PD_VBUS
   - D_TVS pin2
@@ -380,6 +368,7 @@ NET: BUZZER_GATE
   - Q_BUZZER pin1
 
 NET: V3V3
+  - TP_3V3 pin1
   - C_BUZZER pin1 (+)
   - D_BUZZER cathode (-)
   - BZ1 _POS
@@ -388,7 +377,6 @@ NET: V3V3
   - R_TEMP_SDA pin2
   - C_TEMP pin1 (+)
   - U_TEMP V_POS
-  - J_DEBUG VDD
   - R_ENABLE pin1
   - R_REF_H pin1
   - C_DRV_LOGIC pin1 (+)
@@ -425,7 +413,26 @@ NET: V3V3
   - U_MCU IOVDD1
   - R_PG pin1
 
+NET: SWCLK
+  - TP_SWCLK pin1
+  - U_MCU SWCLK
+
+NET: SWDIO
+  - TP_SWDIO pin1
+  - U_MCU SWDIO
+
+NET: RUN
+  - TP_RUN pin1
+  - R_RUN pin2
+  - U_MCU RUN
+
+NET: BOOT_PAD
+  - TP_BOOT pin1
+  - R_BOOT pin2
+
 NET: GND
+  - TP_BOOT_GND pin1
+  - TP_GND pin1
   - C_BUZZER pin2 (-)
   - R_BUZZER_PD pin2
   - Q_BUZZER pin2
@@ -438,7 +445,6 @@ NET: GND
   - U_TEMP GND
   - D_TVS pin1
   - U_ESD GND
-  - J_DEBUG GND
   - R_SLEEP pin2
   - C_REF pin2 (-)
   - R_REF_L pin2
@@ -465,7 +471,6 @@ NET: GND
   - C_XIN pin2 (-)
   - Y_MCU pin4
   - Y_MCU pin2
-  - J_BOOT GND
   - C_FLASH pin2 (-)
   - U_FLASH EP
   - U_FLASH GND
@@ -502,15 +507,15 @@ NET: GND
 
 COMPONENT_PINS:
 J_PD (TYPE-C-31-M-12)
-- pin1(EH2): NETS(GND)
-- pin2(EH1): NETS(GND)
-- pin3(EH4): NETS(GND)
-- pin4(EH3): NETS(GND)
+- pin1(EH2, SHELL2): NETS(GND)
+- pin2(EH1, SHELL1): NETS(GND)
+- pin3(EH4, SHELL4): NETS(GND)
+- pin4(EH3, SHELL3): NETS(GND)
 - pin5(SBU2, B8): NOT_CONNECTED
 - pin6(CC1, A5): NETS(PD_CC1)
-- pin7(DN2, B7): NOT_CONNECTED
+- pin7(DM2, DN2, B7): NOT_CONNECTED
 - pin8(DP1, A6): NOT_CONNECTED
-- pin9(DN1, A7): NOT_CONNECTED
+- pin9(DM1, DN1, A7): NOT_CONNECTED
 - pin10(DP2, B6): NOT_CONNECTED
 - pin11(SBU1, A8): NOT_CONNECTED
 - pin12(CC2, B5): NETS(PD_CC2)
@@ -520,15 +525,15 @@ J_PD (TYPE-C-31-M-12)
 - pin16(VBUS2, A4B9): NETS(PD_VBUS)
 
 J_DATA (TYPE-C-31-M-12)
-- pin1(EH2): NETS(GND)
-- pin2(EH1): NETS(GND)
-- pin3(EH4): NETS(GND)
-- pin4(EH3): NETS(GND)
+- pin1(EH2, SHELL2): NETS(GND)
+- pin2(EH1, SHELL1): NETS(GND)
+- pin3(EH4, SHELL4): NETS(GND)
+- pin4(EH3, SHELL3): NETS(GND)
 - pin5(SBU2, B8): NOT_CONNECTED
 - pin6(CC1, A5): NETS(DATA_CC1)
-- pin7(DN2, B7): NETS(USB_DM)
+- pin7(DM2, DN2, B7): NETS(USB_DM)
 - pin8(DP1, A6): NETS(USB_DP)
-- pin9(DN1, A7): NETS(USB_DM)
+- pin9(DM1, DN1, A7): NETS(USB_DM)
 - pin10(DP2, B6): NETS(USB_DP)
 - pin11(SBU1, A8): NOT_CONNECTED
 - pin12(CC2, B5): NETS(DATA_CC2)
@@ -691,10 +696,6 @@ R_FLASH_CS (10kΩ undefined)
 R_BOOT (1kΩ undefined)
 - pin1(anode, pos, left): NETS(QSPI_SS)
 - pin2(cathode, neg, right): NETS(BOOT_PAD)
-
-J_BOOT
-- pin1(BOOT): NETS(BOOT_PAD)
-- pin2(GND): NETS(GND)
 
 Y_MCU (ABM8-272-T3)
 - pin1: NETS(XIN)
@@ -873,18 +874,13 @@ R_SLEEP (100kΩ undefined)
 - pin1(anode, pos, left): NETS(SLEEP)
 - pin2(cathode, neg, right): NETS(GND)
 
-J_MOTOR (B4B-PH-K-S(LF)(SN))
+J_MOTOR (BM04B-SRSS-TB(LF)(SN))
 - pin1(A_PLUS): NETS(A_PLUS)
 - pin2(A_MINUS): NETS(A_MINUS)
 - pin3(B_PLUS): NETS(B_PLUS)
 - pin4(B_MINUS): NETS(B_MINUS)
-
-J_DEBUG
-- pin1(VDD): NETS(V3V3)
-- pin2(GND): NETS(GND)
-- pin3(SWCLK): NETS(SWCLK)
-- pin4(SWDIO): NETS(SWDIO)
-- pin5(RUN): NETS(RUN)
+- pin5(MOUNT1): NOT_CONNECTED
+- pin6(MOUNT2): NOT_CONNECTED
 
 U_ESD (USBLC6-2SC6)
 - pin1(DP1): NETS(USB_DP)
@@ -985,4 +981,25 @@ R_BUZZER_PD (100kΩ undefined)
 C_BUZZER (10uF undefined)
 - pin1(pos): NETS(V3V3)
 - pin2(neg): NETS(GND)
+
+TP_3V3
+- pin1: NETS(V3V3)
+
+TP_GND
+- pin1: NETS(GND)
+
+TP_SWCLK
+- pin1: NETS(SWCLK)
+
+TP_SWDIO
+- pin1: NETS(SWDIO)
+
+TP_RUN
+- pin1: NETS(RUN)
+
+TP_BOOT
+- pin1: NETS(BOOT_PAD)
+
+TP_BOOT_GND
+- pin1: NETS(GND)
 

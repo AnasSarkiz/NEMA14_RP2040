@@ -29,24 +29,39 @@ export function prepareSchematic(json:any[]) {
  const part=(v:Placement)=>{
   if(!byName.has(v.name))return
   const s=byName.get(v.name),old=oldComponents.get(v.name);if(!old)throw Error('Missing native symbol '+v.name)
-  const ps=ports.filter(p=>p.source_component_id===s.source_component_id).sort((a,b)=>a.pin_number-b.pin_number)
-  const center=point(v.x,v.y);let symbol=v.symbol
+  const physical=ports.filter(p=>p.source_component_id===s.source_component_id).sort((a,b)=>a.pin_number-b.pin_number)
+  const duplicates:Record<string,string>={GND3:'GND1',GND4:'GND2',VBUS3:'VBUS1',VBUS4:'VBUS2'}
+  const ps=physical.filter(p=>{
+   if(oldPorts.has(p.source_port_id))return true
+   if(s.standard==='usb_c'&&duplicates[p.name]){
+    const canonical=physical.find(q=>q.name===duplicates[p.name])
+    if(!canonical||!oldPorts.has(canonical.source_port_id)||!p.subcircuit_connectivity_map_key||p.subcircuit_connectivity_map_key!==canonical.subcircuit_connectivity_map_key)throw Error('Unsafe USB power-contact aggregation '+v.name+'.'+p.name)
+    return false
+   }
+   if(v.name==='J_MOTOR'&&['MOUNT1','MOUNT2'].includes(p.name)&&!p.subcircuit_connectivity_map_key)return false
+   throw Error('Missing native schematic pin '+v.name+'.'+p.name)
+  })
+  const center=point(v.x,v.y);const nativeUsb=s.standard==='usb_c';let symbol=v.symbol
+  if(v.name.startsWith('TP_'))symbol='testpoint_right'
   if(!symbol&&/^[CR]_/.test(v.name))symbol=v.name.startsWith('C_')?'capacitor_down':'boxresistor_down'
   if(!symbol&&v.name==='L_BUCK')symbol='inductor_right'
   const def=symbol?(symbols as any)[symbol]:undefined;if(symbol&&!def)throw Error('Unknown symbol '+symbol)
-  const scale=1.25;const size=def?{width:def.size.width*scale,height:def.size.height*scale}:{width:v.box?.[0]??3.2,height:v.box?.[1]??Math.max(2,Math.ceil(ps.length/2)*.43+.8)}
+  const scale=1.25;const size=nativeUsb?old.size:def?{width:def.size.width*scale,height:def.size.height*scale}:{width:v.box?.[0]??3.2,height:v.box?.[1]??Math.max(2,Math.ceil(ps.length/2)*.43+.8)}
   const groupId=`pro_group_${sheet}_${v.section}`;
   if(!out.some(e=>e.type==='schematic_group'&&e.schematic_group_id===groupId))out.push({type:'schematic_group',schematic_group_id:groupId,name:v.section,source_group_id:json.find(e=>e.type==='source_group')?.source_group_id,center:point(0,0),width:0,height:0,schematic_component_ids:[],show_as_schematic_box:false});
-  const comp={...old,schematic_group_id:groupId,center,size,schematic_sheet_id:sheet,is_box_with_pins:true,pin_spacing:.43,...(def?{symbol_name:symbol,symbol_display_value:s.display_resistance??s.display_capacitance??s.display_inductance??(v.name==='Y_MCU'?'12 MHz':s.manufacturer_part_number)}:{})};if(!def)delete comp.symbol_name;out.push(comp)
-  if(!def){text(v.name,v.x-size.width/2,v.y+size.height/2+.38,.27,'left',comp.schematic_component_id);text(s.manufacturer_part_number??'PCB contacts',v.name==='BZ1'?v.x+2:v.x-size.width/2,v.name==='BZ1'?v.y+.9:v.y-size.height/2-.38,.21,'left',comp.schematic_component_id)}
+  const comp={...old,schematic_group_id:groupId,center,size,schematic_sheet_id:sheet,...(nativeUsb?{}:{is_box_with_pins:true,pin_spacing:.43}),...(def?{symbol_name:symbol,symbol_display_value:s.display_resistance??s.display_capacitance??s.display_inductance??(v.name==='Y_MCU'?'12 MHz':s.manufacturer_part_number)}:{})};if(!def&&!nativeUsb)delete comp.symbol_name;out.push(comp)
+  if(v.name==='J_MOTOR')text('MOUNT1/2: NC hold-down pads',v.x-size.width/2,v.y-size.height/2-.8,.17)
+  if(!def){text(v.name,v.x-size.width/2,v.y+size.height/2+.38,.27,'left',comp.schematic_component_id);text(s.manufacturer_part_number??'PCB contacts',v.name==='BZ1'?v.x+2:nativeUsb?v.x+size.width/2+1.8:v.x-size.width/2,v.name==='BZ1'?v.y+.9:nativeUsb?v.y-size.height/2-.15:v.y-size.height/2-.38,.21,'left',comp.schematic_component_id)}
   let left=v.left??ps.slice(0,Math.ceil(ps.length/2)).map(p=>p.name);let right=v.right??ps.filter(p=>!left.includes(p.name)).map(p=>p.name)
   if(v.left||v.right){const remaining=ps.filter(p=>!left.includes(p.name)&&!right.includes(p.name)).map(p=>p.name);right=[...right,...remaining.filter(n=>!v.top?.includes(n)&&!v.bottom?.includes(n))]}
   const boxSpacing=v.spacing??Math.min(.46,(size.height-.65)/Math.max(left.length,right.length,1));const newps:any[]=[]
   for(const p of ps){const op=oldPorts.get(p.source_port_id);if(!op)throw Error('Missing source port '+v.name+'.'+p.name);let local:P,direction:string
-   if(def){
+   if(nativeUsb){local=point(op.center.x-old.center.x,op.center.y-old.center.y);direction=op.facing_direction}
+   else if(def){
     let target=p.name;let lp:any
     if(/^Q_STATUS/.test(v.name))target=({pin1:'emitter',pin2:'base',pin3:'collector'} as any)[p.name]
     else if(v.name==='Q_BUZZER')target=({pin1:'gate',pin2:'source',pin3:'drain'} as any)[p.name]
+    else if(v.name.startsWith('TP_'))target='1'
     else if(v.name.startsWith('D_'))target=/cathode|NEG/.test(p.name)?'cathode':/anode|POS/.test(p.name)?'anode':p.pin_number===1?'anode':'cathode'
     lp=def.ports.find((a:any)=>a.labels.includes(target))??def.ports.find((a:any)=>a.labels.includes(String(p.pin_number)))
     if(!lp)throw Error('Symbol pin mapping '+v.name+'.'+p.name)
@@ -69,6 +84,12 @@ export function prepareSchematic(json:any[]) {
  }
  const strap=(name:string)=>{
   const v=placed.get(name);if(!v)return
+  const shell=v.ports.filter((p:any)=>p.sch.facing_direction==='down'&&nets.get(p.subcircuit_connectivity_map_key)?.name==='GND')
+  if(shell.length>1){
+   const y=Math.min(...shell.map((p:any)=>p.sch.center.y))-.8;const xs=shell.map((p:any)=>p.sch.center.x);const x=(Math.min(...xs)+Math.max(...xs))/2
+   for(const p of shell){wire([p.sch.center,point(p.sch.center.x,y)],p,[p.source_port_id]);connected.add(p.source_port_id);annotated.add(p.source_port_id)}
+   wire([point(Math.min(...xs),y),point(Math.max(...xs),y)],shell[0]);wire([point(x,y),point(x,y-.4)],shell[0]);label(shell[0],point(x,y-.4),'top',true);localComplete.add(shell[0].section+'|'+shell[0].subcircuit_connectivity_map_key)
+  }
   const groupsBySide=new Map<string,any[]>();for(const p of v.ports){const n=nets.get(p.subcircuit_connectivity_map_key);if(!n||!['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','PD_VDD'].includes(n.name)||!['left','right'].includes(p.sch.facing_direction))continue;const k=p.subcircuit_connectivity_map_key+'|'+p.sch.facing_direction;groupsBySide.set(k,[...(groupsBySide.get(k)??[]),p])}
   for(const ps of groupsBySide.values()){
    if(ps.length<2)continue;const ymin=Math.min(...ps.map(p=>p.sch.center.y)),ymax=Math.max(...ps.map(p=>p.sch.center.y));if(v.ports.some((p:any)=>p.sch.facing_direction===ps[0].sch.facing_direction&&p.sch.center.y>=ymin&&p.sch.center.y<=ymax&&p.subcircuit_connectivity_map_key!==ps[0].subcircuit_connectivity_map_key))continue
@@ -114,7 +135,7 @@ export function prepareSchematic(json:any[]) {
  }
  start(1,'Power & USB-PD','Motor supply negotiation, reverse-blocked logic power and 3.3 V conversion')
  caption('USB-C motor power','Fixed 15 V request; data and SBU contacts unused',.6,19)
- part({name:'J_PD',x:4,y:14.8,section:'pd',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DN1','DN2']})
+ part({name:'J_PD',x:4,y:14.8,section:'pd',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DM1','DM2']})
  part({name:'U_PD',x:11,y:15.72,section:'pd',box:[3.2,4.5],left:['VBUS','VDD','CC1','CC2'],right:['CFG2','CFG3','PG','CFG1','GND','DP','DM']})
  part({name:'R_PD',x:9.8,y:10.2,section:'pd',symbol:'boxresistor_down'});part({name:'C_PD',x:12.7,y:10.2,section:'pd'});part({name:'R_PG',x:14.5,y:15.5,section:'pd'});part({name:'D_TVS',x:4,y:9.2,section:'pd',symbol:'avalanche_diode_up'})
  caption('3.3 V logic supply','AP63203 fixed-output buck; USB power is diode-isolated',17,19)
@@ -134,13 +155,13 @@ export function prepareSchematic(json:any[]) {
  text('VIN range and transients require bench qualification.',17,5.1,.22);text('PD_VBUS = motor rail    DATA_VBUS = programming USB 5 V',.6,5.1,.22);finish()
  start(2,'Programming & USB','Programming USB-C, data-line protection and nonvolatile boot interfaces')
  caption('USB-C data port','Separate 5.1 kΩ CC pull-downs; duplicated D+/D− contacts',.6,19)
- part({name:'J_DATA',x:4,y:14.1,section:'usb',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DN1','DN2']})
+ part({name:'J_DATA',x:4,y:14.1,section:'usb',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DM1','DM2']})
  part({name:'R_CC1',x:8.3,y:16.4,section:'usb'});part({name:'R_CC2',x:11,y:16.4,section:'usb'});part({name:'U_ESD',x:10,y:11.3,section:'usb',box:[1.76,2.2],left:['DP1','DM1'],right:['DP2','DM2'],top:['VBUS'],bottom:['GND'],spacing:1.1})
  part({name:'R_DP',x:15.4,y:11.85,section:'usb',symbol:'boxresistor_left'});part({name:'R_DM',x:15.4,y:10.75,section:'usb',symbol:'boxresistor_left'})
  caption('USB presence','Resistive divider to MCU; fixed 5 V input only',.6,8.6)
  part({name:'R_USB_SENSE_H',x:4,y:6.2,section:'sense'});part({name:'R_USB_SENSE_L',x:4,y:3.8,section:'sense'});connect(['R_USB_SENSE_H.2','R_USB_SENSE_L.1'])
- if(rp){caption('QSPI flash & boot selection','GD25Q16E; BOOT contact asserts the boot input',20,19);part({name:'U_FLASH',x:24.5,y:14.6,section:'flash',box:[1.76,3.2],left:['CS','CLK','IO0','IO1','IO2','IO3'],right:['VCC','GND','EP']});part({name:'C_FLASH',x:29.8,y:14.8,section:'flash'});part({name:'R_FLASH_CS',x:20,y:11.5,section:'flash'});part({name:'R_BOOT',x:23.5,y:7,section:'boot',symbol:'boxresistor_right'});part({name:'J_BOOT',x:28,y:7,section:'boot',box:[2,2],left:['BOOT','GND'],right:[]})}
- else{caption('Boot & debug access','Boot contact and WCH DCK/DIO are retained',20,19);part({name:'R_USB_BOOT',x:23,y:15,section:'boot'});part({name:'J_BOOT',x:28,y:12.5,section:'boot',box:[2,2],left:['BOOT','GND'],right:[]});text('USB full-speed D+/D− route directly to CH32X035.',20,8.3,.24);text('Debug interface is shown on Controller sheet 03.',20,7.5,.23)}finish()
+ if(rp){caption('QSPI flash & boot selection','GD25Q16E; BOOT contact asserts the boot input',20,19);part({name:'U_FLASH',x:24.5,y:14.6,section:'flash',box:[1.76,3.2],left:['CS','CLK','IO0','IO1','IO2','IO3'],right:['VCC','GND','EP']});part({name:'C_FLASH',x:29.8,y:14.8,section:'flash'});part({name:'R_FLASH_CS',x:20,y:11.5,section:'flash'});part({name:'R_BOOT',x:23.5,y:7,section:'boot',symbol:'boxresistor_right'});part({name:'TP_BOOT',x:27,y:7,section:'boot'});part({name:'TP_BOOT_GND',x:27,y:5.5,section:'boot'})}
+ else{caption('Boot & debug access','Boot contact and WCH DCK/DIO are retained',20,19);part({name:'R_USB_BOOT',x:23,y:15,section:'boot'});part({name:'TP_BOOT',x:27,y:12.5,section:'boot'});part({name:'TP_BOOT_USB_DP',x:25.5,y:10.5,section:'boot'});text('USB full-speed D+/D− route directly to CH32X035.',20,8.3,.24);text('Debug interface is shown on Controller sheet 03.',20,7.5,.23)}finish()
  start(3,'Controller & clocks','MCU interfaces, reset/debug access, power decoupling and clock support')
  if(rp){
   const used=ports.filter(p=>p.source_component_id===byName.get('U_MCU').source_component_id&&p.subcircuit_connectivity_map_key&&p.name.startsWith('GPIO')).map(p=>p.name);const nc=ports.filter(p=>p.source_component_id===byName.get('U_MCU').source_component_id&&!p.subcircuit_connectivity_map_key&&p.name.startsWith('GPIO')).map(p=>p.name)
@@ -148,9 +169,9 @@ export function prepareSchematic(json:any[]) {
   caption('12 MHz crystal','Native 4-pin crystal; load capacitors and series resistor',18,19)
   part({name:'Y_MCU',x:23,y:16.5,section:'clock',symbol:'crystal_4pin_right'});part({name:'R_XOUT',x:27.5,y:16.4875,section:'clock',symbol:'boxresistor_left'});part({name:'C_XIN',x:19.5,y:16,section:'clock'});part({name:'C_XOUT',x:25.5,y:16,section:'clock'})
   caption('3.3 V bypass','IOVDD, ADC and USB decoupling',17.5,14);capBank(['C_IO1','C_IO10','C_IO22','C_IO33','C_IO42','C_IO49'],17.3,11.5,'V3V3');capBank(['C_ADC','C_USB','C_VREG_IN'],17.3,7.8,'V3V3')
-  caption('1.1 V core','On-chip VREG_OUT feeds DVDD',17.5,5.8);capBank(['C_VREG_OUT','C_DV23','C_DV50'],17.3,3.5,'V1V1');part({name:'R_RUN',x:3,y:10.1,section:'reset'});part({name:'J_DEBUG',x:3,y:5.5,section:'debug',box:[1.57,2.8],left:[],right:['VDD','GND','SWCLK','SWDIO','RUN']})
+  caption('1.1 V core','On-chip VREG_OUT feeds DVDD',17.5,5.8);capBank(['C_VREG_OUT','C_DV23','C_DV50'],17.3,3.5,'V1V1');part({name:'R_RUN',x:3,y:10.1,section:'reset'});[['TP_3V3',2,6.5],['TP_GND',4.5,6.5],['TP_SWCLK',2,5],['TP_SWDIO',2,3.5],['TP_RUN',4.5,3.5]].forEach(([name,x,y])=>part({name:String(name),x:Number(x),y:Number(y),section:'debug'}))
  }else{
-  part({name:'U_MCU',x:10,y:12.7,section:'mcu',box:[5.4,8.2]});caption('3.3 V bypass','Place bypass capacitors close to VDD',20,18.5);capBank(['C_MCU','C_LOGIC'],21,15.5,'V3V3');part({name:'J_DEBUG',x:23,y:12.24,section:'mcu',box:[1.38,3],left:['VDD','GND','DCK','DIO'],right:[]});text('TMP102 uses software I²C: PB7 SDA / PB6 SCL.',20,5.8,.25);text('Buzzer: PA6 TIM3_CH1. RGB: PA5 / PA7 / PB0.',20,4.9,.25);text('Unused GPIO and USB-C CC pins are explicitly NC.',.6,4.2,.23)
+  part({name:'U_MCU',x:10,y:12.7,section:'mcu',box:[5.4,8.2]});caption('3.3 V bypass','Place bypass capacitors close to VDD',20,18.5);capBank(['C_MCU','C_LOGIC'],21,15.5,'V3V3');[['TP_3V3',21,12.24],['TP_GND',25,12.24],['TP_DCK',21,10],['TP_DIO',25,10]].forEach(([name,x,y])=>part({name:String(name),x:Number(x),y:Number(y),section:'mcu'}));text('TMP102 uses software I²C: PB7 SDA / PB6 SCL.',20,5.8,.25);text('Buzzer: PA6 TIM3_CH1. RGB: PA5 / PA7 / PB0.',20,4.9,.25);text('Unused GPIO and USB-C CC pins are explicitly NC.',.6,4.2,.23)
  }finish()
  start(4,'Stepper motor driver','A4988 phase outputs, charge pump, current limit and motor-voltage measurement')
  part({name:'U_DRV',x:15.5,y:12.3,section:'driver',box:[4.4,7.9],left:['STEP','DIR','ENABLE_N','SLEEP','REF','VDD','MS1','MS2','MS3','RESET_N','ROSC','GND','GND18','EP'],right:['VBB1','VBB2','OUT1A','OUT1B','OUT2A','OUT2B','SENSE1','SENSE2','CP1','CP2','VCP','VREG','NC7','NC20','NC25']})

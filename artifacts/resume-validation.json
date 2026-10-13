@@ -1,5 +1,5 @@
 {
-  "board_sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
+  "board_sha256": "b2703f81acfe5760d8d662183e6180af1577a4f1964f431bf93a420f76781522",
   "checks": [
     {
       "check": "all_resistor_edge_clearances",
@@ -40,7 +40,7 @@
     {
       "check": "fitted_JST_and_actual_drills",
       "command": [
-        "python3",
+        "/workspace/.routing-venv/bin/python",
         "scripts/check-motor-connector.py"
       ],
       "exit_code": 0,
@@ -187,38 +187,12 @@
   "CAD_models_checked": 81,
   "physical_nets_checked": 63,
   "counts": {
-    "pcb_trace": 539,
-    "pcb_via": 257,
-    "pcb_copper_pour": 33
+    "pcb_trace": 573,
+    "pcb_via": 281,
+    "pcb_copper_pour": 41
   },
   "full_CAM_status": "FAIL",
   "remaining_CAM_findings": [
-    {
-      "kind": "assembly-paste-policy",
-      "layer": "F_Paste",
-      "bare_interface_overlap_mm2": 1.469999999999997,
-      "manual_plated_joint_overlap_mm2": 0.0,
-      "outside_smt_copper_mm2": 0.0
-    },
-    {
-      "kind": "assembly-paste-policy",
-      "layer": "B_Paste",
-      "bare_interface_overlap_mm2": 2.9400000000000026,
-      "manual_plated_joint_overlap_mm2": 0.0,
-      "outside_smt_copper_mm2": 0.0
-    },
-    {
-      "kind": "assembly-table-policy",
-      "table": "bom.csv",
-      "rows": 83,
-      "bare_rows": [
-        "J_BOOT",
-        "J_DEBUG"
-      ],
-      "missing_fitted": [],
-      "unexpected": [],
-      "duplicate_refs": []
-    },
     {
       "kind": "BOM-source-identity",
       "errors": [
@@ -1230,15 +1204,15 @@
           "errors": {
             "Manufacturer Part Number": {
               "export": null,
-              "source": "B4B-PH-K-S(LF)(SN)"
+              "source": "BM04B-SRSS-TB(LF)(SN)"
             },
             "Comment": {
               "export": "",
-              "source": "B4B-PH-K-S(LF)(SN)"
+              "source": "BM04B-SRSS-TB(LF)(SN)"
             },
             "Value": {
-              "export": "C131334",
-              "source": "B4B-PH-K-S(LF)(SN)"
+              "export": "C160390",
+              "source": "BM04B-SRSS-TB(LF)(SN)"
             }
           }
         },
@@ -1602,18 +1576,6 @@
       ]
     },
     {
-      "kind": "assembly-table-policy",
-      "table": "pick_and_place.csv",
-      "rows": 83,
-      "bare_rows": [
-        "J_BOOT",
-        "J_DEBUG"
-      ],
-      "missing_fitted": [],
-      "unexpected": [],
-      "duplicate_refs": []
-    },
-    {
       "kind": "stencil-release-screen",
       "apertures": [
         {
@@ -1684,9 +1646,9 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            -0.569944,
+            -0.17014800000000002,
             -3.722567,
-            -0.429944,
+            -0.030147999999999994,
             -3.127559
           ],
           "area_mm2": 0.08330112,
@@ -1697,9 +1659,9 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            -0.17014800000000002,
+            -0.569944,
             -3.722567,
-            -0.030147999999999994,
+            -0.429944,
             -3.127559
           ],
           "area_mm2": 0.08330112,
@@ -1892,19 +1854,6 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            0.6299520000000001,
-            3.127559,
-            0.769952,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999994,
-          "perimeter_mm": 1.4700159999999998,
-          "aspect_ratio_at_100um": 1.399999999999999,
-          "area_ratio_at_100um": 0.5666681178980362
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
             1.829848,
             3.127559,
             1.969848,
@@ -1931,6 +1880,32 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
+            0.229902,
+            3.127559,
+            0.369902,
+            3.722567
+          ],
+          "area_mm2": 0.08330112,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000001,
+          "area_ratio_at_100um": 0.5666681178980364
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            0.6299520000000001,
+            3.127559,
+            0.769952,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999994,
+          "perimeter_mm": 1.4700159999999998,
+          "aspect_ratio_at_100um": 1.399999999999999,
+          "area_ratio_at_100um": 0.5666681178980362
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
             1.0300019999999999,
             3.127559,
             1.170002,
@@ -1950,22 +1925,9 @@
             3.722567
           ],
           "area_mm2": 0.08330112,
-          "perimeter_mm": 1.4700160000000002,
+          "perimeter_mm": 1.470016,
           "aspect_ratio_at_100um": 1.4000000000000001,
-          "area_ratio_at_100um": 0.5666681178980364
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            0.229902,
-            3.127559,
-            0.369902,
-            3.722567
-          ],
-          "area_mm2": 0.08330112,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000001,
-          "area_ratio_at_100um": 0.5666681178980364
+          "area_ratio_at_100um": 0.5666681178980365
         },
         {
           "layer": "F_Paste",
@@ -1983,19 +1945,6 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            4.229894,
-            -3.722567,
-            4.369894,
-            -3.127559
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
             4.629944,
             -3.722567,
             4.769944000000001,
@@ -2009,9 +1958,9 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            3.829844,
+            2.629948,
             -3.722567,
-            3.9698439999999997,
+            2.769948,
             -3.127559
           ],
           "area_mm2": 0.08330111999999981,
@@ -2022,15 +1971,15 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            3.430048,
+            4.229894,
             -3.722567,
-            3.570048,
+            4.369894,
             -3.127559
           ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
         },
         {
           "layer": "F_Paste",
@@ -2061,15 +2010,119 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            2.629948,
+            3.829844,
             -3.722567,
-            2.769948,
+            3.9698439999999997,
             -3.127559
           ],
           "area_mm2": 0.08330111999999981,
           "perimeter_mm": 1.4700159999999993,
           "aspect_ratio_at_100um": 1.3999999999999968,
           "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            3.430048,
+            -3.722567,
+            3.570048,
+            -3.127559
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            3.430048,
+            3.127559,
+            3.570048,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            3.829844,
+            3.127559,
+            3.9698439999999997,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            2.2298980000000004,
+            3.127559,
+            2.369898,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            3.029998,
+            3.127559,
+            3.1699979999999996,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            4.629944,
+            3.127559,
+            4.769944000000001,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            2.629948,
+            3.127559,
+            2.769948,
+            3.722567
+          ],
+          "area_mm2": 0.08330111999999981,
+          "perimeter_mm": 1.4700159999999993,
+          "aspect_ratio_at_100um": 1.3999999999999968,
+          "area_ratio_at_100um": 0.5666681178980355
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            4.229894,
+            3.127559,
+            4.369894,
+            3.722567
+          ],
+          "area_mm2": 0.08330112000000034,
+          "perimeter_mm": 1.470016000000001,
+          "aspect_ratio_at_100um": 1.4000000000000057,
+          "area_ratio_at_100um": 0.5666681178980383
         },
         {
           "layer": "F_Paste",
@@ -2114,6 +2167,19 @@
           "layer": "F_Paste",
           "bounds_mm": [
             5.227432,
+            -1.469921,
+            5.82244,
+            -1.329921
+          ],
+          "area_mm2": 0.08330112000000008,
+          "perimeter_mm": 1.4700160000000002,
+          "aspect_ratio_at_100um": 1.4000000000000012,
+          "area_ratio_at_100um": 0.5666681178980368
+        },
+        {
+          "layer": "F_Paste",
+          "bounds_mm": [
+            5.227432,
             -1.069871,
             5.82244,
             -0.9298709999999999
@@ -2140,9 +2206,9 @@
           "layer": "F_Paste",
           "bounds_mm": [
             5.227432,
-            0.130025,
+            -0.270025,
             5.82244,
-            0.270025
+            -0.130025
           ],
           "area_mm2": 0.08330112,
           "perimeter_mm": 1.470016,
@@ -2152,114 +2218,10 @@
         {
           "layer": "F_Paste",
           "bounds_mm": [
-            4.629944,
-            3.127559,
-            4.769944000000001,
-            3.722567
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            2.2298980000000004,
-            3.127559,
-            2.369898,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            2.629948,
-            3.127559,
-            2.769948,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            3.430048,
-            3.127559,
-            3.570048,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            4.229894,
-            3.127559,
-            4.369894,
-            3.722567
-          ],
-          "area_mm2": 0.08330112000000034,
-          "perimeter_mm": 1.470016000000001,
-          "aspect_ratio_at_100um": 1.4000000000000057,
-          "area_ratio_at_100um": 0.5666681178980383
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            3.829844,
-            3.127559,
-            3.9698439999999997,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            3.029998,
-            3.127559,
-            3.1699979999999996,
-            3.722567
-          ],
-          "area_mm2": 0.08330111999999981,
-          "perimeter_mm": 1.4700159999999993,
-          "aspect_ratio_at_100um": 1.3999999999999968,
-          "area_ratio_at_100um": 0.5666681178980355
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
             5.227432,
-            -1.469921,
+            0.130025,
             5.82244,
-            -1.329921
-          ],
-          "area_mm2": 0.08330112000000008,
-          "perimeter_mm": 1.4700160000000002,
-          "aspect_ratio_at_100um": 1.4000000000000012,
-          "area_ratio_at_100um": 0.5666681178980368
-        },
-        {
-          "layer": "F_Paste",
-          "bounds_mm": [
-            5.227432,
-            -0.270025,
-            5.82244,
-            -0.130025
+            0.270025
           ],
           "area_mm2": 0.08330112,
           "perimeter_mm": 1.470016,
@@ -2349,16 +2311,9 @@
     {
       "kind": "silkscreen-clearance",
       "layer": "F_SilkScreen",
-      "overlap_mask_openings_mm2": 9.727050719138457,
-      "inside_0_15mm_mask_guard_mm2": 17.9252013828694,
-      "outside_board_0_10mm_inset_mm2": 11.183411504725875
-    },
-    {
-      "kind": "silkscreen-clearance",
-      "layer": "B_SilkScreen",
-      "overlap_mask_openings_mm2": 0.3334806907076452,
-      "inside_0_15mm_mask_guard_mm2": 0.48122634244169105,
-      "outside_board_0_10mm_inset_mm2": 0.0
+      "overlap_mask_openings_mm2": 11.118279331501652,
+      "inside_0_15mm_mask_guard_mm2": 20.596738698355093,
+      "outside_board_0_10mm_inset_mm2": 12.333132883999566
     },
     {
       "kind": "EP-stencil-coverage",
@@ -2375,32 +2330,11 @@
     {
       "kind": "EP-stencil-coverage",
       "ref": "U_DRV",
-      "pad": "pcb_smtpad_189",
+      "pad": "pcb_smtpad_187",
       "coverage_fraction": 0.49000021000044286
-    },
-    {
-      "kind": "paste-source-mismatch",
-      "layer": "F_Paste",
-      "missing_mm2": 0.0,
-      "extra_mm2": 1.469999999999997
-    },
-    {
-      "kind": "paste-source-mismatch",
-      "layer": "B_Paste",
-      "missing_mm2": 0.0,
-      "extra_mm2": 2.9400000000000026
     }
   ],
   "rear_motor_compatibility_verified": false,
   "prototype_fabrication_ready": false,
-  "physical_hardware_tested": false,
-  "retry_history": [
-    {
-      "check": "full_independent_CAM",
-      "previous_exit_code": 1,
-      "retry_exit_code": 1,
-      "board_sha256": "ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035",
-      "retried_at_utc": "2026-10-13T05:42:08.063090+00:00"
-    }
-  ]
+  "physical_hardware_tested": false
 }

@@ -11,9 +11,9 @@ C_IO10,CL05B104KO5NNNC,C1525,100nF,10,,-4.1,-1.2,90,top,native supplier import w
 C_IO22,CL05B104KO5NNNC,C1525,100nF,10,,4,-5.4,270,top,native supplier import with OBJ and STEP
 C_IO33,CL05B104KO5NNNC,C1525,100nF,10,,6.77,-1.2,90,top,native supplier import with OBJ and STEP
 C_IO42,CL05B104KO5NNNC,C1525,100nF,10,,6.77,2.6,90,top,native supplier import with OBJ and STEP
-C_IO49,CL05B104KO5NNNC,C1525,100nF,10,,2.7,4.75,0,bottom,native supplier import with OBJ and STEP
+C_IO49,CL05B104KO5NNNC,C1525,100nF,10,,2.857,4.75,0,top,native supplier import with OBJ and STEP
 C_DV23,CL05B104KO5NNNC,C1525,100nF,10,,5.2,-5.38,90,top,native supplier import with OBJ and STEP
-C_DV50,CL05B104KO5NNNC,C1525,100nF,10,,1.9,3.6,0,bottom,native supplier import with OBJ and STEP
+C_DV50,CL05B104KO5NNNC,C1525,100nF,10,,2.846,5.793,180,top,native supplier import with OBJ and STEP
 C_USB,CL05B104KO5NNNC,C1525,100nF,10,,3,7.4,90,top,native supplier import with OBJ and STEP
 C_ADC,CL05B104KO5NNNC,C1525,100nF,10,,6.7,5.3,90,top,native supplier import with OBJ and STEP
 C_VREG_IN,CL05A105KA5NQNC,C52923,1uF,10,,5.2,7.4,90,top,native supplier import with OBJ and STEP
@@ -22,17 +22,16 @@ U_FLASH,GD25Q16EEIGR,C2986331,,,,-6.034903,-7.756800999999999,0,top,native suppl
 C_FLASH,CL05B104KO5NNNC,C1525,100nF,10,,16.780002,6.980115,90,top,native supplier import with OBJ and STEP
 R_FLASH_CS,0402WGF1002TCE,C25744,10kΩ,,,-2,7.2,0,top,native supplier import with OBJ and STEP
 R_BOOT,0402WGF1001TCE,C11702,1kΩ,,,-2,8.3,0,top,native supplier import with OBJ and STEP
-J_BOOT,,,,,,16.1,12,90,top,bare PCB interface
-Y_MCU,ABM8-272-T3,C20625731,,,,1.0999999999999999,-6.16,0,top,native supplier import with OBJ and STEP
-R_XOUT,0402WGF1001TCE,C11702,1kΩ,,,1.2,-4.8,0,bottom,native supplier import with OBJ and STEP
+Y_MCU,ABM8-272-T3,C20625731,,,,1.1000000000000005,-6.219999999999999,0,top,native supplier import with OBJ and STEP
+R_XOUT,0402WGF1001TCE,C11702,1kΩ,,,-1.9399999999999997,-4.79,0,top,native supplier import with OBJ and STEP
 C_XIN,0402CG150J500NT,C1548,15pF,10,,-1.55,-7,90,top,native supplier import with OBJ and STEP
-C_XOUT,0402CG150J500NT,C1548,15pF,10,,3.4,-5.9,0,bottom,native supplier import with OBJ and STEP
+C_XOUT,0402CG150J500NT,C1548,15pF,10,,4.2,-7.27,0,top,native supplier import with OBJ and STEP
 R_RUN,0402WGF1002TCE,C25744,10kΩ,,,-16.475,13.885,90,top,native supplier import with OBJ and STEP
 R_DM,0402WGF270JTCE,C25100,27Ω,,,5.5,5.3,90,top,native supplier import with OBJ and STEP
 R_DP,0402WGF270JTCE,C25100,27Ω,,,4.3,5.3,90,top,native supplier import with OBJ and STEP
 R_CC1,0402WGF5101TCE,C25905,5.1kΩ,,,0,10.3,90,top,native supplier import with OBJ and STEP
 R_CC2,0402WGF5101TCE,C25905,5.1kΩ,,,10.4,7.5,0,top,native supplier import with OBJ and STEP
-R_USB_SENSE_H,0402WGF1003TCE,C25741,100kΩ,,,-16.475,-0.49999999999999994,90,top,native supplier import with OBJ and STEP
+R_USB_SENSE_H,0402WGF1003TCE,C25741,100kΩ,,,-16.475,-0.4999999999999999,90,top,native supplier import with OBJ and STEP
 R_USB_SENSE_L,0402WGF1003TCE,C25741,100kΩ,,,16.03,13.93,0,top,native supplier import with OBJ and STEP
 R_VM_H,0402WGF1003TCE,C25741,100kΩ,,,16.235,15.79,90,top,native supplier import with OBJ and STEP
 R_VM_L,0402WGF1002TCE,C25744,10kΩ,,,-14.274355,9.530002,0,top,native supplier import with OBJ and STEP
@@ -54,18 +53,17 @@ C_VM,CL05B104KB5NNNC,C960916,100nF,35,,-1.639998,-10.769885,90,top,native suppli
 C_BULK,RVT1V470M0605,C72522,47uF,35,,-12.05,-5.4,90,top,native supplier import with OBJ and STEP
 R_SA,FRL0805FR240TS,C2930216,240mΩ,,,-0.151495,-9.763734,90,top,native supplier import with OBJ and STEP
 R_SB,FRL0805FR240TS,C2930216,240mΩ,,,-2.933734,-8.881495,0,top,native supplier import with OBJ and STEP
-R_REF_H,0603WAF3902T5E,C23153,39kΩ,,,12.085,-16.315,0,top,native supplier import with OBJ and STEP
+R_REF_H,0603WAF3902T5E,C23153,39kΩ,,,12.07,-16.31,0,top,native supplier import with OBJ and STEP
 R_REF_L,0402WGF1002TCE,C25744,10kΩ,,,6.81,-16.03,90,top,native supplier import with OBJ and STEP
-C_REF,CL10B103KB8NNNC,C1589,10nF,10,,9.320023,-15.420001,0,top,native supplier import with OBJ and STEP
+C_REF,CL10B103KB8NNNC,C1589,10nF,10,,9.29,-15.42,0,top,native supplier import with OBJ and STEP
 R_ENABLE,0402WGF1003TCE,C25741,100kΩ,,,14.115645,15.780002,180,top,native supplier import with OBJ and STEP
 R_SLEEP,0603WAF1003T5E,C25803,100kΩ,,,-0.007997000000000004,12.796602,90,top,native supplier import with OBJ and STEP
-J_MOTOR,B4B-PH-K-S(LF)(SN),C131334,,,,-4.5,-14.249963000000001,180,top,native supplier import with OBJ and STEP
-J_DEBUG,,,,,,0,6.5,0,bottom,bare PCB interface
+J_MOTOR,BM04B-SRSS-TB(LF)(SN),C160390,,,,-4.5,-14.54,180,top,native supplier import with OBJ and STEP
 U_ESD,USBLC6-2SC6,C2687116,,,,13.15,8.3,0,top,native supplier import with OBJ and STEP
 D_TVS,SMF18A,C19077512,,,,-4.740017,-11.010002,180,top,native supplier import with OBJ and STEP
 U_TEMP,TMP102AIDRLR,C99269,,,,8.939985,-12.119923,0,top,native supplier import with OBJ and STEP
 C_TEMP,CL05B104KO5NNNC,C1525,100nF,10,,9.810115,-10.489998,0,top,native supplier import with OBJ and STEP
-R_TEMP_SDA,0402WGF4701TCE,C25900,4.7kΩ,,,9.6,-12.2,0,bottom,native supplier import with OBJ and STEP
+R_TEMP_SDA,0402WGF4701TCE,C25900,4.7kΩ,,,11.72,-10.58,180,top,native supplier import with OBJ and STEP
 R_TEMP_SCL,0402WGF4701TCE,C25900,4.7kΩ,,,-16.475,-9.25,90,top,native supplier import with OBJ and STEP
 D_PWR,XL-1608SURC-06,C965799,,,,-1.65,6,0,top,native supplier import with OBJ and STEP
 R_PWR_LED,0402WGF3300TCE,C25104,330Ω,,,14.025,-16.03,90,top,native supplier import with OBJ and STEP
@@ -82,3 +80,10 @@ D_BUZZER,PMEG6020ELRX,C478000,,,,11.327407,-7.820002000000001,0,top,native suppl
 R_BUZZER_GATE,0402WGF1000TCE,C25076,100Ω,,,9.735645,-9.419998,0,top,native supplier import with OBJ and STEP
 R_BUZZER_PD,0402WGF1003TCE,C25741,100kΩ,,,11.695645,-9.419998,0,top,native supplier import with OBJ and STEP
 C_BUZZER,CL10A106KP8NNNC,C19702,10uF,10,,7.919999,-8.139977,90,top,native supplier import with OBJ and STEP
+TP_3V3,,,,,,-0.32299999999999995,14.906,0,top,bare PCB interface
+TP_GND,,,,,,0.32200000000000006,16.309,0,top,bare PCB interface
+TP_SWCLK,,,,,,1.223,5.24,0,top,bare PCB interface
+TP_SWDIO,,,,,,-3.77,6.48,0,top,bare PCB interface
+TP_RUN,,,,,,-12.078,10.249,0,top,bare PCB interface
+TP_BOOT,,,,,,16.1,12,0,top,bare PCB interface
+TP_BOOT_GND,,,,,,16.1,8.81,0,top,bare PCB interface
