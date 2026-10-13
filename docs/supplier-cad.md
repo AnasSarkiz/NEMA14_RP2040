@@ -4,7 +4,7 @@ Every fitted component uses a supplier component created with `tsci import --jlc
 
 `imports/supplier/` contains the native TSX, unchanged original `.tsx.original`, OBJ and STEP files. Active TSX only adds React compatibility, public GitHub model URLs and a CAD anchor correction for asymmetric pad bounds. Imported footprint JSX is checked byte for byte against the original. No model vertices or supplier footprints have been resized or translated. Public raw GitHub URLs keep large CAD assets outside the registry upload limit.
 
-Both USB receptacles are **C165948 / TYPE-C-31-M-12**. All 16 numbered supplier contacts, including four shield tabs, use the actual land pattern. Their model mating planes are exactly X = −17.5 and +17.5 mm. Model bounds are checked against native courtyards. Coordinate checks do not establish physical rear-motor fit.
+Both USB receptacles are **C165948 / TYPE-C-31-M-12**. All 16 numbered supplier contacts, including four shield tabs, use the actual land pattern. Their model mating mouths are exactly (−6.2, 17.5) and (6.2, 17.5) mm, both facing +Y. Model bounds are checked against native courtyards. Coordinate checks do not establish physical rear-motor fit.
 
 Motor, debug and BOOT connections are bare PCB solder interfaces. They have no fitted component to import or model. The four mounting holes are PCB features.
 

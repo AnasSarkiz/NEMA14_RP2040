@@ -1,3 +1,4 @@
+import { normalizeMetadata } from "./normalize-metadata"
 import React from "react"
 import { classifySource } from "./classify-source"
 import { prepareSchematic } from "./prepare-schematic"
@@ -10,7 +11,7 @@ const circuit = new Circuit()
 circuit.add(<Nema14Controller routingDisabled={process.argv.includes("--unrouted")} />)
 console.log('Rendering NEMA14 RP2040 with tscircuit local autorouter…')
 await circuit.renderUntilSettled()
-const raw = classifySource(normalizeAssembly(circuit.getCircuitJson()))
+const raw = normalizeMetadata(classifySource(normalizeAssembly(circuit.getCircuitJson())))
 mkdirSync('artifacts/top-assembly',{recursive:true})
 writeFileSync('artifacts/top-assembly/raw-source.circuit.json',JSON.stringify(raw,null,2)+'\n')
 const json = prepareSchematic(raw)

@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Build the review handoff, including assembly maps and explicit process requests."""
-import csv, importlib.util, json, pathlib, shutil, zipfile
+import csv, hashlib, importlib.util, json, pathlib, shutil, zipfile
 from html import escape
 from shapely.geometry import box
 import cairosvg
@@ -24,6 +24,8 @@ def main():
     manifest=json.loads((OUT/'manifest.json').read_text())
     receipt=json.loads((OUT/'order-review-verification.json').read_text())
     assert receipt['prepared_for_JLCPCB_engineering_review']
+    assert receipt['native_board_sha256']==hashlib.sha256((ROOT/'artifacts/board.circuit.json').read_bytes()).hexdigest(), 'Review receipt belongs to a different board'
+    assert receipt['order_source_sha256']==manifest['order_source_sha256']
     package=json.loads((ROOT/'package.json').read_text())['name']
     j=json.loads((ROOT/'artifacts/board.circuit.json').read_text())
     sources={e['source_component_id']:e for e in j if e['type']=='source_component'}
@@ -85,7 +87,7 @@ def main():
 
 This handoff is prepared for order review. It is not JLCPCB approval or a production release. No order or payment has been submitted.
 
-Upload `JLCPCB-Gerbers.zip` for the PCB, `JLCPCB-BOM.csv` and `JLCPCB-CPL.csv` for SMT assembly. The BOM contains exact source MPNs and LCSC part numbers. The raw native export is retained separately as historical evidence and must not replace this corrected package. `review-cam.zip` contains the exact CAM and detailed source-identity tables used by the independent audit.
+Upload `JLCPCB-Gerbers.zip` for the PCB, `JLCPCB-BOM.csv` and `JLCPCB-CPL.csv` for SMT assembly. The BOM contains exact source MPNs and LCSC part numbers. The default `artifacts/nema14-gerbers.zip` applies the same reviewed fabrication and assembly policies. The upstream CLI export is retained under `artifacts/engineering-fixes/upstream-native-gerbers.zip` for diagnosis. `review-cam.zip` contains the exact CAM and detailed source-identity tables used by the independent audit.
 
 Select 4 layers, 35 × 35 mm, 1.6 mm board thickness, and ENIG for the separate bare top-side test-point pads. Request at least 35 um outer copper, 17.5 um inner copper and 20 um plated via barrels. Copper layer order is F_Cu / In1_Cu / In2_Cu / B_Cu. Both drill files are required: plated drills/slots and NPTH. The four mounting holes are Ø3.2 mm at (±13, ±13), with board-center origin.
 
@@ -105,7 +107,7 @@ Both USB mouths share the +Y edge, with defined 10 mm cable housings at 12.4 mm 
 
 Supplier review still must confirm exact stock and quote, pickup orientation, via-in-pad and stencil/reflow process, specified stackup/copper, and assembly sides/THT plan. Do not authorize substitutes. Prototype bring-up must verify USB data, 15 V PD, regulator isolation, phase current/thermal behavior, motor, temperature sensor, LEDs and buzzer before production approval.
 
-Strict generic Circuit JSON importers retain inherited metadata compatibility findings, listed in `native-json-compatibility.json`: display offsets stored as numbers instead of strings, null optional ownership, and a generic buzzer source record. Native rendering, physical coordinates and pin/net checks pass; the order package introduces no schema findings and every new paste aperture passes its native schema. No whole-file generic-schema PASS is claimed. These metadata fields do not determine the fabrication or placement coordinates.
+Every native and order-source record passes its installed Circuit JSON schema. Display offsets are canonical strings, optional null IDs are omitted, and the buzzer uses a generic pinout record with its real MPN and pin identities retained. See `native-json-compatibility.json`. The actual coupled USB copper and adjacent grounded references are checked separately; fabricator stackup/impedance and bench USB operation remain unverified.
 
 Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
 '''

@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
   "baseline_git_revision": "871ce98700ef839ccd16729c7f1a991c28c9ea67",
   "target_pad_to_edge_mm": 0.75,
   "scope": "Every resistor; all four edges; top and bottom assembly sides",
@@ -9,6 +9,8 @@
   "moved_resistors": [
     "R_XOUT",
     "R_RUN",
+    "R_DP",
+    "R_CC2",
     "R_USB_SENSE_H",
     "R_USB_SENSE_L",
     "R_VM_H",
@@ -408,48 +410,48 @@
       "reference": "R_DP",
       "layer": "top",
       "center_mm": {
-        "x": 4.3,
+        "x": 4.371,
         "y": 5.3
       },
       "rotation_deg": 90,
-      "moved": false,
+      "moved": true,
       "minimum_actual_pad_edge_mm": 11.484355,
       "actual_pad_matches": [
         {
           "pad_id": "pcb_smtpad_151",
           "native_xy_mm": [
-            4.3,
+            4.371,
             5.732816
           ],
           "actual_Gerber_bounds_mm": [
-            4.029998,
+            4.100998000000001,
             5.449987,
-            4.570002,
+            4.641002,
             6.015644999999999
           ],
           "all_four_edge_margins_mm": {
-            "left": 21.529998,
+            "left": 21.600998,
             "bottom": 22.949987,
-            "right": 12.929998000000001,
+            "right": 12.858998,
             "top": 11.484355
           }
         },
         {
           "pad_id": "pcb_smtpad_152",
           "native_xy_mm": [
-            4.3,
+            4.371,
             4.867184
           ],
           "actual_Gerber_bounds_mm": [
-            4.029998,
+            4.100998000000001,
             4.584355,
-            4.570002,
+            4.641002,
             5.1500129999999995
           ],
           "all_four_edge_margins_mm": {
-            "left": 21.529998,
+            "left": 21.600998,
             "bottom": 22.084355000000002,
-            "right": 12.929998000000001,
+            "right": 12.858998,
             "top": 12.349987
           }
         }
@@ -510,49 +512,49 @@
       "reference": "R_CC2",
       "layer": "top",
       "center_mm": {
-        "x": 10.4,
-        "y": 7.5
+        "x": 9,
+        "y": 4.4
       },
       "rotation_deg": 0,
-      "moved": false,
-      "minimum_actual_pad_edge_mm": 6.384355000000001,
+      "moved": true,
+      "minimum_actual_pad_edge_mm": 7.784355,
       "actual_pad_matches": [
         {
           "pad_id": "pcb_smtpad_155",
           "native_xy_mm": [
-            10.832816000000001,
-            7.5
+            9.432816,
+            4.4
           ],
           "actual_Gerber_bounds_mm": [
-            10.549987,
-            7.229998,
-            11.115644999999999,
-            7.770002
+            9.149987000000001,
+            4.1299980000000005,
+            9.715645,
+            4.670002
           ],
           "all_four_edge_margins_mm": {
-            "left": 28.049987,
-            "bottom": 24.729998000000002,
-            "right": 6.384355000000001,
-            "top": 9.729998
+            "left": 26.649987000000003,
+            "bottom": 21.629998,
+            "right": 7.784355,
+            "top": 12.829998
           }
         },
         {
           "pad_id": "pcb_smtpad_156",
           "native_xy_mm": [
-            9.967184,
-            7.5
+            8.567184,
+            4.4
           ],
           "actual_Gerber_bounds_mm": [
-            9.684355,
-            7.229998,
-            10.250013,
-            7.770002
+            8.284355,
+            4.1299980000000005,
+            8.850012999999999,
+            4.670002
           ],
           "all_four_edge_margins_mm": {
-            "left": 27.184355,
-            "bottom": 24.729998000000002,
-            "right": 7.249987000000001,
-            "top": 9.729998
+            "left": 25.784354999999998,
+            "bottom": 21.629998,
+            "right": 8.649987000000001,
+            "top": 12.829998
           }
         }
       ]

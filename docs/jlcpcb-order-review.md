@@ -2,7 +2,7 @@
 
 This handoff is prepared for order review. It is not JLCPCB approval or a production release. No order or payment has been submitted.
 
-Upload `JLCPCB-Gerbers.zip` for the PCB, `JLCPCB-BOM.csv` and `JLCPCB-CPL.csv` for SMT assembly. The BOM contains exact source MPNs and LCSC part numbers. The raw native export is retained separately as historical evidence and must not replace this corrected package. `review-cam.zip` contains the exact CAM and detailed source-identity tables used by the independent audit.
+Upload `JLCPCB-Gerbers.zip` for the PCB, `JLCPCB-BOM.csv` and `JLCPCB-CPL.csv` for SMT assembly. The BOM contains exact source MPNs and LCSC part numbers. The default `artifacts/nema14-gerbers.zip` applies the same reviewed fabrication and assembly policies. The upstream CLI export is retained under `artifacts/engineering-fixes/upstream-native-gerbers.zip` for diagnosis. `review-cam.zip` contains the exact CAM and detailed source-identity tables used by the independent audit.
 
 Select 4 layers, 35 × 35 mm, 1.6 mm board thickness, and ENIG for the separate bare top-side test-point pads. Request at least 35 um outer copper, 17.5 um inner copper and 20 um plated via barrels. Copper layer order is F_Cu / In1_Cu / In2_Cu / B_Cu. Both drill files are required: plated drills/slots and NPTH. The four mounting holes are Ø3.2 mm at (±13, ±13), with board-center origin.
 
@@ -22,6 +22,6 @@ Both USB mouths share the +Y edge, with defined 10 mm cable housings at 12.4 mm 
 
 Supplier review still must confirm exact stock and quote, pickup orientation, via-in-pad and stencil/reflow process, specified stackup/copper, and assembly sides/THT plan. Do not authorize substitutes. Prototype bring-up must verify USB data, 15 V PD, regulator isolation, phase current/thermal behavior, motor, temperature sensor, LEDs and buzzer before production approval.
 
-Strict generic Circuit JSON importers retain inherited metadata compatibility findings, listed in `native-json-compatibility.json`: display offsets stored as numbers instead of strings, null optional ownership, and a generic buzzer source record. Native rendering, physical coordinates and pin/net checks pass; the order package introduces no schema findings and every new paste aperture passes its native schema. No whole-file generic-schema PASS is claimed. These metadata fields do not determine the fabrication or placement coordinates.
+Every native and order-source record passes its installed Circuit JSON schema. Display offsets are canonical strings, optional null IDs are omitted, and the buzzer uses a generic pinout record with its real MPN and pin identities retained. See `native-json-compatibility.json`. The actual coupled USB copper and adjacent grounded references are checked separately; fabricator stackup/impedance and bench USB operation remain unverified.
 
-Board source SHA-256: `567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
+Board source SHA-256: `687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.

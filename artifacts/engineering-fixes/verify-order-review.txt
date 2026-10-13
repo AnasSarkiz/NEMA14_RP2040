@@ -1,0 +1,35 @@
+{"passed":true,"apertures_checked":315,"errors":0}
+{"strict_full_native_schema_passed":true,"inherited_findings":0,"introduced_findings":0}
+{
+  "prepared_for_JLCPCB_engineering_review": true,
+  "order_review_CAM_passed": true,
+  "native_order_paste_schema_passed": true,
+  "native_board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "order_source_sha256": "220889612c7a1796f9c831d1ef138458a8626b10a592f4de12c6394f89ccb871",
+  "JLCPCB_gerber_zip_sha256": "782e7d639b2b4aa7ee9d9161fb202dca76fc39279fc5def3b63458662fa2d5bf",
+  "SMT_components": 81,
+  "manual_THT_components": 0,
+  "verified_at_utc": "2026-10-13T18:46:06.475540+00:00",
+  "every_trace_and_segment_reviewed": true,
+  "electrical_geometry_and_connections_preserved": true,
+  "default_export_manufacturing_qualified": true,
+  "upstream_native_export_retained_as_diagnostic": true,
+  "JLCPCB_order_submitted": false,
+  "JLCPCB_review_approved": false,
+  "production_release_approved": false,
+  "hardware_operation_verified": false,
+  "rear_motor_compatibility_verified": false,
+  "remaining_supplier_review_items": [
+    "Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.",
+    "Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.",
+    "Confirm exact BOM availability and quote; no substitutions authorized.",
+    "Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.",
+    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed."
+  ],
+  "remaining_CAD_tooling_review": [],
+  "remaining_hardware_validation": [
+    "Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.",
+    "Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.",
+    "Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified."
+  ]
+}

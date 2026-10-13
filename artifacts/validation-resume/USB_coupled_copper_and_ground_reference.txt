@@ -1,0 +1,108 @@
+{
+  "passed": true,
+  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "cores": [
+    {
+      "core": "connector_to_ESD",
+      "layer": "bottom",
+      "reference_layer": "inner2",
+      "actual_minimum_pair_clearance_mm": 0.15999999999999764,
+      "core_length_difference_mm": 0.44535329380125876,
+      "tracks": [
+        {
+          "net": "USB_DP",
+          "trace_id": "usb_coupled_connector_to_ESD_USB_DP",
+          "actual_length_mm": 4.438365789706736,
+          "screened_reference_samples": 167,
+          "local_USB_via_antipad_samples": 12,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 4.13907602963813,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        },
+        {
+          "net": "USB_DM",
+          "trace_id": "usb_coupled_connector_to_ESD_USB_DM",
+          "actual_length_mm": 4.883719083507994,
+          "screened_reference_samples": 173,
+          "local_USB_via_antipad_samples": 24,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 4.308490204522386,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        }
+      ]
+    },
+    {
+      "core": "ESD_to_series",
+      "layer": "bottom",
+      "reference_layer": "inner2",
+      "actual_minimum_pair_clearance_mm": 0.15196570526061776,
+      "core_length_difference_mm": 0.1713768521150918,
+      "tracks": [
+        {
+          "net": "USB_DP",
+          "trace_id": "usb_coupled_ESD_to_series_USB_DP",
+          "actual_length_mm": 5.897762393840393,
+          "screened_reference_samples": 223,
+          "local_USB_via_antipad_samples": 14,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 5.5535750118291,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        },
+        {
+          "net": "USB_DM",
+          "trace_id": "usb_coupled_ESD_to_series_USB_DM",
+          "actual_length_mm": 6.069139245955485,
+          "screened_reference_samples": 217,
+          "local_USB_via_antipad_samples": 27,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 5.408585410976753,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        }
+      ]
+    },
+    {
+      "core": "series_to_MCU",
+      "layer": "top",
+      "reference_layer": "inner1",
+      "actual_minimum_pair_clearance_mm": 0.15999999999999936,
+      "core_length_difference_mm": 0.06547396831389785,
+      "tracks": [
+        {
+          "net": "MCU_DP",
+          "trace_id": "usb_coupled_series_to_MCU_MCU_DP",
+          "actual_length_mm": 2.065493781459976,
+          "screened_reference_samples": 84,
+          "local_USB_via_antipad_samples": 0,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 2.065493781459976,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        },
+        {
+          "net": "MCU_DM",
+          "trace_id": "usb_coupled_series_to_MCU_MCU_DM",
+          "actual_length_mm": 2.1309677497738737,
+          "screened_reference_samples": 87,
+          "local_USB_via_antipad_samples": 0,
+          "ground_reference_coverage_fraction": 1.0,
+          "exact_screened_reference_length_mm": 2.1309677497738737,
+          "exact_unsupported_reference_length_mm": 0.0,
+          "unsupported_samples_mm": []
+        }
+      ]
+    }
+  ],
+  "nominal_core_width_mm": 0.25,
+  "nominal_core_gap_mm": 0.16,
+  "local_terminal_fanouts_width_mm": 0.16,
+  "reference_coverage_method": "Exact geometric intersection of every screened track centerline with grounded adjacent-layer copper; 0.025 mm samples retained for diagnosis",
+  "reference_transition_exceptions": "Only actual same-pair via antipads, pad radius plus 0.21 mm; no blanket endpoint exclusion",
+  "controlled_impedance_verified": false,
+  "fabricator_stackup_approved": false,
+  "USB_hardware_operation_verified": false,
+  "errors": []
+}

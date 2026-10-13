@@ -45,6 +45,19 @@ def blocked(net,via=False):
             # Native trace DRC uses the bounding square even for a circle.
             c=e['center'];r=e['radius'];add(e['layers'],g.box(c['x']-r,c['y']-r,c['x']+r,c['y']+r))
         elif typ=='pcb_hole':add(layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
+    policy_path=ROOT/'artifacts/engineering-fixes/usb-routing-plan.json'
+    if policy_path.exists():
+        policy=json.loads(policy_path.read_text())
+        endpoints=[g.Point(c['centerline'][i]) for c in policy['cores'] for i in [0,-1]]
+        endpoint_regions=unary_union([p.buffer(1.25) for p in endpoints])
+        for core in policy['cores']:
+            guard=g.LineString(core['centerline']).buffer(policy['reference_corridor_buffer_mm'])
+            if via:
+                # All new barrels stay outside the trunk reference corridor;
+                # paired USB terminal transitions are confined to local fanouts.
+                guard=guard.difference(endpoint_regions)
+                add(layers,guard)
+            elif nets[net]['name']!='GND':add([core['reference_layer']],guard.difference(endpoint_regions))
     b=math.ceil((.35+(current_via_diameter/2 if via else current_width/2))/STEP)
     for d in ds:
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
@@ -69,7 +82,7 @@ for error in errors:
         j.remove(e)
         repairs.append({'removed_for_conservative_native_keepout':error['pcb_trace_id']})
 
-for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-3,'USB_DM':-3,'MCU_DP':-3,'MCU_DM':-3,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'PWR_LED_A':-5,'SLEEP':4,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
+for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4,'QSPI_SD2':-4,'QSPI_SD3':-4,'XIN':-4,'XOUT':-4,'XTAL_OUT':-4,'SWCLK':-4,'SWDIO':-4,'RUN':-4,'USB_DP':-20,'USB_DM':-20,'MCU_DP':-20,'MCU_DM':-20,'BUCK_BST':-3,'TEMP_SDA':-2,'TEMP_SCL':-2,'BUZZER_PWM':-2,'LED_R':-2,'LED_G':-2,'LED_B':-2,'PWR_LED_A':-5,'SLEEP':4,'ENABLE_N':3,'VREG':0,'VREF':0,'VCP':0,'SENSE2':0,'A_PLUS':0,'B_PLUS':0,'B_MINUS':0,'PD_GOOD':1,'VM_SENSE':2}.get(nets[k]['name'],3))):
     if '--ground' in sys.argv and nets[net]['name']!='GND':continue
     requested=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--net=')),None)
     if requested and nets[net]['name']!=requested:continue
@@ -77,8 +90,10 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
     current_width=.3 if nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK'] else .16
     if nets[net]['name']=='PD_VBUS':current_width=.55
     power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK','GND']
-    if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','LOGIC_IN','BUCK_SW','BUCK_BST','CP1','CP2','VCP','VREG','VREF']:layers=['top','inner2','bottom']
-    elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND']:layers=['top','inner1','inner2','bottom']
+    if nets[net]['name'] in ['USB_DP','USB_DM','MCU_DP','MCU_DM']:layers=['top','bottom']
+    elif nets[net]['name'] in ['PD_VBUS','A_PLUS','B_PLUS','B_MINUS','SENSE1','SENSE2','LOGIC_IN','BUCK_SW','BUCK_BST','CP1','CP2','VCP','VREG','VREF']:layers=['top','inner2','bottom']
+    elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND','DATA_CC1','DATA_CC2','VM_SENSE','ENABLE_N','BOOT_PAD','STATUS_R_C','STATUS_G_C','STATUS_B_C','DCK','DIO']:layers=['top','inner1','inner2','bottom']
+    elif nets[net]['name']=='A_MINUS':layers=['top','inner1','inner2','bottom']
     else:layers=['top','inner2','bottom']
     board=next(e for e in j if e['type']=='pcb_board')
     current_via_diameter=max(board['min_via_pad_diameter'],.5 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .4)
@@ -87,8 +102,14 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         elems,roots=g.groups(net);islands={}
         for e,r in zip(elems,roots):
             if e.get('pcb_port_id'):islands.setdefault(r,[]).append(e)
-        if len(islands)<2:break
-        startroot=min(islands,key=lambda r:(len(islands[r]),not any(e['type']=='pcb_plated_hole' for e in islands[r])))
+        core_roots={r for e,r in zip(elems,roots) if e['type']=='pcb_trace' and e['pcb_trace_id'].startswith('usb_coupled_')}
+        usb_net=nets[net]['name'] in ['USB_DP','USB_DM','MCU_DP','MCU_DM']
+        if len(set(islands)|core_roots)<2:break
+        if usb_net and core_roots:
+            core_geometry=unary_union([g.LineString([(q['x'],q['y']) for q in e['route']]) for e in elems if e['type']=='pcb_trace' and e['pcb_trace_id'].startswith('usb_coupled_')])
+            candidates=[r for r in islands if r not in core_roots] or list(islands)
+            startroot=min(candidates,key=lambda r:min(g.geometry(p).distance(core_geometry) for p in islands[r]))
+        else:startroot=min(islands,key=lambda r:(len(islands[r]),not any(e['type']=='pcb_plated_hole' for e in islands[r])))
         if nets[net]['name']=='PD_VBUS':
             current_width=.55
             if len(islands[startroot])==1:
@@ -110,6 +131,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             if l in layers:goals[(*xy(x,y),layers.index(l))]=(x,y)
         for e,r in zip(elems,roots):
             if r==startroot:continue
+            if usb_net and core_roots and r not in core_roots:continue
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and e.get('pcb_port_id'):
                 p=g.ports[e['pcb_port_id']]
                 for l in e.get('layers',[e.get('layer','top')]):
@@ -117,6 +139,11 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             elif e['type']=='pcb_via':
                 for l in e['layers']:goal(e['x'],e['y'],l)
             elif e['type']=='pcb_trace':
+                if e['pcb_trace_id'].startswith('usb_coupled_'):
+                    policy=json.loads((ROOT/'artifacts/engineering-fixes/usb-routing-plan.json').read_text())
+                    track=next(t for c in policy['cores'] for t in c['tracks'] if t['trace_id']==e['pcb_trace_id'])
+                    for x,y in [track['points'][0],track['points'][-1]]:goal(x,y,e['route'][0]['layer'])
+                    continue
                 for a,b in zip(e['route'],e['route'][1:]):
                     if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                         count=max(1,math.ceil(math.hypot(b['x']-a['x'],b['y']-a['y'])/.15))

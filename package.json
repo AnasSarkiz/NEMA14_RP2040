@@ -1,6 +1,6 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.8.2",
+  "version": "1.9.0",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "index.circuit.tsx",
   "scripts": {
@@ -11,7 +11,7 @@
     "render": "bun scripts/render.ts",
     "autoroute": "bun scripts/build.tsx",
     "source:check": "bun scripts/build.tsx --unrouted",
-    "export": "XDG_CONFIG_HOME=/workspace/.config tsci export artifacts/board.circuit.json -f gerbers -o \"$PWD/artifacts/nema14-gerbers.zip\"",
+    "export": "/workspace/.routing-venv/bin/python scripts/export-manufacturing.py",
     "typecheck": "tsc --noEmit",
     "shorts": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/board.circuit.json --mode gerber --layer all --pixels-per-mm 100",
     "publish:tscircuit": "bash scripts/publish-tscircuit.sh",
@@ -19,7 +19,8 @@
     "check:copper": "/workspace/.routing-venv/bin/python scripts/audit-trace-widths.py",
     "check:mounts": "python3 scripts/check-mount-drills.py && /workspace/.routing-venv/bin/python scripts/check-mechanical-mounts.py",
     "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render",
-    "check:schematic": "tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py"
+    "check:schematic": "tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py",
+    "check:schema": "node scripts/check-native-schema.mjs"
   },
   "repository": {
     "type": "git",

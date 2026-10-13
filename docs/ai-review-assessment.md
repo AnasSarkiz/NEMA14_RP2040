@@ -1,3 +1,5 @@
+> Historical baseline assessment before the engineering fixes. Current results and resolved issues are in [engineering fixes](engineering-fixes.md).
+
 # AI review assessment — RP2040 v1.8.2
 
 Assessed against GitHub main `e04df7a3b606b280389109405de96601e9430695`, fetched on 2026-10-13, and saved board SHA-256 `567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e`. Rishabh's latest registry release remains v1.0.42 (`e8d285f7-c3d8-46f5-9a54-344fdde0124e`), the same reference captured by the existing pin review. The pasted text is predominantly an implementation checklist; it does not itself establish electrical failures, supplier acceptance or hardware results.

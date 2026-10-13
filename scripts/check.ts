@@ -40,7 +40,7 @@ if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
  if(via.hole_diameter<board.min_via_hole_diameter || via.outer_diameter<board.min_via_pad_diameter) unique.push({type:'validation_error',message:'Via violates the declared minimum pad/drill diameter: '+via.pcb_via_id})
 }
-const inner1LocalNets=new Set(['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND'])
+const inner1LocalNets=new Set(JSON.parse(readFileSync('src/layer-routing-policy.json','utf8')).inner1_allowed_nets)
 for(const trace of json.filter((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) {
  const net=json.find((e:any)=>e.type==='source_net' && e.subcircuit_connectivity_map_key===trace.subcircuit_connectivity_map_key)
  if(!inner1LocalNets.has(net?.name)) unique.push({type:'validation_error',message:'Unreviewed net on inner1: '+trace.pcb_trace_id})
