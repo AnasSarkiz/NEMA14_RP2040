@@ -1,14 +1,14 @@
-# RP2040 resistor edge clearance — v1.7.0
+# RP2040 resistor edge clearance — v1.8.2
 
 Every resistor is reviewed on all four board edges, including top and bottom assembly sides. The nominal pad-to-profile target is **at least 0.75 mm**. A 1 mm placement attempt was assessed; the delivered layout uses the 0.75 mm target within the fixed 35 × 35 mm outline, fixed connectors, native courtyards and screw envelopes.
 
-9 resistors move or rotate. Native land patterns, original JLCPCB OBJ/STEP files, resistor values, physical pin identities and all net assignments are retained. Other component placements, both USB mouths, the JST, the four exact (±13, ±13) Ø3.2 mm holes and PCB outline remain unchanged. Affected copper is rerouted and the ground regions refilled; obsolete trace ends are removed only when the live-pad connectivity partitions remain identical.
+The v1.7 edge-clearance change moved or rotated 9 resistors; the table below records that historical change. Native land patterns, original JLCPCB OBJ/STEP files, resistor values, physical pin identities and all net assignments are retained. Other component placements, both USB mouths, the JST, the four exact (±13, ±13) Ø3.2 mm holes and PCB outline remain unchanged. Affected copper is rerouted and the ground regions refilled; obsolete trace ends are removed only when the live-pad connectivity partitions remain identical.
 
 The [independent clearance receipt](../artifacts/edge-resistors/clearance-verification.json) matches every resistor pad to its actual regenerated Gerber flash and measures all four edges. The [CSV](../artifacts/edge-resistors/clearance-verification.csv) lists every resistor; the [placement plan](../artifacts/edge-resistors/placement-plan.json) and [translation/rip-up receipt](../artifacts/edge-resistors/translation-and-ripup.json) record construction. The editable `src/supplier-placement.json` contains the final locations and rotations. Freshly compiled native footprints were compared with the translated geometry and canonicalized only for sub-micrometre floating-point differences.
 
-Native DRC, independent physical connectivity, every-trace/net review, copper width/current screening, actual Gerber copper/drill analysis and STEP mechanical screening qualify the final board revision. The [full qualification receipt](../artifacts/resume-validation.json) retains actual exit codes. The five-sheet schematic and electrical source remain unchanged.
+Native DRC, independent physical connectivity, every-trace/net review, copper width/current screening, actual Gerber copper/drill analysis and STEP mechanical screening qualify the final board revision. The [full qualification receipt](../artifacts/resume-validation.json) retains actual exit codes. The current five-sheet schematic, top-side assembly changes and electrical preservation are verified separately by the v1.8.2 receipts.
 
-The 12 mm USB plug envelopes and M3 DIN 920 maximum Ø4 mm head requirement remain in force. Mechanical screening is nominal CAD evidence. Manufacturing assembly BOM/CPL, paste/stencil and silkscreen findings, firmware/bench tests and rear motor fit remain unqualified; this is a prototype publication.
+The approved 10 mm USB cable housings and M3 DIN 920 maximum Ø4 mm head requirement remain in force. Mechanical screening is nominal CAD evidence. The corrected order package passes assembly-table, paste/stencil and silkscreen CAM checks. Supplier pickup/process acceptance, firmware/bench tests and rear motor fit remain unqualified; this is a prototype publication.
 
 | Resistor | Previous centre (mm) | New centre (mm) | Rotation | New nominal minimum pad-to-edge (mm) |
 |---|---|---|---|---|

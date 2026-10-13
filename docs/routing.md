@@ -1,11 +1,24 @@
-# Saved supplier-footprint routing
+# Saved v1.8.2 routing
 
-Version 1.4.0 retains the fitted JST PH motor header and puts both original USB-C receptacles on +Y within the exact 35 × 35 mm board. Fixed mounting coordinates and the user-approved M3 DIN 920 head requirement are documented in [mounting and USB verification](mounting-usb-verification.md).
+The authoritative routed geometry is `artifacts/board.circuit.json`, identical to `index.circuit.json`, SHA-256 `567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e`. Earlier DSN, SES, repair logs and trial reports are construction history. The current board uses four copper layers, a 35 × 35 × 1.6 mm outline, exact (±13, ±13) Ø3.2 mm NPTH mounts, same-edge outward USB sockets and the SMT JST-SH motor header. All 81 fitted components and seven bare test pads are on top.
 
-`scripts/prepare-same-side-routing.py` checks baseline source identity and retains legal unmoved copper. `export-supplier-router.py` exports native polygon, rectangle, pill and circle lands, circular keepouts and fixed wiring to `supplier-input.dsn`. Freerouting 2.0.1 produces `supplier-board.ses`; SES omits fixed input wiring, so `import-supplier-session.py supplier` reattaches the exact input seeds and deduplicates thermal vias. These files are routing intermediates and do not constitute the final checked board.
+Ground is filled on all four layers. Inner1 also contains named local signal and supply escapes allowed by the geometric checker; it is not an uninterrupted ground-only layer. Motor and bulk power nets are excluded from that escape policy. `artifacts/trace-width-review.json` records actual segment widths, current budgets and estimated temperature rises. These use at least 35 µm outer copper, 17.5 µm inner copper and 20 µm via plating as fabrication requirements, not measured manufactured values.
 
-`repair-same-side-copper.py` connects remaining physical islands using clearance-constrained routing and existing connected copper as anchors. Native DRC and independent physical/CAM checks qualify its result. Stub pruning/trimming preserves live physical-pad partitions; cleanup removes duplicate vias and unanchored copper. Routing receipts retain construction history, including subsequently replaced trial copper. The delivered geometry is `artifacts/board.circuit.json`, identical to `index.circuit.json`; `mounting-change-proof.json` records its final hash and proves unchanged electrical source records and original supplier geometry.
+## USB qualification gap
 
-CH32 retains two layers. RP2040 retains top / inner1 ground / inner2 signals / bottom, with no inner1 signal tracks. Ground fills use 0.20 mm foreign-net clearance and 0.35 mm outline inset. RP2040 main PD tracks use at least 0.55 mm for the retained 0.75 A screening budget; 0.3 mm terminal branches receive a 0.4 A budget only when a physical cut isolates exactly one VBB1/VBB2 or C_VCP terminal. Power vias retain at least 0.25 mm drills. RP2040 signal vias may use the declared 0.40/0.20 mm minimum; CH32 vias use 0.50/0.25 mm. Only the three declared grounded exposed-pad thermal locations may overlap lands; the strict checker enforces this despite the native via-in-pad flag. Fitted components remain on top; USB shield slots require through-hole soldering.
+The saved layout has these total copper centerline lengths by layer. These are whole branched net trees, **not point-to-point pair lengths or measured skew**.
 
-Native and independent checks run against final copper and raw CAM, including all-layer 100 pixels/mm Gerber shorts, exact NPTH coordinates, outline, connectivity, clearance, keepouts and copper-width screening. They do not establish controlled impedance, tested USB/PD behavior, EMC, rear motor fit or fabrication approval. The complete assembly CAM audit still fails for the documented prototype blockers.
+| Net | Top mm | Inner1 mm | Inner2 mm | Bottom mm |
+| --- | ---: | ---: | ---: | ---: |
+| USB_DP | 12.665 | 0 | 0 | 9.366 |
+| USB_DM | 8.129 | 0 | 5.296 | 7.228 |
+| MCU_DP | 3.804 | 3.413 | 8.400 | 8.708 |
+| MCU_DM | 2.104 | 0 | 0 | 8.407 |
+
+D+ and D− therefore do not use the same set of routing layers. Current receipts establish net/pad correspondence, connectivity and clearances. They do not establish a coupled differential route, suitable impedance, pair skew, return continuity at layer transitions, or working USB enumeration. The remaining engineering review must examine actual connector-to-resistor-to-MCU paths against a specified stackup and nearby reference copper. A layer-area check or allowed-net list cannot substitute for that review. Any corrective routing must preserve approved USB positions and repeat all geometry/CAM checks.
+
+## CAM distinction and limits
+
+The native raw export's manufacturing audit is FAIL for BOM identity, exposed-pad paste, stencil and silkscreen findings. The separately prepared `artifacts/jlcpcb-review` order package passes its independent corrected-CAM audit, with copper, mask, outline and drill members copied byte-for-byte from the raw export. Use the corrected package for supplier review. No raw-export PASS is claimed.
+
+Only the three declared grounded exposed-pad thermal locations may overlap lands; these require supplier approval of filling, capping and planarization. Eight USB shell joints need secondary soldering. Software checks and approximate copper-current screening do not establish USB signal integrity, buck stability, A4988 sense/return behavior, regenerative-energy handling, EMC, hardware operation, supplier assembly acceptance or rear-motor fit.

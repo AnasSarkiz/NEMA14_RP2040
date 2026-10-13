@@ -1,16 +1,16 @@
 # Current mounting, connector and copper verification
 
-This is the v1.7.0 **hardware prototype**, not a manufacturing release. The historical v1.4 evidence is in [history](history/v1.4-mounting-usb-verification.md).
+This is the v1.8.2 **hardware prototype**, not a manufacturing release. The historical v1.4 evidence is in [history](history/v1.4-mounting-usb-verification.md).
 
-Board SHA-256: `ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035`. Saved copper: 539 traces, 257 plated vias and 33 ground regions. Native DRC reports 0 errors and 0 warnings. Independent Circuit JSON geometry checks 63 nets, with 0 disconnected nets. Independent parsing of the actual current Gerbers reports 0 opens and 0 shorts.
+Board SHA-256: `567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e`. Saved copper: 573 traces, 281 plated vias and 41 ground regions. Native DRC reports 0 errors and 0 warnings. Independent Circuit JSON geometry checks 63 nets, with 0 disconnected nets. Independent parsing of the actual current Gerbers reports 0 opens and 0 shorts.
 
 The all-edge resistor audit checks 28 resistors / 56 actual Gerber flashes. Minimum measured nominal pad-to-edge clearance is **0.753 mm**. See [resistor edge clearance](resistor-edge-clearance.md).
 
-The PCB remains **35 × 35 × 1.6 mm**, four layers. Source, saved JSON and actual native Gerber Excellon agree on exactly **Ø3.2 mm NPTH at (±13, ±13)**. The actual drill member is `drill_npth.drl`; its SHA-256 is `401995a9c25a28977aec92c17d3e6a5406c823296dd560c98c14bd0b37a9f277`.
+The PCB remains **35 × 35 × 1.6 mm**, four layers. Source, saved JSON and actual native Gerber Excellon agree on exactly **Ø3.2 mm NPTH at (±13, ±13)**. The actual drill member is `drill_npth.drl`; its SHA-256 is `ad6dd04eae0f5a99178326f04e1c8b13d9f28e3180116d4fdbb9375d05c98507`.
 
-Both native USB-C mouths remain on +Y at X=±6.2 mm, Y=17.5 mm, with 12.4 mm pitch. Native STEP screening of 81 fitted models passes with the defined two 12 × 30 × 7 mm cable envelopes and Ø4.4 mm head envelopes. This requires **M3 DIN 920 heads ≤Ø4 mm**, with no unverified larger washer/head. Cable envelopes are procurement bounds, not tested cable samples. The native JST PH C131334 connector remains top-entry, with physical pins 1 A+, 2 A−, 3 B+, 4 B−. Connector physical pins and all reference feedback pins pass the independent source review.
+Both native USB-C mouths remain on +Y at X=±6.2 mm, Y=17.5 mm, with 12.4 mm pitch. Native STEP screening of 81 fitted models passes with the defined two 10 × 30 × 7 mm cable envelopes and Ø4.4 mm head envelopes. This requires **M3 DIN 920 heads ≤Ø4 mm**, with no unverified larger washer/head. Cable envelopes are procurement bounds, not tested cable samples. The native SMT JST-SH C160390 connector remains top-entry, with physical pins 1 A+, 2 A−, 3 B+, 4 B−. Connector physical pins and all reference feedback pins pass the independent source review.
 
-Rear-motor compatibility is **unverified**. The available motor drawing establishes its front mounting pattern; it does not qualify a rear adapter, screw engagement, spacer or complete tolerance stack. JST tails extend below the PCB. All bottom-side clearances require a real mounting assembly review.
+Rear-motor compatibility is **unverified**. The available motor drawing establishes its front mounting pattern; it does not qualify a rear adapter, screw engagement, spacer or complete tolerance stack. The SMT JST has no through-hole tails. Underside copper, insulation, adapter clearance and the mounting stack still require a real assembly review.
 
 ## Recorded checks
 
@@ -35,7 +35,7 @@ Rear-motor compatibility is **unverified**. The available motor drawing establis
 | copper_widths | PASS | `artifacts/validation-resume/copper_widths.txt` |
 | full_independent_CAM | FAIL / review required | `artifacts/validation-resume/full_independent_CAM.txt` |
 
-Native placement suggestions remain visible in their log; their nonzero advisory result is not described as a blanket PASS. Complete independent CAM remains FAIL for the assembly findings below. Prototype publication accepts those disclosed assembly findings only after all electrical, copper, drill and mechanical checks pass. The publisher rejects actual CAM opens, shorts, copper-spacing failures, unassigned copper and stale evidence.
+Native placement suggestions remain visible in their log; their nonzero advisory result is not described as a blanket PASS. The raw-export CAM remains FAIL for the assembly findings below; the separately prepared corrected order CAM passes. Prototype publication accepts those disclosed assembly findings only after all electrical, copper, drill and mechanical checks pass. The publisher rejects actual CAM opens, shorts, copper-spacing failures, unassigned copper and stale evidence.
 
 ## Remaining release blockers
 
@@ -47,6 +47,6 @@ Native placement suggestions remain visible in their log; their nonzero advisory
 - silkscreen-clearance
 - stencil-release-screen
 
-The generated assembly tables, passive orientations, bare-pad BOM/paste treatment, exposed-pad stencil coverage, stencil release and silkscreen need manufacturer review before ordering assembly. Firmware must implement the temperature polling/alarm policy, RGB GPIOs and PWM buzzer. No assembled hardware, USB/PD bench test, phase-current measurement, thermal run or rear-motor fit has been qualified. A generated Gerber archive is not manufacturing approval.
+The corrected order package fixes BOM/CPL, bare-pad purchasing/paste treatment, exposed-pad windows, stencil apertures and silkscreen; its CAM audit is PASS with zero findings. Pickup orientation, actual stencil/reflow capability, filled/capped vias and secondary shell soldering still need supplier acceptance. Firmware must implement the temperature polling/alarm policy, RGB GPIOs and PWM buzzer. No assembled hardware, USB/PD bench test, phase-current measurement, thermal run or rear-motor fit has been qualified. A generated Gerber archive is not manufacturing approval.
 
 See [reference components and wiring](reference-feedback.md), `artifacts/resume-validation.json`, `artifacts/reference-feedback/every-trace-review.csv`, `artifacts/trace-width-review.json` and `artifacts/manufacturing/audit.json` for the actual evidence and limits.

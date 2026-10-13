@@ -110,6 +110,8 @@ Strict generic Circuit JSON importers retain inherited metadata compatibility fi
 Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
 '''
     (OUT/'REVIEW-INSTRUCTIONS.md').write_text(instructions)
+    # Keep repository instructions synchronized with the current order package.
+    (ROOT/'docs/jlcpcb-order-review.md').write_text(instructions)
     shutil.copy2(ROOT/'artifacts/schematic-a4.pdf',OUT/'schematic-a4.pdf')
     shutil.copy2(OUT/'cam/audit.json',OUT/'CAM-audit.json')
     files=['JLCPCB-Gerbers.zip','JLCPCB-BOM.csv','JLCPCB-CPL.csv','Manual-THT-BOM.csv',

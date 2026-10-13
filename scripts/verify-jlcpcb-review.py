@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate the separate JLCPCB engineering-review files against frozen CAD and CAM."""
 import csv, datetime, hashlib, json, pathlib, subprocess, zipfile
+from placement_advisories import orientation_advisories_only
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'artifacts/jlcpcb-review'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
@@ -57,7 +58,7 @@ def main():
     for name,check in checks.items():
         if name=='full_independent_CAM':continue # Raw native export remains explicitly unqualified.
         if name=='native_placement':
-            assert (ROOT/check['log']).read_text().startswith('placement summary: ')
+            assert orientation_advisories_only((ROOT/check['log']).read_text()), 'Placement log has unreviewed diagnostics or real DRC failures'
             continue
         assert check['exit_code']==0, name
     for relative,key in [('artifacts/reference-feedback/every-trace-review.json','passed'),

@@ -1,5 +1,6 @@
 """Prevent publication of an unqualified or stale saved board revision."""
 import hashlib,json,pathlib,re,sys
+from placement_advisories import orientation_advisories_only
 root=pathlib.Path(__file__).resolve().parents[1];board=root/'artifacts/board.circuit.json';sha=hashlib.sha256(board.read_bytes()).hexdigest();errors=[];prototype="--prototype" in sys.argv
 receipt_path=root/'artifacts/resume-validation.json'
 if not receipt_path.exists():errors.append('No complete current qualification receipt.')
@@ -11,7 +12,7 @@ else:
   if not e['exit_code']:continue
   if prototype and e['check']=='native_placement':
    log=(root/e['log']).read_text()
-   if re.match(r'placement summary: \d+ suboptimal orientations',log):continue
+   if orientation_advisories_only(log):continue
   if prototype and e['check']=='full_independent_CAM':continue
   errors.append('Check failed: '+e['check'])
  required={'all_resistor_edge_clearances','schematic_geometry_ERC','typescript','drc','connectivity','fitted_JST_and_actual_drills','exact_mounts_and_actual_drills','native_json_checks','native_netlist','native_pin_specification','native_source','native_schematic-placement','native_placement','every_trace_review','reference_feedback','gerber_shorts','copper_widths','full_independent_CAM'}
