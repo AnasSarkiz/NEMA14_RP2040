@@ -46,7 +46,7 @@ export function prepareSchematic(json:any[]) {
   if(!symbol&&/^[CR]_/.test(v.name))symbol=v.name.startsWith('C_')?'capacitor_down':'boxresistor_down'
   if(!symbol&&v.name==='L_BUCK')symbol='inductor_right'
   const def=symbol?(symbols as any)[symbol]:undefined;if(symbol&&!def)throw Error('Unknown symbol '+symbol)
-  const scale=1.25;const size=nativeUsb?old.size:def?{width:def.size.width*scale,height:def.size.height*scale}:{width:v.box?.[0]??3.2,height:v.box?.[1]??Math.max(2,Math.ceil(ps.length/2)*.43+.8)}
+  const scale=1.25;const size=nativeUsb?{width:2.2,height:3.6}:def?{width:def.size.width*scale,height:def.size.height*scale}:{width:v.box?.[0]??3.2,height:v.box?.[1]??Math.max(2,Math.ceil(ps.length/2)*.43+.8)}
   const groupId=`pro_group_${sheet}_${v.section}`;
   if(!out.some(e=>e.type==='schematic_group'&&e.schematic_group_id===groupId))out.push({type:'schematic_group',schematic_group_id:groupId,name:v.section,source_group_id:json.find(e=>e.type==='source_group')?.source_group_id,center:point(0,0),width:0,height:0,schematic_component_ids:[],show_as_schematic_box:false});
   const comp={...old,schematic_group_id:groupId,center,size,schematic_sheet_id:sheet,...(nativeUsb?{}:{is_box_with_pins:true,pin_spacing:.43}),...(def?{symbol_name:symbol,symbol_display_value:s.display_resistance??s.display_capacitance??s.display_inductance??(v.name==='Y_MCU'?'12 MHz':s.manufacturer_part_number)}:{})};if(!def&&!nativeUsb)delete comp.symbol_name;out.push(comp)
@@ -56,7 +56,7 @@ export function prepareSchematic(json:any[]) {
   if(v.left||v.right){const remaining=ps.filter(p=>!left.includes(p.name)&&!right.includes(p.name)).map(p=>p.name);right=[...right,...remaining.filter(n=>!v.top?.includes(n)&&!v.bottom?.includes(n))]}
   const boxSpacing=v.spacing??Math.min(.46,(size.height-.65)/Math.max(left.length,right.length,1));const newps:any[]=[]
   for(const p of ps){const op=oldPorts.get(p.source_port_id);if(!op)throw Error('Missing source port '+v.name+'.'+p.name);let local:P,direction:string
-   if(nativeUsb){local=point(op.center.x-old.center.x,op.center.y-old.center.y);direction=op.facing_direction}
+   if(nativeUsb){direction=op.facing_direction;local=point(op.center.x-old.center.x+(direction==='right'?(size.width-old.size.width)/2:direction==='left'?-(size.width-old.size.width)/2:0),op.center.y-old.center.y+(direction==='up'?(size.height-old.size.height)/2:direction==='down'?-(size.height-old.size.height)/2:0))}
    else if(def){
     let target=p.name;let lp:any
     if(/^Q_STATUS/.test(v.name))target=({pin1:'emitter',pin2:'base',pin3:'collector'} as any)[p.name]

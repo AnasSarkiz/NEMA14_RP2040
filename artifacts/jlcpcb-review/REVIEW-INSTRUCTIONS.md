@@ -24,4 +24,4 @@ Supplier review still must confirm exact stock and quote, pickup orientation, vi
 
 Strict generic Circuit JSON importers retain inherited metadata compatibility findings, listed in `native-json-compatibility.json`: display offsets stored as numbers instead of strings, null optional ownership, and a generic buzzer source record. Native rendering, physical coordinates and pin/net checks pass; the order package introduces no schema findings and every new paste aperture passes its native schema. No whole-file generic-schema PASS is claimed. These metadata fields do not determine the fabrication or placement coordinates.
 
-Board source SHA-256: `b2703f81acfe5760d8d662183e6180af1577a4f1964f431bf93a420f76781522`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
+Board source SHA-256: `567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.

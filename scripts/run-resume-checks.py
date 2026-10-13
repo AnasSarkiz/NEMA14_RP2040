@@ -9,6 +9,8 @@ checks += [('schematic_geometry_ERC',['/workspace/.routing-venv/bin/python','scr
 receipts=[]
 for name,cmd in checks:
  with (out/(name+'.txt')).open('w') as log:r=subprocess.run(cmd,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT)
+ if name=='native_schematic-placement' and (out/(name+'.txt')).read_text().strip():
+  r.returncode=1 # This CLI emits placement diagnostics with a successful exit code.
  receipts.append({'check':name,'command':cmd,'exit_code':r.returncode,'log':str((out/(name+'.txt')).relative_to(root))});print(name,r.returncode,flush=True)
 j=json.loads((root/'artifacts/board.circuit.json').read_text());m=json.loads((root/'artifacts/mechanical/mount-usb-screen.json').read_text());sha=hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest();mechanical_current=m['board_sha256']==sha and m['passed']
 cam_path=root/'artifacts/manufacturing/audit.json';cam=json.loads(cam_path.read_text()) if cam_path.exists() else {};cam_current=cam.get('source_sha256')==sha
