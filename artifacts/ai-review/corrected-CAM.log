@@ -1,0 +1,36 @@
+{"passed":true,"apertures_checked":315,"errors":0}
+{"strict_full_native_schema_passed":false,"inherited_findings":101,"introduced_findings":0}
+{
+  "prepared_for_JLCPCB_engineering_review": true,
+  "order_review_CAM_passed": true,
+  "native_order_paste_schema_passed": true,
+  "native_board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "order_source_sha256": "06d60841844f9f908a1e64244dd1979ec5814a9c45b578cfad2ab17eb2a22890",
+  "JLCPCB_gerber_zip_sha256": "af097fbc8c536cedbd4c76606f7e4514b98f0b17b6a55bb472a4a18fd94a13fc",
+  "SMT_components": 81,
+  "manual_THT_components": 0,
+  "verified_at_utc": "2026-10-13T12:52:59.473041+00:00",
+  "every_trace_and_segment_reviewed": true,
+  "electrical_geometry_and_connections_preserved": true,
+  "raw_native_export_manufacturing_qualified": false,
+  "JLCPCB_order_submitted": false,
+  "JLCPCB_review_approved": false,
+  "production_release_approved": false,
+  "hardware_operation_verified": false,
+  "rear_motor_compatibility_verified": false,
+  "remaining_supplier_review_items": [
+    "Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.",
+    "Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.",
+    "Confirm exact BOM availability and quote; no substitutions authorized.",
+    "Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.",
+    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed."
+  ],
+  "remaining_CAD_tooling_review": [
+    "Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json."
+  ],
+  "remaining_hardware_validation": [
+    "Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.",
+    "Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.",
+    "Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified."
+  ]
+}
