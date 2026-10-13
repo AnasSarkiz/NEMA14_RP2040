@@ -109,6 +109,8 @@ def main():
                           'pcb_component_id':pad['pcb_component_id'],'pcb_smtpad_id':pad['pcb_smtpad_id'],
                           'shape':pad['shape'],'layer':pad['layer'],'x':x,'y':y,'width':aw,'height':ah,
                           'ccw_rotation':pad.get('ccw_rotation',0)})
+        if pad['shape'] in {'pill','rotated_pill'}:
+            paste[-1]['radius']=min(aw,ah)/2
         if len(windows)>1 or factor>.700001:
             aperture_changes.append({'reference':ref,'pad':pad['pcb_smtpad_id'],'policy':policy})
     reviewed = [e for e in native if e['type']!='pcb_solder_paste'] + paste

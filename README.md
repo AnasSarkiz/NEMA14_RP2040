@@ -1,6 +1,6 @@
-# NEMA14 RP2040 controller — v1.7.1 order-review prototype
+# NEMA14 RP2040 controller — v1.7.2 order-review prototype
 
-**v1.7.1 JLCPCB order-review files:** [review instructions](docs/jlcpcb-order-review.md) and [complete review handoff](artifacts/jlcpcb-review/JLCPCB-OrderReview.zip). Use the corrected `artifacts/jlcpcb-review/JLCPCB-Gerbers.zip`, BOM and CPL. Both corrected CAM audits pass with zero findings. Copper, connections, placement and exact mounting drills are preserved. JLCPCB preview/stock/process approval and hardware validation remain pending; the raw native export below is historical prototype evidence.
+**v1.7.2 JLCPCB order-review files:** [review instructions](docs/jlcpcb-order-review.md) and [complete review handoff](artifacts/jlcpcb-review/JLCPCB-OrderReview.zip). Use the corrected `artifacts/jlcpcb-review/JLCPCB-Gerbers.zip`, BOM and CPL. Both corrected CAM audits pass with zero findings. Copper, connections, placement and exact mounting drills are preserved. JLCPCB preview/stock/process approval and hardware validation remain pending; the raw native export below is historical prototype evidence.
 
 A **35 × 35 × 1.6 mm**, four-layer controller with native JLCPCB parts, two USB-C ports on one edge and a fitted JST PH motor connector. The board includes the reference power/debug LED, RGB status LED, TMP102 temperature sensor and PWM magnetic buzzer. USB-C and JST physical-pin roles match Rishabh’s reference, with board-specific MCU GPIOs documented in [reference feedback](docs/reference-feedback.md).
 

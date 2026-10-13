@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
 """Gate the separate JLCPCB engineering-review files against frozen CAD and CAM."""
-import csv, datetime, hashlib, json, pathlib, zipfile
+import csv, datetime, hashlib, json, pathlib, subprocess, zipfile
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'artifacts/jlcpcb-review'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
 
 def main():
+    subprocess.run(['node','scripts/check-order-paste-schema.mjs'],cwd=ROOT,check=True)
+    subprocess.run(['node','scripts/audit-native-json-compatibility.mjs'],cwd=ROOT,check=True)
     manifest=json.loads((OUT/'manifest.json').read_text())
     board_path=ROOT/'artifacts/board.circuit.json'
     board=json.loads(board_path.read_text())
@@ -63,7 +65,7 @@ def main():
         proof=json.loads((ROOT/relative).read_text())
         assert proof[key] and proof['board_sha256']==sha(board_path)
     receipt={'prepared_for_JLCPCB_engineering_review':True,
-             'order_review_CAM_passed':True,'native_board_sha256':sha(board_path),
+             'order_review_CAM_passed':True,'native_order_paste_schema_passed':True,'native_board_sha256':sha(board_path),
              'order_source_sha256':manifest['order_source_sha256'],
              'JLCPCB_gerber_zip_sha256':sha(OUT/'JLCPCB-Gerbers.zip'),
              'SMT_components':len(expected),'manual_THT_components':1,
@@ -80,6 +82,7 @@ def main():
                  ('Confirm two-sided SMT support; quote JST secondary soldering or use separate manual THT BOM.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote JST secondary soldering or use separate manual THT BOM.'),
                  'Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.'
              ],
+             'remaining_CAD_tooling_review':['Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json.'],
              'remaining_hardware_validation':[
                  'Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.',
                  'Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.',

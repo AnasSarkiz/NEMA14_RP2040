@@ -20,4 +20,6 @@ Both USB mouths share the +Y edge, with defined 12 mm plug envelopes. Use M3 DIN
 
 Supplier review still must confirm exact stock and quote, pickup orientation, via-in-pad and stencil/reflow process, specified stackup/copper, and assembly sides/THT plan. Do not authorize substitutes. Prototype bring-up must verify USB data, 15 V PD, regulator isolation, phase current/thermal behavior, motor, temperature sensor, LEDs and buzzer before production approval.
 
+Strict generic Circuit JSON importers retain inherited metadata compatibility findings, listed in `native-json-compatibility.json`: display offsets stored as numbers instead of strings, null optional ownership, and a generic buzzer source record. Native rendering, physical coordinates and pin/net checks pass; the order package introduces no schema findings and every new paste aperture passes its native schema. No whole-file generic-schema PASS is claimed. These metadata fields do not determine the fabrication or placement coordinates.
+
 Board source SHA-256: `ca2043c83a336276446ca56c7af23afbc4debbb6b1db4daee58ab803a74a6035`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
