@@ -106,5 +106,29 @@ with urllib.request.urlopen(page,timeout=60) as r: page_status=r.status; assert 
 feedback=json.loads(file('artifacts/reference-feedback/circuit-verification.json'));assert feedback['passed'] and feedback['board_sha256']==sha(board_bytes)
 trace_review=json.loads(file('artifacts/reference-feedback/every-trace-review.json'));assert trace_review['passed']
 receipt={'schematic_native_analysis_zero_issues':True,'schematic_geometric_ERC_passed':True,'functional_A4_sheet_count':5,'PCB_and_source_preserved_from_schematic_baseline':schematic['electrical_source_and_PCB_CAD_preserved'],'electrical_source_preserved':schematic.get('electrical_source_preserved',True),'qualified_schematic_preserved':schematic.get('qualified_schematic_preserved',True),'reference_feedback_verified':True,'every_trace_inventory_verified':True,'hardware_operation_verified':False,'passed':True,'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_package':name,'version':version,'package_release_id':rid,'package_is_private':False,'ready_to_build':True,'public_page':page,'page_http_status':page_status,'github_revision':revision,'github_commit_url':'https://github.com/'+repo+'/commit/'+revision,'public_file_count':len(files),'review_board_sha256':sha(board_bytes),'public_index_sha256':sha(remote_bytes),'public_dist_sha256':sha(dist_bytes),'geometry_and_functional_records_unchanged':True,'cad_urls_pinned_to_revision':True,'mount_coordinates_mm':sorted(expected),'mount_diameter_mm':3.2,'board_dimensions_mm':[35,35],'USB_mouth_coordinates_mm':sorted(usb),'same_USB_edge':'+Y','required_maximum_DIN920_head_diameter_mm':4,'simultaneous_12mm_plug_gap_mm':mechanical['minimum_simultaneous_plug_gap_mm'],'actual_Gerber_outline_centerline_bounds_mm':cam['board_outline']['centerline_bounds_mm'],'public_gerber_archive_sha256':sha(archive),'public_drill_sha256':sha(drill),'public_drill_coordinates_mm':[[float(x),float(y)] for x,y in mounts],'public_evidence_checks':checks,'public_github_checks':github,'full_manufacturing_audit_passed':False,'rear_motor_compatibility_verified':False,'physical_hardware_tested':False,'fitted_motor_connector':'B4B-PH-K-S(LF)(SN)','JST_supplier_id':'C131334','JST_actual_drills':connector['actual_JST_drill_matches'],'JST_native_STEP_lead_alignment_verified':True,'JST_top_entry_access_screen_pass':True}
+order_dir=root/'artifacts/jlcpcb-review'
+if order_dir.exists():
+    public_order=[]
+    for p in sorted(order_dir.iterdir()):
+        if not p.is_file() or p.name=='order-source.circuit.json':continue
+        path=str(p.relative_to(root));data=file(path)
+        assert data==p.read_bytes(), 'Public JLCPCB review file differs: '+path
+        public_order.append({'path':path,'sha256':sha(data)})
+    order=json.loads(file('artifacts/jlcpcb-review/order-review-verification.json'))
+    assert order['prepared_for_JLCPCB_engineering_review'] and order['order_review_CAM_passed']
+    assert order['native_board_sha256']==sha(board_bytes)
+    assert not order['JLCPCB_order_submitted'] and not order['production_release_approved']
+    order_cam=json.loads(file('artifacts/jlcpcb-review/CAM-audit.json'))
+    assert order_cam['status']=='PASS' and not order_cam['issues']
+    fab_bytes=file('artifacts/jlcpcb-review/JLCPCB-Gerbers.zip')
+    assert sha(fab_bytes)==order['JLCPCB_gerber_zip_sha256']
+    with zipfile.ZipFile(io.BytesIO(fab_bytes)) as z:
+        assert z.read('drill_npth.drl')==drill
+        for layer in ['F_Cu.gbr','In1_Cu.gbr','In2_Cu.gbr','B_Cu.gbr','F_Mask.gbr','B_Mask.gbr','Edge_Cuts.gbr']:
+            with zipfile.ZipFile(io.BytesIO(archive)) as original:
+                assert z.read(layer)==original.read(layer)
+    receipt.update({'JLCPCB_review_package_verified_public':True,'corrected_order_CAM_passed':True,
+                    'supplier_order_review_approved':False,'production_release_approved':False,
+                    'public_JLCPCB_review_evidence':public_order})
 (root/'artifacts/publication-verification.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps(receipt,indent=2))

@@ -1,4 +1,6 @@
-# NEMA14 RP2040 controller — v1.7.0 prototype
+# NEMA14 RP2040 controller — v1.7.1 order-review prototype
+
+**v1.7.1 JLCPCB order-review files:** [review instructions](docs/jlcpcb-order-review.md) and [complete review handoff](artifacts/jlcpcb-review/JLCPCB-OrderReview.zip). Use the corrected `artifacts/jlcpcb-review/JLCPCB-Gerbers.zip`, BOM and CPL. Both corrected CAM audits pass with zero findings. Copper, connections, placement and exact mounting drills are preserved. JLCPCB preview/stock/process approval and hardware validation remain pending; the raw native export below is historical prototype evidence.
 
 A **35 × 35 × 1.6 mm**, four-layer controller with native JLCPCB parts, two USB-C ports on one edge and a fitted JST PH motor connector. The board includes the reference power/debug LED, RGB status LED, TMP102 temperature sensor and PWM magnetic buzzer. USB-C and JST physical-pin roles match Rishabh’s reference, with board-specific MCU GPIOs documented in [reference feedback](docs/reference-feedback.md).
 
@@ -8,7 +10,7 @@ Four Ø3.2 mm mounting holes remain exactly (±13, ±13). The same-edge USB layo
 
 The motor driver retains its 0.351 A nominal limit, reset defaults and 1/16 microstep configuration. Power USB-C requests 15 V through CH224K; programming USB-C supplies fixed 5 V and full-speed USB data, with independent CC pull-downs and USB ESD protection. Logic power uses the AP63203 3.3 V buck regulator.
 
-This is **not a manufacturing release**. Electrical/copper verification, actual drill coordinates and mechanical evidence are recorded in [current verification](docs/mounting-usb-verification.md). Assembly/stencil findings, firmware, bench tests and the complete motor mounting assembly remain unqualified. A reference board working does not prove this layout or its firmware has been physically validated.
+This is **not a manufacturing release**. Electrical/copper verification, actual drill coordinates and mechanical evidence are recorded in [current verification](docs/mounting-usb-verification.md). The corrected order package passes its CAM audit. Supplier placement/process approval, firmware, bench tests and the complete motor mounting assembly remain unqualified. A reference board working does not prove this layout or its firmware has been physically validated.
 
 C_DV50, C_IO49, R_XOUT, C_XOUT and R_TEMP_SDA use native footprints on the bottom. Bare debug pads are also on the bottom. Two-sided assembly and a verified underside gap are required.
 

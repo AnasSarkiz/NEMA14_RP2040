@@ -8,4 +8,8 @@ with (root/entry['log']).open('w') as f:r=subprocess.run(entry['command'],cwd=ro
 assert hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest()==sha
 entry['exit_code']=r.returncode
 record.setdefault('retry_history',[]).append({'check':name,'previous_exit_code':previous['exit_code'],'retry_exit_code':r.returncode,'board_sha256':sha,'retried_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat()})
+if name=='full_independent_CAM':
+ cam=json.loads((root/'artifacts/manufacturing/audit.json').read_text())
+ assert cam['source_sha256']==sha
+ record['full_CAM_status']=cam['status'];record['remaining_CAM_findings']=cam['issues']
 path.write_text(json.dumps(record,indent=2)+'\n');print(name,r.returncode);raise SystemExit(r.returncode)

@@ -193,8 +193,9 @@ def main():
  if shorts or opens or unconnected:report['issues'].append({'kind':'physical-netlist-failure','short_count':len(shorts),'open_count':len(opens),'unconnected_pads':unconnected})
  bare={'J_DEBUG','J_BOOT'};bare_pc={p['pcb_component_id'] for p in pc.values() if src[p['source_component_id']]['name'] in bare};bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc]);paste={};pth=unary_union([shape(e) for e in j if e['type']=='pcb_plated_hole'])
  for l in ['F_Paste','B_Paste']:
+  bare_pads=unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id'] in bare_pc and e['layer']==('top' if l=='F_Paste' else 'bottom')])
   g=geo.get(l,Polygon());paste[l]={'bare_interface_overlap_mm2':g.intersection(bare_pads).area,'manual_plated_joint_overlap_mm2':g.intersection(pth).area,'outside_smt_copper_mm2':g.difference(unary_union([shape(e) for e in j if e['type']=='pcb_smtpad' and e['layer']==('top' if l=='F_Paste' else 'bottom')]).buffer(.0002)).area}
-  if g.intersection(bare_pads).area>1e-6 or g.intersection(pth).area>1e-6 or (l=='B_Paste' and g.area>1e-6):report['issues'].append({'kind':'assembly-paste-policy','layer':l,**paste[l]})
+  if g.intersection(bare_pads).area>1e-6 or g.intersection(pth).area>1e-6 or paste[l]['outside_smt_copper_mm2']>1e-6:report['issues'].append({'kind':'assembly-paste-policy','layer':l,**paste[l]})
  report['paste']=paste;table={}
  for filename in ['bom.csv','pick_and_place.csv']:
   rows=list(csv.DictReader((directory/filename).open()));refs={r['Designator'] for r in rows};fit={s['name'] for s in src.values() if s['name'] not in bare};table[filename]={'rows':len(rows),'bare_rows':sorted(refs&bare),'missing_fitted':sorted(fit-refs),'unexpected':sorted(refs-fit-bare)}
@@ -254,11 +255,14 @@ def main():
   if e['type']!='pcb_smtpad' or e.get('shape')!='rect' or e.get('width',0)<=2 or e.get('height',0)<=2:continue
   ref=src[pc[e['pcb_component_id']]['source_component_id']]['name']
   if ref in {'U_PD','U_MCU','U_DRV'}:stencil.append({'ref':ref,'pad':e['pcb_smtpad_id'],'coverage_fraction':geo.get('F_Paste',Polygon()).intersection(shape(e)).area/shape(e).area})
- aperture_polygons=list(geo['F_Paste'].geoms) if hasattr(geo['F_Paste'],'geoms') else [geo['F_Paste']];aperture_screen=[]
- for polygon in aperture_polygons:
-  if polygon.is_empty:continue
-  x1,y1,x2,y2=polygon.bounds;aspect=min(x2-x1,y2-y1)/.1;ratio=polygon.area/(polygon.length*.1)
-  aperture_screen.append({'bounds_mm':list(polygon.bounds),'area_mm2':polygon.area,'perimeter_mm':polygon.length,'aspect_ratio_at_100um':aspect,'area_ratio_at_100um':ratio})
+ aperture_screen=[]
+ for paste_layer in ['F_Paste','B_Paste']:
+  geometry=geo.get(paste_layer,Polygon())
+  aperture_polygons=list(geometry.geoms) if hasattr(geometry,'geoms') else [geometry]
+  for polygon in aperture_polygons:
+   if polygon.is_empty:continue
+   x1,y1,x2,y2=polygon.bounds;aspect=min(x2-x1,y2-y1)/.1;ratio=polygon.area/(polygon.length*.1)
+   aperture_screen.append({'layer':paste_layer,'bounds_mm':list(polygon.bounds),'area_mm2':polygon.area,'perimeter_mm':polygon.length,'aspect_ratio_at_100um':aspect,'area_ratio_at_100um':ratio})
  poor=[e for e in aperture_screen if e['aspect_ratio_at_100um']<1.5-1e-4 or e['area_ratio_at_100um']<.66-1e-4]
  report['stencil_release_screen']={'candidate_thickness_mm':.10,'minimum_aspect_ratio':min((e['aspect_ratio_at_100um'] for e in aperture_screen),default=None),'minimum_area_ratio':min((e['area_ratio_at_100um'] for e in aperture_screen),default=None),'screen_limits':{'aspect_ratio':1.5,'area_ratio':.66},'failing_apertures':poor,'scope':'common geometric release screens only; physical paste/stencil/reflow process acceptance still pending'}
  if poor:report['issues'].append({'kind':'stencil-release-screen','apertures':poor})
@@ -311,9 +315,13 @@ def main():
    if abs(pane['coverage_fraction']-.60)>.001:report['issues'].append({'kind':'EP-stencil-coverage',**pane})
   unowned=[e['pcb_solder_paste_id'] for e in j if e['type']=='pcb_solder_paste' and e.get('pcb_component_id') not in pc]
   if unowned:report['issues'].append({'kind':'unowned-source-paste','paste_ids':unowned,'reason':'No component ownership is present in saved source; apertures remain included in full CAM comparison.'})
-  explicit_paste=unary_union([shape(e) for e in j if e['type']=='pcb_solder_paste' and e['layer']=='top' and (e.get('pcb_component_id') not in pc or src[pc[e['pcb_component_id']]['source_component_id']]['name'] not in bare)])
-  report['paste_source_comparison']={'missing_mm2':explicit_paste.difference(geo['F_Paste'].buffer(.0002)).area,'extra_mm2':geo['F_Paste'].difference(explicit_paste.buffer(.0002)).area}
-  if any(v>1e-4 for v in report['paste_source_comparison'].values()):report['issues'].append({'kind':'paste-source-mismatch',**report['paste_source_comparison']})
+  comparisons={}
+  for source_layer,cam_layer in [('top','F_Paste'),('bottom','B_Paste')]:
+   explicit_paste=unary_union([shape(e) for e in j if e['type']=='pcb_solder_paste' and e['layer']==source_layer and (e.get('pcb_component_id') not in pc or src[pc[e['pcb_component_id']]['source_component_id']]['name'] not in bare)])
+   actual_paste=geo.get(cam_layer,Polygon())
+   comparisons[cam_layer]={'missing_mm2':explicit_paste.difference(actual_paste.buffer(.0002)).area,'extra_mm2':actual_paste.difference(explicit_paste.buffer(.0002)).area}
+   if any(v>1e-4 for v in comparisons[cam_layer].values()):report['issues'].append({'kind':'paste-source-mismatch','layer':cam_layer,**comparisons[cam_layer]})
+  report['paste_source_comparison']=comparisons
  if (root/args.source).read_bytes()!=source_bytes:raise ValueError('Frozen source changed during independent CAM audit; regenerate and repeat')
  report['status']='FAIL' if report['issues'] else 'PASS';out=directory/'audit.json';out.write_text(json.dumps(report,indent=2,allow_nan=False)+'\n');print(json.dumps({'status':report['status'],'issues':report['issues'],'connectivity':{k:report['connectivity'][k] for k in ['named_nets_checked','actual_copper_islands','unassigned_islands']},'report':str(out)},indent=2));return 0 if args.baseline else bool(report['issues'])
 if __name__=='__main__':raise SystemExit(main())
