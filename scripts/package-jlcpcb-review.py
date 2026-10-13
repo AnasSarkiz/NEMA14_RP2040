@@ -41,6 +41,17 @@ def main():
     assert {e['Reference'] for e in thermal}=={'U_MCU','U_DRV','U_PD'}
     with (OUT/'Thermal-Via-Process.csv').open('w',newline='') as f:
         writer=csv.DictWriter(f,fieldnames=list(thermal[0]));writer.writeheader();writer.writerows(thermal)
+    joints=[]
+    for hole in [e for e in j if e['type']=='pcb_plated_hole']:
+        ref=sources[components[hole['pcb_component_id']]['source_component_id']]['name']
+        if ref not in {'J_PD','J_DATA','J_MOTOR'}:continue
+        joints.append({'Reference':ref,'Pad hints':','.join(hole.get('port_hints',[])),
+                       'X mm':hole['x'],'Y mm':hole['y'],
+                       'Process request':'separate THT soldering of USB shell tabs or JST leads; supplier must quote or assembler must hand solder'})
+    assert len([e for e in joints if e['Reference'] in {'J_PD','J_DATA'}])==8
+    assert len([e for e in joints if e['Reference']=='J_MOTOR'])==4
+    with (OUT/'Through-Hole-Joint-Plan.csv').open('w',newline='') as f:
+        writer=csv.DictWriter(f,fieldnames=list(joints[0]));writer.writeheader();writer.writerows(joints)
     for side,prefix in [('top','F'),('bottom','B')]:
         svg=['<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="1000" viewBox="-22 -22 44 44">',
              '<rect x="-22" y="-22" width="44" height="44" fill="white"/>',
@@ -82,6 +93,8 @@ The 100 um stencil has independently screened fine-pitch apertures and four wind
 
 SMT fitted parts: {manifest['SMT_components']}. Bottom SMT references: {bottom}. Bare `J_BOOT` and `J_DEBUG` have no purchased component or stencil paste. JST `J_MOTOR` is native B4B-PH-K-S(LF)(SN), C131334, and is excluded from SMT pickup files. Use `Manual-THT-BOM.csv` for hand soldering or ask the supplier to quote a secondary THT operation. The functional order is pin 1 A+, 2 A−, 3 B+, 4 B−. The JST mates vertically from +Z.
 
+The **eight USB-C shell tabs and four JST leads require through-hole soldering**. `Through-Hole-Joint-Plan.csv` lists the actual twelve joint coordinates for supplier quotation or manual soldering. USB signal pads receive stencil paste; shell slots and JST drill openings do not. Do not assume an SMT-only quote includes these joints or that the unsoldered USB tabs provide a qualified cable-retention or shield-ground connection.
+
 CPL coordinates are millimeters about board center, unmirrored board XY for both sides. Rotation is the native imported footprint orientation plus component placement rotation. **Check every polarized part and pin 1 in JLCPCB's placement preview.** `placement-orientation-review.json` lists each actual numbered pad, center, side and rotation; source agreement is not proof of supplier pickup convention. For both USB connectors the imported land-pattern center differs from the body-bounding-box center by 0.975 mm along the mouth axis. Do not silently substitute the body center as the pickup datum.
 
 The preview images show actual corrected mask and silkscreen Gerbers, not the native CAD captions. Dense silkscreen omits captions that cannot fit safely; all fitted references remain in the assembly maps and placement tables. Inspect assembly maps together with the pad-orientation manifest.
@@ -101,6 +114,7 @@ Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: 
     shutil.copy2(OUT/'cam/audit.json',OUT/'CAM-audit.json')
     files=['JLCPCB-Gerbers.zip','JLCPCB-BOM.csv','JLCPCB-CPL.csv','Manual-THT-BOM.csv',
            'Thermal-Via-Process.csv',
+           'Through-Hole-Joint-Plan.csv',
            'REVIEW-INSTRUCTIONS.md','manifest.json','order-review-verification.json','order-paste-schema-verification.json','native-json-compatibility.json','CAM-audit.json',
            'placement-orientation-review.json','top-order-preview.svg','bottom-order-preview.svg',
            'top-order-preview.png','bottom-order-preview.png','top-assembly-map.svg','bottom-assembly-map.svg',

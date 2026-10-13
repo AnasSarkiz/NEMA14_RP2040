@@ -79,7 +79,7 @@ def main():
                  'Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.',
                  'Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.',
                  'Confirm exact BOM availability and quote; no substitutions authorized.',
-                 ('Confirm two-sided SMT support; quote JST secondary soldering or use separate manual THT BOM.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote JST secondary soldering or use separate manual THT BOM.'),
+                 ('Confirm two-sided SMT support; quote USB shell/JST secondary soldering or use the separate manual THT plan.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote USB shell/JST secondary soldering or use the separate manual THT plan.'),
                  'Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.'
              ],
              'remaining_CAD_tooling_review':['Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json.'],
