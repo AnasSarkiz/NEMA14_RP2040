@@ -1,7 +1,9 @@
-> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
-
 # Public release verification
 
-The release target is 1.10.2. `scripts/verify-publication.py` compares the unauthenticated public index/native build, default Gerber archive, actual mounting drills, review package and pinned GitHub CAD/source bytes against the frozen qualified board. The verified release/version and commit are recorded in `artifacts/publication-verification.json` after publication.
+The release version comes from `package.json`. The unchanged `scripts/verify-publication.py` compares unauthenticated public Circuit JSON/native build, default Gerbers, actual mounting drills, the order-review package and pinned GitHub CAD/source files against the qualified board. The authoritative completed receipt is committed to `artifacts/publication-verification.json` after publication.
 
-See [engineering fixes](engineering-fixes.md) for current checks. Strict generic Circuit JSON schema and both manufacturing archives pass. No supplier order/process approval, bench qualification or rear motor compatibility is claimed.
+Public v1.11.0 is verified against 444 public files. Frozen board SHA-256: `67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6`. Published CAD/source files are pinned to GitHub revision `ed5a42fedf49ae1012bbe3681adaf78d160b3e43`. All 63 intended physical nets are connected; native DRC is 0 errors/0 warnings, and both default and order-review CAM pass. Four recognized nonpolar passive-orientation suggestions remain recorded with their actual native command status.
+
+Historical schematic-baseline comparison fields remain as originally recorded. The direct current public-to-qualified-board comparison is true; the separate latest-Git proof preserves all source-component, port, net and source-trace arrays and all 13 oscillator geometries. See `artifacts/opposite-edge/verifier-baseline-context.json`.
+
+Supplier/process/pickup approval, prototype bench qualification and rear motor/encoder mechanical evidence remain outstanding. No order or payment was submitted.
