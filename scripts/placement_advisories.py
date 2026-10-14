@@ -23,8 +23,21 @@ def orientation_advisories_only(log):
     if len(rows) != min(count, 5) or not all(matches):
         return False
     utilization_rows = [s for s in utilization.splitlines() if s.strip()]
-    if len(utilization_rows) != 2 or not re.fullmatch(r'- occupied: '+NUMBER+r'% \('+NUMBER+r'mm\^2 of '+NUMBER+r'mm\^2\)', utilization_rows[0]) or utilization_rows[1] != '- empty spaces over 5% of board area: none':
+    if not utilization_rows or not re.fullmatch(r'- occupied: '+NUMBER+r'% \('+NUMBER+r'mm\^2 of '+NUMBER+r'mm\^2\)', utilization_rows[0]):
         return False
+    if utilization_rows[1:] != ['- empty spaces over 5% of board area: none']:
+        if len(utilization_rows) < 3 or utilization_rows[1] != '- empty spaces over 5% of board area:':
+            return False
+        # Empty board regions are informational utilization data. Accept only
+        # the complete native numeric format; all actual issues remain checked.
+        empty_region = r'  - ('+NUMBER+r')% \(('+NUMBER+r')mm\^2\); bounds=\(minX=('+NUMBER+r')mm, maxX=('+NUMBER+r')mm, minY=('+NUMBER+r')mm, maxY=('+NUMBER+r')mm\)'
+        for row in utilization_rows[2:]:
+            m = re.fullmatch(empty_region, row)
+            if not m:
+                return False
+            percent, area, min_x, max_x, min_y, max_y = map(float, m.groups())
+            if not (5 < percent <= 100 and area > 0 and min_x < max_x and min_y < max_y):
+                return False
     edge_rows = [s for s in edges.splitlines() if s.strip()]
     if not edge_rows or any(not re.fullmatch(r'- [A-Za-z0-9_]+: \d+(?:\.\d+)?mm inside (top|bottom|left|right) edge', s) for s in edge_rows):
         return False

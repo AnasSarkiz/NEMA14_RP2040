@@ -13,7 +13,7 @@ extern "C" int fast_route(int n,int layers,const uint8_t*wire,const uint8_t*soft
  while(!heap.empty()){
   Q q=heap.top();heap.pop();if(q.g!=best[q.id])continue;if(goal[q.id]){end=q.id;break;}if(++*expanded>limit)break;
   int z=q.id/plane,p=q.id%plane,y=p/n,x=p%n;
-  for(int d=0;d<8;++d){int xx=x+dx[d],yy=y+dy[d];if(xx<0||yy<0||xx>=n||yy>=n)continue;int p2=yy*n+xx,id=z*plane+p2;if(wire[id])continue;if(dx[d]&&dy[d]&&(wire[z*plane+y*n+xx]||wire[z*plane+yy*n+x]))continue;double dc=dx[d]&&dy[d]?std::sqrt(2.0):1.0;push(id,q.id,q.g+dc*(z==phase_layer?(phase?12:inner_cost):1)+(soft[id]?softcost:0));}
+  for(int d=0;d<8;++d){int xx=x+dx[d],yy=y+dy[d];if(xx<0||yy<0||xx>=n||yy>=n)continue;int p2=yy*n+xx,id=z*plane+p2;if(wire[id])continue;if(dx[d]&&dy[d]&&(wire[z*plane+y*n+xx]||wire[z*plane+yy*n+x]))continue;double dc=dx[d]&&dy[d]?std::sqrt(2.0):1.0;push(id,q.id,q.g+dc*(z==phase_layer?(phase?std::max(12.0,inner_cost):inner_cost):1)+(soft[id]?softcost:0));}
   if(existing[p]||viafree[p])for(int zz=0;zz<layers;++zz){int id=zz*plane+p;if(zz!=z&&!wire[id])push(id,q.id,q.g+45+(soft[id]?softcost:0));}
  }
  if(end<0)return 0;std::vector<int32_t>path;for(int cur=end;cur>=0;cur=prev[cur]){path.push_back(cur);if(prev[cur]==-2)break;}if((int)path.size()>outsize)return -1;std::reverse(path.begin(),path.end());std::copy(path.begin(),path.end(),out);return path.size();

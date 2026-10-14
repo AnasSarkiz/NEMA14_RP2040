@@ -2051,5 +2051,160 @@
     ],
     "unaffected_copper_retained": 545,
     "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "C_ENCODER"
+    ],
+    "removed_actual_affected_copper": [
+      {
+        "id": "reviewed_local_C_ENCODER_pin1",
+        "net": "V3V3"
+      },
+      {
+        "id": "same_side_repair_63_V1V1_1",
+        "net": "V1V1"
+      }
+    ],
+    "unaffected_copper_retained": 797,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "C_ENCODER",
+      "C_ENCODER_BULK"
+    ],
+    "removed_actual_affected_copper": [
+      {
+        "id": "reviewed_local_C_ENCODER_BULK_pin1",
+        "net": "V3V3"
+      },
+      {
+        "id": "same_side_repair_43_V3V3_14",
+        "net": "V3V3"
+      },
+      {
+        "id": "same_side_repair_8_V3V3_0",
+        "net": "V3V3"
+      },
+      {
+        "id": "reviewed_local_C_ENCODER_pin2",
+        "net": "GND"
+      }
+    ],
+    "unaffected_copper_retained": 834,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "C_FLASH"
+    ],
+    "removed_actual_affected_copper": [
+      {
+        "id": "review_baseline_review_baseline_same_side_repair_1_GND_1_layer_section_2_run_0_run_0_via_clearance_run_0",
+        "net": "GND"
+      },
+      {
+        "id": "reviewed_local_positive_contact_C_FLASH",
+        "net": "GND"
+      },
+      {
+        "id": "same_side_repair_27_V3V3_2",
+        "net": "V3V3"
+      },
+      {
+        "id": "same_side_repair_50_V3V3_15_layer_section_1",
+        "net": "V3V3"
+      },
+      {
+        "id": "same_side_repair_50_V3V3_21_layer_section_1",
+        "net": "V3V3"
+      }
+    ],
+    "unaffected_copper_retained": 815,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "R_STATUS_G"
+    ],
+    "removed_actual_affected_copper": [
+      {
+        "id": "reviewed_local_R_STATUS_G_pin2",
+        "net": "STATUS_G_C"
+      },
+      {
+        "id": "reviewed_local_R_STATUS_G_pin1",
+        "net": "STATUS_G_K"
+      },
+      {
+        "id": "same_side_repair_61_ENABLE_N_1_layer_section_2",
+        "net": "ENABLE_N"
+      }
+    ],
+    "unaffected_copper_retained": 793,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "TP_GND"
+    ],
+    "removed_actual_affected_copper": [],
+    "unaffected_copper_retained": 793,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "L_BUCK",
+      "R_CC1"
+    ],
+    "removed_actual_affected_copper": [
+      {
+        "id": "reviewed_local_U_ENCODER_SDA_via",
+        "net": "TEMP_SDA"
+      },
+      {
+        "id": "reviewed_local_critical_review_baseline_freerouted_trace_354_run_0",
+        "net": "BUCK_SW"
+      },
+      {
+        "id": "reviewed_local_critical_review_baseline_feedback_fanout_pcb_port_183_run_0",
+        "net": "BUCK_SW"
+      },
+      {
+        "id": "same_side_repair_0_V3V3_0_rerouted",
+        "net": "V3V3"
+      },
+      {
+        "id": "reviewed_local_R_CC1_pin1",
+        "net": "DATA_CC1"
+      },
+      {
+        "id": "reviewed_local_R_STATUS_R_pin1",
+        "net": "STATUS_R_K"
+      },
+      {
+        "id": "reviewed_local_R_STATUS_R_pin1_via",
+        "net": "STATUS_R_K"
+      },
+      {
+        "id": "same_side_repair_0_PWR_LED_A_0_via_9",
+        "net": "PWR_LED_A"
+      },
+      {
+        "id": "same_side_repair_0_TEMP_SDA_0_rerouted_via_33",
+        "net": "TEMP_SDA"
+      }
+    ],
+    "unaffected_copper_retained": 789,
+    "source_pin_roles_preserved": true
+  },
+  {
+    "changed_components": [
+      "C_VM_SENSE"
+    ],
+    "removed_actual_affected_copper": [],
+    "unaffected_copper_retained": 838,
+    "source_pin_roles_preserved": true
   }
 ]

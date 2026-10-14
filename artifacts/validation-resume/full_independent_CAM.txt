@@ -1,90 +1,10 @@
 {
-  "status": "FAIL",
-  "issues": [
-    {
-      "kind": "unassigned-copper-islands",
-      "islands": [
-        {
-          "area_mm2": 0.0883484226824842,
-          "bounds_mm": [
-            -1.6,
-            -5.7749999999999995,
-            -1.15,
-            -5.325
-          ],
-          "layers": [
-            "top",
-            "bottom",
-            "inner1",
-            "inner2"
-          ],
-          "no_connect_pads": [],
-          "classification": "unassigned copper: review"
-        },
-        {
-          "area_mm2": 0.08834842268248454,
-          "bounds_mm": [
-            -8.475,
-            -11.4,
-            -8.025,
-            -10.950000000000001
-          ],
-          "layers": [
-            "top",
-            "bottom",
-            "inner1",
-            "inner2"
-          ],
-          "no_connect_pads": [],
-          "classification": "unassigned copper: review"
-        },
-        {
-          "area_mm2": 0.08834842268248436,
-          "bounds_mm": [
-            -5.125,
-            -10.125,
-            -4.675000000000001,
-            -9.675
-          ],
-          "layers": [
-            "top",
-            "bottom",
-            "inner1",
-            "inner2"
-          ],
-          "no_connect_pads": [],
-          "classification": "unassigned copper: review"
-        },
-        {
-          "area_mm2": 0.08834842268248427,
-          "bounds_mm": [
-            -4.175,
-            -0.325,
-            -3.725,
-            0.125
-          ],
-          "layers": [
-            "top",
-            "bottom",
-            "inner1",
-            "inner2"
-          ],
-          "no_connect_pads": [],
-          "classification": "unassigned copper: review"
-        }
-      ]
-    },
-    {
-      "kind": "physical-netlist-failure",
-      "short_count": 0,
-      "open_count": 9,
-      "unconnected_pads": []
-    }
-  ],
+  "status": "PASS",
+  "issues": [],
   "connectivity": {
     "named_nets_checked": 63,
-    "actual_copper_islands": 1030,
-    "unassigned_islands": 41
+    "actual_copper_islands": 1044,
+    "unassigned_islands": 37
   },
   "report": "/workspace/nema14-rp2040-current/artifacts/manufacturing/audit.json"
 }

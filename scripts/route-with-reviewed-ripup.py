@@ -11,6 +11,7 @@ from shapely.ops import unary_union
 import verify_supplier_connectivity as g
 
 j=g.j;ROOT=g.ROOT;STEP=.025;LOW=-17.5;N=1401
+construction_margin=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--grid-margin-mm=')),.02));assert .003<=construction_margin<=.02
 layers=['top','bottom'] if next(e for e in j if e['type']=='pcb_board')['num_layers']==2 else ['top','inner1','inner2','bottom']
 nets={e['subcircuit_connectivity_map_key']:e for e in j if e['type']=='source_net'}
 traces={e['subcircuit_connectivity_map_key']:e['source_trace_id'] for e in j if e['type']=='source_trace'}
@@ -23,24 +24,36 @@ soft_crossing_cost=float(next((q.split('=',1)[1] for q in sys.argv if q.startswi
 soft_wire=None
 def soft_eligible(e):
     name=g.nets.get(g.key(e),'')
-    if name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT'}:return False
+    uid=e.get('pcb_trace_id',e.get('pcb_via_id',''))
+    if e['type']=='pcb_via' and ('--rip-ordinary-vias' not in sys.argv or name in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'}):return False
+    if name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','RUN','SWCLK','SWDIO'}:return False
     protected_nets={q.split('=',1)[1] for q in sys.argv if q.startswith('--protect-net=')}
     if name in protected_nets:return False
-    if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'} and not e['pcb_trace_id'].startswith(('usb_','oscillator_','review_escape_','reviewed_local_')):return True
-    if '--rip-ground-branches' in sys.argv and name=='GND' and not e['pcb_trace_id'].startswith(('usb_','oscillator_','reviewed_local_','feedback_ground_escape_')):return True
+    if '--rip-pd-branches' in sys.argv and name=='PD_VBUS' and not uid.startswith(('usb_','reviewed_local_')):return True
+    if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'}:
+        if not uid.startswith(('usb_','oscillator_','review_escape_','reviewed_local_')):return True
+    if '--rip-ground-branches' in sys.argv and name=='GND' and not uid.startswith(('usb_','oscillator_','reviewed_local_','feedback_ground_escape_')):return True
     if '--protect-signals' in sys.argv:return False
-    return name not in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'} and not e['pcb_trace_id'].startswith(('usb_','review_escape_','reviewed_local_'))
+    return name not in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'} and not uid.startswith(('usb_','review_escape_','reviewed_local_'))
+def width_for_layer(layer):
+    if '--adaptive-power-layers' in sys.argv:
+        name=nets[net]['name']
+        if name=='PD_VBUS':return .55 if layer.startswith('inner') else .2
+        if name=='DATA_VBUS':return .3 if layer.startswith('inner') else .2
+    return current_width
+
 def blocked(net,via=False):
     global soft_wire
     soft_images=[Image.new('L',(N,N)) for _ in layers];soft_ds=[ImageDraw.Draw(im) for im in soft_images]
     draw_layers=['top','inner1','inner2','bottom'] if via and next(e for e in j if e['type']=='pcb_board')['num_layers']==4 else layers
     images=[Image.new('L',(N,N)) for _ in draw_layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=max(.15+current_via_diameter/2+.02,.20+current_via_hole/2+.02) if via else .15+current_width/2+.02
+    margin=max(.15+current_via_diameter/2+construction_margin,.20+current_via_hole/2+construction_margin) if via else .15+current_width/2+construction_margin
     def add(ls,geom,extra=0,soft=False):
-        p=geom.buffer(margin+extra,quad_segs=16)
-        pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
         for l in ls:
             if l not in draw_layers:continue
+            layer_margin=margin if via else .15+width_for_layer(l)/2+construction_margin
+            p=geom.buffer(layer_margin+extra,quad_segs=16)
+            pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
             d=(soft_ds if soft else ds)[draw_layers.index(l)]
             for piece in pieces:
                 if piece.geom_type=='Polygon' and not piece.is_empty:d.polygon([xy(x,y) for x,y in piece.exterior.coords],fill=1)
@@ -51,8 +64,11 @@ def blocked(net,via=False):
             add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.135 if g.key(e)==net and via else .1 if typ=='pcb_plated_hole' else 0)
         elif typ=='pcb_via':
             if g.key(e)==net and not via:continue
-            add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
+            eligible=soft_eligible(e)
+            if via and eligible:continue
+            add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2),soft=not via and eligible)
         elif typ=='pcb_trace' and g.key(e)!=net:
+            if via and '--rip-ordinary-vias' in sys.argv and soft_eligible(e) and g.nets.get(g.key(e)) not in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'}:continue
             for a,b in zip(e['route'],e['route'][1:]):
                 if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                     add([a['layer']],g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2),soft=not via and soft_eligible(e))
@@ -79,8 +95,8 @@ def blocked(net,via=False):
         region=unary_union([g.LineString(r['points']).buffer(op['guard_buffer_mm']) for r in op['routes']])
         exempt=unary_union([g.Point(r['points'][0]).buffer(op['MCU_pin_local_exemption_radius_mm']) for r in op['routes'] if r['trace'] in ['oscillator_XIN','oscillator_XOUT']])
         add(draw_layers if via else op['layers_reserved'],region.difference(exempt))
-    b=math.ceil((.35+(current_via_diameter/2 if via else current_width/2))/STEP)
-    for d in ds:
+    for l,d in zip(draw_layers,ds):
+        b=math.ceil((.35+(current_via_diameter/2 if via else width_for_layer(l)/2))/STEP)
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
         d.rectangle([0,0,b,N-1],fill=1);d.rectangle([N-1-b,0,N-1,N-1],fill=1)
     masks=[np.asarray(im,dtype=np.bool_) for im in images]
@@ -120,6 +136,10 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
     board=next(e for e in j if e['type']=='pcb_board')
     current_via_diameter=max(board['min_via_pad_diameter'],.5 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .4)
     current_via_hole=max(board['min_via_hole_diameter'],.25 if nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .2)
+    override=next((float(q.split('=',1)[1]) for q in sys.argv if q.startswith('--via-pad-mm=')),None)
+    if override is not None:
+        assert board['min_via_pad_diameter']<=override<=.6 and override-current_via_hole>=.15-1e-9
+        current_via_diameter=override
     for attempt in range(40):
         elems,roots=g.groups(net);islands={}
         for e,r in zip(elems,roots):
@@ -148,6 +168,11 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             if refs=={'J_PD'}:
                 current_width=.3
                 layers=['top','bottom'] # Full 0.75 A screened on external copper.
+        if nets[net]['name']=='DATA_VBUS':
+            refs={g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']] for p in islands[startroot]}
+            if refs=={'R_USB_SENSE_H'}:
+                assert next(e for e in j if e['type']=='source_component' and e['name']=='R_USB_SENSE_H')['resistance']==100000
+                current_width=.16 # Only the physically isolated 100k divider-input terminal; independent branch-cut thermal audit remains mandatory.
         if nets[net]['name']=='V3V3':
             refs={g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']] for p in islands[startroot]}
             load=sum({'U_MCU':.15,'U_FLASH':.03,'U_DRV':.02,'U_TEMP':.001,'BZ1':.12,'R_PWR_LED':.011,'R_TEMP_SDA':.001,'R_TEMP_SCL':.001}.get(ref,0) for ref in refs)
@@ -162,6 +187,15 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             assert set(requested_layers)<={'top','inner1','inner2','bottom'} and {'top','bottom'}<=set(requested_layers)
             assert nets[net]['name'] not in ['USB_DP','USB_DM','MCU_DP','MCU_DM']
             layers=requested_layers
+        if ('--outer-pd-feeder' in sys.argv and nets[net]['name']=='PD_VBUS') or ('--outer-data-feeder' in sys.argv and nets[net]['name']=='DATA_VBUS'):
+            assert set(layers)=={'top','bottom'},'Full-budget 0.30 mm PD feeder requires the 35 um outer layers; thermal audit remains mandatory'
+            outer_width=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--outer-feeder-width=')),.3))
+            assert .16<=outer_width<=.3
+            current_width=outer_width
+        goal_ref=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--goal-ref=')),None)
+        target_roots={r for r,ps in islands.items() if any(g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']]==goal_ref for p in ps)} if goal_ref else set()
+        if goal_ref and startroot in target_roots:
+            print('Requested physical terminal groups joined',nets[net]['name'],requested_start,goal_ref,flush=True);break
         # Use a real connected physical land as the start, never an old location.
         startpad=min(islands[startroot],key=lambda e:len(e.get('port_hints',[])))
         startport=g.ports[startpad['pcb_port_id']]
@@ -172,6 +206,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             if l in layers:goals[(*xy(x,y),layers.index(l))]=(x,y)
         for e,r in zip(elems,roots):
             if r==startroot or r not in (set(islands)|core_roots):continue
+            if goal_ref and r not in target_roots:continue
             if usb_net and core_roots and r not in core_roots:continue
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and e.get('pcb_port_id'):
                 p=g.ports[e['pcb_port_id']]
@@ -179,6 +214,16 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                     for x,y in accessible_pad_points(e):goal(x,y,l)
             elif e['type']=='pcb_via':
                 for l in e['layers']:goal(e['x'],e['y'],l)
+            elif e['type']=='pcb_copper_pour' and nets[net]['name']=='GND':
+                from shapely.geometry import Polygon
+                b=e['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
+                poly=Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]).buffer(-.01)
+                for piece in list(poly.geoms) if hasattr(poly,'geoms') else [poly]:
+                    if piece.is_empty or piece.geom_type!='Polygon':continue
+                    rp=piece.representative_point();goal(rp.x,rp.y,e['layer'])
+                    for ring in [piece.exterior]+list(piece.interiors):
+                        for i in range(max(1,math.ceil(ring.length/.15))):
+                            q=ring.interpolate(i*.15);goal(q.x,q.y,e['layer'])
             elif e['type']=='pcb_trace':
                 if e['pcb_trace_id'].startswith('usb_coupled_'):
                     policy=json.loads((ROOT/'artifacts/engineering-fixes/usb-routing-plan.json').read_text())
@@ -207,6 +252,8 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         distance_field=distance_transform_edt(goal_mask)
         search_weight=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--search-weight=')),1.5))
         assert 1<=search_weight<=5,'Weighted search affects construction only; all clearance checks remain mandatory'
+        search_limit=int(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--max-expanded=')),5000000))
+        assert 1000000<=search_limit<=20000000,'Search budget affects construction only'
         heuristic=lambda s:search_weight*float(distance_field[s[1],s[0]])
         starts={(*xy(x,y),layers.index(l)):(x,y) for l in startpad.get('layers',[startpad.get('layer','top')]) if l in layers for x,y in accessible_pad_points(startpad)}
         for anchor,r in zip(elems,roots):
@@ -224,7 +271,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         starts={q:v for q,v in starts.items() if not wire[q[2]][q[1],q[0]]}
         if '--fast-grid' in sys.argv:
             from fast_grid_router import route as fast_route
-            path,expanded=fast_route(wire,soft_wire,vias,existing,distance_field,starts,goals,search_weight,soft_crossing_cost,phase_bridge,layers,inner_cost=float(next((q.split("=",1)[1] for q in sys.argv if q.startswith("--inner1-cost=")),1)))
+            path,expanded=fast_route(wire,soft_wire,vias,existing,distance_field,starts,goals,search_weight,soft_crossing_cost,phase_bridge,layers,limit=search_limit,inner_cost=float(next((q.split("=",1)[1] for q in sys.argv if q.startswith("--inner1-cost=")),1)))
             if path is None:
                 print('UNROUTED: no legal grid route',nets[net]['name'],expanded,flush=True);break
             end=path[-1]
@@ -236,7 +283,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                 if cost!=best.get(s):continue
                 if s in goals:end=s;break
                 expanded+=1
-                if expanded>5000000:break
+                if expanded>search_limit:break
                 x,y,l=s
                 options=[(x+dx,y+dy,l,math.sqrt(2) if dx and dy else 1) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]]
                 if (x,y) in existing or all(not b[y,x] for b in vias):options.extend((x,y,q,45) for q in range(len(layers)) if q!=l)
@@ -270,7 +317,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                     assert oldvia['from_layer']=='top' and oldvia['to_layer']=='bottom'
                     oldvia['layers']=all_layers
                 else:j.append(v);newvia.append([x,y])
-            route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':current_width})
+            route.append({'route_type':'wire','x':x,'y':y,'layer':l,'width':width_for_layer(l)})
         sx,sy=starts[path[0]];route[0].update(x=sx,y=sy)
         if route[0]['layer'] in startpad.get('layers',[startpad.get('layer','top')]) and g.geometry(startpad).covers(g.Point(sx,sy)):route[0]['start_pcb_port_id']=startpad['pcb_port_id']
         gx,gy=goals[end];route[-1].update(x=gx,y=gy)
@@ -293,19 +340,44 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                 print('UNROUTED: proposed phase transitions exceed total inner1 length budget',nets[net]['name'],proposed_total,limit,flush=True)
                 break
         ripped=set()
+        # Index foreign wire segments once; keep the same exact clearance and
+        # protected-copper assertions while avoiding repeated geometry builds.
+        from shapely.strtree import STRtree
+        foreign_shapes=[];foreign_owners=[];foreign_layers=[]
         for foreign in j:
-            if foreign['type']!='pcb_trace' or g.key(foreign)==net:continue
-            for a,b in zip(route,route[1:]):
-                if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
-                poly=g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)
-                for c,d in zip(foreign['route'],foreign['route'][1:]):
-                    if c['route_type']==d['route_type']=='wire' and c['layer']==d['layer']==a['layer'] and poly.distance(g.LineString([(c['x'],c['y']),(d['x'],d['y'])]).buffer(max(c['width'],d['width'])/2))<.15-.000001:
-                        assert soft_eligible(foreign),('Route crosses protected copper',nets[net]['name'],foreign['pcb_trace_id'],g.nets.get(g.key(foreign)),poly.distance(g.LineString([(c['x'],c['y']),(d['x'],d['y'])]).buffer(max(c['width'],d['width'])/2)));ripped.add(foreign['pcb_trace_id'])
-        rip_limit=int(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--max-ripped-traces=')),4));assert 0<=rip_limit<=8,'Controlled rip-up budget must be between zero and eight traces';assert len(ripped)<=rip_limit,('Controlled rip-up budget exceeded',sorted(ripped))
+            if g.key(foreign)==net:continue
+            if foreign['type']=='pcb_via':
+                for lname in ['top','inner1','inner2','bottom']:
+                    foreign_shapes.append(g.Point(foreign['x'],foreign['y']).buffer(foreign['outer_diameter']/2));foreign_owners.append(foreign);foreign_layers.append(lname)
+                continue
+            if foreign['type']!='pcb_trace':continue
+            for c,d in zip(foreign['route'],foreign['route'][1:]):
+                if c['route_type']==d['route_type']=='wire' and c['layer']==d['layer']:
+                    foreign_shapes.append(g.LineString([(c['x'],c['y']),(d['x'],d['y'])]).buffer(max(c['width'],d['width'])/2))
+                    foreign_owners.append(foreign);foreign_layers.append(c['layer'])
+        foreign_index=STRtree(foreign_shapes)
+        construction_shapes=[]
+        for vnew in j:
+            if vnew['type']=='pcb_via' and vnew['pcb_via_id'].startswith(uid+'_via_'):
+                for lname in ['top','inner1','inner2','bottom']:construction_shapes.append((lname,g.Point(vnew['x'],vnew['y']).buffer(vnew['outer_diameter']/2)))
+        for a,b in zip(route,route[1:]):
+            if a['route_type']!=b['route_type'] or a['route_type']!='wire' or a['layer']!=b['layer']:continue
+            poly=g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)
+            construction_shapes.append((a['layer'],poly))
+        for lname,poly in construction_shapes:
+            for index in foreign_index.query(poly.buffer(.15)):
+                if foreign_layers[index]!=lname:continue
+                distance=poly.distance(foreign_shapes[index])
+                if distance<.15-.000001:
+                    foreign=foreign_owners[index];fid=foreign[foreign['type']+'_id']
+                    assert soft_eligible(foreign),('Route crosses protected copper',nets[net]['name'],fid,g.nets.get(g.key(foreign)),distance)
+                    ripped.add(fid)
+        rip_limit=int(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--max-ripped-traces=')),4));assert 0<=rip_limit<=16,'Construction rip-up budget must be between zero and sixteen traces; every displaced net requires full requalification';assert len(ripped)<=rip_limit,('Controlled rip-up budget exceeded',sorted(ripped))
         print('RIP_FOR',nets[net]['name'],sorted(ripped),flush=True)
-        j[:]=[e for e in j if e.get('pcb_trace_id') not in ripped]
+        ripped_vias={e['pcb_via_id'] for e in j if e['type']=='pcb_via' and e['pcb_via_id'] in ripped}
+        j[:]=[e for e in j if e.get(e['type']+'_id') not in ripped]
         j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]})
-        repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid,'removed_foreign_trace_ids':sorted(ripped)})
+        repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid,'removed_foreign_trace_ids':sorted(ripped-ripped_vias),'removed_foreign_via_ids':sorted(ripped_vias)})
         print(repairs[-1],flush=True)
         for obj in j:
             if obj.get('source_net_id',1) is None:obj.pop('source_net_id')

@@ -116,7 +116,7 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <testpoint name="TP_RUN" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_RUN")} connections={{pin1:n("RUN")}} />
   <testpoint name="TP_BOOT" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT")} connections={{pin1:n("BOOT_PAD")}} />
   <testpoint name="TP_BOOT_GND" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT_GND")} connections={{pin1:n("GND")}} />
-  <silkscreentext text="PWR" pcbX={6.8} pcbY={16.1} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
+  <silkscreentext text="PWR" pcbX={6.8} pcbY={16.3} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   <silkscreentext text="DATA" pcbX={-15.5} pcbY={-16.6} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   {/* Optional AS5600 at nominal motor axis. No rear shaft/magnet fit is claimed. */}
   <SupplierPart name="U_ENCODER" layer="bottom" doNotPlace {...place("U_ENCODER")} noConnect={['OUT','PGO']} connections={{VDD5V:n('V3V3'),VDD3V3:n('V3V3'),GND:n('GND'),DIR:n('GND'),SDA:n('TEMP_SDA'),SCL:n('TEMP_SCL')}} />

@@ -11,7 +11,8 @@ python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
+for d in ['src','docs','scripts','references','tests']:
+ if (root/d).is_dir():shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
 for f in ['index.circuit.tsx','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
@@ -41,7 +42,7 @@ for name in ['usb-verification.json','schema-verification.json','export-policy.j
  source=root/'artifacts/engineering-fixes'/name
  if source.exists():shutil.copy2(source,engineering/name)
 shutil.copytree(root/'artifacts/jlcpcb-review',stage/'artifacts/jlcpcb-review',ignore=shutil.ignore_patterns('cam','order-source.circuit.json'))
-shutil.copytree(root/'artifacts/opposite-edge',stage/'artifacts/opposite-edge',ignore=shutil.ignore_patterns('baseline*','*.txt'))
+shutil.copytree(root/'artifacts/opposite-edge',stage/'artifacts/opposite-edge',ignore=shutil.ignore_patterns('baseline*','*.txt','*.npy','mcu-routing-window.png','rejected-phase-*.json'))
 shutil.copytree(root/'artifacts/edge-resistors',stage/'artifacts/edge-resistors')
 shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-redesign',ignore=shutil.ignore_patterns('baseline*.json'))
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
@@ -83,13 +84,22 @@ assert built==saved,'Native CLI dist build differs from saved routing'
 (stage/'dist/index/circuit.json').write_text(json.dumps(built,separators=(',',':'))+'\n')
 print('Including verified compact native dist/index/circuit.json')
 PYDIST
-if ! XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist --compress; then
-  # The registry may complete an archive after the CLI timeout. Accept recovery
-  # only after fetching and verifying the exact public release, copper, drills,
-  # evidence, pinned models and GitHub bytes; never retry by deleting files.
-  python3 "$project_root/scripts/recover-publication.py" "$package_stage"
-  python3 "$project_root/scripts/verify-publication.py" "$project_root"
+# Verify uploads even when the CLI returns zero: it can report failed files
+# after a partial fallback upload. Native bounded archives repair missing rows.
+if [ "${1:-}" = "--bounded-upload" ]; then
+  python3 "$project_root/scripts/ensure-registry-release.py" "$package_stage"
 fi
+if [ "${1:-}" != "--recover-only" ] && [ "${1:-}" != "--bounded-upload" ]; then
+  upload_log=$(mktemp /tmp/nema14-registry-upload.XXXXXX)
+  XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist --compress > "$upload_log" 2>&1 || true
+  python3 - "$upload_log" <<'PYLOG'
+import pathlib,sys
+for line in pathlib.Path(sys.argv[1]).read_text().splitlines():
+ if len(line)<500 and any(word in line for word in ['Publish completed','failed upload','Error:','uploaded']):print(line)
+PYLOG
+fi
+python3 "$project_root/scripts/recover-publication.py" "$package_stage"
+python3 "$project_root/scripts/verify-publication.py" "$project_root"
 python3 - "$package_stage" <<'PYVERSION'
 import json,pathlib,sys
 p=pathlib.Path(sys.argv[1]);print('Published registry version:',json.loads((p/'package.json').read_text())['version'])

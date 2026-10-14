@@ -69,7 +69,7 @@ def main():
             if e['type']=='pcb_hole' and e.get('hole_diameter')==3.2:
                 svg.append(f'<circle cx="{e["x"]}" cy="{-e["y"]}" r="1.6" fill="white" stroke="#777" stroke-width=".05"/>')
         svg += [f'<text x="0" y="-19.7" text-anchor="middle" font-family="sans-serif" font-size="1">{escape(package)} — {side}</text>',
-                '<text x="0" y="20" text-anchor="middle" font-family="sans-serif" font-size=".65">Unmirrored board XY; +Y USB edge at top; 35 × 35 mm</text>','</svg>']
+                '<text x="0" y="20" text-anchor="middle" font-family="sans-serif" font-size=".65">Unmirrored board XY; +Y at top; 35 × 35 mm</text>','</svg>']
         path=OUT/f'{side}-order-preview.svg';path.write_text('\n'.join(svg))
         cairosvg.svg2png(url=str(path),write_to=str(OUT/f'{side}-order-preview.png'))
         # Assembly drawing uses current physical placement centers. Reference
@@ -86,6 +86,8 @@ def main():
         (OUT/f'{side}-stencil-preview.svg').write_text(paste_svg)
         cairosvg.svg2png(bytestring=paste_svg.encode(),write_to=str(OUT/f'{side}-stencil-preview.png'))
     bottom=', '.join(manifest['bottom_SMT_references']) or 'none'
+    mechanical=json.loads((ROOT/'artifacts/mechanical/mount-usb-screen.json').read_text())
+    assert mechanical['passed'] and mechanical['board_sha256']==manifest['native_board_sha256']
     instructions=f'''# {package}: JLCPCB engineering review
 
 This handoff is prepared for order review. It is not JLCPCB approval or a production release. No order or payment has been submitted.
@@ -100,13 +102,13 @@ SMT fitted parts: {manifest['SMT_components']}. Bottom SMT references: {bottom}.
 
 The **eight USB-C shell tabs require supplier-approved TOP-side secondary soldering**. Their 0.7 mm stakes do not protrude through the 1.6 mm board; do not assume a bottom-wave or ordinary through-hole process is suitable. `Through-Hole-Joint-Plan.csv` lists the actual eight joint coordinates for supplier quotation or manual soldering. USB signal pads receive stencil paste; shell slots do not. Do not assume an SMT-only quote includes these joints or that the unsoldered USB tabs provide a qualified cable-retention or shield-ground connection.
 
-CPL coordinates are millimeters about board center, unmirrored board XY for both sides. Rotation is the native imported footprint orientation plus component placement rotation. **Check every polarized part and pin 1 in JLCPCB's placement preview.** `placement-orientation-review.json` lists each actual numbered pad, center, side and rotation; source agreement is not proof of supplier pickup convention. For both USB connectors the imported land-pattern center differs from the body-bounding-box center by 0.975 mm along the mouth axis. Do not silently substitute the body center as the pickup datum.
+CPL coordinates are millimeters about board center, unmirrored board XY for both sides. Rotation is the native imported footprint orientation plus component placement rotation. **Check every polarized part and pin 1 in JLCPCB's placement preview.** `placement-orientation-review.json` lists each actual numbered pad, center, side and rotation; source agreement is not proof of supplier pickup convention. Upright USB-C CPL coordinates use the imported land-pattern datum. The CAD body alignment and manufacturer pickup datum are separate conventions; supplier pickup confirmation remains required. Do not substitute a body bounding-box center for the native CPL datum.
 
 The preview images show actual corrected mask and silkscreen Gerbers, not the native CAD captions. Dense silkscreen omits captions that cannot fit safely; all fitted references remain in the assembly maps and placement tables. Inspect assembly maps together with the pad-orientation manifest.
 
 Software verification covers source nets, all saved traces/segments/vias, physical connectivity, actual CAM shorts/opens and clearance, pad/mask/drill agreement, stencil geometry, assembly identities, exact outline and mounts, and nominal native STEP mechanical checks. **USB impedance/reference paths, switching loops, sense/ground return behavior, firmware and thermal performance still require engineering and hardware validation.** A working reference board does not prove this implementation works.
 
-Both USB mouths share the +Y edge, with defined 10 mm cable housings at 12.1 mm pitch, giving a 2.1 mm nominal gap. Use M3 DIN 920 screw heads no larger than Ø4 mm. Cable/screw screening is nominal CAD evidence. Verify real plug tolerances, JST mating cable, underside clearance and the mounting stack. Rear-motor compatibility has not been verified.
+Both upright USB-C sockets occupy opposite edges (+Y and −Y), with cable insertion from +Z. The defined 10 × 7 × 30 mm housings have {mechanical['minimum_simultaneous_plug_gap_mm']:.3f} mm nominal separation. The model screens maximum Ø6 × 3 mm heads within a Ø6.4 mm envelope and an Ø6 mm vertical tool path. Verify actual plugs, fasteners, tool tolerances, JST mating cable, thread engagement and the mounting stack. Rear-motor compatibility has not been verified.
 
 Economic versus Standard PCBA service and panelization are unconfirmed. Require supplier acceptance of the eight short USB shell stakes and the three filled/capped exposed-pad vias before choosing the assembly service. If the accepted service requires a panel, obtain its approved rail, tooling-hole and fiducial requirements; no factory panel is released in this package. Panel/process acceptance is a supplier-review blocker. The functional PCB remains 35 × 35 mm.
 

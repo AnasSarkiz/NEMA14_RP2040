@@ -13,9 +13,14 @@ thermal_sites=[]
 for ref in ['U_MCU','U_DRV','U_PD']:
  c=next(c for c in g.comp.values() if g.src[c['source_component_id']]==ref);pad=next(e for e in j if e['type']=='pcb_smtpad' and e.get('pcb_component_id')==c['pcb_component_id'] and e.get('width',0)>1 and e.get('height',0)>1);off=json.loads((g.ROOT/'src/thermal-via-offsets.json').read_text())[ref];thermal_sites.append((pad['x']+off['x'],pad['y']+off['y']))
 fixed=('usb_','oscillator_','reviewed_local_','review_escape_','reviewed_phase_inner1_')
+allow_power_nets={a.split('=',1)[1] for a in sys.argv if a.startswith('--allow-power-net=')}
+assert allow_power_nets<={'V3V3'}, 'Only the documented 3.3 V branch repair is supported'
 def protected(e):
- if e['type']=='pcb_via':return e['pcb_via_id'].startswith(fixed) or (g.nets.get(g.key(e))=='GND' and (e['pcb_via_id'].startswith('thermal') or any(math.dist((e['x'],e['y']),q)<.001 for q in thermal_sites))) or g.nets.get(g.key(e)) in ['USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT']
- return e['pcb_trace_id'].startswith(fixed) or g.nets.get(g.key(e)) in ['USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT']
+ if '--protect-signals' in sys.argv:return True
+ if g.nets.get(g.key(e)) in {a.split('=',1)[1] for a in sys.argv if a.startswith('--protect-net=')}:return True
+ if '--protect-power' in sys.argv and g.nets.get(g.key(e)) not in allow_power_nets and g.nets.get(g.key(e)) in {'PD_VBUS','DATA_VBUS','PD_VDD','LOGIC_IN','V3V3','V1V1','VREF','VCP','VREG','BUCK_SW','BUCK_BST','CP1','CP2','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2'}:return True
+ if e['type']=='pcb_via':return e['pcb_via_id'].startswith(fixed) or (g.nets.get(g.key(e))=='GND' and (e['pcb_via_id'].startswith('thermal') or any(math.dist((e['x'],e['y']),q)<.001 for q in thermal_sites))) or g.nets.get(g.key(e)) in ['USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','RUN','SWCLK','SWDIO']
+ return e['pcb_trace_id'].startswith(fixed) or g.nets.get(g.key(e)) in ['USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','RUN','SWCLK','SWDIO']
 def segments(e):
  if e['type']=='pcb_via':return [(layer,Point(e['x'],e['y']).buffer(e['outer_diameter']/2))]
  return [(a['layer'],LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)) for a,b in zip(e['route'],e['route'][1:]) if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']]

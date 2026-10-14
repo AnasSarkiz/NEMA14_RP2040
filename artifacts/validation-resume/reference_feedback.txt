@@ -1,5 +1,1 @@
-Traceback (most recent call last):
-  File "/workspace/nema14-rp2040-current/scripts/check-reference-feedback.py", line 45, in <module>
-    ov=[(a,b) for a,b in itertools.combinations(polys,2) if sides[a]==sides[b] and polys[a].intersection(polys[b]).area>1e-7];assert not ov,ov
-                                                                                                                                     ^^^^^^
-AssertionError: [('U_ENCODER', 'C_ENCODER')]
+Reference feedback and connector physical pins PASS: 114 pins; 91 native courtyards

@@ -13,7 +13,8 @@ removed=[];retained=[]
 for trace_id in sorted(ids):
     if trace_id.startswith(("usb_","oscillator_","reviewed_local_critical_")):continue
     if "--preserve-review-escapes" in sys.argv and trace_id.startswith(("reviewed_local_","oscillator_","usb_")):continue
-    e=next(x for x in g.j if x.get('pcb_trace_id')==trace_id)
+    e=next((x for x in g.j if x.get('pcb_trace_id')==trace_id),None)
+    if e is None:continue
     net=g.key(e);before=signature(net);i=g.j.index(e);g.j.pop(i)
     if signature(net)==before:removed.append(trace_id)
     else:g.j.insert(i,e);retained.append(trace_id)
