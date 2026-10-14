@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # RP2040 firmware contract
 
 Use the Pico SDK RP2040 target with 12 MHz XOSC and 2 MB flash. Select the generic JEDEC-compatible boot stage for GD25Q16E; do not assume a Winbond-specific quad-enable sequence. Flash boot and UF2 USB ROM boot require hardware validation.

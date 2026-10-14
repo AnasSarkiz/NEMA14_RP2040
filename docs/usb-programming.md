@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # USB programming
 
 1. Short the separate top-side `TP_BOOT` and `TP_BOOT_GND` pads to hold flash chip-select low through `R_BOOT` (1 kΩ).

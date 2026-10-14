@@ -1,0 +1,1 @@
+This v1.11.0 draft is not electrically qualified. Consult artifacts/resume-validation.json and docs/opposite-edge-review.md before using any CAD or manufacturing file. No new tscircuit release or manufacturing order has been authorized by these failed checks.

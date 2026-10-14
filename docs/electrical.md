@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Electrical design review
 
 RP2040 is not a drop-in CH32 replacement. All six IOVDD pins, USB_VDD, ADC_AVDD and VREG_IN use 3.3 V. VREG_OUT and both DVDD pins use the separate internal 1.1 V rail. Each IOVDD/DVDD/USB/ADC supply has a 100 nF bypass; VREG input/output each have 1 μF. TESTEN and the exposed pad are grounded. RUN has a 10k pull-up and a debug reset pad.

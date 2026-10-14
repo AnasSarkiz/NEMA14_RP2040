@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Reference feedback and electrical review — v1.5.0
 
 The original delivered board had no fitted power/debug LED, RGB status LED, temperature sensor or buzzer. This revision adds all four using the live [Rishabh reference](https://tscircuit.com/imrishabh18/rp2040-motor-controller) release `e8d285f7-c3d8-46f5-9a54-344fdde0124e`. Reference section sources and release metadata are retained under `references/reference-feedback/`. Existing connected physical pins and passive values are compared with the frozen Git baseline in `artifacts/reference-feedback/preserved-electrical-interfaces.json`.

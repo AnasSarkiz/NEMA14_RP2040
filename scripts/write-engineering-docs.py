@@ -2,12 +2,13 @@
 import collections,hashlib,json,pathlib
 ROOT=pathlib.Path(__file__).resolve().parents[1];read=lambda p:json.loads((ROOT/p).read_text());proof=read('artifacts/engineering-fixes/final-engineering-verification.json');sha=proof['board_sha256'];v=read('artifacts/resume-validation.json');cam=read('artifacts/manufacturing/audit.json');usb=read('artifacts/engineering-fixes/usb-verification.json');m=read('artifacts/mechanical/mount-usb-screen.json');j=read('artifacts/board.circuit.json');pkg=read('package.json');assert v['board_sha256']==cam['source_sha256']==usb['board_sha256']==sha
 checks='\n'.join('| '+c['check']+' | '+('PASS' if c['exit_code']==0 else 'Reviewed orientation advisories; placement DRC clean' if c['check']=='native_placement' else 'FAIL')+' | `'+c['log']+'` |' for c in v['checks'])
+ports=', '.join(u['reference']+' '+str(tuple(round(v,3) for v in u['mouth_xy_mm'])) for u in m['usb'])
 counts=collections.Counter(e['type'] for e in j);changes='\n'.join('| '+r['reference']+' | '+str((r['before_center_mm']['x'],r['before_center_mm']['y']))+' | '+str((r['after_center_mm']['x'],r['after_center_mm']['y']))+' |' for r in proof['moved_references']);core='\n'.join('| '+c['core']+' | '+c['layer']+' / '+c['reference_layer']+' | '+f"{c['core_length_difference_mm']:.3f}"+' | '+', '.join(f"{t['ground_reference_coverage_fraction']*100:.3f}%" for t in c['tracks'])+' |' for c in usb['cores'])
 text=f'''# {pkg['name']} {pkg['version']}: engineering fixes
 
 Saved board SHA-256: `{sha}`. Starting GitHub revision: `{proof['baseline_github_commit']}`. Original functional nets, NC roles, values and ratings are preserved, with the authorized USB4145 upright connector substitution and three added bottom DNP encoder components; see `artifacts/engineering-fixes/final-engineering-verification.json`.
 
-The board is 35 × 35 × 1.6 mm, four layers, with four NPTH holes exactly (±13, ±13), Ø3.2 mm. USB4145-03-0070-C (C5815189) sockets are upright at nominal (−6.05, 15.15) and (6.05, 15.15), with insertion along +Z. Two defined 10 mm cable housings have 2.1 mm nominal separation. The fastener requirement remains maximum Ø4 mm heads; the STEP screen includes a Ø4.4 mm × 3 mm envelope. This verifies nominal CAD geometry, not physical assembly or rear motor attachment.
+The board is 35 × 35 × 1.6 mm, four layers, with four NPTH holes exactly (±13, ±13), Ø3.2 mm. USB4145-03-0070-C (C5815189) sockets face +Z on opposite PCB edges at nominal {ports} mm. Two defined 10 mm cable housings have {m['minimum_simultaneous_plug_gap_mm']:.3f} mm separation. Maximum Ø6 mm × 3 mm screw heads are screened with a Ø6.4 mm × 3 mm envelope; a Ø6 mm vertical driver shaft is screened with both cable housings present. This verifies nominal CAD geometry, not physical assembly or rear motor attachment.
 
 All {proof['fitted_components_on_top']} fitted parts and {proof['bare_top_test_points']} separate bare test pads remain on top. Standard USB-C schematic symbols, both contact orientations, independent 5.1 kΩ data CC resistors, CH224K 15 V configuration, Schottky supply isolation, SMT JST-SH C160390 coil order, TMP102, LEDs and buzzer are retained. See [reference pin review](reference-feedback.md) and [motor connector/harness](jst-restoration.md).
 
@@ -56,7 +57,7 @@ See [engineering fixes](engineering-fixes.md) for the coupled USB routes, review
 ''')
 (ROOT/'docs/mounting-usb-verification.md').write_text(f'''# Current mounting and USB verification
 
-Saved board SHA-256: `{sha}`. Source, actual Gerber outline and Excellon drill files agree on 35 × 35 mm and four Ø3.2 mm NPTH holes at exactly (±13, ±13). Native STEP screening passes for the approved upward USB insertion, two defined 10 mm housings at 12.1 mm pitch, and a Ø4.4 × 3 mm head envelope around the required maximum Ø4 mm fastener heads.
+Saved board SHA-256: `{sha}`. Source, actual Gerber outline and Excellon drill files agree on 35 × 35 mm and four Ø3.2 mm NPTH holes at exactly (±13, ±13). Native STEP screening passes for the approved upward USB insertion, two defined 10 mm housings on opposite edges, a Ø6.4 × 3 mm head envelope around maximum Ø6 × 3 mm heads, and a Ø6 mm vertical tool shaft.
 
 The nominal cable-housing gap is {m['minimum_simultaneous_plug_gap_mm']:.3f} mm. Actual supplier footprints/courtyards and models are retained. See [engineering fixes](engineering-fixes.md), `artifacts/mechanical/mount-usb-screen.json`, `artifacts/mount-drill-verification.json` and the actual CAM audit for current evidence.
 
@@ -84,7 +85,7 @@ for p in [ROOT/'docs/ai-review-assessment.md']:
 refdoc=ROOT/'docs/reference-feedback.md'
 if refdoc.exists():
  s=refdoc.read_text()
- s=s.replace('Both USB mouths remain flush on +Y at x = ±6.2 mm, with two 12 mm plug envelopes and only 0.4 mm between them.', 'Both GCT USB4145 sockets face upward (+Z) at nominal (±6.05, 15.15) mm. Two defined 10 mm housings have 2.1 mm nominal separation; actual footprint, drill and conservative 3D envelopes are checked.')
+ s=s.replace('Both USB mouths remain flush on +Y at x = ±6.2 mm, with two 12 mm plug envelopes and only 0.4 mm between them.', 'Both GCT USB4145 sockets face upward (+Z) on opposite PCB edges. Defined 10 mm housings, maximum Ø6 × 3 mm heads, and Ø6 mm tool access are checked against actual footprints/drills and conservative 3D envelopes.')
  s += '\nThe optional AS5600-ASOM C79815 and its two bypass capacitors are BOTTOM doNotPlace. They share the existing 3.3 V I²C bus (0x36 versus TMP102 0x48), are omitted from factory BOM/CPL and paste, and require later rear-shaft/magnet/firmware verification.\n' if 'optional AS5600-ASOM C79815' not in s else ''
  refdoc.write_text(s)
 p=ROOT/'docs/resistor-edge-clearance.md'
@@ -92,7 +93,7 @@ if p.exists():
  s=p.read_text().replace('The five-sheet schematic and electrical source remain unchanged.', 'The six functional schematic sheets and existing electrical interfaces are preserved, with the authorized upright USB-C replacement and optional bottom DNP encoder addition.');p.write_text(s)
 (ROOT/'README.md').write_text(f"""# {pkg['name']} {pkg['version']}
 
-35 × 35 × 1.6 mm, four-layer NEMA14 controller. Four NPTH holes are exactly (±13, ±13), Ø3.2 mm. Both USB-C sockets face upward; defined 10 mm housings have 2.1 mm nominal separation. Maximum Ø4 mm DIN 920 screw heads are required. Minimum via drill/pad: Ø0.30/Ø0.45 mm.
+35 × 35 × 1.6 mm, four-layer NEMA14 controller. Four NPTH holes are exactly (±13, ±13), Ø3.2 mm. USB-C sockets face upward on opposite edges at {ports} mm; defined 10 mm housings have {m['minimum_simultaneous_plug_gap_mm']:.3f} mm separation. Maximum Ø6 × 3 mm heads are screened with a Ø6.4 mm envelope and Ø6 mm tool shaft. Exact fastener and cable hardware still need approval. Minimum via drill/pad: Ø0.30/Ø0.45 mm.
 
 Factory component assembly is TOP only, with separate bare TOP test pads. AS5600 C79815 and its 100 nF/1 µF capacitors are BOTTOM **doNotPlace**, omitted from factory BOM/CPL and paste. TMP102, LEDs, buzzer, USB/PD and JST-SH motor interfaces are retained.
 

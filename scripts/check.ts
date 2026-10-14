@@ -23,19 +23,20 @@ for (const name of ['J_PD','J_DATA']) {
  const source=json.find((e:any)=>e.type==='source_component' && e.name===name)
  const cad=json.find((e:any)=>e.type==='cad_component' && e.source_component_id===source?.source_component_id)
  const pc=json.find((e:any)=>e.type==='pcb_component' && e.source_component_id===source?.source_component_id)
- const expectedX=name==='J_PD'?-6.05:6.05
+ const expectedX=name==='J_PD'?0.6:-4.6
+ const expectedY=name==='J_PD'?15.15:-15.15
  const x=pc?.center.x, y=pc?.center.y
- if(source?.manufacturer_part_number!=='USB4145-03-0070-C' || !cad || cad.rotation.x!==0 || cad.rotation.y!==0 || cad.rotation.z!==0 || Math.abs(x-expectedX)>.001 || Math.abs(y-15.15)>.001)
+ if(source?.manufacturer_part_number!=='USB4145-03-0070-C' || !cad || cad.rotation.x!==0 || cad.rotation.y!==0 || cad.rotation.z!==0 || Math.abs(x-expectedX)>.001 || Math.abs(y-expectedY)>.001)
   unique.push({type:'validation_error',message:name+' requires the exact upright GCT C5815189 source geometry at the reviewed position; native STEP checks establish +Z access.'})
  usbMouths.push({name,x,y})
 }
-if(usbMouths.length!==2 || Math.abs(usbMouths[1].x-usbMouths[0].x-12.1)>.001)
- unique.push({type:'validation_error',message:'Upright USB mouths require 12.1 mm pitch for two 10 mm housings.'})
+if(usbMouths.length!==2 || Math.abs(usbMouths[1].y-usbMouths[0].y+30.3)>.001)
+ unique.push({type:'validation_error',message:'Upright USB mouths must occupy opposite edges, separated by 30.3 mm in Y.'})
 if(board.min_via_hole_diameter!==.3 || board.min_via_pad_diameter!==.45) unique.push({type:'validation_error',message:'Expected minimum via drill/pad .30/.45 mm.'})
 const mountingKeepouts=json.filter((e:any)=>e.type==='pcb_keepout')
 const expectedLayers=board?.num_layers===4?['top','inner1','inner2','bottom']:['top','bottom']
-if(mountingKeepouts.length!==4 || mountingKeepouts.some((e:any)=>e.shape!=='circle' || Math.abs(e.radius-2.2)>.00001 || ![-13,13].includes(e.center.x) || ![-13,13].includes(e.center.y) || expectedLayers.some(l=>!e.layers.includes(l))))
- unique.push({type:'validation_error',message:'All four mounts require circular Ø4.4 mm head envelopes on every copper layer; DIN 920 M3 Ø4 mm heads are mandatory.'})
+if(mountingKeepouts.length!==4 || mountingKeepouts.some((e:any)=>e.shape!=='circle' || Math.abs(e.radius-3.2)>.00001 || ![-13,13].includes(e.center.x) || ![-13,13].includes(e.center.y) || expectedLayers.some(l=>!e.layers.includes(l))))
+ unique.push({type:'validation_error',message:'All four mounts require circular Ø6.4 mm head envelopes on every copper layer; Maximum Ø6 mm heads are screened with 0.2 mm radial allowance.'})
 
 if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected four copper layers in the RP2040 board.'})
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {

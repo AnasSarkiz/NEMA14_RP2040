@@ -1,5 +1,5 @@
 {
-  "board_sha256": "a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6",
+  "board_sha256": "3ddf90f05ced1a2a71040fabcf5fe24308bcc1ddf3a85a9925ad9b88579c7132",
   "checks": [
     {
       "check": "all_resistor_edge_clearances",
@@ -7,7 +7,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/check-resistor-edges.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/all_resistor_edge_clearances.txt"
     },
     {
@@ -25,7 +25,7 @@
         "bun",
         "scripts/check.ts"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/drc.txt"
     },
     {
@@ -34,7 +34,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/verify_supplier_connectivity.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/connectivity.txt"
     },
     {
@@ -153,7 +153,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/audit-every-trace.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/every_trace_review.txt"
     },
     {
@@ -162,7 +162,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/check-reference-feedback.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/reference_feedback.txt"
     },
     {
@@ -188,7 +188,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/audit-trace-widths.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/copper_widths.txt"
     },
     {
@@ -197,7 +197,7 @@
         "/workspace/.routing-venv/bin/python",
         "scripts/audit-manufacturing.py"
       ],
-      "exit_code": 0,
+      "exit_code": 1,
       "log": "artifacts/validation-resume/full_independent_CAM.txt"
     },
     {
@@ -232,12 +232,92 @@
   "CAD_models_checked": 81,
   "physical_nets_checked": 63,
   "counts": {
-    "pcb_trace": 691,
-    "pcb_via": 318,
-    "pcb_copper_pour": 48
+    "pcb_trace": 515,
+    "pcb_via": 313,
+    "pcb_copper_pour": 50
   },
-  "full_CAM_status": "PASS",
-  "remaining_CAM_findings": [],
+  "full_CAM_status": "FAIL",
+  "remaining_CAM_findings": [
+    {
+      "kind": "unassigned-copper-islands",
+      "islands": [
+        {
+          "area_mm2": 0.0883484226824842,
+          "bounds_mm": [
+            -1.6,
+            -5.7749999999999995,
+            -1.15,
+            -5.325
+          ],
+          "layers": [
+            "top",
+            "bottom",
+            "inner1",
+            "inner2"
+          ],
+          "no_connect_pads": [],
+          "classification": "unassigned copper: review"
+        },
+        {
+          "area_mm2": 0.08834842268248454,
+          "bounds_mm": [
+            -8.475,
+            -11.4,
+            -8.025,
+            -10.950000000000001
+          ],
+          "layers": [
+            "top",
+            "bottom",
+            "inner1",
+            "inner2"
+          ],
+          "no_connect_pads": [],
+          "classification": "unassigned copper: review"
+        },
+        {
+          "area_mm2": 0.08834842268248436,
+          "bounds_mm": [
+            -5.125,
+            -10.125,
+            -4.675000000000001,
+            -9.675
+          ],
+          "layers": [
+            "top",
+            "bottom",
+            "inner1",
+            "inner2"
+          ],
+          "no_connect_pads": [],
+          "classification": "unassigned copper: review"
+        },
+        {
+          "area_mm2": 0.08834842268248427,
+          "bounds_mm": [
+            -4.175,
+            -0.325,
+            -3.725,
+            0.125
+          ],
+          "layers": [
+            "top",
+            "bottom",
+            "inner1",
+            "inner2"
+          ],
+          "no_connect_pads": [],
+          "classification": "unassigned copper: review"
+        }
+      ]
+    },
+    {
+      "kind": "physical-netlist-failure",
+      "short_count": 0,
+      "open_count": 9,
+      "unconnected_pads": []
+    }
+  ],
   "rear_motor_compatibility_verified": false,
   "prototype_fabrication_ready": false,
   "physical_hardware_tested": false

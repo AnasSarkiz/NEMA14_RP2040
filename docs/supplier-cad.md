@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # JLCPCB imports and printable schematics
 
 Every fitted component uses a supplier component created with `tsci import --jlcpcb --download --use-exact-footprint C<number>`. `src/jlcpcb-catalog.json` maps every reference to its exact JLCPCB part and records original import/model hashes. The active component resolver in `src/supplier-parts.tsx` renders the imported JSX; it rejects custom footprint and CAD overrides. Unused generic component files have been removed.

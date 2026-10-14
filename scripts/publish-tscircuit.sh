@@ -29,7 +29,7 @@ for f in ['schematic-a4.pdf','bom.csv','source-bom.csv','pick_and_place.csv','dr
 shutil.copy2(root/'artifacts/schematic-a4-page-01.svg',stage/'artifacts/schematic.svg')
 for name in ['mounting-change-proof.json','mount-drill-verification.json','check-output.txt','native-check.txt','shorts-output.txt','resume-validation.json','nema14-gerbers.zip','same-side-routing-proof.json','same-side-copper-repairs.json','same-side-pruned-stubs.json','same-side-trimmed-stubs.json','same-side-copper-cleanup.json','same-side-local-ripup.json','same-side-power-width-repair.json','trace-width-review.json','presentation-verification.json']:
  if (root/'artifacts'/name).exists():shutil.copy2(root/'artifacts'/name,stage/'artifacts'/name)
-for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/same-edge-fit.svg','mechanical/same-edge-fit.png']:
+for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/opposite-edge-fit.svg','mechanical/opposite-edge-fit.png']:
  source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
 
 upright=stage/'artifacts/upright-revision';upright.mkdir()
@@ -41,6 +41,7 @@ for name in ['usb-verification.json','schema-verification.json','export-policy.j
  source=root/'artifacts/engineering-fixes'/name
  if source.exists():shutil.copy2(source,engineering/name)
 shutil.copytree(root/'artifacts/jlcpcb-review',stage/'artifacts/jlcpcb-review',ignore=shutil.ignore_patterns('cam','order-source.circuit.json'))
+shutil.copytree(root/'artifacts/opposite-edge',stage/'artifacts/opposite-edge',ignore=shutil.ignore_patterns('baseline*','*.txt'))
 shutil.copytree(root/'artifacts/edge-resistors',stage/'artifacts/edge-resistors')
 shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-redesign',ignore=shutil.ignore_patterns('baseline*.json'))
 shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')

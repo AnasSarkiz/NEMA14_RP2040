@@ -15,7 +15,7 @@ def via(uid,net,p,x,y):j.append({'type':'pcb_via','pcb_via_id':uid,'x':x,'y':y,'
 def endpoint(core,net,index):return next(t for t in cores[core]['tracks'] if t['net']==net)['points'][index]
 for net,inrole,outrole in [('USB_DP','DP2','DP1'),('USB_DM','DM2','DM1')]:
  p=port('U_ESD',inrole);x=p['x'];trace('usb_fan_ESD_input_'+net+'_bottom',net,p,[(x,7.0),endpoint('connector_to_ESD',net,-1)],'bottom')
- q=port('U_ESD',outrole);trace('usb_fan_ESD_IO_link_'+net,net,q,[(q['x'],q['y']),(p['x'],p['y'])],'top',True);via('usb_fan_ESD_output_'+net+'_via',net,q,q['x'],7.0);start=endpoint('ESD_to_series',net,0);trace('usb_fan_ESD_output_'+net+'_bottom',net,q,[(q['x'],7.0),(start[0],6.5),start],'bottom')
+ q=port('U_ESD',outrole);trace('usb_fan_ESD_IO_link_'+net,net,q,[(q['x'],q['y']),(p['x'],p['y'])],'top',True);via('usb_fan_ESD_output_'+net+'_via',net,q,q['x'],7.0);start=endpoint('ESD_to_series',net,0);trace('usb_fan_ESD_output_'+net+'_bottom',net,q,[(q['x'],7.0),start],'bottom')
 for net,ref,x in [('USB_DP','R_DP',4.6),('USB_DM','R_DM',5.3)]:
  p=port(ref,'pin2');trace('usb_fan_series_input_'+net,net,p,[(p['x'],p['y']),(p['x'],6.15),(x,6.35)],'top',True);via('usb_fan_series_input_'+net+'_via',net,p,x,6.35);trace('usb_fan_series_input_'+net+'_bottom',net,p,[(x,6.35),endpoint('ESD_to_series',net,-1)],'bottom')
 for net,ref,role in [('MCU_DP','R_DP','USB_DP'),('MCU_DM','R_DM','USB_DM')]:

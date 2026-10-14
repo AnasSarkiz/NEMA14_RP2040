@@ -19,12 +19,14 @@ for k,name in g.nets.items():
 xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP))
 world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 SOFT_ELIGIBLE=set()
+soft_crossing_cost=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--rip-cost=')),30));assert 1<=soft_crossing_cost<=30
 soft_wire=None
 def soft_eligible(e):
     name=g.nets.get(g.key(e),'')
+    if name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT'}:return False
     protected_nets={q.split('=',1)[1] for q in sys.argv if q.startswith('--protect-net=')}
     if name in protected_nets:return False
-    if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'} and not e['pcb_trace_id'].startswith(('usb_','oscillator_','review_escape_','reviewed_local_critical_')):return True
+    if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'} and not e['pcb_trace_id'].startswith(('usb_','oscillator_','review_escape_','reviewed_local_')):return True
     if '--rip-ground-branches' in sys.argv and name=='GND' and not e['pcb_trace_id'].startswith(('usb_','oscillator_','reviewed_local_','feedback_ground_escape_')):return True
     if '--protect-signals' in sys.argv:return False
     return name not in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'} and not e['pcb_trace_id'].startswith(('usb_','review_escape_','reviewed_local_'))
@@ -33,7 +35,7 @@ def blocked(net,via=False):
     soft_images=[Image.new('L',(N,N)) for _ in layers];soft_ds=[ImageDraw.Draw(im) for im in soft_images]
     draw_layers=['top','inner1','inner2','bottom'] if via and next(e for e in j if e['type']=='pcb_board')['num_layers']==4 else layers
     images=[Image.new('L',(N,N)) for _ in draw_layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=max(.15+current_via_diameter/2+.003,.30+current_via_hole/2+.003) if via else .15+current_width/2+.003
+    margin=max(.15+current_via_diameter/2+.02,.20+current_via_hole/2+.02) if via else .15+current_width/2+.02
     def add(ls,geom,extra=0,soft=False):
         p=geom.buffer(margin+extra,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
@@ -41,12 +43,12 @@ def blocked(net,via=False):
             if l not in draw_layers:continue
             d=(soft_ds if soft else ds)[draw_layers.index(l)]
             for piece in pieces:
-                if piece.geom_type=='Polygon':d.polygon([xy(x,y) for x,y in piece.exterior.coords],fill=1)
+                if piece.geom_type=='Polygon' and not piece.is_empty:d.polygon([xy(x,y) for x,y in piece.exterior.coords],fill=1)
     for e in j:
         typ=e['type']
         if typ in ['pcb_smtpad','pcb_plated_hole']:
             if g.key(e)==net and not via:continue
-            add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.135 if g.key(e)==net and via else 0)
+            add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.135 if g.key(e)==net and via else .1 if typ=='pcb_plated_hole' else 0)
         elif typ=='pcb_via':
             if g.key(e)==net and not via:continue
             add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
@@ -64,9 +66,9 @@ def blocked(net,via=False):
         endpoints=[g.Point(c['centerline'][i]) for c in policy['cores'] for i in [0,-1]]
         endpoint_regions=unary_union([p.buffer(1.25) for p in endpoints])
         for core in policy['cores']:
-            guard=g.LineString(core['centerline']).buffer(policy['reference_corridor_buffer_mm'])
-            if via:
-                # All new barrels stay outside the trunk reference corridor;
+            guard=g.LineString(core['centerline']).buffer(json.loads((ROOT/'src/layer-routing-policy.json').read_text()).get('USB_construction_reference_buffer_mm',policy['reference_corridor_buffer_mm']))
+            if via and nets[net]['name']!='GND':
+                # All new foreign-net barrels stay outside the trunk reference corridor;
                 # paired USB terminal transitions are confined to local fanouts.
                 guard=guard
                 add(draw_layers,guard)
@@ -153,6 +155,8 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             # The independent physical branch-cut and thermal audit verifies
             # downstream load again on the completed copper, with full-budget fallback.
         if nets[net]['name']=='V3V3':current_width=max(current_width,.2)
+        phase_bridge=nets[net]['name'] in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS'] and '--phase-bridges' in sys.argv
+        if phase_bridge:layers=['top','inner1','inner2','bottom']
         requested_layers=next((q.split('=',1)[1].split(',') for q in sys.argv if q.startswith('--layers=')),None)
         if requested_layers:
             assert set(requested_layers)<={'top','inner1','inner2','bottom'} and {'top','bottom'}<=set(requested_layers)
@@ -188,6 +192,11 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         if not goals:
             print("UNROUTED: no other physical copper",nets[net]["name"],flush=True);break
         wire=blocked(net);vias=blocked(net,True)
+        preferred_layer=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--preferred-layer=')),None)
+        if preferred_layer:
+            assert preferred_layer in layers
+            wire=[m if l==preferred_layer else np.ones_like(m) for l,m in zip(layers,wire)]
+
         existing={xy(e["x"],e["y"]):e for e in j if e["type"]=="pcb_via" and g.key(e)==net}
         goals={q:v for q,v in goals.items() if not wire[q[2]][q[1],q[0]]}
         if not goals:
@@ -196,7 +205,9 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         goal_mask=np.ones((N,N),dtype=np.bool_)
         for q in goals:goal_mask[q[1],q[0]]=False
         distance_field=distance_transform_edt(goal_mask)
-        heuristic=lambda s:1.5*float(distance_field[s[1],s[0]])
+        search_weight=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--search-weight=')),1.5))
+        assert 1<=search_weight<=5,'Weighted search affects construction only; all clearance checks remain mandatory'
+        heuristic=lambda s:search_weight*float(distance_field[s[1],s[0]])
         starts={(*xy(x,y),layers.index(l)):(x,y) for l in startpad.get('layers',[startpad.get('layer','top')]) if l in layers for x,y in accessible_pad_points(startpad)}
         for anchor,r in zip(elems,roots):
             if r!=startroot:continue
@@ -211,33 +222,41 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                             x=a['x']+(b['x']-a['x'])*k/count;y=a['y']+(b['y']-a['y'])*k/count
                             starts[(*xy(x,y),layers.index(a['layer']))]=(x,y)
         starts={q:v for q,v in starts.items() if not wire[q[2]][q[1],q[0]]}
-        heap=[(heuristic(q),0,q) for q in starts];heapq.heapify(heap);best={q:0 for q in starts};prev={};end=None;expanded=0
-        while heap:
-            _,cost,s=heapq.heappop(heap)
-            if cost!=best.get(s):continue
-            if s in goals:end=s;break
-            expanded+=1
-            if expanded>5000000:break
-            x,y,l=s
-            options=[(x+dx,y+dy,l,math.sqrt(2) if dx and dy else 1) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]]
-            if (x,y) in existing or all(not b[y,x] for b in vias):options.extend((x,y,q,45) for q in range(len(layers)) if q!=l)
-            for nx,ny,nl,dc in options:
-                if not(0<=nx<N and 0<=ny<N) or wire[nl][ny,nx]:continue
-                if nl==l and nx!=x and ny!=y and (wire[l][y,nx] or wire[l][ny,x]):continue
-                q=(nx,ny,nl);nc=cost+dc+(30 if soft_wire[nl][ny,nx] else 0)
-                if nc<best.get(q,float('inf')):best[q]=nc;prev[q]=s;heapq.heappush(heap,(nc+heuristic(q),nc,q))
-        if end is None:
-            print("UNROUTED: no legal grid route",nets[net]["name"],expanded,flush=True);break
-        path=[end]
-        while path[-1] not in starts:path.append(prev[path[-1]])
-        path.reverse();slim=[path[0]]
+        if '--fast-grid' in sys.argv:
+            from fast_grid_router import route as fast_route
+            path,expanded=fast_route(wire,soft_wire,vias,existing,distance_field,starts,goals,search_weight,soft_crossing_cost,phase_bridge,layers,inner_cost=float(next((q.split("=",1)[1] for q in sys.argv if q.startswith("--inner1-cost=")),1)))
+            if path is None:
+                print('UNROUTED: no legal grid route',nets[net]['name'],expanded,flush=True);break
+            end=path[-1]
+            slim=[path[0]]
+        else:
+            heap=[(heuristic(q),0,q) for q in starts];heapq.heapify(heap);best={q:0 for q in starts};prev={};end=None;expanded=0
+            while heap:
+                _,cost,s=heapq.heappop(heap)
+                if cost!=best.get(s):continue
+                if s in goals:end=s;break
+                expanded+=1
+                if expanded>5000000:break
+                x,y,l=s
+                options=[(x+dx,y+dy,l,math.sqrt(2) if dx and dy else 1) for dx,dy in [(1,0),(-1,0),(0,1),(0,-1),(1,1),(1,-1),(-1,1),(-1,-1)]]
+                if (x,y) in existing or all(not b[y,x] for b in vias):options.extend((x,y,q,45) for q in range(len(layers)) if q!=l)
+                for nx,ny,nl,dc in options:
+                    if not(0<=nx<N and 0<=ny<N) or wire[nl][ny,nx]:continue
+                    if nl==l and nx!=x and ny!=y and (wire[l][y,nx] or wire[l][ny,x]):continue
+                    q=(nx,ny,nl);nc=cost+dc*(12 if phase_bridge and nl==l and layers[nl]=='inner1' else 1)+(soft_crossing_cost if soft_wire[nl][ny,nx] else 0)
+                    if nc<best.get(q,float('inf')):best[q]=nc;prev[q]=s;heapq.heappush(heap,(nc+heuristic(q),nc,q))
+            if end is None:
+                print("UNROUTED: no legal grid route",nets[net]["name"],expanded,flush=True);break
+            path=[end]
+            while path[-1] not in starts:path.append(prev[path[-1]])
+            path.reverse();slim=[path[0]]
         for k in range(1,len(path)-1):
             a,b,c=path[k-1:k+2]
             if tuple(b[q]-a[q] for q in range(3))!=tuple(c[q]-b[q] for q in range(3)):slim.append(b)
         slim.append(path[-1]);route=[];newvia=[]
         uid=f'same_side_repair_{len(repairs)}_{nets[net]["name"]}_{attempt}'
         used_ids={e.get("pcb_trace_id") for e in j if e["type"]=="pcb_trace"}
-        while uid in used_ids:uid+="_rerouted"
+        while uid in used_ids or any(e.get("pcb_via_id", "").startswith(uid+"_via_") for e in j):uid+="_rerouted"
         for k,node in enumerate(slim):
             x,y=world(node);l=layers[node[2]]
             if (node[0],node[1]) in existing:x,y=existing[(node[0],node[1])]["x"],existing[(node[0],node[1])]["y"]
@@ -258,6 +277,21 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         for e in j:
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and g.key(e)==net and e.get('pcb_port_id') and route[-1]['layer'] in e.get('layers',[e.get('layer','top')]) and g.geometry(e).buffer(.001).covers(g.Point(gx,gy)):
                 route[-1]['end_pcb_port_id']=e['pcb_port_id'];break
+        if phase_bridge:
+            def inner_length(r):
+                return sum(math.dist((a['x'],a['y']),(b['x'],b['y'])) for a,b in zip(r,r[1:]) if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']=='inner1')
+            existing_inner=sum(inner_length(t['route']) for t in j if t['type']=='pcb_trace' and g.key(t)==net)
+            proposed_total=existing_inner+inner_length(route)
+            limit=json.loads((ROOT/'src/layer-routing-policy.json').read_text())['maximum_total_phase_inner1_length_mm']
+            if proposed_total>limit+1e-6:
+                # Save the rejected construction candidate for geometry analysis;
+                # the saved board and the qualification rule remain unchanged.
+                candidate_trace={'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]}
+                candidate_vias=[e for e in j if e['type']=='pcb_via' and e['pcb_via_id'].startswith(uid+'_via_')]
+                (ROOT/('artifacts/opposite-edge/rejected-phase-'+nets[net]['name']+'.json')).write_text(json.dumps({'trace':candidate_trace,'vias':candidate_vias,'existing_inner1_mm':existing_inner,'proposed_total_inner1_mm':proposed_total,'limit_mm':limit},indent=2)+'\n')
+                j[:]=[e for e in j if not (e['type']=='pcb_via' and e['pcb_via_id'].startswith(uid+'_via_'))]
+                print('UNROUTED: proposed phase transitions exceed total inner1 length budget',nets[net]['name'],proposed_total,limit,flush=True)
+                break
         ripped=set()
         for foreign in j:
             if foreign['type']!='pcb_trace' or g.key(foreign)==net:continue
@@ -266,8 +300,8 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
                 poly=g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)
                 for c,d in zip(foreign['route'],foreign['route'][1:]):
                     if c['route_type']==d['route_type']=='wire' and c['layer']==d['layer']==a['layer'] and poly.distance(g.LineString([(c['x'],c['y']),(d['x'],d['y'])]).buffer(max(c['width'],d['width'])/2))<.15-.000001:
-                        assert soft_eligible(foreign),'Route crosses protected copper';ripped.add(foreign['pcb_trace_id'])
-        assert len(ripped)<=4,'More than four independent signal traces would be ripped'
+                        assert soft_eligible(foreign),('Route crosses protected copper',nets[net]['name'],foreign['pcb_trace_id'],g.nets.get(g.key(foreign)),poly.distance(g.LineString([(c['x'],c['y']),(d['x'],d['y'])]).buffer(max(c['width'],d['width'])/2)));ripped.add(foreign['pcb_trace_id'])
+        rip_limit=int(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--max-ripped-traces=')),4));assert 0<=rip_limit<=8,'Controlled rip-up budget must be between zero and eight traces';assert len(ripped)<=rip_limit,('Controlled rip-up budget exceeded',sorted(ripped))
         print('RIP_FOR',nets[net]['name'],sorted(ripped),flush=True)
         j[:]=[e for e in j if e.get('pcb_trace_id') not in ripped]
         j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]})

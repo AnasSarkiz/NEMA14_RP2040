@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Five-sheet schematic verification
 
 The qualified schematic uses standard USB-C symbols and five functional A4 landscape sheets. The current independent geometric/ERC analysis checks 88 components, 321 physical pins, 63 connected source nets and 33 explicitly unused pins. Native schematic-placement diagnostics are empty.

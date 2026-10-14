@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # NEMA14_RP2040 1.10.2: engineering fixes
 
 Saved board SHA-256: `a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6`. Starting GitHub revision: `db8bd58`. Original functional nets, NC roles, values and ratings are preserved, with the authorized USB4145 upright connector substitution and three added bottom DNP encoder components; see `artifacts/engineering-fixes/final-engineering-verification.json`.

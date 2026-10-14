@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # NEMA14_RP2040: top-side population and reference connectors
 
 All fitted components populate the top face. The PCB remains 35 × 35 × 1.6 mm with four copper layers and four NPTH mounting holes exactly (±13, ±13), Ø3.2 mm.

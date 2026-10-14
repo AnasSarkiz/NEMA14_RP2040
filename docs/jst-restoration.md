@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Current motor connector and harness — v1.8.2
 
 J_MOTOR is the original imported **BM04B-SRSS-TB(LF)(SN), C160390**, a 1 mm-pitch top-entry SMT JST-SH header. It follows the user's NEMA8 assembly reference. Rishabh's RP2040 reference uses the 2 mm-pitch through-hole **B4B-PH-K-S(LF)(SN), C131334** JST-PH. Coil order matches, but the two families cannot mate. Use an SH harness rather than a PHR-4 PH cable.

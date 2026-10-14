@@ -44,7 +44,7 @@ for m in j:
  s=s.translate(tuple(m['position'][k] for k in 'xyz'));parts[name]=s;meta[name]=m
  print('Imported',name,flush=True)
 assert set(parts)==set(cat['components'])-{src[k]['name'] for k in dnp}, 'Every fitted part requires its original STEP model'
-heads={str((x,y)):cq.Workplane('XY').circle(2.2).extrude(3).val().translate((x,y,.8)) for x,y in itertools.product([-13,13],repeat=2)}
+heads={str((x,y)):cq.Workplane('XY').circle(3.2).extrude(3).val().translate((x,y,.8)) for x,y in itertools.product([-13,13],repeat=2)}
 intersections=[];clearances=[]
 for (a,s),(b,t) in itertools.combinations(parts.items(),2):
  if broad(s,t):
@@ -57,7 +57,13 @@ for a,s in parts.items():
   lower=math.sqrt(sum(max(x[i]-y[i+3],y[i]-x[i+3],0)**2 for i in range(3)))
   if lower>=1:continue
   d=s.distance(t)
-  if d<1:clearances.append({'reference':a,'mount':b,'distance_to_radius2p2_fastener_mm':d,'intersection_mm3':volume(s,t)})
+  if d<1:clearances.append({'reference':a,'mount':b,'distance_to_radius3p2_fastener_mm':d,'intersection_mm3':volume(s,t)})
+tools={name:cq.Workplane('XY').circle(3).extrude(25).val().translate((x,y,3.8)) for name,(x,y) in zip(heads,itertools.product([-13,13],repeat=2))}
+tool_collisions=[]
+for mount,tool in tools.items():
+ for name,part in parts.items():
+  v=volume(tool,part)
+  if v>1e-5:tool_collisions.append({'mount':mount,'reference':name,'intersection_mm3':v})
 plugs={};usb=[]
 for name in ['J_PD','J_DATA']:
  m=meta[name];bb=bounds(parts[name]);mouth=[(bb[0]+bb[3])/2,(bb[1]+bb[4])/2,bb[5]];direction=[0,0,1]
@@ -75,8 +81,12 @@ plug_intersections=[]
 for (a,s),(b,t) in itertools.combinations(plugs.items(),2):
  v=volume(s,t)
  if v>1e-5:plug_intersections.append({'a':a,'b':b,'volume_mm3':v})
+for mount,tool in tools.items():
+ for name,plug in plugs.items():
+  v=volume(tool,plug)
+  if v>1e-5:tool_collisions.append({'mount':mount,'reference':name+'_plug','intersection_mm3':v})
 plug_gap=plugs['J_PD'].distance(plugs['J_DATA'])
-assert plug_gap >= 2.09999, 'Two simultaneous 10 mm housings need the reviewed 2.1 mm nominal gap'
+assert plug_gap >= 2.09999, 'Simultaneous 10 mm housings must retain at least 2.1 mm separation'
 # PH is a top-entry connector. Verify actual STEP leads, PCB envelope, and an unobstructed vertical insertion region.
 motor=parts['J_MOTOR'];motor_meta=meta['J_MOTOR'];motor_pcb=next(e for e in j if e['type']=='pcb_component' and e['source_component_id']==motor_meta['source_component_id'])
 motor_pads=[e for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id']==motor_pcb['pcb_component_id']]
@@ -96,14 +106,14 @@ mb=bounds(motor);assert all(-17.5<=mb[i]<=17.5 for i in [0,1,3,4]), 'JST body ex
 mx=(mb[0]+mb[3])/2;my=(mb[1]+mb[4])/2
 access=cq.Workplane('XY').box(mb[3]-mb[0]+.6,mb[4]-mb[1]+.6,20).val().translate((mx,my,mb[5]+10))
 access_collisions=[]
-for name,other in list(parts.items())+list(heads.items())+list(plugs.items()):
+for name,other in list(parts.items())+list(heads.items())+list(plugs.items())+list(('tool_'+name,tool) for name,tool in tools.items()):
  if name=='J_MOTOR':continue
  v=volume(access,other)
  if v>1e-5:access_collisions.append({'other':name,'volume_mm3':v})
 motor_report={'reference':'J_MOTOR','manufacturer_part_number':'BM04B-SRSS-TB(LF)(SN)','supplier_id':'C160390','mating_housing':'SHR-04V-S','insertion_direction':'+Z (from above)','body_and_lead_bbox_mm':mb,'body_within_35mm_outline':True,'native_SMT_pad_centres_mm':[[p['x'],p['y']] for p in motor_pads],'native_JST_drills':0,'STEP_landing_regions':lead_alignment,'individual_STEP_metal_terminal_centers_verified':False,'vertical_access_envelope_bbox_mm':bounds(access),'vertical_access_intersections':access_collisions,'tail_projection_below_PCB_mm':max(0,-.8-mb[2]),'cable_and_finger_clearance_hardware_tested':False}
-report={'source_path':str(source),'fastener_requirement':{'standard':'DIN 920','thread':'M3','maximum_head_diameter_mm':4,'model_envelope_diameter_mm':4.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'unpopulated_bottom_references':sorted(src[k]['name'] for k in dnp),'optional_encoder_rear_fit_verified':False,'native_STEP_models':len(parts),'conservative_USB_bounding_models':conservative_models,'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'motor_connector':motor_report,'rear_motor_compatibility_verified':False,'limitations':['Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.','Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 10x7x30 mm procurement bound, not tested cable hardware.','Ø4.4 mm fastener envelope is a defined screen budget around Ø4 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
+report={'source_path':str(source),'fastener_requirement':{'standard':'Envelope requirement; exact fastener SKU unqualified','thread':'M3','maximum_head_diameter_mm':6,'model_envelope_diameter_mm':6.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'vertical_driver_access':{'tool_shaft_diameter_mm':6,'starts_at_z_mm':3.8,'height_mm':25,'collisions':tool_collisions,'actual_driver_tool_verified':False},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'unpopulated_bottom_references':sorted(src[k]['name'] for k in dnp),'optional_encoder_rear_fit_verified':False,'native_STEP_models':len(parts),'conservative_USB_bounding_models':conservative_models,'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'motor_connector':motor_report,'rear_motor_compatibility_verified':False,'limitations':['Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.','Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 10x7x30 mm procurement bound, not tested cable hardware.','Ø6.4 mm fastener envelope is a defined screen budget around maximum Ø6 mm heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
 out=root/'artifacts/mechanical';out.mkdir(exist_ok=True);assert source.read_bytes()==board_bytes, 'Board changed during mechanical audit'
-report['passed']=not access_collisions and not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_10x7x30mm_intersections'] for e in usb)
+report['passed']=not tool_collisions and not access_collisions and not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_10x7x30mm_intersections'] for e in usb)
 (out/('source-mount-usb-screen.json' if len(sys.argv)>1 else 'mount-usb-screen.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 
 raise SystemExit(0 if report['passed'] else 1)

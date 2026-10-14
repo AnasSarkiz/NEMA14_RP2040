@@ -21,7 +21,7 @@ world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
     draw_layers=['top','inner1','inner2','bottom'] if via and next(e for e in j if e['type']=='pcb_board')['num_layers']==4 else layers
     images=[Image.new('L',(N,N)) for _ in draw_layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=.15+(current_via_diameter/2 if via else current_width/2)+.003
+    margin=max(.15+current_via_diameter/2+.003,.20+current_via_hole/2+.003) if via else .15+current_width/2+.003
     def add(ls,geom):
         p=geom.buffer(margin,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]

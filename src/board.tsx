@@ -6,8 +6,8 @@ const place=(name:string)=>(placements as Record<string,{pcbX:number,pcbY:number
 import { SchematicNotes } from "./schematic-notes"
 
 // Fixed NEMA14 hole pattern. Same-edge ports require DIN 920 M3 heads ≤4 mm.
-// Circular Ø4.4 mm head envelope includes a defined 0.2 mm radial allowance; rear mounting is unverified.
-export const mechanical = { width: 35, height: 35, holePitch: 26, holeDiameter: 3.2, headEnvelopeRadius: 2.2, usbPortPitch: 12.4 }
+// Circular Ø6.4 mm head envelope includes a defined 0.2 mm radial allowance; rear mounting is unverified.
+export const mechanical = { width: 35, height: 35, holePitch: 26, holeDiameter: 3.2, headEnvelopeRadius: 3.2, usbEdgeSeparation: 30.3 }
 const n = (name: string) => `net.${name}`
 const mcuPins = {"pin1": "IOVDD1", "pin2": "GPIO0", "pin3": "GPIO1", "pin4": "GPIO2", "pin5": "GPIO3", "pin6": "GPIO4", "pin7": "GPIO5", "pin8": "GPIO6", "pin9": "GPIO7", "pin10": "IOVDD10", "pin11": "GPIO8", "pin12": "GPIO9", "pin13": "GPIO10", "pin14": "GPIO11", "pin15": "GPIO12", "pin16": "GPIO13", "pin17": "GPIO14", "pin18": "GPIO15", "pin19": "TESTEN", "pin20": "XIN", "pin21": "XOUT", "pin22": "IOVDD22", "pin23": "DVDD23", "pin24": "SWCLK", "pin25": "SWDIO", "pin26": "RUN", "pin27": "GPIO16", "pin28": "GPIO17", "pin29": "GPIO18", "pin30": "GPIO19", "pin31": "GPIO20", "pin32": "GPIO21", "pin33": "IOVDD33", "pin34": "GPIO22", "pin35": "GPIO23", "pin36": "GPIO24", "pin37": "GPIO25", "pin38": "GPIO26", "pin39": "GPIO27", "pin40": "GPIO28", "pin41": "GPIO29", "pin42": "IOVDD42", "pin43": "ADC_AVDD", "pin44": "VREG_IN", "pin45": "VREG_OUT", "pin46": "USB_DM", "pin47": "USB_DP", "pin48": "USB_VDD", "pin49": "IOVDD49", "pin50": "DVDD50", "pin51": "QSPI_SD3", "pin52": "QSPI_SCLK", "pin53": "QSPI_SD0", "pin54": "QSPI_SD2", "pin55": "QSPI_SD1", "pin56": "QSPI_SS", "pin57": "GND"} as const
 const driverPins = {pin1:"OUT2B",pin2:"ENABLE_N",pin3:"GND",pin4:"CP1",pin5:"CP2",pin6:"VCP",pin7:"NC7",pin8:"VREG",pin9:"MS1",pin10:"MS2",pin11:"MS3",pin12:"RESET_N",pin13:"ROSC",pin14:"SLEEP",pin15:"VDD",pin16:"STEP",pin17:"REF",pin18:"GND18",pin19:"DIR",pin20:"NC20",pin21:"OUT1B",pin22:"VBB1",pin23:"SENSE1",pin24:"OUT1A",pin25:"NC25",pin26:"OUT2A",pin27:"SENSE2",pin28:"VBB2",pin29:"EP"} as const
@@ -88,9 +88,7 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
   <silkscreentext text="NEMA14 RP2040" pcbX={0} pcbY={-16.9} fontSize={1} />
-  <silkscreentext text="PD 15V" pcbX={-6.2} pcbY={8.2} fontSize={.7} />
-  <silkscreentext text="USB DATA" pcbX={6.2} pcbY={8.2} fontSize={.7} />
-  <silkscreentext text="A+ A- B+ B-" pcbX={0} pcbY={-13.7} fontSize={.65} />
+  <silkscreentext text="A+ A- B+ B-" pcbX={-6.85} pcbY={9.0} fontSize={.65} />
 
   {/* Reference feedback: TMP102 I2C address 0x48; alerts handled by application firmware. */}
   <SupplierPart name="U_TEMP" {...pinProps("U_TEMP")} {...place("U_TEMP")} noConnect={['ALERT']} connections={{SCL:n('TEMP_SCL'),GND:n('GND'),ADD0:n('GND'),V_POS:n('V3V3'),SDA:n('TEMP_SDA')}} />
@@ -118,8 +116,8 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <testpoint name="TP_RUN" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_RUN")} connections={{pin1:n("RUN")}} />
   <testpoint name="TP_BOOT" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT")} connections={{pin1:n("BOOT_PAD")}} />
   <testpoint name="TP_BOOT_GND" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT_GND")} connections={{pin1:n("GND")}} />
-  <silkscreentext text="PWR" pcbX={-7.1} pcbY={10.1} fontSize={1.3} isKnockout={true} knockoutPadding={0.25} />
-  <silkscreentext text="DATA" pcbX={8.5} pcbY={10.4} fontSize={1.3} isKnockout={true} knockoutPadding={0.25} />
+  <silkscreentext text="PWR" pcbX={6.8} pcbY={16.1} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
+  <silkscreentext text="DATA" pcbX={-15.5} pcbY={-16.6} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   {/* Optional AS5600 at nominal motor axis. No rear shaft/magnet fit is claimed. */}
   <SupplierPart name="U_ENCODER" layer="bottom" doNotPlace {...place("U_ENCODER")} noConnect={['OUT','PGO']} connections={{VDD5V:n('V3V3'),VDD3V3:n('V3V3'),GND:n('GND'),DIR:n('GND'),SDA:n('TEMP_SDA'),SCL:n('TEMP_SCL')}} />
   <SupplierPart name="C_ENCODER" layer="bottom" doNotPlace capacitance="100nF" maxVoltageRating={16} {...place("C_ENCODER")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />

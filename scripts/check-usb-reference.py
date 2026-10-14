@@ -20,7 +20,11 @@ for core in plan['cores']:
   if not roots or not roots<=lands:errors.append('Unconnected core '+t['trace_id'])
   points=[line.interpolate(s) for s in [min(i*.025,line.length) for i in range(math.ceil(line.length/.025)+1)]];screen=[p for p in points if not transitions.covers(p)];missing=[p for p in screen if not ref.buffer(.000002).covers(p)];screen_line=line.difference(transitions);unsupported_line=screen_line.difference(ref.buffer(.000002));fraction=1-unsupported_line.length/max(screen_line.length,1e-12)
   if not screen or fraction<1-.00001:errors.append('Insufficient adjacent GND reference '+t['trace_id']+' '+str(round(fraction,4)))
-  tracks.append({'net':t['net'],'trace_id':t['trace_id'],'actual_length_mm':line.length,'screened_reference_samples':len(screen),'local_USB_via_antipad_samples':len(points)-len(screen),'ground_reference_coverage_fraction':fraction,'exact_screened_reference_length_mm':screen_line.length,'exact_unsupported_reference_length_mm':unsupported_line.length,'unsupported_samples_mm':[[p.x,p.y] for p in missing]})
+  screened_copper=line.buffer(.125).difference(transitions)
+  unsupported_copper=screened_copper.difference(ref.buffer(.000002))
+  copper_coverage=1-unsupported_copper.area/max(screened_copper.area,1e-12)
+  if unsupported_copper.area>1e-6:errors.append('Insufficient full-width adjacent GND reference '+t['trace_id']+' '+str(round(copper_coverage,6)))
+  tracks.append({'full_width_ground_reference_coverage_fraction':copper_coverage,'unsupported_reference_copper_area_mm2':unsupported_copper.area,'net':t['net'],'trace_id':t['trace_id'],'actual_length_mm':line.length,'screened_reference_samples':len(screen),'local_USB_via_antipad_samples':len(points)-len(screen),'ground_reference_coverage_fraction':fraction,'exact_screened_reference_length_mm':screen_line.length,'exact_unsupported_reference_length_mm':unsupported_line.length,'unsupported_samples_mm':[[p.x,p.y] for p in missing]})
  if len(lines)==2:
   gap=lines[0].distance(lines[1])-.25;skew=abs(lines[0].length-lines[1].length)
   if gap<.15-.000002:errors.append('Coupled clearance below 0.15 mm '+core['name'])

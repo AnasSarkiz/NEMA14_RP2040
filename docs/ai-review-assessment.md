@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 > Historical baseline assessment before the engineering fixes. Current results and resolved issues are in [engineering fixes](engineering-fixes.md).
 
 # AI review assessment — RP2040 v1.8.2

@@ -148,13 +148,13 @@ def main():
             role_marks=[e for e in native if e['type']=='pcb_silkscreen_text' and e.get('text') in ['PWR','DATA'] and e['layer']=='top']
             assert len(role_marks)==2 and {e['text'] for e in role_marks}=={'PWR','DATA'}
             for mark in role_marks:
-                caption=mark['text'];x=mark['anchor_position']['x'];y=mark['anchor_position']['y']
-                letters=font_geometry(caption,x,y,alphabet,size=1.3,stroke=.15)
+                caption=mark['text'];x=mark['anchor_position']['x'];y=mark['anchor_position']['y'];font=mark['font_size'];assert font>=.8
+                letters=font_geometry(caption,x,y,alphabet,size=font,stroke=.15)
                 region=box(*letters.bounds).buffer(.25,join_style='mitre')
                 assert safe.covers(region) and not region.intersects(body_guard), 'Role marking conflicts with a pad, hole or component: '+caption
                 knockout=region.difference(letters)
                 labels.append(knockout);occupied=occupied.union(region.buffer(.2))
-                knockout_roles.append({'caption':caption,'centre_mm':[x,y],'font_height_mm':1.3,'negative_stroke_mm':.15,'rectangle_bounds_mm':list(region.bounds)})
+                knockout_roles.append({'caption':caption,'centre_mm':[x,y],'font_height_mm':font,'negative_stroke_mm':.15,'rectangle_bounds_mm':list(region.bounds)})
         for c in layer_components:
             ref = src[c['source_component_id']]['name']
             cx,cy = c['center']['x'],c['center']['y']

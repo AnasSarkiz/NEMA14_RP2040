@@ -46,6 +46,11 @@ for t in [e for e in j if e['type']=='pcb_trace']:
   elif sp[pp[pid]['source_port_id']].get('subcircuit_connectivity_map_key')!=k:issues.append('trace attached to a port of another net')
  row={'trace':tid,'net':names.get(k),'source_trace':sid,'layers':sorted(used),'length_mm':length,'minimum_width_mm':min(widths) if widths else None,'physical_ports':[reference(p) for p in sorted(ports) if p in pp],'issues':sorted(set(issues))};rows.append(row)
  if issues:errors.append({'trace':tid,'issues':row['issues']})
+for phase in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS']:
+ total=sum(r['length_mm'] for r in segments if r['net']==phase and r['layer']=='inner1')
+ if total>policy['maximum_total_phase_inner1_length_mm']+1e-6:errors.append({'net':phase,'issues':['Total inner1 motor phase copper exceeds 8 mm'],'actual_mm':total})
+ for r in segments:
+  if r['net']==phase and r['layer']=='inner1' and r['width_mm']<policy['minimum_phase_inner1_width_mm']-1e-6:errors.append({'net':phase,'issues':['Inner1 motor phase below 0.30 mm'],'segment':r})
 for t in [e for e in j if e['type']=='pcb_via']:
  k=t.get('subcircuit_connectivity_map_key')
  if k not in names:errors.append({'via':t['pcb_via_id'],'issues':['unknown source connectivity group']})

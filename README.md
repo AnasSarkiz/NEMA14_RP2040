@@ -1,9 +1,11 @@
-# NEMA14_RP2040 1.10.2
+# NEMA14_RP2040 1.11.0 — WORK IN PROGRESS
 
-35 × 35 × 1.6 mm, four-layer NEMA14 controller. Four NPTH holes are exactly (±13, ±13), Ø3.2 mm. Both USB-C sockets face upward; defined 10 mm housings have 2.1 mm nominal separation. Maximum Ø4 mm DIN 920 screw heads are required. Minimum via drill/pad: Ø0.30/Ø0.45 mm.
+**Not ready for fabrication or JLCPCB order review. This revision has failed electrical/routing checks and has not been republished. The current public release remains v1.10.2.**
 
-Factory component assembly is TOP only, with separate bare TOP test pads. AS5600 C79815 and its 100 nF/1 µF capacitors are BOTTOM **doNotPlace**, omitted from factory BOM/CPL and paste. TMP102, LEDs, buzzer, USB/PD and JST-SH motor interfaces are retained.
+35 × 35 × 1.6 mm, four-layer PCB. The upright USB-C connectors now occupy opposite edges, separated by 30.3 mm in Y. The nominal model screen uses two 10 mm cable housings, maximum Ø6 × 3 mm screw heads and a Ø6.4 mm screening envelope. The four NPTH mounts remain (±13, ±13), Ø3.2 mm; minimum via drill/pad is Ø0.30/Ø0.45 mm.
 
-See [engineering fixes](docs/engineering-fixes.md), [six-sheet schematic](artifacts/schematic-a4.pdf), [current checks](artifacts/resume-validation.json), [JLCPCB order review](docs/jlcpcb-order-review.md) and [assembly/harness constraints](docs/top-assembly.md). The current Circuit JSON is `index.circuit.json` and the default fabrication archive is `artifacts/nema14-gerbers.zip`.
+Factory fitted components remain TOP only; the AS5600 and two capacitors are BOTTOM doNotPlace. Intended component values, source ports, source nets and source traces match the latest GitHub baseline. Physical copper connectivity is incomplete.
 
-Supplier process/pickup approval and prototype bench tests remain outstanding. Rear mounting and encoder shaft/magnet fit are unverified. `assembly-preview.circuit.tsx` is an unrouted visual concept. No manufacturing order or production approval is implied.
+See [current draft and blockers](docs/opposite-edge-review.md), [qualification receipts](artifacts/resume-validation.json), [physical connectivity](artifacts/physical-connectivity.json), [native DRC](artifacts/drc-report.json) and [nominal mechanical screen](artifacts/mechanical/opposite-edge-fit.png). Earlier reports and assembly concepts describe previous revisions and are not evidence for this draft.
+
+The Gerbers, BOM/CPL and stencil data are diagnostic review assets. Do not order from this draft. Supplier process/pickup approval, bench testing, rear-motor mounting and encoder shaft/magnet fit remain unverified.
