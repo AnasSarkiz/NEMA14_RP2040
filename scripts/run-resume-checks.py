@@ -1,12 +1,15 @@
 """Record actual exit codes and logs for every resumed-board qualification."""
 import hashlib,json,os,pathlib,subprocess
 root=pathlib.Path(__file__).resolve().parents[1];out=root/'artifacts/validation-resume';out.mkdir(exist_ok=True);env=dict(os.environ);env['PATH']=str(root/'node_modules/.bin')+':'+env['PATH'];env['XDG_CONFIG_HOME']='/workspace/.config'
+# Correct the native checker geometry before any native or CLI checks.
+subprocess.run(['python3','scripts/patch-native-circular-keepouts.py'],cwd=root,env=env,check=True)
 # Delivered preview and extracted CAM files must be current before qualification.
 subprocess.run(['python3','scripts/finalize-manufacturing-artifacts.py'],cwd=root,env=env,check=True)
 checks=[('all_resistor_edge_clearances',['/workspace/.routing-venv/bin/python','scripts/check-resistor-edges.py']),('typescript',['tsc','--noEmit']),('drc',['bun','scripts/check.ts']),('connectivity',['/workspace/.routing-venv/bin/python','scripts/verify_supplier_connectivity.py']),('fitted_JST_and_actual_drills',['/workspace/.routing-venv/bin/python','scripts/check-motor-connector.py']),('exact_mounts_and_actual_drills',['python3','scripts/check-mount-drills.py']),('native_json_checks',['tsci','check','artifacts/board.circuit.json'])]
-checks += [(f'native_{name}',['tsci','check',name,'index.circuit.tsx' if name=='netlist' else 'artifacts/board.circuit.json']) for name in ['netlist','pin_specification','source','schematic-placement','placement']]
+checks += [(f'native_{name}',['tsci','check',name,'scripts/netlist-source.circuit.tsx' if name=='netlist' else 'artifacts/board.circuit.json']) for name in ['netlist','pin_specification','source','schematic-placement','placement']]
 checks += [('strict_Circuit_JSON_schema',['node','scripts/check-native-schema.mjs']),('USB_coupled_copper_and_ground_reference',['/workspace/.routing-venv/bin/python','scripts/check-usb-reference.py']),('schematic_geometry_ERC',['/workspace/.routing-venv/bin/python','scripts/verify-schematic.py']),('every_trace_review',['/workspace/.routing-venv/bin/python','scripts/audit-every-trace.py']),('reference_feedback',['/workspace/.routing-venv/bin/python','scripts/check-reference-feedback.py']),('gerber_shorts',['tsci','check','shorts','artifacts/board.circuit.json','--mode','gerber','--layer','all','--pixels-per-mm','100']),('copper_widths',['/workspace/.routing-venv/bin/python','scripts/audit-trace-widths.py']),('full_independent_CAM',['/workspace/.routing-venv/bin/python','scripts/audit-manufacturing.py'])]
 receipts=[]
+checks += [('native_circular_keepout_regression',['bun','scripts/check-circle-regression.ts']),('actual_via_drills_and_JLCPCB_clearances',['/workspace/.routing-venv/bin/python','scripts/audit-via-fabrication.py']),('oscillator_layout',['/workspace/.routing-venv/bin/python','scripts/audit-oscillator-layout.py'])]
 for name,cmd in checks:
  with (out/(name+'.txt')).open('w') as log:r=subprocess.run(cmd,cwd=root,env=env,stdout=log,stderr=subprocess.STDOUT)
  if name=='native_schematic-placement' and (out/(name+'.txt')).read_text().strip():

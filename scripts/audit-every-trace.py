@@ -52,6 +52,6 @@ for t in [e for e in j if e['type']=='pcb_via']:
 report={'passed':not errors,'board_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'traces_reviewed':len(rows),'wire_segments_reviewed':len(segments),'vias_reviewed':sum(e['type']=='pcb_via' for e in j),'errors':errors,'trace_inventory':rows,'segment_inventory':segments,'scope':'Every saved copper trace, wire segment, via net, source identity, attached physical port and layer; geometric DRC/physical/CAM/width reports required separately.','hardware_operation_verified':False}
 out=ROOT/'artifacts/reference-feedback';out.mkdir(exist_ok=True);(out/'every-trace-review.json').write_text(json.dumps(report,indent=2)+'\n')
 with (out/'every-trace-review.csv').open('w') as f:
- w=csv.writer(f);w.writerow(['Trace','Net','Source trace','Layers','Length mm','Minimum width mm','Physical ports','Issues'])
+ w=csv.writer(f,lineterminator="\n");w.writerow(['Trace','Net','Source trace','Layers','Length mm','Minimum width mm','Physical ports','Issues'])
  for r in rows:w.writerow([r['trace'],r['net'],r['source_trace'],'/'.join(r['layers']),r['length_mm'],r['minimum_width_mm'],'; '.join(r['physical_ports']),'; '.join(r['issues'])])
 print(json.dumps({k:report[k] for k in ['passed','traces_reviewed','wire_segments_reviewed','vias_reviewed','errors']},indent=2));raise SystemExit(bool(errors))

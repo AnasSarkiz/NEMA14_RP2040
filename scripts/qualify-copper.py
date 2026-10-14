@@ -5,6 +5,8 @@ open or unknown error blocks this helper and must be resolved independently.
 """
 import json,pathlib,os,subprocess,hashlib
 root=pathlib.Path(__file__).resolve().parents[1];env=dict(os.environ);env['PATH']=str(root/'node_modules/.bin')+':'+env['PATH'];py='/workspace/.routing-venv/bin/python';rows=[]
+# Never prune escapes on an open net: every intended terminal must already be connected.
+subprocess.run([py,'scripts/verify_supplier_connectivity.py'],cwd=root,env=env,stdout=subprocess.DEVNULL,check=True)
 for attempt in range(12):
  log=root/'artifacts/engineering-fixes'/('copper-DRC-pass-'+str(attempt)+'.txt')
  with log.open('w') as out:r=subprocess.run(['bun','scripts/check.ts'],cwd=root,env=env,stdout=out,stderr=subprocess.STDOUT)
@@ -12,7 +14,7 @@ for attempt in range(12):
  if not errors and r.returncode==0:break
  if any('dangling endpoint' not in e.get('message','') for e in errors):raise RuntimeError('Copper DRC includes real or unrecognized errors; see current report')
  before=hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest()
- for s in ['prune-same-side-stubs.py','trim-same-side-stubs.py','clean-same-side-copper.py','fill-ground.py']:
+ for s in ['prune-same-side-stubs.py','trim-same-side-stubs.py','clean-same-side-copper.py','fill-ground.py','refresh-physical-contacts.py','align-copper-source-identities.py']:
   with log.open('a') as out:subprocess.run([py,'scripts/'+s],cwd=root,env=env,stdout=out,stderr=subprocess.STDOUT,check=True)
  if hashlib.sha256((root/'artifacts/board.circuit.json').read_bytes()).hexdigest()==before:raise RuntimeError('No safe copper cleanup found')
 else:raise RuntimeError('Native DRC has not converged')

@@ -11,10 +11,8 @@ def trace(uid,net,p,points,layer,tag=False):
  route=[{'route_type':'wire','x':x,'y':y,'width':.16,'layer':layer} for x,y in points]
  if tag:route[0]['start_pcb_port_id']=p['pcb_port_id']
  j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'pcb_port_ids':[p['pcb_port_id']] if tag else [],**attrs(net,p)})
-def via(uid,net,p,x,y):j.append({'type':'pcb_via','pcb_via_id':uid,'x':x,'y':y,'outer_diameter':.4,'hole_diameter':.2,'layers':['top','inner1','inner2','bottom'],'from_layer':'top','to_layer':'bottom','tented_on_top':True,'tented_on_bottom':True,**attrs(net,p)})
+def via(uid,net,p,x,y):j.append({'type':'pcb_via','pcb_via_id':uid,'x':x,'y':y,'outer_diameter':.45,'hole_diameter':.3,'layers':['top','inner1','inner2','bottom'],'from_layer':'top','to_layer':'bottom','tented_on_top':True,'tented_on_bottom':True,**attrs(net,p)})
 def endpoint(core,net,index):return next(t for t in cores[core]['tracks'] if t['net']==net)['points'][index]
-for net,role,x in [('USB_DP','DP2',5.4),('USB_DM','DM1',6.0)]:
- p=port('J_DATA',role);trace('usb_fan_J_DATA_'+net,net,p,[(p['x'],p['y']),(p['x'],9.15),(x,8.95)],'top',True);via('usb_fan_J_DATA_'+net+'_via',net,p,x,8.95);trace('usb_fan_J_DATA_'+net+'_bottom',net,p,[(x,8.95),endpoint('connector_to_ESD',net,0)],'bottom')
 for net,inrole,outrole in [('USB_DP','DP2','DP1'),('USB_DM','DM2','DM1')]:
  p=port('U_ESD',inrole);x=p['x'];trace('usb_fan_ESD_input_'+net+'_bottom',net,p,[(x,7.0),endpoint('connector_to_ESD',net,-1)],'bottom')
  q=port('U_ESD',outrole);trace('usb_fan_ESD_IO_link_'+net,net,q,[(q['x'],q['y']),(p['x'],p['y'])],'top',True);via('usb_fan_ESD_output_'+net+'_via',net,q,q['x'],7.0);start=endpoint('ESD_to_series',net,0);trace('usb_fan_ESD_output_'+net+'_bottom',net,q,[(q['x'],7.0),(start[0],6.5),start],'bottom')

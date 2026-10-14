@@ -1,0 +1,259 @@
+{
+  "source_path": "/workspace/nema14-rp2040-current/artifacts/board.circuit.json",
+  "fastener_requirement": {
+    "standard": "DIN 920",
+    "thread": "M3",
+    "maximum_head_diameter_mm": 4,
+    "model_envelope_diameter_mm": 4.4,
+    "conservative_model_height_mm": 3,
+    "radial_screen_allowance_mm": 0.2
+  },
+  "plug_pair_intersections": [],
+  "minimum_simultaneous_plug_gap_mm": 2.4000000000000004,
+  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "native_STEP_models": 81,
+  "component_intersections": [],
+  "fastener_clearances": [
+    {
+      "reference": "J_PD",
+      "mount": "(-13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.129999999999999,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "J_DATA",
+      "mount": "(13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.13000000000000256,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_PD",
+      "mount": "(-13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.9084938713809632,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "C_PD",
+      "mount": "(-13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.6602165232027248,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_USB_SENSE_L",
+      "mount": "(13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.41979336440135906,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "C_DRV_LOGIC",
+      "mount": "(13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.8379409865857365,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_REF_H",
+      "mount": "(13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.7074774289751585,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_ENABLE",
+      "mount": "(13, 13)",
+      "distance_to_radius2p2_fastener_mm": 0.40381731773546886,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_TEMP_SDA",
+      "mount": "(13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.10591519405224026,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_PWR_LED",
+      "mount": "(13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.44603577359815505,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_STATUS_R",
+      "mount": "(-13, -13)",
+      "distance_to_radius2p2_fastener_mm": 0.6290079218941473,
+      "intersection_mm3": 0
+    }
+  ],
+  "usb": [
+    {
+      "native_body_to_mount_envelope_mm": 0.129999999999999,
+      "reference": "J_PD",
+      "mouth_xy_mm": [
+        -6.2,
+        17.50000000000005
+      ],
+      "outward_unit_vector": [
+        -0.0,
+        1.0
+      ],
+      "plug_10x30x7mm_intersections": [],
+      "bbox_mm": [
+        -10.6700001,
+        9.600000000000042,
+        -0.05001099999999947,
+        -1.7299999000000006,
+        17.500000000000053,
+        4.050989100000001
+      ]
+    },
+    {
+      "native_body_to_mount_envelope_mm": 0.13000000000000256,
+      "reference": "J_DATA",
+      "mouth_xy_mm": [
+        6.2,
+        17.50000000000005
+      ],
+      "outward_unit_vector": [
+        -0.0,
+        1.0
+      ],
+      "plug_10x30x7mm_intersections": [],
+      "bbox_mm": [
+        1.7299998999999988,
+        9.600000000000042,
+        -0.05001099999999947,
+        10.6700001,
+        17.500000000000053,
+        4.050989100000001
+      ]
+    }
+  ],
+  "mounts": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "motor_connector": {
+    "reference": "J_MOTOR",
+    "manufacturer_part_number": "BM04B-SRSS-TB(LF)(SN)",
+    "supplier_id": "C160390",
+    "mating_housing": "SHR-04V-S",
+    "insertion_direction": "+Z (from above)",
+    "body_and_lead_bbox_mm": [
+      -7.500000100000002,
+      -16.432502999999997,
+      0.8,
+      -1.4999998999999995,
+      -12.822502999999998,
+      5.0600000000000005
+    ],
+    "body_within_35mm_outline": true,
+    "native_SMT_pad_centres_mm": [
+      [
+        -3.0000029999999995,
+        -13.2149963
+      ],
+      [
+        -4.000001,
+        -13.2149963
+      ],
+      [
+        -4.999999,
+        -13.2149963
+      ],
+      [
+        -5.999997,
+        -13.2149963
+      ],
+      [
+        -1.700031,
+        -15.7400103
+      ],
+      [
+        -7.299969,
+        -15.740010299999998
+      ]
+    ],
+    "native_JST_drills": 0,
+    "STEP_landing_regions": [
+      {
+        "native_pad_xy_mm": [
+          -3.0000029999999995,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530082,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -4.000001,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530083,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -4.999999,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530081,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -5.999997,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.038762022655300765,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -1.700031,
+          -15.7400103
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842394,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -7.299969,
+          -15.740010299999998
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842416,
+        "individual_metal_terminal_center_verified": false
+      }
+    ],
+    "individual_STEP_metal_terminal_centers_verified": false,
+    "vertical_access_envelope_bbox_mm": [
+      -3.3000023999999994,
+      -13.990001099999999,
+      0.7999999999999999,
+      -2.7000035999999996,
+      -12.439991499999998,
+      0.9
+    ],
+    "vertical_access_intersections": [],
+    "tail_projection_below_PCB_mm": 0,
+    "cable_and_finger_clearance_hardware_tested": false
+  },
+  "rear_motor_compatibility_verified": false,
+  "limitations": [
+    "Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.",
+    "Nominal PCB/model screen only; no verified mounting to rear motor endcap.",
+    "Cable envelope is a defined 10x30x7 mm procurement bound, not tested cable hardware.",
+    "\u00d84.4 mm fastener envelope is a defined screen budget around \u00d84 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified."
+  ],
+  "passed": true
+}

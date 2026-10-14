@@ -1,5 +1,5 @@
 """Remove reported obsolete copper branches only when live-pad connectivity is unchanged."""
-import json
+import json,sys
 import verify_supplier_connectivity as g
 
 errors=json.loads((g.ROOT/'artifacts/drc-report.json').read_text())['errors']
@@ -11,6 +11,7 @@ def signature(net):
     return sorted(sorted(v) for v in islands.values())
 removed=[];retained=[]
 for trace_id in sorted(ids):
+    if "--preserve-review-escapes" in sys.argv and trace_id.startswith(("reviewed_local_","oscillator_","usb_")):continue
     e=next(x for x in g.j if x.get('pcb_trace_id')==trace_id)
     net=g.key(e);before=signature(net);i=g.j.index(e);g.j.pop(i)
     if signature(net)==before:removed.append(trace_id)

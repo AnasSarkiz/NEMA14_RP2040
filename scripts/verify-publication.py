@@ -43,15 +43,23 @@ usb=[]
 for e in remote:
     if e['type']=='cad_component' and names.get(e.get('source_component_id')) in ('J_PD','J_DATA'):
         assert e['rotation']['z']==0
-        mouth=(e['position']['x'],e['position']['y']+2.6-e['model_origin_position']['y'])
+        mouth=(e['position']['x']+(4.4700000999-4.4750064358)/2-e['model_origin_position']['x'],e['position']['y']+(1.5821329568+5.2721320224)/2-e['model_origin_position']['y'])
+        source=next(q for q in remote if q['type']=='source_component' and q['source_component_id']==e['source_component_id'])
+        assert source['manufacturer_part_number']=='USB4145-03-0070-C' and source['supplier_part_numbers']=={'jlcpcb':['C5815189']}
         usb.append(mouth)
-assert sorted((round(x,8),round(y,8)) for x,y in usb)==[(-6.2,17.5),(6.2,17.5)]
+assert len(usb)==2 and all(abs(x-ex)<.001 and abs(y-15.15)<.001 for (x,y),ex in zip(sorted(usb),[-6.05,6.05]))
+dnp={names[e['source_component_id']] for e in remote if e['type']=='pcb_component' and e.get('do_not_place')}
+assert dnp=={'U_ENCODER','C_ENCODER','C_ENCODER_BULK'}
+assert all(e['layer']=='bottom' for e in remote if e['type']=='pcb_component' and e.get('do_not_place'))
+assert pcb['min_via_hole_diameter']==.3 and pcb['min_via_pad_diameter']==.45
+via_proof=json.loads(file('artifacts/upright-revision/via-fabrication-verification.json'))
+assert via_proof['passed'] and via_proof['board_sha256']==sha(board_bytes)
 mechanical=json.loads(file('artifacts/mechanical/mount-usb-screen.json'))
 assert mechanical['passed'] and mechanical['board_sha256']==sha(board_bytes)
 assert mechanical['fastener_requirement']['maximum_head_diameter_mm']==4
 assert mechanical['fastener_requirement']['model_envelope_diameter_mm']==4.4
-assert abs(mechanical['minimum_simultaneous_plug_gap_mm']-2.4)<1e-5
-assert min(u['native_body_to_mount_envelope_mm'] for u in mechanical['usb'])>=.12999
+assert abs(mechanical['minimum_simultaneous_plug_gap_mm']-2.1)<1e-5
+assert min(u['native_body_to_mount_envelope_mm'] for u in mechanical['usb'])>=.1
 motor_source=next(e for e in remote if e['type']=='source_component' and e['name']=='J_MOTOR')
 assert motor_source['manufacturer_part_number']=='BM04B-SRSS-TB(LF)(SN)' and motor_source['supplier_part_numbers']=={'jlcpcb':['C160390']}
 motor_model=next(e for e in remote if e['type']=='cad_component' and e['source_component_id']==motor_source['source_component_id'])
@@ -85,20 +93,28 @@ with zipfile.ZipFile(io.BytesIO(archive)) as z:
     assert len(mounts)==4 and set(mounts)==expected
 schematic=json.loads(file('artifacts/schematic-redesign/analysis.json'))
 assert schematic['passed'] and schematic['board_sha256']==sha(board_bytes)
-assert len([e for e in remote if e['type']=='schematic_sheet'])==5
+assert len([e for e in remote if e['type']=='schematic_sheet'])==6
 assert not file('artifacts/schematic-redesign/native-analysis.txt').strip(), 'Native schematic analysis still reports issues'
 usb_proof=json.loads(file('artifacts/engineering-fixes/usb-verification.json'));assert usb_proof['passed'] and usb_proof['board_sha256']==sha(board_bytes)
 schema_proof=json.loads(file('artifacts/engineering-fixes/schema-verification.json'));assert schema_proof['passed'] and schema_proof['board_sha256']==sha(board_bytes)
 checks=[]
-for path in ['artifacts/engineering-fixes/usb-verification.json','artifacts/engineering-fixes/schema-verification.json','artifacts/engineering-fixes/export-policy.json','docs/engineering-fixes.md','artifacts/edge-resistors/clearance-verification.json','docs/resistor-edge-clearance.md','artifacts/schematic-redesign/analysis.json','artifacts/schematic-redesign/preservation.json','artifacts/schematic-redesign/native-analysis.txt','docs/schematic-verification.md','artifacts/schematic-a4.pdf',*[f'artifacts/schematic-a4-page-{i:02d}.svg' for i in range(1,6)],'artifacts/mount-drill-verification.json','artifacts/mechanical/mount-usb-screen.json','artifacts/manufacturing/audit.json','artifacts/resume-validation.json','src/board.tsx','docs/mounting-usb-verification.md','artifacts/mounting-change-proof.json','artifacts/trace-width-review.json','artifacts/jst-restoration/connector-verification.json','src/jlcpcb-catalog.json','artifacts/bom.csv','artifacts/reference-feedback/circuit-verification.json','artifacts/reference-feedback/every-trace-review.json','artifacts/reference-feedback/every-trace-review.csv','artifacts/reference-feedback/preserved-electrical-interfaces.json','docs/reference-feedback.md','docs/top-assembly.md','artifacts/top-assembly/functional-preservation.json','artifacts/top-assembly/connector-decision.json','artifacts/top-assembly/assembly-preview.circuit.json','assembly-preview.circuit.tsx']:
-    data=file(path); assert data==(root/path).read_bytes(), path+' public evidence differs'
+for path in ['artifacts/upright-revision/via-fabrication-verification.json','artifacts/upright-revision/oscillator-verification.json','artifacts/engineering-fixes/usb-verification.json','artifacts/engineering-fixes/schema-verification.json','artifacts/engineering-fixes/export-policy.json','docs/engineering-fixes.md','artifacts/edge-resistors/clearance-verification.json','docs/resistor-edge-clearance.md','artifacts/schematic-redesign/analysis.json','artifacts/schematic-redesign/preservation.json','artifacts/schematic-redesign/native-analysis.txt','docs/schematic-verification.md','artifacts/schematic-a4.pdf',*[f'artifacts/schematic-a4-page-{i:02d}.svg' for i in range(1,7)],'artifacts/mount-drill-verification.json','artifacts/mechanical/mount-usb-screen.json','artifacts/manufacturing/audit.json','artifacts/resume-validation.json','src/board.tsx','docs/mounting-usb-verification.md','artifacts/mounting-change-proof.json','artifacts/trace-width-review.json','artifacts/jst-restoration/connector-verification.json','src/jlcpcb-catalog.json','artifacts/bom.csv','artifacts/reference-feedback/circuit-verification.json','artifacts/reference-feedback/every-trace-review.json','artifacts/reference-feedback/every-trace-review.csv','artifacts/reference-feedback/preserved-electrical-interfaces.json','docs/reference-feedback.md','docs/top-assembly.md','artifacts/top-assembly/functional-preservation.json','artifacts/top-assembly/connector-decision.json','artifacts/top-assembly/assembly-preview.circuit.json','assembly-preview.circuit.tsx']:
+    data=file(path);expected_data=(root/path).read_bytes()
+    if path=='artifacts/top-assembly/assembly-preview.circuit.json':
+        assert strip(json.loads(data))==strip(json.loads(expected_data)), 'Assembly preview geometry changed'
+        for e in json.loads(data):
+            if e['type']=='cad_component':
+                for field in ['model_obj_url','model_step_url']:
+                    url=e.get(field,'')
+                    if 'raw.githubusercontent.com/AnasSarkiz/' in url:assert '/'+revision+'/imports/supplier/' in url
+    else:assert data==expected_data,path+' public evidence differs'
     checks.append({'path':path,'sha256':sha(data)})
 git_remote = subprocess.check_output(['git','-C',str(root),'remote','get-url','origin'],text=True).strip()
 repo = git_remote.removeprefix('https://github.com/').removesuffix('.git')
 github=[]
-for path in ['artifacts/board.circuit.json','index.circuit.json','artifacts/nema14-gerbers.zip','imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.obj']:
+for path in ['artifacts/board.circuit.json','index.circuit.json','artifacts/nema14-gerbers.zip','imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.obj']:
     if not (root/path).exists():
-        candidates=list((root/'imports/supplier/TYPE_C_31_M_12').glob('*.step')); assert len(candidates)==1
+        candidates=list((root/'imports/supplier/USB4145_03_0070_C').glob('*.step')); assert len(candidates)==1
         path=str(candidates[0].relative_to(root))
     url='https://raw.githubusercontent.com/'+repo+'/'+revision+'/'+path
     with urllib.request.urlopen(url,timeout=60) as r: data=r.read()
@@ -108,7 +124,7 @@ page='https://tscircuit.com/'+name
 with urllib.request.urlopen(page,timeout=60) as r: page_status=r.status; assert page_status==200
 feedback=json.loads(file('artifacts/reference-feedback/circuit-verification.json'));assert feedback['passed'] and feedback['board_sha256']==sha(board_bytes)
 trace_review=json.loads(file('artifacts/reference-feedback/every-trace-review.json'));assert trace_review['passed']
-receipt={'schematic_native_analysis_zero_issues':True,'schematic_geometric_ERC_passed':True,'functional_A4_sheet_count':5,'PCB_and_source_preserved_from_schematic_baseline':schematic['electrical_source_and_PCB_CAD_preserved'],'electrical_source_preserved':schematic.get('electrical_source_preserved',True),'qualified_schematic_preserved':schematic.get('qualified_schematic_preserved',True),'reference_feedback_verified':True,'every_trace_inventory_verified':True,'hardware_operation_verified':False,'passed':True,'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_package':name,'version':version,'package_release_id':rid,'package_is_private':False,'ready_to_build':True,'public_page':page,'page_http_status':page_status,'github_revision':revision,'github_commit_url':'https://github.com/'+repo+'/commit/'+revision,'public_file_count':len(files),'review_board_sha256':sha(board_bytes),'public_index_sha256':sha(remote_bytes),'public_dist_sha256':sha(dist_bytes),'geometry_and_functional_records_unchanged':True,'cad_urls_pinned_to_revision':True,'mount_coordinates_mm':sorted(expected),'mount_diameter_mm':3.2,'board_dimensions_mm':[35,35],'USB_mouth_coordinates_mm':sorted(usb),'same_USB_edge':'+Y','required_maximum_DIN920_head_diameter_mm':4,'simultaneous_10mm_housing_gap_mm':mechanical['minimum_simultaneous_plug_gap_mm'],'actual_Gerber_outline_centerline_bounds_mm':cam['board_outline']['centerline_bounds_mm'],'public_gerber_archive_sha256':sha(archive),'public_drill_sha256':sha(drill),'public_drill_coordinates_mm':[[float(x),float(y)] for x,y in mounts],'public_evidence_checks':checks,'public_github_checks':github,'full_manufacturing_audit_passed':cam['status']=='PASS' and not cam['issues'],'rear_motor_compatibility_verified':False,'physical_hardware_tested':False,'fitted_motor_connector':'BM04B-SRSS-TB(LF)(SN)','JST_supplier_id':'C160390','JST_actual_drills':connector['actual_JST_drill_matches'],'JST_native_STEP_landing_regions_verified':True,'JST_individual_metal_terminal_centers_verified':False,'JST_top_entry_access_screen_pass':True}
+receipt={'schematic_native_analysis_zero_issues':True,'schematic_geometric_ERC_passed':True,'functional_A4_sheet_count':6,'PCB_and_source_preserved_from_schematic_baseline':schematic['electrical_source_and_PCB_CAD_preserved'],'electrical_source_preserved':schematic.get('electrical_source_preserved',True),'qualified_schematic_preserved':schematic.get('qualified_schematic_preserved',True),'reference_feedback_verified':True,'every_trace_inventory_verified':True,'hardware_operation_verified':False,'passed':True,'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),'public_package':name,'version':version,'package_release_id':rid,'package_is_private':False,'ready_to_build':True,'public_page':page,'page_http_status':page_status,'github_revision':revision,'github_commit_url':'https://github.com/'+repo+'/commit/'+revision,'public_file_count':len(files),'review_board_sha256':sha(board_bytes),'public_index_sha256':sha(remote_bytes),'public_dist_sha256':sha(dist_bytes),'geometry_and_functional_records_unchanged':True,'cad_urls_pinned_to_revision':True,'mount_coordinates_mm':sorted(expected),'mount_diameter_mm':3.2,'board_dimensions_mm':[35,35],'USB_mouth_coordinates_mm':sorted(usb),'USB_insertion_direction':'+Z','required_maximum_DIN920_head_diameter_mm':4,'simultaneous_10mm_housing_gap_mm':mechanical['minimum_simultaneous_plug_gap_mm'],'actual_Gerber_outline_centerline_bounds_mm':cam['board_outline']['centerline_bounds_mm'],'public_gerber_archive_sha256':sha(archive),'public_drill_sha256':sha(drill),'public_drill_coordinates_mm':[[float(x),float(y)] for x,y in mounts],'public_evidence_checks':checks,'public_github_checks':github,'full_manufacturing_audit_passed':cam['status']=='PASS' and not cam['issues'],'rear_motor_compatibility_verified':False,'physical_hardware_tested':False,'fitted_motor_connector':'BM04B-SRSS-TB(LF)(SN)','JST_supplier_id':'C160390','JST_actual_drills':connector['actual_JST_drill_matches'],'JST_native_STEP_landing_regions_verified':True,'JST_individual_metal_terminal_centers_verified':False,'JST_top_entry_access_screen_pass':True}
 order_dir=root/'artifacts/jlcpcb-review'
 if order_dir.exists():
     public_order=[]

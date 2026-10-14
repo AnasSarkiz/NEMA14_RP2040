@@ -19,7 +19,7 @@ for e in g.j:
   for a,b in zip(e['route'],e['route'][1:]):
    if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:obstacles.append(LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2+rad+.153))
  elif typ=='pcb_keepout':
-  c=e['center'];r=e['radius'];obstacles.append(box(c['x']-r,c['y']-r,c['x']+r,c['y']+r).buffer(rad+.153))
+  c=e['center'];r=e['radius'];obstacles.append(Point(c['x'],c['y']).buffer(r,quad_segs=128).buffer(rad+.153))
  elif typ=='pcb_hole':obstacles.append(Point(e['x'],e['y']).buffer(e['hole_diameter']/2+rad+.253))
 allowed=box(-17.15+rad,-17.15+rad,17.15-rad,17.15-rad).difference(unary_union(obstacles));stitches=[]
 def shapes(e):

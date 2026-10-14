@@ -1,86 +1,222 @@
 {
-  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
-  "baseline_board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
-  "baseline_github_commit": "e04df7a3b606b280389109405de96601e9430695",
+  "board_sha256": "a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6",
+  "baseline_board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "baseline_github_commit": "db8bd58",
   "all_functional_terminal_net_groups_and_NC_roles_preserved": true,
-  "all_fitted_MPNs_supplier_numbers_values_and_ratings_preserved": true,
+  "existing_values_ratings_and_non_USB_MPNs_preserved": true,
+  "authorized_USB_replacement": "GCT USB4145-03-0070-C C5815189",
+  "bottom_DNP_components": [
+    "U_ENCODER",
+    "C_ENCODER",
+    "C_ENCODER_BULK"
+  ],
   "fitted_components_on_top": 81,
   "bare_top_test_points": 7,
   "moved_references": [
     {
-      "reference": "C_IO49",
+      "reference": "J_PD",
       "before_center_mm": {
-        "x": 2.857,
-        "y": 4.75
+        "x": -6.2,
+        "y": 12.57501465
       },
       "after_center_mm": {
-        "x": 1.778,
-        "y": 4.75
+        "x": -6.05,
+        "y": 15.149999999999999
+      },
+      "before_rotation_deg": 180,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "J_DATA",
+      "before_center_mm": {
+        "x": 6.2,
+        "y": 12.57501465
+      },
+      "after_center_mm": {
+        "x": 6.05,
+        "y": 15.149999999999999
+      },
+      "before_rotation_deg": 180,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "Y_MCU",
+      "before_center_mm": {
+        "x": 1.1000000000000005,
+        "y": -6.219999999999999
+      },
+      "after_center_mm": {
+        "x": 1.1,
+        "y": -6.220000000000001
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 270
+    },
+    {
+      "reference": "R_XOUT",
+      "before_center_mm": {
+        "x": -1.9399999999999997,
+        "y": -4.79
+      },
+      "after_center_mm": {
+        "x": 3.35,
+        "y": -7.32
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 270
+    },
+    {
+      "reference": "C_XIN",
+      "before_center_mm": {
+        "x": -1.55,
+        "y": -7
+      },
+      "after_center_mm": {
+        "x": -1.55,
+        "y": -4.85
+      },
+      "before_rotation_deg": 90,
+      "after_rotation_deg": 180
+    },
+    {
+      "reference": "C_XOUT",
+      "before_center_mm": {
+        "x": 4.2,
+        "y": -7.27
+      },
+      "after_center_mm": {
+        "x": 4.9,
+        "y": -7.32
       },
       "before_rotation_deg": 0,
       "after_rotation_deg": 0
     },
     {
-      "reference": "R_DP",
+      "reference": "U_DRV",
       "before_center_mm": {
-        "x": 4.3,
-        "y": 5.3
+        "x": 4.0001,
+        "y": -11.5001
       },
       "after_center_mm": {
-        "x": 4.371,
-        "y": 5.3
+        "x": 4.0001,
+        "y": -12.1001
+      },
+      "before_rotation_deg": 270,
+      "after_rotation_deg": 270
+    },
+    {
+      "reference": "C_CP",
+      "before_center_mm": {
+        "x": 1.640115,
+        "y": -16.679998
+      },
+      "after_center_mm": {
+        "x": 0,
+        "y": -13.05
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 90
+    },
+    {
+      "reference": "C_VCP",
+      "before_center_mm": {
+        "x": 5.210115,
+        "y": -15.249998
+      },
+      "after_center_mm": {
+        "x": 5.210115,
+        "y": -15.849998
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "C_VREG",
+      "before_center_mm": {
+        "x": 2.070023,
+        "y": -15.430001
+      },
+      "after_center_mm": {
+        "x": 2.070023,
+        "y": -16.030001000000002
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "C_DRV_LOGIC",
+      "before_center_mm": {
+        "x": 9.610115,
+        "y": -14.169998
+      },
+      "after_center_mm": {
+        "x": 9.610115,
+        "y": -13.7
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "R_SA",
+      "before_center_mm": {
+        "x": -0.151495,
+        "y": -9.763734
+      },
+      "after_center_mm": {
+        "x": -0.151495,
+        "y": -10.163734
       },
       "before_rotation_deg": 90,
       "after_rotation_deg": 90
     },
     {
-      "reference": "R_CC2",
+      "reference": "R_REF_L",
       "before_center_mm": {
-        "x": 10.4,
-        "y": 7.5
+        "x": 6.81,
+        "y": -16.03
       },
       "after_center_mm": {
-        "x": 9,
-        "y": 4.4
+        "x": 7.2,
+        "y": -16.45
+      },
+      "before_rotation_deg": 90,
+      "after_rotation_deg": 0
+    },
+    {
+      "reference": "C_REF",
+      "before_center_mm": {
+        "x": 9.29,
+        "y": -15.42
+      },
+      "after_center_mm": {
+        "x": 9.29,
+        "y": -15.62
+      },
+      "before_rotation_deg": 0,
+      "after_rotation_deg": 90
+    },
+    {
+      "reference": "TP_3V3",
+      "before_center_mm": {
+        "x": -0.32299999999999995,
+        "y": 14.906
+      },
+      "after_center_mm": {
+        "x": 0,
+        "y": 14.98
       },
       "before_rotation_deg": 0,
       "after_rotation_deg": 0
     },
     {
-      "reference": "U_ESD",
+      "reference": "TP_GND",
       "before_center_mm": {
-        "x": 13.15,
-        "y": 8.3
+        "x": 0.32200000000000006,
+        "y": 16.309
       },
       "after_center_mm": {
-        "x": 9,
-        "y": 7
-      },
-      "before_rotation_deg": 0,
-      "after_rotation_deg": 0
-    },
-    {
-      "reference": "Q_STATUS_R",
-      "before_center_mm": {
-        "x": 9,
-        "y": 4.8
-      },
-      "after_center_mm": {
-        "x": 13.15,
-        "y": 8.3
-      },
-      "before_rotation_deg": 0,
-      "after_rotation_deg": 0
-    },
-    {
-      "reference": "TP_SWCLK",
-      "before_center_mm": {
-        "x": 1.223,
-        "y": 5.24
-      },
-      "after_center_mm": {
-        "x": -3,
-        "y": -6.6000000000000005
+        "x": 0,
+        "y": 16.42
       },
       "before_rotation_deg": 0,
       "after_rotation_deg": 0
@@ -116,18 +252,19 @@
       3.2
     ]
   ],
-  "USB_mouths_mm": [
+  "USB_nominal_centres_mm": [
     [
-      -6.2,
-      17.5
+      -6.05,
+      15.15
     ],
     [
-      6.2,
-      17.5
+      6.05,
+      15.15
     ]
   ],
+  "USB_insertion_direction": "+Z",
   "cable_housing_width_mm": 10,
-  "nominal_cable_housing_gap_mm": 2.4,
+  "nominal_cable_housing_gap_mm": 2.1,
   "maximum_required_fastener_head_diameter_mm": 4,
   "hardware_operation_verified": false,
   "supplier_order_or_process_approval": false,

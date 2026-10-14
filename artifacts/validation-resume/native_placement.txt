@@ -1,17 +1,18 @@
-placement summary: 3 suboptimal orientations
+placement summary: 4 suboptimal orientations
 
 worst issues:
 1. C_DV23 connections cross the routing path between its pads. Suggested move: rotate C_DV23 180 degrees.
-2. R_REF_H connections cross the routing path between its pads. Suggested move: rotate R_REF_H 180 degrees.
-3. C_TEMP connections cross the routing path between its pads. Suggested move: rotate C_TEMP 180 degrees.
+2. R_VM_H connections cross the routing path between its pads. Suggested move: rotate R_VM_H 180 degrees.
+3. R_REF_H connections cross the routing path between its pads. Suggested move: rotate R_REF_H 180 degrees.
+4. C_TEMP connections cross the routing path between its pads. Suggested move: rotate C_TEMP 180 degrees.
 
 board top-layer utilization:
-- occupied: 70.88% (868.282mm^2 of 1225mm^2)
+- occupied: 64.246% (787.017mm^2 of 1225mm^2)
 - empty spaces over 5% of board area: none
 
 board-edge status:
-- J_PD: 1.676mm inside bottom edge
-- J_DATA: 1.676mm inside bottom edge
+- J_PD: 0.295mm inside bottom edge
+- J_DATA: 0.295mm inside bottom edge
 - U_PD: 0.52mm inside left edge
 - R_PD: 1.12mm inside left edge
 - C_PD: 1.08mm inside top edge
@@ -33,10 +34,10 @@ board-edge status:
 - C_FLASH: 0.45mm inside right edge
 - R_FLASH_CS: 10.03mm inside bottom edge
 - R_BOOT: 8.93mm inside bottom edge
-- Y_MCU: 9.83mm inside top edge
-- R_XOUT: 12.44mm inside top edge
-- C_XIN: 9.83mm inside top edge
-- C_XOUT: 9.96mm inside top edge
+- Y_MCU: 9.48mm inside top edge
+- R_XOUT: 9.464mm inside top edge
+- C_XIN: 12.38mm inside top edge
+- C_XOUT: 9.91mm inside top edge
 - R_RUN: 0.755mm inside left edge
 - R_DM: 11.484mm inside bottom edge
 - R_DP: 11.484mm inside bottom edge
@@ -55,18 +56,18 @@ board-edge status:
 - C_BUCK_OUT2: 11.82mm inside left edge
 - D_PD: 1.25mm inside left edge
 - D_DATA: 9.965mm inside left edge
-- U_DRV: 3.05mm inside top edge
-- C_CP: 0.55mm inside top edge
-- C_VCP: 1.98mm inside top edge
-- C_VREG: 1.62mm inside top edge
-- C_DRV_LOGIC: 3.06mm inside top edge
+- U_DRV: 2.45mm inside top edge
+- C_CP: 3.78mm inside top edge
+- C_VCP: 1.38mm inside top edge
+- C_VREG: 1.02mm inside top edge
+- C_DRV_LOGIC: 3.53mm inside top edge
 - C_VM: 6.06mm inside top edge
 - C_BULK: 4.85mm inside left edge
-- R_SA: 6.17mm inside top edge
+- R_SA: 5.77mm inside top edge
 - R_SB: 7.93mm inside top edge
 - R_REF_H: 0.758mm inside top edge
-- R_REF_L: 0.754mm inside top edge
-- C_REF: 1.63mm inside top edge
+- R_REF_L: 0.78mm inside top edge
+- C_REF: 0.78mm inside top edge
 - R_ENABLE: 1.45mm inside bottom edge
 - R_SLEEP: 3.547mm inside bottom edge
 - J_MOTOR: 0.86mm inside top edge
@@ -91,13 +92,16 @@ board-edge status:
 - R_BUZZER_GATE: 7.049mm inside right edge
 - R_BUZZER_PD: 5.089mm inside right edge
 - C_BUZZER: 8.26mm inside top edge
-- TP_3V3: 2.044mm inside bottom edge
-- TP_GND: 0.641mm inside bottom edge
+- TP_3V3: 1.97mm inside bottom edge
+- TP_GND: 0.53mm inside bottom edge
 - TP_SWCLK: 10.35mm inside top edge
 - TP_SWDIO: 10.47mm inside bottom edge
 - TP_RUN: 4.872mm inside left edge
 - TP_BOOT: 0.85mm inside right edge
 - TP_BOOT_GND: 0.85mm inside right edge
+- U_ENCODER: 13.82mm inside left edge
+- C_ENCODER: 11.83mm inside left edge
+- C_ENCODER_BULK: 11.83mm inside left edge
 
 flagged components:
 - C_DV23
@@ -106,6 +110,12 @@ flagged components:
   board edge status: 11.45mm inside top edge
   issues:
   - C_DV23 connections cross the routing path between its pads. Suggested move: rotate C_DV23 180 degrees.
+- R_VM_H
+  source placement: placement_mode=none
+  resolved placement: center=(16.235mm, 15.79mm) on top; bounds=(minX=15.965mm, maxX=16.505mm, minY=15.074mm, maxY=16.506mm); size=(width=0.54mm, height=1.431mm); anchor_alignment="center"
+  board edge status: 0.994mm inside bottom edge
+  issues:
+  - R_VM_H connections cross the routing path between its pads. Suggested move: rotate R_VM_H 180 degrees.
 - R_REF_H
   source placement: placement_mode=none
   resolved placement: center=(12.07mm, -16.31mm) on top; bounds=(minX=10.913mm, maxX=13.227mm, minY=-16.742mm, maxY=-15.878mm); size=(width=2.313mm, height=0.864mm); anchor_alignment="center"

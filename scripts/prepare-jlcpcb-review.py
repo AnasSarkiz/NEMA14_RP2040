@@ -81,7 +81,7 @@ def main():
     aperture_changes = []
     for pad in pads:
         ref = src[pc[pad['pcb_component_id']]['source_component_id']]['name']
-        if ref in BARE:
+        if ref in BARE or pc[pad['pcb_component_id']].get('do_not_place'):
             continue
         if pad['shape']=='polygon':
             geometry = scale(audit.shape(pad), xfact=.7, yfact=.7, origin='centroid')
@@ -143,6 +143,18 @@ def main():
         body_guard = unary_union([box(c['center']['x']-c['width']/2,c['center']['y']-c['height']/2,
                                       c['center']['x']+c['width']/2,c['center']['y']+c['height']/2)
                                   for c in layer_components])
+        knockout_roles = []
+        if side == 'top':
+            role_marks=[e for e in native if e['type']=='pcb_silkscreen_text' and e.get('text') in ['PWR','DATA'] and e['layer']=='top']
+            assert len(role_marks)==2 and {e['text'] for e in role_marks}=={'PWR','DATA'}
+            for mark in role_marks:
+                caption=mark['text'];x=mark['anchor_position']['x'];y=mark['anchor_position']['y']
+                letters=font_geometry(caption,x,y,alphabet,size=1.3,stroke=.15)
+                region=box(*letters.bounds).buffer(.25,join_style='mitre')
+                assert safe.covers(region) and not region.intersects(body_guard), 'Role marking conflicts with a pad, hole or component: '+caption
+                knockout=region.difference(letters)
+                labels.append(knockout);occupied=occupied.union(region.buffer(.2))
+                knockout_roles.append({'caption':caption,'centre_mm':[x,y],'font_height_mm':1.3,'negative_stroke_mm':.15,'rectangle_bounds_mm':list(region.bounds)})
         for c in layer_components:
             ref = src[c['source_component_id']]['name']
             cx,cy = c['center']['x'],c['center']['y']
@@ -169,7 +181,7 @@ def main():
         write_gerber(CAM/silk_name, clipped)
         silk_changes.append({'layer':side,'original_area_mm2':original.area,
                              'new_area_mm2':clipped.area,'reference_captions_placed':len(labels),
-                             'captions_omitted_for_clearance':omitted,
+                             'captions_omitted_for_clearance':omitted,'knockout_role_markings':knockout_roles,
                              'policy':'current component outlines and intact reference captions; board inset 0.101 mm, mask guard 0.151 mm, drill guard 0.101 mm; full references in assembly files'})
 
     # Source identities, not display abbreviations, determine procurement.
@@ -178,7 +190,7 @@ def main():
     for component in pc.values():
         s = src[component['source_component_id']]
         ref = s['name']
-        if ref in BARE:
+        if ref in BARE or component.get('do_not_place'):
             continue
         part_numbers = s.get('supplier_part_numbers',{}).get('jlcpcb',[])
         assert len(part_numbers)==1 and s.get('manufacturer_part_number'), f'Missing purchasing identity: {ref}'
@@ -237,7 +249,7 @@ def main():
                 'electrical_source_and_all_nonpaste_records_unchanged':True,
                 'copied_unchanged_copper_mask_drill_outline':unchanged,
                 'fitted_components':len(bom),'SMT_components':len(smt), 'manual_THT_components':len(manual),
-                'bottom_SMT_references':bottom, 'excluded_bare_interfaces':sorted(BARE),
+                'bottom_SMT_references':bottom, 'excluded_bare_interfaces':sorted(BARE),'excluded_DNP_references':sorted(src[c['source_component_id']]['name'] for c in pc.values() if c.get('do_not_place')),
                 'paste_changes':aperture_changes, 'silkscreen_changes':silk_changes,
                 'assembly_preview_approved_by_JLCPCB':False,'physical_hardware_tested':False,
                 'rear_motor_compatibility_verified':False,

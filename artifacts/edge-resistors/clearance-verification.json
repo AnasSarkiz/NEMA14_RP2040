@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "board_sha256": "a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6",
   "baseline_git_revision": "871ce98700ef839ccd16729c7f1a991c28c9ea67",
   "target_pad_to_edge_mm": 0.75,
   "scope": "Every resistor; all four edges; top and bottom assembly sides",
@@ -14,6 +14,7 @@
     "R_USB_SENSE_H",
     "R_USB_SENSE_L",
     "R_VM_H",
+    "R_SA",
     "R_REF_H",
     "R_REF_L",
     "R_TEMP_SDA",
@@ -61,7 +62,7 @@
       "minimum_actual_pad_edge_mm": 1.1199999999999974,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_35",
+          "pad_id": "pcb_smtpad_43",
           "native_xy_mm": [
             -15.947997,
             11.169965999999999
@@ -80,7 +81,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_36",
+          "pad_id": "pcb_smtpad_44",
           "native_xy_mm": [
             -15.947997,
             9.663238
@@ -112,7 +113,7 @@
       "minimum_actual_pad_edge_mm": 0.7699999999999996,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_39",
+          "pad_id": "pcb_smtpad_47",
           "native_xy_mm": [
             -16.297997,
             -3.3400339999999997
@@ -131,7 +132,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_40",
+          "pad_id": "pcb_smtpad_48",
           "native_xy_mm": [
             -16.297997,
             -4.846762
@@ -163,7 +164,7 @@
       "minimum_actual_pad_edge_mm": 10.029997999999999,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_133",
+          "pad_id": "pcb_smtpad_141",
           "native_xy_mm": [
             -1.5671840000000001,
             7.2
@@ -182,7 +183,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_134",
+          "pad_id": "pcb_smtpad_142",
           "native_xy_mm": [
             -2.432816,
             7.2
@@ -214,7 +215,7 @@
       "minimum_actual_pad_edge_mm": 8.929998,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_135",
+          "pad_id": "pcb_smtpad_143",
           "native_xy_mm": [
             -1.5671840000000001,
             8.3
@@ -233,7 +234,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_136",
+          "pad_id": "pcb_smtpad_144",
           "native_xy_mm": [
             -2.432816,
             8.3
@@ -257,49 +258,49 @@
       "reference": "R_XOUT",
       "layer": "top",
       "center_mm": {
-        "x": -1.9399999999999997,
-        "y": -4.79
+        "x": 3.35,
+        "y": -7.32
       },
-      "rotation_deg": 0,
+      "rotation_deg": 270,
       "moved": true,
-      "minimum_actual_pad_edge_mm": 12.439998,
+      "minimum_actual_pad_edge_mm": 9.464355,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_141",
+          "pad_id": "pcb_smtpad_149",
           "native_xy_mm": [
-            -1.5071839999999996,
-            -4.79
+            3.35,
+            -7.752816
           ],
           "actual_Gerber_bounds_mm": [
-            -1.790013,
-            -5.060002,
-            -1.224355,
-            -4.519998
+            3.0799980000000002,
+            -8.035645,
+            3.620002,
+            -7.469987
           ],
           "all_four_edge_margins_mm": {
-            "left": 15.709987,
-            "bottom": 12.439998,
-            "right": 18.724355,
-            "top": 22.019998
+            "left": 20.579998,
+            "bottom": 9.464355,
+            "right": 13.879998,
+            "top": 24.969987
           }
         },
         {
-          "pad_id": "pcb_smtpad_142",
+          "pad_id": "pcb_smtpad_150",
           "native_xy_mm": [
-            -2.372816,
-            -4.79
+            3.35,
+            -6.887184
           ],
           "actual_Gerber_bounds_mm": [
-            -2.655645,
-            -5.060002,
-            -2.089987,
-            -4.519998
+            3.0799980000000002,
+            -7.170013000000001,
+            3.620002,
+            -6.604355
           ],
           "all_four_edge_margins_mm": {
-            "left": 14.844355,
-            "bottom": 12.439998,
-            "right": 19.589987,
-            "top": 22.019998
+            "left": 20.579998,
+            "bottom": 10.329987,
+            "right": 13.879998,
+            "top": 24.104354999999998
           }
         }
       ]
@@ -316,7 +317,7 @@
       "minimum_actual_pad_edge_mm": 0.754997999999997,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_147",
+          "pad_id": "pcb_smtpad_155",
           "native_xy_mm": [
             -16.475,
             14.317816
@@ -335,7 +336,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_148",
+          "pad_id": "pcb_smtpad_156",
           "native_xy_mm": [
             -16.475,
             13.452183999999999
@@ -367,7 +368,7 @@
       "minimum_actual_pad_edge_mm": 11.484355,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_149",
+          "pad_id": "pcb_smtpad_157",
           "native_xy_mm": [
             5.5,
             5.732816
@@ -386,7 +387,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_150",
+          "pad_id": "pcb_smtpad_158",
           "native_xy_mm": [
             5.5,
             4.867184
@@ -418,7 +419,7 @@
       "minimum_actual_pad_edge_mm": 11.484355,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_151",
+          "pad_id": "pcb_smtpad_159",
           "native_xy_mm": [
             4.371,
             5.732816
@@ -437,7 +438,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_152",
+          "pad_id": "pcb_smtpad_160",
           "native_xy_mm": [
             4.371,
             4.867184
@@ -469,7 +470,7 @@
       "minimum_actual_pad_edge_mm": 6.484355000000001,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_153",
+          "pad_id": "pcb_smtpad_161",
           "native_xy_mm": [
             2.650233645098804e-17,
             10.732816000000001
@@ -488,7 +489,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_154",
+          "pad_id": "pcb_smtpad_162",
           "native_xy_mm": [
             -2.650233645098804e-17,
             9.867184
@@ -520,7 +521,7 @@
       "minimum_actual_pad_edge_mm": 7.784355,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_155",
+          "pad_id": "pcb_smtpad_163",
           "native_xy_mm": [
             9.432816,
             4.4
@@ -539,7 +540,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_156",
+          "pad_id": "pcb_smtpad_164",
           "native_xy_mm": [
             8.567184,
             4.4
@@ -571,7 +572,7 @@
       "minimum_actual_pad_edge_mm": 0.754997999999997,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_157",
+          "pad_id": "pcb_smtpad_165",
           "native_xy_mm": [
             -16.475,
             -0.06718399999999997
@@ -590,7 +591,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_158",
+          "pad_id": "pcb_smtpad_166",
           "native_xy_mm": [
             -16.475,
             -0.9328159999999999
@@ -622,7 +623,7 @@
       "minimum_actual_pad_edge_mm": 0.7543550000000003,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_159",
+          "pad_id": "pcb_smtpad_167",
           "native_xy_mm": [
             16.462816,
             13.93
@@ -641,7 +642,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_160",
+          "pad_id": "pcb_smtpad_168",
           "native_xy_mm": [
             15.597184,
             13.93
@@ -673,7 +674,7 @@
       "minimum_actual_pad_edge_mm": 0.9943549999999988,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_161",
+          "pad_id": "pcb_smtpad_169",
           "native_xy_mm": [
             16.235,
             16.222815999999998
@@ -692,7 +693,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_162",
+          "pad_id": "pcb_smtpad_170",
           "native_xy_mm": [
             16.235,
             15.357183999999998
@@ -724,7 +725,7 @@
       "minimum_actual_pad_edge_mm": 2.51,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_163",
+          "pad_id": "pcb_smtpad_171",
           "native_xy_mm": [
             -13.841539,
             9.530002
@@ -743,7 +744,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_164",
+          "pad_id": "pcb_smtpad_172",
           "native_xy_mm": [
             -14.707171,
             9.530002
@@ -768,48 +769,48 @@
       "layer": "top",
       "center_mm": {
         "x": -0.151495,
-        "y": -9.763734
+        "y": -10.163734
       },
       "rotation_deg": 90,
-      "moved": false,
-      "minimum_actual_pad_edge_mm": 6.1700005,
+      "moved": true,
+      "minimum_actual_pad_edge_mm": 5.7700005,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_228",
+          "pad_id": "pcb_smtpad_236",
           "native_xy_mm": [
             -0.15149499999999994,
-            -8.763736
+            -9.163736
           ],
           "actual_Gerber_bounds_mm": [
             -0.8400000000000001,
-            -9.3300035,
+            -9.7300035,
             0.53701,
-            -8.1974685
+            -8.5974685
           ],
           "all_four_edge_margins_mm": {
             "left": 16.66,
-            "bottom": 8.1699965,
+            "bottom": 7.7699964999999995,
             "right": 16.96299,
-            "top": 25.6974685
+            "top": 26.097468499999998
           }
         },
         {
-          "pad_id": "pcb_smtpad_229",
+          "pad_id": "pcb_smtpad_237",
           "native_xy_mm": [
             -0.15149500000000005,
-            -10.763732
+            -11.163732
           ],
           "actual_Gerber_bounds_mm": [
             -0.8400000000000001,
-            -11.3299995,
+            -11.7299995,
             0.53701,
-            -10.197464499999999
+            -10.5974645
           ],
           "all_four_edge_margins_mm": {
             "left": 16.66,
-            "bottom": 6.1700005,
+            "bottom": 5.7700005,
             "right": 16.96299,
-            "top": 27.6974645
+            "top": 28.0974645
           }
         }
       ]
@@ -826,7 +827,7 @@
       "minimum_actual_pad_edge_mm": 7.9300000000000015,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_230",
+          "pad_id": "pcb_smtpad_238",
           "native_xy_mm": [
             -1.9337359999999997,
             -8.881495
@@ -845,7 +846,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_231",
+          "pad_id": "pcb_smtpad_239",
           "native_xy_mm": [
             -3.933732,
             -8.881495
@@ -877,7 +878,7 @@
       "minimum_actual_pad_edge_mm": 0.7579969999999996,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_232",
+          "pad_id": "pcb_smtpad_240",
           "native_xy_mm": [
             12.823364,
             -16.31
@@ -896,7 +897,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_233",
+          "pad_id": "pcb_smtpad_241",
           "native_xy_mm": [
             11.316636,
             -16.31
@@ -920,49 +921,49 @@
       "reference": "R_REF_L",
       "layer": "top",
       "center_mm": {
-        "x": 6.81,
-        "y": -16.03
+        "x": 7.2,
+        "y": -16.45
       },
-      "rotation_deg": 90,
+      "rotation_deg": 0,
       "moved": true,
-      "minimum_actual_pad_edge_mm": 0.7543550000000003,
+      "minimum_actual_pad_edge_mm": 0.7799979999999991,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_234",
+          "pad_id": "pcb_smtpad_242",
           "native_xy_mm": [
-            6.81,
-            -15.597184
+            7.632816,
+            -16.45
           ],
           "actual_Gerber_bounds_mm": [
-            6.539998,
-            -15.880013,
-            7.0800019999999995,
-            -15.314355
+            7.3499870000000005,
+            -16.720002,
+            7.915645,
+            -16.179997999999998
           ],
           "all_four_edge_margins_mm": {
-            "left": 24.039998,
-            "bottom": 1.619987,
-            "right": 10.419998,
-            "top": 32.814355
+            "left": 24.849987,
+            "bottom": 0.7799979999999991,
+            "right": 9.584355,
+            "top": 33.679998
           }
         },
         {
-          "pad_id": "pcb_smtpad_235",
+          "pad_id": "pcb_smtpad_243",
           "native_xy_mm": [
-            6.81,
-            -16.462816
+            6.767184,
+            -16.45
           ],
           "actual_Gerber_bounds_mm": [
-            6.539998,
-            -16.745645,
-            7.0800019999999995,
-            -16.179987
+            6.484355000000001,
+            -16.720002,
+            7.050013,
+            -16.179997999999998
           ],
           "all_four_edge_margins_mm": {
-            "left": 24.039998,
-            "bottom": 0.7543550000000003,
-            "right": 10.419998,
-            "top": 33.679987
+            "left": 23.984355,
+            "bottom": 0.7799979999999991,
+            "right": 10.449987,
+            "top": 33.679998
           }
         }
       ]
@@ -979,7 +980,7 @@
       "minimum_actual_pad_edge_mm": 1.4499959999999987,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_238",
+          "pad_id": "pcb_smtpad_246",
           "native_xy_mm": [
             13.682829,
             15.780002
@@ -998,7 +999,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_239",
+          "pad_id": "pcb_smtpad_247",
           "native_xy_mm": [
             14.548461000000001,
             15.780002
@@ -1030,7 +1031,7 @@
       "minimum_actual_pad_edge_mm": 3.546796500000001,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_240",
+          "pad_id": "pcb_smtpad_248",
           "native_xy_mm": [
             -0.007996999999999954,
             13.549966
@@ -1049,7 +1050,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_241",
+          "pad_id": "pcb_smtpad_249",
           "native_xy_mm": [
             -0.007997000000000047,
             12.043238
@@ -1081,7 +1082,7 @@
       "minimum_actual_pad_edge_mm": 5.064355000000001,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_264",
+          "pad_id": "pcb_smtpad_272",
           "native_xy_mm": [
             11.287184,
             -10.58
@@ -1100,7 +1101,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_265",
+          "pad_id": "pcb_smtpad_273",
           "native_xy_mm": [
             12.152816000000001,
             -10.58
@@ -1132,7 +1133,7 @@
       "minimum_actual_pad_edge_mm": 0.754997999999997,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_266",
+          "pad_id": "pcb_smtpad_274",
           "native_xy_mm": [
             -16.475,
             -8.817184
@@ -1151,7 +1152,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_267",
+          "pad_id": "pcb_smtpad_275",
           "native_xy_mm": [
             -16.475,
             -9.682816
@@ -1183,7 +1184,7 @@
       "minimum_actual_pad_edge_mm": 0.7543550000000003,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_270",
+          "pad_id": "pcb_smtpad_278",
           "native_xy_mm": [
             14.025,
             -15.597184
@@ -1202,7 +1203,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_271",
+          "pad_id": "pcb_smtpad_279",
           "native_xy_mm": [
             14.025,
             -16.462816
@@ -1234,7 +1235,7 @@
       "minimum_actual_pad_edge_mm": 1.4399999999999977,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_276",
+          "pad_id": "pcb_smtpad_284",
           "native_xy_mm": [
             -11.687171000000001,
             -15.789998
@@ -1253,7 +1254,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_277",
+          "pad_id": "pcb_smtpad_285",
           "native_xy_mm": [
             -10.821539,
             -15.789998
@@ -1285,7 +1286,7 @@
       "minimum_actual_pad_edge_mm": 0.9199999999999982,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_281",
+          "pad_id": "pcb_smtpad_289",
           "native_xy_mm": [
             -16.309998,
             -6.501539
@@ -1304,7 +1305,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_282",
+          "pad_id": "pcb_smtpad_290",
           "native_xy_mm": [
             -16.309998,
             -7.367171
@@ -1336,7 +1337,7 @@
       "minimum_actual_pad_edge_mm": 0.754997999999997,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_286",
+          "pad_id": "pcb_smtpad_294",
           "native_xy_mm": [
             -16.047816,
             16.475
@@ -1355,7 +1356,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_287",
+          "pad_id": "pcb_smtpad_295",
           "native_xy_mm": [
             -15.182184,
             16.475
@@ -1387,7 +1388,7 @@
       "minimum_actual_pad_edge_mm": 7.04871,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_300",
+          "pad_id": "pcb_smtpad_308",
           "native_xy_mm": [
             10.168461,
             -9.419998
@@ -1406,7 +1407,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_301",
+          "pad_id": "pcb_smtpad_309",
           "native_xy_mm": [
             9.302829,
             -9.419998
@@ -1438,7 +1439,7 @@
       "minimum_actual_pad_edge_mm": 5.088710000000001,
       "actual_pad_matches": [
         {
-          "pad_id": "pcb_smtpad_302",
+          "pad_id": "pcb_smtpad_310",
           "native_xy_mm": [
             12.128461000000001,
             -9.419998
@@ -1457,7 +1458,7 @@
           }
         },
         {
-          "pad_id": "pcb_smtpad_303",
+          "pad_id": "pcb_smtpad_311",
           "native_xy_mm": [
             11.262829,
             -9.419998

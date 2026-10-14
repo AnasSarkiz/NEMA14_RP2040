@@ -31,7 +31,7 @@ def main():
         assert {'drill_npth.drl','drill-L1-L4.drl','Edge_Cuts.gbr'}<=set(z.namelist())
     src={e['source_component_id']:e for e in board if e['type']=='source_component'}
     pc={src[e['source_component_id']]['name']:e for e in board if e['type']=='pcb_component'}
-    expected={n for n,c in pc.items() if src[c['source_component_id']]['ftype']!='simple_test_point'}
+    expected={n for n,c in pc.items() if src[c['source_component_id']]['ftype']!='simple_test_point' and not c.get('do_not_place')}
     purchasing={}
     for row in csv.DictReader((OUT/'JLCPCB-BOM.csv').open()):
         for ref in row['Designator'].split(','):
@@ -54,7 +54,8 @@ def main():
     native=json.loads((ROOT/'artifacts/resume-validation.json').read_text())
     assert native['board_sha256']==sha(board_path) and native['native_STEP_mechanical_pass']
     checks={e['check']:e for e in native['checks']}
-    assert len(checks)==20
+    assert len(checks)==23
+    assert {'actual_via_drills_and_JLCPCB_clearances','oscillator_layout','native_circular_keepout_regression'} <= set(checks)
     for name,check in checks.items():
         if name=='native_placement' and check['exit_code']:
             assert orientation_advisories_only((ROOT/check['log']).read_text()), 'Placement log has unreviewed diagnostics or real DRC failures'

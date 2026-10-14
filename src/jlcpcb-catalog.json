@@ -1,7 +1,7 @@
 {
   "components": {
-    "J_PD": "C165948",
-    "J_DATA": "C165948",
+    "J_PD": "C5815189",
+    "J_DATA": "C5815189",
     "U_MCU": "C2040",
     "U_PD": "C970725",
     "U_DRV": "C38437",
@@ -80,7 +80,10 @@
     "D_BUZZER": "C478000",
     "R_BUZZER_GATE": "C25076",
     "R_BUZZER_PD": "C25741",
-    "C_BUZZER": "C19702"
+    "C_BUZZER": "C19702",
+    "U_ENCODER": "C79815",
+    "C_ENCODER": "C1525",
+    "C_ENCODER_BULK": "C52923"
   },
   "parts": {
     "C11702": {
@@ -985,6 +988,44 @@
       "cadAnchorCorrectionLocalMm": {
         "x": 0.0,
         "y": 0.0
+      }
+    },
+    "C5815189": {
+      "manufacturerPartNumber": "USB4145-03-0070-C",
+      "symbol": "USB4145_03_0070_C",
+      "importPath": "imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C.tsx",
+      "modelFiles": [
+        "imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C.obj",
+        "imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C.step"
+      ],
+      "sha256": {
+        "obj": "39f20ea318cd7eb64a56cd55d4d793922c83ebfdb6ce5314f968fcda7aee196e",
+        "step": "37a757d880a4d9fd7245a628c6d26d1d405e234fb7ea8a957dfd7486c6544327"
+      },
+      "originalImportSha256": "13805c7fbf1f7fcb339dbceb15679888f05304639efc612be5b351aba55024ab",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C5815189",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0.1524952,
+        "y": 0
+      }
+    },
+    "C79815": {
+      "manufacturerPartNumber": "AS5600-ASOM",
+      "symbol": "AS5600_ASOM",
+      "importPath": "imports/supplier/AS5600_ASOM/AS5600_ASOM.tsx",
+      "modelFiles": [
+        "imports/supplier/AS5600_ASOM/AS5600_ASOM.obj",
+        "imports/supplier/AS5600_ASOM/AS5600_ASOM.step"
+      ],
+      "sha256": {
+        "obj": "18c8f36579d4dc6d93c51d3556539c69f8f75cd557fdba6d9cf73cbf0e23d278",
+        "step": "70f46697efa1daced22df982a5fd03c112d6cf25207f9a1afdf37b49a391ab84"
+      },
+      "originalImportSha256": "e011f3f1890780db9d07c533df55eb5cb15861934e6b8adc105614291fe3b944",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C79815",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0,
+        "y": 0
       }
     }
   }

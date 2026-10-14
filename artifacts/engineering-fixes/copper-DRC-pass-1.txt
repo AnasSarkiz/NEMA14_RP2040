@@ -1,16 +1,16 @@
 {
-  "traceCount": 596,
+  "traceCount": 692,
   "currentLimitAmps": 0.350765306122449,
   "currentLimitEngineeringBudgetAmps": 0.3968801324163417,
   "currentLimitBudgetIsNotQualified": true,
   "motorAdcAt35VWorstVolts": 3.240146654445463,
-  "errors": 3,
+  "errors": 1,
   "warnings": 0
 }
-pcb_trace_error: Trace [.U_MCU > .GPIO8 to net.ENABLE_N] has dangling endpoint at (6.86, -6.36)
-pcb_trace_error: Trace [.TP_SWCLK > .pin1 to net.SWCLK] has dangling endpoint at (11.85, 2.20)
-pcb_trace_error: Trace [.TP_3V3 > .pin1 to net.V3V3] has dangling endpoint at (3.14, 5.36)
-{"removed_trace_ids": ["review_baseline_same_side_repair_1_ENABLE_N_0_run_0", "review_baseline_same_side_repair_5_SWCLK_5_run_0"], "retained_live_traces": ["review_baseline_same_side_repair_34_V3V3_11_run_0"], "live_pad_connectivity_unchanged": true}
-[{"trace_id": "review_baseline_same_side_repair_34_V3V3_11_run_0", "endpoint": "end", "removed_length_mm": 0.015, "new_endpoint_mm": [3.1287867965644045, 5.371213203435596], "live_pad_connectivity_unchanged": true}]
-[{"unanchored_copper_removed": "freerouted_via_80", "net": "ENABLE_N"}, {"unanchored_copper_removed": "same_side_repair_10_SWCLK_0_via_154", "net": "SWCLK"}]
-Filled 39 ground regions
+pcb_trace_error: Trace [.U_MCU > .GPIO27 to net.TEMP_SCL] has dangling endpoint at (9.66, -13.55)
+{"removed_trace_ids": ["review_baseline_review_baseline_same_side_repair_2_TEMP_SCL_1_run_0_run_0_via_clearance_run_0"], "retained_live_traces": [], "live_pad_connectivity_unchanged": true}
+[]
+[]
+Filled 48 ground regions
+Refreshed 0 trace contact lists from actual pad geometry
+Aligned 0 copper source identities with their actual physical lands

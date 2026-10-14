@@ -1,3 +1,4 @@
+import { AS5600_ASOM } from "../imports/supplier/AS5600_ASOM/AS5600_ASOM"
 import { StandardUsbConnector, SmtMotorConnector } from "./reference-connectors"
 import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
 import { CL05B104KB5NNNC } from "../imports/supplier/CL05B104KB5NNNC/CL05B104KB5NNNC"
@@ -51,7 +52,8 @@ import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
 import { CH224K } from "../imports/supplier/CH224K/CH224K"
 const parts: Record<string, React.ComponentType<any>> = {
- "C165948": StandardUsbConnector,
+ "C79815": AS5600_ASOM,
+ "C5815189": StandardUsbConnector,
  "C160390": SmtMotorConnector,
  "C478000": PMEG6020ELRX,
  "C960916": CL05B104KB5NNNC,

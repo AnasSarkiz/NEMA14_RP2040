@@ -19,14 +19,15 @@ for k,name in g.nets.items():
 xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP))
 world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
-    images=[Image.new('L',(N,N)) for _ in layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=.15+(current_via_diameter/2 if via else current_width/2)+.003
+    draw_layers=['top','inner1','inner2','bottom'] if via and next(e for e in j if e['type']=='pcb_board')['num_layers']==4 else layers
+    images=[Image.new('L',(N,N)) for _ in draw_layers];ds=[ImageDraw.Draw(im) for im in images]
+    margin=max(.15+current_via_diameter/2+.003,.30+current_via_hole/2+.003) if via else .15+current_width/2+.003
     def add(ls,geom,extra=0):
         p=geom.buffer(margin+extra,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
         for l in ls:
-            if l not in layers:continue
-            d=ds[layers.index(l)]
+            if l not in draw_layers:continue
+            d=ds[draw_layers.index(l)]
             for piece in pieces:
                 if piece.geom_type=='Polygon':d.polygon([xy(x,y) for x,y in piece.exterior.coords],fill=1)
     for e in j:
@@ -36,15 +37,15 @@ def blocked(net,via=False):
             add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.135 if g.key(e)==net and via else 0)
         elif typ=='pcb_via':
             if g.key(e)==net and not via:continue
-            add(layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
+            add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
         elif typ=='pcb_trace' and g.key(e)!=net:
             for a,b in zip(e['route'],e['route'][1:]):
                 if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                     add([a['layer']],g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2))
         elif typ=='pcb_keepout':
-            # Native trace DRC uses the bounding square even for a circle.
-            c=e['center'];r=e['radius'];add(e['layers'],g.box(c['x']-r,c['y']-r,c['x']+r,c['y']+r))
-        elif typ=='pcb_hole':add(layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
+            # Exact circular keepout; native bounding-box diagnostics are independently reconciled.
+            c=e['center'];r=e['radius'];add(e['layers'],g.Point(c['x'],c['y']).buffer(r,quad_segs=128))
+        elif typ=='pcb_hole':add(draw_layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
     policy_path=ROOT/'artifacts/engineering-fixes/usb-routing-plan.json'
     if policy_path.exists():
         policy=json.loads(policy_path.read_text())
@@ -55,9 +56,21 @@ def blocked(net,via=False):
             if via:
                 # All new barrels stay outside the trunk reference corridor;
                 # paired USB terminal transitions are confined to local fanouts.
-                guard=guard.difference(endpoint_regions)
-                add(layers,guard)
-            elif nets[net]['name']!='GND':add([core['reference_layer']],guard.difference(endpoint_regions))
+                guard=guard
+                add(draw_layers,guard)
+            elif nets[net]['name']!='GND':add([core['reference_layer']],guard)
+    osc_path=ROOT/'artifacts/upright-revision/oscillator-plan.json'
+    if osc_path.exists() and nets[net]['name'] not in ['XIN','XOUT','XTAL_OUT','GND']:
+        plan=json.loads(osc_path.read_text());exemptions=g.Point(1.500052,-3.425063).buffer(.55).union(g.Point(1.899848,-3.425063).buffer(.55))
+        for row in plan['routes']:
+            guard=g.LineString(row['points']).buffer(.25).difference(exemptions)
+            add(draw_layers if via else ['top','inner1'],guard)
+    oscillator_path=ROOT/'artifacts/upright-revision/oscillator-plan.json'
+    if oscillator_path.exists() and nets[net]['name'] not in ['GND','XIN','XOUT','XTAL_OUT']:
+        op=json.loads(oscillator_path.read_text())
+        region=unary_union([g.LineString(r['points']).buffer(op['guard_buffer_mm']) for r in op['routes']])
+        exempt=unary_union([g.Point(r['points'][0]).buffer(op['MCU_pin_local_exemption_radius_mm']) for r in op['routes'] if r['trace'] in ['oscillator_XIN','oscillator_XOUT']])
+        add(draw_layers if via else op['layers_reserved'],region.difference(exempt))
     b=math.ceil((.35+(current_via_diameter/2 if via else current_width/2))/STEP)
     for d in ds:
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)
@@ -92,7 +105,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
     power=nets[net]['name'] in ['PD_VBUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','V3V3','LOGIC_IN','DATA_VBUS','BUCK_SW','BUZZER_SINK','GND']
     if nets[net]['name'] in ['USB_DP','USB_DM','MCU_DP','MCU_DM']:layers=['top','bottom']
     elif nets[net]['name'] in ['PD_VBUS','A_PLUS','B_PLUS','B_MINUS','SENSE1','SENSE2','LOGIC_IN','BUCK_SW','BUCK_BST','CP1','CP2','VCP','VREG','VREF']:layers=['top','inner2','bottom']
-    elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND','DATA_CC1','DATA_CC2','VM_SENSE','ENABLE_N','BOOT_PAD','STATUS_R_C','STATUS_G_C','STATUS_B_C','DCK','DIO']:layers=['top','inner1','inner2','bottom']
+    elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','LED_G','PWR_LED_A','STEP','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND','DATA_CC1','DATA_CC2','VM_SENSE','ENABLE_N','BOOT_PAD','STATUS_R_C','STATUS_G_C','STATUS_B_C','DCK','DIO']:layers=['top','inner1','inner2','bottom']
     elif nets[net]['name']=='A_MINUS':layers=['top','inner1','inner2','bottom']
     else:layers=['top','inner2','bottom']
     board=next(e for e in j if e['type']=='pcb_board')
@@ -114,13 +127,23 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
             current_width=.55
             if len(islands[startroot])==1:
                 isolated=islands[startroot][0];port=g.ports[isolated['pcb_port_id']];sp=g.sp[port['source_port_id']];reference=g.src[sp['source_component_id']]
-                if (reference=='U_DRV' and sp['name'] in ['VBB1','VBB2']) or (reference=='C_VCP' and sp['name']=='pin2') or reference in ['R_PD','R_VM_H','C_VM']:current_width=.3
+                if (reference=='U_DRV' and sp['name'] in ['VBB1','VBB2']) or (reference=='C_VCP' and sp['name']=='pin2') or reference in ['R_PD','C_VM']:current_width=.3
+                if reference=='R_VM_H':current_width=.16 # Only the verified high-value voltage-divider terminal.
+        if nets[net]['name']=='PD_VBUS':
+            refs={g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']] for p in islands[startroot]}
+            layers=['top','inner2','bottom']
+            if refs=={'J_PD'}:
+                current_width=.3
+                layers=['top','bottom'] # Full 0.75 A screened on external copper.
         if nets[net]['name']=='V3V3':
             refs={g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']] for p in islands[startroot]}
             load=sum({'U_MCU':.15,'U_FLASH':.03,'U_DRV':.02,'U_TEMP':.001,'BZ1':.12,'R_PWR_LED':.011,'R_TEMP_SDA':.001,'R_TEMP_SCL':.001}.get(ref,0) for ref in refs)
             current_width=.16 if 'L_BUCK' not in refs and load<=.18 else .3
             # The independent physical branch-cut and thermal audit verifies
             # downstream load again on the completed copper, with full-budget fallback.
+        requested_layers=next((q.split('=',1)[1].split(',') for q in sys.argv if q.startswith('--layers=')),None)
+        if requested_layers:layers=requested_layers
+        if nets[net]['name']=='V3V3':current_width=max(current_width,.2) # Completed-tree full rail budget on inner copper.
         # Use a real connected physical land as the start, never an old location.
         startpad=min(islands[startroot],key=lambda e:len(e.get('port_hints',[])))
         startport=g.ports[startpad['pcb_port_id']]
@@ -130,7 +153,7 @@ for net in sorted(nets,key=lambda k:({'QSPI_SCLK':-4,'QSPI_SD0':-4,'QSPI_SD1':-4
         def goal(x,y,l):
             if l in layers:goals[(*xy(x,y),layers.index(l))]=(x,y)
         for e,r in zip(elems,roots):
-            if r==startroot:continue
+            if r==startroot or r not in (set(islands)|core_roots):continue
             if usb_net and core_roots and r not in core_roots:continue
             if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and e.get('pcb_port_id'):
                 p=g.ports[e['pcb_port_id']]

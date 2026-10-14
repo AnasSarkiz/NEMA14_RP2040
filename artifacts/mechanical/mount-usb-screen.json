@@ -9,21 +9,39 @@
     "radial_screen_allowance_mm": 0.2
   },
   "plug_pair_intersections": [],
-  "minimum_simultaneous_plug_gap_mm": 2.4000000000000004,
-  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "minimum_simultaneous_plug_gap_mm": 2.099999999999998,
+  "board_sha256": "a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6",
+  "unpopulated_bottom_references": [
+    "C_ENCODER",
+    "C_ENCODER_BULK",
+    "U_ENCODER"
+  ],
+  "optional_encoder_rear_fit_verified": false,
   "native_STEP_models": 81,
+  "conservative_USB_bounding_models": [
+    {
+      "reference": "J_PD",
+      "reason": "Native supplier STEP fails OCCT validity; collision screen uses its complete bounding solid as an over-approximation, never exact boolean geometry.",
+      "original_STEP_sha256": "37a757d880a4d9fd7245a628c6d26d1d405e234fb7ea8a957dfd7486c6544327"
+    },
+    {
+      "reference": "J_DATA",
+      "reason": "Native supplier STEP fails OCCT validity; collision screen uses its complete bounding solid as an over-approximation, never exact boolean geometry.",
+      "original_STEP_sha256": "37a757d880a4d9fd7245a628c6d26d1d405e234fb7ea8a957dfd7486c6544327"
+    }
+  ],
   "component_intersections": [],
   "fastener_clearances": [
     {
       "reference": "J_PD",
       "mount": "(-13, 13)",
-      "distance_to_radius2p2_fastener_mm": 0.129999999999999,
+      "distance_to_radius2p2_fastener_mm": 0.29622863467646104,
       "intersection_mm3": 0
     },
     {
       "reference": "J_DATA",
       "mount": "(13, 13)",
-      "distance_to_radius2p2_fastener_mm": 0.13000000000000256,
+      "distance_to_radius2p2_fastener_mm": 0.29620276595401873,
       "intersection_mm3": 0
     },
     {
@@ -47,7 +65,7 @@
     {
       "reference": "C_DRV_LOGIC",
       "mount": "(13, -13)",
-      "distance_to_radius2p2_fastener_mm": 0.8379409865857365,
+      "distance_to_radius2p2_fastener_mm": 0.7275954226091152,
       "intersection_mm3": 0
     },
     {
@@ -83,45 +101,59 @@
   ],
   "usb": [
     {
-      "native_body_to_mount_envelope_mm": 0.129999999999999,
+      "native_body_to_mount_envelope_mm": 0.29622863467646104,
       "reference": "J_PD",
+      "mouth_xyz_mm": [
+        -6.04998696791195,
+        15.150126989607068,
+        8.209992127533706
+      ],
       "mouth_xy_mm": [
-        -6.2,
-        17.50000000000005
+        -6.04998696791195,
+        15.150126989607068
       ],
+      "insertion_direction": "+Z",
       "outward_unit_vector": [
-        -0.0,
-        1.0
+        0,
+        0,
+        1
       ],
-      "plug_10x30x7mm_intersections": [],
+      "plug_10x7x30mm_intersections": [],
       "bbox_mm": [
-        -10.6700001,
-        9.600000000000042,
-        -0.05001099999999947,
-        -1.7299999000000006,
-        17.500000000000053,
-        4.050989100000001
+        -10.522490235808949,
+        13.305127456838466,
+        0.04998814360971715,
+        -1.5774837000149518,
+        16.99512652237567,
+        8.209992127533706
       ]
     },
     {
-      "native_body_to_mount_envelope_mm": 0.13000000000000256,
+      "native_body_to_mount_envelope_mm": 0.29620276595401873,
       "reference": "J_DATA",
+      "mouth_xyz_mm": [
+        6.050013032088048,
+        15.150126989607068,
+        8.209992127533706
+      ],
       "mouth_xy_mm": [
-        6.2,
-        17.50000000000005
+        6.050013032088048,
+        15.150126989607068
       ],
+      "insertion_direction": "+Z",
       "outward_unit_vector": [
-        -0.0,
-        1.0
+        0,
+        0,
+        1
       ],
-      "plug_10x30x7mm_intersections": [],
+      "plug_10x7x30mm_intersections": [],
       "bbox_mm": [
-        1.7299998999999988,
-        9.600000000000042,
-        -0.05001099999999947,
-        10.6700001,
-        17.500000000000053,
-        4.050989100000001
+        1.57750976419105,
+        13.305127456838466,
+        0.04998814360971715,
+        10.522516299985046,
+        16.99512652237567,
+        8.209992127533706
       ]
     }
   ],
@@ -237,12 +269,12 @@
     ],
     "individual_STEP_metal_terminal_centers_verified": false,
     "vertical_access_envelope_bbox_mm": [
-      -3.3000023999999994,
-      -13.990001099999999,
-      0.7999999999999999,
-      -2.7000035999999996,
-      -12.439991499999998,
-      0.9
+      -7.800000100000002,
+      -16.732502999999998,
+      5.0600000000000005,
+      -1.1999999,
+      -12.522502999999997,
+      25.060000000000002
     ],
     "vertical_access_intersections": [],
     "tail_projection_below_PCB_mm": 0,
@@ -252,7 +284,7 @@
   "limitations": [
     "Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.",
     "Nominal PCB/model screen only; no verified mounting to rear motor endcap.",
-    "Cable envelope is a defined 10x30x7 mm procurement bound, not tested cable hardware.",
+    "Cable envelope is a defined 10x7x30 mm procurement bound, not tested cable hardware.",
     "\u00d84.4 mm fastener envelope is a defined screen budget around \u00d84 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified."
   ],
   "passed": true

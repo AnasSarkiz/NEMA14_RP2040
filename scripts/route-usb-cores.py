@@ -22,7 +22,7 @@ j[:]=[e for e in j if not(e['type'] in ['pcb_trace','pcb_via','pcb_copper_pour']
 plans=[];rp='R_DP' in components
 esd=components['U_ESD']['center']
 if rp:
- dp=port('J_DATA','DP2');dm=port('J_DATA','DM1');start=midpoint(dp,dm);plans.append(('connector_to_ESD','bottom','USB_DP','USB_DM',(start[0],start[1]-1.125),(esd['x'],esd['y']+1.95),.4,.4,'J_DATA','DP2','U_ESD','DP2'))
+ dp=port('J_DATA','DP2');dm=port('J_DATA','DM1');start=midpoint(dp,dm);plans.append(('connector_to_ESD','bottom','USB_DP','USB_DM',(6.2,11.9),(esd['x'],esd['y']+1.95),.4,.4,'J_DATA','DP2','U_ESD','DP2'))
  a=port('R_DP','pin2');b=port('R_DM','pin2');end=midpoint(a,b);plans.append(('ESD_to_series','bottom','USB_DP','USB_DM',(esd['x'],esd['y']-1.9),(end[0],end[1]+.67),.4,.4,'U_ESD','DP1','R_DP','pin2'))
  a=port('R_DP','pin1');b=port('R_DM','pin1');start=midpoint(a,b);a=port('U_MCU','USB_DP');b=port('U_MCU','USB_DM');end=midpoint(a,b);plans.append(('series_to_MCU','top','MCU_DP','MCU_DM',(start[0],start[1]-.27),(end[0],end[1]+.62),.25,.20,'R_DP','pin1','U_MCU','USB_DP'))
 else:

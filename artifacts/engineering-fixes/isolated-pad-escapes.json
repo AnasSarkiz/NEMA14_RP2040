@@ -1,15 +1,101 @@
 [
   {
-    "net": "GND",
-    "port": "R_CC2:pin2",
+    "net": "STEP",
+    "port": "U_MCU:GPIO6",
     "via_mm": [
-      10.0328,
-      4.1
+      -0.4249,
+      -0.1
     ],
     "removed_foreign_trace_ids": [
-      "review_baseline_same_side_repair_2_PWR_LED_A_1_layer_section_0_run_0",
-      "same_side_repair_4_SWCLK_0_layer_section_0",
-      "same_side_repair_5_LED_R_0_layer_section_0"
+      "review_baseline_review_baseline_freerouted_trace_102_run_0_run_0_via_clearance_run_0",
+      "review_baseline_review_baseline_same_side_repair_0_LED_B_0_rerouted_run_0_run_0_via_clearance_run_0"
+    ]
+  },
+  {
+    "net": "DIR",
+    "port": "U_MCU:GPIO7",
+    "via_mm": [
+      -0.5249,
+      -0.7001
+    ],
+    "removed_foreign_trace_ids": [
+      "review_baseline_review_baseline_freerouted_trace_118_run_0_run_0_via_clearance_run_0",
+      "review_baseline_review_baseline_same_side_repair_18_V3V3_2_run_0_run_0_via_clearance_run_0",
+      "review_baseline_review_baseline_same_side_repair_9_SLEEP_0_layer_section_7_run_0_run_2_via_clearance_run_0",
+      "same_side_repair_6_TEMP_SCL_0"
+    ]
+  },
+  {
+    "net": "DATA_PRESENT",
+    "port": "U_MCU:GPIO29",
+    "via_mm": [
+      4.1249,
+      2.0
+    ],
+    "removed_foreign_trace_ids": [
+      "review_baseline_review_baseline_same_side_repair_0_V1V1_0_rerouted_layer_section_0_run_0_run_0_via_clearance_run_0",
+      "review_baseline_same_side_repair_6_LED_B_0_run_0_via_clearance_run_0",
+      "same_side_repair_10_VM_SENSE_1",
+      "same_side_repair_23_LED_B_1",
+      "same_side_repair_70_V1V1_0"
+    ]
+  },
+  {
+    "net": "V1V1",
+    "port": "U_MCU:DVDD23",
+    "via_mm": [
+      2.4999,
+      -2.6251
+    ],
+    "removed_foreign_trace_ids": [
+      "same_side_repair_13_SLEEP_0"
+    ]
+  },
+  {
+    "net": "VCP",
+    "port": "U_DRV:VCP",
+    "via_mm": [
+      0.1001,
+      -12.7007
+    ],
+    "removed_foreign_trace_ids": [
+      "review_baseline_review_baseline_freerouted_trace_400_run_0_run_0_via_clearance_run_0",
+      "review_baseline_review_baseline_same_side_repair_1_VM_SENSE_0_layer_section_3_run_0_run_0_via_clearance_run_0"
+    ]
+  },
+  {
+    "net": "PD_CC2",
+    "port": "J_PD:CC2",
+    "via_mm": [
+      -5.5499,
+      13.9201
+    ],
+    "removed_foreign_trace_ids": [
+      "same_side_repair_33_PD_VBUS_2",
+      "same_side_repair_65_PD_CC1_0"
+    ]
+  },
+  {
+    "net": "DATA_CC1",
+    "port": "J_DATA:CC1",
+    "via_mm": [
+      5.4499,
+      16.8799
+    ],
+    "removed_foreign_trace_ids": [
+      "same_side_repair_40_V3V3_5"
+    ]
+  },
+  {
+    "net": "DATA_CC2",
+    "port": "J_DATA:CC2",
+    "via_mm": [
+      8.4501,
+      13.9201
+    ],
+    "removed_foreign_trace_ids": [
+      "same_side_repair_55_DATA_VBUS_1",
+      "same_side_repair_67_A_MINUS_0"
     ]
   }
 ]

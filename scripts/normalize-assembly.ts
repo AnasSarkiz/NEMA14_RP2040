@@ -9,7 +9,7 @@ export function normalizeAssembly(json: AnyCircuitElement[]): AnyCircuitElement[
   for (const pad of json.filter(e => e.type === "pcb_smtpad") as any[]) {
     const part = parts.get(pad.pcb_component_id)
     const source = part && sources.get(part.source_component_id)
-    if (!source || source.ftype === "simple_test_point") continue
+    if (!source || source.ftype === "simple_test_point" || part?.do_not_place) continue
     if (pad.layer !== "top") throw new Error("All fitted components must be top-side: " + source.name)
     const base = { type: "pcb_solder_paste", pcb_component_id: pad.pcb_component_id, pcb_smtpad_id: pad.pcb_smtpad_id, layer: pad.layer }
     if (pad.shape === "polygon") {

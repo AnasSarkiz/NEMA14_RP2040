@@ -77,7 +77,7 @@ for net,name in g.nets.items():
   while any(e.get('pcb_trace_id')==uid for e in g.j):uid+='_next'
   base={k:v[k] for k in ['source_net_id','source_trace_id','subcircuit_connectivity_map_key','subcircuit_id'] if k in v}
   g.j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':[{'route_type':'wire','x':a,'y':b,'layer':'inner1','width':width} for a,b in pts],'pcb_port_ids':[],**base})
-  g.j.append({'type':'pcb_via','pcb_via_id':uid+'_via','x':x,'y':y,'outer_diameter':.4,'hole_diameter':.2,'layers':stack,'from_layer':'top','to_layer':'bottom','tented_on_top':True,'tented_on_bottom':True,**base})
+  g.j.append({'type':'pcb_via','pcb_via_id':uid+'_via','x':x,'y':y,'outer_diameter':.45,'hole_diameter':.3,'layers':stack,'from_layer':'top','to_layer':'bottom','tented_on_top':True,'tented_on_bottom':True,**base})
   rec={'net':name,'start_mm':pts[0],'end_mm':[x,y],'length_mm':LineString(pts).length,'ground_plane_requires_refill_and_connectivity_verification':True};receipts.append(rec);print(rec,flush=True)
   tree,shapes,owners,physical_layers=build_index()
   break

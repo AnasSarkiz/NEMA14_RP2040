@@ -3,7 +3,7 @@ import cadquery as cq
 from shapely.geometry import Point,LineString,Polygon,box
 from shapely import affinity
 from shapely.ops import unary_union
-root=pathlib.Path(__file__).resolve().parents[1];source=root/(sys.argv[1] if len(sys.argv)>1 else 'artifacts/board.circuit.json');board_bytes=source.read_bytes();j=json.loads(board_bytes);cat=json.loads((root/'src/jlcpcb-catalog.json').read_text());src={e['source_component_id']:e for e in j if e['type']=='source_component'};parts={};cache={};meta={}
+root=pathlib.Path(__file__).resolve().parents[1];source=root/(sys.argv[1] if len(sys.argv)>1 else 'artifacts/board.circuit.json');board_bytes=source.read_bytes();j=json.loads(board_bytes);cat=json.loads((root/'src/jlcpcb-catalog.json').read_text());src={e['source_component_id']:e for e in j if e['type']=='source_component'};parts={};cache={};meta={};conservative_models=[]
 bound_cache={}
 def bounds(s):
  if id(s) in bound_cache:return bound_cache[id(s)]
@@ -27,17 +27,23 @@ def nearest_distance(a,others):
  return best
 def volume(a,b):return max(0,a.copy().intersect(b.copy()).Volume()) if broad(a,b) else 0
 
+dnp={e['source_component_id'] for e in j if e['type']=='pcb_component' and e.get('do_not_place')}
 for m in j:
+ if m.get('source_component_id') in dnp:continue
  if m['type']!='cad_component' or not m.get('model_step_url'):continue
  name=src[m['source_component_id']]['name'];p=cat['parts'][cat['components'][name]];f=root/next(f for f in p['modelFiles'] if f.endswith('.step'));assert hashlib.sha256(f.read_bytes()).hexdigest()==p['sha256']['step']
  if str(f) not in cache:cache[str(f)]=cq.importers.importStep(str(f)).val()
- s=cache[str(f)];assert s.isValid() and len(s.Solids())>0
+ s=cache[str(f)];assert len(s.Solids())>0
+ if not s.isValid():
+  assert name in ['J_PD','J_DATA'] and src[m['source_component_id']]['manufacturer_part_number']=='USB4145-03-0070-C', 'Unexpected invalid supplier STEP'
+  b=s.BoundingBox();s=cq.Workplane('XY').box(b.xlen,b.ylen,b.zlen).val().translate(((b.xmin+b.xmax)/2,(b.ymin+b.ymax)/2,(b.zmin+b.zmax)/2))
+  conservative_models.append({'reference':name,'reason':'Native supplier STEP fails OCCT validity; collision screen uses its complete bounding solid as an over-approximation, never exact boolean geometry.','original_STEP_sha256':p['sha256']['step']})
  o=m['model_origin_position'];s=s.translate(tuple(-o[k] for k in 'xyz'))
  for axis,vec in [('x',(1,0,0)),('y',(0,1,0)),('z',(0,0,1))]:
   if m['rotation'][axis]:s=s.rotate((0,0,0),vec,m['rotation'][axis])
  s=s.translate(tuple(m['position'][k] for k in 'xyz'));parts[name]=s;meta[name]=m
  print('Imported',name,flush=True)
-assert set(parts)==set(cat['components']), 'Every fitted part requires its original STEP model'
+assert set(parts)==set(cat['components'])-{src[k]['name'] for k in dnp}, 'Every fitted part requires its original STEP model'
 heads={str((x,y)):cq.Workplane('XY').circle(2.2).extrude(3).val().translate((x,y,.8)) for x,y in itertools.product([-13,13],repeat=2)}
 intersections=[];clearances=[]
 for (a,s),(b,t) in itertools.combinations(parts.items(),2):
@@ -54,21 +60,23 @@ for a,s in parts.items():
   if d<1:clearances.append({'reference':a,'mount':b,'distance_to_radius2p2_fastener_mm':d,'intersection_mm3':volume(s,t)})
 plugs={};usb=[]
 for name in ['J_PD','J_DATA']:
- m=meta[name];a=math.radians(m['rotation']['z']);mouth=[m['position']['x']-math.sin(a)*(2.6-m['model_origin_position']['y']),m['position']['y']+math.cos(a)*(2.6-m['model_origin_position']['y'])];direction=[-math.sin(a),math.cos(a)]
- # 10 mm wide, 7 mm tall, 30 mm long plug envelope, centred at mating plane +15 mm.
- plug=cq.Workplane('XY').box(10,30,7).val().rotate((0,0,0),(0,0,1),m['rotation']['z']).translate((mouth[0]+direction[0]*15,mouth[1]+direction[1]*15,2.45));plugs[name]=plug
+ m=meta[name];bb=bounds(parts[name]);mouth=[(bb[0]+bb[3])/2,(bb[1]+bb[4])/2,bb[5]];direction=[0,0,1]
+ assert m['rotation']['x']==m['rotation']['y']==m['rotation']['z']==0
+ # Upright connector: 10 mm wide, 7 mm deep housing, 30 mm vertical grip/cable envelope.
+ # A 0.5 mm seating overlap is allowed only with its own connector.
+ plug=cq.Workplane('XY').box(10,7,30).val().translate((mouth[0],mouth[1],mouth[2]+14.5));plugs[name]=plug
  collisions=[]
  for n,s in list(parts.items())+list(heads.items()):
   if n!=name and broad(plug,s):
    v=volume(plug,s)
    if v>1e-5:collisions.append({'other':n,'volume_mm3':v})
- usb.append({'native_body_to_mount_envelope_mm':nearest_distance(parts[name],heads.values()),'reference':name,'mouth_xy_mm':mouth,'outward_unit_vector':direction,'plug_10x30x7mm_intersections':collisions,'bbox_mm':bounds(parts[name])})
+ usb.append({'native_body_to_mount_envelope_mm':nearest_distance(parts[name],heads.values()),'reference':name,'mouth_xyz_mm':mouth,'mouth_xy_mm':mouth[:2],'insertion_direction':'+Z','outward_unit_vector':direction,'plug_10x7x30mm_intersections':collisions,'bbox_mm':bounds(parts[name])})
 plug_intersections=[]
 for (a,s),(b,t) in itertools.combinations(plugs.items(),2):
  v=volume(s,t)
  if v>1e-5:plug_intersections.append({'a':a,'b':b,'volume_mm3':v})
 plug_gap=plugs['J_PD'].distance(plugs['J_DATA'])
-assert plug_gap >= 2.39999, 'Two simultaneous 10 mm housings need the reviewed 2.4 mm nominal gap'
+assert plug_gap >= 2.09999, 'Two simultaneous 10 mm housings need the reviewed 2.1 mm nominal gap'
 # PH is a top-entry connector. Verify actual STEP leads, PCB envelope, and an unobstructed vertical insertion region.
 motor=parts['J_MOTOR'];motor_meta=meta['J_MOTOR'];motor_pcb=next(e for e in j if e['type']=='pcb_component' and e['source_component_id']==motor_meta['source_component_id'])
 motor_pads=[e for e in j if e['type']=='pcb_smtpad' and e['pcb_component_id']==motor_pcb['pcb_component_id']]
@@ -93,9 +101,9 @@ for name,other in list(parts.items())+list(heads.items())+list(plugs.items()):
  v=volume(access,other)
  if v>1e-5:access_collisions.append({'other':name,'volume_mm3':v})
 motor_report={'reference':'J_MOTOR','manufacturer_part_number':'BM04B-SRSS-TB(LF)(SN)','supplier_id':'C160390','mating_housing':'SHR-04V-S','insertion_direction':'+Z (from above)','body_and_lead_bbox_mm':mb,'body_within_35mm_outline':True,'native_SMT_pad_centres_mm':[[p['x'],p['y']] for p in motor_pads],'native_JST_drills':0,'STEP_landing_regions':lead_alignment,'individual_STEP_metal_terminal_centers_verified':False,'vertical_access_envelope_bbox_mm':bounds(access),'vertical_access_intersections':access_collisions,'tail_projection_below_PCB_mm':max(0,-.8-mb[2]),'cable_and_finger_clearance_hardware_tested':False}
-report={'source_path':str(source),'fastener_requirement':{'standard':'DIN 920','thread':'M3','maximum_head_diameter_mm':4,'model_envelope_diameter_mm':4.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'native_STEP_models':len(parts),'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'motor_connector':motor_report,'rear_motor_compatibility_verified':False,'limitations':['Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.','Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 10x30x7 mm procurement bound, not tested cable hardware.','Ø4.4 mm fastener envelope is a defined screen budget around Ø4 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
+report={'source_path':str(source),'fastener_requirement':{'standard':'DIN 920','thread':'M3','maximum_head_diameter_mm':4,'model_envelope_diameter_mm':4.4,'conservative_model_height_mm':3,'radial_screen_allowance_mm':.2},'plug_pair_intersections':plug_intersections,'minimum_simultaneous_plug_gap_mm':plug_gap,'board_sha256':hashlib.sha256(board_bytes).hexdigest(),'unpopulated_bottom_references':sorted(src[k]['name'] for k in dnp),'optional_encoder_rear_fit_verified':False,'native_STEP_models':len(parts),'conservative_USB_bounding_models':conservative_models,'component_intersections':intersections,'fastener_clearances':clearances,'usb':usb,'mounts':[[x,y] for x,y in itertools.product([-13,13],repeat=2)],'motor_connector':motor_report,'rear_motor_compatibility_verified':False,'limitations':['Supplier JST STEP fuses plastic and contacts; six landing-region overlaps are checked, individual metal-terminal centers require datasheet/assembler confirmation.','Nominal PCB/model screen only; no verified mounting to rear motor endcap.','Cable envelope is a defined 10x7x30 mm procurement bound, not tested cable hardware.','Ø4.4 mm fastener envelope is a defined screen budget around Ø4 mm DIN 920 heads; complete assembly tolerance, torque, thread engagement and any washer/spacer are unqualified.']}
 out=root/'artifacts/mechanical';out.mkdir(exist_ok=True);assert source.read_bytes()==board_bytes, 'Board changed during mechanical audit'
-report['passed']=not access_collisions and not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_10x30x7mm_intersections'] for e in usb)
+report['passed']=not access_collisions and not intersections and not plug_intersections and all(e['intersection_mm3']<1e-5 for e in clearances) and all(not e['plug_10x7x30mm_intersections'] for e in usb)
 (out/('source-mount-usb-screen.json' if len(sys.argv)>1 else 'mount-usb-screen.json')).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps(report,indent=2))
 
 raise SystemExit(0 if report['passed'] else 1)

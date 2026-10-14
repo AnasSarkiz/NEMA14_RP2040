@@ -1,6 +1,6 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.9.0",
+  "version": "1.10.2",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "index.circuit.tsx",
   "scripts": {
@@ -20,7 +20,9 @@
     "check:mounts": "python3 scripts/check-mount-drills.py && /workspace/.routing-venv/bin/python scripts/check-mechanical-mounts.py",
     "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render",
     "check:schematic": "tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py",
-    "check:schema": "node scripts/check-native-schema.mjs"
+    "check:schema": "node scripts/check-native-schema.mjs",
+    "precheck": "python3 scripts/patch-native-circular-keepouts.py",
+    "check:circle": "bun scripts/check-circle-regression.ts"
   },
   "repository": {
     "type": "git",

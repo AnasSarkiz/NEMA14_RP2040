@@ -1,5 +1,5 @@
 {
-  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "board_sha256": "a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f6757781d6",
   "checks": [
     {
       "check": "all_resistor_edge_clearances",
@@ -71,7 +71,7 @@
         "tsci",
         "check",
         "netlist",
-        "index.circuit.tsx"
+        "scripts/netlist-source.circuit.tsx"
       ],
       "exit_code": 0,
       "log": "artifacts/validation-resume/native_netlist.txt"
@@ -199,15 +199,42 @@
       ],
       "exit_code": 0,
       "log": "artifacts/validation-resume/full_independent_CAM.txt"
+    },
+    {
+      "check": "native_circular_keepout_regression",
+      "command": [
+        "bun",
+        "scripts/check-circle-regression.ts"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_circular_keepout_regression.txt"
+    },
+    {
+      "check": "actual_via_drills_and_JLCPCB_clearances",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-via-fabrication.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/actual_via_drills_and_JLCPCB_clearances.txt"
+    },
+    {
+      "check": "oscillator_layout",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-oscillator-layout.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/oscillator_layout.txt"
     }
   ],
   "native_STEP_mechanical_pass": true,
   "CAD_models_checked": 81,
   "physical_nets_checked": 63,
   "counts": {
-    "pcb_trace": 593,
-    "pcb_via": 276,
-    "pcb_copper_pour": 39
+    "pcb_trace": 691,
+    "pcb_via": 318,
+    "pcb_copper_pour": 48
   },
   "full_CAM_status": "PASS",
   "remaining_CAM_findings": [],
