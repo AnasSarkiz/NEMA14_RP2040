@@ -47,7 +47,8 @@ for e in remote:
         source=next(q for q in remote if q['type']=='source_component' and q['source_component_id']==e['source_component_id'])
         assert source['manufacturer_part_number']=='USB4145-03-0070-C' and source['supplier_part_numbers']=={'jlcpcb':['C5815189']}
         usb.append(mouth)
-assert len(usb)==2 and all(abs(x-ex)<.001 and abs(y-15.15)<.001 for (x,y),ex in zip(sorted(usb),[-6.05,6.05]))
+expected_usb_mouths = [(-4.6, -15.15), (0.6, 15.15)]
+assert len(usb)==2 and all(abs(x-ex)<.001 and abs(y-ey)<.001 for (x,y),(ex,ey) in zip(sorted(usb),expected_usb_mouths))
 dnp={names[e['source_component_id']] for e in remote if e['type']=='pcb_component' and e.get('do_not_place')}
 assert dnp=={'U_ENCODER','C_ENCODER','C_ENCODER_BULK'}
 assert all(e['layer']=='bottom' for e in remote if e['type']=='pcb_component' and e.get('do_not_place'))
@@ -56,9 +57,9 @@ via_proof=json.loads(file('artifacts/upright-revision/via-fabrication-verificati
 assert via_proof['passed'] and via_proof['board_sha256']==sha(board_bytes)
 mechanical=json.loads(file('artifacts/mechanical/mount-usb-screen.json'))
 assert mechanical['passed'] and mechanical['board_sha256']==sha(board_bytes)
-assert mechanical['fastener_requirement']['maximum_head_diameter_mm']==4
-assert mechanical['fastener_requirement']['model_envelope_diameter_mm']==4.4
-assert abs(mechanical['minimum_simultaneous_plug_gap_mm']-2.1)<1e-5
+assert mechanical['fastener_requirement']['maximum_head_diameter_mm']==6
+assert mechanical['fastener_requirement']['model_envelope_diameter_mm']==6.4
+assert abs(mechanical['minimum_simultaneous_plug_gap_mm']-23.3)<1e-5
 assert min(u['native_body_to_mount_envelope_mm'] for u in mechanical['usb'])>=.1
 motor_source=next(e for e in remote if e['type']=='source_component' and e['name']=='J_MOTOR')
 assert motor_source['manufacturer_part_number']=='BM04B-SRSS-TB(LF)(SN)' and motor_source['supplier_part_numbers']=={'jlcpcb':['C160390']}
