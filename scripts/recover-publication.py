@@ -33,7 +33,7 @@ def upload(group):
  print('Uploaded',len(group),'missing files; encoded bytes',len(encoded),flush=True)
 group=[]
 for entry in entries:
- if group and len(archive(group+[entry]))>1_100_000:upload(group);group=[]
+ if group and (len(group)>=24 or len(archive(group+[entry]))>1_100_000):upload(group);group=[]
  group.append(entry)
 upload(group)
 request('package_releases/update',{'package_name_with_version':name+'@'+version,'ready_to_build':True,'license':'ISC'})

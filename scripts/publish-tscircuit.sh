@@ -62,7 +62,7 @@ for f in (stage/'imports/supplier').rglob('*.tsx'):f.write_text(pin(f.read_text(
 preview_path=stage/'artifacts/top-assembly/assembly-preview.circuit.json'
 preview_path.write_text(pin(preview_path.read_text()))
 assembly_path=stage/'assembly.circuit.json'
-assembly_path.write_text(pin(assembly_path.read_text()))
+assembly_path.write_text(json.dumps(json.loads(pin(assembly_path.read_text())),separators=(',',':'))+'\n')
 assert json.loads(assembly_path.read_text())==json.loads(preview_path.read_text())
 assert json.loads((root/'artifacts/top-assembly/assembly-fit-verification.json').read_text())['passed']
 
