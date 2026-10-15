@@ -1,0 +1,34 @@
+
+> NEMA14_RP2040@1.8.2 check:schematic
+> tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py
+
+
+{
+  "board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "passed": true,
+  "sheet_count": 5,
+  "sheet_names": [
+    "01 Power & USB-PD",
+    "02 Programming & USB",
+    "03 Controller & clocks",
+    "04 Stepper motor driver",
+    "05 Temperature & feedback"
+  ],
+  "component_count": 88,
+  "physical_pin_count": 321,
+  "drawn_electrical_pin_count": 319,
+  "NC_mechanical_hold_down_pads_omitted": 2,
+  "connected_net_count": 63,
+  "explicit_NC_pin_count": 33,
+  "named_net_label_count": 161,
+  "orthogonal_wire_segments": 486,
+  "marked_different_net_crossings": 18,
+  "checked_same_net_branch_intersections": 49,
+  "electrical_source_and_PCB_CAD_preserved": false,
+  "electrical_source_preserved": false,
+  "qualified_schematic_preserved": false,
+  "PCB_relocation_authorized": true,
+  "top_assembly_redesign_authorized": true,
+  "actual_Gerber_ZIP_preserved": false,
+  "errors": []
+}

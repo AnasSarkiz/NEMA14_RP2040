@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
   "reference": "e8d285f7-c3d8-46f5-9a54-344fdde0124e",
   "physical_pin_checks": [
     {
@@ -376,196 +376,316 @@
       "net": "TEMP_SCL"
     },
     {
+      "component": "U_ENCODER",
+      "physical_pin": 1,
+      "pin_name": "VDD5V",
+      "net": "V3V3"
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 2,
+      "pin_name": "VDD3V3",
+      "net": "V3V3"
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 3,
+      "pin_name": "OUT",
+      "net": null
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 4,
+      "pin_name": "GND",
+      "net": "GND"
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 5,
+      "pin_name": "PGO",
+      "net": null
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 6,
+      "pin_name": "SDA",
+      "net": "TEMP_SDA"
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 7,
+      "pin_name": "SCL",
+      "net": "TEMP_SCL"
+    },
+    {
+      "component": "U_ENCODER",
+      "physical_pin": 8,
+      "pin_name": "DIR",
+      "net": "GND"
+    },
+    {
+      "component": "C_ENCODER",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "V3V3"
+    },
+    {
+      "component": "C_ENCODER",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
+      "component": "C_ENCODER_BULK",
+      "physical_pin": 1,
+      "pin_name": "pin1",
+      "net": "V3V3"
+    },
+    {
+      "component": "C_ENCODER_BULK",
+      "physical_pin": 2,
+      "pin_name": "pin2",
+      "net": "GND"
+    },
+    {
       "component": "J_PD",
       "physical_pin": 1,
-      "pin_name": "EH2",
+      "pin_name": "GND1",
       "net": "GND"
     },
     {
       "component": "J_PD",
       "physical_pin": 2,
-      "pin_name": "EH1",
-      "net": "GND"
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 3,
-      "pin_name": "EH4",
-      "net": "GND"
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 4,
-      "pin_name": "EH3",
-      "net": "GND"
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 5,
-      "pin_name": "SBU2",
+      "pin_name": "DP1",
       "net": null
     },
     {
       "component": "J_PD",
-      "physical_pin": 6,
+      "physical_pin": 3,
+      "pin_name": "VBUS1",
+      "net": "PD_VBUS"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 4,
       "pin_name": "CC1",
       "net": "PD_CC1"
     },
     {
       "component": "J_PD",
-      "physical_pin": 7,
-      "pin_name": "DM2",
-      "net": null
+      "physical_pin": 5,
+      "pin_name": "GND2",
+      "net": "GND"
     },
     {
       "component": "J_PD",
-      "physical_pin": 8,
-      "pin_name": "DP1",
-      "net": null
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 9,
+      "physical_pin": 6,
       "pin_name": "DM1",
       "net": null
     },
     {
       "component": "J_PD",
-      "physical_pin": 10,
-      "pin_name": "DP2",
-      "net": null
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 11,
+      "physical_pin": 7,
       "pin_name": "SBU1",
       "net": null
     },
     {
       "component": "J_PD",
+      "physical_pin": 8,
+      "pin_name": "VBUS2",
+      "net": "PD_VBUS"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 9,
+      "pin_name": "GND3",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 10,
+      "pin_name": "DM2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 11,
+      "pin_name": "VBUS3",
+      "net": "PD_VBUS"
+    },
+    {
+      "component": "J_PD",
       "physical_pin": 12,
+      "pin_name": "SBU2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 13,
+      "pin_name": "GND4",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 14,
+      "pin_name": "DP2",
+      "net": null
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 15,
       "pin_name": "CC2",
       "net": "PD_CC2"
     },
     {
       "component": "J_PD",
-      "physical_pin": 13,
-      "pin_name": "GND1",
-      "net": "GND"
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 14,
-      "pin_name": "GND2",
-      "net": "GND"
-    },
-    {
-      "component": "J_PD",
-      "physical_pin": 15,
-      "pin_name": "VBUS1",
-      "net": "PD_VBUS"
-    },
-    {
-      "component": "J_PD",
       "physical_pin": 16,
-      "pin_name": "VBUS2",
+      "pin_name": "VBUS4",
       "net": "PD_VBUS"
     },
     {
-      "component": "J_DATA",
-      "physical_pin": 1,
-      "pin_name": "EH2",
-      "net": "GND"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 2,
+      "component": "J_PD",
+      "physical_pin": 17,
       "pin_name": "EH1",
       "net": "GND"
     },
     {
-      "component": "J_DATA",
-      "physical_pin": 3,
+      "component": "J_PD",
+      "physical_pin": 18,
+      "pin_name": "EH2",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 19,
+      "pin_name": "EH3",
+      "net": "GND"
+    },
+    {
+      "component": "J_PD",
+      "physical_pin": 20,
       "pin_name": "EH4",
       "net": "GND"
     },
     {
       "component": "J_DATA",
-      "physical_pin": 4,
-      "pin_name": "EH3",
-      "net": "GND"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 5,
-      "pin_name": "SBU2",
-      "net": null
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 6,
-      "pin_name": "CC1",
-      "net": "DATA_CC1"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 7,
-      "pin_name": "DM2",
-      "net": "USB_DM"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 8,
-      "pin_name": "DP1",
-      "net": "USB_DP"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 9,
-      "pin_name": "DM1",
-      "net": "USB_DM"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 10,
-      "pin_name": "DP2",
-      "net": "USB_DP"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 11,
-      "pin_name": "SBU1",
-      "net": null
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 12,
-      "pin_name": "CC2",
-      "net": "DATA_CC2"
-    },
-    {
-      "component": "J_DATA",
-      "physical_pin": 13,
+      "physical_pin": 1,
       "pin_name": "GND1",
       "net": "GND"
     },
     {
       "component": "J_DATA",
-      "physical_pin": 14,
-      "pin_name": "GND2",
-      "net": "GND"
+      "physical_pin": 2,
+      "pin_name": "DP1",
+      "net": "USB_DP"
     },
     {
       "component": "J_DATA",
-      "physical_pin": 15,
+      "physical_pin": 3,
       "pin_name": "VBUS1",
       "net": "DATA_VBUS"
     },
     {
       "component": "J_DATA",
-      "physical_pin": 16,
+      "physical_pin": 4,
+      "pin_name": "CC1",
+      "net": "DATA_CC1"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 5,
+      "pin_name": "GND2",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 6,
+      "pin_name": "DM1",
+      "net": "USB_DM"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 7,
+      "pin_name": "SBU1",
+      "net": null
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 8,
       "pin_name": "VBUS2",
       "net": "DATA_VBUS"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 9,
+      "pin_name": "GND3",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 10,
+      "pin_name": "DM2",
+      "net": "USB_DM"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 11,
+      "pin_name": "VBUS3",
+      "net": "DATA_VBUS"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 12,
+      "pin_name": "SBU2",
+      "net": null
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 13,
+      "pin_name": "GND4",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 14,
+      "pin_name": "DP2",
+      "net": "USB_DP"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 15,
+      "pin_name": "CC2",
+      "net": "DATA_CC2"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 16,
+      "pin_name": "VBUS4",
+      "net": "DATA_VBUS"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 17,
+      "pin_name": "EH1",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 18,
+      "pin_name": "EH2",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 19,
+      "pin_name": "EH3",
+      "net": "GND"
+    },
+    {
+      "component": "J_DATA",
+      "physical_pin": 20,
+      "pin_name": "EH4",
+      "net": "GND"
     }
   ],
   "TMP102_address": "0x48",

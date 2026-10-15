@@ -1,0 +1,263 @@
+{
+  "reviewed_commit": "e04df7a3b606b280389109405de96601e9430695",
+  "board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
+  "board_geometry_unchanged": true,
+  "checks": [
+    {
+      "check": "typecheck",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "exit_code": 0,
+      "log": "typecheck.log",
+      "log_sha256": "db27ea300412bf74f22e792d7d7f9cb65c9648f07511cb1def4e6c89577ac158"
+    },
+    {
+      "check": "source-check",
+      "command": [
+        "npm",
+        "run",
+        "source:check"
+      ],
+      "exit_code": 0,
+      "log": "source-check.log",
+      "log_sha256": "f2a223c42ce1e6034ac4bfe5b8dac8f8f8786730a248a5b542fe5449864d3329"
+    },
+    {
+      "check": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit_code": 0,
+      "log": "build.log",
+      "log_sha256": "8df247aaba83fd435c74860e80d71579d24c9bafabe37895fc3683d7f69b0e10"
+    },
+    {
+      "check": "check",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "log": "check.log",
+      "log_sha256": "8222ce51127da5d5c905aba6c4275937988e7c3b041a993eca7fd1680ae35f49"
+    },
+    {
+      "check": "schematic",
+      "command": [
+        "npm",
+        "run",
+        "check:schematic"
+      ],
+      "exit_code": 0,
+      "log": "schematic.log",
+      "log_sha256": "2919b537bf9b4cf2c3ffaa51db847cb6aca656a491ac6e68ce557a74ecbfce2a"
+    },
+    {
+      "check": "export",
+      "command": [
+        "npm",
+        "run",
+        "export"
+      ],
+      "exit_code": 0,
+      "log": "export.log",
+      "log_sha256": "fb72d3f3de2b0a1e7fd1f8aa17abac7dca6571a34880ffeeef309e9233cb4085"
+    },
+    {
+      "check": "mounts",
+      "command": [
+        "npm",
+        "run",
+        "check:mounts"
+      ],
+      "exit_code": 0,
+      "log": "mounts.log",
+      "log_sha256": "c3f3cf8598432f48e137794ef5c22751dc1001677439b4e1f61a0f9031e70de9"
+    },
+    {
+      "check": "copper",
+      "command": [
+        "npm",
+        "run",
+        "check:copper"
+      ],
+      "exit_code": 0,
+      "log": "copper.log",
+      "log_sha256": "8bb994184ef6a09953f8bbd268d5227014822c5cdc2328ada27feab5d028f367"
+    },
+    {
+      "check": "shorts",
+      "command": [
+        "npm",
+        "run",
+        "shorts"
+      ],
+      "exit_code": 0,
+      "log": "shorts.log",
+      "log_sha256": "b24190dd94c7b356302485fec69c7d83909cecc3ab474cd700da98235a0b0a3f"
+    },
+    {
+      "check": "manufacturing-raw",
+      "command": [
+        "npm",
+        "run",
+        "check:manufacturing"
+      ],
+      "exit_code": 1,
+      "log": "manufacturing-raw.log",
+      "log_sha256": "dc0435f387fc9fb5d64de2c30cc65d8346a0f16e6ef8f8121c03d52b4769d088"
+    },
+    {
+      "check": "connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify_supplier_connectivity.py"
+      ],
+      "exit_code": 0,
+      "log": "connectivity.log",
+      "log_sha256": "277203e1ad2a90742b76063659801c374f384e9cc7f46017bd0d26e4888f1cd4"
+    },
+    {
+      "check": "every-trace",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-every-trace.py"
+      ],
+      "exit_code": 0,
+      "log": "every-trace.log",
+      "log_sha256": "bcf7284bdbe9b8f0d7593120e10e9d424fe3e77ca5479f627ab07b9a8d7f150b"
+    },
+    {
+      "check": "supplier-pins",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-reference-feedback.py"
+      ],
+      "exit_code": 0,
+      "log": "supplier-pins.log",
+      "log_sha256": "7c5184cda1fe14a3c0bed9ccab317b2a55fe7a034a0301ddf4f6a89c4c8326cb"
+    },
+    {
+      "check": "JST",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-motor-connector.py"
+      ],
+      "exit_code": 0,
+      "log": "JST.log",
+      "log_sha256": "0e4740a4788121b614c7dc4c57608b51d65f407441ec63d5ecf11b586772fa84"
+    },
+    {
+      "check": "top-assembly",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-top-assembly.py"
+      ],
+      "exit_code": 0,
+      "log": "top-assembly.log",
+      "log_sha256": "4e67c9b792b4832eadb2226cc58bbcd7ec7024a07c7e3920ad0f350f1b1b901d"
+    },
+    {
+      "check": "resistor-edges",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-resistor-edges.py"
+      ],
+      "exit_code": 0,
+      "log": "resistor-edges.log",
+      "log_sha256": "7bbcd563fe225ae17f595113ed40abad5438fe8e1203f953c7178ee396c555fc"
+    },
+    {
+      "check": "corrected-CAM",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-jlcpcb-review.py"
+      ],
+      "exit_code": 0,
+      "log": "corrected-CAM.log",
+      "log_sha256": "042ad75fa72ee4ec3ca074a05714abdcd8913d6611bffa8cd0775994ce017aa6"
+    },
+    {
+      "check": "native-placement",
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 1,
+      "log": "native-placement.log",
+      "log_sha256": "f52176de79c1b60c84a94462b3920abccf895e18c4589534bc79fcca32cb94f4"
+    },
+    {
+      "check": "manufacturing-raw-synchronized",
+      "command": [
+        "python3",
+        "scripts/finalize-manufacturing-artifacts.py",
+        "then",
+        "npm",
+        "run",
+        "check:manufacturing"
+      ],
+      "exit_code": 1,
+      "log": "manufacturing-raw-synchronized.log",
+      "log_sha256": "8f7e2c1f160c4523e2f8ad5e640a8c81ba5126dfaa66582a5e7042e3ae823410",
+      "raw_CAM_report": "raw-CAM-audit.json",
+      "raw_CAM_report_sha256": "a32c5ed766aabd7d84f9e6a2b7bba8f5c12608d21e4d62cd5c6a0a9d111a95eb",
+      "status": "FAIL",
+      "findings_count": 6,
+      "finding_kinds": [
+        "BOM-source-identity",
+        "EP-stencil-coverage",
+        "silkscreen-clearance",
+        "stencil-release-screen"
+      ],
+      "actual_copper_opens": 0,
+      "actual_copper_shorts": 0
+    }
+  ],
+  "completed": true,
+  "checked_at_utc": "2026-10-13T13:43:53.058501+00:00",
+  "hardware_tested": false,
+  "supplier_approved": false,
+  "additional_current_gate_checks": [
+    {
+      "check": "placement-gate-regression",
+      "exit_code": 0,
+      "log": "placement-gate-regression.log",
+      "log_sha256": "c6b9b1f09add0403cc07e90bfdf272129b1ddfa2f8f7675ea8218862f2516371"
+    },
+    {
+      "check": "publication-gate",
+      "exit_code": 0,
+      "log": "publication-gate.log",
+      "log_sha256": "2b9f2f72ba81849b10e201ee2bcdcbaeb7c8ad585058bd1ba6050d3412f55541"
+    },
+    {
+      "check": "corrected-CAM-current-gate",
+      "exit_code": 0,
+      "log": "corrected-CAM-current-gate.log",
+      "log_sha256": "042ad75fa72ee4ec3ca074a05714abdcd8913d6611bffa8cd0775994ce017aa6"
+    },
+    {
+      "check": "generated-instructions-sync",
+      "exit_code": 0,
+      "log": "generated-instructions-sync.log",
+      "log_sha256": "128b1bdce290fb960f09e295b2d47854b573410d2a07d912139a4b033d75f65a"
+    }
+  ],
+  "known_nonpassing_results": {
+    "native-placement": "Three recognized orientation suggestions; zero placement DRC errors/warnings.",
+    "manufacturing-raw": "First attempt used older extracted timestamp headers after a fresh export; see manufacturing-raw-synchronized for the rerun.",
+    "manufacturing-raw-synchronized": "Raw native export assembly findings remain; corrected order CAM separately passes. No physical copper opens/shorts."
+  },
+  "assessment_scope": "RP2040 v1.8.2 evidence assessment, documentation and validation-gate corrections; full fabrication/electrical implementation checklist remains open.",
+  "unknown_unassigned_copper_count": 0,
+  "intentional_no_connect_copper_islands": 35
+}

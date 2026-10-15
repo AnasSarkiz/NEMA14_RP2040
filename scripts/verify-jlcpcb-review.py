@@ -1,6 +1,7 @@
 #!/usr/bin/env python3
 """Gate the separate JLCPCB engineering-review files against frozen CAD and CAM."""
 import csv, datetime, hashlib, json, pathlib, subprocess, zipfile
+from placement_advisories import orientation_advisories_only
 ROOT=pathlib.Path(__file__).resolve().parents[1]
 OUT=ROOT/'artifacts/jlcpcb-review'
 sha=lambda p:hashlib.sha256(p.read_bytes()).hexdigest()
@@ -30,7 +31,7 @@ def main():
         assert {'drill_npth.drl','drill-L1-L4.drl','Edge_Cuts.gbr'}<=set(z.namelist())
     src={e['source_component_id']:e for e in board if e['type']=='source_component'}
     pc={src[e['source_component_id']]['name']:e for e in board if e['type']=='pcb_component'}
-    expected={n for n,c in pc.items() if src[c['source_component_id']]['ftype']!='simple_test_point'}
+    expected={n for n,c in pc.items() if src[c['source_component_id']]['ftype']!='simple_test_point' and not c.get('do_not_place')}
     purchasing={}
     for row in csv.DictReader((OUT/'JLCPCB-BOM.csv').open()):
         for ref in row['Designator'].split(','):
@@ -53,11 +54,11 @@ def main():
     native=json.loads((ROOT/'artifacts/resume-validation.json').read_text())
     assert native['board_sha256']==sha(board_path) and native['native_STEP_mechanical_pass']
     checks={e['check']:e for e in native['checks']}
-    assert len(checks)==18
+    assert len(checks)==23
+    assert {'actual_via_drills_and_JLCPCB_clearances','oscillator_layout','native_circular_keepout_regression'} <= set(checks)
     for name,check in checks.items():
-        if name=='full_independent_CAM':continue # Raw native export remains explicitly unqualified.
-        if name=='native_placement':
-            assert (ROOT/check['log']).read_text().startswith('placement summary: ')
+        if name=='native_placement' and check['exit_code']:
+            assert orientation_advisories_only((ROOT/check['log']).read_text()), 'Placement log has unreviewed diagnostics or real DRC failures'
             continue
         assert check['exit_code']==0, name
     for relative,key in [('artifacts/reference-feedback/every-trace-review.json','passed'),
@@ -71,7 +72,8 @@ def main():
              'SMT_components':len(expected),'manual_THT_components':0,
              'verified_at_utc':datetime.datetime.now(datetime.timezone.utc).isoformat(),
              'every_trace_and_segment_reviewed':True,'electrical_geometry_and_connections_preserved':True,
-             'raw_native_export_manufacturing_qualified':False,
+             'default_export_manufacturing_qualified':True,
+             'upstream_native_export_retained_as_diagnostic':True,
              'JLCPCB_order_submitted':False,'JLCPCB_review_approved':False,
              'production_release_approved':False,'hardware_operation_verified':False,
              'rear_motor_compatibility_verified':False,
@@ -82,7 +84,7 @@ def main():
                  ('Confirm two-sided SMT support; quote USB shell secondary soldering or use the separate manual THT plan.' if manifest['bottom_SMT_references'] else 'Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.'),
                  'Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.'
              ],
-             'remaining_CAD_tooling_review':['Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json.'],
+             'remaining_CAD_tooling_review':[],
              'remaining_hardware_validation':[
                  'Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.',
                  'Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.',

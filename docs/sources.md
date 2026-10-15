@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Sources and provenance
 
 - Original CH32 project: `AnasSarkiz/NEMA17_Controller`, commit `e19f75e` (independently copied source; original project remains unchanged).

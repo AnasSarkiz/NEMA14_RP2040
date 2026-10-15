@@ -1,5 +1,5 @@
 import React, { Children, cloneElement, type ReactElement } from "react"
-import { TYPE_C_31_M_12 } from "../imports/supplier/TYPE_C_31_M_12/TYPE_C_31_M_12"
+import { USB4145_03_0070_C } from "../imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C"
 import { BM04B_SRSS_TB_LF__SN_ } from "../imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_"
 
 // Keep the exact supplier land patterns and CAD. Split common mechanical pads
@@ -14,10 +14,10 @@ function footprint(element: any, commonPin: string, firstPin: number) {
   }))
 }
 
-const usb = TYPE_C_31_M_12({ name: "USB" })
-const usbLabels = {...usb.props.pinLabels, pin7:["DM2","DN2","B7"], pin9:["DM1","DN1","A7"], pin1:["EH2","SHELL2"],pin2:["EH1","SHELL1"],pin3:["EH4","SHELL4"],pin4:["EH3","SHELL3"]}
+const usb = USB4145_03_0070_C({ name: "USB" })
+const usbLabels = {...usb.props.pinLabels, pin6:["DM1","DN1","A7"], pin10:["DM2","DN2","B7"], pin17:["EH1","SHELL1"],pin18:["EH2","SHELL2"],pin19:["EH3","SHELL3"],pin20:["EH4","SHELL4"]}
 export const StandardUsbConnector = (props:any) => (
- <connector {...TYPE_C_31_M_12(props as any).props} standard="usb_c" pinLabels={usbLabels} {...props} />
+ <connector {...USB4145_03_0070_C(props as any).props} standard="usb_c" pinLabels={usbLabels} footprint={footprint(usb,"pin17",17)} {...props} />
 )
 
 const motor = BM04B_SRSS_TB_LF__SN_({ name: "MOTOR" })

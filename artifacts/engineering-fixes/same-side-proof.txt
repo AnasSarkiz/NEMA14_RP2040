@@ -1,0 +1,245 @@
+{
+  "baseline_github_commit": "622ee8168f3cf815d7db0d9fb3f477e99f96f329",
+  "board_sha256": "687a7d6026cd2deaa7f3f0bd21356bed7b025d0004cedc4ad058dcc3f6aa7436",
+  "board_dimensions_mm": [
+    35,
+    35
+  ],
+  "exact_mounts_mm": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "mount_drill_mm": 3.2,
+  "source_components_ports_nets_traces_identical": false,
+  "source_ports_nets_traces_identical": false,
+  "baseline_connected_physical_pin_roles_preserved": true,
+  "reference_feedback_added": true,
+  "native_import_land_patterns_courtyards_models_preserved": true,
+  "intentional_changes": "Preserve functional net groups; move fitted population to top, replace rectangular debug strips with native circular test points, use standard USB-C symbols and reference SMT JST-SH, reroute affected copper",
+  "new_motor_connector_uses_native_supplier_land_pattern": true,
+  "saved_placements_pads_CAD_and_mounting_equal_native_source": true,
+  "native_via_in_pad_flag": true,
+  "via_in_pad_policy": "Only the three grounded exposed-pad thermal sites pass the strict independent via-in-pad check; all other via-in-pad placements remain prohibited.",
+  "moved_references": [
+    "C_ADC",
+    "C_BOOTSTRAP",
+    "C_BUCK_IN",
+    "C_BUCK_OUT1",
+    "C_BUCK_OUT2",
+    "C_CP",
+    "C_DRV_LOGIC",
+    "C_DV23",
+    "C_DV50",
+    "C_FLASH",
+    "C_IO1",
+    "C_IO33",
+    "C_IO42",
+    "C_IO49",
+    "C_PD",
+    "C_REF",
+    "C_USB",
+    "C_VCP",
+    "C_VM",
+    "C_VM_SENSE",
+    "C_VREG",
+    "C_VREG_IN",
+    "C_VREG_OUT",
+    "D_DATA",
+    "D_PD",
+    "D_TVS",
+    "J_BOOT",
+    "J_DEBUG",
+    "L_BUCK",
+    "R_BOOT",
+    "R_CC1",
+    "R_CC2",
+    "R_DM",
+    "R_DP",
+    "R_ENABLE",
+    "R_FLASH_CS",
+    "R_PD",
+    "R_PG",
+    "R_REF_H",
+    "R_REF_L",
+    "R_RUN",
+    "R_SA",
+    "R_SB",
+    "R_SLEEP",
+    "R_USB_SENSE_H",
+    "R_USB_SENSE_L",
+    "R_VM_H",
+    "R_VM_L",
+    "U_BUCK",
+    "U_ESD",
+    "U_FLASH",
+    "U_MCU",
+    "U_PD"
+  ],
+  "all_layer_keepouts": [
+    "bottom",
+    "inner1",
+    "inner2",
+    "top"
+  ],
+  "keepout_shape": "circle",
+  "keepout_radius_mm": 2.2,
+  "keepouts_allow_placements_reason": "Copper constrained on all layers; exact native STEP solids independently verify body/head clearance rather than treating wide rectangular supplier courtyards as solid material.",
+  "same_USB_edge": "+Y",
+  "USB_mouths_mm": [
+    [
+      -6.2,
+      17.50000000000005
+    ],
+    [
+      6.2,
+      17.50000000000005
+    ]
+  ],
+  "USB_port_pitch_mm": 12.4,
+  "required_fastener": {
+    "standard": "DIN 920",
+    "thread": "M3",
+    "maximum_head_diameter_mm": 4,
+    "model_envelope_diameter_mm": 4.4,
+    "conservative_model_height_mm": 3,
+    "radial_screen_allowance_mm": 0.2
+  },
+  "plug_envelope_mm": [
+    10,
+    30,
+    7
+  ],
+  "simultaneous_plug_gap_mm": 2.4000000000000004,
+  "minimum_USB_to_head_envelope_mm": 0.129999999999999,
+  "native_DRC_errors": 0,
+  "native_DRC_warnings": 0,
+  "physical_nets_checked": 63,
+  "final_counts": {
+    "pcb_trace": 593,
+    "pcb_via": 276,
+    "pcb_copper_pour": 39
+  },
+  "placement_and_affected_copper_changed": true,
+  "construction_receipts_are_history": "Routing/pruning/repair receipts include trial and subsequently replaced copper; this proof and current board JSON describe the final geometry.",
+  "motor_connector": {
+    "reference": "J_MOTOR",
+    "manufacturer_part_number": "BM04B-SRSS-TB(LF)(SN)",
+    "supplier_id": "C160390",
+    "mating_housing": "SHR-04V-S",
+    "insertion_direction": "+Z (from above)",
+    "body_and_lead_bbox_mm": [
+      -7.500000100000002,
+      -16.432502999999997,
+      0.8,
+      -1.4999998999999995,
+      -12.822502999999998,
+      5.0600000000000005
+    ],
+    "body_within_35mm_outline": true,
+    "native_SMT_pad_centres_mm": [
+      [
+        -3.0000029999999995,
+        -13.2149963
+      ],
+      [
+        -4.000001,
+        -13.2149963
+      ],
+      [
+        -4.999999,
+        -13.2149963
+      ],
+      [
+        -5.999997,
+        -13.2149963
+      ],
+      [
+        -1.700031,
+        -15.7400103
+      ],
+      [
+        -7.299969,
+        -15.740010299999998
+      ]
+    ],
+    "native_JST_drills": 0,
+    "STEP_landing_regions": [
+      {
+        "native_pad_xy_mm": [
+          -3.0000029999999995,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530082,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -4.000001,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530083,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -4.999999,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.03876202265530081,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -5.999997,
+          -13.2149963
+        ],
+        "STEP_landing_region_volume_mm3": 0.038762022655300765,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -1.700031,
+          -15.7400103
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842394,
+        "individual_metal_terminal_center_verified": false
+      },
+      {
+        "native_pad_xy_mm": [
+          -7.299969,
+          -15.740010299999998
+        ],
+        "STEP_landing_region_volume_mm3": 0.05040614094842416,
+        "individual_metal_terminal_center_verified": false
+      }
+    ],
+    "individual_STEP_metal_terminal_centers_verified": false,
+    "vertical_access_envelope_bbox_mm": [
+      -3.3000023999999994,
+      -13.990001099999999,
+      0.7999999999999999,
+      -2.7000035999999996,
+      -12.439991499999998,
+      0.9
+    ],
+    "vertical_access_intersections": [],
+    "tail_projection_below_PCB_mm": 0,
+    "cable_and_finger_clearance_hardware_tested": false
+  },
+  "rear_motor_compatibility_verified": false,
+  "fabrication_approved": false
+}

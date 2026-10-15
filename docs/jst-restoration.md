@@ -1,30 +1,24 @@
-# Fitted JST PH motor connector restoration — 1.4.0
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
 
-The 1.3.0 board contained four bare 2 mm-pitch solder holes, not a purchased JST connector. This release adds the reference board’s actual **B4B-PH-K-S(LF)(SN), C131334** top-entry JST PH header and original supplier land pattern and OBJ/STEP files. Use a matching **PHR-4** housing. Pins 1–4 remain A+, A−, B+, B−; all source port/net/trace records and all other component values are identical to the 1.3.0 baseline.
+# Current motor connector and harness — v1.8.2
 
-The exact PCB is still 35 × 35 mm. Both USB-C ports remain on +Y at X=±6.2 mm, with 12 mm plug envelopes and mandatory DIN 920 M3 heads ≤Ø4 mm. The mounting holes remain exactly (±13, ±13), Ø3.2 mm in native source, delivered Circuit JSON and the actual Excellon file.
+J_MOTOR is the original imported **BM04B-SRSS-TB(LF)(SN), C160390**, a 1 mm-pitch top-entry SMT JST-SH header. It follows the user's NEMA8 assembly reference. Rishabh's RP2040 reference uses the 2 mm-pitch through-hole **B4B-PH-K-S(LF)(SN), C131334** JST-PH. Coil order matches, but the two families cannot mate. Use an SH harness rather than a PHR-4 PH cable.
 
-## Verified geometry
+JST's [SH family datasheet](https://www.jst-mfg.com/product/pdf/eng/eSH.pdf), cached in `references/JST-SH.pdf`, specifies **1 A AC/DC with AWG28**, 50 V AC/DC, and −25 to +85 °C including current-induced temperature rise. Contacts accept AWG32–28 with insulation Ø0.4–0.8 mm. The proposed mating parts are **SHR-04V-S** housing and **SSH-003T-P0.2-H** crimp contacts. Use correctly crimped AWG28 harness wires to support the stated 1 A rating. Verify exact ordering suffix, supplier crimp capability and wire insulation before ordering.
 
-The JST native land pattern uses four Ø0.999998 mm drills with Ø1.5999968 mm copper lands and 1.999996 mm supplier pitch. Nominal procurement dimensions are 1 mm drills / 2 mm pitch. The actual CAM coordinate comparison uses 0.0001 mm tolerance for decimal export rounding. The JSON coordinates are recorded below; actual Gerber drill matches are saved in `artifacts/jst-restoration/connector-verification.json`.
+At 3.3 V nominal, the A4988 divider and 0.24 Ω sense resistors set approximately 0.351 A peak per phase. The provisional tolerance budget is approximately 0.397 A; this is not a measured maximum. The SH family rating supports the nominal electrical requirement with the specified harness. It does not qualify enclosure temperature, vibration, strain relief, cable retention or the supplier's assembly process.
 
-The original STEP lead centres measured in a Z=-2 mm section are X=0, 2, 4, 6 mm, Y=0 mm. The native footprint’s bounding-box centre differs from its anchor by 0.550037 mm. A rotated local CAD-only +Y correction aligns the STEP leads to the unchanged native land pattern. The original STEP and OBJ bytes and all original imported parts remain unchanged. Only access metadata (`insertionDirection="from_above"`) and model alignment are added to the new JST import.
+The STEPperONLINE 14HM11-0404S drawing specifies bare motor leads, not a factory JST harness. A properly terminated adapter harness or qualified splice is needed; do not assume the motor lead gauge fits SH contacts directly.
 
-The transformed header body fits inside the PCB outline. Its 20 mm-high vertical insertion region, extending 0.3 mm around the native header XY bounds, intersects no other fitted part, screw envelope or USB plug envelope. This screen does not qualify a particular cable, finger/grip envelope, tolerance stack or installed motor. Through-hole tails project approximately 1.4 mm below the PCB; any adapter must provide clearance and insulation. **Rear-motor compatibility is unverified.**
+| Header pin | A4988 output net | Motor factory lead color |
+| --- | --- | --- |
+| 1 | A_PLUS | Black |
+| 2 | A_MINUS | Green |
+| 3 | B_PLUS | Red |
+| 4 | B_MINUS | Blue |
 
-| Physical pin | Coil | Native X (mm) | Native Y (mm) | Actual drill X (mm) | Actual drill Y (mm) |
-| --- | --- | --- | --- | --- | --- |
-| 1 | A_PLUS | -7.499994 | -14.249963 | -7.5000 | -14.2500 |
-| 2 | A_MINUS | -5.499998 | -14.249963 | -5.5000 | -14.2500 |
-| 3 | B_PLUS | -3.500002 | -14.249963 | -3.5000 | -14.2500 |
-| 4 | B_MINUS | -1.500006 | -14.249963 | -1.5000 | -14.2500 |
+The original imported land pattern has four signal lands and two NC mechanical hold-down lands, all on top. There are no JST through-hole leads or corresponding drill hits. The six physical land/CAM matches are recorded in `artifacts/jst-restoration/connector-verification.json`. The two hold-down pad numbers were split into distinct metadata identities for verification; original copper geometry is retained.
 
-## Copper routing
+Native STEP landing-region overlap and nominal vertical insertion clearance pass. The supplier model fuses plastic and contacts, so those checks do not independently identify each metal terminal center. Harness housing tolerances, grip access, bend radius and strain relief need verification with the actual purchased harness. The assembly-preview model is a concept; no motor rear threads or adapter fit are verified.
 
-The driver and local sense/charge-pump/decoupling parts are repositioned to clear the fitted header. The crystal body remains in place. Affected copper is reconstructed on the original four-layer stack with all physical nets checked. Motor and sense routes use 0.3 mm fan-outs, retaining the reviewed 0.4 A screening budget; this budget does not certify the programmed current or temperature in hardware. The main PD feeder uses 0.55 mm for the 0.75 A screening budget. A narrower internal PD branch receives a 0.4 A budget only when removing it physically isolates exactly one VBB1/VBB2 or C_VCP terminal, as recorded in the width audit. Three original exposed-pad ground thermal sites are the only allowed via-in-pad exceptions.
-
-## Validation and remaining blockers
-
-Native copper DRC reports zero errors and warnings; physical connectivity, native netlist/pin/source/schematic-placement checks, actual Gerber shorts, width review, native STEP mechanical checks, exact mounting drills and JST drills pass. Placement checks still return passive orientation suggestions. Full independent CAM remains FAIL for BOM/source identity, exposed-pad stencil coverage, paste/assembly-table policy, paste/source mismatch, silkscreen clearance and stencil manufacturability. The raw native BOM includes C131334 correctly but uses supplier identifiers as chip/connector values rather than complete MPN columns; supplier pickup rotation and assembly preview remain unverified. Header and USB cable insertion, USB/PD operation, current accuracy and temperature still need assembled-hardware testing. **Prototype only; fabrication approval is not granted.**
-
-See `artifacts/resume-validation.json` for actual exit codes and `artifacts/mounting-change-proof.json` for the final frozen-file proof. Construction routing receipts contain replaced attempts; the final Circuit JSON, Gerbers and current audit reports define this release.
+All 81 fitted parts, including this connector, are included in the top SMT BOM/CPL. Eight USB shell joints still need secondary soldering. See [order-review instructions](jlcpcb-order-review.md). The earlier PH restoration is preserved separately in [the v1.4 history](history/v1.4-jst-restoration.md).

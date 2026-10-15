@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # RP2040 firmware contract
 
 Use the Pico SDK RP2040 target with 12 MHz XOSC and 2 MB flash. Select the generic JEDEC-compatible boot stage for GD25Q16E; do not assume a Winbond-specific quad-enable sequence. Flash boot and UF2 USB ROM boot require hardware validation.
@@ -19,7 +21,7 @@ On reset, pull-ups/pull-downs disable the A4988. Initialize outputs disabled; re
 
 Full steps: 400/revolution. Configured 1/16 microsteps: 6400/revolution. No USB protocol/application firmware is implemented.
 
-J_DEBUG bottom-to-top in the top PCB view: 3V3, GND, SWCLK, SWDIO, RUN. J_BOOT shorts flash CS to GND through 1 kΩ: hold short while asserting/releasing RUN to enter ROM USB boot. Never leave the short during ordinary flash operation.
+The separate bare top-side pads are TP_3V3, TP_GND, TP_SWCLK, TP_SWDIO, TP_RUN, TP_BOOT and TP_BOOT_GND. Short TP_BOOT to TP_BOOT_GND to pull flash CS low through 1 kΩ; hold the short while asserting/releasing TP_RUN to enter ROM USB boot. Never leave the short during ordinary flash operation. The former J_DEBUG/J_BOOT strips are absent from v1.8.2.
 
 For factory ROM USB boot entry, see [USB programming](usb-programming.md). This hardware contract does not supply a motor-control application.
 

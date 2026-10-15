@@ -180,7 +180,7 @@ export function prepareSchematic(json:any[]) {
  caption('Current reference','VREF / (8 × RSENSE) = 0.351 A nominal',.6,13.2);part({name:'R_REF_H',x:3,y:11,section:'reference'});part({name:'R_REF_L',x:3,y:8.6,section:'reference'});part({name:'C_REF',x:6.8,y:8.6,section:'reference'});connect(['R_REF_H.2','R_REF_L.1','C_REF.1'],[point(3,9.8)])
  part({name:'R_ENABLE',x:9,y:11.8,section:'driver'});part({name:'R_SLEEP',x:9,y:8.8,section:'driver'})
  caption('Motor voltage monitor','100 kΩ / 10 kΩ divider; 10 nF filter',.6,7);part({name:'R_VM_H',x:3,y:4.9,section:'monitor'});part({name:'R_VM_L',x:7,y:4.9,section:'monitor'});part({name:'C_VM_SENSE',x:10.5,y:4.9,section:'monitor'})
- text('JST PH pin order: 1 A+   2 A−   3 B+   4 B−',19,18.7,.23);finish()
+ text('JST-SH pin order: 1 A+   2 A−   3 B+   4 B−',19,18.7,.23);finish()
  start(5,'Temperature & feedback','I²C temperature telemetry, RGB status outputs and PWM magnetic buzzer')
  caption('TMP102 temperature','ADD0 grounded: address 0x48; ALERT unused',.6,19)
  part({name:'U_TEMP',x:5.2,y:15.5,section:'temp',box:[3.3,2.4],left:['SDA','SCL','ALERT'],right:['V_POS','ADD0','GND']});part({name:'C_TEMP',x:10.8,y:15.5,section:'temp'});part({name:'R_TEMP_SDA',x:2.3,y:11.5,section:'temp',symbol:'boxresistor_up'});part({name:'R_TEMP_SCL',x:6.3,y:11.5,section:'temp',symbol:'boxresistor_up'})
@@ -200,6 +200,17 @@ export function prepareSchematic(json:any[]) {
  caption('PWM buzzer','120 mA magnetic load; MOSFET drive and flyback diode',.6,9.3)
  part({name:'BZ1',x:9.4,y:6.5,section:'buzzer',box:[2.5,2.3],left:['_POS','_NEG'],right:['NC1','NC2']});part({name:'Q_BUZZER',x:8.5,y:3.8,section:'buzzer',symbol:'n_channel_e_mosfet_transistor_gate_left_drain_top'});part({name:'R_BUZZER_GATE',x:3.8,y:4.6,section:'buzzer',symbol:'boxresistor_right'});part({name:'R_BUZZER_PD',x:5.8,y:3.6,section:'buzzer'});part({name:'D_BUZZER',x:14,y:6.5,section:'buzzer',symbol:'diode_up'});part({name:'C_BUZZER',x:17,y:6.5,section:'buzzer'})
  caption('Power indication','3.3 V rail present; RGB/buzzer require firmware',22,8.6);part({name:'R_PWR_LED',x:25,y:6.2,section:'power_led'});part({name:'D_PWR',x:25,y:3.8,section:'power_led',symbol:'led_down'});finish()
+ start(6,'Optional encoder (DNP)','Bottom footprints only; AS5600 and both bypass capacitors omitted from factory assembly')
+ caption('Future magnetic shaft position','Nominal sensor centre (0, 0); rear shaft/magnet geometry remains unverified',.6,19)
+ part({name:'U_ENCODER',x:9,y:13,section:'encoder',box:[4.5,2.2],left:['VDD5V','VDD3V3','SDA','SCL'],right:['OUT','PGO'],bottom:['GND','DIR']})
+ capBank(['C_ENCODER','C_ENCODER_BULK'],19,13,'V3V3')
+ text('U_ENCODER, C_ENCODER and C_ENCODER_BULK: bottom / DO NOT PLACE.',.6,7.2,.28)
+ text('3.3 V mode: VDD5V + VDD3V3 tied together; DIR grounded; OUT/PGO NC.',.6,6.2,.25)
+ text('Shared existing temperature I²C bus: AS5600 0x36 / TMP102 0x48.',.6,5.2,.25)
+ text('Existing 4.7 kΩ top-side pull-ups retained. Encoder firmware is required.',.6,4.2,.25)
+ text('A diametrically magnetized shaft magnet and motor fit must be validated.',.6,3.2,.25)
+ finish()
+
  const traces=out.filter(e=>e.type==='schematic_trace');const allEdges=traces.flatMap(t=>t.edges.map((e:any)=>({t,e})));const bridges=new Map<any,P[]>();const candidates=new Map<string,{p:P,t:any}>()
  const on=(p:P,e:any)=>Math.abs((e.to.x-e.from.x)*(p.y-e.from.y)-(e.to.y-e.from.y)*(p.x-e.from.x))<1e-6&&p.x>=Math.min(e.from.x,e.to.x)-1e-6&&p.x<=Math.max(e.from.x,e.to.x)+1e-6&&p.y>=Math.min(e.from.y,e.to.y)-1e-6&&p.y<=Math.max(e.from.y,e.to.y)+1e-6
  const endpoint=(p:P,e:any)=>[e.from,e.to].some(v=>Math.hypot(v.x-p.x,v.y-p.y)<1e-5)
@@ -220,5 +231,7 @@ export function prepareSchematic(json:any[]) {
   if(Math.abs(e.to.x-current.x)>1e-6)result.push({from:current,to:e.to});return result
  })
  const comps=out.filter(e=>e.type==='schematic_component');if(comps.length!==oldComponents.size||new Set(comps.map(e=>e.source_component_id)).size!==oldComponents.size)throw Error('Functional sheet coverage changed')
+ const sheetCount=out.filter(e=>e.type==="schematic_sheet").length
+ for(const e of out)if(e.type==="schematic_text"&&/^Sheet \d+ \//.test(e.text))e.text=e.text.replace(/^(Sheet \d+ \/) \d+/,`$1 ${sheetCount}`)
  return out
 }

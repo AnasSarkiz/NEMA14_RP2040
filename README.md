@@ -1,7 +1,17 @@
-# NEMA14 RP2040 motor controller
+## Motor and hardware assembly preview
 
-35 × 35 mm, four-layer, 15 V USB-PD stepper-controller prototype. All 81 fitted parts populate the top face; LEDs, TMP102 and buzzer remain present. The outward-facing USB-C mouths share the +Y edge at 12.4 mm pitch. Use two 10 mm cable housings (2.4 mm nominal gap) and M3 DIN 920 heads ≤Ø4 mm. Mount holes are exactly (±13, ±13), Ø3.2 mm.
+The default 3D preview now includes the complete routed PCB, motor dimensional concept, four screws, 6 mm spacers and JST-SH cable. [Assembly details and limits](docs/top-assembly.md). [Full assembly](artifacts/top-assembly/assembly-complete.png) · [Top view](artifacts/top-assembly/assembly-top.png) · [3D GLB](artifacts/top-assembly/assembled.glb). Rear motor retention, rear shaft and magnet geometry remain unverified; the view is not rear-motor compatibility evidence. Qualified fabrication JSON and Gerbers are unchanged.
 
-The regenerated [JLCPCB order-review package](artifacts/jlcpcb-review/JLCPCB-OrderReview.zip) passes the independent CAM audit. It includes the reference SMT JST-SH header, exact supplier BOM/CPL, stencil and assembly maps, and the eight USB shell joints requiring secondary soldering. Supplier approval of pickup orientation, availability, stencil and filled/capped thermal-via processing remains required.
+# NEMA14_RP2040 1.11.0 — hardware prototype
 
-See [assembly and harness constraints](docs/top-assembly.md), the [five-sheet schematic](artifacts/schematic-a4.pdf), [order-review receipt](artifacts/jlcpcb-review/order-review-verification.json), and [current validation](artifacts/resume-validation.json). `assembly-preview.circuit.tsx` is a separate unrouted visual concept. Firmware/bench operation and rear-motor attachment remain unverified.
+**CAD qualified for hardware-prototype publication and JLCPCB engineering/order review.** All 63 physical nets are connected; native DRC has zero errors and warnings. Fresh default and order-review CAM audits pass. Native passive-orientation advice retains its actual command status and requires supplier pickup confirmation.
+
+35 × 35 × 1.6 mm, four layers. Actual JSON and drills verify four Ø3.2 mm mounts at (±13, ±13) and minimum via drill/pad Ø0.30/Ø0.45 mm. Upright USB-C sockets occupy opposite edges, leaving 23.300 mm between the defined 10 mm plug housings. The nominal model screens maximum Ø6 × 3 mm heads within a Ø6.4 mm envelope and an Ø6 mm tool path.
+
+All 81 fitted parts are TOP SMT; seven bare top test pads and three BOTTOM encoder/DNP parts are excluded from factory placement/paste. USB/PD, JST-SH A+/A−/B+/B−, TMP102, LEDs, buzzer, driver, flash and the short TOP oscillator are retained. Exact electrical source arrays and all 13 oscillator geometries match the GitHub baseline.
+
+[Current evidence and blockers](docs/opposite-edge-review.md) · [23-check receipt](artifacts/resume-validation.json) · [Connectivity](artifacts/physical-connectivity.json) · [JLCPCB package](artifacts/jlcpcb-review/JLCPCB-OrderReview.zip) · [Six-sheet schematic](artifacts/schematic-a4.pdf).
+
+Supplier/process/pickup approval, physical cable/screw/harness checks and firmware/electrical/thermal bench testing remain outstanding. Rear motor fit and encoder shaft/magnet/air gap are unverified. No order or payment was submitted.
+
+Frozen board SHA-256: `67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6`.

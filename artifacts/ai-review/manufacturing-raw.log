@@ -1,0 +1,12 @@
+
+> NEMA14_RP2040@1.8.2 check:manufacturing
+> /workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render
+
+Traceback (most recent call last):
+  File "/workspace/nema14-rp2040-ai-review-check/scripts/audit-manufacturing.py", line 327, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/nema14-rp2040-ai-review-check/scripts/audit-manufacturing.py", line 103, in main
+    if not path.exists() or path.read_bytes()!=data:raise ValueError(f'Actual archive/extracted byte mismatch: {name}')
+                                                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Actual archive/extracted byte mismatch: F_Cu.gbr

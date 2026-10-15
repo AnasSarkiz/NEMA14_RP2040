@@ -9,6 +9,7 @@ expected={'U_TEMP':{1:'TEMP_SCL',2:'GND',3:None,4:'GND',5:'V3V3',6:'TEMP_SDA'},'
 for color in ['R','G','B']:
  expected['Q_STATUS_'+color]={1:'GND',2:'LED_'+color,3:'STATUS_'+color+'_C'};expected['R_STATUS_'+color]={1:'STATUS_'+color+'_K',2:'STATUS_'+color+'_C'}
 mcu={5:'LED_B',4:'LED_G',27:'BUZZER_PWM',37:'LED_R',38:'TEMP_SDA',39:'TEMP_SCL'} if src['U_MCU']['manufacturer_part_number']=='RP2040' else {10:'LED_R',11:'BUZZER_PWM',12:'LED_G',13:'LED_B',17:'TEMP_SCL',18:'TEMP_SDA'};expected['U_MCU']=mcu
+expected.update(U_ENCODER={1:'V3V3',2:'V3V3',3:None,4:'GND',5:None,6:'TEMP_SDA',7:'TEMP_SCL',8:'GND'},C_ENCODER={1:'V3V3',2:'GND'},C_ENCODER_BULK={1:'V3V3',2:'GND'})
 checks=[]
 for name,pins in expected.items():
  for pin,goal in pins.items():
@@ -17,7 +18,7 @@ for name in ['J_PD','J_DATA']:
  ps=ports[src[name]['source_component_id']]
  for e in ps.values():
   role=e['name'];goal=None
-  if role.startswith('EH') or role in ['GND1','GND2']:goal='GND'
+  if role.startswith('EH') or role in ['GND1','GND2','GND3','GND4']:goal='GND'
   elif role.startswith('VBUS'):goal='PD_VBUS' if name=='J_PD' else 'DATA_VBUS'
   elif role in ['CC1','CC2']:goal=('PD_' if name=='J_PD' else 'DATA_')+role
   elif role in ['DP1','DP2']:goal='USB_DP' if name=='J_DATA' else None
@@ -26,7 +27,7 @@ for name in ['J_PD','J_DATA']:
   actual=net.get(e.get('subcircuit_connectivity_map_key'));assert actual==goal,(name,role,actual,goal);checks.append({'component':name,'physical_pin':e['pin_number'],'pin_name':role,'net':actual})
 for name,ohms in {'R_PWR_LED':330,'R_STATUS_R':1000,'R_STATUS_G':1000,'R_STATUS_B':1000,'R_TEMP_SDA':4700,'R_TEMP_SCL':4700,'R_BUZZER_GATE':100,'R_BUZZER_PD':100000,'R_CC1':5100,'R_CC2':5100}.items():assert src[name]['resistance']==ohms,(name,'Incorrect resistor value')
 for name,value in [('C_TEMP',100e-9),('C_BUZZER',10e-6)]:assert abs(src[name]['capacitance']-value)<1e-12
-for name,id in {'U_TEMP':'C99269','BZ1':'C7544813','Q_BUZZER':'C20917','D_STATUS':'C458749','D_PWR':'C965799','D_BUZZER':'C478000','J_MOTOR':'C160390','J_PD':'C165948','J_DATA':'C165948'}.items():assert src[name]['supplier_part_numbers']['jlcpcb']==[id],(name,'Incorrect supplier identity')
+for name,id in {'U_TEMP':'C99269','BZ1':'C7544813','Q_BUZZER':'C20917','D_STATUS':'C458749','D_PWR':'C965799','D_BUZZER':'C478000','J_MOTOR':'C160390','J_PD':'C5815189','J_DATA':'C5815189'}.items():assert src[name]['supplier_part_numbers']['jlcpcb']==[id],(name,'Incorrect supplier identity')
 if src['U_MCU']['manufacturer_part_number']!='RP2040':assert src['U_BUCK']['manufacturer_part_number']=='AP63203WU-7' and 'U_LDO' not in src,'Buzzer supply must use reviewed buck regulator'
 # Original native land patterns/courtyards and assets; compare current saved data to compiled source.
 record=lambda a,t:sorted(json.dumps(e,sort_keys=True) for e in a if e['type']==t)
