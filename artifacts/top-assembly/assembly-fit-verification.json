@@ -1,0 +1,47 @@
+{
+  "passed": true,
+  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
+  "assembly_sha256": "e8b61e1c4459c1799a8c1a0bb68269a83481485489a91e8fa4fe246b8e438944",
+  "fitted_supplier_STEP_parts": 81,
+  "conservative_USB_STEP_envelopes": [
+    "J_PD",
+    "J_DATA"
+  ],
+  "intentional_terminal_wire_entry_into_own_housing_excluded": true,
+  "wire_bundle_radius_mm": 1.8,
+  "wire_segments": 50,
+  "nearby_wire_envelope_min_clearance_mm": 0.42078552648557443,
+  "collisions": [],
+  "PCB_records_preserved": true,
+  "actual_hardware_JSCAD_geometry_and_placements_checked": true,
+  "screw_centres_mm": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "screw_shaft_to_spacer_bore_radial_clearance_mm": 0.1,
+  "spacer_to_PCB_surface_gap_mm": 0,
+  "spacer_to_model_motor_surface_gap_mm": 0,
+  "motor_rear_attachment_verified": false,
+  "physical_assembly_tested": false,
+  "limitations": [
+    "Rear retention/thread engagement, rear shaft and encoder magnet/airgap remain unverified.",
+    "Motor-side JST termination is proposed; actual supplier motor has bare leads.",
+    "Native JST landing regions do not establish stock housing latch, crimp and tolerance fit.",
+    "Defined plug/tool/head dimensions are procurement bounds; real parts require qualification.",
+    "Bottom encoder and its capacitors are DNP and excluded from fitted-part collision checks."
+  ]
+}

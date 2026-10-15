@@ -1,3 +1,7 @@
+## Motor and hardware assembly preview
+
+The default 3D preview now includes the complete routed PCB, motor dimensional concept, four screws, 6 mm spacers and JST-SH cable. [Assembly details and limits](docs/top-assembly.md). [Full assembly](artifacts/top-assembly/assembly-complete.png) · [Top view](artifacts/top-assembly/assembly-top.png) · [3D GLB](artifacts/top-assembly/assembled.glb). Rear motor retention, rear shaft and magnet geometry remain unverified; the view is not rear-motor compatibility evidence. Qualified fabrication JSON and Gerbers are unchanged.
+
 # NEMA14_RP2040 1.11.0 — hardware prototype
 
 **CAD qualified for hardware-prototype publication and JLCPCB engineering/order review.** All 63 physical nets are connected; native DRC has zero errors and warnings. Fresh default and order-review CAM audits pass. Native passive-orientation advice retains its actual command status and requires supplier pickup confirmation.

@@ -13,7 +13,7 @@ root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
 for d in ['src','docs','scripts','references','tests']:
  if (root/d).is_dir():shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
-for f in ['index.circuit.tsx','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
+for f in ['index.circuit.tsx','assembly.circuit.json','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
 for f in (root/'imports/supplier').rglob('*.tsx'):
  target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
 # Preserve native model files imported by newly cloned supplier TSX modules.
@@ -49,7 +49,7 @@ shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-r
 shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
 shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-feedback')
 top=stage/'artifacts/top-assembly';top.mkdir()
-for name in ['functional-preservation.json','connector-decision.json','placement-plan.json','copper-transfer.json','assembly-preview.circuit.json']:
+for name in ['functional-preservation.json','connector-decision.json','placement-plan.json','copper-transfer.json','assembly-preview.circuit.json','assembly-build-verification.json','assembly-fit-verification.json','assembly-schema-verification.json','assembly-render-verification.json','model-downloads.json','assembly-complete.png','assembly-top.png']:
  shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
@@ -61,6 +61,10 @@ def pin(s):
 for f in (stage/'imports/supplier').rglob('*.tsx'):f.write_text(pin(f.read_text()))
 preview_path=stage/'artifacts/top-assembly/assembly-preview.circuit.json'
 preview_path.write_text(pin(preview_path.read_text()))
+assembly_path=stage/'assembly.circuit.json'
+assembly_path.write_text(pin(assembly_path.read_text()))
+assert json.loads(assembly_path.read_text())==json.loads(preview_path.read_text())
+assert json.loads((root/'artifacts/top-assembly/assembly-fit-verification.json').read_text())['passed']
 
 for e in j:
  if e['type']=='cad_component':
@@ -70,19 +74,23 @@ strip_urls=lambda records:[{k:v for k,v in e.items() if not(e['type']=='cad_comp
 assert strip_urls(j)==strip_urls(original),'Publication changed reviewed geometry or circuit records'
 assert all('/'+revision+'/imports/supplier/' in e[field] for e in j if e['type']=='cad_component' and e.get('model_obj_url') for field in ['model_obj_url','model_step_url'])
 (stage/'index.circuit.json').write_text(json.dumps(j,separators=(',',':'))+'\n')
-config=stage/'tscircuit.config.json';c=json.loads(config.read_text());c['includeBoardFiles']=['index.circuit.json'];config.write_text(json.dumps(c,indent=2)+'\n')
+config=stage/'tscircuit.config.json';c=json.loads(config.read_text());c['includeBoardFiles']=['index.circuit.json','assembly.circuit.json'];c['previewComponentPath']='assembly.circuit.json';config.write_text(json.dumps(c,indent=2)+'\n')
 proof={'github_revision':revision,'review_board_sha256':hashlib.sha256(board_path.read_bytes()).hexdigest(),'published_board_sha256':hashlib.sha256((stage/'index.circuit.json').read_bytes()).hexdigest(),'only_cad_url_metadata_changed':True,'saved_routing_preserved':True,'pinned_cad_components':sum(e['type']=='cad_component' and bool(e.get('model_obj_url')) for e in j)}
 (stage/'artifacts/publication-provenance.json').write_text(json.dumps(proof,indent=2)+'\n')
 print('Prepared source package:',json.dumps(proof))
 PYSTAGE
 cd "$package_stage"
 XDG_CONFIG_HOME=/workspace/.config tsci build index.circuit.json
+XDG_CONFIG_HOME=/workspace/.config tsci build assembly.circuit.json
 python3 - "$package_stage" <<'PYDIST'
 import json,pathlib,sys
 stage=pathlib.Path(sys.argv[1]);saved=json.loads((stage/'index.circuit.json').read_text());built=json.loads((stage/'dist/index/circuit.json').read_text())
 assert built==saved,'Native CLI dist build differs from saved routing'
 (stage/'dist/index/circuit.json').write_text(json.dumps(built,separators=(',',':'))+'\n')
-print('Including verified compact native dist/index/circuit.json')
+assembly=json.loads((stage/'assembly.circuit.json').read_text())
+assert json.loads((stage/'dist/assembly/circuit.json').read_text())==assembly
+(stage/'dist/assembly/circuit.json').write_text(json.dumps(assembly,separators=(',',':'))+'\n')
+print('Including verified compact native PCB and assembly dist files')
 PYDIST
 # Verify uploads even when the CLI returns zero: it can report failed files
 # after a partial fallback upload. Native bounded archives repair missing rows.
@@ -100,6 +108,7 @@ PYLOG
 fi
 python3 "$project_root/scripts/recover-publication.py" "$package_stage"
 python3 "$project_root/scripts/verify-publication.py" "$project_root"
+python3 "$project_root/scripts/verify-assembly-publication.py" "$project_root"
 python3 - "$package_stage" <<'PYVERSION'
 import json,pathlib,sys
 p=pathlib.Path(sys.argv[1]);print('Published registry version:',json.loads((p/'package.json').read_text())['version'])
