@@ -6,7 +6,7 @@ Saved board SHA-256: `a261317dc5ba675ad0bc012489fdf99ec7cd64299d3db6f8985828f675
 
 The board is 35 × 35 × 1.6 mm, four layers, with four NPTH holes exactly (±13, ±13), Ø3.2 mm. USB4145-03-0070-C (C5815189) sockets are upright at nominal (−6.05, 15.15) and (6.05, 15.15), with insertion along +Z. Two defined 10 mm cable housings have 2.1 mm nominal separation. The fastener requirement remains maximum Ø4 mm heads; the STEP screen includes a Ø4.4 mm × 3 mm envelope. This verifies nominal CAD geometry, not physical assembly or rear motor attachment.
 
-All 81 fitted parts and 7 separate bare test pads remain on top. Standard USB-C schematic symbols, both contact orientations, independent 5.1 kΩ data CC resistors, CH224K 15 V configuration, Schottky supply isolation, SMT JST-SH C160390 coil order, TMP102, LEDs and buzzer are retained. See [reference pin review](reference-feedback.md) and [motor connector/harness](jst-restoration.md).
+All 81 fitted parts and 7 separate bare test pads remain on top. Standard USB-C schematic symbols, both contact orientations, independent 5.1 kΩ data CC resistors, CH224A 15 V configuration, Schottky supply isolation, SMT JST-SH C160390 coil order, TMP102, LEDs and buzzer are retained. See [reference pin review](reference-feedback.md) and [motor connector/harness](jst-restoration.md).
 
 The AS5600-ASOM (C79815) and its 100 nF/1 µF bypass capacitors are on the bottom with doNotPlace. It shares the existing 3.3 V I²C bus (address 0x36, distinct from TMP102 0x48). Its OUT and PGO remain NC. Rear shaft, magnet selection/air gap, encoder firmware and physical fit require later verification.
 

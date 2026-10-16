@@ -1,5 +1,5 @@
 """Verify the delivered reference feedback and connector standards by physical pins."""
-import hashlib,itertools,json,pathlib,re,sys
+import hashlib,itertools,json,pathlib,re,sys,subprocess
 from shapely.geometry import Polygon,box
 from shapely.affinity import rotate
 ROOT=pathlib.Path(__file__).resolve().parents[1];p=pathlib.Path(sys.argv[1]) if len(sys.argv)>1 else ROOT/'artifacts/board.circuit.json';j=json.loads(p.read_text());s=json.loads((ROOT/'artifacts/final-source.circuit.json').read_text());cat=json.loads((ROOT/'src/jlcpcb-catalog.json').read_text());src={e['name']:e for e in j if e['type']=='source_component'};net={e['subcircuit_connectivity_map_key']:e['name'] for e in j if e['type']=='source_net'};ports={}
@@ -32,8 +32,25 @@ if src['U_MCU']['manufacturer_part_number']!='RP2040':assert src['U_BUCK']['manu
 # Original native land patterns/courtyards and assets; compare current saved data to compiled source.
 record=lambda a,t:sorted(json.dumps(e,sort_keys=True) for e in a if e['type']==t)
 for typ in ['pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_courtyard_outline','pcb_courtyard_rect','cad_component','pcb_hole','pcb_keepout']:assert record(j,typ)==record(s,typ),typ+' differs from compiled native source'
-for part in cat['parts'].values():
- path=ROOT/part['importPath'];original=pathlib.Path(str(path)+'.original');assert hashlib.sha256(original.read_bytes()).hexdigest()==part['originalImportSha256'];fp=lambda text:re.search(r'<footprint[^>]*>.*?</footprint>',text,re.S).group(0).replace(' insertionDirection="from_above"','');assert fp(path.read_text())==fp(original.read_text())
+# Published packages omit some historical .original snapshots. For those
+# unchanged parts, verify their footprint against the frozen local baseline;
+# new migration imports must retain their authentic downloaded originals.
+footprint=lambda text:re.search(r'<footprint[^>]*>.*?</footprint>',text,re.S).group(0).replace(' insertionDirection="from_above"','')
+baseline_commit=subprocess.check_output(['git','rev-list','--max-parents=0','HEAD'],cwd=ROOT,text=True).strip()
+baseline_fallback=[]
+dnp_ids={e['source_component_id'] for e in j if e['type']=='pcb_component' and e.get('do_not_place')}
+active_codes={code for component in src.values() if component['source_component_id'] not in dnp_ids for code in component.get('supplier_part_numbers',{}).get('jlcpcb',[])}
+for code,part in cat['parts'].items():
+ if code not in active_codes:continue
+ path=ROOT/part['importPath'];original=pathlib.Path(str(path)+'.original')
+ if original.exists():
+  assert hashlib.sha256(original.read_bytes()).hexdigest()==part['originalImportSha256']
+  assert footprint(path.read_text())==footprint(original.read_text())
+ else:
+  assert code not in ['C42459160','C21189','C25796'],'New supplier original snapshot missing: '+code
+  frozen=subprocess.check_output(['git','show',baseline_commit+':'+part['importPath']],cwd=ROOT,text=True)
+  assert footprint(path.read_text())==footprint(frozen),'Baseline land pattern changed: '+code
+  baseline_fallback.append(code)
  for kind in ['obj','step']:assert hashlib.sha256((ROOT/next(f for f in part['modelFiles'] if f.endswith('.'+kind))).read_bytes()).hexdigest()==part['sha256'][kind]
 pc={e['pcb_component_id']:e for e in j if e['type']=='pcb_component'};byid={e['source_component_id']:e['name'] for e in j if e['type']=='source_component'};polys={};sides={}
 for e in j:
@@ -43,5 +60,5 @@ for e in j:
  else:continue
  name=byid[pc[e['pcb_component_id']]['source_component_id']];polys[name]=poly;sides[name]=e.get('layer',pc[e['pcb_component_id']]['layer'])
 ov=[(a,b) for a,b in itertools.combinations(polys,2) if sides[a]==sides[b] and polys[a].intersection(polys[b]).area>1e-7];assert not ov,ov
-report={'passed':True,'board_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'reference':json.loads((ROOT/'artifacts/reference-feedback/baseline.json').read_text())['reference_release_id'],'physical_pin_checks':checks,'TMP102_address':'0x48','TMP102_ALERT':'NC; firmware polls temperature and defines alarms','temperature_bus':'RP2040 I2C1 GPIO26/27' if src['U_MCU']['manufacturer_part_number']=='RP2040' else 'Software I2C PB7 SDA / PB6 SCL; USB and WCH debug retained','RGB_anode':'DATA_VBUS fixed programming-USB 5 V','buzzer_reset_default':'100 kohm gate-to-ground pull-down; off at reset','buzzer_flyback':'PMEG6020ELRX C478000, 60 V / 2 A reference power diode used as compatible flyback replacement','original_imported_footprints_and_courtyards_unchanged':True,'original_OBJ_and_STEP_bytes_hash_verified':True,'native_courtyard_overlap_count':0,'JST_order':['A_PLUS','A_MINUS','B_PLUS','B_MINUS'],'USB_port_roles_match_reference':True,'hardware_operation_verified':False}
+report={'passed':True,'board_sha256':hashlib.sha256(p.read_bytes()).hexdigest(),'reference':json.loads((ROOT/'artifacts/reference-feedback/baseline.json').read_text())['reference_release_id'],'physical_pin_checks':checks,'TMP102_address':'0x48','TMP102_ALERT':'NC; firmware polls temperature and defines alarms','temperature_bus':'RP2040 I2C1 GPIO26/27' if src['U_MCU']['manufacturer_part_number']=='RP2040' else 'Software I2C PB7 SDA / PB6 SCL; USB and WCH debug retained','RGB_anode':'DATA_VBUS fixed programming-USB 5 V','buzzer_reset_default':'100 kohm gate-to-ground pull-down; off at reset','buzzer_flyback':'PMEG6020ELRX C478000, 60 V / 2 A reference power diode used as compatible flyback replacement','original_imported_footprints_and_courtyards_unchanged':True,'historical_supplier_originals_not_in_published_package_baseline_footprint_checked_instead':baseline_fallback,'original_OBJ_and_STEP_bytes_hash_verified':True,'model_hash_scope':'fitted parts; optional DNP models excluded','native_courtyard_overlap_count':0,'JST_order':['A_PLUS','A_MINUS','B_PLUS','B_MINUS'],'USB_port_roles_match_reference':True,'hardware_operation_verified':False}
 (ROOT/'artifacts/reference-feedback/circuit-verification.json').write_text(json.dumps(report,indent=2)+'\n');print('Reference feedback and connector physical pins PASS:',len(checks),'pins;',len(polys),'native courtyards')

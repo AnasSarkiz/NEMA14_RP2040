@@ -11,7 +11,7 @@ export function pinProps(name:string):Pick<ChipProps,'pinAttributes'> {
    Q_STATUS_G:{...ground(["E"]),B:{isInput:true,mustBeConnected:true},C:{mustBeConnected:true}},
    Q_STATUS_B:{...ground(["E"]),B:{isInput:true,mustBeConnected:true},C:{mustBeConnected:true}},
    U_TEMP:{...power(["V_POS"]),...ground(["GND","ADD0"]),SCL:{mustBeConnected:true,isInput:true,needsExternalPullup:true,canUseOpenDrain:true},SDA:{mustBeConnected:true,isBidirectional:true,needsExternalPullup:true,canUseOpenDrain:true}},
-   U_PD:{...power(['VDD','VBUS']),...ground(['GND'])},
+   U_PD:{...power(['VHV']),...ground(['GND']),VBUS:{isInput:true,mustBeConnected:true},PG:{isOutput:true,canUseOpenDrain:true,needsExternalPullup:true}},
    U_DRV:{...power(['VDD','VBB1','VBB2']),...ground(['GND','GND18','EP'])},
    U_LDO:{...power(['VIN']),...ground(['GND']),VOUT:{providesPower:true,mustBeConnected:true}},
    U_BUCK:{...power(['VIN']),...ground(['GND']),FB:{mustBeConnected:true},BST:{mustBeConnected:true}},

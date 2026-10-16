@@ -1,9 +1,9 @@
 {
   "passed": true,
-  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
-  "traces_reviewed": 538,
-  "wire_segments_reviewed": 9995,
-  "vias_reviewed": 330,
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "traces_reviewed": 536,
+  "wire_segments_reviewed": 10087,
+  "vias_reviewed": 329,
   "errors": [],
   "trace_inventory": [
     {
@@ -963,38 +963,8 @@
       "issues": []
     },
     {
-      "trace": "same_side_repair_19_PD_VDD_0",
-      "net": "PD_VDD",
-      "source_trace": "source_trace_33",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.4500000000000002,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "U_PD.2 (CFG2)",
-        "U_PD.3 (CFG3)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_20_PD_VDD_1",
-      "net": "PD_VDD",
-      "source_trace": "source_trace_32",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.4499999999999993,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "U_PD.1 (VDD)",
-        "U_PD.2 (CFG2)"
-      ],
-      "issues": []
-    },
-    {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "source_trace": "source_trace_43",
       "layers": [
         "top"
@@ -1003,20 +973,6 @@
       "minimum_width_mm": 0.16,
       "physical_ports": [
         "C_PD.1 (pin1)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "source_trace": "source_trace_34",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.3267766952966367,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "U_PD.3 (CFG3)"
       ],
       "issues": []
     },
@@ -1105,20 +1061,6 @@
       "physical_ports": [
         "U_DRV.5 (CP2)",
         "C_CP.2 (pin2)"
-      ],
-      "issues": []
-    },
-    {
-      "trace": "reviewed_local_U_PD_CFG1",
-      "net": "GND",
-      "source_trace": "source_trace_35",
-      "layers": [
-        "top"
-      ],
-      "length_mm": 0.9952522104974186,
-      "minimum_width_mm": 0.16,
-      "physical_ports": [
-        "U_PD.9 (CFG1)"
       ],
       "issues": []
     },
@@ -2324,7 +2266,7 @@
     },
     {
       "trace": "reviewed_local_R_PD_pin2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "source_trace": "source_trace_42",
       "layers": [
         "top"
@@ -4125,7 +4067,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "source_trace": "source_trace_32",
       "layers": [
         "bottom"
@@ -4137,12 +4079,12 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "source_trace": "source_trace_32",
       "layers": [
         "bottom"
       ],
-      "length_mm": 3.3449747468305806,
+      "length_mm": 3.2593574170229256,
       "minimum_width_mm": 0.16,
       "physical_ports": [],
       "issues": []
@@ -4857,7 +4799,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "source_trace": "source_trace_32",
       "layers": [
         "bottom"
@@ -7050,6 +6992,35 @@
       "minimum_width_mm": 0.16,
       "physical_ports": [],
       "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "source_trace": "source_trace_32",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 2.359388702058238,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "U_PD.1 (VHV)"
+      ],
+      "issues": []
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "source_trace": "source_trace_35",
+      "layers": [
+        "top"
+      ],
+      "length_mm": 8.779898987322325,
+      "minimum_width_mm": 0.16,
+      "physical_ports": [
+        "R_PD_CFG.1 (pin1)",
+        "U_PD.9 (CFG1)"
+      ],
+      "issues": []
     }
   ],
   "segment_inventory": [
@@ -7272,7 +7243,7 @@
         -5.8201160000000005
       ],
       "end_mm": [
-        4.0,
+        4,
         -6.049999999999999
       ],
       "length_mm": 0.22988399999999842,
@@ -7467,7 +7438,7 @@
         6.100000000000001
       ],
       "end_mm": [
-        6.0,
+        6,
         6.125
       ],
       "length_mm": 0.035355339059327875,
@@ -7478,11 +7449,11 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        6.0,
+        6,
         6.125
       ],
       "end_mm": [
-        6.0,
+        6,
         6.175000000000001
       ],
       "length_mm": 0.05000000000000071,
@@ -7493,7 +7464,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        6.0,
+        6,
         6.175000000000001
       ],
       "end_mm": [
@@ -8008,7 +7979,7 @@
       ],
       "end_mm": [
         1.85,
-        -9.0
+        -9
       ],
       "length_mm": 0.28284271247461895,
       "width_mm": 0.3
@@ -8607,7 +8578,7 @@
         -9.600105
       ],
       "end_mm": [
-        5.0,
+        5,
         -8.975
       ],
       "length_mm": 0.6251054297588523,
@@ -8772,7 +8743,7 @@
         -5.8201160000000005
       ],
       "end_mm": [
-        4.0,
+        4,
         -6.25
       ],
       "length_mm": 0.4298839999999995,
@@ -8802,7 +8773,7 @@
         5.793
       ],
       "end_mm": [
-        2.0,
+        2,
         5.800000000000001
       ],
       "length_mm": 0.4259415235170198,
@@ -8833,7 +8804,7 @@
       ],
       "end_mm": [
         -2.9499999999999993,
-        6.0
+        6
       ],
       "length_mm": 0.5510154695324255,
       "width_mm": 0.16
@@ -8844,7 +8815,7 @@
       "layer": "top",
       "start_mm": [
         -2.9499999999999993,
-        6.0
+        6
       ],
       "end_mm": [
         -2.9749999999999996,
@@ -9188,7 +9159,7 @@
       "net": "VREF",
       "layer": "top",
       "start_mm": [
-        7.0,
+        7,
         -16.2
       ],
       "end_mm": [
@@ -9444,11 +9415,11 @@
       "layer": "top",
       "start_mm": [
         -9.5,
-        7.0
+        7
       ],
       "end_mm": [
         -9.174999999999999,
-        7.0
+        7
       ],
       "length_mm": 0.32500000000000107,
       "width_mm": 0.55
@@ -9552,7 +9523,7 @@
         4.525000000000002
       ],
       "end_mm": [
-        -12.0,
+        -12,
         4.5
       ],
       "length_mm": 0.03535533905932913,
@@ -9563,11 +9534,11 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         4.5
       ],
       "end_mm": [
-        -12.0,
+        -12,
         4.475000000000001
       ],
       "length_mm": 0.02499999999999858,
@@ -9578,7 +9549,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         4.475000000000001
       ],
       "end_mm": [
@@ -9852,7 +9823,7 @@
         9.700000000000003
       ],
       "end_mm": [
-        14.0,
+        14,
         9.700000000000003
       ],
       "length_mm": 0.07500000000000284,
@@ -9863,7 +9834,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        14.0,
+        14,
         9.700000000000003
       ],
       "end_mm": [
@@ -10258,7 +10229,7 @@
       ],
       "end_mm": [
         8.275000000000002,
-        10.0
+        10
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -10269,11 +10240,11 @@
       "layer": "top",
       "start_mm": [
         8.275000000000002,
-        10.0
+        10
       ],
       "end_mm": [
         8.200000000000003,
-        10.0
+        10
       ],
       "length_mm": 0.07499999999999929,
       "width_mm": 0.16
@@ -10284,7 +10255,7 @@
       "layer": "top",
       "start_mm": [
         8.200000000000003,
-        10.0
+        10
       ],
       "end_mm": [
         8.175,
@@ -10347,7 +10318,7 @@
         10.05
       ],
       "end_mm": [
-        8.0,
+        8,
         10.075000000000003
       ],
       "length_mm": 0.03535533905933039,
@@ -10358,7 +10329,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        8.0,
+        8,
         10.075000000000003
       ],
       "end_mm": [
@@ -10768,7 +10739,7 @@
       ],
       "end_mm": [
         8.375,
-        9.0
+        9
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.3
@@ -10779,11 +10750,11 @@
       "layer": "top",
       "start_mm": [
         8.375,
-        9.0
+        9
       ],
       "end_mm": [
         8.450000000000003,
-        9.0
+        9
       ],
       "length_mm": 0.07500000000000284,
       "width_mm": 0.3
@@ -10794,7 +10765,7 @@
       "layer": "top",
       "start_mm": [
         8.450000000000003,
-        9.0
+        9
       ],
       "end_mm": [
         8.5,
@@ -10879,38 +10850,8 @@
       "width_mm": 0.3
     },
     {
-      "trace": "same_side_repair_19_PD_VDD_0",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -16.95,
-        7.45
-      ],
-      "end_mm": [
-        -16.95,
-        7.9
-      ],
-      "length_mm": 0.4500000000000002,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_20_PD_VDD_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -16.95,
-        8.9
-      ],
-      "end_mm": [
-        -16.95,
-        8.450000000000001
-      ],
-      "length_mm": 0.4499999999999993,
-      "width_mm": 0.16
-    },
-    {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "top",
       "start_mm": [
         -15.275,
@@ -10925,7 +10866,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "top",
       "start_mm": [
         -15.4,
@@ -10940,7 +10881,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "top",
       "start_mm": [
         -15.475,
@@ -10955,7 +10896,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "top",
       "start_mm": [
         -15.5,
@@ -10964,96 +10905,6 @@
       "end_mm": [
         -15.525,
         3.325
-      ],
-      "length_mm": 0.025000000000000355,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.225,
-        6.775000000000002
-      ],
-      "end_mm": [
-        -15.3,
-        6.850000000000001
-      ],
-      "length_mm": 0.10606601717798238,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.3,
-        6.850000000000001
-      ],
-      "end_mm": [
-        -15.35,
-        6.850000000000001
-      ],
-      "length_mm": 0.049999999999998934,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.35,
-        6.850000000000001
-      ],
-      "end_mm": [
-        -15.375,
-        6.875
-      ],
-      "length_mm": 0.03535533905932662,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.375,
-        6.875
-      ],
-      "end_mm": [
-        -15.45,
-        6.875
-      ],
-      "length_mm": 0.07499999999999929,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.45,
-        6.875
-      ],
-      "end_mm": [
-        -15.475,
-        6.900000000000002
-      ],
-      "length_mm": 0.03535533905932913,
-      "width_mm": 0.16
-    },
-    {
-      "trace": "same_side_repair_22_PD_VDD_3_layer_section_1",
-      "net": "PD_VDD",
-      "layer": "top",
-      "start_mm": [
-        -15.475,
-        6.900000000000002
-      ],
-      "end_mm": [
-        -15.5,
-        6.9
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -11479,21 +11330,6 @@
       "width_mm": 0.16
     },
     {
-      "trace": "reviewed_local_U_PD_CFG1",
-      "net": "GND",
-      "layer": "top",
-      "start_mm": [
-        -10.22976,
-        8.179929999999999
-      ],
-      "end_mm": [
-        -11.225,
-        8.175
-      ],
-      "length_mm": 0.9952522104974186,
-      "width_mm": 0.16
-    },
-    {
       "trace": "reviewed_local_R_USB_SENSE_L_pin2",
       "net": "GND",
       "layer": "top",
@@ -11653,7 +11489,7 @@
       ],
       "end_mm": [
         8.3,
-        -13.0
+        -13
       ],
       "length_mm": 0.6466360000000009,
       "width_mm": 0.2
@@ -11727,7 +11563,7 @@
         -5.297184000000001
       ],
       "end_mm": [
-        6.0,
+        6,
         -5.299999999999999
       ],
       "length_mm": 0.53000748094343,
@@ -12372,7 +12208,7 @@
         16.325000000000003
       ],
       "end_mm": [
-        -12.0,
+        -12,
         16.300000000000004
       ],
       "length_mm": 0.035355339059325364,
@@ -12383,7 +12219,7 @@
       "net": "RUN",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         16.300000000000004
       ],
       "end_mm": [
@@ -13168,7 +13004,7 @@
       ],
       "end_mm": [
         -2.125,
-        -7.0
+        -7
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -13179,11 +13015,11 @@
       "layer": "top",
       "start_mm": [
         -2.125,
-        -7.0
+        -7
       ],
       "end_mm": [
         -2.174999999999999,
-        -7.0
+        -7
       ],
       "length_mm": 0.049999999999998934,
       "width_mm": 0.16
@@ -13194,7 +13030,7 @@
       "layer": "top",
       "start_mm": [
         -2.174999999999999,
-        -7.0
+        -7
       ],
       "end_mm": [
         -2.1999999999999993,
@@ -13468,7 +13304,7 @@
       ],
       "end_mm": [
         5.825000000000003,
-        14.0
+        14
       ],
       "length_mm": 0.04999999999999716,
       "width_mm": 0.55
@@ -13479,7 +13315,7 @@
       "layer": "top",
       "start_mm": [
         5.825000000000003,
-        14.0
+        14
       ],
       "end_mm": [
         5.800000000000001,
@@ -13857,7 +13693,7 @@
         14.700000000000003
       ],
       "end_mm": [
-        5.0,
+        5,
         14.725000000000001
       ],
       "length_mm": 0.035355339059327875,
@@ -13868,7 +13704,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        5.0,
+        5,
         14.725000000000001
       ],
       "end_mm": [
@@ -14142,7 +13978,7 @@
         15.399999999999999
       ],
       "end_mm": [
-        3.0,
+        3,
         15.399999999999999
       ],
       "length_mm": 0.25,
@@ -14153,7 +13989,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        3.0,
+        3,
         15.399999999999999
       ],
       "end_mm": [
@@ -14938,7 +14774,7 @@
       ],
       "end_mm": [
         13.775000000000002,
-        7.0
+        7
       ],
       "length_mm": 0.07071067811865324,
       "width_mm": 0.3
@@ -14949,7 +14785,7 @@
       "layer": "top",
       "start_mm": [
         13.775000000000002,
-        7.0
+        7
       ],
       "end_mm": [
         13.775000000000002,
@@ -15177,7 +15013,7 @@
         -13.7
       ],
       "end_mm": [
-        8.0,
+        8,
         -13.7
       ],
       "length_mm": 0.2801159999999996,
@@ -15188,11 +15024,11 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        8.0,
+        8,
         -13.7
       ],
       "end_mm": [
-        8.0,
+        8,
         -14.1
       ],
       "length_mm": 0.40000000000000036,
@@ -15203,7 +15039,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        8.0,
+        8,
         -14.1
       ],
       "end_mm": [
@@ -15598,7 +15434,7 @@
       ],
       "end_mm": [
         8.3,
-        -13.0
+        -13
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.2
@@ -15822,7 +15658,7 @@
         -8.5
       ],
       "end_mm": [
-        7.0,
+        7,
         -8.525
       ],
       "length_mm": 0.03535533905932913,
@@ -15833,7 +15669,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        7.0,
+        7,
         -8.525
       ],
       "end_mm": [
@@ -16917,7 +16753,7 @@
         1.1000000000000014
       ],
       "end_mm": [
-        -13.0,
+        -13,
         1.0749999999999993
       ],
       "length_mm": 0.035355339059327875,
@@ -16928,7 +16764,7 @@
       "net": "LOGIC_IN",
       "layer": "top",
       "start_mm": [
-        -13.0,
+        -13,
         1.0749999999999993
       ],
       "end_mm": [
@@ -16977,7 +16813,7 @@
         1.0500000000000007
       ],
       "end_mm": [
-        -12.0,
+        -12,
         0.9750000000000014
       ],
       "length_mm": 0.10606601717798113,
@@ -16988,7 +16824,7 @@
       "net": "LOGIC_IN",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         0.9750000000000014
       ],
       "end_mm": [
@@ -17113,7 +16949,7 @@
       ],
       "end_mm": [
         5.225000000000001,
-        3.0
+        3
       ],
       "length_mm": 0.32499999999999973,
       "width_mm": 0.2
@@ -17232,7 +17068,7 @@
         -2.3249999999999993
       ],
       "end_mm": [
-        -2.0,
+        -2,
         -2.375
       ],
       "length_mm": 0.07071067811865575,
@@ -17243,11 +17079,11 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -2.0,
+        -2,
         -2.375
       ],
       "end_mm": [
-        -2.0,
+        -2,
         -3.174999999999999
       ],
       "length_mm": 0.7999999999999989,
@@ -17258,7 +17094,7 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -2.0,
+        -2,
         -3.174999999999999
       ],
       "end_mm": [
@@ -17278,7 +17114,7 @@
       ],
       "end_mm": [
         -1.9749999999999996,
-        -4.0
+        -4
       ],
       "length_mm": 0.8000000000000007,
       "width_mm": 0.16
@@ -17289,7 +17125,7 @@
       "layer": "top",
       "start_mm": [
         -1.9749999999999996,
-        -4.0
+        -4
       ],
       "end_mm": [
         -1.875,
@@ -18013,7 +17849,7 @@
       ],
       "end_mm": [
         -0.8000000000000007,
-        -1.0
+        -1
       ],
       "length_mm": 0.5249360158505029,
       "width_mm": 0.2
@@ -18024,7 +17860,7 @@
       "layer": "top",
       "start_mm": [
         -0.8000000000000007,
-        -1.0
+        -1
       ],
       "end_mm": [
         -0.6499999999999986,
@@ -18185,7 +18021,7 @@
     },
     {
       "trace": "reviewed_local_R_PD_pin2",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "top",
       "start_mm": [
         -10.846636,
@@ -18312,7 +18148,7 @@
         4.325000000000003
       ],
       "end_mm": [
-        9.0,
+        9,
         3.900000000000002
       ],
       "length_mm": 0.6010407640085639,
@@ -18323,7 +18159,7 @@
       "net": "DATA_CC2",
       "layer": "top",
       "start_mm": [
-        9.0,
+        9,
         3.900000000000002
       ],
       "end_mm": [
@@ -19198,7 +19034,7 @@
       ],
       "end_mm": [
         6.200000000000003,
-        1.0
+        1
       ],
       "length_mm": 0.6750640115729792,
       "width_mm": 0.16
@@ -19209,7 +19045,7 @@
       "layer": "top",
       "start_mm": [
         6.200000000000003,
-        1.0
+        1
       ],
       "end_mm": [
         6.275000000000002,
@@ -19332,7 +19168,7 @@
         -6.162816
       ],
       "end_mm": [
-        6.0,
+        6,
         -6.174999999999999
       ],
       "length_mm": 0.530140028535858,
@@ -19963,7 +19799,7 @@
       ],
       "end_mm": [
         -2.9749999999999996,
-        -1.0
+        -1
       ],
       "length_mm": 1.6500640050425313,
       "width_mm": 0.2
@@ -19974,10 +19810,10 @@
       "layer": "top",
       "start_mm": [
         -2.9749999999999996,
-        -1.0
+        -1
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -1.0249999999999986
       ],
       "length_mm": 0.03535533905932662,
@@ -19988,7 +19824,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        -3.0,
+        -3,
         -1.0249999999999986
       ],
       "end_mm": [
@@ -21478,7 +21314,7 @@
       ],
       "end_mm": [
         7.325000000000003,
-        -7.0
+        -7
       ],
       "length_mm": 0.049999999999998934,
       "width_mm": 0.2
@@ -21489,7 +21325,7 @@
       "layer": "top",
       "start_mm": [
         7.325000000000003,
-        -7.0
+        -7
       ],
       "end_mm": [
         7.350000000000001,
@@ -21867,7 +21703,7 @@
         -1.0249999999999986
       ],
       "end_mm": [
-        5.0,
+        5,
         -1.0249999999999986
       ],
       "length_mm": 0.04999999999999716,
@@ -21878,12 +21714,12 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        5.0,
+        5,
         -1.0249999999999986
       ],
       "end_mm": [
         5.025000000000002,
-        -1.0
+        -1
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.2
@@ -21894,7 +21730,7 @@
       "layer": "top",
       "start_mm": [
         5.025000000000002,
-        -1.0
+        -1
       ],
       "end_mm": [
         5.524936,
@@ -21958,7 +21794,7 @@
       ],
       "end_mm": [
         -0.25,
-        -1.0
+        -1
       ],
       "length_mm": 0.5482351742099371,
       "width_mm": 0.16
@@ -21969,7 +21805,7 @@
       "layer": "top",
       "start_mm": [
         -0.25,
-        -1.0
+        -1
       ],
       "end_mm": [
         -0.25,
@@ -23562,7 +23398,7 @@
         -15.275
       ],
       "end_mm": [
-        10.0,
+        10,
         -15.275
       ],
       "length_mm": 0.05000000000000071,
@@ -23573,7 +23409,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        10.0,
+        10,
         -15.275
       ],
       "end_mm": [
@@ -23832,7 +23668,7 @@
         -3.674999999999999
       ],
       "end_mm": [
-        2.0,
+        2,
         -3.6500000000000004
       ],
       "length_mm": 0.035355339059327875,
@@ -24103,7 +23939,7 @@
       ],
       "end_mm": [
         -4.299999999999999,
-        -4.0
+        -4
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.3
@@ -24114,7 +23950,7 @@
       "layer": "top",
       "start_mm": [
         -4.299999999999999,
-        -4.0
+        -4
       ],
       "end_mm": [
         -4.3,
@@ -24283,7 +24119,7 @@
       ],
       "end_mm": [
         0.15000000000000213,
-        9.0
+        9
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -24294,11 +24130,11 @@
       "layer": "top",
       "start_mm": [
         0.15000000000000213,
-        9.0
+        9
       ],
       "end_mm": [
         0.125,
-        9.0
+        9
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -24309,7 +24145,7 @@
       "layer": "top",
       "start_mm": [
         0.125,
-        9.0
+        9
       ],
       "end_mm": [
         0.10000000000000142,
@@ -24387,7 +24223,7 @@
         8.8
       ],
       "end_mm": [
-        -2.0,
+        -2,
         8.8
       ],
       "length_mm": 0.025000000000000355,
@@ -24398,7 +24234,7 @@
       "net": "QSPI_SS",
       "layer": "top",
       "start_mm": [
-        -2.0,
+        -2,
         8.8
       ],
       "end_mm": [
@@ -24642,7 +24478,7 @@
         4.850000000000001
       ],
       "end_mm": [
-        -6.0,
+        -6,
         4.875
       ],
       "length_mm": 0.035355339059325364,
@@ -24653,11 +24489,11 @@
       "net": "BUCK_SW",
       "layer": "top",
       "start_mm": [
-        -6.0,
+        -6,
         4.875
       ],
       "end_mm": [
-        -6.0,
+        -6,
         4.9517
       ],
       "length_mm": 0.07669999999999977,
@@ -25452,8 +25288,8 @@
         2.1750000000000007
       ],
       "end_mm": [
-        -7.0,
-        2.0
+        -7,
+        2
       ],
       "length_mm": 0.24748737341529264,
       "width_mm": 0.16
@@ -25463,11 +25299,11 @@
       "net": "STATUS_R_K",
       "layer": "top",
       "start_mm": [
-        -7.0,
-        2.0
+        -7,
+        2
       ],
       "end_mm": [
-        -7.0,
+        -7,
         0.02500000000000213
       ],
       "length_mm": 1.9749999999999979,
@@ -25478,12 +25314,12 @@
       "net": "STATUS_R_K",
       "layer": "top",
       "start_mm": [
-        -7.0,
+        -7,
         0.02500000000000213
       ],
       "end_mm": [
         -7.024999999999999,
-        0.0
+        0
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -25494,7 +25330,7 @@
       "layer": "top",
       "start_mm": [
         -7.024999999999999,
-        0.0
+        0
       ],
       "end_mm": [
         -7.024999999999999,
@@ -26608,7 +26444,7 @@
       ],
       "end_mm": [
         -1.0500000000000007,
-        6.0
+        6
       ],
       "length_mm": 0.14903465256120882,
       "width_mm": 0.16
@@ -26619,7 +26455,7 @@
       "layer": "top",
       "start_mm": [
         -1.0500000000000007,
-        6.0
+        6
       ],
       "end_mm": [
         -1.0999999999999979,
@@ -26893,7 +26729,7 @@
       ],
       "end_mm": [
         -2.674999999999999,
-        12.0
+        12
       ],
       "length_mm": 0.1421840000000012,
       "width_mm": 0.16
@@ -26904,7 +26740,7 @@
       "layer": "top",
       "start_mm": [
         -2.674999999999999,
-        12.0
+        12
       ],
       "end_mm": [
         -2.625,
@@ -27058,7 +26894,7 @@
       ],
       "end_mm": [
         -3.25,
-        -13.0
+        -13
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.2
@@ -27069,7 +26905,7 @@
       "layer": "top",
       "start_mm": [
         -3.25,
-        -13.0
+        -13
       ],
       "end_mm": [
         -3.25,
@@ -27238,7 +27074,7 @@
       ],
       "end_mm": [
         -3.5,
-        -12.0
+        -12
       ],
       "length_mm": 0.5656854249492372,
       "width_mm": 0.2
@@ -27249,11 +27085,11 @@
       "layer": "top",
       "start_mm": [
         -3.5,
-        -12.0
+        -12
       ],
       "end_mm": [
         -3.5249999999999986,
-        -12.0
+        -12
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.2
@@ -27264,7 +27100,7 @@
       "layer": "top",
       "start_mm": [
         -3.5249999999999986,
-        -12.0
+        -12
       ],
       "end_mm": [
         -3.549999999999999,
@@ -28438,7 +28274,7 @@
       ],
       "end_mm": [
         2.275000000000002,
-        13.0
+        13
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.2
@@ -28449,11 +28285,11 @@
       "layer": "top",
       "start_mm": [
         2.275000000000002,
-        13.0
+        13
       ],
       "end_mm": [
         2.2250000000000014,
-        13.0
+        13
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.2
@@ -28464,7 +28300,7 @@
       "layer": "top",
       "start_mm": [
         2.2250000000000014,
-        13.0
+        13
       ],
       "end_mm": [
         2.200000000000003,
@@ -28572,7 +28408,7 @@
         13.100000000000001
       ],
       "end_mm": [
-        2.0,
+        2,
         13.100000000000001
       ],
       "length_mm": 0.05000000000000071,
@@ -28583,7 +28419,7 @@
       "net": "PD_VBUS",
       "layer": "top",
       "start_mm": [
-        2.0,
+        2,
         13.100000000000001
       ],
       "end_mm": [
@@ -28677,7 +28513,7 @@
         6.5
       ],
       "end_mm": [
-        -9.0,
+        -9,
         6.5
       ],
       "length_mm": 0.05000000000000071,
@@ -28688,7 +28524,7 @@
       "net": "PD_CC1",
       "layer": "top",
       "start_mm": [
-        -9.0,
+        -9,
         6.5
       ],
       "end_mm": [
@@ -28798,7 +28634,7 @@
       ],
       "end_mm": [
         -0.9250000000000007,
-        10.0
+        10
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -28809,7 +28645,7 @@
       "layer": "top",
       "start_mm": [
         -0.9250000000000007,
-        10.0
+        10
       ],
       "end_mm": [
         -0.8499999999999979,
@@ -29333,11 +29169,11 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         -2.25
       ],
       "end_mm": [
-        -12.0,
+        -12,
         -3.125
       ],
       "length_mm": 0.875,
@@ -29348,7 +29184,7 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -12.0,
+        -12,
         -3.125
       ],
       "end_mm": [
@@ -29503,7 +29339,7 @@
       ],
       "end_mm": [
         -11.45,
-        -6.0
+        -6
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -29514,7 +29350,7 @@
       "layer": "top",
       "start_mm": [
         -11.45,
-        -6.0
+        -6
       ],
       "end_mm": [
         -11.45,
@@ -30042,7 +29878,7 @@
         -6.949999999999999
       ],
       "end_mm": [
-        -11.0,
+        -11,
         -6.975
       ],
       "length_mm": 0.03535533905932662,
@@ -30053,12 +29889,12 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -11.0,
+        -11,
         -6.975
       ],
       "end_mm": [
-        -11.0,
-        -7.0
+        -11,
+        -7
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -30068,8 +29904,8 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -11.0,
-        -7.0
+        -11,
+        -7
       ],
       "end_mm": [
         -10.975,
@@ -30538,7 +30374,7 @@
       ],
       "end_mm": [
         -1.0500000000000007,
-        14.0
+        14
       ],
       "length_mm": 0.5303300858899106,
       "width_mm": 0.16
@@ -30549,7 +30385,7 @@
       "layer": "top",
       "start_mm": [
         -1.0500000000000007,
-        14.0
+        14
       ],
       "end_mm": [
         -1.0500000000000007,
@@ -30567,7 +30403,7 @@
         12.975000000000001
       ],
       "end_mm": [
-        -1.0,
+        -1,
         12.925
       ],
       "length_mm": 0.07071067811865575,
@@ -30578,11 +30414,11 @@
       "net": "STATUS_R_C",
       "layer": "top",
       "start_mm": [
-        -1.0,
+        -1,
         12.925
       ],
       "end_mm": [
-        -1.0,
+        -1,
         12.900000000000002
       ],
       "length_mm": 0.02499999999999858,
@@ -30593,7 +30429,7 @@
       "net": "STATUS_R_C",
       "layer": "top",
       "start_mm": [
-        -1.0,
+        -1,
         12.900000000000002
       ],
       "end_mm": [
@@ -30778,7 +30614,7 @@
       ],
       "end_mm": [
         -0.2749999999999986,
-        12.0
+        12
       ],
       "length_mm": 0.03535533905933039,
       "width_mm": 0.16
@@ -30789,7 +30625,7 @@
       "layer": "top",
       "start_mm": [
         -0.2749999999999986,
-        12.0
+        12
       ],
       "end_mm": [
         -0.2749999999999986,
@@ -31168,7 +31004,7 @@
       ],
       "end_mm": [
         3.700000000000003,
-        2.0
+        2
       ],
       "length_mm": 0.1767766952966369,
       "width_mm": 0.16
@@ -31317,7 +31153,7 @@
         13.925
       ],
       "end_mm": [
-        -2.0,
+        -2,
         13.950000000000003
       ],
       "length_mm": 0.035355339059327875,
@@ -31328,11 +31164,11 @@
       "net": "STATUS_R_C",
       "layer": "inner1",
       "start_mm": [
-        -2.0,
+        -2,
         13.950000000000003
       ],
       "end_mm": [
-        -2.0,
+        -2,
         13.975000000000001
       ],
       "length_mm": 0.02499999999999858,
@@ -31343,12 +31179,12 @@
       "net": "STATUS_R_C",
       "layer": "inner1",
       "start_mm": [
-        -2.0,
+        -2,
         13.975000000000001
       ],
       "end_mm": [
         -1.9749999999999996,
-        14.0
+        14
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -31359,7 +31195,7 @@
       "layer": "inner1",
       "start_mm": [
         -1.9749999999999996,
-        14.0
+        14
       ],
       "end_mm": [
         -1.9749999999999996,
@@ -32173,7 +32009,7 @@
       ],
       "end_mm": [
         1.85,
-        -9.0
+        -9
       ],
       "length_mm": 0.03535533905932756,
       "width_mm": 0.3
@@ -32378,7 +32214,7 @@
       "net": "BUCK_SW",
       "layer": "top",
       "start_mm": [
-        -6.0,
+        -6,
         4.9517
       ],
       "end_mm": [
@@ -32532,7 +32368,7 @@
         7.125
       ],
       "end_mm": [
-        -5.0,
+        -5,
         7.125
       ],
       "length_mm": 0.025000000000000355,
@@ -32543,7 +32379,7 @@
       "net": "BUCK_SW",
       "layer": "inner2",
       "start_mm": [
-        -5.0,
+        -5,
         7.125
       ],
       "end_mm": [
@@ -32803,7 +32639,7 @@
       ],
       "end_mm": [
         -3.875,
-        9.0
+        9
       ],
       "length_mm": 0.1767766952966369,
       "width_mm": 0.16
@@ -32814,11 +32650,11 @@
       "layer": "top",
       "start_mm": [
         -3.875,
-        9.0
+        9
       ],
       "end_mm": [
         -3.8999999999999986,
-        9.0
+        9
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -32829,7 +32665,7 @@
       "layer": "top",
       "start_mm": [
         -3.8999999999999986,
-        9.0
+        9
       ],
       "end_mm": [
         -3.9499999999999993,
@@ -33102,7 +32938,7 @@
         8.275000000000002
       ],
       "end_mm": [
-        -5.0,
+        -5,
         8.25
       ],
       "length_mm": 0.03535533905932913,
@@ -33113,7 +32949,7 @@
       "net": "BUCK_BST",
       "layer": "top",
       "start_mm": [
-        -5.0,
+        -5,
         8.25
       ],
       "end_mm": [
@@ -33237,7 +33073,7 @@
         -14.525
       ],
       "end_mm": [
-        2.0,
+        2,
         -14.525
       ],
       "length_mm": 0.02499999999999858,
@@ -33248,7 +33084,7 @@
       "net": "VCP",
       "layer": "bottom",
       "start_mm": [
-        2.0,
+        2,
         -14.525
       ],
       "end_mm": [
@@ -33879,7 +33715,7 @@
       "layer": "inner2",
       "start_mm": [
         -9.174999999999999,
-        7.0
+        7
       ],
       "end_mm": [
         -11.425,
@@ -33965,7 +33801,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.57803300858899,
@@ -33980,7 +33816,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.6,
@@ -33995,7 +33831,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.625,
@@ -34010,7 +33846,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.675,
@@ -34025,7 +33861,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.7,
@@ -34040,7 +33876,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -12.075,
@@ -34055,7 +33891,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -12.35,
@@ -34070,7 +33906,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -12.75,
@@ -34085,7 +33921,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.075,
@@ -34100,7 +33936,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.1,
@@ -34115,7 +33951,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.125,
@@ -34130,7 +33966,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.149999999999999,
@@ -34145,7 +33981,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.175,
@@ -34160,7 +33996,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.2,
@@ -34175,7 +34011,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -13.225,
@@ -34190,7 +34026,7 @@
     },
     {
       "trace": "same_side_repair_21_PD_VDD_2_layer_section_1",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.875,
@@ -34205,7 +34041,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.875,
@@ -34220,7 +34056,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.875,
@@ -34235,7 +34071,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.9,
@@ -34250,7 +34086,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.9,
@@ -34265,7 +34101,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.925,
@@ -34280,7 +34116,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.925,
@@ -34295,7 +34131,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.95,
@@ -34310,7 +34146,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.95,
@@ -34325,7 +34161,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.975,
@@ -34340,14 +34176,14 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -14.975,
         5.100000000000001
       ],
       "end_mm": [
-        -15.0,
+        -15,
         5.125
       ],
       "length_mm": 0.03535533905932662,
@@ -34355,14 +34191,14 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
-        -15.0,
+        -15,
         5.125
       ],
       "end_mm": [
-        -15.0,
+        -15,
         5.200000000000003
       ],
       "length_mm": 0.07500000000000284,
@@ -34370,10 +34206,10 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
-        -15.0,
+        -15,
         5.200000000000003
       ],
       "end_mm": [
@@ -34385,7 +34221,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.025,
@@ -34400,7 +34236,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.025,
@@ -34415,7 +34251,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.05,
@@ -34430,7 +34266,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.05,
@@ -34445,7 +34281,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.075,
@@ -34460,7 +34296,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.075,
@@ -34475,7 +34311,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.1,
@@ -34490,7 +34326,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.1,
@@ -34505,7 +34341,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.125,
@@ -34520,7 +34356,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.125,
@@ -34535,7 +34371,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.15,
@@ -34550,7 +34386,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.15,
@@ -34565,7 +34401,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.175,
@@ -34580,7 +34416,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.175,
@@ -34595,7 +34431,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.2,
@@ -34610,7 +34446,7 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.2,
@@ -34625,17 +34461,17 @@
     },
     {
       "trace": "same_side_repair_22_PD_VDD_3_layer_section_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -15.225,
         5.900000000000002
       ],
       "end_mm": [
-        -15.225,
-        6.775000000000002
+        -15.075,
+        6.675
       ],
-      "length_mm": 0.875,
+      "length_mm": 0.789382670192345,
       "width_mm": 0.16
     },
     {
@@ -34797,7 +34633,7 @@
         -5.35
       ],
       "end_mm": [
-        5.0,
+        5,
         -5.375
       ],
       "length_mm": 0.03535533905932913,
@@ -34808,7 +34644,7 @@
       "net": "SWCLK",
       "layer": "inner2",
       "start_mm": [
-        5.0,
+        5,
         -5.375
       ],
       "end_mm": [
@@ -35248,7 +35084,7 @@
       ],
       "end_mm": [
         15.450000000000003,
-        10.0
+        10
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -35259,11 +35095,11 @@
       "layer": "inner1",
       "start_mm": [
         15.450000000000003,
-        10.0
+        10
       ],
       "end_mm": [
         15.425000000000004,
-        10.0
+        10
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -35274,7 +35110,7 @@
       "layer": "inner1",
       "start_mm": [
         15.425000000000004,
-        10.0
+        10
       ],
       "end_mm": [
         15.399999999999999,
@@ -35517,7 +35353,7 @@
         -10.425
       ],
       "end_mm": [
-        5.0,
+        5,
         -10.425
       ],
       "length_mm": 0.05000000000000071,
@@ -35528,7 +35364,7 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        5.0,
+        5,
         -10.425
       ],
       "end_mm": [
@@ -36268,7 +36104,7 @@
       ],
       "end_mm": [
         -1.7249999999999996,
-        -11.0
+        -11
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.3
@@ -36279,7 +36115,7 @@
       "layer": "bottom",
       "start_mm": [
         -1.7249999999999996,
-        -11.0
+        -11
       ],
       "end_mm": [
         -1.7249999999999996,
@@ -36328,7 +36164,7 @@
       ],
       "end_mm": [
         -1.674999999999999,
-        -14.0
+        -14
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.3
@@ -36339,7 +36175,7 @@
       "layer": "bottom",
       "start_mm": [
         -1.674999999999999,
-        -14.0
+        -14
       ],
       "end_mm": [
         -1.674999999999999,
@@ -36552,7 +36388,7 @@
         -14.575
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -14.575
       ],
       "length_mm": 0.09999999999999787,
@@ -36563,7 +36399,7 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        -1.0,
+        -1,
         -14.575
       ],
       "end_mm": [
@@ -36943,7 +36779,7 @@
       ],
       "end_mm": [
         1.1750000000000007,
-        -14.0
+        -14
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.3
@@ -36954,7 +36790,7 @@
       "layer": "bottom",
       "start_mm": [
         1.1750000000000007,
-        -14.0
+        -14
       ],
       "end_mm": [
         1.1999999999999993,
@@ -37407,7 +37243,7 @@
         -13.5
       ],
       "end_mm": [
-        3.0,
+        3,
         -13.475
       ],
       "length_mm": 0.03535533905932662,
@@ -37418,7 +37254,7 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        3.0,
+        3,
         -13.475
       ],
       "end_mm": [
@@ -38053,7 +37889,7 @@
       ],
       "end_mm": [
         5.675000000000001,
-        14.0
+        14
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.3
@@ -38064,7 +37900,7 @@
       "layer": "inner2",
       "start_mm": [
         5.675000000000001,
-        14.0
+        14
       ],
       "end_mm": [
         5.675000000000001,
@@ -38277,7 +38113,7 @@
         14.575000000000003
       ],
       "end_mm": [
-        5.0,
+        5,
         14.575000000000003
       ],
       "length_mm": 0.10000000000000142,
@@ -38288,7 +38124,7 @@
       "net": "LOGIC_IN",
       "layer": "inner2",
       "start_mm": [
-        5.0,
+        5,
         14.575000000000003
       ],
       "end_mm": [
@@ -38367,7 +38203,7 @@
         14.550000000000004
       ],
       "end_mm": [
-        4.0,
+        4,
         14.550000000000004
       ],
       "length_mm": 0.07500000000000284,
@@ -38378,7 +38214,7 @@
       "net": "LOGIC_IN",
       "layer": "inner2",
       "start_mm": [
-        4.0,
+        4,
         14.550000000000004
       ],
       "end_mm": [
@@ -39193,7 +39029,7 @@
       ],
       "end_mm": [
         15.524999999999999,
-        6.0
+        6
       ],
       "length_mm": 0.07071067811865324,
       "width_mm": 0.3
@@ -39204,7 +39040,7 @@
       "layer": "bottom",
       "start_mm": [
         15.524999999999999,
-        6.0
+        6
       ],
       "end_mm": [
         15.524999999999999,
@@ -39403,7 +39239,7 @@
       ],
       "end_mm": [
         4.775000000000002,
-        -6.0
+        -6
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.2
@@ -39414,7 +39250,7 @@
       "layer": "inner1",
       "start_mm": [
         4.775000000000002,
-        -6.0
+        -6
       ],
       "end_mm": [
         5.275000000000002,
@@ -39672,7 +39508,7 @@
         -5.299999999999999
       ],
       "end_mm": [
-        6.0,
+        6,
         -5.299999999999999
       ],
       "length_mm": 0.02499999999999858,
@@ -39684,11 +39520,11 @@
       "layer": "top",
       "start_mm": [
         5.225000000000001,
-        3.0
+        3
       ],
       "end_mm": [
         5.300000000000001,
-        3.0
+        3
       ],
       "length_mm": 0.07499999999999929,
       "width_mm": 0.2
@@ -39699,7 +39535,7 @@
       "layer": "top",
       "start_mm": [
         5.300000000000001,
-        3.0
+        3
       ],
       "end_mm": [
         6.675000000000001,
@@ -40047,7 +39883,7 @@
         -13.6
       ],
       "end_mm": [
-        8.0,
+        8,
         -13.625
       ],
       "length_mm": 0.03535533905932662,
@@ -40058,7 +39894,7 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        8.0,
+        8,
         -13.625
       ],
       "end_mm": [
@@ -41023,7 +40859,7 @@
       ],
       "end_mm": [
         13.275000000000002,
-        2.0
+        2
       ],
       "length_mm": 0.565685424949236,
       "width_mm": 0.55
@@ -41034,7 +40870,7 @@
       "layer": "inner2",
       "start_mm": [
         13.275000000000002,
-        2.0
+        2
       ],
       "end_mm": [
         13.275000000000002,
@@ -41593,7 +41429,7 @@
       ],
       "end_mm": [
         5.5,
-        -5.0
+        -5
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -41604,7 +41440,7 @@
       "layer": "bottom",
       "start_mm": [
         5.5,
-        -5.0
+        -5
       ],
       "end_mm": [
         5.5,
@@ -41953,7 +41789,7 @@
       ],
       "end_mm": [
         9.150000000000002,
-        -12.0
+        -12
       ],
       "length_mm": 0.3181980515339484,
       "width_mm": 0.16
@@ -41964,7 +41800,7 @@
       "layer": "top",
       "start_mm": [
         9.150000000000002,
-        -12.0
+        -12
       ],
       "end_mm": [
         9.150000000000002,
@@ -42038,7 +41874,7 @@
       "net": "SENSE1",
       "layer": "inner2",
       "start_mm": [
-        5.0,
+        5,
         -8.975
       ],
       "end_mm": [
@@ -42192,7 +42028,7 @@
         -10.225
       ],
       "end_mm": [
-        3.0,
+        3,
         -10.25
       ],
       "length_mm": 0.03535533905932913,
@@ -42203,7 +42039,7 @@
       "net": "SENSE1",
       "layer": "inner2",
       "start_mm": [
-        3.0,
+        3,
         -10.25
       ],
       "end_mm": [
@@ -42673,7 +42509,7 @@
       ],
       "end_mm": [
         8.700000000000003,
-        0.0
+        0
       ],
       "length_mm": 0.2828427124746205,
       "width_mm": 0.2
@@ -42684,7 +42520,7 @@
       "layer": "top",
       "start_mm": [
         8.700000000000003,
-        0.0
+        0
       ],
       "end_mm": [
         8.700000000000003,
@@ -43407,7 +43243,7 @@
         -9.55
       ],
       "end_mm": [
-        2.0,
+        2,
         -9.575
       ],
       "length_mm": 0.035355339059327875,
@@ -43418,7 +43254,7 @@
       "net": "SENSE2",
       "layer": "inner2",
       "start_mm": [
-        2.0,
+        2,
         -9.575
       ],
       "end_mm": [
@@ -49239,7 +49075,7 @@
       "layer": "bottom",
       "start_mm": [
         8.05004,
-        7.0
+        7
       ],
       "end_mm": [
         8.05,
@@ -49719,7 +49555,7 @@
       "layer": "bottom",
       "start_mm": [
         9.94996,
-        7.0
+        7
       ],
       "end_mm": [
         9.950000000000003,
@@ -50263,7 +50099,7 @@
       ],
       "end_mm": [
         9.94996,
-        7.0
+        7
       ],
       "length_mm": 0.03532706611084387,
       "width_mm": 0.16
@@ -50397,7 +50233,7 @@
         -2.5
       ],
       "end_mm": [
-        4.0,
+        4,
         -2.625
       ],
       "length_mm": 0.1767766952966369,
@@ -50408,11 +50244,11 @@
       "net": "RUN",
       "layer": "inner2",
       "start_mm": [
-        4.0,
+        4,
         -2.625
       ],
       "end_mm": [
-        4.0,
+        4,
         -2.674999999999999
       ],
       "length_mm": 0.049999999999998934,
@@ -50423,7 +50259,7 @@
       "net": "RUN",
       "layer": "inner2",
       "start_mm": [
-        4.0,
+        4,
         -2.674999999999999
       ],
       "end_mm": [
@@ -51432,7 +51268,7 @@
         -4.35
       ],
       "end_mm": [
-        4.0,
+        4,
         -4.674999999999999
       ],
       "length_mm": 0.45961940777125737,
@@ -51443,7 +51279,7 @@
       "net": "BUZZER_PWM",
       "layer": "inner2",
       "start_mm": [
-        4.0,
+        4,
         -4.674999999999999
       ],
       "end_mm": [
@@ -51643,7 +51479,7 @@
       ],
       "end_mm": [
         1.4499999999999993,
-        -6.0
+        -6
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -51654,7 +51490,7 @@
       "layer": "inner2",
       "start_mm": [
         1.4499999999999993,
-        -6.0
+        -6
       ],
       "end_mm": [
         1.4499999999999993,
@@ -52648,7 +52484,7 @@
       ],
       "end_mm": [
         -9.95,
-        -11.0
+        -11
       ],
       "length_mm": 0.10000000000000142,
       "width_mm": 0.2
@@ -52659,7 +52495,7 @@
       "layer": "top",
       "start_mm": [
         -9.95,
-        -11.0
+        -11
       ],
       "end_mm": [
         -9.6,
@@ -52827,7 +52663,7 @@
         -4.524999999999999
       ],
       "end_mm": [
-        -7.0,
+        -7,
         -4.125
       ],
       "length_mm": 0.565685424949236,
@@ -52838,11 +52674,11 @@
       "net": "V3V3",
       "layer": "bottom",
       "start_mm": [
-        -7.0,
+        -7,
         -4.125
       ],
       "end_mm": [
-        -7.0,
+        -7,
         -4.1
       ],
       "length_mm": 0.025000000000000355,
@@ -52853,7 +52689,7 @@
       "net": "V3V3",
       "layer": "bottom",
       "start_mm": [
-        -7.0,
+        -7,
         -4.1
       ],
       "end_mm": [
@@ -52978,7 +52814,7 @@
       ],
       "end_mm": [
         -4.924999999999999,
-        -2.0
+        -2
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.2
@@ -52989,7 +52825,7 @@
       "layer": "top",
       "start_mm": [
         -4.924999999999999,
-        -2.0
+        -2
       ],
       "end_mm": [
         -4.924999999999999,
@@ -53773,7 +53609,7 @@
       ],
       "end_mm": [
         -5.975,
-        7.0
+        7
       ],
       "length_mm": 0.07071067811865575,
       "width_mm": 0.3
@@ -53784,7 +53620,7 @@
       "layer": "bottom",
       "start_mm": [
         -5.975,
-        7.0
+        7
       ],
       "end_mm": [
         -5.975,
@@ -53802,7 +53638,7 @@
         6.825000000000003
       ],
       "end_mm": [
-        -6.0,
+        -6,
         6.800000000000001
       ],
       "length_mm": 0.03535533905932913,
@@ -53813,11 +53649,11 @@
       "net": "V3V3",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         6.800000000000001
       ],
       "end_mm": [
-        -6.0,
+        -6,
         6.5
       ],
       "length_mm": 0.3000000000000007,
@@ -53828,7 +53664,7 @@
       "net": "V3V3",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         6.5
       ],
       "end_mm": [
@@ -54054,7 +53890,7 @@
       "layer": "inner2",
       "start_mm": [
         8.3,
-        -13.0
+        -13
       ],
       "end_mm": [
         8.675,
@@ -54253,7 +54089,7 @@
       ],
       "end_mm": [
         10.450000000000003,
-        -10.0
+        -10
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.2
@@ -54264,7 +54100,7 @@
       "layer": "inner2",
       "start_mm": [
         10.450000000000003,
-        -10.0
+        -10
       ],
       "end_mm": [
         10.475000000000001,
@@ -55490,7 +55326,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.5,
@@ -55505,7 +55341,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.5,
@@ -55520,7 +55356,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.55,
@@ -55535,7 +55371,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.55,
@@ -55550,7 +55386,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.575,
@@ -55565,7 +55401,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.575,
@@ -55580,7 +55416,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.6,
@@ -55595,7 +55431,7 @@
     },
     {
       "trace": "same_side_repair_55_PD_VDD_0",
-      "net": "PD_VDD",
+      "net": "PD_VHV",
       "layer": "bottom",
       "start_mm": [
         -11.6,
@@ -55752,7 +55588,7 @@
         3.375
       ],
       "end_mm": [
-        10.0,
+        10,
         3.400000000000002
       ],
       "length_mm": 0.03535533905933039,
@@ -55763,7 +55599,7 @@
       "net": "DATA_CC2",
       "layer": "top",
       "start_mm": [
-        10.0,
+        10,
         3.400000000000002
       ],
       "end_mm": [
@@ -55977,7 +55813,7 @@
         -14.075
       ],
       "end_mm": [
-        7.0,
+        7,
         -14.05
       ],
       "length_mm": 0.035355339059325364,
@@ -55988,11 +55824,11 @@
       "net": "DIR",
       "layer": "inner2",
       "start_mm": [
-        7.0,
+        7,
         -14.05
       ],
       "end_mm": [
-        7.0,
+        7,
         -13.2
       ],
       "length_mm": 0.8500000000000014,
@@ -56003,7 +55839,7 @@
       "net": "DIR",
       "layer": "inner2",
       "start_mm": [
-        7.0,
+        7,
         -13.2
       ],
       "end_mm": [
@@ -56368,7 +56204,7 @@
       ],
       "end_mm": [
         7.125,
-        5.0
+        5
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -56379,11 +56215,11 @@
       "layer": "inner1",
       "start_mm": [
         7.125,
-        5.0
+        5
       ],
       "end_mm": [
         7.150000000000002,
-        5.0
+        5
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -56394,7 +56230,7 @@
       "layer": "inner1",
       "start_mm": [
         7.150000000000002,
-        5.0
+        5
       ],
       "end_mm": [
         7.175000000000001,
@@ -56638,7 +56474,7 @@
       ],
       "end_mm": [
         2.1750000000000007,
-        5.0
+        5
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -56649,7 +56485,7 @@
       "layer": "top",
       "start_mm": [
         2.1750000000000007,
-        5.0
+        5
       ],
       "end_mm": [
         2.1750000000000007,
@@ -57867,7 +57703,7 @@
         10.125
       ],
       "end_mm": [
-        11.0,
+        11,
         10.125
       ],
       "length_mm": 0.02499999999999858,
@@ -57878,7 +57714,7 @@
       "net": "BUZZER_GATE",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         10.125
       ],
       "end_mm": [
@@ -58003,7 +57839,7 @@
       ],
       "end_mm": [
         11.225000000000001,
-        10.0
+        10
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -58014,11 +57850,11 @@
       "layer": "inner2",
       "start_mm": [
         11.225000000000001,
-        10.0
+        10
       ],
       "end_mm": [
         11.25,
-        10.0
+        10
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -58029,7 +57865,7 @@
       "layer": "inner2",
       "start_mm": [
         11.25,
-        10.0
+        10
       ],
       "end_mm": [
         11.3,
@@ -58347,7 +58183,7 @@
         9.675
       ],
       "end_mm": [
-        12.0,
+        12,
         9.675
       ],
       "length_mm": 0.07499999999999929,
@@ -58358,7 +58194,7 @@
       "net": "BUZZER_GATE",
       "layer": "inner2",
       "start_mm": [
-        12.0,
+        12,
         9.675
       ],
       "end_mm": [
@@ -59562,7 +59398,7 @@
         -4.225
       ],
       "end_mm": [
-        10.0,
+        10,
         -4.225
       ],
       "length_mm": 0.02499999999999858,
@@ -59573,7 +59409,7 @@
       "net": "A_PLUS",
       "layer": "inner2",
       "start_mm": [
-        10.0,
+        10,
         -4.225
       ],
       "end_mm": [
@@ -59832,7 +59668,7 @@
         6.125
       ],
       "end_mm": [
-        16.0,
+        16,
         6.150000000000002
       ],
       "length_mm": 0.035355339059327875,
@@ -59843,11 +59679,11 @@
       "net": "A_PLUS",
       "layer": "bottom",
       "start_mm": [
-        16.0,
+        16,
         6.150000000000002
       ],
       "end_mm": [
-        16.0,
+        16,
         6.200000000000003
       ],
       "length_mm": 0.05000000000000071,
@@ -59858,7 +59694,7 @@
       "net": "A_PLUS",
       "layer": "bottom",
       "start_mm": [
-        16.0,
+        16,
         6.200000000000003
       ],
       "end_mm": [
@@ -60507,7 +60343,7 @@
         8.525000000000002
       ],
       "end_mm": [
-        13.0,
+        13,
         8.525000000000002
       ],
       "length_mm": 0.05000000000000071,
@@ -60518,7 +60354,7 @@
       "net": "A_PLUS",
       "layer": "bottom",
       "start_mm": [
-        13.0,
+        13,
         8.525000000000002
       ],
       "end_mm": [
@@ -61588,7 +61424,7 @@
       ],
       "end_mm": [
         6.700000000000003,
-        -6.0
+        -6
       ],
       "length_mm": 0.1767766952966369,
       "width_mm": 0.3
@@ -61599,7 +61435,7 @@
       "layer": "inner2",
       "start_mm": [
         6.700000000000003,
-        -6.0
+        -6
       ],
       "end_mm": [
         6.700000000000003,
@@ -61797,7 +61633,7 @@
         -1.3499999999999979
       ],
       "end_mm": [
-        11.0,
+        11,
         -1.3000000000000007
       ],
       "length_mm": 0.07071067811865073,
@@ -61808,11 +61644,11 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         -1.3000000000000007
       ],
       "end_mm": [
-        11.0,
+        11,
         -1.25
       ],
       "length_mm": 0.05000000000000071,
@@ -61823,7 +61659,7 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         -1.25
       ],
       "end_mm": [
@@ -61917,7 +61753,7 @@
         0.22500000000000142
       ],
       "end_mm": [
-        11.0,
+        11,
         0.25
       ],
       "length_mm": 0.035355339059327875,
@@ -61928,11 +61764,11 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         0.25
       ],
       "end_mm": [
-        11.0,
+        11,
         0.3000000000000007
       ],
       "length_mm": 0.05000000000000071,
@@ -61943,7 +61779,7 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         0.3000000000000007
       ],
       "end_mm": [
@@ -62578,7 +62414,7 @@
       ],
       "end_mm": [
         11.625,
-        6.0
+        6
       ],
       "length_mm": 0.07071067811865073,
       "width_mm": 0.3
@@ -62589,7 +62425,7 @@
       "layer": "bottom",
       "start_mm": [
         11.625,
-        6.0
+        6
       ],
       "end_mm": [
         11.625,
@@ -62848,7 +62684,7 @@
       ],
       "end_mm": [
         11.575000000000003,
-        7.0
+        7
       ],
       "length_mm": 0.07071067811865073,
       "width_mm": 0.3
@@ -62859,7 +62695,7 @@
       "layer": "bottom",
       "start_mm": [
         11.575000000000003,
-        7.0
+        7
       ],
       "end_mm": [
         11.575000000000003,
@@ -64137,7 +63973,7 @@
         12.3
       ],
       "end_mm": [
-        5.0,
+        5,
         12.275000000000002
       ],
       "length_mm": 0.035355339059327875,
@@ -64148,7 +63984,7 @@
       "net": "B_PLUS",
       "layer": "bottom",
       "start_mm": [
-        5.0,
+        5,
         12.275000000000002
       ],
       "end_mm": [
@@ -64347,7 +64183,7 @@
         12.125
       ],
       "end_mm": [
-        4.0,
+        4,
         12.775000000000002
       ],
       "length_mm": 0.9192388155425147,
@@ -64358,7 +64194,7 @@
       "net": "B_PLUS",
       "layer": "bottom",
       "start_mm": [
-        4.0,
+        4,
         12.775000000000002
       ],
       "end_mm": [
@@ -65442,7 +65278,7 @@
         12.75
       ],
       "end_mm": [
-        -3.0,
+        -3,
         12.725000000000001
       ],
       "length_mm": 0.03535533905932662,
@@ -65453,7 +65289,7 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        -3.0,
+        -3,
         12.725000000000001
       ],
       "end_mm": [
@@ -65577,7 +65413,7 @@
         12.175
       ],
       "end_mm": [
-        -4.0,
+        -4,
         12.175
       ],
       "length_mm": 0.025000000000000355,
@@ -65588,7 +65424,7 @@
       "net": "B_PLUS",
       "layer": "inner2",
       "start_mm": [
-        -4.0,
+        -4,
         12.175
       ],
       "end_mm": [
@@ -66222,7 +66058,7 @@
         -9.2
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -9.174999999999999
       ],
       "length_mm": 0.03535533905932913,
@@ -66233,7 +66069,7 @@
       "net": "B_MINUS",
       "layer": "bottom",
       "start_mm": [
-        -1.0,
+        -1,
         -9.174999999999999
       ],
       "end_mm": [
@@ -66388,7 +66224,7 @@
       ],
       "end_mm": [
         -2.4749999999999996,
-        -10.0
+        -10
       ],
       "length_mm": 0.0707106781186545,
       "width_mm": 0.3
@@ -66399,7 +66235,7 @@
       "layer": "bottom",
       "start_mm": [
         -2.4749999999999996,
-        -10.0
+        -10
       ],
       "end_mm": [
         -2.4749999999999996,
@@ -66958,7 +66794,7 @@
       ],
       "end_mm": [
         0.125,
-        -15.0
+        -15
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.3
@@ -66969,11 +66805,11 @@
       "layer": "inner2",
       "start_mm": [
         0.125,
-        -15.0
+        -15
       ],
       "end_mm": [
         0.07499999999999929,
-        -15.0
+        -15
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.3
@@ -66984,7 +66820,7 @@
       "layer": "inner2",
       "start_mm": [
         0.07499999999999929,
-        -15.0
+        -15
       ],
       "end_mm": [
         0.05000000000000071,
@@ -67002,7 +66838,7 @@
         -15.025
       ],
       "end_mm": [
-        0.0,
+        0,
         -15.025
       ],
       "length_mm": 0.05000000000000071,
@@ -67013,7 +66849,7 @@
       "net": "B_MINUS",
       "layer": "inner2",
       "start_mm": [
-        0.0,
+        0,
         -15.025
       ],
       "end_mm": [
@@ -67558,7 +67394,7 @@
       ],
       "end_mm": [
         -4.899999999999999,
-        -16.0
+        -16
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.3
@@ -67569,7 +67405,7 @@
       "layer": "bottom",
       "start_mm": [
         -4.899999999999999,
-        -16.0
+        -16
       ],
       "end_mm": [
         -4.899999999999999,
@@ -68022,7 +67858,7 @@
         -9.55
       ],
       "end_mm": [
-        -11.0,
+        -11,
         -9.55
       ],
       "length_mm": 0.625,
@@ -68033,7 +67869,7 @@
       "net": "B_MINUS",
       "layer": "bottom",
       "start_mm": [
-        -11.0,
+        -11,
         -9.55
       ],
       "end_mm": [
@@ -68277,7 +68113,7 @@
         -8.549999999999999
       ],
       "end_mm": [
-        -13.0,
+        -13,
         -8.525
       ],
       "length_mm": 0.03535533905932662,
@@ -68288,7 +68124,7 @@
       "net": "B_MINUS",
       "layer": "bottom",
       "start_mm": [
-        -13.0,
+        -13,
         -8.525
       ],
       "end_mm": [
@@ -69208,7 +69044,7 @@
       ],
       "end_mm": [
         -11.325,
-        3.0
+        3
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.3
@@ -69219,7 +69055,7 @@
       "layer": "bottom",
       "start_mm": [
         -11.325,
-        3.0
+        3
       ],
       "end_mm": [
         -11.3,
@@ -69523,7 +69359,7 @@
       ],
       "end_mm": [
         -10.85,
-        4.0
+        4
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.3
@@ -69534,7 +69370,7 @@
       "layer": "bottom",
       "start_mm": [
         -10.85,
-        4.0
+        4
       ],
       "end_mm": [
         -10.85,
@@ -70153,7 +69989,7 @@
       ],
       "end_mm": [
         -6.375,
-        11.0
+        11
       ],
       "length_mm": 0.1767766952966369,
       "width_mm": 0.3
@@ -70164,7 +70000,7 @@
       "layer": "bottom",
       "start_mm": [
         -6.375,
-        11.0
+        11
       ],
       "end_mm": [
         -6.375,
@@ -70318,7 +70154,7 @@
       ],
       "end_mm": [
         -6.1,
-        13.0
+        13
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.3
@@ -70329,7 +70165,7 @@
       "layer": "bottom",
       "start_mm": [
         -6.1,
-        13.0
+        13
       ],
       "end_mm": [
         -6.074999999999999,
@@ -70422,7 +70258,7 @@
         13.200000000000003
       ],
       "end_mm": [
-        -6.0,
+        -6,
         13.225000000000001
       ],
       "length_mm": 0.035355339059325364,
@@ -70433,11 +70269,11 @@
       "net": "B_MINUS",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         13.225000000000001
       ],
       "end_mm": [
-        -6.0,
+        -6,
         13.600000000000001
       ],
       "length_mm": 0.375,
@@ -70448,7 +70284,7 @@
       "net": "B_MINUS",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         13.600000000000001
       ],
       "end_mm": [
@@ -72208,7 +72044,7 @@
       ],
       "end_mm": [
         -2.6999999999999993,
-        4.0
+        4
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -72219,7 +72055,7 @@
       "layer": "inner2",
       "start_mm": [
         -2.6999999999999993,
-        4.0
+        4
       ],
       "end_mm": [
         -2.6999999999999993,
@@ -72583,7 +72419,7 @@
       ],
       "end_mm": [
         -5.35,
-        0.0
+        0
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -72594,7 +72430,7 @@
       "layer": "inner2",
       "start_mm": [
         -5.35,
-        0.0
+        0
       ],
       "end_mm": [
         -5.375,
@@ -72822,7 +72658,7 @@
         -6.699999999999999
       ],
       "end_mm": [
-        0.0,
+        0,
         -6.725
       ],
       "length_mm": 0.03535533905932662,
@@ -72833,7 +72669,7 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        0.0,
+        0,
         -6.725
       ],
       "end_mm": [
@@ -72987,7 +72823,7 @@
         -6.85
       ],
       "end_mm": [
-        6.0,
+        6,
         -6.85
       ],
       "length_mm": 0.125,
@@ -72998,7 +72834,7 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        6.0,
+        6,
         -6.85
       ],
       "end_mm": [
@@ -73948,7 +73784,7 @@
       ],
       "end_mm": [
         10.225000000000001,
-        8.0
+        8
       ],
       "length_mm": 0.04999999999999716,
       "width_mm": 0.16
@@ -73959,7 +73795,7 @@
       "layer": "bottom",
       "start_mm": [
         10.225000000000001,
-        8.0
+        8
       ],
       "end_mm": [
         9.8,
@@ -75072,7 +74908,7 @@
         -7.225
       ],
       "end_mm": [
-        -14.0,
+        -14,
         -7.299999999999999
       ],
       "length_mm": 0.10606601717798113,
@@ -75083,7 +74919,7 @@
       "net": "RUN",
       "layer": "inner2",
       "start_mm": [
-        -14.0,
+        -14,
         -7.299999999999999
       ],
       "end_mm": [
@@ -75913,7 +75749,7 @@
       ],
       "end_mm": [
         9.425,
-        -15.0
+        -15
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.2
@@ -75924,11 +75760,11 @@
       "layer": "inner2",
       "start_mm": [
         9.425,
-        -15.0
+        -15
       ],
       "end_mm": [
         9.400000000000002,
-        -15.0
+        -15
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.2
@@ -75939,7 +75775,7 @@
       "layer": "inner2",
       "start_mm": [
         9.400000000000002,
-        -15.0
+        -15
       ],
       "end_mm": [
         9.375,
@@ -76152,7 +75988,7 @@
         -14.825
       ],
       "end_mm": [
-        9.0,
+        9,
         -14.8
       ],
       "length_mm": 0.035355339059327875,
@@ -76163,7 +75999,7 @@
       "net": "V3V3",
       "layer": "inner2",
       "start_mm": [
-        9.0,
+        9,
         -14.8
       ],
       "end_mm": [
@@ -76723,7 +76559,7 @@
       ],
       "end_mm": [
         2.950000000000003,
-        4.0
+        4
       ],
       "length_mm": 0.03535533905933039,
       "width_mm": 0.2
@@ -76734,7 +76570,7 @@
       "layer": "bottom",
       "start_mm": [
         2.950000000000003,
-        4.0
+        4
       ],
       "end_mm": [
         2.950000000000003,
@@ -76782,7 +76618,7 @@
         3.900000000000002
       ],
       "end_mm": [
-        3.0,
+        3,
         3.875
       ],
       "length_mm": 0.035355339059327875,
@@ -76797,7 +76633,7 @@
         3.875
       ],
       "end_mm": [
-        3.0,
+        3,
         3.875
       ],
       "length_mm": 0.06998191005294352,
@@ -76808,7 +76644,7 @@
       "net": "V3V3",
       "layer": "bottom",
       "start_mm": [
-        3.0,
+        3,
         3.875
       ],
       "end_mm": [
@@ -76888,7 +76724,7 @@
       ],
       "end_mm": [
         2.700000000000003,
-        3.0
+        3
       ],
       "length_mm": 0.375,
       "width_mm": 0.2
@@ -76899,7 +76735,7 @@
       "layer": "bottom",
       "start_mm": [
         2.700000000000003,
-        3.0
+        3
       ],
       "end_mm": [
         2.6750000000000007,
@@ -78568,7 +78404,7 @@
       ],
       "end_mm": [
         6.800000000000001,
-        -8.0
+        -8
       ],
       "length_mm": 0.1767766952966369,
       "width_mm": 0.16
@@ -78579,7 +78415,7 @@
       "layer": "inner2",
       "start_mm": [
         6.800000000000001,
-        -8.0
+        -8
       ],
       "end_mm": [
         6.800000000000001,
@@ -79153,7 +78989,7 @@
       ],
       "end_mm": [
         13.575000000000003,
-        -2.0
+        -2
       ],
       "length_mm": 0.0707106781186545,
       "width_mm": 0.16
@@ -79164,11 +79000,11 @@
       "layer": "top",
       "start_mm": [
         13.575000000000003,
-        -2.0
+        -2
       ],
       "end_mm": [
         13.600000000000001,
-        -2.0
+        -2
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -79179,7 +79015,7 @@
       "layer": "top",
       "start_mm": [
         13.600000000000001,
-        -2.0
+        -2
       ],
       "end_mm": [
         14.625,
@@ -80412,7 +80248,7 @@
         -5.899999999999999
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -5.924999999999999
       ],
       "length_mm": 0.03535533905932913,
@@ -80423,11 +80259,11 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         -5.924999999999999
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -5.949999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -80438,7 +80274,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         -5.949999999999999
       ],
       "end_mm": [
@@ -80458,7 +80294,7 @@
       ],
       "end_mm": [
         -1.0249999999999986,
-        -6.0
+        -6
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -80469,7 +80305,7 @@
       "layer": "inner1",
       "start_mm": [
         -1.0249999999999986,
-        -6.0
+        -6
       ],
       "end_mm": [
         -1.0500000000000007,
@@ -80532,7 +80368,7 @@
         -6.375
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -6.399999999999999
       ],
       "length_mm": 0.035355339059325364,
@@ -80543,11 +80379,11 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         -6.399999999999999
       ],
       "end_mm": [
-        -1.0,
+        -1,
         -6.424999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -80558,7 +80394,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         -6.424999999999999
       ],
       "end_mm": [
@@ -81373,7 +81209,7 @@
       ],
       "end_mm": [
         0.40000000000000213,
-        6.0
+        6
       ],
       "length_mm": 0.6363961030678943,
       "width_mm": 0.16
@@ -81384,11 +81220,11 @@
       "layer": "bottom",
       "start_mm": [
         0.40000000000000213,
-        6.0
+        6
       ],
       "end_mm": [
         0.8500000000000014,
-        6.0
+        6
       ],
       "length_mm": 0.4499999999999993,
       "width_mm": 0.16
@@ -81399,7 +81235,7 @@
       "layer": "inner2",
       "start_mm": [
         0.8500000000000014,
-        6.0
+        6
       ],
       "end_mm": [
         1.0749999999999993,
@@ -82107,7 +81943,7 @@
         -12.375
       ],
       "end_mm": [
-        -8.0,
+        -8,
         -12.375
       ],
       "length_mm": 0.025000000000000355,
@@ -82118,7 +81954,7 @@
       "net": "QSPI_SS",
       "layer": "inner2",
       "start_mm": [
-        -8.0,
+        -8,
         -12.375
       ],
       "end_mm": [
@@ -82228,7 +82064,7 @@
       ],
       "end_mm": [
         -8.7,
-        -10.0
+        -10
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -82239,11 +82075,11 @@
       "layer": "bottom",
       "start_mm": [
         -8.7,
-        -10.0
+        -10
       ],
       "end_mm": [
         -8.725,
-        -10.0
+        -10
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -82254,7 +82090,7 @@
       "layer": "bottom",
       "start_mm": [
         -8.725,
-        -10.0
+        -10
       ],
       "end_mm": [
         -8.825,
@@ -83592,7 +83428,7 @@
         2.6750000000000007
       ],
       "end_mm": [
-        -3.0,
+        -3,
         2.6750000000000007
       ],
       "length_mm": 0.17499999999999893,
@@ -83603,7 +83439,7 @@
       "net": "QSPI_SS",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         2.6750000000000007
       ],
       "end_mm": [
@@ -83668,7 +83504,7 @@
       ],
       "end_mm": [
         -2.4749999999999996,
-        3.0
+        3
       ],
       "length_mm": 0.38890872965260037,
       "width_mm": 0.16
@@ -83679,7 +83515,7 @@
       "layer": "bottom",
       "start_mm": [
         -2.4749999999999996,
-        3.0
+        3
       ],
       "end_mm": [
         -2.4749999999999996,
@@ -85287,7 +85123,7 @@
         -0.8000000000000007
       ],
       "end_mm": [
-        9.0,
+        9,
         -0.7749999999999986
       ],
       "length_mm": 0.035355339059327875,
@@ -85298,7 +85134,7 @@
       "net": "SWDIO",
       "layer": "inner2",
       "start_mm": [
-        9.0,
+        9,
         -0.7749999999999986
       ],
       "end_mm": [
@@ -85663,7 +85499,7 @@
       ],
       "end_mm": [
         14.800000000000004,
-        8.0
+        8
       ],
       "length_mm": 1.2749999999999986,
       "width_mm": 0.16
@@ -85674,7 +85510,7 @@
       "layer": "inner2",
       "start_mm": [
         14.800000000000004,
-        8.0
+        8
       ],
       "end_mm": [
         16.075000000000003,
@@ -85963,7 +85799,7 @@
       ],
       "end_mm": [
         16.300000000000004,
-        12.0
+        12
       ],
       "length_mm": 0.07499999999999929,
       "width_mm": 0.16
@@ -85974,7 +85810,7 @@
       "layer": "inner2",
       "start_mm": [
         16.300000000000004,
-        12.0
+        12
       ],
       "end_mm": [
         16.325000000000003,
@@ -86308,7 +86144,7 @@
       ],
       "end_mm": [
         16.300000000000004,
-        14.0
+        14
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -86319,7 +86155,7 @@
       "layer": "inner2",
       "start_mm": [
         16.300000000000004,
-        14.0
+        14
       ],
       "end_mm": [
         16.300000000000004,
@@ -87042,7 +86878,7 @@
         16.300000000000004
       ],
       "end_mm": [
-        14.0,
+        14,
         16.300000000000004
       ],
       "length_mm": 0.07500000000000284,
@@ -87053,7 +86889,7 @@
       "net": "SWDIO",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         16.300000000000004
       ],
       "end_mm": [
@@ -87387,7 +87223,7 @@
         16.325000000000003
       ],
       "end_mm": [
-        12.0,
+        12,
         16.300000000000004
       ],
       "length_mm": 0.035355339059327875,
@@ -87398,7 +87234,7 @@
       "net": "SWDIO",
       "layer": "inner2",
       "start_mm": [
-        12.0,
+        12,
         16.300000000000004
       ],
       "end_mm": [
@@ -88093,7 +87929,7 @@
       ],
       "end_mm": [
         6.100000000000001,
-        13.0
+        13
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -88104,7 +87940,7 @@
       "layer": "inner1",
       "start_mm": [
         6.100000000000001,
-        13.0
+        13
       ],
       "end_mm": [
         6.100000000000001,
@@ -88482,7 +88318,7 @@
         8.700000000000003
       ],
       "end_mm": [
-        2.0,
+        2,
         8.700000000000003
       ],
       "length_mm": 0.02500000000000213,
@@ -88493,7 +88329,7 @@
       "net": "SWDIO",
       "layer": "bottom",
       "start_mm": [
-        2.0,
+        2,
         8.700000000000003
       ],
       "end_mm": [
@@ -88767,7 +88603,7 @@
         6.475000000000001
       ],
       "end_mm": [
-        0.0,
+        0,
         6.375
       ],
       "length_mm": 0.1414213562373115,
@@ -88778,7 +88614,7 @@
       "net": "SWDIO",
       "layer": "inner2",
       "start_mm": [
-        0.0,
+        0,
         6.375
       ],
       "end_mm": [
@@ -89263,7 +89099,7 @@
       ],
       "end_mm": [
         2.025000000000002,
-        -2.0
+        -2
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -89274,10 +89110,10 @@
       "layer": "inner1",
       "start_mm": [
         2.025000000000002,
-        -2.0
+        -2
       ],
       "end_mm": [
-        2.0,
+        2,
         -2.0249999999999986
       ],
       "length_mm": 0.035355339059327875,
@@ -89288,11 +89124,11 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         -2.0249999999999986
       ],
       "end_mm": [
-        2.0,
+        2,
         -2.049999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -89303,7 +89139,7 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         -2.049999999999999
       ],
       "end_mm": [
@@ -89337,7 +89173,7 @@
         -2.375
       ],
       "end_mm": [
-        2.0,
+        2,
         -2.3999999999999986
       ],
       "length_mm": 0.035355339059325364,
@@ -89348,11 +89184,11 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         -2.3999999999999986
       ],
       "end_mm": [
-        2.0,
+        2,
         -2.424999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -89363,7 +89199,7 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         -2.424999999999999
       ],
       "end_mm": [
@@ -89637,7 +89473,7 @@
         -0.9499999999999993
       ],
       "end_mm": [
-        7.0,
+        7,
         -0.9250000000000007
       ],
       "length_mm": 0.035355339059325364,
@@ -89648,7 +89484,7 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        7.0,
+        7,
         -0.9250000000000007
       ],
       "end_mm": [
@@ -89907,7 +89743,7 @@
         -0.6750000000000007
       ],
       "end_mm": [
-        8.0,
+        8,
         -0.6999999999999993
       ],
       "length_mm": 0.035355339059325364,
@@ -89918,7 +89754,7 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        8.0,
+        8,
         -0.6999999999999993
       ],
       "end_mm": [
@@ -90088,7 +89924,7 @@
       ],
       "end_mm": [
         8.3,
-        -1.0
+        -1
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -90099,7 +89935,7 @@
       "layer": "inner1",
       "start_mm": [
         8.3,
-        -1.0
+        -1
       ],
       "end_mm": [
         8.3,
@@ -90327,7 +90163,7 @@
         0.7750000000000021
       ],
       "end_mm": [
-        -2.0,
+        -2,
         -0.4250000000000007
       ],
       "length_mm": 1.6970562748477156,
@@ -90338,7 +90174,7 @@
       "net": "QSPI_SD1",
       "layer": "bottom",
       "start_mm": [
-        -2.0,
+        -2,
         -0.4250000000000007
       ],
       "end_mm": [
@@ -90598,7 +90434,7 @@
       ],
       "end_mm": [
         -5.225,
-        -4.0
+        -4
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -90609,7 +90445,7 @@
       "layer": "bottom",
       "start_mm": [
         -5.225,
-        -4.0
+        -4
       ],
       "end_mm": [
         -5.225,
@@ -91423,7 +91259,7 @@
       ],
       "end_mm": [
         -8.85,
-        -8.0
+        -8
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -91434,7 +91270,7 @@
       "layer": "inner2",
       "start_mm": [
         -8.85,
-        -8.0
+        -8
       ],
       "end_mm": [
         -8.85,
@@ -91718,11 +91554,11 @@
       "net": "LED_R",
       "layer": "inner2",
       "start_mm": [
-        7.0,
-        0.0
+        7,
+        0
       ],
       "end_mm": [
-        7.0,
+        7,
         0.02500000000000213
       ],
       "length_mm": 0.02500000000000213,
@@ -91733,7 +91569,7 @@
       "net": "LED_R",
       "layer": "inner2",
       "start_mm": [
-        7.0,
+        7,
         0.02500000000000213
       ],
       "end_mm": [
@@ -92408,7 +92244,7 @@
       "net": "V3V3",
       "layer": "top",
       "start_mm": [
-        0.0,
+        0,
         5.875
       ],
       "end_mm": [
@@ -93058,7 +92894,7 @@
       ],
       "end_mm": [
         9.3,
-        3.0
+        3
       ],
       "length_mm": 0.6500000000000021,
       "width_mm": 0.16
@@ -93069,7 +92905,7 @@
       "layer": "inner2",
       "start_mm": [
         9.3,
-        3.0
+        3
       ],
       "end_mm": [
         6.600000000000001,
@@ -93657,7 +93493,7 @@
         -6.75
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -6.774999999999999
       ],
       "length_mm": 0.03535533905932662,
@@ -93668,11 +93504,11 @@
       "net": "QSPI_SD2",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -6.774999999999999
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -6.85
       ],
       "length_mm": 0.07500000000000107,
@@ -93683,7 +93519,7 @@
       "net": "QSPI_SD2",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -6.85
       ],
       "end_mm": [
@@ -94678,7 +94514,7 @@
       ],
       "end_mm": [
         12.600000000000001,
-        2.0
+        2
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -94689,7 +94525,7 @@
       "layer": "bottom",
       "start_mm": [
         12.600000000000001,
-        2.0
+        2
       ],
       "end_mm": [
         12.600000000000001,
@@ -95652,7 +95488,7 @@
         9.475000000000001
       ],
       "end_mm": [
-        13.0,
+        13,
         9.475000000000001
       ],
       "length_mm": 0.02500000000000213,
@@ -95663,7 +95499,7 @@
       "net": "LED_R",
       "layer": "inner1",
       "start_mm": [
-        13.0,
+        13,
         9.475000000000001
       ],
       "end_mm": [
@@ -96568,7 +96404,7 @@
       ],
       "end_mm": [
         3.3000000000000007,
-        16.0
+        16
       ],
       "length_mm": 0.07071067811865324,
       "width_mm": 0.16
@@ -96579,7 +96415,7 @@
       "layer": "bottom",
       "start_mm": [
         3.3000000000000007,
-        16.0
+        16
       ],
       "end_mm": [
         3.3000000000000007,
@@ -96642,7 +96478,7 @@
         16.475
       ],
       "end_mm": [
-        3.0,
+        3,
         16.475
       ],
       "length_mm": 0.02500000000000213,
@@ -96653,7 +96489,7 @@
       "net": "LED_R",
       "layer": "bottom",
       "start_mm": [
-        3.0,
+        3,
         16.475
       ],
       "end_mm": [
@@ -97078,7 +96914,7 @@
       ],
       "end_mm": [
         2.875,
-        14.0
+        14
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -97089,7 +96925,7 @@
       "layer": "inner1",
       "start_mm": [
         2.875,
-        14.0
+        14
       ],
       "end_mm": [
         2.875,
@@ -97722,7 +97558,7 @@
         -15.95
       ],
       "end_mm": [
-        -4.0,
+        -4,
         -16.25
       ],
       "length_mm": 0.4242640687119295,
@@ -97733,7 +97569,7 @@
       "net": "A_MINUS",
       "layer": "inner2",
       "start_mm": [
-        -4.0,
+        -4,
         -16.25
       ],
       "end_mm": [
@@ -98008,7 +97844,7 @@
       ],
       "end_mm": [
         -4.875,
-        -16.0
+        -16
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.3
@@ -98019,7 +97855,7 @@
       "layer": "inner2",
       "start_mm": [
         -4.875,
-        -16.0
+        -16
       ],
       "end_mm": [
         -6.35,
@@ -98112,7 +97948,7 @@
         -12.75
       ],
       "end_mm": [
-        -8.0,
+        -8,
         -12.149999999999999
       ],
       "length_mm": 0.848528137423859,
@@ -98123,7 +97959,7 @@
       "net": "A_MINUS",
       "layer": "inner1",
       "start_mm": [
-        -8.0,
+        -8,
         -12.149999999999999
       ],
       "end_mm": [
@@ -98562,7 +98398,7 @@
         -9.225
       ],
       "end_mm": [
-        -12.0,
+        -12,
         -9.2
       ],
       "length_mm": 0.035355339059327875,
@@ -98573,11 +98409,11 @@
       "net": "A_MINUS",
       "layer": "inner2",
       "start_mm": [
-        -12.0,
+        -12,
         -9.2
       ],
       "end_mm": [
-        -12.0,
+        -12,
         -9.174999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -98588,7 +98424,7 @@
       "net": "A_MINUS",
       "layer": "inner2",
       "start_mm": [
-        -12.0,
+        -12,
         -9.174999999999999
       ],
       "end_mm": [
@@ -98668,7 +98504,7 @@
       ],
       "end_mm": [
         -12.8,
-        -8.0
+        -8
       ],
       "length_mm": 0.25,
       "width_mm": 0.3
@@ -98679,7 +98515,7 @@
       "layer": "inner2",
       "start_mm": [
         -12.8,
-        -8.0
+        -8
       ],
       "end_mm": [
         -12.774999999999999,
@@ -98833,7 +98669,7 @@
       ],
       "end_mm": [
         -14.3,
-        -7.0
+        -7
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.3
@@ -98844,7 +98680,7 @@
       "layer": "top",
       "start_mm": [
         -14.3,
-        -7.0
+        -7
       ],
       "end_mm": [
         -14.325,
@@ -99043,7 +98879,7 @@
       ],
       "end_mm": [
         -14.45,
-        1.0
+        1
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.3
@@ -99054,7 +98890,7 @@
       "layer": "inner2",
       "start_mm": [
         -14.45,
-        1.0
+        1
       ],
       "end_mm": [
         -14.45,
@@ -99222,7 +99058,7 @@
         4.600000000000001
       ],
       "end_mm": [
-        -14.0,
+        -14,
         4.625
       ],
       "length_mm": 0.03535533905932662,
@@ -99233,11 +99069,11 @@
       "net": "A_MINUS",
       "layer": "inner2",
       "start_mm": [
-        -14.0,
+        -14,
         4.625
       ],
       "end_mm": [
-        -14.0,
+        -14,
         4.650000000000002
       ],
       "length_mm": 0.02500000000000213,
@@ -99248,7 +99084,7 @@
       "net": "A_MINUS",
       "layer": "inner2",
       "start_mm": [
-        -14.0,
+        -14,
         4.650000000000002
       ],
       "end_mm": [
@@ -99988,7 +99824,7 @@
       ],
       "end_mm": [
         -8.775,
-        12.0
+        12
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.3
@@ -99999,7 +99835,7 @@
       "layer": "inner2",
       "start_mm": [
         -8.775,
-        12.0
+        12
       ],
       "end_mm": [
         -8.775,
@@ -100108,7 +99944,7 @@
       ],
       "end_mm": [
         -7.174999999999999,
-        14.0
+        14
       ],
       "length_mm": 2.1213203435596424,
       "width_mm": 0.3
@@ -100119,7 +99955,7 @@
       "layer": "inner2",
       "start_mm": [
         -7.174999999999999,
-        14.0
+        14
       ],
       "end_mm": [
         -7.174999999999999,
@@ -100557,7 +100393,7 @@
         5.275000000000002
       ],
       "end_mm": [
-        -12.0,
+        -12,
         5.275000000000002
       ],
       "length_mm": 0.05000000000000071,
@@ -100568,7 +100404,7 @@
       "net": "PD_GOOD",
       "layer": "inner2",
       "start_mm": [
-        -12.0,
+        -12,
         5.275000000000002
       ],
       "end_mm": [
@@ -100708,7 +100544,7 @@
       ],
       "end_mm": [
         -12.325,
-        5.0
+        5
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -100719,7 +100555,7 @@
       "layer": "inner2",
       "start_mm": [
         -12.325,
-        5.0
+        5
       ],
       "end_mm": [
         -12.35,
@@ -101068,7 +100904,7 @@
       ],
       "end_mm": [
         -12.125,
-        -2.0
+        -2
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.16
@@ -101079,7 +100915,7 @@
       "layer": "inner2",
       "start_mm": [
         -12.125,
-        -2.0
+        -2
       ],
       "end_mm": [
         -12.1,
@@ -101202,7 +101038,7 @@
         -2.2249999999999996
       ],
       "end_mm": [
-        -12.0,
+        -12,
         -2.25
       ],
       "length_mm": 0.03535533905932662,
@@ -101232,7 +101068,7 @@
         0.9000000000000021
       ],
       "end_mm": [
-        -14.0,
+        -14,
         0.9750000000000014
       ],
       "length_mm": 0.10606601717798113,
@@ -101243,11 +101079,11 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -14.0,
+        -14,
         0.9750000000000014
       ],
       "end_mm": [
-        -14.0,
+        -14,
         1.0749999999999993
       ],
       "length_mm": 0.09999999999999787,
@@ -101258,7 +101094,7 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -14.0,
+        -14,
         1.0749999999999993
       ],
       "end_mm": [
@@ -101518,7 +101354,7 @@
       ],
       "end_mm": [
         -16.3,
-        12.0
+        12
       ],
       "length_mm": 0.07499999999999929,
       "width_mm": 0.16
@@ -101529,7 +101365,7 @@
       "layer": "bottom",
       "start_mm": [
         -16.3,
-        12.0
+        12
       ],
       "end_mm": [
         -16.325,
@@ -101863,7 +101699,7 @@
       ],
       "end_mm": [
         -16.3,
-        14.0
+        14
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -101874,7 +101710,7 @@
       "layer": "bottom",
       "start_mm": [
         -16.3,
-        14.0
+        14
       ],
       "end_mm": [
         -16.3,
@@ -102867,7 +102703,7 @@
         16.300000000000004
       ],
       "end_mm": [
-        -14.0,
+        -14,
         16.300000000000004
       ],
       "length_mm": 0.07499999999999929,
@@ -102878,7 +102714,7 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -14.0,
+        -14,
         16.300000000000004
       ],
       "end_mm": [
@@ -103212,7 +103048,7 @@
         16.325000000000003
       ],
       "end_mm": [
-        -12.0,
+        -12,
         16.300000000000004
       ],
       "length_mm": 0.035355339059325364,
@@ -103223,7 +103059,7 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -12.0,
+        -12,
         16.300000000000004
       ],
       "end_mm": [
@@ -103902,7 +103738,7 @@
         13.125
       ],
       "end_mm": [
-        -8.0,
+        -8,
         13.100000000000001
       ],
       "length_mm": 0.03535533905932662,
@@ -103913,11 +103749,11 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -8.0,
+        -8,
         13.100000000000001
       ],
       "end_mm": [
-        -8.0,
+        -8,
         13.075000000000003
       ],
       "length_mm": 0.02499999999999858,
@@ -103928,7 +103764,7 @@
       "net": "STATUS_R_C",
       "layer": "bottom",
       "start_mm": [
-        -8.0,
+        -8,
         13.075000000000003
       ],
       "end_mm": [
@@ -103963,7 +103799,7 @@
       ],
       "end_mm": [
         -7.949999999999999,
-        13.0
+        13
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -103974,7 +103810,7 @@
       "layer": "bottom",
       "start_mm": [
         -7.949999999999999,
-        13.0
+        13
       ],
       "end_mm": [
         -7.949999999999999,
@@ -104668,7 +104504,7 @@
       ],
       "end_mm": [
         3.025000000000002,
-        3.0
+        3
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -104679,10 +104515,10 @@
       "layer": "inner2",
       "start_mm": [
         3.025000000000002,
-        3.0
+        3
       ],
       "end_mm": [
-        3.0,
+        3,
         3.025000000000002
       ],
       "length_mm": 0.03535533905933039,
@@ -104693,11 +104529,11 @@
       "net": "QSPI_SD0",
       "layer": "inner2",
       "start_mm": [
-        3.0,
+        3,
         3.025000000000002
       ],
       "end_mm": [
-        3.0,
+        3,
         3.0500000000000007
       ],
       "length_mm": 0.02499999999999858,
@@ -104708,7 +104544,7 @@
       "net": "QSPI_SD0",
       "layer": "inner2",
       "start_mm": [
-        3.0,
+        3,
         3.0500000000000007
       ],
       "end_mm": [
@@ -105492,8 +105328,8 @@
         -1.9749999999999996
       ],
       "end_mm": [
-        -4.0,
-        -2.0
+        -4,
+        -2
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -105503,11 +105339,11 @@
       "net": "QSPI_SD0",
       "layer": "inner2",
       "start_mm": [
-        -4.0,
-        -2.0
+        -4,
+        -2
       ],
       "end_mm": [
-        -4.0,
+        -4,
         -2.0249999999999986
       ],
       "length_mm": 0.02499999999999858,
@@ -105518,7 +105354,7 @@
       "net": "QSPI_SD0",
       "layer": "inner2",
       "start_mm": [
-        -4.0,
+        -4,
         -2.0249999999999986
       ],
       "end_mm": [
@@ -105568,7 +105404,7 @@
       ],
       "end_mm": [
         -6.949999999999999,
-        -6.0
+        -6
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -105579,7 +105415,7 @@
       "layer": "inner2",
       "start_mm": [
         -6.949999999999999,
-        -6.0
+        -6
       ],
       "end_mm": [
         -7.1,
@@ -106197,7 +106033,7 @@
         -8.2
       ],
       "end_mm": [
-        -7.0,
+        -7,
         -8.2
       ],
       "length_mm": 0.049999999999998934,
@@ -106208,7 +106044,7 @@
       "net": "QSPI_SD0",
       "layer": "top",
       "start_mm": [
-        -7.0,
+        -7,
         -8.2
       ],
       "end_mm": [
@@ -106272,7 +106108,7 @@
         -8.2
       ],
       "end_mm": [
-        -5.0,
+        -5,
         -8.174999999999999
       ],
       "length_mm": 0.03535533905932662,
@@ -106283,7 +106119,7 @@
       "net": "QSPI_SD0",
       "layer": "top",
       "start_mm": [
-        -5.0,
+        -5,
         -8.174999999999999
       ],
       "end_mm": [
@@ -106783,7 +106619,7 @@
       ],
       "end_mm": [
         8.3,
-        -1.0
+        -1
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -106794,7 +106630,7 @@
       "layer": "bottom",
       "start_mm": [
         8.3,
-        -1.0
+        -1
       ],
       "end_mm": [
         8.3,
@@ -107068,7 +106904,7 @@
       ],
       "end_mm": [
         11.225000000000001,
-        -6.0
+        -6
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -107079,7 +106915,7 @@
       "layer": "top",
       "start_mm": [
         11.225000000000001,
-        -6.0
+        -6
       ],
       "end_mm": [
         11.225000000000001,
@@ -107323,7 +107159,7 @@
       ],
       "end_mm": [
         -4.074999999999999,
-        3.0
+        3
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -107334,11 +107170,11 @@
       "layer": "top",
       "start_mm": [
         -4.074999999999999,
-        3.0
+        3
       ],
       "end_mm": [
         -2.424999999999999,
-        3.0
+        3
       ],
       "length_mm": 1.6500000000000004,
       "width_mm": 0.16
@@ -107349,7 +107185,7 @@
       "layer": "top",
       "start_mm": [
         -2.424999999999999,
-        3.0
+        3
       ],
       "end_mm": [
         -2.375,
@@ -107472,7 +107308,7 @@
         3.450000000000003
       ],
       "end_mm": [
-        -2.0,
+        -2,
         3.4750000000000014
       ],
       "length_mm": 0.035355339059325364,
@@ -107483,11 +107319,11 @@
       "net": "TEMP_SDA",
       "layer": "top",
       "start_mm": [
-        -2.0,
+        -2,
         3.4750000000000014
       ],
       "end_mm": [
-        -2.0,
+        -2,
         3.525000000000002
       ],
       "length_mm": 0.05000000000000071,
@@ -107498,7 +107334,7 @@
       "net": "TEMP_SDA",
       "layer": "top",
       "start_mm": [
-        -2.0,
+        -2,
         3.525000000000002
       ],
       "end_mm": [
@@ -107937,7 +107773,7 @@
         5.25
       ],
       "end_mm": [
-        5.0,
+        5,
         5.25
       ],
       "length_mm": 0.10000000000000142,
@@ -107948,7 +107784,7 @@
       "net": "TEMP_SDA",
       "layer": "inner1",
       "start_mm": [
-        5.0,
+        5,
         5.25
       ],
       "end_mm": [
@@ -108222,7 +108058,7 @@
         7.075000000000003
       ],
       "end_mm": [
-        2.0,
+        2,
         7.100000000000001
       ],
       "length_mm": 0.035355339059327875,
@@ -108233,7 +108069,7 @@
       "net": "TEMP_SDA",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         7.100000000000001
       ],
       "end_mm": [
@@ -108463,7 +108299,7 @@
       ],
       "end_mm": [
         1.4000000000000021,
-        7.0
+        7
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -108474,11 +108310,11 @@
       "layer": "inner1",
       "start_mm": [
         1.4000000000000021,
-        7.0
+        7
       ],
       "end_mm": [
         1.375,
-        7.0
+        7
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -108489,7 +108325,7 @@
       "layer": "inner1",
       "start_mm": [
         1.375,
-        7.0
+        7
       ],
       "end_mm": [
         1.375,
@@ -108973,7 +108809,7 @@
       ],
       "end_mm": [
         -6.424999999999999,
-        -7.0
+        -7
       ],
       "length_mm": 4.772970773009196,
       "width_mm": 0.16
@@ -108984,7 +108820,7 @@
       "layer": "inner1",
       "start_mm": [
         -6.424999999999999,
-        -7.0
+        -7
       ],
       "end_mm": [
         -6.424999999999999,
@@ -109722,7 +109558,7 @@
         -12.975
       ],
       "end_mm": [
-        -4.0,
+        -4,
         -13.024999999999999
       ],
       "length_mm": 0.07071067811865324,
@@ -109733,7 +109569,7 @@
       "net": "STEP",
       "layer": "inner2",
       "start_mm": [
-        -4.0,
+        -4,
         -13.024999999999999
       ],
       "end_mm": [
@@ -109842,7 +109678,7 @@
         -14.55
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -14.75
       ],
       "length_mm": 0.2828427124746193,
@@ -109853,11 +109689,11 @@
       "net": "STEP",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -14.75
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -14.775
       ],
       "length_mm": 0.025000000000000355,
@@ -109868,7 +109704,7 @@
       "net": "STEP",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -14.775
       ],
       "end_mm": [
@@ -110022,7 +109858,7 @@
         -15.375
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -15.425
       ],
       "length_mm": 0.0707106781186545,
@@ -110033,11 +109869,11 @@
       "net": "STEP",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -15.425
       ],
       "end_mm": [
-        -3.0,
+        -3,
         -15.45
       ],
       "length_mm": 0.02499999999999858,
@@ -110048,7 +109884,7 @@
       "net": "STEP",
       "layer": "bottom",
       "start_mm": [
-        -3.0,
+        -3,
         -15.45
       ],
       "end_mm": [
@@ -110113,7 +109949,7 @@
       ],
       "end_mm": [
         -2.5,
-        -16.0
+        -16
       ],
       "length_mm": 0.0707106781186545,
       "width_mm": 0.16
@@ -110124,11 +109960,11 @@
       "layer": "bottom",
       "start_mm": [
         -2.5,
-        -16.0
+        -16
       ],
       "end_mm": [
         -2.4749999999999996,
-        -16.0
+        -16
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -110139,7 +109975,7 @@
       "layer": "bottom",
       "start_mm": [
         -2.4749999999999996,
-        -16.0
+        -16
       ],
       "end_mm": [
         -2.424999999999999,
@@ -110802,7 +110638,7 @@
         -8.924999999999999
       ],
       "end_mm": [
-        -7.0,
+        -7,
         -8.924999999999999
       ],
       "length_mm": 0.6000000000000014,
@@ -110813,7 +110649,7 @@
       "net": "SLEEP",
       "layer": "inner1",
       "start_mm": [
-        -7.0,
+        -7,
         -8.924999999999999
       ],
       "end_mm": [
@@ -111298,7 +111134,7 @@
       ],
       "end_mm": [
         2.625,
-        6.0
+        6
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -111309,11 +111145,11 @@
       "layer": "inner1",
       "start_mm": [
         2.625,
-        6.0
+        6
       ],
       "end_mm": [
         2.650000000000002,
-        6.0
+        6
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -111324,7 +111160,7 @@
       "layer": "inner1",
       "start_mm": [
         2.650000000000002,
-        6.0
+        6
       ],
       "end_mm": [
         2.6750000000000007,
@@ -112287,7 +112123,7 @@
         15.075000000000003
       ],
       "end_mm": [
-        7.0,
+        7,
         15.100000000000001
       ],
       "length_mm": 0.035355339059325364,
@@ -112298,7 +112134,7 @@
       "net": "STATUS_B_K",
       "layer": "bottom",
       "start_mm": [
-        7.0,
+        7,
         15.100000000000001
       ],
       "end_mm": [
@@ -112872,7 +112708,7 @@
         16.300000000000004
       ],
       "end_mm": [
-        12.0,
+        12,
         16.300000000000004
       ],
       "length_mm": 0.07499999999999929,
@@ -112883,7 +112719,7 @@
       "net": "STATUS_B_K",
       "layer": "bottom",
       "start_mm": [
-        12.0,
+        12,
         16.300000000000004
       ],
       "end_mm": [
@@ -113202,7 +113038,7 @@
         5.700000000000003
       ],
       "end_mm": [
-        -2.0,
+        -2,
         5.675000000000001
       ],
       "length_mm": 0.03535533905932913,
@@ -113213,7 +113049,7 @@
       "net": "PWR_LED_A",
       "layer": "inner2",
       "start_mm": [
-        -2.0,
+        -2,
         5.675000000000001
       ],
       "end_mm": [
@@ -113443,7 +113279,7 @@
       ],
       "end_mm": [
         -4.774999999999999,
-        3.0
+        3
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -113454,7 +113290,7 @@
       "layer": "inner2",
       "start_mm": [
         -4.774999999999999,
-        3.0
+        3
       ],
       "end_mm": [
         -4.774999999999999,
@@ -113608,7 +113444,7 @@
       ],
       "end_mm": [
         -11.075,
-        -2.0
+        -2
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -113619,7 +113455,7 @@
       "layer": "inner2",
       "start_mm": [
         -11.075,
-        -2.0
+        -2
       ],
       "end_mm": [
         -11.1,
@@ -114313,7 +114149,7 @@
       ],
       "end_mm": [
         -13.3,
-        -9.0
+        -9
       ],
       "length_mm": 0.09999999999999964,
       "width_mm": 0.16
@@ -114324,11 +114160,11 @@
       "layer": "inner1",
       "start_mm": [
         -13.3,
-        -9.0
+        -9
       ],
       "end_mm": [
         -12.125,
-        -9.0
+        -9
       ],
       "length_mm": 1.1750000000000007,
       "width_mm": 0.16
@@ -114339,7 +114175,7 @@
       "layer": "inner1",
       "start_mm": [
         -12.125,
-        -9.0
+        -9
       ],
       "end_mm": [
         -11.825,
@@ -114642,7 +114478,7 @@
         10.850000000000001
       ],
       "end_mm": [
-        6.0,
+        6,
         10.825000000000003
       ],
       "length_mm": 0.035355339059327875,
@@ -114653,7 +114489,7 @@
       "net": "DATA_VBUS",
       "layer": "inner1",
       "start_mm": [
-        6.0,
+        6,
         10.825000000000003
       ],
       "end_mm": [
@@ -114852,7 +114688,7 @@
         9.8
       ],
       "end_mm": [
-        0.0,
+        0,
         9.75
       ],
       "length_mm": 0.07071067811865575,
@@ -114863,7 +114699,7 @@
       "net": "DATA_VBUS",
       "layer": "inner1",
       "start_mm": [
-        0.0,
+        0,
         9.75
       ],
       "end_mm": [
@@ -114958,7 +114794,7 @@
       ],
       "end_mm": [
         -4.5,
-        0.0
+        0
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -114969,7 +114805,7 @@
       "layer": "inner2",
       "start_mm": [
         -4.5,
-        0.0
+        0
       ],
       "end_mm": [
         -4.875,
@@ -115438,7 +115274,7 @@
       ],
       "end_mm": [
         -12.425,
-        -2.0
+        -2
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -115449,7 +115285,7 @@
       "layer": "top",
       "start_mm": [
         -12.425,
-        -2.0
+        -2
       ],
       "end_mm": [
         -12.425,
@@ -115617,7 +115453,7 @@
         -3.3249999999999993
       ],
       "end_mm": [
-        -13.0,
+        -13,
         -3.3499999999999996
       ],
       "length_mm": 0.035355339059327875,
@@ -115628,11 +115464,11 @@
       "net": "LED_B",
       "layer": "top",
       "start_mm": [
-        -13.0,
+        -13,
         -3.3499999999999996
       ],
       "end_mm": [
-        -13.0,
+        -13,
         -3.6499999999999986
       ],
       "length_mm": 0.29999999999999893,
@@ -115643,7 +115479,7 @@
       "net": "LED_B",
       "layer": "top",
       "start_mm": [
-        -13.0,
+        -13,
         -3.6499999999999986
       ],
       "end_mm": [
@@ -115888,7 +115724,7 @@
       ],
       "end_mm": [
         -12.625,
-        -5.0
+        -5
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -115899,7 +115735,7 @@
       "layer": "top",
       "start_mm": [
         -12.625,
-        -5.0
+        -5
       ],
       "end_mm": [
         -12.625,
@@ -116457,7 +116293,7 @@
         -5.725
       ],
       "end_mm": [
-        11.0,
+        11,
         -5.725
       ],
       "length_mm": 1.4249999999999972,
@@ -116468,12 +116304,12 @@
       "net": "LED_B",
       "layer": "inner2",
       "start_mm": [
-        11.0,
+        11,
         -5.725
       ],
       "end_mm": [
         11.275000000000002,
-        -6.0
+        -6
       ],
       "length_mm": 0.38890872965260287,
       "width_mm": 0.16
@@ -116484,7 +116320,7 @@
       "layer": "inner2",
       "start_mm": [
         11.275000000000002,
-        -6.0
+        -6
       ],
       "end_mm": [
         11.275000000000002,
@@ -116638,7 +116474,7 @@
       ],
       "end_mm": [
         12.775000000000002,
-        -5.0
+        -5
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -116649,7 +116485,7 @@
       "layer": "inner2",
       "start_mm": [
         12.775000000000002,
-        -5.0
+        -5
       ],
       "end_mm": [
         12.775000000000002,
@@ -117388,7 +117224,7 @@
       ],
       "end_mm": [
         15.399999999999999,
-        2.0
+        2
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -117399,7 +117235,7 @@
       "layer": "inner2",
       "start_mm": [
         15.399999999999999,
-        2.0
+        2
       ],
       "end_mm": [
         15.399999999999999,
@@ -118182,7 +118018,7 @@
         -6.225
       ],
       "end_mm": [
-        12.0,
+        12,
         -6.199999999999999
       ],
       "length_mm": 0.03535533905932913,
@@ -118193,11 +118029,11 @@
       "net": "DATA_CC2",
       "layer": "top",
       "start_mm": [
-        12.0,
+        12,
         -6.199999999999999
       ],
       "end_mm": [
-        12.0,
+        12,
         -6.149999999999999
       ],
       "length_mm": 0.05000000000000071,
@@ -118208,7 +118044,7 @@
       "net": "DATA_CC2",
       "layer": "top",
       "start_mm": [
-        12.0,
+        12,
         -6.149999999999999
       ],
       "end_mm": [
@@ -118288,7 +118124,7 @@
       ],
       "end_mm": [
         11.925,
-        -6.0
+        -6
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -118299,7 +118135,7 @@
       "layer": "top",
       "start_mm": [
         11.925,
-        -6.0
+        -6
       ],
       "end_mm": [
         11.900000000000002,
@@ -118978,7 +118814,7 @@
       ],
       "end_mm": [
         -2.8249999999999993,
-        12.0
+        12
       ],
       "length_mm": 0.10606601717798364,
       "width_mm": 0.3
@@ -118989,11 +118825,11 @@
       "layer": "inner2",
       "start_mm": [
         -2.8249999999999993,
-        12.0
+        12
       ],
       "end_mm": [
         -2.8499999999999996,
-        12.0
+        12
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.3
@@ -119004,7 +118840,7 @@
       "layer": "inner2",
       "start_mm": [
         -2.8499999999999996,
-        12.0
+        12
       ],
       "end_mm": [
         -3.5999999999999996,
@@ -119907,7 +119743,7 @@
         11.375
       ],
       "end_mm": [
-        -3.0,
+        -3,
         11.200000000000003
       ],
       "length_mm": 0.24748737341529012,
@@ -119918,7 +119754,7 @@
       "net": "DATA_VBUS",
       "layer": "inner2",
       "start_mm": [
-        -3.0,
+        -3,
         11.200000000000003
       ],
       "end_mm": [
@@ -120013,7 +119849,7 @@
       ],
       "end_mm": [
         -3.1999999999999993,
-        11.0
+        11
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -120024,7 +119860,7 @@
       "layer": "inner2",
       "start_mm": [
         -3.1999999999999993,
-        11.0
+        11
       ],
       "end_mm": [
         -3.2249999999999996,
@@ -120718,7 +120554,7 @@
       ],
       "end_mm": [
         -4.774999999999999,
-        3.0
+        3
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.2
@@ -120729,7 +120565,7 @@
       "layer": "bottom",
       "start_mm": [
         -4.774999999999999,
-        3.0
+        3
       ],
       "end_mm": [
         -4.774999999999999,
@@ -121168,7 +121004,7 @@
       ],
       "end_mm": [
         -2.0749999999999993,
-        6.0
+        6
       ],
       "length_mm": 0.34999999999999787,
       "width_mm": 0.2
@@ -121179,7 +121015,7 @@
       "layer": "bottom",
       "start_mm": [
         -2.0749999999999993,
-        6.0
+        6
       ],
       "end_mm": [
         -2.049999999999999,
@@ -121242,7 +121078,7 @@
         6.125
       ],
       "end_mm": [
-        -2.0,
+        -2,
         6.150000000000002
       ],
       "length_mm": 0.035355339059327875,
@@ -121253,11 +121089,11 @@
       "net": "DATA_VBUS",
       "layer": "bottom",
       "start_mm": [
-        -2.0,
+        -2,
         6.150000000000002
       ],
       "end_mm": [
-        -2.0,
+        -2,
         6.175000000000001
       ],
       "length_mm": 0.02499999999999858,
@@ -121268,7 +121104,7 @@
       "net": "DATA_VBUS",
       "layer": "bottom",
       "start_mm": [
-        -2.0,
+        -2,
         6.175000000000001
       ],
       "end_mm": [
@@ -121767,7 +121603,7 @@
         -0.8499999999999979
       ],
       "end_mm": [
-        -13.0,
+        -13,
         -0.8000000000000007
       ],
       "length_mm": 0.07071067811865324,
@@ -121778,11 +121614,11 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        -13.0,
+        -13,
         -0.8000000000000007
       ],
       "end_mm": [
-        -13.0,
+        -13,
         -0.7749999999999986
       ],
       "length_mm": 0.02500000000000213,
@@ -121793,7 +121629,7 @@
       "net": "PD_VBUS",
       "layer": "bottom",
       "start_mm": [
-        -13.0,
+        -13,
         -0.7749999999999986
       ],
       "end_mm": [
@@ -122004,7 +121840,7 @@
       "layer": "inner2",
       "start_mm": [
         -9.174999999999999,
-        7.0
+        7
       ],
       "end_mm": [
         -9.174999999999999,
@@ -122263,7 +122099,7 @@
       ],
       "end_mm": [
         -8.049999999999999,
-        8.0
+        8
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.55
@@ -122274,11 +122110,11 @@
       "layer": "inner2",
       "start_mm": [
         -8.049999999999999,
-        8.0
+        8
       ],
       "end_mm": [
         -8.025,
-        8.0
+        8
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.55
@@ -122289,7 +122125,7 @@
       "layer": "inner2",
       "start_mm": [
         -8.025,
-        8.0
+        8
       ],
       "end_mm": [
         -7.975,
@@ -122443,7 +122279,7 @@
       ],
       "end_mm": [
         -1.3000000000000007,
-        9.0
+        9
       ],
       "length_mm": 0.4596194077712549,
       "width_mm": 0.55
@@ -122454,11 +122290,11 @@
       "layer": "inner2",
       "start_mm": [
         -1.3000000000000007,
-        9.0
+        9
       ],
       "end_mm": [
         -0.375,
-        9.0
+        9
       ],
       "length_mm": 0.9250000000000007,
       "width_mm": 0.55
@@ -122469,7 +122305,7 @@
       "layer": "inner2",
       "start_mm": [
         -0.375,
-        9.0
+        9
       ],
       "end_mm": [
         -0.34999999999999787,
@@ -123327,7 +123163,7 @@
         2.525000000000002
       ],
       "end_mm": [
-        -5.0,
+        -5,
         2.525000000000002
       ],
       "length_mm": 0.02499999999999858,
@@ -123338,7 +123174,7 @@
       "net": "TEMP_SDA",
       "layer": "top",
       "start_mm": [
-        -5.0,
+        -5,
         2.525000000000002
       ],
       "end_mm": [
@@ -123778,7 +123614,7 @@
       ],
       "end_mm": [
         -0.5249999999999986,
-        8.0
+        8
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -123789,11 +123625,11 @@
       "layer": "bottom",
       "start_mm": [
         -0.5249999999999986,
-        8.0
+        8
       ],
       "end_mm": [
         -0.5500000000000007,
-        8.0
+        8
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -123804,7 +123640,7 @@
       "layer": "bottom",
       "start_mm": [
         -0.5500000000000007,
-        8.0
+        8
       ],
       "end_mm": [
         -0.6499999999999986,
@@ -123837,7 +123673,7 @@
         7.900000000000002
       ],
       "end_mm": [
-        -2.0,
+        -2,
         6.650000000000002
       ],
       "length_mm": 1.7677669529663689,
@@ -123848,7 +123684,7 @@
       "net": "STATUS_R_K",
       "layer": "bottom",
       "start_mm": [
-        -2.0,
+        -2,
         6.650000000000002
       ],
       "end_mm": [
@@ -124018,7 +123854,7 @@
       ],
       "end_mm": [
         -3.25,
-        5.0
+        5
       ],
       "length_mm": 0.9545941546018402,
       "width_mm": 0.16
@@ -124029,11 +123865,11 @@
       "layer": "bottom",
       "start_mm": [
         -3.25,
-        5.0
+        5
       ],
       "end_mm": [
         -3.2749999999999986,
-        5.0
+        5
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -124044,7 +123880,7 @@
       "layer": "bottom",
       "start_mm": [
         -3.2749999999999986,
-        5.0
+        5
       ],
       "end_mm": [
         -3.299999999999999,
@@ -124437,7 +124273,7 @@
         4.675000000000001
       ],
       "end_mm": [
-        -4.0,
+        -4,
         4.650000000000002
       ],
       "length_mm": 0.03535533905932662,
@@ -124448,7 +124284,7 @@
       "net": "STATUS_R_K",
       "layer": "bottom",
       "start_mm": [
-        -4.0,
+        -4,
         4.650000000000002
       ],
       "end_mm": [
@@ -125113,7 +124949,7 @@
       ],
       "end_mm": [
         -2.549999999999999,
-        12.0
+        12
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -125124,7 +124960,7 @@
       "layer": "inner1",
       "start_mm": [
         -2.549999999999999,
-        12.0
+        12
       ],
       "end_mm": [
         -2.5749999999999993,
@@ -125847,7 +125683,7 @@
         14.524999999999999
       ],
       "end_mm": [
-        4.0,
+        4,
         14.575000000000003
       ],
       "length_mm": 0.07071067811865575,
@@ -125858,7 +125694,7 @@
       "net": "SLEEP",
       "layer": "inner1",
       "start_mm": [
-        4.0,
+        4,
         14.575000000000003
       ],
       "end_mm": [
@@ -126598,7 +126434,7 @@
       ],
       "end_mm": [
         7.425000000000001,
-        -12.0
+        -12
       ],
       "length_mm": 2.2980970388562794,
       "width_mm": 0.16
@@ -126609,11 +126445,11 @@
       "layer": "inner1",
       "start_mm": [
         7.425000000000001,
-        -12.0
+        -12
       ],
       "end_mm": [
         7.400000000000002,
-        -12.0
+        -12
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -126624,7 +126460,7 @@
       "layer": "inner1",
       "start_mm": [
         7.400000000000002,
-        -12.0
+        -12
       ],
       "end_mm": [
         7.375,
@@ -127692,7 +127528,7 @@
         4.400000000000002
       ],
       "end_mm": [
-        -7.0,
+        -7,
         4.400000000000002
       ],
       "length_mm": 0.025000000000000355,
@@ -127703,7 +127539,7 @@
       "net": "BOOT_PAD",
       "layer": "inner2",
       "start_mm": [
-        -7.0,
+        -7,
         4.400000000000002
       ],
       "end_mm": [
@@ -128173,7 +128009,7 @@
       ],
       "end_mm": [
         -9.25,
-        11.0
+        11
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -128184,7 +128020,7 @@
       "layer": "inner2",
       "start_mm": [
         -9.25,
-        11.0
+        11
       ],
       "end_mm": [
         -9.25,
@@ -128323,7 +128159,7 @@
       ],
       "end_mm": [
         -9.375,
-        15.0
+        15
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -128334,7 +128170,7 @@
       "layer": "inner2",
       "start_mm": [
         -9.375,
-        15.0
+        15
       ],
       "end_mm": [
         -9.375,
@@ -129013,7 +128849,7 @@
       ],
       "end_mm": [
         8.600000000000001,
-        10.0
+        10
       ],
       "length_mm": 3.641599923110719,
       "width_mm": 0.16
@@ -129024,7 +128860,7 @@
       "layer": "inner1",
       "start_mm": [
         8.600000000000001,
-        10.0
+        10
       ],
       "end_mm": [
         8.600000000000001,
@@ -129313,7 +129149,7 @@
       ],
       "end_mm": [
         -9.575,
-        -9.0
+        -9
       ],
       "length_mm": 0.282842712474618,
       "width_mm": 0.16
@@ -129324,7 +129160,7 @@
       "layer": "bottom",
       "start_mm": [
         -9.575,
-        -9.0
+        -9
       ],
       "end_mm": [
         -9.575,
@@ -129657,7 +129493,7 @@
         -7.674999999999999
       ],
       "end_mm": [
-        -11.0,
+        -11,
         -7.674999999999999
       ],
       "length_mm": 0.05000000000000071,
@@ -129668,7 +129504,7 @@
       "net": "DATA_CC1",
       "layer": "bottom",
       "start_mm": [
-        -11.0,
+        -11,
         -7.674999999999999
       ],
       "end_mm": [
@@ -129942,7 +129778,7 @@
         12.600000000000001
       ],
       "end_mm": [
-        0.0,
+        0,
         12.600000000000001
       ],
       "length_mm": 0.02500000000000213,
@@ -129953,7 +129789,7 @@
       "net": "PD_CC2",
       "layer": "bottom",
       "start_mm": [
-        0.0,
+        0,
         12.600000000000001
       ],
       "end_mm": [
@@ -130452,7 +130288,7 @@
         11.425
       ],
       "end_mm": [
-        -6.0,
+        -6,
         10.900000000000002
       ],
       "length_mm": 0.7424621202458741,
@@ -130463,11 +130299,11 @@
       "net": "PD_CC2",
       "layer": "inner1",
       "start_mm": [
-        -6.0,
+        -6,
         10.900000000000002
       ],
       "end_mm": [
-        -6.0,
+        -6,
         10.875
       ],
       "length_mm": 0.02500000000000213,
@@ -130478,7 +130314,7 @@
       "net": "PD_CC2",
       "layer": "inner1",
       "start_mm": [
-        -6.0,
+        -6,
         10.875
       ],
       "end_mm": [
@@ -132733,7 +132569,7 @@
       ],
       "end_mm": [
         8.775000000000002,
-        -5.0
+        -5
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -132744,7 +132580,7 @@
       "layer": "bottom",
       "start_mm": [
         8.775000000000002,
-        -5.0
+        -5
       ],
       "end_mm": [
         8.775000000000002,
@@ -132983,11 +132819,11 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        6.0,
+        6,
         -6.174999999999999
       ],
       "end_mm": [
-        6.0,
+        6,
         -6.199999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -132998,7 +132834,7 @@
       "net": "TEMP_SCL",
       "layer": "inner1",
       "start_mm": [
-        6.0,
+        6,
         -6.199999999999999
       ],
       "end_mm": [
@@ -133033,7 +132869,7 @@
       ],
       "end_mm": [
         7.600000000000001,
-        -8.0
+        -8
       ],
       "length_mm": 1.7324116139070433,
       "width_mm": 0.16
@@ -133044,11 +132880,11 @@
       "layer": "inner1",
       "start_mm": [
         7.600000000000001,
-        -8.0
+        -8
       ],
       "end_mm": [
         7.625,
-        -8.0
+        -8
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -133059,7 +132895,7 @@
       "layer": "inner1",
       "start_mm": [
         7.625,
-        -8.0
+        -8
       ],
       "end_mm": [
         7.650000000000002,
@@ -133227,7 +133063,7 @@
         -5.6
       ],
       "end_mm": [
-        -12.0,
+        -12,
         -5.949999999999999
       ],
       "length_mm": 0.4949747468305828,
@@ -133238,7 +133074,7 @@
       "net": "LED_B",
       "layer": "bottom",
       "start_mm": [
-        -12.0,
+        -12,
         -5.949999999999999
       ],
       "end_mm": [
@@ -133288,7 +133124,7 @@
       ],
       "end_mm": [
         -11.899999999999999,
-        -6.0
+        -6
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -133299,11 +133135,11 @@
       "layer": "bottom",
       "start_mm": [
         -11.899999999999999,
-        -6.0
+        -6
       ],
       "end_mm": [
         -11.875,
-        -6.0
+        -6
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -133314,7 +133150,7 @@
       "layer": "bottom",
       "start_mm": [
         -11.875,
-        -6.0
+        -6
       ],
       "end_mm": [
         -11.85,
@@ -133377,7 +133213,7 @@
         -6.049999999999999
       ],
       "end_mm": [
-        -11.0,
+        -11,
         -6.074999999999999
       ],
       "length_mm": 0.03535533905932662,
@@ -133388,7 +133224,7 @@
       "net": "LED_B",
       "layer": "bottom",
       "start_mm": [
-        -11.0,
+        -11,
         -6.074999999999999
       ],
       "end_mm": [
@@ -134008,7 +133844,7 @@
       ],
       "end_mm": [
         -6.5,
-        -8.0
+        -8
       ],
       "length_mm": 0.494974746830584,
       "width_mm": 0.16
@@ -134019,11 +133855,11 @@
       "layer": "inner1",
       "start_mm": [
         -6.5,
-        -8.0
+        -8
       ],
       "end_mm": [
         -6.475,
-        -8.0
+        -8
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -134034,7 +133870,7 @@
       "layer": "inner1",
       "start_mm": [
         -6.475,
-        -8.0
+        -8
       ],
       "end_mm": [
         -6.449999999999999,
@@ -134233,7 +134069,7 @@
       ],
       "end_mm": [
         -0.14999999999999858,
-        15.0
+        15
       ],
       "length_mm": 0.15000001281333136,
       "width_mm": 0.16
@@ -134244,7 +134080,7 @@
       "layer": "inner1",
       "start_mm": [
         -0.14999999999999858,
-        15.0
+        15
       ],
       "end_mm": [
         -0.1750000000000007,
@@ -134637,7 +134473,7 @@
         13.200000000000003
       ],
       "end_mm": [
-        -1.0,
+        -1,
         13.175
       ],
       "length_mm": 0.03535533905933039,
@@ -134648,11 +134484,11 @@
       "net": "PD_CC1",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         13.175
       ],
       "end_mm": [
-        -1.0,
+        -1,
         13.150000000000002
       ],
       "length_mm": 0.02499999999999858,
@@ -134663,7 +134499,7 @@
       "net": "PD_CC1",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         13.150000000000002
       ],
       "end_mm": [
@@ -134728,7 +134564,7 @@
       ],
       "end_mm": [
         -1.0749999999999993,
-        13.0
+        13
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -134739,7 +134575,7 @@
       "layer": "inner1",
       "start_mm": [
         -1.0749999999999993,
-        13.0
+        13
       ],
       "end_mm": [
         -1.0749999999999993,
@@ -134982,7 +134818,7 @@
         -8.325
       ],
       "end_mm": [
-        9.0,
+        9,
         -8.35
       ],
       "length_mm": 0.03535533905932913,
@@ -134993,11 +134829,11 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        9.0,
+        9,
         -8.35
       ],
       "end_mm": [
-        9.0,
+        9,
         -8.375
       ],
       "length_mm": 0.025000000000000355,
@@ -135008,7 +134844,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        9.0,
+        9,
         -8.375
       ],
       "end_mm": [
@@ -135057,7 +134893,7 @@
         -8.549999999999999
       ],
       "end_mm": [
-        8.0,
+        8,
         -8.549999999999999
       ],
       "length_mm": 0.8000000000000007,
@@ -135068,7 +134904,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        8.0,
+        8,
         -8.549999999999999
       ],
       "end_mm": [
@@ -135207,7 +135043,7 @@
         -9.25
       ],
       "end_mm": [
-        7.0,
+        7,
         -9.25
       ],
       "length_mm": 0.02500000000000213,
@@ -135218,7 +135054,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        7.0,
+        7,
         -9.25
       ],
       "end_mm": [
@@ -135582,7 +135418,7 @@
         -9.475
       ],
       "end_mm": [
-        2.0,
+        2,
         -9.5
       ],
       "length_mm": 0.03535533905932913,
@@ -135593,7 +135429,7 @@
       "net": "ENABLE_N",
       "layer": "inner1",
       "start_mm": [
-        2.0,
+        2,
         -9.5
       ],
       "end_mm": [
@@ -136513,7 +136349,7 @@
       ],
       "end_mm": [
         -4.524999999999999,
-        -9.0
+        -9
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -136524,7 +136360,7 @@
       "layer": "inner1",
       "start_mm": [
         -4.524999999999999,
-        -9.0
+        -9
       ],
       "end_mm": [
         -4.524999999999999,
@@ -137247,7 +137083,7 @@
         -6.074999999999999
       ],
       "end_mm": [
-        -10.0,
+        -10,
         -6.424999999999999
       ],
       "length_mm": 0.494974746830584,
@@ -137258,11 +137094,11 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -10.0,
+        -10,
         -6.424999999999999
       ],
       "end_mm": [
-        -10.0,
+        -10,
         -6.549999999999999
       ],
       "length_mm": 0.125,
@@ -137273,7 +137109,7 @@
       "net": "PD_GOOD",
       "layer": "top",
       "start_mm": [
-        -10.0,
+        -10,
         -6.549999999999999
       ],
       "end_mm": [
@@ -137698,7 +137534,7 @@
       ],
       "end_mm": [
         -5.475,
-        7.0
+        7
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -137709,7 +137545,7 @@
       "layer": "bottom",
       "start_mm": [
         -5.475,
-        7.0
+        7
       ],
       "end_mm": [
         -5.5,
@@ -137953,7 +137789,7 @@
       ],
       "end_mm": [
         -5.975,
-        4.0
+        4
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -137964,7 +137800,7 @@
       "layer": "bottom",
       "start_mm": [
         -5.975,
-        4.0
+        4
       ],
       "end_mm": [
         -5.975,
@@ -137982,7 +137818,7 @@
         3.9750000000000014
       ],
       "end_mm": [
-        -6.0,
+        -6,
         3.950000000000003
       ],
       "length_mm": 0.03535533905932662,
@@ -137993,11 +137829,11 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         3.950000000000003
       ],
       "end_mm": [
-        -6.0,
+        -6,
         3.9250000000000007
       ],
       "length_mm": 0.02500000000000213,
@@ -138008,7 +137844,7 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        -6.0,
+        -6,
         3.9250000000000007
       ],
       "end_mm": [
@@ -138358,7 +138194,7 @@
       ],
       "end_mm": [
         -6.875,
-        2.0
+        2
       ],
       "length_mm": 0.6750000000000007,
       "width_mm": 0.16
@@ -138369,7 +138205,7 @@
       "layer": "inner2",
       "start_mm": [
         -6.875,
-        2.0
+        2
       ],
       "end_mm": [
         -6.899999999999999,
@@ -138492,7 +138328,7 @@
         1.7750000000000021
       ],
       "end_mm": [
-        -7.0,
+        -7,
         1.75
       ],
       "length_mm": 0.03535533905932913,
@@ -138503,11 +138339,11 @@
       "net": "RUN",
       "layer": "inner2",
       "start_mm": [
-        -7.0,
+        -7,
         1.75
       ],
       "end_mm": [
-        -7.0,
+        -7,
         1.7250000000000014
       ],
       "length_mm": 0.02499999999999858,
@@ -138518,7 +138354,7 @@
       "net": "RUN",
       "layer": "inner2",
       "start_mm": [
-        -7.0,
+        -7,
         1.7250000000000014
       ],
       "end_mm": [
@@ -138898,7 +138734,7 @@
       ],
       "end_mm": [
         -7.324999999999999,
-        1.0
+        1
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.16
@@ -138909,7 +138745,7 @@
       "layer": "inner2",
       "start_mm": [
         -7.324999999999999,
-        1.0
+        1
       ],
       "end_mm": [
         -7.35,
@@ -139423,7 +139259,7 @@
       ],
       "end_mm": [
         -7.799999999999999,
-        0.0
+        0
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -139434,7 +139270,7 @@
       "layer": "inner2",
       "start_mm": [
         -7.799999999999999,
-        0.0
+        0
       ],
       "end_mm": [
         -7.799999999999999,
@@ -140262,7 +140098,7 @@
         -2.625
       ],
       "end_mm": [
-        -9.0,
+        -9,
         -2.6499999999999986
       ],
       "length_mm": 0.03535533905932662,
@@ -140273,11 +140109,11 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        -9.0,
+        -9,
         -2.6499999999999986
       ],
       "end_mm": [
-        -9.0,
+        -9,
         -2.674999999999999
       ],
       "length_mm": 0.025000000000000355,
@@ -140288,7 +140124,7 @@
       "net": "RUN",
       "layer": "bottom",
       "start_mm": [
-        -9.0,
+        -9,
         -2.674999999999999
       ],
       "end_mm": [
@@ -141522,7 +141358,7 @@
         -10.774999999999999
       ],
       "end_mm": [
-        -4.0,
+        -4,
         -10.774999999999999
       ],
       "length_mm": 0.6749999999999989,
@@ -141533,7 +141369,7 @@
       "net": "DATA_CC2",
       "layer": "bottom",
       "start_mm": [
-        -4.0,
+        -4,
         -10.774999999999999
       ],
       "end_mm": [
@@ -141567,8 +141403,8 @@
         -10.8
       ],
       "end_mm": [
-        -3.0,
-        -11.0
+        -3,
+        -11
       ],
       "length_mm": 0.282842712474618,
       "width_mm": 0.16
@@ -141578,12 +141414,12 @@
       "net": "DATA_CC2",
       "layer": "inner2",
       "start_mm": [
-        -3.0,
-        -11.0
+        -3,
+        -11
       ],
       "end_mm": [
         -2.9749999999999996,
-        -11.0
+        -11
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -141594,7 +141430,7 @@
       "layer": "inner2",
       "start_mm": [
         -2.9749999999999996,
-        -11.0
+        -11
       ],
       "end_mm": [
         -2.9499999999999993,
@@ -142437,7 +142273,7 @@
         -10.774999999999999
       ],
       "end_mm": [
-        10.0,
+        10,
         -10.2
       ],
       "length_mm": 0.8131727983645286,
@@ -142448,11 +142284,11 @@
       "net": "DATA_CC2",
       "layer": "inner2",
       "start_mm": [
-        10.0,
+        10,
         -10.2
       ],
       "end_mm": [
-        10.0,
+        10,
         -10.1
       ],
       "length_mm": 0.09999999999999964,
@@ -142463,7 +142299,7 @@
       "net": "DATA_CC2",
       "layer": "inner2",
       "start_mm": [
-        10.0,
+        10,
         -10.1
       ],
       "end_mm": [
@@ -142498,7 +142334,7 @@
       ],
       "end_mm": [
         10.05,
-        -10.0
+        -10
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -142509,7 +142345,7 @@
       "layer": "inner2",
       "start_mm": [
         10.05,
-        -10.0
+        -10
       ],
       "end_mm": [
         10.05,
@@ -143338,7 +143174,7 @@
       ],
       "end_mm": [
         15.475000000000001,
-        7.0
+        7
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -143349,7 +143185,7 @@
       "layer": "inner2",
       "start_mm": [
         15.475000000000001,
-        7.0
+        7
       ],
       "end_mm": [
         15.475000000000001,
@@ -143878,7 +143714,7 @@
       ],
       "end_mm": [
         15.024999999999999,
-        6.0
+        6
       ],
       "length_mm": 0.035355339059332906,
       "width_mm": 0.16
@@ -143889,7 +143725,7 @@
       "layer": "inner2",
       "start_mm": [
         15.024999999999999,
-        6.0
+        6
       ],
       "end_mm": [
         15.024999999999999,
@@ -143907,7 +143743,7 @@
         5.975000000000001
       ],
       "end_mm": [
-        15.0,
+        15,
         5.950000000000003
       ],
       "length_mm": 0.035355339059325364,
@@ -143918,11 +143754,11 @@
       "net": "STATUS_B_C",
       "layer": "inner2",
       "start_mm": [
-        15.0,
+        15,
         5.950000000000003
       ],
       "end_mm": [
-        15.0,
+        15,
         5.925000000000001
       ],
       "length_mm": 0.02500000000000213,
@@ -143933,7 +143769,7 @@
       "net": "STATUS_B_C",
       "layer": "inner2",
       "start_mm": [
-        15.0,
+        15,
         5.925000000000001
       ],
       "end_mm": [
@@ -144132,7 +143968,7 @@
         15.450000000000003
       ],
       "end_mm": [
-        7.0,
+        7,
         15.450000000000003
       ],
       "length_mm": 0.04999999999999716,
@@ -144143,7 +143979,7 @@
       "net": "SLEEP",
       "layer": "bottom",
       "start_mm": [
-        7.0,
+        7,
         15.450000000000003
       ],
       "end_mm": [
@@ -144883,7 +144719,7 @@
       ],
       "end_mm": [
         16.300000000000004,
-        14.0
+        14
       ],
       "length_mm": 0.07500000000000284,
       "width_mm": 0.16
@@ -144894,7 +144730,7 @@
       "layer": "bottom",
       "start_mm": [
         16.300000000000004,
-        14.0
+        14
       ],
       "end_mm": [
         16.325000000000003,
@@ -145452,7 +145288,7 @@
         7.225000000000001
       ],
       "end_mm": [
-        16.0,
+        16,
         7.200000000000003
       ],
       "length_mm": 0.035355339059325364,
@@ -145463,11 +145299,11 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        16.0,
+        16,
         7.200000000000003
       ],
       "end_mm": [
-        16.0,
+        16,
         7.175000000000001
       ],
       "length_mm": 0.02500000000000213,
@@ -145478,7 +145314,7 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        16.0,
+        16,
         7.175000000000001
       ],
       "end_mm": [
@@ -145558,7 +145394,7 @@
       ],
       "end_mm": [
         15.925000000000004,
-        7.0
+        7
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -145569,7 +145405,7 @@
       "layer": "inner2",
       "start_mm": [
         15.925000000000004,
-        7.0
+        7
       ],
       "end_mm": [
         15.899999999999999,
@@ -146098,7 +145934,7 @@
       ],
       "end_mm": [
         15.475000000000001,
-        6.0
+        6
       ],
       "length_mm": 0.05000000000000071,
       "width_mm": 0.16
@@ -146109,7 +145945,7 @@
       "layer": "inner2",
       "start_mm": [
         15.475000000000001,
-        6.0
+        6
       ],
       "end_mm": [
         15.450000000000003,
@@ -146442,8 +146278,8 @@
         5.025000000000002
       ],
       "end_mm": [
-        15.0,
-        5.0
+        15,
+        5
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -146453,11 +146289,11 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        15.0,
-        5.0
+        15,
+        5
       ],
       "end_mm": [
-        15.0,
+        15,
         4.975000000000001
       ],
       "length_mm": 0.02499999999999858,
@@ -146468,7 +146304,7 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        15.0,
+        15,
         4.975000000000001
       ],
       "end_mm": [
@@ -147328,7 +147164,7 @@
       ],
       "end_mm": [
         14.100000000000001,
-        3.0
+        3
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -147339,7 +147175,7 @@
       "layer": "inner2",
       "start_mm": [
         14.100000000000001,
-        3.0
+        3
       ],
       "end_mm": [
         14.075000000000003,
@@ -147432,7 +147268,7 @@
         2.825000000000003
       ],
       "end_mm": [
-        14.0,
+        14,
         2.8000000000000007
       ],
       "length_mm": 0.03535533905933039,
@@ -147443,11 +147279,11 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         2.8000000000000007
       ],
       "end_mm": [
-        14.0,
+        14,
         2.775000000000002
       ],
       "length_mm": 0.02499999999999858,
@@ -147458,7 +147294,7 @@
       "net": "SLEEP",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         2.775000000000002
       ],
       "end_mm": [
@@ -147718,7 +147554,7 @@
       ],
       "end_mm": [
         4.5,
-        7.0
+        7
       ],
       "length_mm": 0.6999999999999993,
       "width_mm": 0.16
@@ -147729,7 +147565,7 @@
       "layer": "bottom",
       "start_mm": [
         4.5,
-        7.0
+        7
       ],
       "end_mm": [
         4.700000000000003,
@@ -148137,7 +147973,7 @@
         8.875
       ],
       "end_mm": [
-        8.0,
+        8,
         8.900000000000002
       ],
       "length_mm": 0.035355339059327875,
@@ -148148,7 +147984,7 @@
       "net": "USB_DP",
       "layer": "bottom",
       "start_mm": [
-        8.0,
+        8,
         8.900000000000002
       ],
       "end_mm": [
@@ -148659,7 +148495,7 @@
       "layer": "inner2",
       "start_mm": [
         3.700000000000003,
-        2.0
+        2
       ],
       "end_mm": [
         3.5500000000000007,
@@ -149278,7 +149114,7 @@
       ],
       "end_mm": [
         2.450000000000003,
-        6.0
+        6
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -149289,7 +149125,7 @@
       "layer": "inner2",
       "start_mm": [
         2.450000000000003,
-        6.0
+        6
       ],
       "end_mm": [
         2.4250000000000007,
@@ -149637,7 +149473,7 @@
         7.050000000000001
       ],
       "end_mm": [
-        0.0,
+        0,
         6.375
       ],
       "length_mm": 0.9545941546018402,
@@ -149648,7 +149484,7 @@
       "net": "DATA_PRESENT",
       "layer": "inner1",
       "start_mm": [
-        0.0,
+        0,
         6.375
       ],
       "end_mm": [
@@ -149742,7 +149578,7 @@
         6.300000000000001
       ],
       "end_mm": [
-        -1.0,
+        -1,
         6.300000000000001
       ],
       "length_mm": 0.8500000000000014,
@@ -149753,7 +149589,7 @@
       "net": "DATA_PRESENT",
       "layer": "inner1",
       "start_mm": [
-        -1.0,
+        -1,
         6.300000000000001
       ],
       "end_mm": [
@@ -149908,7 +149744,7 @@
       ],
       "end_mm": [
         -4.35,
-        6.0
+        6
       ],
       "length_mm": 0.03535533905932913,
       "width_mm": 0.16
@@ -149919,11 +149755,11 @@
       "layer": "inner1",
       "start_mm": [
         -4.35,
-        6.0
+        6
       ],
       "end_mm": [
         -5.424999999999999,
-        6.0
+        6
       ],
       "length_mm": 1.0749999999999993,
       "width_mm": 0.16
@@ -149934,7 +149770,7 @@
       "layer": "inner1",
       "start_mm": [
         -5.424999999999999,
-        6.0
+        6
       ],
       "end_mm": [
         -6.324999999999999,
@@ -149998,7 +149834,7 @@
       ],
       "end_mm": [
         -6.375,
-        7.0
+        7
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -150009,7 +149845,7 @@
       "layer": "inner1",
       "start_mm": [
         -6.375,
-        7.0
+        7
       ],
       "end_mm": [
         -6.375,
@@ -150223,7 +150059,7 @@
       ],
       "end_mm": [
         -2.549999999999999,
-        1.0
+        1
       ],
       "length_mm": 0.02500000000000213,
       "width_mm": 0.16
@@ -150234,7 +150070,7 @@
       "layer": "inner1",
       "start_mm": [
         -2.549999999999999,
-        1.0
+        1
       ],
       "end_mm": [
         -2.5749999999999993,
@@ -150778,7 +150614,7 @@
       ],
       "end_mm": [
         4.5,
-        -15.0
+        -15
       ],
       "length_mm": 6.929646455628165,
       "width_mm": 0.16
@@ -150789,7 +150625,7 @@
       "layer": "inner1",
       "start_mm": [
         4.5,
-        -15.0
+        -15
       ],
       "end_mm": [
         4.5,
@@ -151212,7 +151048,7 @@
         -16.325
       ],
       "end_mm": [
-        14.0,
+        14,
         -16.3
       ],
       "length_mm": 0.035355339059325364,
@@ -151223,7 +151059,7 @@
       "net": "LED_G",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         -16.3
       ],
       "end_mm": [
@@ -152218,7 +152054,7 @@
       ],
       "end_mm": [
         16.300000000000004,
-        -14.0
+        -14
       ],
       "length_mm": 0.07499999999999929,
       "width_mm": 0.16
@@ -152229,7 +152065,7 @@
       "layer": "inner2",
       "start_mm": [
         16.300000000000004,
-        -14.0
+        -14
       ],
       "end_mm": [
         16.325000000000003,
@@ -152563,7 +152399,7 @@
       ],
       "end_mm": [
         16.300000000000004,
-        -12.0
+        -12
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -152574,7 +152410,7 @@
       "layer": "inner2",
       "start_mm": [
         16.300000000000004,
-        -12.0
+        -12
       ],
       "end_mm": [
         16.300000000000004,
@@ -153463,7 +153299,7 @@
       ],
       "end_mm": [
         15.325000000000003,
-        -10.0
+        -10
       ],
       "length_mm": 0.035355339059325364,
       "width_mm": 0.16
@@ -153474,7 +153310,7 @@
       "layer": "inner2",
       "start_mm": [
         15.325000000000003,
-        -10.0
+        -10
       ],
       "end_mm": [
         15.325000000000003,
@@ -153852,7 +153688,7 @@
         -9.299999999999999
       ],
       "end_mm": [
-        15.0,
+        15,
         -9.275
       ],
       "length_mm": 0.035355339059325364,
@@ -153863,11 +153699,11 @@
       "net": "LED_G",
       "layer": "inner2",
       "start_mm": [
-        15.0,
+        15,
         -9.275
       ],
       "end_mm": [
-        15.0,
+        15,
         -9.25
       ],
       "length_mm": 0.025000000000000355,
@@ -153878,7 +153714,7 @@
       "net": "LED_G",
       "layer": "inner2",
       "start_mm": [
-        15.0,
+        15,
         -9.25
       ],
       "end_mm": [
@@ -154003,7 +153839,7 @@
       ],
       "end_mm": [
         14.875,
-        -9.0
+        -9
       ],
       "length_mm": 0.03535533905932662,
       "width_mm": 0.16
@@ -154014,7 +153850,7 @@
       "layer": "inner2",
       "start_mm": [
         14.875,
-        -9.0
+        -9
       ],
       "end_mm": [
         14.875,
@@ -154558,7 +154394,7 @@
       ],
       "end_mm": [
         14.425,
-        -8.0
+        -8
       ],
       "length_mm": 0.025000000000000355,
       "width_mm": 0.16
@@ -154569,7 +154405,7 @@
       "layer": "inner2",
       "start_mm": [
         14.425,
-        -8.0
+        -8
       ],
       "end_mm": [
         14.400000000000002,
@@ -155052,7 +154888,7 @@
         -7.125
       ],
       "end_mm": [
-        14.0,
+        14,
         -7.1
       ],
       "length_mm": 0.03535533905932913,
@@ -155063,11 +154899,11 @@
       "net": "LED_G",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         -7.1
       ],
       "end_mm": [
-        14.0,
+        14,
         -7.049999999999999
       ],
       "length_mm": 0.05000000000000071,
@@ -155078,7 +154914,7 @@
       "net": "LED_G",
       "layer": "inner2",
       "start_mm": [
-        14.0,
+        14,
         -7.049999999999999
       ],
       "end_mm": [
@@ -155098,7 +154934,7 @@
       ],
       "end_mm": [
         13.975000000000001,
-        -7.0
+        -7
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -155109,7 +154945,7 @@
       "layer": "inner2",
       "start_mm": [
         13.975000000000001,
-        -7.0
+        -7
       ],
       "end_mm": [
         13.950000000000003,
@@ -155653,7 +155489,7 @@
       ],
       "end_mm": [
         13.5,
-        -6.0
+        -6
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -155664,7 +155500,7 @@
       "layer": "inner2",
       "start_mm": [
         13.5,
-        -6.0
+        -6
       ],
       "end_mm": [
         13.5,
@@ -156193,7 +156029,7 @@
       ],
       "end_mm": [
         13.05,
-        -5.0
+        -5
       ],
       "length_mm": 0.035355339059327875,
       "width_mm": 0.16
@@ -156204,7 +156040,7 @@
       "layer": "top",
       "start_mm": [
         13.05,
-        -5.0
+        -5
       ],
       "end_mm": [
         13.05,
@@ -156252,7 +156088,7 @@
         -4.924999999999999
       ],
       "end_mm": [
-        13.0,
+        13,
         -4.899999999999999
       ],
       "length_mm": 0.03535533905932913,
@@ -156263,11 +156099,11 @@
       "net": "LED_G",
       "layer": "top",
       "start_mm": [
-        13.0,
+        13,
         -4.899999999999999
       ],
       "end_mm": [
-        13.0,
+        13,
         -4.85
       ],
       "length_mm": 0.049999999999998934,
@@ -156278,7 +156114,7 @@
       "net": "LED_G",
       "layer": "top",
       "start_mm": [
-        13.0,
+        13,
         -4.85
       ],
       "end_mm": [
@@ -156718,7 +156554,7 @@
       ],
       "end_mm": [
         11.700000000000003,
-        -2.0
+        -2
       ],
       "length_mm": 0.02499999999999858,
       "width_mm": 0.16
@@ -156729,7 +156565,7 @@
       "layer": "top",
       "start_mm": [
         11.700000000000003,
-        -2.0
+        -2
       ],
       "end_mm": [
         11.675,
@@ -156976,6 +156812,1521 @@
         -1.5249999999999986
       ],
       "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.5,
+        8.9
+      ],
+      "end_mm": [
+        -15.5,
+        8.875
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.5,
+        8.875
+      ],
+      "end_mm": [
+        -15.325,
+        8.700000000000003
+      ],
+      "length_mm": 0.24748737341529012,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.325,
+        8.700000000000003
+      ],
+      "end_mm": [
+        -15.3,
+        8.700000000000003
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.3,
+        8.700000000000003
+      ],
+      "end_mm": [
+        -15.25,
+        8.650000000000002
+      ],
+      "length_mm": 0.07071067811865575,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.25,
+        8.650000000000002
+      ],
+      "end_mm": [
+        -15.25,
+        8.625
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.25,
+        8.625
+      ],
+      "end_mm": [
+        -15.225,
+        8.600000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_VHV_0",
+      "net": "PD_VHV",
+      "layer": "top",
+      "start_mm": [
+        -15.225,
+        8.600000000000001
+      ],
+      "end_mm": [
+        -15.075,
+        6.675
+      ],
+      "length_mm": 1.9308353114649643,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.5,
+        8.450000000000001
+      ],
+      "end_mm": [
+        -9.275,
+        8.675
+      ],
+      "length_mm": 0.31819805153394587,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.275,
+        8.675
+      ],
+      "end_mm": [
+        -9.275,
+        8.700000000000003
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.275,
+        8.700000000000003
+      ],
+      "end_mm": [
+        -9.25,
+        8.725000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.25,
+        8.725000000000001
+      ],
+      "end_mm": [
+        -9.25,
+        8.75
+      ],
+      "length_mm": 0.02499999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.25,
+        8.75
+      ],
+      "end_mm": [
+        -9.225,
+        8.775000000000002
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.225,
+        8.775000000000002
+      ],
+      "end_mm": [
+        -9.225,
+        9.600000000000001
+      ],
+      "length_mm": 0.8249999999999993,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.225,
+        9.600000000000001
+      ],
+      "end_mm": [
+        -9.25,
+        9.625
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.25,
+        9.625
+      ],
+      "end_mm": [
+        -9.25,
+        9.650000000000002
+      ],
+      "length_mm": 0.02500000000000213,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.25,
+        9.650000000000002
+      ],
+      "end_mm": [
+        -9.299999999999999,
+        9.700000000000003
+      ],
+      "length_mm": 0.0707106781186545,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.299999999999999,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -9.325,
+        9.700000000000003
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.325,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -9.35,
+        9.725000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.35,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -9.375,
+        9.725000000000001
+      ],
+      "length_mm": 0.025000000000000355,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.375,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -9.4,
+        9.75
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -9.4,
+        9.75
+      ],
+      "end_mm": [
+        -11.8,
+        9.75
+      ],
+      "length_mm": 2.4000000000000004,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.8,
+        9.75
+      ],
+      "end_mm": [
+        -11.825,
+        9.725000000000001
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.825,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -11.875,
+        9.725000000000001
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.875,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -11.899999999999999,
+        9.700000000000003
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.899999999999999,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -11.95,
+        9.700000000000003
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.95,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -11.975,
+        9.675
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -11.975,
+        9.675
+      ],
+      "end_mm": [
+        -12.024999999999999,
+        9.675
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.024999999999999,
+        9.675
+      ],
+      "end_mm": [
+        -12.05,
+        9.650000000000002
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.05,
+        9.650000000000002
+      ],
+      "end_mm": [
+        -12.149999999999999,
+        9.650000000000002
+      ],
+      "length_mm": 0.09999999999999787,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.149999999999999,
+        9.650000000000002
+      ],
+      "end_mm": [
+        -12.175,
+        9.625
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.175,
+        9.625
+      ],
+      "end_mm": [
+        -12.225,
+        9.625
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.225,
+        9.625
+      ],
+      "end_mm": [
+        -12.25,
+        9.600000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.25,
+        9.600000000000001
+      ],
+      "end_mm": [
+        -12.35,
+        9.600000000000001
+      ],
+      "length_mm": 0.09999999999999964,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.35,
+        9.600000000000001
+      ],
+      "end_mm": [
+        -12.375,
+        9.575000000000003
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.375,
+        9.575000000000003
+      ],
+      "end_mm": [
+        -12.524999999999999,
+        9.575000000000003
+      ],
+      "length_mm": 0.14999999999999858,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.524999999999999,
+        9.575000000000003
+      ],
+      "end_mm": [
+        -12.55,
+        9.55
+      ],
+      "length_mm": 0.03535533905933039,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.55,
+        9.55
+      ],
+      "end_mm": [
+        -12.825,
+        9.55
+      ],
+      "length_mm": 0.2749999999999986,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.825,
+        9.55
+      ],
+      "end_mm": [
+        -12.85,
+        9.525000000000002
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -12.85,
+        9.525000000000002
+      ],
+      "end_mm": [
+        -13.575,
+        9.525000000000002
+      ],
+      "length_mm": 0.7249999999999996,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.575,
+        9.525000000000002
+      ],
+      "end_mm": [
+        -13.6,
+        9.55
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.6,
+        9.55
+      ],
+      "end_mm": [
+        -13.675,
+        9.55
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.675,
+        9.55
+      ],
+      "end_mm": [
+        -13.7,
+        9.575000000000003
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.7,
+        9.575000000000003
+      ],
+      "end_mm": [
+        -13.75,
+        9.575000000000003
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.75,
+        9.575000000000003
+      ],
+      "end_mm": [
+        -13.775,
+        9.600000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.775,
+        9.600000000000001
+      ],
+      "end_mm": [
+        -13.85,
+        9.600000000000001
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.85,
+        9.600000000000001
+      ],
+      "end_mm": [
+        -13.875,
+        9.625
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.875,
+        9.625
+      ],
+      "end_mm": [
+        -13.925,
+        9.625
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.925,
+        9.625
+      ],
+      "end_mm": [
+        -13.95,
+        9.650000000000002
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -13.95,
+        9.650000000000002
+      ],
+      "end_mm": [
+        -14.025,
+        9.650000000000002
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.025,
+        9.650000000000002
+      ],
+      "end_mm": [
+        -14.05,
+        9.675
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.05,
+        9.675
+      ],
+      "end_mm": [
+        -14.1,
+        9.675
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.1,
+        9.675
+      ],
+      "end_mm": [
+        -14.125,
+        9.700000000000003
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.125,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -14.2,
+        9.700000000000003
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.2,
+        9.700000000000003
+      ],
+      "end_mm": [
+        -14.225,
+        9.725000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.225,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -14.275,
+        9.725000000000001
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.275,
+        9.725000000000001
+      ],
+      "end_mm": [
+        -14.3,
+        9.75
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.3,
+        9.75
+      ],
+      "end_mm": [
+        -14.375,
+        9.75
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.375,
+        9.75
+      ],
+      "end_mm": [
+        -14.4,
+        9.775000000000002
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.4,
+        9.775000000000002
+      ],
+      "end_mm": [
+        -14.45,
+        9.775000000000002
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.45,
+        9.775000000000002
+      ],
+      "end_mm": [
+        -14.475,
+        9.8
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.475,
+        9.8
+      ],
+      "end_mm": [
+        -14.55,
+        9.8
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.55,
+        9.8
+      ],
+      "end_mm": [
+        -14.575,
+        9.825000000000003
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.575,
+        9.825000000000003
+      ],
+      "end_mm": [
+        -14.625,
+        9.825000000000003
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.625,
+        9.825000000000003
+      ],
+      "end_mm": [
+        -14.65,
+        9.850000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.65,
+        9.850000000000001
+      ],
+      "end_mm": [
+        -14.725,
+        9.850000000000001
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.725,
+        9.850000000000001
+      ],
+      "end_mm": [
+        -14.75,
+        9.875
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.75,
+        9.875
+      ],
+      "end_mm": [
+        -14.8,
+        9.875
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.8,
+        9.875
+      ],
+      "end_mm": [
+        -14.825,
+        9.900000000000002
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.825,
+        9.900000000000002
+      ],
+      "end_mm": [
+        -14.9,
+        9.900000000000002
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.9,
+        9.900000000000002
+      ],
+      "end_mm": [
+        -14.925,
+        9.925
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.925,
+        9.925
+      ],
+      "end_mm": [
+        -14.975,
+        9.925
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -14.975,
+        9.925
+      ],
+      "end_mm": [
+        -15,
+        9.950000000000003
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15,
+        9.950000000000003
+      ],
+      "end_mm": [
+        -15.075,
+        9.950000000000003
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.075,
+        9.950000000000003
+      ],
+      "end_mm": [
+        -15.1,
+        9.975000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.1,
+        9.975000000000001
+      ],
+      "end_mm": [
+        -15.15,
+        9.975000000000001
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.15,
+        9.975000000000001
+      ],
+      "end_mm": [
+        -15.175,
+        10
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.175,
+        10
+      ],
+      "end_mm": [
+        -15.225,
+        10
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.225,
+        10
+      ],
+      "end_mm": [
+        -15.25,
+        10.025000000000002
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.25,
+        10.025000000000002
+      ],
+      "end_mm": [
+        -15.325,
+        10.025000000000002
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.325,
+        10.025000000000002
+      ],
+      "end_mm": [
+        -15.35,
+        10.05
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.35,
+        10.05
+      ],
+      "end_mm": [
+        -15.4,
+        10.05
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.4,
+        10.05
+      ],
+      "end_mm": [
+        -15.425,
+        10.075000000000003
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.425,
+        10.075000000000003
+      ],
+      "end_mm": [
+        -15.5,
+        10.075000000000003
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.5,
+        10.075000000000003
+      ],
+      "end_mm": [
+        -15.525,
+        10.100000000000001
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.525,
+        10.100000000000001
+      ],
+      "end_mm": [
+        -15.575,
+        10.100000000000001
+      ],
+      "length_mm": 0.049999999999998934,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.575,
+        10.100000000000001
+      ],
+      "end_mm": [
+        -15.6,
+        10.125
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.6,
+        10.125
+      ],
+      "end_mm": [
+        -15.675,
+        10.125
+      ],
+      "length_mm": 0.07500000000000107,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.675,
+        10.125
+      ],
+      "end_mm": [
+        -15.7,
+        10.150000000000002
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.7,
+        10.150000000000002
+      ],
+      "end_mm": [
+        -15.75,
+        10.150000000000002
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.75,
+        10.150000000000002
+      ],
+      "end_mm": [
+        -15.775,
+        10.175
+      ],
+      "length_mm": 0.03535533905932662,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.775,
+        10.175
+      ],
+      "end_mm": [
+        -15.85,
+        10.175
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.85,
+        10.175
+      ],
+      "end_mm": [
+        -15.875,
+        10.200000000000003
+      ],
+      "length_mm": 0.03535533905932913,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.875,
+        10.200000000000003
+      ],
+      "end_mm": [
+        -15.925,
+        10.200000000000003
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.925,
+        10.200000000000003
+      ],
+      "end_mm": [
+        -15.95,
+        10.225000000000001
+      ],
+      "length_mm": 0.035355339059325364,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -15.95,
+        10.225000000000001
+      ],
+      "end_mm": [
+        -16.025,
+        10.225000000000001
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.025,
+        10.225000000000001
+      ],
+      "end_mm": [
+        -16.05,
+        10.25
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.05,
+        10.25
+      ],
+      "end_mm": [
+        -16.1,
+        10.25
+      ],
+      "length_mm": 0.05000000000000071,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.1,
+        10.25
+      ],
+      "end_mm": [
+        -16.125,
+        10.275000000000002
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.125,
+        10.275000000000002
+      ],
+      "end_mm": [
+        -16.2,
+        10.275000000000002
+      ],
+      "length_mm": 0.07499999999999929,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.2,
+        10.275000000000002
+      ],
+      "end_mm": [
+        -16.225,
+        10.3
+      ],
+      "length_mm": 0.035355339059327875,
+      "width_mm": 0.16
+    },
+    {
+      "trace": "same_side_repair_0_PD_CFG_0",
+      "net": "PD_CFG",
+      "layer": "top",
+      "start_mm": [
+        -16.225,
+        10.3
+      ],
+      "end_mm": [
+        -16.25,
+        10.3
+      ],
+      "length_mm": 0.02499999999999858,
       "width_mm": 0.16
     }
   ],

@@ -88,7 +88,7 @@ const platedHoles=json.filter((e:any)=>e.type==='pcb_plated_hole')
 if(json.some((e:any)=>e.type==='pcb_solder_paste' && platedHoles.some((h:any)=>Math.hypot(h.x-e.x,h.y-e.y)<.001))) unique.push({type:'validation_error',message:'Hand-soldered through holes must not have stencil paste.'})
 // Physical-pin review of motor power, PD request, protection and reset defaults.
 const reviewedPhysicalPins:Record<string,Record<number,string>>={
- U_PD:{1:'PD_VDD',2:'PD_VDD',3:'PD_VDD',6:'PD_CC2',7:'PD_CC1',8:'PD_VBUS',9:'GND',10:'PD_GOOD',11:'GND'},
+ U_PD:{1:'PD_VHV',6:'PD_CC2',7:'PD_CC1',8:'PD_VBUS',9:'PD_CFG',10:'PD_GOOD',11:'GND'},
  U_DRV:{1:'B_MINUS',2:'ENABLE_N',3:'GND',4:'CP1',5:'CP2',6:'VCP',8:'VREG',9:'V3V3',10:'V3V3',11:'V3V3',12:'V3V3',13:'GND',14:'SLEEP',15:'V3V3',16:'STEP',17:'VREF',18:'GND',19:'DIR',21:'A_MINUS',22:'PD_VBUS',23:'SENSE1',24:'A_PLUS',26:'B_PLUS',27:'SENSE2',28:'PD_VBUS',29:'GND'},
  U_ESD:{1:'USB_DP',2:'GND',3:'USB_DM',4:'USB_DM',5:'DATA_VBUS',6:'USB_DP'},
 }

@@ -1,11 +1,11 @@
 {
   "name": "NEMA14_RP2040",
-  "version": "1.12.2",
+  "version": "1.13.0",
   "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
   "main": "index.circuit.tsx",
   "scripts": {
     "build": "npm run render && npm run check",
-    "check": "bun scripts/check.ts",
+    "check": "bun scripts/check.ts && npm run check:pd",
     "dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev assembly.circuit.json",
     "test": "npm run check",
     "render": "bun scripts/render.ts",
@@ -27,7 +27,8 @@
     "assembly:check": "/workspace/.routing-venv/bin/python scripts/check-harness-connection.py && /workspace/.routing-venv/bin/python scripts/check-assembly-fit.py",
     "assembly:export": "bun scripts/export-assembly-3d.ts && /workspace/.routing-venv/bin/python scripts/check-exported-harness.py",
     "assembly:viewer": "bun build scripts/assembly-viewer.mjs --target browser --minify --outfile artifacts/top-assembly/assembly-viewer.js",
-    "publish:assembly": "python3 scripts/prepare-assembly-release.py"
+    "publish:assembly": "python3 scripts/prepare-assembly-release.py",
+    "check:pd": "python3 scripts/check-ch224a.py"
   },
   "repository": {
     "type": "git",

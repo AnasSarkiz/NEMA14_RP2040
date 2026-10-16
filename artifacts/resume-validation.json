@@ -1,5 +1,5 @@
 {
-  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
   "checks": [
     {
       "check": "all_resistor_edge_clearances",
@@ -225,15 +225,17 @@
         "scripts/audit-oscillator-layout.py"
       ],
       "exit_code": 0,
-      "log": "artifacts/validation-resume/oscillator_layout.txt"
+      "log": "artifacts/validation-resume/oscillator_layout.txt",
+      "rechecked_at_utc": "2026-10-16T20:26:55.251431+00:00",
+      "recheck_reason": "Restored omitted plan metadata from the frozen baseline and unchanged route construction policy; reran the actual oscillator audit."
     }
   ],
   "native_STEP_mechanical_pass": true,
-  "CAD_models_checked": 81,
-  "physical_nets_checked": 63,
+  "CAD_models_checked": 82,
+  "physical_nets_checked": 64,
   "counts": {
-    "pcb_trace": 538,
-    "pcb_via": 330,
+    "pcb_trace": 536,
+    "pcb_via": 329,
     "pcb_copper_pour": 48
   },
   "full_CAM_status": "PASS",

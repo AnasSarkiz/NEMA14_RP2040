@@ -1,3 +1,9 @@
+## CH224A migration — 1.13.0 (local, unpublished)
+
+U_PD is now CH224A C42459160. A 56 kΩ CFG1 resistor preserves the fixed 15 V request; R_PD is 0 Ω and C_PD remains 1 µF / 50 V. Existing placements, mounts, USB positions and the ESSOP10 pads are retained. See [electrical changes, validation and remaining limits](docs/ch224a-migration.md) and [current BOM](artifacts/jlcpcb-review/JLCPCB-BOM.csv).
+
+The sections below describe the earlier baseline. Their byte-preservation claims and historical qualification receipts do not certify this migration. Use the current migration test receipts before manufacturing review.
+
 ## Schematic pin alignment — 1.12.2
 
 The USB connector pin stems now meet their symbol boxes in both functional sheets. Only schematic display lengths changed; pin endpoints, wires, source connectivity, PCB geometry and the motor assembly geometry remain identical to 1.12.1. [Correction and preservation evidence](artifacts/schematic-pin-alignment/verification.json) · [Updated A4 schematic](artifacts/schematic-a4.pdf).

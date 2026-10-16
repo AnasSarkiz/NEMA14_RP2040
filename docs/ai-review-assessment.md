@@ -24,15 +24,15 @@ The validation gates now accept only the known orientation suggestions with zero
 
 ## Electrical scope and remaining design review
 
-Both USB connectors retain the physical C165948 terminal numbering. The DATA connector duplicates DP/DM contacts, uses independent 5.1 kΩ CC-to-ground resistors, connects fixed DATA_VBUS to the ESD rail and diode-OR input, and uses 27 Ω MCU series resistors. The PD connector connects CC1/CC2 to CH224K, leaves DP/DM/SBU NC, and supplies PD_VBUS. All four shell contacts on each connector are grounded. These net/pad assignments are checked independently; a working reference does not qualify this board's routing or firmware.
+Both USB connectors retain the physical C165948 terminal numbering. The DATA connector duplicates DP/DM contacts, uses independent 5.1 kΩ CC-to-ground resistors, connects fixed DATA_VBUS to the ESD rail and diode-OR input, and uses 27 Ω MCU series resistors. The PD connector connects CC1/CC2 to CH224A, leaves DP/DM/SBU NC, and supplies PD_VBUS. All four shell contacts on each connector are grounded. These net/pad assignments are checked independently; a working reference does not qualify this board's routing or firmware.
 
 | Cable mode | Intended behavior; hardware validation still required |
 | --- | --- |
 | DATA only | Logic powers through D_DATA and the buck; motor remains disabled without valid PD/VM and initialized firmware. Test low-VBUS buck headroom, boot and enumeration in both orientations. |
-| PD only | Logic powers through D_PD; CH224K requests 15 V, not guaranteed from every charger. RGB anode on DATA_VBUS remains unpowered. Test fallback, PG indication and firmware gating. |
+| PD only | Logic powers through D_PD; CH224A requests 15 V, not guaranteed from every charger. RGB anode on DATA_VBUS remains unpowered. Test fallback, PG indication and firmware gating. |
 | Both | PD normally supplies the common logic input; the two Schottky diodes isolate positive input rails. Verify reverse leakage/backfeed and all attach/detach sequences; shared ground remains common. |
 
-The native source sets CH224K CFG1/2/3 to 0/1/1 for a 15 V request. ENABLE_N has a 100 kΩ pull-up and SLEEP a 100 kΩ pull-down. These defaults provide reset disable; they do not supply motor-control firmware or an independently hardware-qualified PD interlock. The driver nominal peak is `3.3 × 10/(39+10)/(8 × 0.24) = 0.3508 A`; the provisional tolerance budget is 0.3969 A. Actual phase current, sense offsets, ground-return behavior, torque and thermal margins need measurement.
+The native source sets CH224A CFG1 through 56 kΩ to GND, with CFG2/3 unconnected, for a 15 V request. ENABLE_N has a 100 kΩ pull-up and SLEEP a 100 kΩ pull-down. These defaults provide reset disable; they do not supply motor-control firmware or an independently hardware-qualified PD interlock. The driver nominal peak is `3.3 × 10/(39+10)/(8 × 0.24) = 0.3508 A`; the provisional tolerance budget is 0.3969 A. Actual phase current, sense offsets, ground-return behavior, torque and thermal margins need measurement.
 
 A new explicit review gap is the actual USB layer usage. MCU_DP includes 3.413 mm of inner1 copper while MCU_DM uses only top/bottom; connector-side DP and DM also differ in their layer usage. Whole-net copper totals are not pair skew. Current connectivity, clearance and plane-area checks do not qualify coupling, impedance, reference continuity or transitions. See [routing evidence and limitations](routing.md). This requires layout/stackup review and, if necessary, corrected pair routing followed by full revalidation.
 

@@ -8,7 +8,7 @@ Select 4 layers, 35 × 35 mm, 1.6 mm board thickness, and ENIG for the separate 
 
 The 100 um stencil has independently screened fine-pitch apertures and four windows totaling 60% exposed-pad coverage for the MCU, PD controller and A4988. `Thermal-Via-Process.csv` identifies the actual exposed-pad via positions and drill sizes that require filling, copper capping and planarization. Confirm the supplier's paste/reflow and via-in-pad processes before releasing assembly; these capabilities and costs have not been quoted.
 
-SMT fitted parts: 81. Bottom SMT references: none. Separate bare top-side `TP_*` test points have no purchased component or stencil paste. JST `J_MOTOR` is native SMT BM04B-SRSS-TB(LF)(SN), C160390, and is included in the top-side SMT BOM and CPL. No bottom-side fitted components or JST through-hole leads are present. The functional order is pin 1 A+, 2 A−, 3 B+, 4 B−. The JST mates vertically from +Z.
+SMT fitted parts: 82. Bottom SMT references: none. Separate bare top-side `TP_*` test points have no purchased component or stencil paste. JST `J_MOTOR` is native SMT BM04B-SRSS-TB(LF)(SN), C160390, and is included in the top-side SMT BOM and CPL. No bottom-side fitted components or JST through-hole leads are present. The functional order is pin 1 A+, 2 A−, 3 B+, 4 B−. The JST mates vertically from +Z.
 
 The **eight USB-C shell tabs require supplier-approved TOP-side secondary soldering**. Their 0.7 mm stakes do not protrude through the 1.6 mm board; do not assume a bottom-wave or ordinary through-hole process is suitable. `Through-Hole-Joint-Plan.csv` lists the actual eight joint coordinates for supplier quotation or manual soldering. USB signal pads receive stencil paste; shell slots do not. Do not assume an SMT-only quote includes these joints or that the unsoldered USB tabs provide a qualified cable-retention or shield-ground connection.
 
@@ -26,4 +26,6 @@ Supplier review still must confirm exact stock and quote, pickup orientation, vi
 
 Every native and order-source record passes its installed Circuit JSON schema. Display offsets are canonical strings, optional null IDs are omitted, and the buzzer uses a generic pinout record with its real MPN and pin identities retained. See `native-json-compatibility.json`. The actual coupled USB copper and adjacent grounded references are checked separately; fabricator stackup/impedance and bench USB operation remain unverified.
 
-Board source SHA-256: `67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
+Board source SHA-256: `16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
+
+CH224A revision 1.13.0: the electrical migration intentionally changes the PD supply/configuration circuit while preserving every existing placement and land pattern. The fixed request remains 15 V. See ch224a-migration.md for the 56 kohm configuration, 0 ohm supply feed and WCH VBUS documentation inconsistency. Live stock, supplier process approval and hardware validation remain outstanding; this package is for engineering review, not manufacturing release.

@@ -13,7 +13,6 @@ import { AO3400A } from "../imports/supplier/AO3400A/AO3400A"
 import { A_0402WGF1000TCE } from "../imports/supplier/A_0402WGF1000TCE/A_0402WGF1000TCE"
 import { CL10A106KP8NNNC } from "../imports/supplier/CL10A106KP8NNNC/CL10A106KP8NNNC"
 import { B4B_PH_K_S_LF__SN_ } from "../imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_"
-import { ERJPA3F1001V } from "../imports/supplier/ERJPA3F1001V/ERJPA3F1001V"
 import React from "react"
 import catalog from "./jlcpcb-catalog.json"
 import { A_0402WGF1001TCE } from "../imports/supplier/A_0402WGF1001TCE/A_0402WGF1001TCE"
@@ -50,7 +49,9 @@ import { RVT1V470M0605 } from "../imports/supplier/RVT1V470M0605/RVT1V470M0605"
 import { SRN4018_4R7M } from "../imports/supplier/SRN4018_4R7M/SRN4018_4R7M"
 import { AP63203WU_7 } from "../imports/supplier/AP63203WU_7/AP63203WU_7"
 import { B5819W_SL } from "../imports/supplier/B5819W_SL/B5819W_SL"
-import { CH224K } from "../imports/supplier/CH224K/CH224K"
+import { CH224A } from "../imports/supplier/CH224A/CH224A"
+import { A_0603WAF0000T5E } from "../imports/supplier/A_0603WAF0000T5E/A_0603WAF0000T5E"
+import { A_0402WGF5602TCE } from "../imports/supplier/A_0402WGF5602TCE/A_0402WGF5602TCE"
 const parts: Record<string, React.ComponentType<any>> = {
  "C79815": AS5600_ASOM,
  "C5815189": StandardUsbConnector,
@@ -69,7 +70,6 @@ const parts: Record<string, React.ComponentType<any>> = {
  "C19702": CL10A106KP8NNNC,
 
  "C131334": B4B_PH_K_S_LF__SN_,
- "C441922": ERJPA3F1001V,
  "C11702": A_0402WGF1001TCE,
  "C13585": CL31A106KBHNNNE,
  "C14663": CC0603KRX7R9BB104,
@@ -104,7 +104,9 @@ const parts: Record<string, React.ComponentType<any>> = {
  "C780206": SRN4018_4R7M,
  "C780769": AP63203WU_7,
  "C8598": B5819W_SL,
- "C970725": CH224K
+ "C42459160": CH224A,
+ "C21189": A_0603WAF0000T5E,
+ "C25796": A_0402WGF5602TCE
 }
 /** Uses supplier-imported components directly; never overrides land patterns or CAD transforms. */
 export function SupplierPart({name,...props}:any) {

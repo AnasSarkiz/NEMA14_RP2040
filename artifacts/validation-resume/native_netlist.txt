@@ -5,8 +5,8 @@ Readable Netlist:
 COMPONENTS:
  - J_PD: J_PD, source_component
  - J_DATA: J_DATA, source_component
- - U_PD: CH224K
- - R_PD: 1kΩ resistor
+ - U_PD: CH224A
+ - R_PD: 0Ω resistor
  - C_PD: 1uF capacitor
  - R_PG: 10kΩ resistor
  - U_MCU: RP2040
@@ -94,6 +94,7 @@ COMPONENTS:
  - U_ENCODER: AS5600-ASOM
  - C_ENCODER: 100nF capacitor
  - C_ENCODER_BULK: 1uF capacitor
+ - R_PD_CFG: 56kΩ resistor
 
 NET: PD_CC1
   - U_PD CC1
@@ -103,12 +104,10 @@ NET: PD_CC2
   - U_PD CC2
   - J_PD CC2
 
-NET: PD_VDD
+NET: PD_VHV
   - C_PD pin1 (+)
   - R_PD pin2
-  - U_PD CFG3
-  - U_PD CFG2
-  - U_PD VDD
+  - U_PD VHV
 
 NET: PD_GOOD
   - U_MCU GPIO10
@@ -443,7 +442,12 @@ NET: V3V3
   - U_MCU IOVDD1
   - R_PG pin1
 
+NET: PD_CFG
+  - R_PD_CFG pin1
+  - U_PD CFG1
+
 NET: GND
+  - R_PD_CFG pin2
   - C_ENCODER_BULK pin2 (-)
   - C_ENCODER pin2 (-)
   - U_ENCODER DIR
@@ -507,7 +511,6 @@ NET: GND
   - U_MCU TESTEN
   - C_PD pin2 (-)
   - U_PD GND
-  - U_PD CFG1
   - J_DATA EH4
   - J_DATA EH3
   - J_DATA EH2
@@ -571,25 +574,25 @@ J_DATA (USB4145-03-0070-C)
 - pin19(EH3, SHELL3): NETS(GND)
 - pin20(EH4, SHELL4): NETS(GND)
 
-U_PD (CH224K)
-- pin1(VDD): NETS(PD_VDD)
-- pin2(CFG2): NETS(PD_VDD)
-- pin3(CFG3): NETS(PD_VDD)
+U_PD (CH224A)
+- pin1(VHV): NETS(PD_VHV)
+- pin2(CFG2): NOT_CONNECTED
+- pin3(CFG3): NOT_CONNECTED
 - pin4(DP): NOT_CONNECTED
 - pin5(DM): NOT_CONNECTED
 - pin6(CC2): NETS(PD_CC2)
 - pin7(CC1): NETS(PD_CC1)
 - pin8(VBUS): NETS(PD_VBUS)
-- pin9(CFG1): NETS(GND)
+- pin9(CFG1): NETS(PD_CFG)
 - pin10(PG): NETS(PD_GOOD)
 - pin11(GND): NETS(GND)
 
-R_PD (1kΩ undefined)
+R_PD (0Ω undefined)
 - pin1(anode, pos, left): NETS(PD_VBUS)
-- pin2(cathode, neg, right): NETS(PD_VDD)
+- pin2(cathode, neg, right): NETS(PD_VHV)
 
 C_PD (1uF undefined)
-- pin1(pos): NETS(PD_VDD)
+- pin1(pos): NETS(PD_VHV)
 - pin2(neg): NETS(GND)
 
 R_PG (10kΩ undefined)
@@ -1049,4 +1052,8 @@ C_ENCODER (100nF undefined)
 C_ENCODER_BULK (1uF undefined)
 - pin1(pos): NETS(V3V3)
 - pin2(neg): NETS(GND)
+
+R_PD_CFG (56kΩ undefined)
+- pin1(anode, pos, left): NETS(PD_CFG)
+- pin2(cathode, neg, right): NETS(GND)
 

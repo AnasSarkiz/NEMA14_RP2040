@@ -1,0 +1,149 @@
+
+> NEMA14_RP2040@1.13.0 assembly:check
+> /workspace/.routing-venv/bin/python scripts/check-harness-connection.py && /workspace/.routing-venv/bin/python scripts/check-assembly-fit.py
+
+{
+  "passed": true,
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "assembly_sha256": "005ebc95158a49cd25e218bdbee050f87bdf9746cea6e16c568483b0807f05ea",
+  "motor_wire_outlet_faces_JST_board_edge": true,
+  "motor_exit_board_side": "+Y",
+  "motor_has_no_JST_socket": true,
+  "factory_leads_and_insulated_pigtail_splices": true,
+  "board_header": "BM04B-SRSS-TB(LF)(SN)",
+  "mating_housing": "SHR-04V-S",
+  "crimp_contact": "SSH-003T-P0.2-H",
+  "electrical_contact_pitch_mm": 1,
+  "mounting_tabs_excluded_from_pin_axis": true,
+  "catalog_mated_height_mm": 6.3,
+  "rendered_mated_height_mm": 6.3,
+  "full_housing_insertion_depth_mm": 2.960000000000001,
+  "native_STEP_contact_region_occupancy_verified": true,
+  "pin_mapping": [
+    {
+      "pin": 1,
+      "coil": "A_PLUS",
+      "factory_color": "black",
+      "rendered_wire_endpoint_xyz_mm": [
+        -7.632502999999999,
+        11.350000000000001,
+        6.399999999999999
+      ],
+      "native_header_contact_xy_mm": [
+        -7.632502999999999,
+        11.350000000000001
+      ],
+      "aligned": true
+    },
+    {
+      "pin": 2,
+      "coil": "A_MINUS",
+      "factory_color": "green",
+      "rendered_wire_endpoint_xyz_mm": [
+        -7.632502999999999,
+        12.350000000000001,
+        6.399999999999999
+      ],
+      "native_header_contact_xy_mm": [
+        -7.632502999999999,
+        12.350000000000001
+      ],
+      "aligned": true
+    },
+    {
+      "pin": 3,
+      "coil": "B_PLUS",
+      "factory_color": "red",
+      "rendered_wire_endpoint_xyz_mm": [
+        -7.632502999999999,
+        13.350000000000001,
+        6.399999999999999
+      ],
+      "native_header_contact_xy_mm": [
+        -7.632502999999999,
+        13.350000000000001
+      ],
+      "aligned": true
+    },
+    {
+      "pin": 4,
+      "coil": "B_MINUS",
+      "factory_color": "blue",
+      "rendered_wire_endpoint_xyz_mm": [
+        -7.632502999999999,
+        14.350000000000001,
+        6.399999999999999
+      ],
+      "native_header_contact_xy_mm": [
+        -7.632502999999999,
+        14.350000000000001
+      ],
+      "aligned": true
+    }
+  ],
+  "pigtail": {
+    "awg": 28,
+    "insulation_OD_mm": 0.6,
+    "JST_approved_awg": [
+      32,
+      28
+    ],
+    "JST_approved_insulation_OD_mm": [
+      0.4,
+      0.8
+    ]
+  },
+  "manufacturer_document": {
+    "path": "references/jst/SH-connector.pdf",
+    "url": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+    "sha256": "ea3071ca5ee5a6069eba534fa39a10f34c9fb742ee42135a69ab4156bfa0f5de"
+  },
+  "physical_crimp_and_latch_tested": false,
+  "concealed_housing_stem_and_contact_geometry_not_rendered": true
+}
+{
+  "passed": true,
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "assembly_sha256": "005ebc95158a49cd25e218bdbee050f87bdf9746cea6e16c568483b0807f05ea",
+  "fitted_supplier_STEP_parts": 82,
+  "conservative_USB_STEP_envelopes": [
+    "J_PD",
+    "J_DATA"
+  ],
+  "wire_entry_holes_checked_against_actual_exposed_housing": true,
+  "wire_segments": 156,
+  "nearby_wire_envelope_min_clearance_mm": 0.07999999999999902,
+  "collisions": [],
+  "PCB_records_preserved": true,
+  "actual_hardware_JSCAD_geometry_and_placements_checked": true,
+  "screw_centres_mm": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "screw_shaft_to_spacer_bore_radial_clearance_mm": 0.1,
+  "spacer_to_PCB_surface_gap_mm": 0,
+  "spacer_to_model_motor_surface_gap_mm": 0,
+  "motor_rear_attachment_verified": false,
+  "physical_assembly_tested": false,
+  "limitations": [
+    "Rear retention/thread engagement, rear shaft and encoder magnet/airgap remain unverified.",
+    "Factory wire diameter and actual splice procurement require a sample; the drawing specifies bare 300 +/-10 mm leads but no gauge.",
+    "Only the exposed stock housing outline is rendered; the concealed inserted stem and contact/latch tolerances are not modeled.",
+    "Defined plug/tool/head dimensions are procurement bounds; real parts require qualification.",
+    "Bottom encoder and its capacitors are DNP and excluded from fitted-part collision checks."
+  ]
+}

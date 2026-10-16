@@ -28,7 +28,7 @@ CH32 PB6/PB7 are GPIOs, not a CH32X035 hardware I2C alternate-function pair. Sof
 
 ## External connection standard
 
-The programming USB-C duplicates D+ and D− receptacle contacts onto USB_DP and USB_DM, presents separate 5.1 kohm CC sink resistors, connects its VBUS contacts to fixed DATA_VBUS, grounds shell/GND contacts and leaves SBU unconnected. The PD USB-C sends CC1/CC2 to CH224K, supplies negotiated PD_VBUS and leaves USB data/SBU contacts unconnected. Never apply negotiated PD voltage to DATA_VBUS or the RGB anode.
+The programming USB-C duplicates D+ and D− receptacle contacts onto USB_DP and USB_DM, presents separate 5.1 kohm CC sink resistors, connects its VBUS contacts to fixed DATA_VBUS, grounds shell/GND contacts and leaves SBU unconnected. The PD USB-C sends CC1/CC2 to CH224A, supplies negotiated PD_VBUS and leaves USB data/SBU contacts unconnected. Never apply negotiated PD voltage to DATA_VBUS or the RGB anode.
 
 The fitted BM04B-SRSS-TB(LF)(SN) C160390 SMT JST-SH top-entry motor header uses physical pins **1 A+, 2 A−, 3 B+, 4 B−**, matching the reference's external coil order. Positive coil paths in the reference additionally pass through current-sense circuitry; this board retains its A4988 outputs and current setting. Rishabh's reference has a 2 mm JST-PH through-hole header (C131334); this board uses the 1 mm SMT JST-SH from the user's NEMA8 reference. They are not physically interchangeable. See [current connector and harness review](jst-restoration.md) for the housing, contacts and phase colors.
 

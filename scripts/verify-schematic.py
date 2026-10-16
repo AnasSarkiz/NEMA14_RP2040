@@ -6,18 +6,23 @@ board_path=root/'artifacts/board.circuit.json';j=json.loads(board_path.read_text
 out=root/'artifacts/schematic-redesign';out.mkdir(exist_ok=True)
 preservation_path=out/'preservation.json'
 revision=json.loads(preservation_path.read_text())['baseline_git_revision'] if preservation_path.exists() else subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+migration=root/'artifacts/ch224a-migration/transfer.json'
+if migration.exists():
+ revision=json.loads(migration.read_text())['baseline_commit']
+ # Electrical edits are intentional; validate their exact scope and every retained physical pin.
+ subprocess.run(['python3',str(root/'scripts/check-ch224a.py')],cwd=root,check=True)
 baseline=json.loads(subprocess.check_output(['git','show',revision+':artifacts/board.circuit.json'],cwd=root))
 sha=lambda b:hashlib.sha256(b).hexdigest()
 errors=[]
 immutable=lambda a:sorted((e for e in a if not e['type'].startswith('schematic_')),key=lambda e:(e['type'],str(e.get(e['type']+'_id',''))))
 def electrical(a):return [e for e in a if e['type'].startswith('source_')]
 edge=root/'artifacts/edge-resistors/baseline.json'
-if edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
+if not migration.exists() and edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
  baseline=json.loads(subprocess.check_output(['git','show',json.loads(edge.read_text())['baseline_git_revision']+':artifacts/board.circuit.json'],cwd=root))
  def electrical(a):return [e for e in a if e['type'].startswith('source_')]
  if electrical(j)!=electrical(baseline):errors.append('Electrical source/pin roles changed during resistor relocation')
  if [e for e in j if e['type'].startswith('schematic_')]!=[e for e in baseline if e['type'].startswith('schematic_')]:errors.append('Qualified schematic changed during resistor relocation')
-elif not (root/'artifacts/top-assembly/baseline.json').exists():
+elif not migration.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
  if immutable(j)!=immutable(baseline):errors.append('Non-schematic source, PCB or CAD records changed')
 archive=(root/'artifacts/nema14-gerbers.zip').read_bytes()
 old_archive=subprocess.check_output(['git','show',revision+':artifacts/nema14-gerbers.zip'],cwd=root)

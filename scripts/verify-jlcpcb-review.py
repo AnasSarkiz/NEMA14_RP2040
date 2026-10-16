@@ -90,6 +90,13 @@ def main():
                  'Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.',
                  'Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified.'
              ]}
+    if (ROOT/'artifacts/ch224a-migration/transfer.json').exists():
+        receipt['default_export_manufacturing_qualified']=False
+        receipt['native_and_order_CAM_verified']=True
+        receipt['CH224A_migration_electrical_guard_passed']=True
+        receipt['live_assembly_stock_verified']=False
+        receipt['remaining_supplier_review_items'].append('Confirm CH224A C42459160, 0 ohm C21189 and 56 kohm C25796 assembly stock; public catalog listings are not live stock verification.')
+        receipt['remaining_hardware_validation'].append('Obtain manufacturer clarification of the inconsistent VBUS tolerance sentence in WCH V2.0 Section 7.1 versus its pin table, reference circuits and absolute-maximum table before manufacturing release.')
     receipt_path=OUT/'order-review-verification.json'
     if receipt_path.exists():
         previous=json.loads(receipt_path.read_text())

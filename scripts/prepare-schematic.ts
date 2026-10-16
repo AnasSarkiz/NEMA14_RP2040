@@ -91,7 +91,7 @@ export function prepareSchematic(json:any[]) {
    for(const p of shell){wire([p.sch.center,point(p.sch.center.x,y)],p,[p.source_port_id]);connected.add(p.source_port_id);annotated.add(p.source_port_id)}
    wire([point(Math.min(...xs),y),point(Math.max(...xs),y)],shell[0]);wire([point(x,y),point(x,y-.4)],shell[0]);label(shell[0],point(x,y-.4),'top',true);localComplete.add(shell[0].section+'|'+shell[0].subcircuit_connectivity_map_key)
   }
-  const groupsBySide=new Map<string,any[]>();for(const p of v.ports){const n=nets.get(p.subcircuit_connectivity_map_key);if(!n||!['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','PD_VDD'].includes(n.name)||!['left','right'].includes(p.sch.facing_direction))continue;const k=p.subcircuit_connectivity_map_key+'|'+p.sch.facing_direction;groupsBySide.set(k,[...(groupsBySide.get(k)??[]),p])}
+  const groupsBySide=new Map<string,any[]>();for(const p of v.ports){const n=nets.get(p.subcircuit_connectivity_map_key);if(!n||!['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','PD_VHV'].includes(n.name)||!['left','right'].includes(p.sch.facing_direction))continue;const k=p.subcircuit_connectivity_map_key+'|'+p.sch.facing_direction;groupsBySide.set(k,[...(groupsBySide.get(k)??[]),p])}
   for(const ps of groupsBySide.values()){
    if(ps.length<2)continue;const ymin=Math.min(...ps.map(p=>p.sch.center.y)),ymax=Math.max(...ps.map(p=>p.sch.center.y));if(v.ports.some((p:any)=>p.sch.facing_direction===ps[0].sch.facing_direction&&p.sch.center.y>=ymin&&p.sch.center.y<=ymax&&p.subcircuit_connectivity_map_key!==ps[0].subcircuit_connectivity_map_key))continue
    const x=ps[0].sch.center.x+(ps[0].sch.facing_direction==='left'?-.65:.65)
@@ -107,7 +107,7 @@ export function prepareSchematic(json:any[]) {
  // Route local signal networks orthogonally; shared power and ground use rail symbols.
  const finish=()=>{
   for(const name of ['J_PD','J_DATA','U_PD','U_MCU','U_DRV'])strap(name)
-  const power=new Set(['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','LOGIC_IN','PD_VDD'])
+  const power=new Set(['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','LOGIC_IN','PD_VHV'])
   const boxes=[...placed.values()].map(v=>({minX:v.comp.center.x-v.comp.size.width/2-.14,maxX:v.comp.center.x+v.comp.size.width/2+.14,minY:v.comp.center.y-v.comp.size.height/2-.14,maxY:v.comp.center.y+v.comp.size.height/2+.14}))
   const usedEdges:any[]=[]
   const blocked=(p:P,key:string)=>boxes.some(b=>p.x>b.minX&&p.x<b.maxX&&p.y>b.minY&&p.y<b.maxY)||usedEdges.some(e=>e.key!==key&&((Math.abs(e.a.x-e.b.x)<1e-5&&Math.abs(p.x-e.a.x)<.13&&p.y>=Math.min(e.a.y,e.b.y)-.13&&p.y<=Math.max(e.a.y,e.b.y)+.13)||(Math.abs(e.a.y-e.b.y)<1e-5&&Math.abs(p.y-e.a.y)<.13&&p.x>=Math.min(e.a.x,e.b.x)-.13&&p.x<=Math.max(e.a.x,e.b.x)+.13)))
@@ -137,7 +137,10 @@ export function prepareSchematic(json:any[]) {
  start(1,'Power & USB-PD','Motor supply negotiation, reverse-blocked logic power and 3.3 V conversion')
  caption('USB-C motor power','Fixed 15 V request; data and SBU contacts unused',.6,19)
  part({name:'J_PD',x:4,y:14.8,section:'pd',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DM1','DM2']})
- part({name:'U_PD',x:11,y:15.72,section:'pd',box:[3.2,4.5],left:['VBUS','VDD','CC1','CC2'],right:['CFG2','CFG3','PG','CFG1','GND','DP','DM']})
+ text('CH224A: 56 kΩ CFG1-to-GND selects 15 V; CFG2/3 NC.',.6,6.2,.21);
+ text('C_PD: 1 µF / 50 V (C15849); R_PD: 0 Ω (C21189).',.6,5.7,.21);
+ part({name:'U_PD',x:11,y:15.72,section:'pd',box:[3.2,4.0],left:['VBUS','VHV','CC1','CC2'],right:['CFG2','CFG3','PG','CFG1','GND','DP','DM']})
+ part({name:'R_PD_CFG',x:15.9,y:10.2,section:'pd'});
  part({name:'R_PD',x:9.8,y:10.2,section:'pd',symbol:'boxresistor_down'});part({name:'C_PD',x:12.7,y:10.2,section:'pd'});part({name:'R_PG',x:14.5,y:15.5,section:'pd'});part({name:'D_TVS',x:4,y:9.2,section:'pd',symbol:'avalanche_diode_up'})
  caption('3.3 V logic supply','AP63203 fixed-output buck; USB power is diode-isolated',17,19)
  part({name:'D_PD',x:19.2,y:16.8,section:'buck',symbol:'diode_right'});part({name:'D_DATA',x:19.2,y:14.5,section:'buck',symbol:'diode_right'})

@@ -14,4 +14,4 @@ The exact sense resistors are **C2930216 / FRL0805FR240TS**, 0.24 Ω, 1%, 125 mW
 
 Native numbered landscape A4 sheets include every physical pin and chip-purpose text. `report-presentation.py` verifies original imported footprint JSX, supplier IDs/MPNs, both CAD assets and hashes, 3D placement bounds, USB opening planes, A4 dimensions and pin/net coverage.
 
-CH224K supply resistor R_PD uses **C441922 / ERJPA3F1001V**, 1 kΩ, 0603, 0.25 W, with its exact imported land pattern. The higher power rating covers dissipation from dropping the requested motor supply to PD logic VDD.
+CH224A U_PD uses **C42459160** with the manufacturer pin map and the unchanged ESSOP10 land pattern, including the grounded exposed pad. R_PD is now **C21189 / 0603WAF0000T5E**, 0 Ω, on its original 0603 pads. New R_PD_CFG is **C25796 / 0402WGF5602TCE**, 56 kΩ, 1%, 0402, and requests 15 V. C_PD remains **C15849 / CL10A105KB8NNNC**, 1 µF / 50 V. See [migration evidence and limits](ch224a-migration.md).

@@ -118,6 +118,9 @@ Every native and order-source record passes its installed Circuit JSON schema. D
 
 Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
 '''
+    if (ROOT/'docs/ch224a-migration.md').exists():
+        instructions += '\nCH224A revision 1.13.0: the electrical migration intentionally changes the PD supply/configuration circuit while preserving every existing placement and land pattern. The fixed request remains 15 V. See ch224a-migration.md for the 56 kohm configuration, 0 ohm supply feed and WCH VBUS documentation inconsistency. Live stock, supplier process approval and hardware validation remain outstanding; this package is for engineering review, not manufacturing release.\n'
+        shutil.copy2(ROOT/'docs/ch224a-migration.md',OUT/'ch224a-migration.md')
     (OUT/'REVIEW-INSTRUCTIONS.md').write_text(instructions)
     # Keep repository instructions synchronized with the current order package.
     (ROOT/'docs/jlcpcb-order-review.md').write_text(instructions)
@@ -133,6 +136,7 @@ Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: 
            'schematic-a4.pdf']
     with zipfile.ZipFile(OUT/'JLCPCB-OrderReview.zip','w',zipfile.ZIP_DEFLATED) as z:
         for name in files:z.write(OUT/name,name)
+        if (OUT/'ch224a-migration.md').exists():z.write(OUT/'ch224a-migration.md','ch224a-migration.md')
         for name in ['physical-connectivity.json','reference-feedback/circuit-verification.json','mechanical/mount-usb-screen.json','mount-drill-verification.json']:
             z.write(ROOT/'artifacts'/name,'native-verification/'+name)
     print('Prepared',OUT/'JLCPCB-OrderReview.zip')

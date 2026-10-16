@@ -1,26 +1,26 @@
 {
   "passed": true,
-  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
-  "actual_plated_drill_file_sha256": "15a1858af8e4b23c208081d5f38c0e6edaaef73a8fcdf04f8defd3f38fa7bf6c",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "actual_plated_drill_file_sha256": "448558820d136f13e22cd91828270b1d6761fed663702b3da25d5ef7781268e0",
   "capability_source": "https://jlcpcb.com/capabilities/pcb-capabilities",
   "via_rule": "Diameter difference >=0.10 mm; 0.15 mm preferred. This revision requires >=0.30 mm drill and >=0.45 mm pad.",
   "nominal_dimensions_not_fabricated_measurements": true,
-  "source_vias": 330,
-  "actual_drill_matches": 330,
+  "source_vias": 329,
+  "actual_drill_matches": 329,
   "minimum_actual_declared_drill_mm": 0.3,
   "minimum_declared_pad_mm": 0.45,
   "minimum_nominal_ring_mm": 0.07500000000000001,
   "minimum_foreign_drill_to_copper_mm": 0.2290737725975569,
   "minimum_plated_drill_pair_edge_gap_mm": 0.2255956918481831,
   "drill_parser_stats": {
-    "objects": 338,
+    "objects": 337,
     "G85_joined": 8,
     "parser_notices": [
       "<unknown>:14 \"G90\": G90 header statement found after end of header"
     ],
     "tools_mm": {
       "0.599999": 8,
-      "0.3": 330
+      "0.3": 329
     }
   },
   "via_coordinates": [
@@ -70,7 +70,7 @@
       "via": "feedback_fanout_pcb_port_224_via",
       "Circuit_JSON_xy_mm": [
         1.85,
-        -9.0
+        -9
       ],
       "actual_Excellon_xy_mm": [
         1.8500000000000003,
@@ -391,7 +391,7 @@
     {
       "via": "reviewed_local_U_DRV_SENSE1_via",
       "Circuit_JSON_xy_mm": [
-        5.0,
+        5,
         -8.975
       ],
       "actual_Excellon_xy_mm": [
@@ -461,7 +461,7 @@
     {
       "via": "reviewed_local_C_IO22_pin2_via",
       "Circuit_JSON_xy_mm": [
-        4.0,
+        4,
         -6.25
       ],
       "actual_Excellon_xy_mm": [
@@ -489,7 +489,7 @@
     {
       "via": "reviewed_local_C_DV50_pin2_via",
       "Circuit_JSON_xy_mm": [
-        2.0,
+        2,
         5.800000000000001
       ],
       "actual_Excellon_xy_mm": [
@@ -559,7 +559,7 @@
     {
       "via": "same_side_repair_20_PD_GOOD_0_via_18",
       "Circuit_JSON_xy_mm": [
-        -12.0,
+        -12,
         -2.25
       ],
       "actual_Excellon_xy_mm": [
@@ -644,7 +644,7 @@
       "via": "same_side_repair_5_PD_VBUS_0_via_2",
       "Circuit_JSON_xy_mm": [
         -9.174999999999999,
-        7.0
+        7
       ],
       "actual_Excellon_xy_mm": [
         -9.17499999999999,
@@ -769,12 +769,12 @@
     {
       "via": "same_side_repair_22_PD_VDD_3_via_30",
       "Circuit_JSON_xy_mm": [
-        -15.225,
-        6.775000000000002
+        -15.075,
+        6.675
       ],
       "actual_Excellon_xy_mm": [
-        -15.225000000000003,
-        6.7749999999999995
+        -15.075000000000001,
+        6.675
       ],
       "drill_mm": 0.3,
       "pad_mm": 0.45,
@@ -793,20 +793,6 @@
       "drill_mm": 0.3,
       "pad_mm": 0.5,
       "nominal_annular_ring_mm": 0.1
-    },
-    {
-      "via": "reviewed_local_U_PD_CFG1_via",
-      "Circuit_JSON_xy_mm": [
-        -11.225,
-        8.175
-      ],
-      "actual_Excellon_xy_mm": [
-        -11.224999999999985,
-        8.174999999999994
-      ],
-      "drill_mm": 0.3,
-      "pad_mm": 0.45,
-      "nominal_annular_ring_mm": 0.07500000000000001
     },
     {
       "via": "reviewed_local_R_VM_H_pin1_via",
@@ -882,7 +868,7 @@
       "via": "reviewed_local_R_REF_H_pin1_via",
       "Circuit_JSON_xy_mm": [
         8.3,
-        -13.0
+        -13
       ],
       "actual_Excellon_xy_mm": [
         8.299999999999997,
@@ -951,7 +937,7 @@
     {
       "via": "reviewed_local_R_TEMP_SCL_pin2_via",
       "Circuit_JSON_xy_mm": [
-        6.0,
+        6,
         -5.299999999999999
       ],
       "actual_Excellon_xy_mm": [
@@ -1484,7 +1470,7 @@
       "via": "usb_fan_ESD_output_USB_DP_via",
       "Circuit_JSON_xy_mm": [
         8.05004,
-        7.0
+        7
       ],
       "actual_Excellon_xy_mm": [
         8.049999999999997,
@@ -1498,7 +1484,7 @@
       "via": "usb_fan_ESD_output_USB_DM_via",
       "Circuit_JSON_xy_mm": [
         9.94996,
-        7.0
+        7
       ],
       "actual_Excellon_xy_mm": [
         9.950000000000003,
@@ -1861,7 +1847,7 @@
     {
       "via": "reviewed_local_R_TEMP_SCL_pin1_via",
       "Circuit_JSON_xy_mm": [
-        6.0,
+        6,
         -6.174999999999999
       ],
       "actual_Excellon_xy_mm": [
@@ -2757,8 +2743,8 @@
     {
       "via": "same_side_repair_0_LED_R_0_via_1",
       "Circuit_JSON_xy_mm": [
-        7.0,
-        0.0
+        7,
+        0
       ],
       "actual_Excellon_xy_mm": [
         7.000000000000005,
@@ -2828,7 +2814,7 @@
       "via": "same_side_repair_0_QSPI_SS_0_via_7",
       "Circuit_JSON_xy_mm": [
         0.8500000000000014,
-        6.0
+        6
       ],
       "actual_Excellon_xy_mm": [
         0.8499999999999992,
@@ -3710,7 +3696,7 @@
       "via": "same_side_repair_0_DATA_PRESENT_0_rerouted_via_3",
       "Circuit_JSON_xy_mm": [
         3.700000000000003,
-        2.0
+        2
       ],
       "actual_Excellon_xy_mm": [
         3.7000000000000024,
@@ -3752,7 +3738,7 @@
       "via": "same_side_repair_0_PWR_LED_A_0_via_83",
       "Circuit_JSON_xy_mm": [
         -13.3,
-        -9.0
+        -9
       ],
       "actual_Excellon_xy_mm": [
         -13.299999999999992,

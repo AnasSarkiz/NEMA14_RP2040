@@ -1,5 +1,5 @@
 {
-  "source_path": "/workspace/nema14-rp2040-current/artifacts/board.circuit.json",
+  "source_path": "/workspace/NEMA14_RP2040/artifacts/board.circuit.json",
   "fastener_requirement": {
     "standard": "Envelope requirement; exact fastener SKU unqualified",
     "thread": "M3",
@@ -17,14 +17,14 @@
   },
   "plug_pair_intersections": [],
   "minimum_simultaneous_plug_gap_mm": 23.299999999999997,
-  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
   "unpopulated_bottom_references": [
     "C_ENCODER",
     "C_ENCODER_BULK",
     "U_ENCODER"
   ],
   "optional_encoder_rear_fit_verified": false,
-  "native_STEP_models": 81,
+  "native_STEP_models": 82,
   "conservative_USB_bounding_models": [
     {
       "reference": "J_PD",
@@ -109,6 +109,12 @@
       "reference": "R_BUZZER_GATE",
       "mount": "(13, 13)",
       "distance_to_radius3p2_fastener_mm": 0.7102978968565673,
+      "intersection_mm3": 0
+    },
+    {
+      "reference": "R_PD_CFG",
+      "mount": "(-13, 13)",
+      "distance_to_radius3p2_fastener_mm": 0.33413090874711976,
       "intersection_mm3": 0
     }
   ],
