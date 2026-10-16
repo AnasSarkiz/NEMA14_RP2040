@@ -110,17 +110,25 @@ for path in ['artifacts/upright-revision/via-fabrication-verification.json','art
                     if 'raw.githubusercontent.com/AnasSarkiz/' in url:assert '/'+revision+'/imports/supplier/' in url
     else:assert data==expected_data,path+' public evidence differs'
     checks.append({'path':path,'sha256':sha(data)})
-git_remote = subprocess.check_output(['git','-C',str(root),'remote','get-url','origin'],text=True).strip()
-repo = git_remote.removeprefix('https://github.com/').removesuffix('.git')
+repo = 'AnasSarkiz/NEMA14_RP2040'
+source_revision = subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
+assert proof['source_git_revision'] == source_revision
+model_proof = json.loads(file('artifacts/ch224a-migration/public-model-assets.json'))
+assert model_proof == json.loads((root/'artifacts/ch224a-migration/public-model-assets.json').read_text())
+assert model_proof['passed'] and model_proof['github_revision'] == revision
+with urllib.request.urlopen('https://api.github.com/repos/'+repo+'/git/trees/'+revision+'?recursive=1',timeout=60) as response:
+    tree=json.load(response)
+assert not tree.get('truncated')
+blobs={e['path']:e['sha'] for e in tree['tree'] if e['type']=='blob'}
 github=[]
-for path in ['artifacts/board.circuit.json','index.circuit.json','artifacts/nema14-gerbers.zip','imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.step','imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_.obj']:
-    if not (root/path).exists():
-        candidates=list((root/'imports/supplier/USB4145_03_0070_C').glob('*.step')); assert len(candidates)==1
-        path=str(candidates[0].relative_to(root))
-    url='https://raw.githubusercontent.com/'+repo+'/'+revision+'/'+path
-    with urllib.request.urlopen(url,timeout=60) as r: data=r.read()
-    assert sha(data)==sha((root/path).read_bytes()), 'GitHub bytes differ: '+path
+for asset in model_proof['assets']:
+    path=asset['path'];url=asset['url'];data=(root/path).read_bytes()
+    blob=hashlib.sha1(b'blob '+str(len(data)).encode()+b'\0'+data).hexdigest()
+    assert blobs[path]==blob==asset['git_blob_sha'] and sha(data)==asset['sha256'], 'Public model differs: '+path
+    assert url=='https://raw.githubusercontent.com/'+repo+'/'+revision+'/'+path
     github.append({'path':path,'sha256':sha(data),'url':url})
+model_urls={e[field] for e in remote if e['type']=='cad_component' for field in ['model_obj_url','model_step_url'] if e.get(field)}
+assert model_urls=={asset['url'] for asset in model_proof['assets']}
 page='https://tscircuit.com/'+name
 with urllib.request.urlopen(page,timeout=60) as r: page_status=r.status; assert page_status==200
 feedback=json.loads(file('artifacts/reference-feedback/circuit-verification.json'));assert feedback['passed'] and feedback['board_sha256']==sha(board_bytes)
@@ -150,5 +158,16 @@ if order_dir.exists():
     receipt.update({'JLCPCB_review_package_verified_public':True,'corrected_order_CAM_passed':True,
                     'supplier_order_review_approved':False,'production_release_approved':False,
                     'public_JLCPCB_review_evidence':public_order})
+for path in ['docs/ch224a-migration.md','artifacts/ch224a-migration/vbus-rating-review.json',
+             'artifacts/ch224a-migration/final-review.json','artifacts/ch224a-migration/electrical-and-preservation.json',
+             'artifacts/ch224a-migration/pcb-diff.json']:
+    data=file(path)
+    assert data==(root/path).read_bytes(), 'Migration evidence differs: '+path
+    checks.append({'path':path,'sha256':sha(data)})
+vbus=json.loads(file('artifacts/ch224a-migration/vbus-rating-review.json'))
+assert vbus['VBUS_rating_concern_resolved'] and vbus['VBUS_absolute_maximum_V']==32
+receipt.update({'source_git_revision':source_revision,'source_git_revision_pushed_to_GitHub':False,
+                'github_revision_scope':'supplier model assets only',
+                'CH224A_VBUS_rating_confirmed_by_WCH_V2_1':True,'production_release_approved':False})
 (root/'artifacts/publication-verification.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps(receipt,indent=2))

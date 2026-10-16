@@ -119,7 +119,7 @@ Every native and order-source record passes its installed Circuit JSON schema. D
 Board source SHA-256: `{manifest['native_board_sha256']}`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
 '''
     if (ROOT/'docs/ch224a-migration.md').exists():
-        instructions += '\nCH224A revision 1.13.0: the electrical migration intentionally changes the PD supply/configuration circuit while preserving every existing placement and land pattern. The fixed request remains 15 V. See ch224a-migration.md for the 56 kohm configuration, 0 ohm supply feed and WCH VBUS documentation inconsistency. Live stock, supplier process approval and hardware validation remain outstanding; this package is for engineering review, not manufacturing release.\n'
+        instructions += '\nCH224A revision 1.13.0: the electrical migration intentionally changes the PD supply/configuration circuit while preserving every existing placement and land pattern. The fixed request remains 15 V. See ch224a-migration.md for the 56 kohm configuration, 0 ohm supply feed and VBUS rating confirmed by WCH V2.1. Live stock, supplier process approval and hardware validation remain outstanding; this package is for engineering review, not manufacturing release.\n'
         shutil.copy2(ROOT/'docs/ch224a-migration.md',OUT/'ch224a-migration.md')
     (OUT/'REVIEW-INSTRUCTIONS.md').write_text(instructions)
     # Keep repository instructions synchronized with the current order package.

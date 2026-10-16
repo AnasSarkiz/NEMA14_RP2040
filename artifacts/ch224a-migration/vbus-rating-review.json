@@ -1,0 +1,23 @@
+{
+  "VBUS_rating_concern_resolved": true,
+  "review_date_utc": "2026-10-16",
+  "manufacturer": "WCH",
+  "datasheet": "CH224DS1 Chinese V2.1",
+  "source_url": "https://datasheet.lcsc.com/datasheet/pdf/4f12eebccb4eda2c0038806df0155265.pdf?productCode=C970725",
+  "source_type": "manufacturer datasheet mirrored by LCSC; covers CH224Q/A/K/D and CH221K",
+  "visually_checked_page": 11,
+  "VBUS_absolute_maximum_V": 32,
+  "CFG1_absolute_maximum_V": 3.8,
+  "VHV_operating_range_V": [
+    3.3,
+    30
+  ],
+  "intended_PD_voltage_V": 15,
+  "manufacturer_pin_table": "Section 4 page 3: pin 8 VBUS voltage detection input must be shorted to VHV.",
+  "manufacturer_migration_guide": "Section 7.1 page 11: CH224A VBUS withstand 32 V; CH224K VBUS withstand 13.5 V; CH224A CFG1 withstand 3.8 V. Section 7.2.1: replace supply/sense resistors R1/R2 with 0 ohm.",
+  "manufacturer_limits": "Section 8.1.1 page 13: VHV and high voltage pins PG/VBUS absolute maximum 32 V. Section 8.2.1 page 14: VHV operating maximum 30 V.",
+  "superseded_document": "English V2.0 page 12 incorrectly describes VBUS as 3.8 V, conflicting with its own pin table, reference connections and maximum ratings.",
+  "circuit_change_required": false,
+  "manufacturing_release": false,
+  "hardware_operation_verified": false
+}

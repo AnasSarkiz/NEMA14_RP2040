@@ -4,13 +4,17 @@ set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
 python3 "$project_root/scripts/verify-publish-readiness.py" --prototype
 python3 "$project_root/scripts/verify-jlcpcb-review.py"
+/workspace/.routing-venv/bin/python "$project_root/scripts/package-jlcpcb-review.py"
+python3 "$project_root/scripts/verify-public-model-assets.py"
 package_stage=$(mktemp -d /tmp/nema14-supplier-package.XXXXXX)
-trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$package_stage"; else echo "Publication stage retained for recovery: $package_stage" >&2; fi' EXIT
+trap 'status=$?; if [ "$status" -eq 0 ] && [ "${1:-}" != "--stage-only" ]; then rm -rf "$package_stage"; else echo "Publication stage retained: $package_stage" >&2; fi' EXIT
 export PATH="$project_root/node_modules/.bin:$PATH"
 python3 - "$project_root" "$package_stage" <<'PYSTAGE'
 import hashlib,json,pathlib,re,shutil,subprocess,sys
 root,stage=map(pathlib.Path,sys.argv[1:])
 revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
+model_proof=json.loads((root/'artifacts/ch224a-migration/public-model-assets.json').read_text())
+model_revision=model_proof['github_revision']
 for d in ['src','docs','scripts','references','tests']:
  if (root/d).is_dir():shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
 for f in ['index.circuit.tsx','assembly.circuit.json','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
@@ -51,13 +55,17 @@ shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-f
 top=stage/'artifacts/top-assembly';top.mkdir()
 for name in ['functional-preservation.json','connector-decision.json','placement-plan.json','copper-transfer.json','assembly-preview.circuit.json','assembly-build-verification.json','assembly-fit-verification.json','assembly-schema-verification.json','assembly-render-verification.json','model-downloads.json','assembly-complete.png','assembly-top.png']:
  shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
+for name in ['harness-connection-verification.json','harness-mesh-verification.json','harness-definition.json']:
+ shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
+shutil.copytree(root/'artifacts/ch224a-migration',stage/'artifacts/ch224a-migration')
+shutil.copy2(root/'artifacts/board.circuit.json',stage/'artifacts/board.circuit.json')
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original
 j=json.loads(board_path.read_text())
 pattern=re.compile(r'(https://raw\.githubusercontent\.com/AnasSarkiz/(?:NEMA17_Controller|NEMA14_RP2040)/)main(/imports/supplier/)')
 def pin(s):
- s=pattern.sub(lambda m:'https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/'+revision+m[2],s)
- return s.replace(str(root)+'/imports/supplier/','https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/'+revision+'/imports/supplier/')
+ s=pattern.sub(lambda m:'https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/'+model_revision+m[2],s)
+ return s.replace(str(root)+'/imports/supplier/','https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/'+model_revision+'/imports/supplier/')
 for f in (stage/'imports/supplier').rglob('*.tsx'):f.write_text(pin(f.read_text()))
 preview_path=stage/'artifacts/top-assembly/assembly-preview.circuit.json'
 preview_path.write_text(pin(preview_path.read_text()))
@@ -72,10 +80,10 @@ for e in j:
    if isinstance(e.get(field),str):e[field]=pin(e[field])
 strip_urls=lambda records:[{k:v for k,v in e.items() if not(e['type']=='cad_component' and k in ['model_obj_url','model_step_url'])} for e in records]
 assert strip_urls(j)==strip_urls(original),'Publication changed reviewed geometry or circuit records'
-assert all('/'+revision+'/imports/supplier/' in e[field] for e in j if e['type']=='cad_component' and e.get('model_obj_url') for field in ['model_obj_url','model_step_url'])
+assert all('/'+model_revision+'/imports/supplier/' in e[field] for e in j if e['type']=='cad_component' and e.get('model_obj_url') for field in ['model_obj_url','model_step_url'])
 (stage/'index.circuit.json').write_text(json.dumps(j,separators=(',',':'))+'\n')
 config=stage/'tscircuit.config.json';c=json.loads(config.read_text());c['includeBoardFiles']=['index.circuit.json','assembly.circuit.json'];c['previewComponentPath']='assembly.circuit.json';config.write_text(json.dumps(c,indent=2)+'\n')
-proof={'github_revision':revision,'review_board_sha256':hashlib.sha256(board_path.read_bytes()).hexdigest(),'published_board_sha256':hashlib.sha256((stage/'index.circuit.json').read_bytes()).hexdigest(),'only_cad_url_metadata_changed':True,'saved_routing_preserved':True,'pinned_cad_components':sum(e['type']=='cad_component' and bool(e.get('model_obj_url')) for e in j)}
+proof={'github_revision':model_revision,'model_revision_scope':'byte-verified public supplier assets only; source revision is local','source_git_revision':revision,'source_git_revision_pushed_to_GitHub':False,'review_board_sha256':hashlib.sha256(board_path.read_bytes()).hexdigest(),'published_board_sha256':hashlib.sha256((stage/'index.circuit.json').read_bytes()).hexdigest(),'only_cad_url_metadata_changed':True,'saved_routing_preserved':True,'pinned_cad_components':sum(e['type']=='cad_component' and bool(e.get('model_obj_url')) for e in j)}
 (stage/'artifacts/publication-provenance.json').write_text(json.dumps(proof,indent=2)+'\n')
 print('Prepared source package:',json.dumps(proof))
 PYSTAGE
@@ -92,6 +100,9 @@ assert json.loads((stage/'dist/assembly/circuit.json').read_text())==assembly
 (stage/'dist/assembly/circuit.json').write_text(json.dumps(assembly,separators=(',',':'))+'\n')
 print('Including verified compact native PCB and assembly dist files')
 PYDIST
+if [ "${1:-}" = "--stage-only" ]; then
+  exit 0
+fi
 # Verify uploads even when the CLI returns zero: it can report failed files
 # after a partial fallback upload. Native bounded archives repair missing rows.
 if [ "${1:-}" = "--bounded-upload" ]; then

@@ -96,7 +96,10 @@ def main():
         receipt['CH224A_migration_electrical_guard_passed']=True
         receipt['live_assembly_stock_verified']=False
         receipt['remaining_supplier_review_items'].append('Confirm CH224A C42459160, 0 ohm C21189 and 56 kohm C25796 assembly stock; public catalog listings are not live stock verification.')
-        receipt['remaining_hardware_validation'].append('Obtain manufacturer clarification of the inconsistent VBUS tolerance sentence in WCH V2.0 Section 7.1 versus its pin table, reference circuits and absolute-maximum table before manufacturing release.')
+        vbus=json.loads((ROOT/'artifacts/ch224a-migration/vbus-rating-review.json').read_text())
+        assert vbus['VBUS_rating_concern_resolved'] and vbus['VBUS_absolute_maximum_V']==32 and vbus['intended_PD_voltage_V']==15
+        receipt['CH224A_VBUS_rating_confirmed_by_WCH_V2_1']=True
+        receipt['VBUS_rating_review']='artifacts/ch224a-migration/vbus-rating-review.json'
     receipt_path=OUT/'order-review-verification.json'
     if receipt_path.exists():
         previous=json.loads(receipt_path.read_text())

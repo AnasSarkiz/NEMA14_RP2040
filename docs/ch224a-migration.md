@@ -1,4 +1,4 @@
-# CH224A migration — local version 1.13.0
+# CH224A migration — prototype version 1.13.0
 
 This electrical and PCB change replaces the fitted CH224K while retaining the original fixed 15 V request. It is implemented in the JSX source, saved PCB, schematic and manufacturing BOM. No hardware operation or fabrication readiness is claimed.
 
@@ -30,13 +30,14 @@ All existing component placements, board dimensions, mounting holes, USB positio
 
 [JLCPCB lists CH224A C42459160 for Economic and Standard SMT assembly](https://jlcpcb.com/partdetail/wch-CH224A/C42459160). Its public page does not expose a stock quantity through the available tools. Live assembly stock remains unconfirmed; LCSC retail stock is not used as a substitute. The new resistor identifiers come from exact supplier imports and must also be checked when placing the assembly order. Passive pickup-angle warnings from native export remain subject to JLCPCB confirmation; resistor electrical polarity is interchangeable, but an unchecked machine rotation is not called supplier-approved.
 
-The supplied WCH V2.0 document has an internal contradiction: Section 7.1 calls VBUS 3.8 V tolerant, while Table 8-1 assigns VBUS to the 32 V high-voltage group, the pin table requires VBUS shorted to VHV, and the reference schematics/migration instructions show the direct connection. This implementation follows the pin table, reference circuit and migration instructions. Manufacturer clarification of that inconsistent sentence remains a manufacturing-release blocker.
+The VBUS concern is resolved by the newer WCH Chinese CH224DS1 V2.1 datasheet (manufacturer PDF distributed by LCSC). Section 7.1, page 11 explicitly gives CH224A VBUS a 32 V withstand rating and CFG1 a 3.8 V rating. Section 8.1.1, page 13 repeats the 32 V absolute maximum for VHV/PG/VBUS; Section 8.2.1, page 14 gives VHV a 3.3–30 V operating range. The pin table on page 3 requires VBUS shorted to VHV, and the migration guide requires 0 ohm supply/sense feeds. The English V2.0 VBUS 3.8 V sentence is superseded by this consistent V2.1 specification. Our fixed 15 V circuit follows the reference connection; no VBUS rating blocker or circuit change remains. The 32 V absolute maximum is not an operating target or a board-wide voltage qualification. See artifacts/ch224a-migration/vbus-rating-review.json for the source and reviewed sections.
 
 Hardware still needs charger/PDO fallback testing, PG timing and MCU sampling, supply transient/thermal measurements, effective bypass capacitance at bias, and supplier acceptance of the exposed-pad via process. The new controller's higher maximum supported PD voltage does not change the board's intended 15 V operating point or qualify the rest of the board for 28 V. Rear motor retention, cable/crimp fit and firmware interlocks remain hardware checks.
 
 ## References
 
 - [WCH CH224DS1 V2.0 official download page](https://www.wch-ic.com/downloads/CH224DS1_PDF.html)
+- [WCH Chinese CH224DS1 V2.1 manufacturer PDF via LCSC](https://datasheet.lcsc.com/datasheet/pdf/4f12eebccb4eda2c0038806df0155265.pdf?productCode=C970725), Sections 4, 7.1, 8.1.1 and 8.2.1; supersedes the erroneous VBUS sentence below
 - [Supplied WCH datasheet PDF](https://done.land/assets/files/ch224a_datasheet.pdf), Sections 4, 5.2, 6.1, 7, 8 and 9
 - [CH224A assembly listing](https://jlcpcb.com/partdetail/wch-CH224A/C42459160)
 - [0 Ω C21189](https://jlcpcb.com/partdetail/C21189)
