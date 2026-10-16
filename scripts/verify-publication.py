@@ -111,8 +111,9 @@ for path in ['artifacts/upright-revision/via-fabrication-verification.json','art
     else:assert data==expected_data,path+' public evidence differs'
     checks.append({'path':path,'sha256':sha(data)})
 repo = 'AnasSarkiz/NEMA14_RP2040'
-source_revision = subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-assert proof['source_git_revision'] == source_revision
+source_revision = proof['source_git_revision']
+# Verification receipts may be committed after the release's source snapshot.
+subprocess.run(['git','-C',str(root),'merge-base','--is-ancestor',source_revision,'HEAD'],check=True)
 model_proof = json.loads(file('artifacts/ch224a-migration/public-model-assets.json'))
 assert model_proof == json.loads((root/'artifacts/ch224a-migration/public-model-assets.json').read_text())
 assert model_proof['passed'] and model_proof['github_revision'] == revision
