@@ -1,0 +1,26 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "Bundler",
+    "jsx": "react",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "noEmit": true,
+    "lib": [
+      "ESNext",
+      "DOM"
+    ],
+    "types": [
+      "tscircuit",
+      "node"
+    ],
+    "resolveJsonModule": true
+  },
+  "include": [
+    "index.circuit.tsx",
+    "src",
+    "scripts"
+  ]
+}

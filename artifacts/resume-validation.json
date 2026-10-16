@@ -1,0 +1,244 @@
+{
+  "board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
+  "checks": [
+    {
+      "check": "all_resistor_edge_clearances",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-resistor-edges.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/all_resistor_edge_clearances.txt"
+    },
+    {
+      "check": "typescript",
+      "command": [
+        "tsc",
+        "--noEmit"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/typescript.txt"
+    },
+    {
+      "check": "drc",
+      "command": [
+        "bun",
+        "scripts/check.ts"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/drc.txt"
+    },
+    {
+      "check": "connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify_supplier_connectivity.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/connectivity.txt"
+    },
+    {
+      "check": "fitted_JST_and_actual_drills",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-motor-connector.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/fitted_JST_and_actual_drills.txt"
+    },
+    {
+      "check": "exact_mounts_and_actual_drills",
+      "command": [
+        "python3",
+        "scripts/check-mount-drills.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/exact_mounts_and_actual_drills.txt"
+    },
+    {
+      "check": "native_json_checks",
+      "command": [
+        "tsci",
+        "check",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_json_checks.txt"
+    },
+    {
+      "check": "native_netlist",
+      "command": [
+        "tsci",
+        "check",
+        "netlist",
+        "scripts/netlist-source.circuit.tsx"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_netlist.txt"
+    },
+    {
+      "check": "native_pin_specification",
+      "command": [
+        "tsci",
+        "check",
+        "pin_specification",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_pin_specification.txt"
+    },
+    {
+      "check": "native_source",
+      "command": [
+        "tsci",
+        "check",
+        "source",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_source.txt"
+    },
+    {
+      "check": "native_schematic-placement",
+      "command": [
+        "tsci",
+        "check",
+        "schematic-placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_schematic-placement.txt"
+    },
+    {
+      "check": "native_placement",
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 1,
+      "log": "artifacts/validation-resume/native_placement.txt"
+    },
+    {
+      "check": "strict_Circuit_JSON_schema",
+      "command": [
+        "node",
+        "scripts/check-native-schema.mjs"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/strict_Circuit_JSON_schema.txt"
+    },
+    {
+      "check": "USB_coupled_copper_and_ground_reference",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-usb-reference.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/USB_coupled_copper_and_ground_reference.txt"
+    },
+    {
+      "check": "schematic_geometry_ERC",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-schematic.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/schematic_geometry_ERC.txt"
+    },
+    {
+      "check": "every_trace_review",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-every-trace.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/every_trace_review.txt"
+    },
+    {
+      "check": "reference_feedback",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-reference-feedback.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/reference_feedback.txt"
+    },
+    {
+      "check": "gerber_shorts",
+      "command": [
+        "tsci",
+        "check",
+        "shorts",
+        "artifacts/board.circuit.json",
+        "--mode",
+        "gerber",
+        "--layer",
+        "all",
+        "--pixels-per-mm",
+        "100"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/gerber_shorts.txt"
+    },
+    {
+      "check": "copper_widths",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-trace-widths.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/copper_widths.txt"
+    },
+    {
+      "check": "full_independent_CAM",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-manufacturing.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/full_independent_CAM.txt"
+    },
+    {
+      "check": "native_circular_keepout_regression",
+      "command": [
+        "bun",
+        "scripts/check-circle-regression.ts"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/native_circular_keepout_regression.txt"
+    },
+    {
+      "check": "actual_via_drills_and_JLCPCB_clearances",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-via-fabrication.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/actual_via_drills_and_JLCPCB_clearances.txt"
+    },
+    {
+      "check": "oscillator_layout",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-oscillator-layout.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/validation-resume/oscillator_layout.txt"
+    }
+  ],
+  "native_STEP_mechanical_pass": true,
+  "CAD_models_checked": 81,
+  "physical_nets_checked": 63,
+  "counts": {
+    "pcb_trace": 538,
+    "pcb_via": 330,
+    "pcb_copper_pour": 48
+  },
+  "full_CAM_status": "PASS",
+  "remaining_CAM_findings": [],
+  "rear_motor_compatibility_verified": false,
+  "prototype_fabrication_ready": false,
+  "physical_hardware_tested": false
+}

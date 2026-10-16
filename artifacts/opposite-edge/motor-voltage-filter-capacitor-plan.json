@@ -1,0 +1,17 @@
+{
+  "reference": "C_VM_SENSE",
+  "from": {
+    "pcbX": -11.84,
+    "pcbY": -7.99,
+    "pcbRotation": 0
+  },
+  "to": {
+    "pcbX": 16.780002,
+    "pcbY": 6.980115,
+    "pcbRotation": 90
+  },
+  "purpose": "Place the motor-voltage filter capacitor beside the R_VM_L divider node rather than on a long disconnected branch across the board. Reuse the vacated C_FLASH footprint space.",
+  "construction_screen": "No native courtyard or foreign copper collisions; capacitor copper is 0.45 mm from the edge, above the 0.25 mm board rule. Resistor edge requirements remain unchanged.",
+  "all_values_and_pin_nets_unchanged": true,
+  "complete_validation_required": true
+}

@@ -1,0 +1,61 @@
+{
+  "name": "NEMA14_RP2040",
+  "version": "1.12.2",
+  "description": "NEMA14 RP2040 USB-C 15V PD motor-controller hardware prototype",
+  "main": "index.circuit.tsx",
+  "scripts": {
+    "build": "npm run render && npm run check",
+    "check": "bun scripts/check.ts",
+    "dev": "XDG_CONFIG_HOME=/workspace/.config tsci dev assembly.circuit.json",
+    "test": "npm run check",
+    "render": "bun scripts/render.ts",
+    "autoroute": "bun scripts/build.tsx",
+    "source:check": "bun scripts/build.tsx --unrouted",
+    "export": "/workspace/.routing-venv/bin/python scripts/export-manufacturing.py",
+    "typecheck": "tsc --noEmit",
+    "shorts": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/board.circuit.json --mode gerber --layer all --pixels-per-mm 100",
+    "publish:tscircuit": "bash scripts/publish-tscircuit.sh",
+    "presentation": "npm run source:check && python3 scripts/sync-presentation.py && npm run render && /workspace/.routing-venv/bin/python scripts/export-a4-pdf.py && /workspace/.routing-venv/bin/python scripts/report-presentation.py",
+    "check:copper": "/workspace/.routing-venv/bin/python scripts/audit-trace-widths.py",
+    "check:mounts": "python3 scripts/check-mount-drills.py && /workspace/.routing-venv/bin/python scripts/check-mechanical-mounts.py",
+    "check:manufacturing": "/workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render",
+    "check:schematic": "tsci check schematic-placement artifacts/board.circuit.json && /workspace/.routing-venv/bin/python scripts/verify-schematic.py",
+    "check:schema": "node scripts/check-native-schema.mjs",
+    "precheck": "python3 scripts/patch-native-circular-keepouts.py",
+    "check:circle": "bun scripts/check-circle-regression.ts",
+    "assembly:build": "bun scripts/build-assembly-preview.tsx",
+    "assembly:check": "/workspace/.routing-venv/bin/python scripts/check-harness-connection.py && /workspace/.routing-venv/bin/python scripts/check-assembly-fit.py",
+    "assembly:export": "bun scripts/export-assembly-3d.ts && /workspace/.routing-venv/bin/python scripts/check-exported-harness.py",
+    "assembly:viewer": "bun build scripts/assembly-viewer.mjs --target browser --minify --outfile artifacts/top-assembly/assembly-viewer.js",
+    "publish:assembly": "python3 scripts/prepare-assembly-release.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnasSarkiz/NEMA14_RP2040.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AnasSarkiz/NEMA14_RP2040/issues"
+  },
+  "homepage": "https://github.com/AnasSarkiz/NEMA14_RP2040",
+  "dependencies": {
+    "@tscircuit/cli": "^0.1.2261",
+    "circuit-json-to-gerber": "0.0.112",
+    "circuit-json-to-kicad": "0.0.230",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-reconciler": "0.34.0",
+    "three": "0.186.1",
+    "tscircuit": "^0.0.2764",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "schematic-symbols": "0.0.248"
+  },
+  "devDependencies": {
+    "bun": "1.4.2"
+  },
+  "private": true
+}

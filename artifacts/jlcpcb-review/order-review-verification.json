@@ -1,0 +1,33 @@
+{
+  "prepared_for_JLCPCB_engineering_review": true,
+  "order_review_CAM_passed": true,
+  "native_order_paste_schema_passed": true,
+  "native_board_sha256": "67820851170068eb092c3b611949ce67218b58f1049365fd317e8c1a513645e6",
+  "order_source_sha256": "db59e21fefb7c4c56d533218f2f311987de3019f0760420c9624491a98eab356",
+  "JLCPCB_gerber_zip_sha256": "740c09534db54d111645912bc961359fa2be72591f7730b65b5180e20cc20d89",
+  "SMT_components": 81,
+  "manual_THT_components": 0,
+  "verified_at_utc": "2026-10-14T23:27:46.155492+00:00",
+  "every_trace_and_segment_reviewed": true,
+  "electrical_geometry_and_connections_preserved": true,
+  "default_export_manufacturing_qualified": true,
+  "upstream_native_export_retained_as_diagnostic": true,
+  "JLCPCB_order_submitted": false,
+  "JLCPCB_review_approved": false,
+  "production_release_approved": false,
+  "hardware_operation_verified": false,
+  "rear_motor_compatibility_verified": false,
+  "remaining_supplier_review_items": [
+    "Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.",
+    "Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.",
+    "Confirm exact BOM availability and quote; no substitutions authorized.",
+    "Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.",
+    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed."
+  ],
+  "remaining_CAD_tooling_review": [],
+  "remaining_hardware_validation": [
+    "Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.",
+    "Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.",
+    "Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified."
+  ]
+}

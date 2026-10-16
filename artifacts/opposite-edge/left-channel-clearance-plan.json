@@ -1,0 +1,30 @@
+{
+  "from": {
+    "L_BUCK": {
+      "pcbX": -4.599953,
+      "pcbY": 2.549996,
+      "pcbRotation": 270
+    },
+    "C_BUCK_IN": {
+      "pcbX": -8.09,
+      "pcbY": 2.47,
+      "pcbRotation": 90
+    }
+  },
+  "to": {
+    "L_BUCK": {
+      "pcbX": -4.649953,
+      "pcbY": 2.549996,
+      "pcbRotation": 270
+    },
+    "C_BUCK_IN": {
+      "pcbX": -8.115,
+      "pcbY": 2.47,
+      "pcbRotation": 90
+    }
+  },
+  "reason": "Widen the MCU left fanout channel from 0.75 mm to 0.80 mm while retaining all imported courtyards and the same components.",
+  "construction_screen": "No courtyard, mounting-envelope or native pad collisions. One STATUS_R_K copper branch requires rerouting.",
+  "all_values_ratings_and_pin_nets_unchanged": true,
+  "requires_full_requalification": true
+}

@@ -1,0 +1,139 @@
+placement summary: 8 suboptimal orientations
+
+worst issues:
+1. C_PD connections cross the routing path between its pads. Suggested move: rotate C_PD 180 degrees.
+2. D_DATA connections cross the routing path between its pads. Suggested move: rotate D_DATA 180 degrees.
+3. R_SA connections cross the routing path between its pads. Suggested move: rotate R_SA 180 degrees.
+4. R_STATUS_R connections cross the routing path between its pads. Suggested move: rotate R_STATUS_R 180 degrees.
+5. R_STATUS_G connections cross the routing path between its pads. Suggested move: rotate R_STATUS_G 180 degrees.
+
+board top-layer utilization:
+- occupied: 57.601% (705.61mm^2 of 1225mm^2)
+- empty spaces over 5% of board area:
+  - 5.614% (68.767mm^2); bounds=(minX=-17.5mm, maxX=-9.55mm, minY=8.85mm, maxY=17.5mm)
+
+board-edge status:
+- J_PD: 0.295mm inside bottom edge
+- J_DATA: 0.295mm inside top edge
+- U_PD: 9.27mm inside left edge
+- R_PD: 3.543mm inside right edge
+- C_PD: 7.02mm inside right edge
+- R_PG: 0.768mm inside right edge
+- U_MCU: 11.55mm inside right edge
+- C_MCU: 14.4mm inside bottom edge
+- C_LOGIC: 13.2mm inside bottom edge
+- R_CC1: 1.51mm inside top edge
+- R_CC2: 6.51mm inside top edge
+- R_USB_SENSE_H: 11.843mm inside left edge
+- R_USB_SENSE_L: 0.768mm inside top edge
+- R_VM_H: 15.093mm inside top edge
+- R_VM_L: 9.723mm inside left edge
+- C_VM_SENSE: 1.82mm inside right edge
+- U_BUCK: 6.065mm inside left edge
+- D_PD: 2.32mm inside right edge
+- D_DATA: 3.33mm inside top edge
+- U_DRV: 6.55mm inside top edge
+- C_CP: 7.64mm inside top edge
+- C_VCP: 9.03mm inside top edge
+- C_VREG: 5.56mm inside top edge
+- C_DRV_LOGIC: 7.24mm inside top edge
+- C_VM: 13.94mm inside top edge
+- C_BULK: 3.06mm inside left edge
+- R_SA: 9.3mm inside top edge
+- R_SB: 10.934mm inside top edge
+- R_REF_H: 13.907mm inside right edge
+- R_REF_L: 9.278mm inside top edge
+- C_REF: 10.95mm inside right edge
+- R_ENABLE: 9.273mm inside left edge
+- R_SLEEP: 2.213mm inside bottom edge
+- J_MOTOR: 1.25mm inside bottom edge
+- U_ESD: 7.284mm inside right edge
+- D_TVS: 9.55mm inside bottom edge
+- R_USB_BOOT: 9.42mm inside bottom edge
+- L_BUCK: 4.57mm inside left edge
+- C_BOOTSTRAP: 4.77mm inside left edge
+- C_BUCK_IN: 1.93mm inside left edge
+- C_BUCK_OUT1: 0.365mm inside left edge
+- C_BUCK_OUT2: 9.285mm inside left edge
+- U_TEMP: 5.04mm inside top edge
+- C_TEMP: 5.43mm inside top edge
+- R_TEMP_SDA: 9.199mm inside bottom edge
+- R_TEMP_SCL: 0.79mm inside bottom edge
+- D_PWR: 3.031mm inside left edge
+- R_PWR_LED: 1.205mm inside right edge
+- D_STATUS: 3.908mm inside bottom edge
+- R_STATUS_R: 5.419mm inside bottom edge
+- Q_STATUS_R: 11.75mm inside bottom edge
+- R_STATUS_G: 7.614mm inside bottom edge
+- Q_STATUS_G: 9.5mm inside bottom edge
+- R_STATUS_B: 10.484mm inside bottom edge
+- Q_STATUS_B: 0.39mm inside right edge
+- BZ1: 0.35mm inside right edge
+- Q_BUZZER: 7.45mm inside right edge
+- D_BUZZER: 5.105mm inside right edge
+- R_BUZZER_GATE: 4.35mm inside top edge
+- R_BUZZER_PD: 6.52mm inside top edge
+- C_BUZZER: 10.76mm inside right edge
+- TP_3V3: 1.45mm inside top edge
+- TP_GND: 1.45mm inside top edge
+- TP_DCK: 1.45mm inside top edge
+- TP_DIO: 0.26mm inside top edge
+- TP_BOOT: 11.45mm inside bottom edge
+- TP_BOOT_USB_DP: 11.45mm inside bottom edge
+- U_ENCODER: 13.82mm inside top edge
+- C_ENCODER: 11.83mm inside left edge
+- C_ENCODER_BULK: 11.83mm inside left edge
+
+flagged components:
+- C_PD
+  source placement: placement_mode=none
+  resolved placement: center=(9.38mm, 4.06mm) on top; bounds=(minX=8.28mm, maxX=10.48mm, minY=3.61mm, maxY=4.51mm); size=(width=2.2mm, height=0.9mm); anchor_alignment="center"
+  board edge status: 7.02mm inside right edge
+  issues:
+  - C_PD connections cross the routing path between its pads. Suggested move: rotate C_PD 180 degrees.
+- D_DATA
+  source placement: placement_mode=none
+  resolved placement: center=(-8.59mm, -11.87mm) on top; bounds=(minX=-9.065mm, maxX=-8.115mm, minY=-14.17mm, maxY=-9.57mm); size=(width=0.95mm, height=4.6mm); anchor_alignment="center"
+  board edge status: 3.33mm inside top edge
+  issues:
+  - D_DATA connections cross the routing path between its pads. Suggested move: rotate D_DATA 180 degrees.
+- R_SA
+  source placement: placement_mode=none
+  resolved placement: center=(-4.351mm, -6.634mm) on top; bounds=(minX=-5.04mm, maxX=-3.663mm, minY=-8.2mm, maxY=-5.067mm); size=(width=1.377mm, height=3.133mm); anchor_alignment="center"
+  board edge status: 9.3mm inside top edge
+  issues:
+  - R_SA connections cross the routing path between its pads. Suggested move: rotate R_SA 180 degrees.
+- R_STATUS_R
+  source placement: placement_mode=none
+  resolved placement: center=(-0.49mm, 11.366mm) on top; bounds=(minX=-0.76mm, maxX=-0.22mm, minY=10.65mm, maxY=12.081mm); size=(width=0.54mm, height=1.431mm); anchor_alignment="center"
+  board edge status: 5.419mm inside bottom edge
+  issues:
+  - R_STATUS_R connections cross the routing path between its pads. Suggested move: rotate R_STATUS_R 180 degrees.
+- R_STATUS_G
+  source placement: placement_mode=none
+  resolved placement: center=(0.48mm, 9.17mm) on top; bounds=(minX=0.21mm, maxX=0.75mm, minY=8.454mm, maxY=9.886mm); size=(width=0.54mm, height=1.431mm); anchor_alignment="center"
+  board edge status: 7.614mm inside bottom edge
+  issues:
+  - R_STATUS_G connections cross the routing path between its pads. Suggested move: rotate R_STATUS_G 180 degrees.
+- R_STATUS_B
+  source placement: placement_mode=none
+  resolved placement: center=(2.85mm, 6.3mm) on top; bounds=(minX=2.58mm, maxX=3.12mm, minY=5.584mm, maxY=7.016mm); size=(width=0.54mm, height=1.431mm); anchor_alignment="center"
+  board edge status: 10.484mm inside bottom edge
+  issues:
+  - R_STATUS_B connections cross the routing path between its pads. Suggested move: rotate R_STATUS_B 180 degrees.
+- D_BUZZER
+  source placement: placement_mode=none
+  resolved placement: center=(11.82mm, 5.77mm) on top; bounds=(minX=11.245mm, maxX=12.395mm, minY=3.603mm, maxY=7.937mm); size=(width=1.15mm, height=4.335mm); anchor_alignment="center"
+  board edge status: 5.105mm inside right edge
+  issues:
+  - D_BUZZER connections cross the routing path between its pads. Suggested move: rotate D_BUZZER 180 degrees.
+- R_BUZZER_PD
+  source placement: placement_mode=none
+  resolved placement: center=(9.1mm, -10.71mm) on top; bounds=(minX=8.384mm, maxX=9.816mm, minY=-10.98mm, maxY=-10.44mm); size=(width=1.431mm, height=0.54mm); anchor_alignment="center"
+  board edge status: 6.52mm inside top edge
+  issues:
+  - R_BUZZER_PD connections cross the routing path between its pads. Suggested move: rotate R_BUZZER_PD 180 degrees.
+
+placement drc:
+Errors: 0
+Warnings: 0
