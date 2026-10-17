@@ -1,5 +1,7 @@
 ## CH224A migration — 1.13.0 (hardware prototype)
 
+**Order review, 17 October 2026: hold the assembled-board order.** The final review identifies regulator/driver layout corrections, screws that cannot reach the motor with the proposed stack, and feature/process decisions to resolve. See [the final order review](docs/final-order-review-2026-10-17.md). The passing short/DRC checks remain valid for their geometric scope.
+
 U_PD is now CH224A C42459160. A 56 kΩ CFG1 resistor preserves the fixed 15 V request; R_PD is 0 Ω and C_PD remains 1 µF / 50 V. Existing placements, mounts, USB positions and the ESSOP10 pads are retained. See [electrical changes, validation and remaining limits](docs/ch224a-migration.md) and [current BOM](artifacts/jlcpcb-review/JLCPCB-BOM.csv).
 
 The sections below describe the earlier baseline. Their byte-preservation claims and historical qualification receipts do not certify this migration. Use the current migration test receipts before manufacturing review.

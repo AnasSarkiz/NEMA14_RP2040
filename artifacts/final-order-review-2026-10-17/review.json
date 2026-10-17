@@ -1,0 +1,143 @@
+{
+  "project": "NEMA14_RP2040",
+  "review_date": "2026-10-17",
+  "reviewed_at_utc": "2026-10-17T18:09:48.309527+00:00",
+  "version": "1.13.0",
+  "source_commit_before_review": "ec1c1ab4329afebd7658e2442754042bc92916b2",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "order_recommendation": "HOLD_ASSEMBLED_BOARD_ORDER",
+  "PCB_geometry_modified": false,
+  "scope": "Published NEMA14/RP2040 with 14HM11-0404S motor; final review supplements geometric DRC with manufacturer layout, physical retention and assembly/process review.",
+  "prior_DRC_and_shorts_receipt": "artifacts/shorts-drc-recheck-2026-10-17/checks.json",
+  "geometric_checks": {
+    "DRC_errors": 0,
+    "DRC_warnings": 0,
+    "Gerber_shorts": 0,
+    "physical_nets_connected": 64,
+    "native_CAM": "PASS",
+    "order_CAM": "PASS"
+  },
+  "findings": [
+    {
+      "id": "PWR-1",
+      "priority": 1,
+      "category": "layout correction recommended",
+      "title": "Tighten RP2040 regulator bypass connections",
+      "evidence": "C_VREG_OUT pad-centre distance 3.560 mm; found trace chain about 12.20 mm with BOTTOM detour.",
+      "acceptance": "Place the specified 1 uF input/output bypass close to VREG_IN/VREG_OUT, connect directly with low-inductance ground returns, and rerun layout/CAM checks.",
+      "source": "https://datasheets.raspberrypi.com/rp2040/hardware-design-with-rp2040.pdf#page=8"
+    },
+    {
+      "id": "PWR-2",
+      "priority": 1,
+      "category": "layout correction recommended",
+      "title": "Compact the AP63203 input/switching/feedback layout",
+      "evidence": "VIN-to-C_BUCK_IN positive pad-centre distance 7.405 mm; feedback pad is 11.436 mm from C_BUCK_OUT1 positive pad.",
+      "acceptance": "Place VIN bypass directly across IC supply/ground, compact the bootstrap/inductor/output loop and review the feedback pickup against the manufacturer layout.",
+      "source": "https://www.diodes.com/datasheet/download/AP63200-AP63201-AP63203-AP63205.pdf#page=15"
+    },
+    {
+      "id": "DRV-1",
+      "priority": 1,
+      "category": "layout correction recommended",
+      "title": "Shorten A4988 sense and local supply paths",
+      "evidence": "SENSE1/2 to shunts found trace chains about 8.48/9.67 mm; VBB1-to-C_VM about 17.79 mm trace chain.",
+      "acceptance": "Place shunts adjacent to SENSE pins with low-impedance driver-ground returns; place local ceramic/bulk bypass at the supply pins.",
+      "source": "https://www.allegromicro.com/-/media/files/datasheets/a4988-datasheet.pdf#page=12"
+    },
+    {
+      "id": "MECH-1",
+      "priority": 1,
+      "category": "confirmed dimensional failure",
+      "title": "Proposed screws do not reach the motor",
+      "evidence": "6 mm shaft is 1.6 mm shorter than PCB plus spacer, before engagement. Rear threads/retention remain unverified.",
+      "acceptance": "Obtain rear retention geometry and specify real fasteners/spacers with adequate engagement, no bottoming and measured tolerances."
+    },
+    {
+      "id": "FUNC-1",
+      "priority": 2,
+      "category": "feature requirement decision",
+      "title": "RGB depends on programming-USB power",
+      "evidence": "D_STATUS common anode is DATA_VBUS, not a supply available during normal PD-only operation.",
+      "acceptance": "Confirm USB-only RGB is intentional, or revise the LED supply/drive circuit for standalone status."
+    },
+    {
+      "id": "FUNC-2",
+      "priority": 2,
+      "category": "feature requirement decision",
+      "title": "MCU phase-current telemetry is absent",
+      "evidence": "Each SENSEx net connects only A4988 and its shunt; MCU ADCs read motor voltage and programming USB voltage.",
+      "acceptance": "Confirm driver-only sensing is sufficient, or add a properly conditioned MCU current-measurement interface before freezing the board."
+    },
+    {
+      "id": "MFG-1",
+      "priority": 1,
+      "category": "supplier acceptance pending",
+      "title": "Approve the actual PCBA process and quote",
+      "evidence": "Three filled/capped exposed-pad vias; eight 0.7 mm USB shell stakes with no stencil paste on a 1.6 mm board; stock and pickup approval pending.",
+      "acceptance": "JLCPCB confirms via fill/cap, shell-joint soldering, polarized-part orientation, actual BOM stock, stackup/copper and any panelization requirements."
+    }
+  ],
+  "mechanical_stack": {
+    "PCB_thickness_mm": 1.6,
+    "spacer_mm": 6,
+    "shaft_mm": 6,
+    "shortfall_to_motor_face_mm": 1.5999999999999996,
+    "thread_engagement_possible": false,
+    "motor_rear_retention_verified": false
+  },
+  "functional_review": {
+    "PD_request_V": 15,
+    "VBUS_rating_concern_resolved": true,
+    "VM_ADC_and_POWER_GOOD_connected_to_MCU": true,
+    "ideal_shunt_based_current_limit_A": 0.350765306122449,
+    "ideal_current_calculation_excludes_trace_and_ground_IR_drops": true,
+    "coil_current_MCU_telemetry": false,
+    "SENSE1_terminals": [
+      {
+        "reference": "U_DRV",
+        "physical_pin": 23,
+        "name": "SENSE1"
+      },
+      {
+        "reference": "R_SA",
+        "physical_pin": 1,
+        "name": "pin1"
+      }
+    ],
+    "SENSE2_terminals": [
+      {
+        "reference": "U_DRV",
+        "physical_pin": 27,
+        "name": "SENSE2"
+      },
+      {
+        "reference": "R_SB",
+        "physical_pin": 1,
+        "name": "pin1"
+      }
+    ],
+    "RGB_supply": "DATA_VBUS",
+    "RGB_has_dedicated_PD_only_supply": false,
+    "microstepping": "fixed 1/16",
+    "firmware_application_present": false,
+    "bottom_encoder": "DNP"
+  },
+  "procurement": {
+    "TOP_SMT_fitted_parts": 82,
+    "unique_JLCPCB_codes": 45,
+    "live_stock_verified": false,
+    "supplier_process_and_pickup_approval": false
+  },
+  "report": "docs/final-order-review-2026-10-17.md",
+  "post_prototype_tests": [
+    "USB boot/flash and both cable orientations",
+    "PD negotiation/fallback and backfeed",
+    "3.3 V/1.1 V startup, ripple and transients",
+    "Crystal startup",
+    "Both phase currents, regeneration and thermal behavior",
+    "Physical harness and motor retention"
+  ],
+  "manufacturing_order_submitted": false,
+  "production_release_approved": false
+}
