@@ -3,7 +3,8 @@
 Full sources, datasheets, models, logs and qualification receipts stay in GitHub.
 Pruning affects only the exact current version after GitHub preservation.
 """
-import argparse, base64, gzip, hashlib, json, pathlib, re, tempfile
+import argparse, base64, gzip, hashlib, json, pathlib, re, tempfile, time
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.error, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
@@ -99,10 +100,29 @@ def main():
     current=rows()
     if args.prune:
         extras=[e for e in current if e['file_path'] not in files]
-        extras.sort(key=lambda e:(ROOT/e['file_path']).stat().st_size if (ROOT/e['file_path']).is_file() else (e.get('file_size_kb') or 0)*1024)
-        for e in extras:
-            post('package_files/delete',{'package_release_id':rid,'file_path':e['file_path']})
-            print('Removed registry-only extra:',e['file_path'],flush=True)
+        size=lambda e:(ROOT/e['file_path']).stat().st_size if (ROOT/e['file_path']).is_file() else (e.get('file_size_kb') or 0)*1024
+        extras.sort(key=size)
+        def remove(e):
+            for attempt in range(3):
+                try:
+                    post('package_files/delete',{'package_release_id':rid,'file_path':e['file_path']})
+                    print('Removed registry-only extra:',e['file_path'],flush=True)
+                    return
+                except urllib.error.HTTPError as error:
+                    if error.code==404:return
+                    if error.code not in [429,500,502,503,504] or attempt==2:raise
+                    time.sleep(min(10,float(error.headers.get('Retry-After') or 2)*(attempt+1)))
+        # File IDs are independent. Keep large rows serial to limit the registry's
+        # memory usage; concurrent small deletions do not load native CAD blobs.
+        small=[e for e in extras if size(e)<=500_000]
+        large=[e for e in extras if size(e)>500_000]
+        failed=[]
+        with ThreadPoolExecutor(max_workers=8) as pool:
+            futures={pool.submit(remove,e):e for e in small}
+            for future in as_completed(futures):
+                try:future.result()
+                except Exception:failed.append(futures[future])
+        for e in large+failed:remove(e)
         current=rows()
     else:assert {e['file_path'] for e in current}<=set(files),'Use --prune for this exact version to remove nonessential files'
     present={e['file_path'] for e in current}
