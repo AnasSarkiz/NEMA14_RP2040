@@ -99,7 +99,7 @@ def main():
     current=rows()
     if args.prune:
         extras=[e for e in current if e['file_path'] not in files]
-        extras.sort(key=lambda e:e.get('file_size_kb') or e.get('size') or 0)
+        extras.sort(key=lambda e:(ROOT/e['file_path']).stat().st_size if (ROOT/e['file_path']).is_file() else (e.get('file_size_kb') or 0)*1024)
         for e in extras:
             post('package_files/delete',{'package_release_id':rid,'file_path':e['file_path']})
             print('Removed registry-only extra:',e['file_path'],flush=True)
@@ -107,7 +107,20 @@ def main():
     else:assert {e['file_path'] for e in current}<=set(files),'Use --prune for this exact version to remove nonessential files'
     present={e['file_path'] for e in current}
     for path,data in files.items():
-        if path in present:continue
+        if path in present:
+            query=urllib.parse.urlencode({'package_name':name,'use_latest_version':'true','file_path':path})
+            with urllib.request.urlopen(API+'package_files/get?'+query,timeout=60) as response:remote=json.load(response)['package_file']
+            assert remote['package_release_id']==rid
+            if remote.get('is_text'):
+                content=remote['content_text'].encode()
+                if path.endswith('.circuit.json') or path.startswith('dist/'):
+                    assert json.loads(content)==json.loads(data),'Existing native preview differs; stop before changing it'
+                    continue
+                if content==data:continue
+            else:
+                query=urllib.parse.urlencode({'package_file_id':remote['package_file_id']})
+                with urllib.request.urlopen(API+'package_files/download?'+query,timeout=60) as response:content=response.read()
+                if content==data:continue
         entry={'file_path':path}
         if pathlib.Path(path).suffix in {'.zip','.png','.pdf'}:entry['content_base64']=base64.b64encode(data).decode()
         else:entry['content_text']=data.decode()
