@@ -1,5 +1,8 @@
 ## Bottom silkscreen — 1.13.1
 
+Registry uploads contain only previews and manufacturing downloads. Full source,
+datasheets and engineering history stay in GitHub. See [publishing policy](docs/tscircuit-publishing-policy.md).
+
 The bottom layer now carries the official tscircuit wordmark and “For evaluation only; not FCC approved for resale.” Copper, pads, drills, placements, nets and schematic records are preserved. See [artwork details](docs/bottom-silkscreen.md), [fabrication preview](artifacts/bottom-markings/bottom-silkscreen.png) and [verification](artifacts/bottom-markings/verification.json).
 
 ## CH224A migration — 1.13.0 (hardware prototype)
