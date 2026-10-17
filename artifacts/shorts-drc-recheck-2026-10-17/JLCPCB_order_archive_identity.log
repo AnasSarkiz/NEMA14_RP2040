@@ -1,0 +1,41 @@
+{"passed":true,"apertures_checked":325,"errors":0}
+{"strict_full_native_schema_passed":true,"inherited_findings":0,"introduced_findings":0}
+{
+  "prepared_for_JLCPCB_engineering_review": true,
+  "order_review_CAM_passed": true,
+  "native_order_paste_schema_passed": true,
+  "native_board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "order_source_sha256": "cc324ac56359386dfe99b4b380a6255fe9303fd10a920034f2b149a6e7ee6fb1",
+  "JLCPCB_gerber_zip_sha256": "3b3894a997e251c3e50c207e56e1be8418555d7feb5678ba6d8d832b9d5bb368",
+  "SMT_components": 82,
+  "manual_THT_components": 0,
+  "verified_at_utc": "2026-10-16T20:47:42.363242+00:00",
+  "every_trace_and_segment_reviewed": true,
+  "electrical_geometry_and_connections_preserved": true,
+  "default_export_manufacturing_qualified": false,
+  "upstream_native_export_retained_as_diagnostic": true,
+  "JLCPCB_order_submitted": false,
+  "JLCPCB_review_approved": false,
+  "production_release_approved": false,
+  "hardware_operation_verified": false,
+  "rear_motor_compatibility_verified": false,
+  "remaining_supplier_review_items": [
+    "Confirm native land-pattern CPL datum, pickup rotation, pin 1 and all polarized parts in JLCPCB placement preview; USB body and land-pattern centers differ.",
+    "Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.",
+    "Confirm exact BOM availability and quote; no substitutions authorized.",
+    "Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.",
+    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.",
+    "Confirm CH224A C42459160, 0 ohm C21189 and 56 kohm C25796 assembly stock; public catalog listings are not live stock verification."
+  ],
+  "remaining_CAD_tooling_review": [],
+  "remaining_hardware_validation": [
+    "Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.",
+    "Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.",
+    "Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified."
+  ],
+  "native_and_order_CAM_verified": true,
+  "CH224A_migration_electrical_guard_passed": true,
+  "live_assembly_stock_verified": false,
+  "CH224A_VBUS_rating_confirmed_by_WCH_V2_1": true,
+  "VBUS_rating_review": "artifacts/ch224a-migration/vbus-rating-review.json"
+}

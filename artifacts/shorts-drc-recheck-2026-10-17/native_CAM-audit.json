@@ -1,0 +1,1582 @@
+{
+  "source_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "directory": "artifacts/manufacturing",
+  "parser_versions": {
+    "gerbonara": "1.5.0",
+    "pygerber": "2.4.3",
+    "shapely": "2.1.2"
+  },
+  "parser_compatibility": "Only LR right-angle aperture transforms and unambiguous split-line G85 slots are converted to equivalent G00/M15/G01/M16/G05 routing analytically. Original Gerbers independently rendered by PyGerber. Input CAM bytes remain unchanged.",
+  "files": {
+    "B_Cu.gbr": {
+      "sha256": "95b165dfb063425ff121de778c56446513e55eb6934d03a6893b5dc4c22f524f",
+      "objects": 3763,
+      "area_mm2": 651.3100742205878,
+      "bounds_mm": [
+        -17.15,
+        -17.15,
+        17.15,
+        17.15
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "B_Mask.gbr": {
+      "sha256": "84feea295a8659c25df8b6d3141aa20f95aa360018c19e511d9b06f2043f00f5",
+      "objects": 58,
+      "area_mm2": 54.35339123950722,
+      "bounds_mm": [
+        -14.6,
+        -17.129891999999998,
+        14.6,
+        17.129891999999998
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "B_Paste.gbr": {
+      "sha256": "9d9ccc677d66fcf98e79dd042c198efc255fe92c9c1c3c8ac518930993232299",
+      "objects": 0,
+      "area_mm2": 0.0,
+      "bounds_mm": [],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "B_SilkScreen.gbr": {
+      "sha256": "db453de465bc44560165c9ef7892d509f8503ac27124e5e142054b2ab43d08a7",
+      "objects": 18,
+      "area_mm2": 7.32324452998699,
+      "bounds_mm": [
+        -12.385842,
+        -5.145002,
+        2.945116,
+        3.955206
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "Edge_Cuts.gbr": {
+      "sha256": "d6197ab19df49d8230fc7e02298f46f84357bea453cf9aac047a12abe6e77ea2",
+      "objects": 4,
+      "area_mm2": 6.999463298281626,
+      "bounds_mm": [
+        -17.525,
+        -17.525,
+        17.525,
+        17.525
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "F_Cu.gbr": {
+      "sha256": "ed9030809aa991c52190f4f67b0fb36704d2577049f65781c07ddbc16881be65",
+      "objects": 3118,
+      "area_mm2": 678.207211356023,
+      "bounds_mm": [
+        -17.240000000000002,
+        -17.240000000000002,
+        17.15,
+        17.204936
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "F_Fab.gbr": {
+      "sha256": "428489797ba9d276de3e5c1ece96965675628d1b7e809f4f08a5a153e3b26cc7",
+      "objects": 591,
+      "area_mm2": 14.957980540967899,
+      "bounds_mm": [
+        -16.119114,
+        -8.976006,
+        15.892404,
+        16.578898
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "F_Mask.gbr": {
+      "sha256": "27b39cfdc19ea8acb60f6d54e3c8a4164cb5b12fe73a0c7334de10ea4191c592",
+      "objects": 417,
+      "area_mm2": 259.80208103676864,
+      "bounds_mm": [
+        -17.240000000000002,
+        -17.240000000000002,
+        17.149838,
+        17.204936
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "F_Paste.gbr": {
+      "sha256": "929895157744f177a76a583d11b85f82454f7d9ada5d4fb14198230725bfcd22",
+      "objects": 325,
+      "area_mm2": 108.08370182271611,
+      "bounds_mm": [
+        -16.755001,
+        -17.032435,
+        16.969003,
+        17.032435
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "F_SilkScreen.gbr": {
+      "sha256": "eef4e212cb37121e46af1cccf521728928bd7f09c029854a2000c43bf9e5a4c3",
+      "objects": 186,
+      "area_mm2": 108.27585017894052,
+      "bounds_mm": [
+        -17.399,
+        -17.399,
+        17.399,
+        17.399
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "In1_Cu.gbr": {
+      "sha256": "0a72d703632e3bf53baf97f5d34872d952324101091ff6c92e0db11a4afaad1b",
+      "objects": 1675,
+      "area_mm2": 804.9971716286711,
+      "bounds_mm": [
+        -17.15,
+        -17.15,
+        17.15,
+        17.15
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "In2_Cu.gbr": {
+      "sha256": "0fc8fc56a50f3814293c29c2092fd8ee01da2b5f4028ab0089f97335544edd60",
+      "objects": 3572,
+      "area_mm2": 631.3952829753753,
+      "bounds_mm": [
+        -17.15,
+        -17.15,
+        17.15,
+        17.15
+      ],
+      "LR_applied": 0,
+      "warnings": []
+    },
+    "drill-L1-L4.drl": {
+      "sha256": "448558820d136f13e22cd91828270b1d6761fed663702b3da25d5ef7781268e0",
+      "objects": 337,
+      "G85_joined": 8,
+      "parser_notices": [
+        "<unknown>:14 \"G90\": G90 header statement found after end of header"
+      ],
+      "tools_mm": {
+        "0.599999": 8,
+        "0.3": 329
+      }
+    },
+    "drill_npth.drl": {
+      "sha256": "b6262530b09830a59c55ac4e806669c0e1e8717a86eeb01dd76e5ca32cf5c4ad",
+      "objects": 6,
+      "G85_joined": 0,
+      "parser_notices": [
+        "<unknown>:14 \"G90\": G90 header statement found after end of header"
+      ],
+      "tools_mm": {
+        "3.2": 4,
+        "0.709981": 2
+      }
+    }
+  },
+  "issues": [],
+  "archive": {
+    "path": "/workspace/NEMA14_RP2040/artifacts/nema14-gerbers.zip",
+    "sha256": "3936aec876438e4a872404e7f6dbfa0ca877ff45e1bfe1503c46675563b88fe3",
+    "extracted_bytes_verified": true,
+    "members": {
+      "B_Cu.gbr": "95b165dfb063425ff121de778c56446513e55eb6934d03a6893b5dc4c22f524f",
+      "B_Mask.gbr": "84feea295a8659c25df8b6d3141aa20f95aa360018c19e511d9b06f2043f00f5",
+      "B_Paste.gbr": "9d9ccc677d66fcf98e79dd042c198efc255fe92c9c1c3c8ac518930993232299",
+      "B_SilkScreen.gbr": "db453de465bc44560165c9ef7892d509f8503ac27124e5e142054b2ab43d08a7",
+      "Edge_Cuts.gbr": "d6197ab19df49d8230fc7e02298f46f84357bea453cf9aac047a12abe6e77ea2",
+      "F_Cu.gbr": "ed9030809aa991c52190f4f67b0fb36704d2577049f65781c07ddbc16881be65",
+      "F_Fab.gbr": "428489797ba9d276de3e5c1ece96965675628d1b7e809f4f08a5a153e3b26cc7",
+      "F_Mask.gbr": "27b39cfdc19ea8acb60f6d54e3c8a4164cb5b12fe73a0c7334de10ea4191c592",
+      "F_Paste.gbr": "929895157744f177a76a583d11b85f82454f7d9ada5d4fb14198230725bfcd22",
+      "F_SilkScreen.gbr": "eef4e212cb37121e46af1cccf521728928bd7f09c029854a2000c43bf9e5a4c3",
+      "In1_Cu.gbr": "0a72d703632e3bf53baf97f5d34872d952324101091ff6c92e0db11a4afaad1b",
+      "In2_Cu.gbr": "0fc8fc56a50f3814293c29c2092fd8ee01da2b5f4028ab0089f97335544edd60",
+      "bom.csv": "c476214d55cf1985bba0fff58288ba923bdfb02b1f722fbd52fe1b067018500d",
+      "drill-L1-L4.drl": "448558820d136f13e22cd91828270b1d6761fed663702b3da25d5ef7781268e0",
+      "drill_npth.drl": "b6262530b09830a59c55ac4e806669c0e1e8717a86eeb01dd76e5ca32cf5c4ad",
+      "pick_and_place.csv": "7dc12c850c20adaec14c437dd708be3ff31b5dc4779c37186c7e8807c0ece192"
+    }
+  },
+  "copper_comparison": {
+    "top": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0,
+      "tolerance_mm": 0.0002
+    },
+    "bottom": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0,
+      "tolerance_mm": 0.0002
+    },
+    "inner1": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0,
+      "tolerance_mm": 0.0002
+    },
+    "inner2": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0,
+      "tolerance_mm": 0.0002
+    }
+  },
+  "connectivity": {
+    "named_nets_checked": 64,
+    "shorts": [],
+    "opens": [],
+    "unconnected_pads": [],
+    "actual_copper_islands": 1047,
+    "unassigned_islands": 39,
+    "no_connect_contacts": [],
+    "unassigned_island_details": [
+      {
+        "area_mm2": 0.1700022000000001,
+        "bounds_mm": [
+          -0.599944,
+          -3.8500685000000003,
+          -0.39994399999999997,
+          -3.0000575
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO12"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000008,
+        "bounds_mm": [
+          -0.200148,
+          -3.8500685000000003,
+          -0.00014799999999999536,
+          -3.0000575
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO13"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.8999967000030009,
+        "bounds_mm": [
+          -16.9800005,
+          4.8799364999999995,
+          -15.480003499999999,
+          5.4799355
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_PD.DM"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.8999967000030009,
+        "bounds_mm": [
+          -16.9800005,
+          5.8799345,
+          -15.480003499999999,
+          6.4799335000000005
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_PD.DP"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000005,
+        "bounds_mm": [
+          0.199902,
+          -3.8500685000000003,
+          0.399902,
+          -3.0000575
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO14"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.8999967000030009,
+        "bounds_mm": [
+          -16.9800005,
+          6.8799325,
+          -15.480003499999999,
+          7.4799315
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_PD.CFG3"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.8999967000030009,
+        "bounds_mm": [
+          -16.9800005,
+          7.8799305,
+          -15.480003499999999,
+          8.4799295
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_PD.CFG2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 5.760220802116,
+        "bounds_mm": [
+          7.550162,
+          0.699919,
+          9.950208,
+          3.099965
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "BZ1.NC2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17999910000099992,
+        "bounds_mm": [
+          9.0999865,
+          -8.150000499999999,
+          9.6999855,
+          -7.850001499999999
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_TEMP.ALERT"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.3450018499899995,
+        "bounds_mm": [
+          -0.3000615,
+          13.095064,
+          -6.249999999999312e-05,
+          14.245073999999999
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.SBU2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.3450018499899995,
+        "bounds_mm": [
+          0.20006449999999998,
+          13.095064,
+          0.5000635,
+          14.245073999999999
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.DM2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.34500184999000055,
+        "bounds_mm": [
+          0.20006449999999998,
+          16.054926,
+          0.5000635,
+          17.204936
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.DP1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 1.0391429112598103,
+        "bounds_mm": [
+          -2.1892005,
+          1.7299944999999999,
+          -1.6207995,
+          3.6802055
+        ],
+        "layers": [
+          "bottom"
+        ],
+        "no_connect_pads": [
+          "U_ENCODER.PGO"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.23517627186496592,
+        "bounds_mm": [
+          1.050106,
+          -13.741118,
+          1.9501039999999998,
+          -13.461108
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_DRV.NC7"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000002,
+        "bounds_mm": [
+          0.599952,
+          -3.8500685000000003,
+          0.799952,
+          -3.0000575
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO15"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 5.760220802116004,
+        "bounds_mm": [
+          14.749538,
+          0.699665,
+          17.149584,
+          3.099711
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "BZ1.NC1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 1.0391429112598098,
+        "bounds_mm": [
+          -0.9192005000000001,
+          -3.6802055,
+          -0.3507995,
+          -1.7299944999999999
+        ],
+        "layers": [
+          "bottom"
+        ],
+        "no_connect_pads": [
+          "U_ENCODER.OUT"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.3450018499899996,
+        "bounds_mm": [
+          0.6999365,
+          13.095064,
+          0.9999355000000001,
+          14.245073999999999
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.DP2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.34500184999000066,
+        "bounds_mm": [
+          0.6999365,
+          16.054926,
+          0.9999355000000001,
+          17.204936
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.DM1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 2.1599916000080017,
+        "bounds_mm": [
+          -8.950008,
+          9.450032,
+          -7.150012,
+          10.650030000000001
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_MOTOR.MOUNT1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.34500184999000066,
+        "bounds_mm": [
+          1.2000625,
+          16.054926,
+          1.5000615000000002,
+          17.204936
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_PD.SBU1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 2.1599916000079986,
+        "bounds_mm": [
+          -8.950008,
+          15.04997,
+          -7.150012,
+          16.249968
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_MOTOR.MOUNT2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.23517627186496579,
+        "bounds_mm": [
+          3.859968,
+          -10.050104000000001,
+          4.139978,
+          -9.150106
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_DRV.NC25"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000219999999946,
+        "bounds_mm": [
+          4.599944000000001,
+          -3.8500685000000003,
+          4.799944,
+          -3.0000575
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO17"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.34500184999000016,
+        "bounds_mm": [
+          -5.5000615,
+          -17.204936,
+          -5.2000625000000005,
+          -16.054926
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_DATA.SBU2"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.3450018499899991,
+        "bounds_mm": [
+          -3.9999374999999997,
+          -14.245073999999999,
+          -3.6999385,
+          -13.095064
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "J_DATA.SBU1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.23517627186496584,
+        "bounds_mm": [
+          6.050096,
+          -11.239218000000001,
+          6.950094,
+          -10.959208
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_DRV.NC20"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000021,
+        "bounds_mm": [
+          5.0999305,
+          -2.700071,
+          5.9499415,
+          -2.5000709999999997
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO18"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000021,
+        "bounds_mm": [
+          5.0999305,
+          -2.300021,
+          5.9499415,
+          -2.100021
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO19"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000021,
+        "bounds_mm": [
+          5.0999305,
+          -1.899971,
+          5.9499415,
+          -1.699971
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO20"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000021,
+        "bounds_mm": [
+          5.0999305,
+          -1.499921,
+          5.9499415,
+          -1.2999209999999999
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO21"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000002,
+        "bounds_mm": [
+          5.0999305,
+          -0.700075,
+          5.9499415,
+          -0.500075
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO22"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000005,
+        "bounds_mm": [
+          5.0999305,
+          -0.300025,
+          5.9499415,
+          -0.100025
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO23"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000005,
+        "bounds_mm": [
+          5.0999305,
+          0.100025,
+          5.9499415,
+          0.300025
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO24"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000013,
+        "bounds_mm": [
+          -1.7499414999999998,
+          -2.700071,
+          -0.8999305,
+          -2.5000709999999997
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO11"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000219999999996,
+        "bounds_mm": [
+          -1.7499414999999998,
+          0.100025,
+          -0.8999305,
+          0.300025
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO5"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000219999999994,
+        "bounds_mm": [
+          -1.7499414999999998,
+          0.500075,
+          -0.8999305,
+          0.700075
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO4"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000013,
+        "bounds_mm": [
+          -1.7499414999999998,
+          1.699971,
+          -0.8999305,
+          1.899971
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO1"
+        ],
+        "classification": "intentional native no-connect pad"
+      },
+      {
+        "area_mm2": 0.17000220000000013,
+        "bounds_mm": [
+          -1.7499414999999998,
+          2.100021,
+          -0.8999305,
+          2.300021
+        ],
+        "layers": [
+          "top"
+        ],
+        "no_connect_pads": [
+          "U_MCU.GPIO0"
+        ],
+        "classification": "intentional native no-connect pad"
+      }
+    ]
+  },
+  "actual_copper_spacing": {
+    "top": {
+      "minimum_distinct_conductor_clearance_mm": 0.15169800000000055,
+      "closest_pairs": [
+        {
+          "clearance_mm": 0.15169800000000055,
+          "conductors": [
+            [
+              "QSPI_SS"
+            ],
+            [
+              "BOOT_PAD"
+            ]
+          ],
+          "island_indices": [
+            129,
+            131
+          ]
+        },
+        {
+          "clearance_mm": 0.15488450000000054,
+          "conductors": [
+            [
+              "V3V3"
+            ],
+            [
+              "USB_DM"
+            ]
+          ],
+          "island_indices": [
+            213,
+            245
+          ]
+        },
+        {
+          "clearance_mm": 0.15520637579752466,
+          "conductors": [
+            [
+              "V3V3"
+            ],
+            [
+              "QSPI_SD1"
+            ]
+          ],
+          "island_indices": [
+            69,
+            148
+          ]
+        },
+        {
+          "clearance_mm": 0.15597252445571286,
+          "conductors": [
+            [
+              "BUZZER_SINK"
+            ],
+            [
+              "VM_SENSE"
+            ]
+          ],
+          "island_indices": [
+            295,
+            309
+          ]
+        },
+        {
+          "clearance_mm": 0.1560185700404421,
+          "conductors": [
+            [
+              "QSPI_SS"
+            ],
+            [
+              "QSPI_SD2"
+            ]
+          ],
+          "island_indices": [
+            64,
+            65
+          ]
+        }
+      ],
+      "screen_minimum_mm": 0.15,
+      "geometry_tolerance_mm": 0.0002,
+      "scope": "actual finished copper edges; pairs within 0.50 mm; same electrical net excluded"
+    },
+    "bottom": {
+      "minimum_distinct_conductor_clearance_mm": 0.15243308872749184,
+      "closest_pairs": [
+        {
+          "clearance_mm": 0.15243308872749184,
+          "conductors": [
+            [
+              "GND"
+            ],
+            [
+              "USB_DM"
+            ]
+          ],
+          "island_indices": [
+            315,
+            367
+          ]
+        },
+        {
+          "clearance_mm": 0.15407377259755534,
+          "conductors": [
+            [
+              "PD_VBUS"
+            ],
+            [
+              "DATA_CC2"
+            ]
+          ],
+          "island_indices": [
+            413,
+            534
+          ]
+        },
+        {
+          "clearance_mm": 0.15477594044293963,
+          "conductors": [
+            [
+              "native NC/unassigned island"
+            ],
+            [
+              "V3V3"
+            ]
+          ],
+          "island_indices": [
+            417,
+            418
+          ]
+        },
+        {
+          "clearance_mm": 0.15477594044293963,
+          "conductors": [
+            [
+              "V3V3"
+            ],
+            [
+              "TEMP_SDA"
+            ]
+          ],
+          "island_indices": [
+            418,
+            419
+          ]
+        },
+        {
+          "clearance_mm": 0.15520637579752466,
+          "conductors": [
+            [
+              "QSPI_SD1"
+            ],
+            [
+              "V3V3"
+            ]
+          ],
+          "island_indices": [
+            354,
+            432
+          ]
+        }
+      ],
+      "screen_minimum_mm": 0.15,
+      "geometry_tolerance_mm": 0.0002,
+      "scope": "actual finished copper edges; pairs within 0.50 mm; same electrical net excluded"
+    },
+    "inner1": {
+      "minimum_distinct_conductor_clearance_mm": 0.15461940777125532,
+      "closest_pairs": [
+        {
+          "clearance_mm": 0.15461940777125532,
+          "conductors": [
+            [
+              "GND"
+            ],
+            [
+              "ENABLE_N"
+            ]
+          ],
+          "island_indices": [
+            553,
+            719
+          ]
+        },
+        {
+          "clearance_mm": 0.15520637579752466,
+          "conductors": [
+            [
+              "V3V3"
+            ],
+            [
+              "QSPI_SD1"
+            ]
+          ],
+          "island_indices": [
+            668,
+            679
+          ]
+        },
+        {
+          "clearance_mm": 0.15597252445571286,
+          "conductors": [
+            [
+              "VM_SENSE"
+            ],
+            [
+              "BUZZER_SINK"
+            ]
+          ],
+          "island_indices": [
+            798,
+            800
+          ]
+        },
+        {
+          "clearance_mm": 0.1560185700404421,
+          "conductors": [
+            [
+              "QSPI_SS"
+            ],
+            [
+              "QSPI_SD2"
+            ]
+          ],
+          "island_indices": [
+            618,
+            619
+          ]
+        },
+        {
+          "clearance_mm": 0.16240225950087056,
+          "conductors": [
+            [
+              "PD_VBUS"
+            ],
+            [
+              "TEMP_SCL"
+            ]
+          ],
+          "island_indices": [
+            769,
+            771
+          ]
+        }
+      ],
+      "screen_minimum_mm": 0.15,
+      "geometry_tolerance_mm": 0.0002,
+      "scope": "actual finished copper edges; pairs within 0.50 mm; same electrical net excluded"
+    },
+    "inner2": {
+      "minimum_distinct_conductor_clearance_mm": 0.15520637579752466,
+      "closest_pairs": [
+        {
+          "clearance_mm": 0.15520637579752466,
+          "conductors": [
+            [
+              "V3V3"
+            ],
+            [
+              "QSPI_SD1"
+            ]
+          ],
+          "island_indices": [
+            917,
+            934
+          ]
+        },
+        {
+          "clearance_mm": 0.15597252445571286,
+          "conductors": [
+            [
+              "VM_SENSE"
+            ],
+            [
+              "BUZZER_SINK"
+            ]
+          ],
+          "island_indices": [
+            1036,
+            1039
+          ]
+        },
+        {
+          "clearance_mm": 0.1560185700404421,
+          "conductors": [
+            [
+              "QSPI_SS"
+            ],
+            [
+              "QSPI_SD2"
+            ]
+          ],
+          "island_indices": [
+            869,
+            871
+          ]
+        },
+        {
+          "clearance_mm": 0.16179173424123605,
+          "conductors": [
+            [
+              "LOGIC_IN"
+            ],
+            [
+              "DATA_VBUS"
+            ]
+          ],
+          "island_indices": [
+            900,
+            911
+          ]
+        },
+        {
+          "clearance_mm": 0.16193620190511157,
+          "conductors": [
+            [
+              "PD_VBUS"
+            ],
+            [
+              "PD_CC1"
+            ]
+          ],
+          "island_indices": [
+            832,
+            863
+          ]
+        }
+      ],
+      "screen_minimum_mm": 0.15,
+      "geometry_tolerance_mm": 0.0002,
+      "scope": "actual finished copper edges; pairs within 0.50 mm; same electrical net excluded"
+    }
+  },
+  "paste": {
+    "F_Paste": {
+      "bare_interface_overlap_mm2": 0.0,
+      "manual_plated_joint_overlap_mm2": 0.0,
+      "outside_smt_copper_mm2": 0.0
+    },
+    "B_Paste": {
+      "bare_interface_overlap_mm2": 0.0,
+      "manual_plated_joint_overlap_mm2": 0.0,
+      "outside_smt_copper_mm2": 0.0
+    }
+  },
+  "assembly_tables": {
+    "bom.csv": {
+      "rows": 82,
+      "bare_rows": [],
+      "missing_fitted": [],
+      "unexpected": [],
+      "duplicate_refs": [],
+      "source_identity_errors": []
+    },
+    "pick_and_place.csv": {
+      "rows": 82,
+      "bare_rows": [],
+      "missing_fitted": [],
+      "unexpected": [],
+      "duplicate_refs": []
+    }
+  },
+  "cpl_coordinate_comparison": {
+    "errors": [],
+    "origin": "board center; mm; unmirrored top coordinates",
+    "rotation": "native imported land-pattern orientation plus saved pcb_component rotation; supplier interpretation still needs placement-preview approval",
+    "status": "SOURCE CONVENTION CHECK ONLY; supplier pickup datum and rotation remain USER_REVIEW",
+    "USB_centers": [
+      {
+        "reference": "J_PD",
+        "CPL_land_pattern_center_mm": {
+          "x": 0.6000000000000001,
+          "y": 15.149999999999999
+        },
+        "rotation_deg": 0
+      },
+      {
+        "reference": "J_DATA",
+        "CPL_land_pattern_center_mm": {
+          "x": -4.6,
+          "y": -15.149999999999999
+        },
+        "rotation_deg": 0
+      }
+    ],
+    "USB_center_note": "Upright GCT USB4145 uses native land-pattern CPL datum; local CAD anchor correction X +0.1524952 mm aligns the native STEP centre. Manufacturer pickup datum and JLCPCB placement preview remain unverified."
+  },
+  "drill_source_comparison": {
+    "missing_mm2": 0.0,
+    "extra_mm2": 0.0,
+    "tolerance_mm": 0.00055,
+    "tolerance_reason": "Exporter slot endpoints and CPL rounded to 3 decimal places; 0.55 micrometer envelope",
+    "nominal_mounting_holes": 4,
+    "nominal_USB_plated_slots": 8
+  },
+  "mask_opening_comparison": {
+    "errors": [],
+    "policy": "uncovered fitted/bare solder pads and plated slots remain open; filled/capped thermal via process required"
+  },
+  "stencil_release_screen": {
+    "candidate_thickness_mm": 0.1,
+    "minimum_aspect_ratio": 1.7999999999999972,
+    "minimum_area_ratio": 0.7285732426111883,
+    "screen_limits": {
+      "aspect_ratio": 1.5,
+      "area_ratio": 0.66
+    },
+    "failing_apertures": [],
+    "scope": "common geometric release screens only; physical paste/stencil/reflow process acceptance still pending"
+  },
+  "exposed_pad_stencil": [
+    {
+      "ref": "U_PD",
+      "pad": "pcb_smtpad_42",
+      "coverage_fraction": 0.5999993781007402
+    },
+    {
+      "ref": "U_MCU",
+      "pad": "pcb_smtpad_49",
+      "coverage_fraction": 0.6000005636331531
+    },
+    {
+      "ref": "U_DRV",
+      "pad": "pcb_smtpad_195",
+      "coverage_fraction": 0.5999998140218563
+    }
+  ],
+  "board_outline": {
+    "bounds_including_stroke": [
+      -17.525,
+      -17.525,
+      17.525,
+      17.525
+    ],
+    "centerline_bounds_mm": [
+      -17.5,
+      -17.5,
+      17.5,
+      17.5
+    ],
+    "closed_contour_count": 1,
+    "centerline_length_mm": 140.0,
+    "centerline_area_mm2": 1225.0,
+    "valid_35mm_square": true
+  },
+  "mask_webs": {
+    "F_Mask": {
+      "minimum_web_mm": 0.1996190000000002,
+      "opening_polygons": 337,
+      "scope": "nearest distinct mask openings within 0.25 mm"
+    },
+    "B_Mask": {
+      "minimum_web_mm": null,
+      "opening_polygons": 26,
+      "scope": "nearest distinct mask openings within 0.25 mm"
+    }
+  },
+  "mask": {
+    "F_Mask": {
+      "area_mm2": 259.80208103676864,
+      "bounds_mm": [
+        -17.240000000000002,
+        -17.240000000000002,
+        17.149838,
+        17.204936
+      ]
+    },
+    "B_Mask": {
+      "area_mm2": 54.35339123950722,
+      "bounds_mm": [
+        -14.6,
+        -17.129891999999998,
+        14.6,
+        17.129891999999998
+      ]
+    }
+  },
+  "plated_annulus_source_min_mm": 0.07500000000000001,
+  "copper_clearances": {
+    "top": {
+      "mount_hole_edge_clearance_mm": 1.7681880674369095,
+      "board_edge_clearance_mm": 0.259999999999998
+    },
+    "bottom": {
+      "mount_hole_edge_clearance_mm": 1.7681880674369095,
+      "board_edge_clearance_mm": 0.3500000000000014
+    },
+    "inner1": {
+      "mount_hole_edge_clearance_mm": 1.7958235445932176,
+      "board_edge_clearance_mm": 0.3500000000000014
+    },
+    "inner2": {
+      "mount_hole_edge_clearance_mm": 1.7681880674369095,
+      "board_edge_clearance_mm": 0.3500000000000014
+    }
+  },
+  "actual_keepout_checks": [
+    {
+      "keepout_id": "pcb_keepout_0",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": -13
+      },
+      "layer": "top",
+      "clearance_mm": 0.18602907216069745,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_0",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": -13
+      },
+      "layer": "inner1",
+      "clearance_mm": 0.19998449770955515,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_0",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": -13
+      },
+      "layer": "inner2",
+      "clearance_mm": 0.19998449770955515,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_0",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": -13
+      },
+      "layer": "bottom",
+      "clearance_mm": 0.19998449770955515,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_1",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": 13
+      },
+      "layer": "top",
+      "clearance_mm": 0.168190752658608,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_1",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": 13
+      },
+      "layer": "inner1",
+      "clearance_mm": 0.19998449770955515,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_1",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": 13
+      },
+      "layer": "inner2",
+      "clearance_mm": 0.19998449770955515,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_1",
+      "shape": "circle",
+      "center_mm": {
+        "x": -13,
+        "y": 13
+      },
+      "layer": "bottom",
+      "clearance_mm": 0.16819075265860747,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_2",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": -13
+      },
+      "layer": "top",
+      "clearance_mm": 0.1863607055535805,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_2",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": -13
+      },
+      "layer": "inner1",
+      "clearance_mm": 0.19998449770955537,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_2",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": -13
+      },
+      "layer": "inner2",
+      "clearance_mm": 0.16819075265860747,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_2",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": -13
+      },
+      "layer": "bottom",
+      "clearance_mm": 0.19998449770955537,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_3",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": 13
+      },
+      "layer": "top",
+      "clearance_mm": 0.168190752658608,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_3",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": 13
+      },
+      "layer": "inner1",
+      "clearance_mm": 0.195905682230062,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_3",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": 13
+      },
+      "layer": "inner2",
+      "clearance_mm": 0.16819075265860747,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    },
+    {
+      "keepout_id": "pcb_keepout_3",
+      "shape": "circle",
+      "center_mm": {
+        "x": 13,
+        "y": 13
+      },
+      "layer": "bottom",
+      "clearance_mm": 0.16819075265860747,
+      "intrusion_area_mm2": 0.0,
+      "intrusion_beyond_0_0002mm_tolerance_mm2": 0.0
+    }
+  ],
+  "silkscreen_clearances": {
+    "F_SilkScreen": {
+      "overlap_mask_openings_mm2": 0.0,
+      "inside_0_15mm_mask_guard_mm2": 0.0,
+      "outside_board_0_10mm_inset_mm2": 0.0
+    },
+    "B_SilkScreen": {
+      "overlap_mask_openings_mm2": 0.0,
+      "inside_0_15mm_mask_guard_mm2": 0.0,
+      "outside_board_0_10mm_inset_mm2": 0.0
+    }
+  },
+  "paste_source_comparison": {
+    "F_Paste": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0
+    },
+    "B_Paste": {
+      "missing_mm2": 0.0,
+      "extra_mm2": 0.0
+    }
+  },
+  "status": "PASS"
+}
