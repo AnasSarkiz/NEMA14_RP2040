@@ -1,4 +1,4 @@
-## Bottom silkscreen — 1.13.1
+## Bottom silkscreen and lean publication — 1.13.2
 
 Registry uploads contain only previews and manufacturing downloads. Full source,
 datasheets and engineering history stay in GitHub. See [publishing policy](docs/tscircuit-publishing-policy.md).
