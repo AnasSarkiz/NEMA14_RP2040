@@ -1,0 +1,56 @@
+
+> NEMA14_RP2040@1.13.0 assembly:build
+> bun scripts/build-assembly-preview.tsx
+
+{
+  "passed": true,
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "qualified_board_records_preserved": true,
+  "electronic_CAD_poses_match": true,
+  "source_render_errors": [],
+  "added_mechanical_components": [
+    "MOTOR_REFERENCE_CONCEPT",
+    "PROPOSED_M3_SCREW_-13_-13",
+    "PROPOSED_SPACER_-13_-13",
+    "PROPOSED_M3_SCREW_-13_13",
+    "PROPOSED_SPACER_-13_13",
+    "PROPOSED_M3_SCREW_13_-13",
+    "PROPOSED_SPACER_13_-13",
+    "PROPOSED_M3_SCREW_13_13",
+    "PROPOSED_SPACER_13_13",
+    "MOTOR_LEAD_PIN_1",
+    "MOTOR_LEAD_PIN_2",
+    "MOTOR_LEAD_PIN_3",
+    "MOTOR_LEAD_PIN_4",
+    "MOTOR_SPLICE_PIN_1",
+    "MOTOR_SPLICE_PIN_2",
+    "MOTOR_SPLICE_PIN_3",
+    "MOTOR_SPLICE_PIN_4",
+    "JST_SHR_04V_S_PLUG"
+  ],
+  "motor_to_PCB_surface_gap_mm": 6,
+  "screw_head_mm": {
+    "diameter": 4,
+    "height": 3
+  },
+  "screw_shaft_mm": {
+    "diameter": 3,
+    "length": 6
+  },
+  "spacer_mm": {
+    "outer_diameter": 5,
+    "bore_diameter": 3.2,
+    "length": 6
+  },
+  "actual_motor_rear_retention_verified": false,
+  "physical_assembly_tested": false,
+  "motor_termination": "Permanent bare motor leads; no motor-side JST socket",
+  "board_end_housing": "SHR-04V-S",
+  "pigtail_awg": 28,
+  "cable_obstacle_avoidance_provided_by_tscircuit": false,
+  "documentation": [
+    "https://docs.tscircuit.com/elements/assembly-motor",
+    "https://docs.tscircuit.com/elements/assembly-part",
+    "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf"
+  ]
+}

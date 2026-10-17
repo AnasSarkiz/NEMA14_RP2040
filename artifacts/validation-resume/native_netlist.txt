@@ -5,8 +5,8 @@ Readable Netlist:
 COMPONENTS:
  - J_PD: J_PD, source_component
  - J_DATA: J_DATA, source_component
- - U_PD: CH224K
- - R_PD: 1kΩ resistor
+ - U_PD: CH224A
+ - R_PD: 0Ω resistor
  - C_PD: 1uF capacitor
  - R_PG: 10kΩ resistor
  - U_MCU: RP2040
@@ -91,6 +91,10 @@ COMPONENTS:
  - TP_RUN: TP_RUN, source_component
  - TP_BOOT: TP_BOOT, source_component
  - TP_BOOT_GND: TP_BOOT_GND, source_component
+ - U_ENCODER: AS5600-ASOM
+ - C_ENCODER: 100nF capacitor
+ - C_ENCODER_BULK: 1uF capacitor
+ - R_PD_CFG: 56kΩ resistor
 
 NET: PD_CC1
   - U_PD CC1
@@ -100,12 +104,10 @@ NET: PD_CC2
   - U_PD CC2
   - J_PD CC2
 
-NET: PD_VDD
+NET: PD_VHV
   - C_PD pin1 (+)
   - R_PD pin2
-  - U_PD CFG3
-  - U_PD CFG2
-  - U_PD VDD
+  - U_PD VHV
 
 NET: PD_GOOD
   - U_MCU GPIO10
@@ -292,18 +294,10 @@ NET: PD_VBUS
   - R_VM_H pin1
   - R_PD pin1
   - U_PD VBUS
+  - J_PD VBUS4
+  - J_PD VBUS3
   - J_PD VBUS2
   - J_PD VBUS1
-
-NET: TEMP_SDA
-  - R_TEMP_SDA pin1
-  - U_TEMP SDA
-  - U_MCU GPIO26
-
-NET: TEMP_SCL
-  - R_TEMP_SCL pin1
-  - U_TEMP SCL
-  - U_MCU GPIO27
 
 NET: PWR_LED_A
   - R_PWR_LED pin2
@@ -314,6 +308,8 @@ NET: DATA_VBUS
   - U_ESD VBUS
   - D_DATA anode (+)
   - R_USB_SENSE_H pin1
+  - J_DATA VBUS4
+  - J_DATA VBUS3
   - J_DATA VBUS2
   - J_DATA VBUS1
 
@@ -367,7 +363,40 @@ NET: BUZZER_GATE
   - R_BUZZER_GATE pin2
   - Q_BUZZER pin1
 
+NET: SWCLK
+  - TP_SWCLK pin1
+  - U_MCU SWCLK
+
+NET: SWDIO
+  - TP_SWDIO pin1
+  - U_MCU SWDIO
+
+NET: RUN
+  - TP_RUN pin1
+  - R_RUN pin2
+  - U_MCU RUN
+
+NET: BOOT_PAD
+  - TP_BOOT pin1
+  - R_BOOT pin2
+
+NET: TEMP_SDA
+  - U_ENCODER SDA
+  - R_TEMP_SDA pin1
+  - U_TEMP SDA
+  - U_MCU GPIO26
+
+NET: TEMP_SCL
+  - U_ENCODER SCL
+  - R_TEMP_SCL pin1
+  - U_TEMP SCL
+  - U_MCU GPIO27
+
 NET: V3V3
+  - C_ENCODER_BULK pin1 (+)
+  - C_ENCODER pin1 (+)
+  - U_ENCODER VDD3V3
+  - U_ENCODER VDD5V
   - TP_3V3 pin1
   - C_BUZZER pin1 (+)
   - D_BUZZER cathode (-)
@@ -413,24 +442,16 @@ NET: V3V3
   - U_MCU IOVDD1
   - R_PG pin1
 
-NET: SWCLK
-  - TP_SWCLK pin1
-  - U_MCU SWCLK
-
-NET: SWDIO
-  - TP_SWDIO pin1
-  - U_MCU SWDIO
-
-NET: RUN
-  - TP_RUN pin1
-  - R_RUN pin2
-  - U_MCU RUN
-
-NET: BOOT_PAD
-  - TP_BOOT pin1
-  - R_BOOT pin2
+NET: PD_CFG
+  - R_PD_CFG pin1
+  - U_PD CFG1
 
 NET: GND
+  - R_PD_CFG pin2
+  - C_ENCODER_BULK pin2 (-)
+  - C_ENCODER pin2 (-)
+  - U_ENCODER DIR
+  - U_ENCODER GND
   - TP_BOOT_GND pin1
   - TP_GND pin1
   - C_BUZZER pin2 (-)
@@ -490,77 +511,88 @@ NET: GND
   - U_MCU TESTEN
   - C_PD pin2 (-)
   - U_PD GND
-  - U_PD CFG1
   - J_DATA EH4
   - J_DATA EH3
   - J_DATA EH2
   - J_DATA EH1
+  - J_DATA GND4
+  - J_DATA GND3
   - J_DATA GND2
   - J_DATA GND1
   - J_PD EH4
   - J_PD EH3
   - J_PD EH2
   - J_PD EH1
+  - J_PD GND4
+  - J_PD GND3
   - J_PD GND2
   - J_PD GND1
 
 
 COMPONENT_PINS:
-J_PD (TYPE-C-31-M-12)
-- pin1(EH2, SHELL2): NETS(GND)
-- pin2(EH1, SHELL1): NETS(GND)
-- pin3(EH4, SHELL4): NETS(GND)
-- pin4(EH3, SHELL3): NETS(GND)
-- pin5(SBU2, B8): NOT_CONNECTED
-- pin6(CC1, A5): NETS(PD_CC1)
-- pin7(DM2, DN2, B7): NOT_CONNECTED
-- pin8(DP1, A6): NOT_CONNECTED
-- pin9(DM1, DN1, A7): NOT_CONNECTED
-- pin10(DP2, B6): NOT_CONNECTED
-- pin11(SBU1, A8): NOT_CONNECTED
-- pin12(CC2, B5): NETS(PD_CC2)
-- pin13(GND1, A1B12): NETS(GND)
-- pin14(GND2, B1A12): NETS(GND)
-- pin15(VBUS1, B4A9): NETS(PD_VBUS)
-- pin16(VBUS2, A4B9): NETS(PD_VBUS)
+J_PD (USB4145-03-0070-C)
+- pin1(GND1, A1): NETS(GND)
+- pin2(DP1, A6): NOT_CONNECTED
+- pin3(VBUS1, A4): NETS(PD_VBUS)
+- pin4(CC1, A5): NETS(PD_CC1)
+- pin5(GND2, A12): NETS(GND)
+- pin6(DM1, DN1, A7): NOT_CONNECTED
+- pin7(SBU1, A8): NOT_CONNECTED
+- pin8(VBUS2, A9): NETS(PD_VBUS)
+- pin9(GND3, B12): NETS(GND)
+- pin10(DM2, DN2, B7): NOT_CONNECTED
+- pin11(VBUS3, B9): NETS(PD_VBUS)
+- pin12(SBU2, B8): NOT_CONNECTED
+- pin13(GND4, B1): NETS(GND)
+- pin14(DP2, B6): NOT_CONNECTED
+- pin15(CC2, B5): NETS(PD_CC2)
+- pin16(VBUS4, B4): NETS(PD_VBUS)
+- pin17(EH1, SHELL1): NETS(GND)
+- pin18(EH2, SHELL2): NETS(GND)
+- pin19(EH3, SHELL3): NETS(GND)
+- pin20(EH4, SHELL4): NETS(GND)
 
-J_DATA (TYPE-C-31-M-12)
-- pin1(EH2, SHELL2): NETS(GND)
-- pin2(EH1, SHELL1): NETS(GND)
-- pin3(EH4, SHELL4): NETS(GND)
-- pin4(EH3, SHELL3): NETS(GND)
-- pin5(SBU2, B8): NOT_CONNECTED
-- pin6(CC1, A5): NETS(DATA_CC1)
-- pin7(DM2, DN2, B7): NETS(USB_DM)
-- pin8(DP1, A6): NETS(USB_DP)
-- pin9(DM1, DN1, A7): NETS(USB_DM)
-- pin10(DP2, B6): NETS(USB_DP)
-- pin11(SBU1, A8): NOT_CONNECTED
-- pin12(CC2, B5): NETS(DATA_CC2)
-- pin13(GND1, A1B12): NETS(GND)
-- pin14(GND2, B1A12): NETS(GND)
-- pin15(VBUS1, B4A9): NETS(DATA_VBUS)
-- pin16(VBUS2, A4B9): NETS(DATA_VBUS)
+J_DATA (USB4145-03-0070-C)
+- pin1(GND1, A1): NETS(GND)
+- pin2(DP1, A6): NETS(USB_DP)
+- pin3(VBUS1, A4): NETS(DATA_VBUS)
+- pin4(CC1, A5): NETS(DATA_CC1)
+- pin5(GND2, A12): NETS(GND)
+- pin6(DM1, DN1, A7): NETS(USB_DM)
+- pin7(SBU1, A8): NOT_CONNECTED
+- pin8(VBUS2, A9): NETS(DATA_VBUS)
+- pin9(GND3, B12): NETS(GND)
+- pin10(DM2, DN2, B7): NETS(USB_DM)
+- pin11(VBUS3, B9): NETS(DATA_VBUS)
+- pin12(SBU2, B8): NOT_CONNECTED
+- pin13(GND4, B1): NETS(GND)
+- pin14(DP2, B6): NETS(USB_DP)
+- pin15(CC2, B5): NETS(DATA_CC2)
+- pin16(VBUS4, B4): NETS(DATA_VBUS)
+- pin17(EH1, SHELL1): NETS(GND)
+- pin18(EH2, SHELL2): NETS(GND)
+- pin19(EH3, SHELL3): NETS(GND)
+- pin20(EH4, SHELL4): NETS(GND)
 
-U_PD (CH224K)
-- pin1(VDD): NETS(PD_VDD)
-- pin2(CFG2): NETS(PD_VDD)
-- pin3(CFG3): NETS(PD_VDD)
+U_PD (CH224A)
+- pin1(VHV): NETS(PD_VHV)
+- pin2(CFG2): NOT_CONNECTED
+- pin3(CFG3): NOT_CONNECTED
 - pin4(DP): NOT_CONNECTED
 - pin5(DM): NOT_CONNECTED
 - pin6(CC2): NETS(PD_CC2)
 - pin7(CC1): NETS(PD_CC1)
 - pin8(VBUS): NETS(PD_VBUS)
-- pin9(CFG1): NETS(GND)
+- pin9(CFG1): NETS(PD_CFG)
 - pin10(PG): NETS(PD_GOOD)
 - pin11(GND): NETS(GND)
 
-R_PD (1kΩ undefined)
+R_PD (0Ω undefined)
 - pin1(anode, pos, left): NETS(PD_VBUS)
-- pin2(cathode, neg, right): NETS(PD_VDD)
+- pin2(cathode, neg, right): NETS(PD_VHV)
 
 C_PD (1uF undefined)
-- pin1(pos): NETS(PD_VDD)
+- pin1(pos): NETS(PD_VHV)
 - pin2(neg): NETS(GND)
 
 R_PG (10kΩ undefined)
@@ -1002,4 +1034,26 @@ TP_BOOT
 
 TP_BOOT_GND
 - pin1: NETS(GND)
+
+U_ENCODER (AS5600-ASOM)
+- pin1(VDD5V): NETS(V3V3)
+- pin2(VDD3V3): NETS(V3V3)
+- pin3(OUT): NOT_CONNECTED
+- pin4(GND): NETS(GND)
+- pin5(PGO): NOT_CONNECTED
+- pin6(SDA): NETS(TEMP_SDA)
+- pin7(SCL): NETS(TEMP_SCL)
+- pin8(DIR): NETS(GND)
+
+C_ENCODER (100nF undefined)
+- pin1(pos): NETS(V3V3)
+- pin2(neg): NETS(GND)
+
+C_ENCODER_BULK (1uF undefined)
+- pin1(pos): NETS(V3V3)
+- pin2(neg): NETS(GND)
+
+R_PD_CFG (56kΩ undefined)
+- pin1(anode, pos, left): NETS(PD_CFG)
+- pin2(cathode, neg, right): NETS(GND)
 

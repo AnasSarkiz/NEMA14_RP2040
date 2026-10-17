@@ -1,0 +1,165 @@
+{
+  "passed": true,
+  "completed_checks": 14,
+  "required_checks": 14,
+  "board_sha256": "43f77926ea6a98bacbeab39d6b31ad0d505eb9b149576b9aa4a46e2351a81864",
+  "version": "1.13.0",
+  "checks": [
+    {
+      "check": "source-generation",
+      "command": [
+        "npm",
+        "run",
+        "source:check"
+      ],
+      "started_utc": "2026-10-16T20:13:47.637921+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/source-generation.log"
+    },
+    {
+      "check": "typescript",
+      "command": [
+        "npm",
+        "run",
+        "typecheck"
+      ],
+      "started_utc": "2026-10-16T20:14:40.044446+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/typescript.log"
+    },
+    {
+      "check": "build-and-native-drc",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "started_utc": "2026-10-16T20:14:52.187511+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/build-and-native-drc.log"
+    },
+    {
+      "check": "physical-connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-connectivity.py"
+      ],
+      "started_utc": "2026-10-16T20:15:21.664730+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/physical-connectivity.log"
+    },
+    {
+      "check": "circuit-json-schema",
+      "command": [
+        "npm",
+        "run",
+        "check:schema"
+      ],
+      "started_utc": "2026-10-16T20:15:22.743154+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/circuit-json-schema.log"
+    },
+    {
+      "check": "schematic-placement-and-connectivity",
+      "command": [
+        "npm",
+        "run",
+        "check:schematic"
+      ],
+      "started_utc": "2026-10-16T20:15:23.680785+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/schematic-placement-and-connectivity.log"
+    },
+    {
+      "check": "a4-pdf",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/export-a4-pdf.py"
+      ],
+      "started_utc": "2026-10-16T20:15:27.965150+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/a4-pdf.log"
+    },
+    {
+      "check": "gerbers-bom-and-cpl",
+      "command": [
+        "npm",
+        "run",
+        "export"
+      ],
+      "started_utc": "2026-10-16T20:15:28.734543+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/gerbers-bom-and-cpl.log"
+    },
+    {
+      "check": "trace-widths",
+      "command": [
+        "npm",
+        "run",
+        "check:copper"
+      ],
+      "started_utc": "2026-10-16T20:16:11.739245+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/trace-widths.log"
+    },
+    {
+      "check": "mounting-holes-and-clearance",
+      "command": [
+        "npm",
+        "run",
+        "check:mounts"
+      ],
+      "started_utc": "2026-10-16T20:16:18.208043+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/mounting-holes-and-clearance.log"
+    },
+    {
+      "check": "manufacturing-cam",
+      "command": [
+        "npm",
+        "run",
+        "check:manufacturing"
+      ],
+      "started_utc": "2026-10-16T20:17:15.644863+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/manufacturing-cam.log"
+    },
+    {
+      "check": "gerber-shorts",
+      "command": [
+        "npm",
+        "run",
+        "shorts"
+      ],
+      "started_utc": "2026-10-16T20:19:08.708975+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/gerber-shorts.log"
+    },
+    {
+      "check": "circular-keepout-regression",
+      "command": [
+        "npm",
+        "run",
+        "check:circle"
+      ],
+      "started_utc": "2026-10-16T20:20:09.389538+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/circular-keepout-regression.log"
+    },
+    {
+      "check": "migration-pin-map-and-preservation",
+      "command": [
+        "npm",
+        "run",
+        "check:pd"
+      ],
+      "started_utc": "2026-10-16T20:20:09.658463+00:00",
+      "exit_code": 0,
+      "log": "artifacts/ch224a-migration/validation/migration-pin-map-and-preservation.log"
+    }
+  ],
+  "hardware_operation_verified": false,
+  "manufacturing_release": false,
+  "historical": true,
+  "superseded_reason": "RP2040 configuration resistor moved inward 0.05 mm for 0.75 mm pad-to-board-edge target; current final checks are in final-review.json and ../resume-validation.json."
+}

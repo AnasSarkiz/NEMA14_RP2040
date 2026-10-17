@@ -1,0 +1,193 @@
+{
+  "project": "NEMA14_RP2040",
+  "version": "1.13.0",
+  "started_utc": "2026-10-17T17:56:20.696328+00:00",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "checks": [
+    {
+      "check": "native_DRC_and_PD_pin_map",
+      "command": [
+        "npm",
+        "run",
+        "check"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/native_DRC_and_PD_pin_map.log"
+    },
+    {
+      "check": "native_board_checks",
+      "command": [
+        "tsci",
+        "check",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/native_board_checks.log"
+    },
+    {
+      "check": "placement",
+      "command": [
+        "tsci",
+        "check",
+        "placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 1,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/placement.log",
+      "orientation_advisories_only": true,
+      "advisory_count": 4
+    },
+    {
+      "check": "schematic_placement",
+      "command": [
+        "tsci",
+        "check",
+        "schematic-placement",
+        "artifacts/board.circuit.json"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/schematic_placement.log"
+    },
+    {
+      "check": "schematic_geometry_ERC",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-schematic.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/schematic_geometry_ERC.log"
+    },
+    {
+      "check": "physical_connectivity",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/verify-connectivity.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/physical_connectivity.log"
+    },
+    {
+      "check": "all_layer_Gerber_shorts",
+      "command": [
+        "tsci",
+        "check",
+        "shorts",
+        "artifacts/board.circuit.json",
+        "--mode",
+        "gerber",
+        "--layer",
+        "all",
+        "--pixels-per-mm",
+        "100"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/all_layer_Gerber_shorts.log"
+    },
+    {
+      "check": "trace_widths",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-trace-widths.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/trace_widths.log"
+    },
+    {
+      "check": "resistor_edge_clearances",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/check-resistor-edges.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/resistor_edge_clearances.log"
+    },
+    {
+      "check": "via_drills_and_clearances",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-via-fabrication.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/via_drills_and_clearances.log"
+    },
+    {
+      "check": "native_archive_independent_CAM",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-manufacturing.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/native_archive_independent_CAM.log"
+    },
+    {
+      "check": "order_archive_independent_CAM",
+      "command": [
+        "/workspace/.routing-venv/bin/python",
+        "scripts/audit-manufacturing.py",
+        "--directory",
+        "artifacts/jlcpcb-review/cam",
+        "--source",
+        "artifacts/jlcpcb-review/order-source.circuit.json",
+        "--archive",
+        "artifacts/jlcpcb-review/review-cam.zip"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/order_archive_independent_CAM.corrected.log",
+      "previous_invocation": {
+        "command": [
+          "/workspace/.routing-venv/bin/python",
+          "scripts/audit-manufacturing.py",
+          "--directory",
+          "artifacts/jlcpcb-review/cam",
+          "--source",
+          "artifacts/jlcpcb-review/order-source.circuit.json",
+          "--archive",
+          "artifacts/jlcpcb-review/review-cam.zip"
+        ],
+        "exit_code": 1,
+        "log": "artifacts/shorts-drc-recheck-2026-10-17/order_archive_independent_CAM.log",
+        "explanation": "The full review CAM directory includes source identity CSVs and F_Fab.gbr omitted from the fabrication-only ZIP. Re-ran the full audit against review-cam.zip, then separately verified every fabrication ZIP member against that audited CAM using verify-jlcpcb-review.py."
+      }
+    },
+    {
+      "check": "JLCPCB_order_archive_identity",
+      "command": [
+        "python3",
+        "scripts/verify-jlcpcb-review.py"
+      ],
+      "exit_code": 0,
+      "log": "artifacts/shorts-drc-recheck-2026-10-17/JLCPCB_order_archive_identity.log"
+    }
+  ],
+  "all_required_checks_passed": true,
+  "board_unchanged": true,
+  "completed_utc": "2026-10-17T18:00:59.868005+00:00",
+  "native_DRC_errors": 0,
+  "native_DRC_warnings": 0,
+  "native_CAM": {
+    "status": "PASS",
+    "issues": [],
+    "shorts": [],
+    "opens": [],
+    "unconnected_pads": [],
+    "named_nets_checked": 64
+  },
+  "order_CAM": {
+    "status": "PASS",
+    "issues": [],
+    "shorts": [],
+    "opens": [],
+    "unconnected_pads": [],
+    "named_nets_checked": 64
+  },
+  "physical_connectivity": {
+    "checkedNets": 64,
+    "disconnectedNets": [],
+    "allCopperLayersChecked": true,
+    "nativePolygonAndSlotGeometry": true,
+    "sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d"
+  },
+  "public_board_and_Gerbers_match": true,
+  "public_version_receipt": "artifacts/shorts-drc-recheck-2026-10-17/public-version.json",
+  "scope": "Fresh CAD DRC, schematic/ERC, physical connectivity, all-layer raster Gerber shorts and independent fabrication/order CAM checks. Placement optimization suggestions retain native nonzero exit status; no board geometry changed."
+}

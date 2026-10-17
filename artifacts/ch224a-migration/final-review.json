@@ -1,0 +1,53 @@
+{
+  "version": "1.13.0",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "baseline_commit": "ff041214fa1bce398e7052ceae4de827ebd356bb",
+  "current_native_suite": {
+    "receipt": "artifacts/resume-validation.json",
+    "total": 23,
+    "exit_zero": 22,
+    "nonzero_checks": [
+      {
+        "check": "native_placement",
+        "command": [
+          "tsci",
+          "check",
+          "placement",
+          "artifacts/board.circuit.json"
+        ],
+        "exit_code": 1,
+        "log": "artifacts/validation-resume/native_placement.txt"
+      }
+    ],
+    "nonzero_interpretation": "Native placement orientation optimization advisories remain; existing placements are preserved. Geometric DRC and independent copper tests pass."
+  },
+  "geometric_DRC": {
+    "errors": 0,
+    "warnings": 0,
+    "receipt": "artifacts/drc-report.json"
+  },
+  "physical_connectivity": {
+    "nets_checked": 64,
+    "receipt": "artifacts/physical-connectivity.json"
+  },
+  "independent_native_CAM": "PASS",
+  "independent_order_CAM": "PASS",
+  "all_layer_Gerber_shorts": "PASS",
+  "electrical_and_preservation_guard": "artifacts/ch224a-migration/electrical-and-preservation.json",
+  "source_and_build_logs": "artifacts/ch224a-migration/final-logs",
+  "assembly_build_and_fit": "PASS",
+  "review_zip_contents_match_current_outputs": true,
+  "fitted_part_count": 82,
+  "fitted_unique_JLCPCB_codes": 45,
+  "JLCPCB_controller_assembly_catalog_listing_verified": true,
+  "live_assembly_stock_verified": false,
+  "manufacturing_release": false,
+  "hardware_operation_verified": false,
+  "published": false,
+  "remaining_items": [
+    "Live JLCPCB assembly stock, pickup orientation and exposed-pad via/stencil process approval remain pending.",
+    "PD negotiation/fallback, power/thermal behavior and physical assembly require bench qualification."
+  ],
+  "VBUS_rating_concern_resolved_by_WCH_V2_1": true,
+  "VBUS_rating_review": "artifacts/ch224a-migration/vbus-rating-review.json"
+}

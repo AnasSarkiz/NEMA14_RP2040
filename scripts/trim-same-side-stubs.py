@@ -10,6 +10,7 @@ def signature(net):
  return sorted(sorted(v) for v in out.values())
 records=[]
 for err in errors:
+ if err.get('pcb_trace_id','').startswith(('usb_','oscillator_','reviewed_local_critical_')):continue
  if 'dangling endpoint' not in err.get('message',''):continue
  e=next((e for e in g.j if e.get('pcb_trace_id')==err['pcb_trace_id']),None)
  if e is None:continue

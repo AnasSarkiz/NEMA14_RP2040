@@ -68,7 +68,8 @@ export function prepareSchematic(json:any[]) {
     local=point((lp.x-def.center.x)*scale,(lp.y-def.center.y)*scale)
     const vertical=Math.abs(local.y)>Math.abs(local.x);direction=vertical?(local.y>0?'up':'down'):(local.x>0?'right':'left')
    }else{const isTop=v.top?.includes(p.name),isBottom=v.bottom?.includes(p.name);if(isTop||isBottom){const arr=isTop?v.top!:v.bottom!,i=arr.indexOf(p.name);local=point((i-(arr.length-1)/2)*.5,(isTop?1:-1)*(size.height/2+.35));direction=isTop?'up':'down'}else{const isLeft=left.includes(p.name),arr=isLeft?left:right;const i=arr.indexOf(p.name);local=point((isLeft?-1:1)*(size.width/2+.35),((arr.length-1)/2-i)*boxSpacing);direction=isLeft?'left':'right'}}
-   const sp={...op,center:point(center.x+local.x,center.y+local.y),schematic_sheet_id:sheet,facing_direction:direction,side_of_component:direction==='up'?'top':direction==='down'?'bottom':direction,display_pin_label:p.name,display_pin_label_font_size:.21,distance_from_component_edge:def?0:.35};out.push(sp);newps.push({...p,sch:sp,part:v.name,section:v.section})
+   // Native USB pins retain their actual edge offset when the box is resized.
+   const sp={...op,center:point(center.x+local.x,center.y+local.y),schematic_sheet_id:sheet,facing_direction:direction,side_of_component:direction==='up'?'top':direction==='down'?'bottom':direction,display_pin_label:p.name,display_pin_label_font_size:.21,distance_from_component_edge:def?0:nativeUsb?Number((Math.abs(direction==='left'||direction==='right'?local.x:local.y)-(direction==='left'||direction==='right'?size.width:size.height)/2).toFixed(9)):.35};out.push(sp);newps.push({...p,sch:sp,part:v.name,section:v.section})
   }
   placed.set(v.name,{comp,ports:newps,section:v.section});sections.set(v.section,[...(sections.get(v.section)??[]),...newps])
  }
@@ -90,7 +91,7 @@ export function prepareSchematic(json:any[]) {
    for(const p of shell){wire([p.sch.center,point(p.sch.center.x,y)],p,[p.source_port_id]);connected.add(p.source_port_id);annotated.add(p.source_port_id)}
    wire([point(Math.min(...xs),y),point(Math.max(...xs),y)],shell[0]);wire([point(x,y),point(x,y-.4)],shell[0]);label(shell[0],point(x,y-.4),'top',true);localComplete.add(shell[0].section+'|'+shell[0].subcircuit_connectivity_map_key)
   }
-  const groupsBySide=new Map<string,any[]>();for(const p of v.ports){const n=nets.get(p.subcircuit_connectivity_map_key);if(!n||!['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','PD_VDD'].includes(n.name)||!['left','right'].includes(p.sch.facing_direction))continue;const k=p.subcircuit_connectivity_map_key+'|'+p.sch.facing_direction;groupsBySide.set(k,[...(groupsBySide.get(k)??[]),p])}
+  const groupsBySide=new Map<string,any[]>();for(const p of v.ports){const n=nets.get(p.subcircuit_connectivity_map_key);if(!n||!['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','PD_VHV'].includes(n.name)||!['left','right'].includes(p.sch.facing_direction))continue;const k=p.subcircuit_connectivity_map_key+'|'+p.sch.facing_direction;groupsBySide.set(k,[...(groupsBySide.get(k)??[]),p])}
   for(const ps of groupsBySide.values()){
    if(ps.length<2)continue;const ymin=Math.min(...ps.map(p=>p.sch.center.y)),ymax=Math.max(...ps.map(p=>p.sch.center.y));if(v.ports.some((p:any)=>p.sch.facing_direction===ps[0].sch.facing_direction&&p.sch.center.y>=ymin&&p.sch.center.y<=ymax&&p.subcircuit_connectivity_map_key!==ps[0].subcircuit_connectivity_map_key))continue
    const x=ps[0].sch.center.x+(ps[0].sch.facing_direction==='left'?-.65:.65)
@@ -106,7 +107,7 @@ export function prepareSchematic(json:any[]) {
  // Route local signal networks orthogonally; shared power and ground use rail symbols.
  const finish=()=>{
   for(const name of ['J_PD','J_DATA','U_PD','U_MCU','U_DRV'])strap(name)
-  const power=new Set(['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','LOGIC_IN','PD_VDD'])
+  const power=new Set(['GND','V3V3','V1V1','PD_VBUS','DATA_VBUS','LOGIC_IN','PD_VHV'])
   const boxes=[...placed.values()].map(v=>({minX:v.comp.center.x-v.comp.size.width/2-.14,maxX:v.comp.center.x+v.comp.size.width/2+.14,minY:v.comp.center.y-v.comp.size.height/2-.14,maxY:v.comp.center.y+v.comp.size.height/2+.14}))
   const usedEdges:any[]=[]
   const blocked=(p:P,key:string)=>boxes.some(b=>p.x>b.minX&&p.x<b.maxX&&p.y>b.minY&&p.y<b.maxY)||usedEdges.some(e=>e.key!==key&&((Math.abs(e.a.x-e.b.x)<1e-5&&Math.abs(p.x-e.a.x)<.13&&p.y>=Math.min(e.a.y,e.b.y)-.13&&p.y<=Math.max(e.a.y,e.b.y)+.13)||(Math.abs(e.a.y-e.b.y)<1e-5&&Math.abs(p.y-e.a.y)<.13&&p.x>=Math.min(e.a.x,e.b.x)-.13&&p.x<=Math.max(e.a.x,e.b.x)+.13)))
@@ -136,7 +137,10 @@ export function prepareSchematic(json:any[]) {
  start(1,'Power & USB-PD','Motor supply negotiation, reverse-blocked logic power and 3.3 V conversion')
  caption('USB-C motor power','Fixed 15 V request; data and SBU contacts unused',.6,19)
  part({name:'J_PD',x:4,y:14.8,section:'pd',box:[3.3,5.6],left:['EH1','EH2','EH3','EH4','GND1','GND2','SBU1','SBU2'],right:['VBUS1','VBUS2','CC1','CC2','DP1','DP2','DM1','DM2']})
- part({name:'U_PD',x:11,y:15.72,section:'pd',box:[3.2,4.5],left:['VBUS','VDD','CC1','CC2'],right:['CFG2','CFG3','PG','CFG1','GND','DP','DM']})
+ text('CH224A: 56 kΩ CFG1-to-GND selects 15 V; CFG2/3 NC.',.6,6.2,.21);
+ text('C_PD: 1 µF / 50 V (C15849); R_PD: 0 Ω (C21189).',.6,5.7,.21);
+ part({name:'U_PD',x:11,y:15.72,section:'pd',box:[3.2,4.0],left:['VBUS','VHV','CC1','CC2'],right:['CFG2','CFG3','PG','CFG1','GND','DP','DM']})
+ part({name:'R_PD_CFG',x:15.9,y:10.2,section:'pd'});
  part({name:'R_PD',x:9.8,y:10.2,section:'pd',symbol:'boxresistor_down'});part({name:'C_PD',x:12.7,y:10.2,section:'pd'});part({name:'R_PG',x:14.5,y:15.5,section:'pd'});part({name:'D_TVS',x:4,y:9.2,section:'pd',symbol:'avalanche_diode_up'})
  caption('3.3 V logic supply','AP63203 fixed-output buck; USB power is diode-isolated',17,19)
  part({name:'D_PD',x:19.2,y:16.8,section:'buck',symbol:'diode_right'});part({name:'D_DATA',x:19.2,y:14.5,section:'buck',symbol:'diode_right'})
@@ -180,7 +184,7 @@ export function prepareSchematic(json:any[]) {
  caption('Current reference','VREF / (8 × RSENSE) = 0.351 A nominal',.6,13.2);part({name:'R_REF_H',x:3,y:11,section:'reference'});part({name:'R_REF_L',x:3,y:8.6,section:'reference'});part({name:'C_REF',x:6.8,y:8.6,section:'reference'});connect(['R_REF_H.2','R_REF_L.1','C_REF.1'],[point(3,9.8)])
  part({name:'R_ENABLE',x:9,y:11.8,section:'driver'});part({name:'R_SLEEP',x:9,y:8.8,section:'driver'})
  caption('Motor voltage monitor','100 kΩ / 10 kΩ divider; 10 nF filter',.6,7);part({name:'R_VM_H',x:3,y:4.9,section:'monitor'});part({name:'R_VM_L',x:7,y:4.9,section:'monitor'});part({name:'C_VM_SENSE',x:10.5,y:4.9,section:'monitor'})
- text('JST PH pin order: 1 A+   2 A−   3 B+   4 B−',19,18.7,.23);finish()
+ text('JST-SH pin order: 1 A+   2 A−   3 B+   4 B−',19,18.7,.23);finish()
  start(5,'Temperature & feedback','I²C temperature telemetry, RGB status outputs and PWM magnetic buzzer')
  caption('TMP102 temperature','ADD0 grounded: address 0x48; ALERT unused',.6,19)
  part({name:'U_TEMP',x:5.2,y:15.5,section:'temp',box:[3.3,2.4],left:['SDA','SCL','ALERT'],right:['V_POS','ADD0','GND']});part({name:'C_TEMP',x:10.8,y:15.5,section:'temp'});part({name:'R_TEMP_SDA',x:2.3,y:11.5,section:'temp',symbol:'boxresistor_up'});part({name:'R_TEMP_SCL',x:6.3,y:11.5,section:'temp',symbol:'boxresistor_up'})
@@ -200,6 +204,17 @@ export function prepareSchematic(json:any[]) {
  caption('PWM buzzer','120 mA magnetic load; MOSFET drive and flyback diode',.6,9.3)
  part({name:'BZ1',x:9.4,y:6.5,section:'buzzer',box:[2.5,2.3],left:['_POS','_NEG'],right:['NC1','NC2']});part({name:'Q_BUZZER',x:8.5,y:3.8,section:'buzzer',symbol:'n_channel_e_mosfet_transistor_gate_left_drain_top'});part({name:'R_BUZZER_GATE',x:3.8,y:4.6,section:'buzzer',symbol:'boxresistor_right'});part({name:'R_BUZZER_PD',x:5.8,y:3.6,section:'buzzer'});part({name:'D_BUZZER',x:14,y:6.5,section:'buzzer',symbol:'diode_up'});part({name:'C_BUZZER',x:17,y:6.5,section:'buzzer'})
  caption('Power indication','3.3 V rail present; RGB/buzzer require firmware',22,8.6);part({name:'R_PWR_LED',x:25,y:6.2,section:'power_led'});part({name:'D_PWR',x:25,y:3.8,section:'power_led',symbol:'led_down'});finish()
+ start(6,'Optional encoder (DNP)','Bottom footprints only; AS5600 and both bypass capacitors omitted from factory assembly')
+ caption('Future magnetic shaft position','Nominal sensor centre (0, 0); rear shaft/magnet geometry remains unverified',.6,19)
+ part({name:'U_ENCODER',x:9,y:13,section:'encoder',box:[4.5,2.2],left:['VDD5V','VDD3V3','SDA','SCL'],right:['OUT','PGO'],bottom:['GND','DIR']})
+ capBank(['C_ENCODER','C_ENCODER_BULK'],19,13,'V3V3')
+ text('U_ENCODER, C_ENCODER and C_ENCODER_BULK: bottom / DO NOT PLACE.',.6,7.2,.28)
+ text('3.3 V mode: VDD5V + VDD3V3 tied together; DIR grounded; OUT/PGO NC.',.6,6.2,.25)
+ text('Shared existing temperature I²C bus: AS5600 0x36 / TMP102 0x48.',.6,5.2,.25)
+ text('Existing 4.7 kΩ top-side pull-ups retained. Encoder firmware is required.',.6,4.2,.25)
+ text('A diametrically magnetized shaft magnet and motor fit must be validated.',.6,3.2,.25)
+ finish()
+
  const traces=out.filter(e=>e.type==='schematic_trace');const allEdges=traces.flatMap(t=>t.edges.map((e:any)=>({t,e})));const bridges=new Map<any,P[]>();const candidates=new Map<string,{p:P,t:any}>()
  const on=(p:P,e:any)=>Math.abs((e.to.x-e.from.x)*(p.y-e.from.y)-(e.to.y-e.from.y)*(p.x-e.from.x))<1e-6&&p.x>=Math.min(e.from.x,e.to.x)-1e-6&&p.x<=Math.max(e.from.x,e.to.x)+1e-6&&p.y>=Math.min(e.from.y,e.to.y)-1e-6&&p.y<=Math.max(e.from.y,e.to.y)+1e-6
  const endpoint=(p:P,e:any)=>[e.from,e.to].some(v=>Math.hypot(v.x-p.x,v.y-p.y)<1e-5)
@@ -220,5 +235,7 @@ export function prepareSchematic(json:any[]) {
   if(Math.abs(e.to.x-current.x)>1e-6)result.push({from:current,to:e.to});return result
  })
  const comps=out.filter(e=>e.type==='schematic_component');if(comps.length!==oldComponents.size||new Set(comps.map(e=>e.source_component_id)).size!==oldComponents.size)throw Error('Functional sheet coverage changed')
+ const sheetCount=out.filter(e=>e.type==="schematic_sheet").length
+ for(const e of out)if(e.type==="schematic_text"&&/^Sheet \d+ \//.test(e.text))e.text=e.text.replace(/^(Sheet \d+ \/) \d+/,`$1 ${sheetCount}`)
  return out
 }

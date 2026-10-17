@@ -1,6 +1,6 @@
 import React from "react"
-const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.obj"
-const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.step"
+const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/4121abe07485b9b255c787decec68f6dc0cac1b0/imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.obj"
+const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/4121abe07485b9b255c787decec68f6dc0cac1b0/imports/supplier/CL10B103KB8NNNC/CL10B103KB8NNNC.step"
 import type { CapacitorProps } from "@tscircuit/props"
 
 export const CL10B103KB8NNNC = (props: Omit<CapacitorProps, "capacitance">) => {

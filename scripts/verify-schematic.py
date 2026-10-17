@@ -1,23 +1,28 @@
 """Independent schematic geometry/ERC and preservation analysis; no inferred trace connectivity."""
-import collections, hashlib, json, pathlib, subprocess
+import collections, hashlib, json, pathlib, subprocess, re
 from shapely.geometry import Point, LineString
 root=pathlib.Path(__file__).resolve().parents[1]
 board_path=root/'artifacts/board.circuit.json';j=json.loads(board_path.read_text())
 out=root/'artifacts/schematic-redesign';out.mkdir(exist_ok=True)
 preservation_path=out/'preservation.json'
 revision=json.loads(preservation_path.read_text())['baseline_git_revision'] if preservation_path.exists() else subprocess.check_output(['git','rev-parse','HEAD'],cwd=root,text=True).strip()
+migration=root/'artifacts/ch224a-migration/transfer.json'
+if migration.exists():
+ revision=json.loads(migration.read_text())['baseline_commit']
+ # Electrical edits are intentional; validate their exact scope and every retained physical pin.
+ subprocess.run(['python3',str(root/'scripts/check-ch224a.py')],cwd=root,check=True)
 baseline=json.loads(subprocess.check_output(['git','show',revision+':artifacts/board.circuit.json'],cwd=root))
 sha=lambda b:hashlib.sha256(b).hexdigest()
 errors=[]
 immutable=lambda a:sorted((e for e in a if not e['type'].startswith('schematic_')),key=lambda e:(e['type'],str(e.get(e['type']+'_id',''))))
 def electrical(a):return [e for e in a if e['type'].startswith('source_')]
 edge=root/'artifacts/edge-resistors/baseline.json'
-if edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
+if not migration.exists() and edge.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
  baseline=json.loads(subprocess.check_output(['git','show',json.loads(edge.read_text())['baseline_git_revision']+':artifacts/board.circuit.json'],cwd=root))
  def electrical(a):return [e for e in a if e['type'].startswith('source_')]
  if electrical(j)!=electrical(baseline):errors.append('Electrical source/pin roles changed during resistor relocation')
  if [e for e in j if e['type'].startswith('schematic_')]!=[e for e in baseline if e['type'].startswith('schematic_')]:errors.append('Qualified schematic changed during resistor relocation')
-elif not (root/'artifacts/top-assembly/baseline.json').exists():
+elif not migration.exists() and not (root/'artifacts/top-assembly/baseline.json').exists():
  if immutable(j)!=immutable(baseline):errors.append('Non-schematic source, PCB or CAD records changed')
 archive=(root/'artifacts/nema14-gerbers.zip').read_bytes()
 old_archive=subprocess.check_output(['git','show',revision+':artifacts/nema14-gerbers.zip'],cwd=root)
@@ -26,12 +31,18 @@ source={e['source_component_id']:e for e in j if e['type']=='source_component'}
 sp={e['source_port_id']:e for e in j if e['type']=='source_port'}
 ports={e['source_port_id']:e for e in j if e['type']=='schematic_port'}
 components=[e for e in j if e['type']=='schematic_component'];sheets=[e for e in j if e['type']=='schematic_sheet']
-if len(sheets)!=5 or any(e.get('sheet_width')!=297 or e.get('sheet_height')!=210 for e in sheets):errors.append('Expected five A4 sheets')
+footers=[re.fullmatch(r'Sheet (\d+) / (\d+).*',e.get('text','')) for e in j if e['type']=='schematic_text']
+footers=[m for m in footers if m]
+if len(footers)!=len(sheets) or sorted(int(m[1]) for m in footers)!=list(range(1,len(sheets)+1)) or any(int(m[2])!=len(sheets) for m in footers):errors.append('A4 footer sheet numbering disagrees with the actual functional sheets')
+if len(sheets)!=6 or any(e.get('sheet_width')!=297 or e.get('sheet_height')!=210 for e in sheets):errors.append('Expected six functional A4 sheets including DNP encoder')
 if collections.Counter(e['source_component_id'] for e in components)!=collections.Counter(source.keys()):errors.append('Component symbol coverage mismatch')
 omitted=set(sp)-set(ports)
 for sid in omitted:
  p=sp[sid];c=source[p['source_component_id']]
  if c['name']=='J_MOTOR' and p['name'] in ['MOUNT1','MOUNT2'] and not p.get('subcircuit_connectivity_map_key'):continue
+ if c.get('standard')=='usb_c' and p['name'] in ['GND3','GND4','VBUS3','VBUS4']:
+  canonical={'GND3':'GND1','GND4':'GND2','VBUS3':'VBUS1','VBUS4':'VBUS2'}[p['name']];q=next(q for q in sp.values() if q['source_component_id']==p['source_component_id'] and q['name']==canonical)
+  if q['source_port_id'] in ports and q.get('subcircuit_connectivity_map_key')==p.get('subcircuit_connectivity_map_key'):continue
  errors.append('Unrepresented physical pin '+c['name']+'.'+p['name'])
 if set(ports)-set(sp):errors.append('Invented schematic source pin')
 for sid,p in ports.items():

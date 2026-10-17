@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Cloud startup
 
 Use the existing `/workspace/NEMA17_Controller` and `/workspace/NEMA14_RP2040` checkouts. Install from lockfiles using `npm ci --legacy-peer-deps`; local scripts supply Bun. `scripts/cloud-install.sh` restores Python routing dependencies in `/workspace/.routing-venv`, verifies locked Git dependency source checksums and Freerouting 2.0.1. Retain TLS/checksum checks.

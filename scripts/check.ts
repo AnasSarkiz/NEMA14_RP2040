@@ -4,13 +4,15 @@ const json=JSON.parse(readFileSync('artifacts/board.circuit.json','utf8'))
 const checks=await runAllChecks(json)
 // Permit only the three explicit grounded thermal vias inside exposed pads.
 const thermalNames=['U_MCU','U_DRV','U_PD']
-const thermalCenters:Array<[number,number]>=json.filter((p:any)=>p.type==='pcb_smtpad' && p.width>1 && p.height>1 && json.some((c:any)=>c.type==='pcb_component' && c.pcb_component_id===p.pcb_component_id && json.some((s:any)=>s.type==='source_component' && s.source_component_id===c.source_component_id && thermalNames.includes(s.name)))).map((p:any)=>[p.x,p.y])
+const thermalOffsets=JSON.parse(readFileSync("src/thermal-via-offsets.json","utf8"))
+const thermalCenters:Array<[number,number]>=json.filter((p:any)=>p.type==='pcb_smtpad' && p.width>1 && p.height>1 && json.some((c:any)=>c.type==='pcb_component' && c.pcb_component_id===p.pcb_component_id && json.some((s:any)=>s.type==='source_component' && s.source_component_id===c.source_component_id && thermalNames.includes(s.name)))).map((p:any)=>{const c=json.find((c:any)=>c.type==="pcb_component" && c.pcb_component_id===p.pcb_component_id);const ref=json.find((s:any)=>s.type==="source_component" && s.source_component_id===c.source_component_id).name;const o=thermalOffsets[ref];if(!o || Math.abs(o.x)+.25>p.width/2 || Math.abs(o.y)+.25>p.height/2)throw new Error("Thermal site must stay inside the native exposed pad: "+ref);return [p.x+o.x,p.y+o.y]})
 const ground=json.find((e:any)=>e.type==='source_net' && e.name==='GND')
 const strict=json.filter((e:any)=>!(e.type==='pcb_via' && e.source_net_id===ground.source_net_id && thermalCenters.some(([x,y])=>Math.hypot(e.x-x,e.y-y)<.001))).map((e:any)=>e.type==='pcb_board'?{...e,is_via_in_pad_allowed:false}:e)
 checks.push(...checkViasInPads(strict))
 const renderErrors=json.filter((e:any)=>e.type.endsWith('_error'))
 const errors=[...renderErrors,...checks.filter((e:any)=>e.type.endsWith('_error'))]
 const unique=[...new Map(errors.map((e:any)=>[e.message,e])).values()]
+if(thermalCenters.length!==3 || thermalCenters.some(([x,y])=>json.filter((e:any)=>e.type==='pcb_via' && e.source_net_id===ground.source_net_id && Math.hypot(e.x-x,e.y-y)<.001).length!==1)) unique.push({type:'validation_error',message:'Exactly one grounded thermal barrel is required at each reviewed U_MCU, U_DRV and U_PD exposed-pad site.'})
 const warnings=checks.filter((e:any)=>e.type.endsWith('_warning'))
 const traceCount=json.filter((e:any)=>e.type==='pcb_trace').length
 if(traceCount===0) unique.push({type:'validation_error',message:'No routed copper was produced.'})
@@ -20,27 +22,27 @@ const usbMouths:Array<{name:string,x:number,y:number}> = []
 for (const name of ['J_PD','J_DATA']) {
  const source=json.find((e:any)=>e.type==='source_component' && e.name===name)
  const cad=json.find((e:any)=>e.type==='cad_component' && e.source_component_id===source?.source_component_id)
- const angle=(cad?.rotation?.z??NaN)*Math.PI/180
- const offset=cad ? 2.6-cad.model_origin_position.y : NaN
- const x=cad ? cad.position.x-Math.sin(angle)*offset : NaN
- const y=cad ? cad.position.y+Math.cos(angle)*offset : NaN
- const expectedX=name==='J_PD'?-6.2:6.2
- if(!Number.isFinite(y) || Math.abs(y-17.5)>.001 || Math.abs(x-expectedX)>.001 || Math.abs(Math.sin(angle))>.0001 || Math.cos(angle)<.9999)
-  unique.push({type:'validation_error',message:name+' must face +Y with its native mouth at the Y=17.5 mm edge and reviewed X position.'})
+ const pc=json.find((e:any)=>e.type==='pcb_component' && e.source_component_id===source?.source_component_id)
+ const expectedX=name==='J_PD'?0.6:-4.6
+ const expectedY=name==='J_PD'?15.15:-15.15
+ const x=pc?.center.x, y=pc?.center.y
+ if(source?.manufacturer_part_number!=='USB4145-03-0070-C' || !cad || cad.rotation.x!==0 || cad.rotation.y!==0 || cad.rotation.z!==0 || Math.abs(x-expectedX)>.001 || Math.abs(y-expectedY)>.001)
+  unique.push({type:'validation_error',message:name+' requires the exact upright GCT C5815189 source geometry at the reviewed position; native STEP checks establish +Z access.'})
  usbMouths.push({name,x,y})
 }
-if(usbMouths.length!==2 || Math.abs(usbMouths[1].x-usbMouths[0].x-12.4)>.001)
- unique.push({type:'validation_error',message:'Same-edge USB mouths must have 12.4 mm centre pitch for two 10 mm cable housings.'})
+if(usbMouths.length!==2 || Math.abs(usbMouths[1].y-usbMouths[0].y+30.3)>.001)
+ unique.push({type:'validation_error',message:'Upright USB mouths must occupy opposite edges, separated by 30.3 mm in Y.'})
+if(board.min_via_hole_diameter!==.3 || board.min_via_pad_diameter!==.45) unique.push({type:'validation_error',message:'Expected minimum via drill/pad .30/.45 mm.'})
 const mountingKeepouts=json.filter((e:any)=>e.type==='pcb_keepout')
 const expectedLayers=board?.num_layers===4?['top','inner1','inner2','bottom']:['top','bottom']
-if(mountingKeepouts.length!==4 || mountingKeepouts.some((e:any)=>e.shape!=='circle' || Math.abs(e.radius-2.2)>.00001 || ![-13,13].includes(e.center.x) || ![-13,13].includes(e.center.y) || expectedLayers.some(l=>!e.layers.includes(l))))
- unique.push({type:'validation_error',message:'All four mounts require circular Ø4.4 mm head envelopes on every copper layer; DIN 920 M3 Ø4 mm heads are mandatory.'})
+if(mountingKeepouts.length!==4 || mountingKeepouts.some((e:any)=>e.shape!=='circle' || Math.abs(e.radius-3.2)>.00001 || ![-13,13].includes(e.center.x) || ![-13,13].includes(e.center.y) || expectedLayers.some(l=>!e.layers.includes(l))))
+ unique.push({type:'validation_error',message:'All four mounts require circular Ø6.4 mm head envelopes on every copper layer; Maximum Ø6 mm heads are screened with 0.2 mm radial allowance.'})
 
 if(board?.num_layers!==4) unique.push({type:'validation_error',message:'Expected four copper layers in the RP2040 board.'})
 for(const via of json.filter((e:any)=>e.type==='pcb_via')) {
  if(via.hole_diameter<board.min_via_hole_diameter || via.outer_diameter<board.min_via_pad_diameter) unique.push({type:'validation_error',message:'Via violates the declared minimum pad/drill diameter: '+via.pcb_via_id})
 }
-const inner1LocalNets=new Set(['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','PWR_LED_A','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND'])
+const inner1LocalNets=new Set(JSON.parse(readFileSync('src/layer-routing-policy.json','utf8')).inner1_allowed_nets)
 for(const trace of json.filter((e:any)=>e.type==='pcb_trace' && e.route.some((p:any)=>p.layer==='inner1'))) {
  const net=json.find((e:any)=>e.type==='source_net' && e.subcircuit_connectivity_map_key===trace.subcircuit_connectivity_map_key)
  if(!inner1LocalNets.has(net?.name)) unique.push({type:'validation_error',message:'Unreviewed net on inner1: '+trace.pcb_trace_id})
@@ -71,20 +73,22 @@ for(const [pin,netName] of Object.entries(expectedPins)) {
 }
 for(const name of ['R_DP','R_DM']) if(sourceComponents.find((e:any)=>e.name===name)?.resistance!==27) unique.push({type:'validation_error',message:name+' must be 27 ohms.'})
 for(const name of ['U_FLASH','Y_MCU','C_VREG_IN','C_VREG_OUT','C_DV23','C_DV50','U_BUCK','L_BUCK','TP_BOOT','TP_GND','TP_3V3']) if(!sourceComponents.some((e:any)=>e.name===name)) unique.push({type:'validation_error',message:'Missing required RP2040 support component '+name})
-const bottomReferences=new Set<string>()
+const bottomReferences=new Set<string>(['U_ENCODER','C_ENCODER','C_ENCODER_BULK'])
 for(const component of json.filter((e:any)=>e.type==='pcb_component')) {
  const source=json.find((e:any)=>e.type==='source_component' && e.source_component_id===component.source_component_id)
+ if(bottomReferences.has(source?.name) && !component.do_not_place) unique.push({type:'validation_error',message:'Bottom encoder must be DNP: '+source?.name})
  if(component.layer!==(bottomReferences.has(source?.name)?'bottom':'top')) unique.push({type:'validation_error',message:'Unreviewed component assembly side: '+source?.name})
 }
 for(const paste of json.filter((e:any)=>e.type==='pcb_solder_paste')) {
  const component=json.find((e:any)=>e.type==='pcb_component' && e.pcb_component_id===paste.pcb_component_id)
+ if(component?.do_not_place) unique.push({type:'validation_error',message:'Paste on DNP component: '+paste.pcb_solder_paste_id})
  if(component && paste.layer!==component.layer) unique.push({type:'validation_error',message:'Paste is on the wrong component assembly side: '+paste.pcb_solder_paste_id})
 }
 const platedHoles=json.filter((e:any)=>e.type==='pcb_plated_hole')
 if(json.some((e:any)=>e.type==='pcb_solder_paste' && platedHoles.some((h:any)=>Math.hypot(h.x-e.x,h.y-e.y)<.001))) unique.push({type:'validation_error',message:'Hand-soldered through holes must not have stencil paste.'})
 // Physical-pin review of motor power, PD request, protection and reset defaults.
 const reviewedPhysicalPins:Record<string,Record<number,string>>={
- U_PD:{1:'PD_VDD',2:'PD_VDD',3:'PD_VDD',6:'PD_CC2',7:'PD_CC1',8:'PD_VBUS',9:'GND',10:'PD_GOOD',11:'GND'},
+ U_PD:{1:'PD_VHV',6:'PD_CC2',7:'PD_CC1',8:'PD_VBUS',9:'PD_CFG',10:'PD_GOOD',11:'GND'},
  U_DRV:{1:'B_MINUS',2:'ENABLE_N',3:'GND',4:'CP1',5:'CP2',6:'VCP',8:'VREG',9:'V3V3',10:'V3V3',11:'V3V3',12:'V3V3',13:'GND',14:'SLEEP',15:'V3V3',16:'STEP',17:'VREF',18:'GND',19:'DIR',21:'A_MINUS',22:'PD_VBUS',23:'SENSE1',24:'A_PLUS',26:'B_PLUS',27:'SENSE2',28:'PD_VBUS',29:'GND'},
  U_ESD:{1:'USB_DP',2:'GND',3:'USB_DM',4:'USB_DM',5:'DATA_VBUS',6:'USB_DP'},
 }

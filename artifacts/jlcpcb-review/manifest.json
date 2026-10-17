@@ -1,24 +1,24 @@
 {
-  "native_board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
-  "native_export_sha256": "64769654c1341d3000345a9f9e58f0a249a7b8ff92c6e98b909b8ed2d8cb8f39",
-  "order_source_sha256": "06d60841844f9f908a1e64244dd1979ec5814a9c45b578cfad2ab17eb2a22890",
-  "review_cam_sha256": "f34672c9a645d1c172b7ae45218366dfc70cd715c9ca63516affaad0b076dd7c",
-  "fabrication_zip_sha256": "af097fbc8c536cedbd4c76606f7e4514b98f0b17b6a55bb472a4a18fd94a13fc",
-  "source_github_revision": "e79ff091a6b72f97e942c811996fdcb443fd4508",
+  "native_board_sha256": "baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75",
+  "native_export_sha256": "cb23ccda698ae8fd73ab50bf60ba1293a552105648d9f76bccd1ce2335c2cdae",
+  "order_source_sha256": "fa044debad79e7193b4f2a2b03bc993e289551afa6204d69acdcf6d7f59b60c8",
+  "review_cam_sha256": "cb23ccda698ae8fd73ab50bf60ba1293a552105648d9f76bccd1ce2335c2cdae",
+  "fabrication_zip_sha256": "59cc9d2f7c509fe75380f2f6ac7daf30890aae6cf5d68f410e72a524ceebc666",
+  "source_github_revision": "a6ddd7afafdc012e3aabaae8f591f75a24183055",
   "electrical_source_and_all_nonpaste_records_unchanged": true,
   "copied_unchanged_copper_mask_drill_outline": {
-    "F_Cu.gbr": "a9a9534760b93e4ab284f72224f218af1135a1461007550f86a088487eb212c7",
-    "F_Mask.gbr": "0b03d63283f73b02a2eb335dd00fa13a74142366bb31b843471d24c0fdf3aac1",
-    "B_Cu.gbr": "b0e9c8a3f7b415c4fe4dd8fe1c58910269532e70dbad212dc8adef44a001a504",
-    "B_Mask.gbr": "093839e90409d6323b82eb816c480326508ad9d85d1c2750de39332de32b5674",
-    "Edge_Cuts.gbr": "b6ad7f82343d01cae3c73e719fa2dd57bf6afc2af4fba482cce38c1f5adb4123",
-    "In1_Cu.gbr": "09f497ef57fbba0233b773083af638f875d071659b9fd28f4795e4e40643f4d0",
-    "In2_Cu.gbr": "e5982b911db06f6cbdae88a86db3d3625ba34dd7e9003c4c59f7224513db52a3",
-    "drill-L1-L4.drl": "06f30ed2385b00ddbec91886406bd65263f72218e45ccaaa31376bb7e03254e8",
-    "drill_npth.drl": "ad6dd04eae0f5a99178326f04e1c8b13d9f28e3180116d4fdbb9375d05c98507"
+    "F_Cu.gbr": "d4ddd3dcd7512478de3a75d644661435c3674236012fce0ac0dce9ac8bffd659",
+    "F_Mask.gbr": "1e893956763f90cd89e085a3e681d8ce6dd71bb3bc2285a553b36cc1f5daf42a",
+    "B_Cu.gbr": "9018b1f353b575b016a8a3e38aa374b52378fef556aa883caab5a7b31e8fdfc5",
+    "B_Mask.gbr": "6e534f8be4b0f4931b6cd2b64d0f23cad8dcbae6165661d6159df842e9b60394",
+    "Edge_Cuts.gbr": "78ed982d5492bd618ec2a49f9f3eef0ca07db906769953e0fed1571d9c7a2224",
+    "In1_Cu.gbr": "c1d3112704c98860ab2b0d9e8e240f2e8532e655840f3d93484937382dce6a1c",
+    "In2_Cu.gbr": "7839d078d3ad7fbeeb6666e8bd39103e5fc288e980d0106110f30d821281ca3b",
+    "drill-L1-L4.drl": "5feac3052a00afbdd351e8fdc68f6a836aa5df84e7b5153e62359c1bbc4f1ce6",
+    "drill_npth.drl": "bb2b889c7234b5c4a0cb6585932438f011192f313c251d1b7b9b746f68984bb1"
   },
-  "fitted_components": 81,
-  "SMT_components": 81,
+  "fitted_components": 82,
+  "SMT_components": 82,
   "manual_THT_components": 0,
   "bottom_SMT_references": [],
   "excluded_bare_interfaces": [
@@ -30,56 +30,21 @@
     "TP_SWCLK",
     "TP_SWDIO"
   ],
+  "excluded_DNP_references": [
+    "C_ENCODER",
+    "C_ENCODER_BULK",
+    "U_ENCODER"
+  ],
   "paste_changes": [
     {
       "reference": "U_PD",
-      "pad": "pcb_smtpad_34",
-      "policy": "four windows; 60% exposed-pad area"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_41",
-      "policy": "four windows; 60% exposed-pad area"
-    },
-    {
-      "reference": "U_MCU",
       "pad": "pcb_smtpad_42",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_43",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_44",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_45",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_46",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_47",
-      "policy": "0.90 linear pad scale"
-    },
-    {
-      "reference": "U_MCU",
-      "pad": "pcb_smtpad_48",
-      "policy": "0.90 linear pad scale"
+      "policy": "four windows; 60% exposed-pad area"
     },
     {
       "reference": "U_MCU",
       "pad": "pcb_smtpad_49",
-      "policy": "0.90 linear pad scale"
+      "policy": "four windows; 60% exposed-pad area"
     },
     {
       "reference": "U_MCU",
@@ -322,55 +287,96 @@
       "policy": "0.90 linear pad scale"
     },
     {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_98",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_99",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_100",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_101",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_102",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_103",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_104",
+      "policy": "0.90 linear pad scale"
+    },
+    {
+      "reference": "U_MCU",
+      "pad": "pcb_smtpad_105",
+      "policy": "0.90 linear pad scale"
+    },
+    {
       "reference": "U_DRV",
-      "pad": "pcb_smtpad_187",
+      "pad": "pcb_smtpad_195",
       "policy": "four windows; 60% exposed-pad area"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_256",
+      "pad": "pcb_smtpad_264",
       "policy": "0.75 linear pad scale"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_257",
+      "pad": "pcb_smtpad_265",
       "policy": "0.75 linear pad scale"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_258",
+      "pad": "pcb_smtpad_266",
       "policy": "0.75 linear pad scale"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_259",
+      "pad": "pcb_smtpad_267",
       "policy": "0.75 linear pad scale"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_260",
+      "pad": "pcb_smtpad_268",
       "policy": "0.75 linear pad scale"
     },
     {
       "reference": "U_TEMP",
-      "pad": "pcb_smtpad_261",
+      "pad": "pcb_smtpad_269",
       "policy": "0.75 linear pad scale"
     }
   ],
   "silkscreen_changes": [
     {
       "layer": "top",
-      "original_area_mm2": 116.80293783665603,
-      "new_area_mm2": 109.21409827081817,
-      "reference_captions_placed": 5,
+      "original_area_mm2": 121.47183200466168,
+      "new_area_mm2": 108.2758381080815,
+      "reference_captions_placed": 7,
       "captions_omitted_for_clearance": [
+        "J_DATA",
         "J_MOTOR",
+        "J_PD",
         "U_BUCK",
         "U_DRV",
         "U_ESD",
         "U_FLASH",
         "U_MCU",
-        "U_PD",
         "U_TEMP",
         "BZ1",
         "C_ADC",
@@ -391,7 +397,6 @@
         "C_IO42",
         "C_IO49",
         "C_PD",
-        "C_REF",
         "C_TEMP",
         "C_USB",
         "C_VCP",
@@ -403,7 +408,7 @@
         "C_XIN",
         "C_XOUT",
         "D_BUZZER",
-        "D_DATA",
+        "D_PD",
         "D_PWR",
         "D_STATUS",
         "D_TVS",
@@ -415,13 +420,14 @@
         "R_BOOT",
         "R_BUZZER_GATE",
         "R_BUZZER_PD",
-        "R_CC1",
         "R_CC2",
         "R_DM",
         "R_DP",
         "R_ENABLE",
         "R_FLASH_CS",
         "R_PD",
+        "R_PD_CFG",
+        "R_PG",
         "R_PWR_LED",
         "R_REF_H",
         "R_REF_L",
@@ -448,14 +454,70 @@
         "TP_SWDIO",
         "Y_MCU"
       ],
+      "knockout_role_markings": [
+        {
+          "caption": "PWR",
+          "centre_mm": [
+            6.8,
+            16.3
+          ],
+          "font_height_mm": 0.8,
+          "negative_stroke_mm": 0.15,
+          "rectangle_bounds_mm": [
+            5.611689639999999,
+            15.615824000000002,
+            7.799642678783412,
+            16.808097406891758
+          ]
+        },
+        {
+          "caption": "DATA",
+          "centre_mm": [
+            -15.5,
+            -16.6
+          ],
+          "font_height_mm": 0.8,
+          "negative_stroke_mm": 0.15,
+          "rectangle_bounds_mm": [
+            -17.011481960120083,
+            -17.284176000000002,
+            -14.171556603131565,
+            -16.0917968
+          ]
+        }
+      ],
+      "bottom_brand_markings": [],
       "policy": "current component outlines and intact reference captions; board inset 0.101 mm, mask guard 0.151 mm, drill guard 0.101 mm; full references in assembly files"
     },
     {
       "layer": "bottom",
-      "original_area_mm2": 0.0,
-      "new_area_mm2": 0.0,
-      "reference_captions_placed": 0,
-      "captions_omitted_for_clearance": [],
+      "original_area_mm2": 23.280070860482823,
+      "new_area_mm2": 21.85108057346775,
+      "reference_captions_placed": 1,
+      "captions_omitted_for_clearance": [
+        "U_ENCODER",
+        "C_ENCODER",
+        "C_ENCODER_BULK"
+      ],
+      "knockout_role_markings": [],
+      "bottom_brand_markings": [
+        {
+          "warning": "For evaluation only; not FCC approved for resale.",
+          "logo": "official tscircuit wordmark",
+          "native_paths": 532,
+          "minimum_stroke_mm": 0.15,
+          "mask_clearance_mm": 0.42508167739829833,
+          "drill_clearance_mm": 0.13140982147080804,
+          "bounds_mm": [
+            -17.300197,
+            -15.000342999999999,
+            -4.114015831534197,
+            9.792342999999999
+          ],
+          "intact": true,
+          "mirrored_for_underside_reading": true
+        }
+      ],
       "policy": "current component outlines and intact reference captions; board inset 0.101 mm, mask guard 0.151 mm, drill guard 0.101 mm; full references in assembly files"
     }
   ],
@@ -477,5 +539,8 @@
     "thermal_via_process": "filled and capped/planarized via-in-pad; supplier must confirm capability and quote",
     "assembly_sides": "top",
     "JST_process": "top-side SMT C160390; no drilled JST terminals"
-  }
+  },
+  "upstream_native_export_sha256": "b146a3ad7252f87a04499cf90db593ccbcb87ae1dc5a5861c331f1717c007841",
+  "default_export_contains_qualified_assembly_corrections": true,
+  "upstream_tool_output_retained_as_diagnostic_only": "artifacts/engineering-fixes/upstream-native-gerbers.zip"
 }

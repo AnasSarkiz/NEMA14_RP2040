@@ -1,0 +1,104 @@
+{
+  "restored_from_frozen_published_baseline": true,
+  "baseline_commit": "ff041214fa1bce398e7052ceae4de827ebd356bb",
+  "reservation_parameters_source": "scripts/route-oscillator.py (unchanged from baseline)",
+  "routes": [
+    {
+      "trace": "oscillator_XIN",
+      "net": "XIN",
+      "points": [
+        [
+          1.5000520000000002,
+          -3.425063
+        ],
+        [
+          1.500052,
+          -3.95
+        ],
+        [
+          0.24998900000000035,
+          -5.1199259999999995
+        ]
+      ],
+      "length_mm": 2.237065601900277
+    },
+    {
+      "trace": "oscillator_load_XIN",
+      "net": "XIN",
+      "points": [
+        [
+          -1.129884,
+          -4.85
+        ],
+        [
+          0.24998900000000035,
+          -5.1199259999999995
+        ]
+      ],
+      "length_mm": 1.4060261525323776
+    },
+    {
+      "trace": "oscillator_XOUT",
+      "net": "XOUT",
+      "points": [
+        [
+          1.899848,
+          -3.425063
+        ],
+        [
+          1.899848,
+          -4.175
+        ],
+        [
+          3.15,
+          -4.175
+        ],
+        [
+          3.15,
+          -6.687184
+        ],
+        [
+          3.35,
+          -6.887184
+        ]
+      ],
+      "length_mm": 4.795115712474619
+    },
+    {
+      "trace": "oscillator_XTAL_OUT",
+      "net": "XTAL_OUT",
+      "points": [
+        [
+          3.35,
+          -7.752816
+        ],
+        [
+          1.950011,
+          -7.320074
+        ]
+      ],
+      "length_mm": 1.4653446143092077
+    },
+    {
+      "trace": "oscillator_load_XOUT",
+      "net": "XTAL_OUT",
+      "points": [
+        [
+          4.479884,
+          -7.32
+        ],
+        [
+          3.35,
+          -7.752816
+        ]
+      ],
+      "length_mm": 1.209945264593403
+    }
+  ],
+  "guard_buffer_mm": 0.25,
+  "layers_reserved": [
+    "top",
+    "inner1"
+  ],
+  "MCU_pin_local_exemption_radius_mm": 0.55
+}

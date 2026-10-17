@@ -1,0 +1,17 @@
+{
+  "reference": "L_BUCK",
+  "from": {
+    "pcbX": -4.599953,
+    "pcbY": 2.549996,
+    "pcbRotation": 0
+  },
+  "to": {
+    "pcbX": -4.599953,
+    "pcbY": 2.549996,
+    "pcbRotation": 270
+  },
+  "same_square_body_and_courtyard": true,
+  "purpose": "Rotate the existing inductor to open a pad-free channel beside the MCU. The SW terminal moves toward U_BUCK.SW; the output terminal moves toward the output capacitors.",
+  "native_geometry_screen": "No native pad or courtyard collisions; TEMP_SDA, PWR_LED_A and STATUS_R_K vias require rerouting, as do the displaced power connections.",
+  "requires_all_DRC_CAM_thermal_and_connectivity_checks": true
+}

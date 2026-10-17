@@ -1,0 +1,31 @@
+
+> NEMA14_RP2040@1.13.0 build
+> npm run render && npm run check
+
+
+> NEMA14_RP2040@1.13.0 render
+> bun scripts/render.ts
+
+
+> NEMA14_RP2040@1.13.0 precheck
+> python3 scripts/patch-native-circular-keepouts.py
+
+Exact circular keepout checks enabled in native checks and CLI
+
+> NEMA14_RP2040@1.13.0 check
+> bun scripts/check.ts && npm run check:pd
+
+{
+  "traceCount": 536,
+  "currentLimitAmps": 0.350765306122449,
+  "currentLimitEngineeringBudgetAmps": 0.3968801324163417,
+  "currentLimitBudgetIsNotQualified": true,
+  "motorAdcAt35VWorstVolts": 3.240146654445463,
+  "errors": 0,
+  "warnings": 0
+}
+
+> NEMA14_RP2040@1.13.0 check:pd
+> python3 scripts/check-ch224a.py
+
+CH224A migration: pin map, 15 V configuration, PG/MCU connection, bypass rating and all existing mechanical geometry PASS.

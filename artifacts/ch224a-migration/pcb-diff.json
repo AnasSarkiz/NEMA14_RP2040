@@ -1,0 +1,97 @@
+{
+  "baseline_commit": "ff041214fa1bce398e7052ceae4de827ebd356bb",
+  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "unrelated_copper_geometry_preserved": true,
+  "unchanged_trace_geometry_count": 533,
+  "removed": [
+    {
+      "id": "reviewed_local_U_PD_CFG1_via",
+      "type": "pcb_via",
+      "net": "GND"
+    },
+    {
+      "id": "same_side_repair_19_PD_VDD_0",
+      "type": "pcb_trace",
+      "net": "PD_VDD"
+    },
+    {
+      "id": "same_side_repair_20_PD_VDD_1",
+      "type": "pcb_trace",
+      "net": "PD_VDD"
+    },
+    {
+      "id": "same_side_repair_22_PD_VDD_3_layer_section_1",
+      "type": "pcb_trace",
+      "net": "PD_VDD"
+    },
+    {
+      "id": "reviewed_local_U_PD_CFG1",
+      "type": "pcb_trace",
+      "net": "GND"
+    }
+  ],
+  "added": [
+    {
+      "id": "same_side_repair_0_PD_VHV_0",
+      "type": "pcb_trace",
+      "net": "PD_VHV"
+    },
+    {
+      "id": "same_side_repair_0_PD_CFG_0",
+      "type": "pcb_trace",
+      "net": "PD_CFG"
+    }
+  ],
+  "modified_geometry": [
+    {
+      "id": "same_side_repair_22_PD_VDD_3_via_30",
+      "type": "pcb_via",
+      "net": "PD_VHV"
+    },
+    {
+      "id": "same_side_repair_22_PD_VDD_3_layer_section_0",
+      "type": "pcb_trace",
+      "net": "PD_VHV"
+    },
+    {
+      "id": "ground_top_5_0",
+      "type": "pcb_copper_pour",
+      "net": "GND"
+    },
+    {
+      "id": "ground_inner1_0_0",
+      "type": "pcb_copper_pour",
+      "net": "GND"
+    },
+    {
+      "id": "ground_inner2_0_0",
+      "type": "pcb_copper_pour",
+      "net": "GND"
+    },
+    {
+      "id": "ground_bottom_0_0",
+      "type": "pcb_copper_pour",
+      "net": "GND"
+    }
+  ],
+  "new_routes": [
+    {
+      "id": "same_side_repair_0_PD_VHV_0",
+      "type": "pcb_trace",
+      "net": "PD_VHV",
+      "length_mm_by_layer": {
+        "top": 2.359388702058238
+      },
+      "minimum_wire_width_mm": 0.16
+    },
+    {
+      "id": "same_side_repair_0_PD_CFG_0",
+      "type": "pcb_trace",
+      "net": "PD_CFG",
+      "length_mm_by_layer": {
+        "top": 8.779898987322325
+      },
+      "minimum_wire_width_mm": 0.16
+    }
+  ]
+}

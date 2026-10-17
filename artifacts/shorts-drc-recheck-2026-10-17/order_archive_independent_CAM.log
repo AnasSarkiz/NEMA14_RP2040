@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/workspace/NEMA14_RP2040/scripts/audit-manufacturing.py", line 327, in <module>
+    if __name__=='__main__':raise SystemExit(main())
+                                             ^^^^^^
+  File "/workspace/NEMA14_RP2040/scripts/audit-manufacturing.py", line 106, in main
+    if loose_cam-set(archive_records):raise ValueError(f'Parsed CAM files absent from actual archive: {sorted(loose_cam-set(archive_records))}')
+                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+ValueError: Parsed CAM files absent from actual archive: ['F_Fab.gbr', 'bom.csv', 'pick_and_place.csv']

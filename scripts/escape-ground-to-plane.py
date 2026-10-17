@@ -19,14 +19,15 @@ for k,name in g.nets.items():
 xy=lambda x,y:(round((x-LOW)/STEP),round((y-LOW)/STEP))
 world=lambda q:(LOW+q[0]*STEP,LOW+q[1]*STEP)
 def blocked(net,via=False):
-    images=[Image.new('L',(N,N)) for _ in layers];ds=[ImageDraw.Draw(im) for im in images]
-    margin=.15+(current_via_diameter/2 if via else current_width/2)+.003
+    draw_layers=['top','inner1','inner2','bottom'] if via and next(e for e in j if e['type']=='pcb_board')['num_layers']==4 else layers
+    images=[Image.new('L',(N,N)) for _ in draw_layers];ds=[ImageDraw.Draw(im) for im in images]
+    margin=max(.15+current_via_diameter/2+.003,.20+current_via_hole/2+.003) if via else .15+current_width/2+.003
     def add(ls,geom):
         p=geom.buffer(margin,quad_segs=16)
         pieces=list(p.geoms) if hasattr(p,'geoms') else [p]
         for l in ls:
-            if l not in layers:continue
-            d=ds[layers.index(l)]
+            if l not in draw_layers:continue
+            d=ds[draw_layers.index(l)]
             for piece in pieces:
                 if piece.geom_type=='Polygon':d.polygon([xy(x,y) for x,y in piece.exterior.coords],fill=1)
     for e in j:
@@ -36,15 +37,15 @@ def blocked(net,via=False):
             add(e.get('layers',[e.get('layer','top')]),g.geometry(e))
         elif typ=='pcb_via':
             if g.key(e)==net and not via:continue
-            add(layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
+            add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2))
         elif typ=='pcb_trace' and g.key(e)!=net:
             for a,b in zip(e['route'],e['route'][1:]):
                 if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                     add([a['layer']],g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2))
         elif typ=='pcb_keepout':
-            # Native trace DRC uses the bounding square even for a circle.
-            c=e['center'];r=e['radius'];add(e['layers'],g.box(c['x']-r,c['y']-r,c['x']+r,c['y']+r))
-        elif typ=='pcb_hole':add(layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
+            # Use the actual circular mounting envelope.
+            c=e['center'];r=e['radius'];add(e['layers'],g.Point(c['x'],c['y']).buffer(r,quad_segs=128))
+        elif typ=='pcb_hole':add(draw_layers,g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1))
     b=math.ceil((.35+(current_via_diameter/2 if via else current_width/2))/STEP)
     for d in ds:
         d.rectangle([0,0,N-1,b],fill=1);d.rectangle([0,N-1-b,N-1,N-1],fill=1)

@@ -1,0 +1,52 @@
+{
+  "construction_requires_independent_checks": true,
+  "transitions": [
+    {
+      "net": "A_PLUS",
+      "points_mm": [
+        [
+          4.5,
+          -8.1
+        ],
+        [
+          5.5,
+          -8.1
+        ]
+      ],
+      "inner1_length_mm": 1.0,
+      "total_phase_inner1_length_mm": 1.0,
+      "ripped_ordinary_neighbours": []
+    },
+    {
+      "net": "B_PLUS",
+      "points_mm": [
+        [
+          3.650000000000002,
+          -8.875
+        ],
+        [
+          3.6,
+          -9.6
+        ],
+        [
+          2.45,
+          -9.6
+        ],
+        [
+          2.45,
+          -8.55
+        ]
+      ],
+      "inner1_length_mm": 2.92672209268743,
+      "total_phase_inner1_length_mm": 2.92672209268743,
+      "ripped_ordinary_neighbours": [
+        {
+          "id": "same_side_repair_0_SENSE2_0",
+          "type": "pcb_trace",
+          "net": "SENSE2"
+        }
+      ]
+    }
+  ],
+  "board_sha256": "8570c49507dcf5c09835c10f7a5eec779d938f640890d92656688683d72e686c"
+}

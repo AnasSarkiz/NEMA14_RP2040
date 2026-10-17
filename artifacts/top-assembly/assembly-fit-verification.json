@@ -1,0 +1,46 @@
+{
+  "passed": true,
+  "board_sha256": "baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75",
+  "assembly_sha256": "69d4fcb1073a93e052a6f65339bdc58451e04c933d2497c15c1015e4425713d0",
+  "fitted_supplier_STEP_parts": 82,
+  "conservative_USB_STEP_envelopes": [
+    "J_PD",
+    "J_DATA"
+  ],
+  "wire_entry_holes_checked_against_actual_exposed_housing": true,
+  "wire_segments": 156,
+  "nearby_wire_envelope_min_clearance_mm": 0.07999999999999902,
+  "collisions": [],
+  "PCB_records_preserved": true,
+  "actual_hardware_JSCAD_geometry_and_placements_checked": true,
+  "screw_centres_mm": [
+    [
+      -13,
+      -13
+    ],
+    [
+      -13,
+      13
+    ],
+    [
+      13,
+      -13
+    ],
+    [
+      13,
+      13
+    ]
+  ],
+  "screw_shaft_to_spacer_bore_radial_clearance_mm": 0.1,
+  "spacer_to_PCB_surface_gap_mm": 0,
+  "spacer_to_model_motor_surface_gap_mm": 0,
+  "motor_rear_attachment_verified": false,
+  "physical_assembly_tested": false,
+  "limitations": [
+    "Rear retention/thread engagement, rear shaft and encoder magnet/airgap remain unverified.",
+    "Factory wire diameter and actual splice procurement require a sample; the drawing specifies bare 300 +/-10 mm leads but no gauge.",
+    "Only the exposed stock housing outline is rendered; the concealed inserted stem and contact/latch tolerances are not modeled.",
+    "Defined plug/tool/head dimensions are procurement bounds; real parts require qualification.",
+    "Bottom encoder and its capacitors are DNP and excluded from fitted-part collision checks."
+  ]
+}

@@ -1,3 +1,5 @@
+> Historical baseline document: this predates the opposite-edge v1.11.0 draft. See [current draft and blockers](opposite-edge-review.md) for current evidence.
+
 # Sources and provenance
 
 - Original CH32 project: `AnasSarkiz/NEMA17_Controller`, commit `e19f75e` (independently copied source; original project remains unchanged).
@@ -9,7 +11,7 @@
 - STEPperONLINE 14HM11-0404S: `references/14HM11-0404S.pdf`, retrieved from https://www.omc-stepperonline.com/download/14HM11-0404S.pdf . Electrical ratings and front 26 ±0.2 mm M3 pitch confirmed; rear hole dimensions absent.
 - RP2040, AP63203, GD25Q16EEIGR and crystal pad geometry copied from existing cached supplier imports. Numbered pins checked against manufacturer references; assembly/library review is still needed. No generic QFN footprint is substituted for the reduced RP2040 ground pad.
 
-The remaining A4988, CH224K, USB-C and ESD footprints derive from the original project. This is an engineering prototype; exact purchasing identities for passives and the inductor land pattern require final assembly review. No stock check or assembly quote is claimed.
+The remaining A4988, CH224A, USB-C and ESD footprints derive from the original project. This is an engineering prototype; exact purchasing identities for passives and the inductor land pattern require final assembly review. No stock check or assembly quote is claimed.
 
 
 Current fitted parts are genuine JLCPCB imports obtained with `tsci import --jlcpcb --download --use-exact-footprint <C-number>`. `src/jlcpcb-catalog.json` records component-to-part mapping, original import hashes and native OBJ/STEP hashes. No fitted part uses a custom replacement footprint. Earlier KiCad/Eagle references establish pin cross-checks only; they do not define the current supplier land patterns.

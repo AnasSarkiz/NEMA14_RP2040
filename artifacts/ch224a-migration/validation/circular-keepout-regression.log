@@ -1,0 +1,11 @@
+
+> NEMA14_RP2040@1.13.0 check:circle
+> bun scripts/check-circle-regression.ts
+
+Circular keepout regression checks PASS {
+  circleCornerClear: true,
+  circleIntrusionRejected: true,
+  circleClearanceViolationRejected: true,
+  rectangleCornerStillRejected: true,
+  otherLayerUnaffected: true,
+}

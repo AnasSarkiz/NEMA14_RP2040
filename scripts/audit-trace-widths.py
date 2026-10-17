@@ -70,6 +70,9 @@ for trace in list(g.j):
             port=g.ports[elem['pcb_port_id']];sp=g.sp[port['source_port_id']]
             islands.setdefault(r,set()).add(g.src[sp['source_component_id']])
     g.j.insert(index,trace)
+    if len(islands)==2 and sum(group=={'R_USB_SENSE_H'} for group in islands.values())==1:
+        assert next(e for e in g.j if e['type']=='source_component' and e['name']=='R_USB_SENSE_H')['resistance']==100000
+        data_branches[trace['pcb_trace_id']]={'downstream_components':['R_USB_SENSE_H'],'current_budget_A':.001,'cut_verified_against_actual_physical_copper':True}
     if len(islands)==2 and sum(group=={'D_STATUS'} for group in islands.values())==1:
         data_branches[trace['pcb_trace_id']]={'downstream_components':['D_STATUS'],'current_budget_A':.02,'cut_verified_against_actual_physical_copper':True}
 for e in g.j:

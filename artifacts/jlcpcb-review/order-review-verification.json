@@ -2,15 +2,16 @@
   "prepared_for_JLCPCB_engineering_review": true,
   "order_review_CAM_passed": true,
   "native_order_paste_schema_passed": true,
-  "native_board_sha256": "567b45bd3737600dee1f833c4ee0692e6d50375be05031324674f744f09bd12e",
-  "order_source_sha256": "06d60841844f9f908a1e64244dd1979ec5814a9c45b578cfad2ab17eb2a22890",
-  "JLCPCB_gerber_zip_sha256": "af097fbc8c536cedbd4c76606f7e4514b98f0b17b6a55bb472a4a18fd94a13fc",
-  "SMT_components": 81,
+  "native_board_sha256": "baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75",
+  "order_source_sha256": "fa044debad79e7193b4f2a2b03bc993e289551afa6204d69acdcf6d7f59b60c8",
+  "JLCPCB_gerber_zip_sha256": "59cc9d2f7c509fe75380f2f6ac7daf30890aae6cf5d68f410e72a524ceebc666",
+  "SMT_components": 82,
   "manual_THT_components": 0,
-  "verified_at_utc": "2026-10-13T12:52:59.473041+00:00",
+  "verified_at_utc": "2026-10-17T20:07:53.279168+00:00",
   "every_trace_and_segment_reviewed": true,
   "electrical_geometry_and_connections_preserved": true,
-  "raw_native_export_manufacturing_qualified": false,
+  "default_export_manufacturing_qualified": false,
+  "upstream_native_export_retained_as_diagnostic": true,
   "JLCPCB_order_submitted": false,
   "JLCPCB_review_approved": false,
   "production_release_approved": false,
@@ -21,14 +22,18 @@
     "Confirm filled/capped planarized exposed-pad vias, 100 um stencil windows, paste/reflow process and requested copper/plating minima.",
     "Confirm exact BOM availability and quote; no substitutions authorized.",
     "Confirm top-side SMT support; quote USB shell secondary soldering or use the separate manual THT plan.",
-    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed."
+    "Review USB signal/reference layout and switching/sense/ground current paths; no controlled-impedance, EMC or thermal hardware qualification is claimed.",
+    "Confirm CH224A C42459160, 0 ohm C21189 and 56 kohm C25796 assembly stock; public catalog listings are not live stock verification."
   ],
-  "remaining_CAD_tooling_review": [
-    "Strict generic Circuit JSON importers flag inherited display-offset, null ownership and generic buzzer metadata; native rendering/geometry checks pass and order CAM is unaffected. See native-json-compatibility.json."
-  ],
+  "remaining_CAD_tooling_review": [],
   "remaining_hardware_validation": [
     "Program firmware and verify USB data, PD 15 V negotiation, 3.3 V regulation and backfeed isolation.",
     "Measure phase current and thermal behavior; exercise motor, TMP102, LEDs and buzzer.",
     "Verify real cables, fasteners, underside clearance and mounting stack; rear motor fit is unverified."
-  ]
+  ],
+  "native_and_order_CAM_verified": true,
+  "CH224A_migration_electrical_guard_passed": true,
+  "live_assembly_stock_verified": false,
+  "CH224A_VBUS_rating_confirmed_by_WCH_V2_1": true,
+  "VBUS_rating_review": "artifacts/ch224a-migration/vbus-rating-review.json"
 }

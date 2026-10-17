@@ -1,0 +1,53 @@
+{
+  "baseline_commit": "ff041214fa1bce398e7052ceae4de827ebd356bb",
+  "baseline_board_sha256": "5ff289ebeb8b243e04852bfbad76487014e362a51e0ce7fe7afe363fec3e1e5e",
+  "electrical_pin_changes": [
+    {
+      "reference": "U_PD",
+      "pin": 2,
+      "before": "PD_VHV",
+      "after": null
+    },
+    {
+      "reference": "U_PD",
+      "pin": 3,
+      "before": "PD_VHV",
+      "after": null
+    },
+    {
+      "reference": "U_PD",
+      "pin": 9,
+      "before": "GND",
+      "after": "PD_CFG"
+    }
+  ],
+  "removed_old_strap_traces": [
+    "same_side_repair_19_PD_VDD_0",
+    "same_side_repair_20_PD_VDD_1",
+    "same_side_repair_22_PD_VDD_3_layer_section_1",
+    "reviewed_local_U_PD_CFG1"
+  ],
+  "new_resistor": {
+    "type": "pcb_component",
+    "pcb_component_id": "pcb_component_91",
+    "center": {
+      "x": -16.5,
+      "y": 11
+    },
+    "width": 0.5400040000000033,
+    "height": 1.4312900000000006,
+    "layer": "top",
+    "rotation": 90,
+    "source_component_id": "source_component_91",
+    "subcircuit_id": "subcircuit_source_group_0",
+    "do_not_place": false,
+    "obstructs_within_bounds": true,
+    "is_allowed_to_be_off_board": false,
+    "position_mode": "relative_to_group_anchor",
+    "positioned_relative_to_pcb_board_id": "pcb_board_0",
+    "display_offset_x": "-16.5",
+    "display_offset_y": "11",
+    "pin1_location": "topside_left"
+  },
+  "requires_routing_and_validation": true
+}

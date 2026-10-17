@@ -1,0 +1,14 @@
+
+> NEMA14_RP2040@1.13.0 check:manufacturing
+> /workspace/.routing-venv/bin/python scripts/audit-manufacturing.py --render
+
+{
+  "status": "PASS",
+  "issues": [],
+  "connectivity": {
+    "named_nets_checked": 64,
+    "actual_copper_islands": 1047,
+    "unassigned_islands": 39
+  },
+  "report": "/workspace/NEMA14_RP2040/artifacts/manufacturing/audit.json"
+}

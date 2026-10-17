@@ -1,6 +1,6 @@
 import React from "react"
-const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj"
-const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/main/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step"
+const objPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/4121abe07485b9b255c787decec68f6dc0cac1b0/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.obj"
+const stepPath = "https://raw.githubusercontent.com/AnasSarkiz/NEMA14_RP2040/4121abe07485b9b255c787decec68f6dc0cac1b0/imports/supplier/B4B_PH_K_S_LF__SN_/B4B_PH_K_S_LF__SN_.step"
 import type { ChipProps } from "@tscircuit/props"
 
 const pinLabels = {

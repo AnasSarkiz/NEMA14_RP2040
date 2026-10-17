@@ -1,75 +1,10 @@
 #!/usr/bin/env bash
-# Publish saved copper and pin supplier CAD URLs without modifying review inputs.
+# Keep full engineering sources in GitHub; publish only viewer and CAM files.
 set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
-python3 "$project_root/scripts/verify-publish-readiness.py" --prototype
-python3 "$project_root/scripts/verify-jlcpcb-review.py"
-package_stage=$(mktemp -d /tmp/nema14-supplier-package.XXXXXX)
-trap 'status=$?; if [ "$status" -eq 0 ]; then rm -rf "$package_stage"; else echo "Publication stage retained for recovery: $package_stage" >&2; fi' EXIT
-export PATH="$project_root/node_modules/.bin:$PATH"
-python3 - "$project_root" "$package_stage" <<'PYSTAGE'
-import hashlib,json,pathlib,re,shutil,subprocess,sys
-root,stage=map(pathlib.Path,sys.argv[1:])
-revision=subprocess.check_output(['git','-C',str(root),'rev-parse','HEAD'],text=True).strip()
-for d in ['src','docs','scripts','references']:shutil.copytree(root/d,stage/d,ignore=shutil.ignore_patterns('__pycache__','*.pyc','*.pdf'))
-for f in ['index.circuit.tsx','assembly-preview.circuit.tsx','README.md','package.json','package-lock.json','tsconfig.json','tscircuit.config.json']:shutil.copy2(root/f,stage/f)
-for f in (root/'imports/supplier').rglob('*.tsx'):
- target=stage/f.relative_to(root);target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(f,target)
-(stage/'artifacts').mkdir()
-for f in (root/'artifacts').glob('schematic-a4-page-*.svg'):shutil.copy2(f,stage/'artifacts'/f.name)
-for f in ['schematic-a4.pdf','bom.csv','source-bom.csv','pick_and_place.csv','drc-report.json','physical-connectivity.json','jlcpcb-import-report.json']:
- if (root/'artifacts'/f).exists():shutil.copy2(root/'artifacts'/f,stage/'artifacts'/f)
-shutil.copy2(root/'artifacts/schematic-a4-page-01.svg',stage/'artifacts/schematic.svg')
-for name in ['mounting-change-proof.json','mount-drill-verification.json','check-output.txt','native-check.txt','shorts-output.txt','resume-validation.json','nema14-gerbers.zip','same-side-routing-proof.json','same-side-copper-repairs.json','same-side-pruned-stubs.json','same-side-trimmed-stubs.json','same-side-copper-cleanup.json','same-side-local-ripup.json','same-side-power-width-repair.json','trace-width-review.json','presentation-verification.json']:
- if (root/'artifacts'/name).exists():shutil.copy2(root/'artifacts'/name,stage/'artifacts'/name)
-for relative in ['mechanical/mount-usb-screen.json','manufacturing/audit.json','mechanical/same-edge-fit.svg','mechanical/same-edge-fit.png']:
- source=root/'artifacts'/relative;target=stage/'artifacts'/relative;target.parent.mkdir(parents=True,exist_ok=True);shutil.copy2(source,target)
-
-shutil.copytree(root/'artifacts/jlcpcb-review',stage/'artifacts/jlcpcb-review',ignore=shutil.ignore_patterns('cam','order-source.circuit.json'))
-shutil.copytree(root/'artifacts/edge-resistors',stage/'artifacts/edge-resistors')
-shutil.copytree(root/'artifacts/schematic-redesign',stage/'artifacts/schematic-redesign',ignore=shutil.ignore_patterns('baseline*.json'))
-shutil.copytree(root/'artifacts/validation-resume',stage/'artifacts/validation-resume')
-shutil.copytree(root/'artifacts/jst-restoration',stage/'artifacts/jst-restoration')
-shutil.copytree(root/'artifacts/reference-feedback',stage/'artifacts/reference-feedback')
-top=stage/'artifacts/top-assembly';top.mkdir()
-for name in ['functional-preservation.json','connector-decision.json','placement-plan.json','copper-transfer.json','assembly-preview.circuit.json']:
- shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
-board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
-assert json.loads((root/'index.circuit.json').read_text())==original
-j=json.loads(board_path.read_text())
-pattern=re.compile(r'(https://raw\.githubusercontent\.com/AnasSarkiz/(?:NEMA17_Controller|NEMA14_RP2040)/)main(/imports/supplier/)')
-pin=lambda s:pattern.sub(lambda m:m[1]+revision+m[2],s)
-for f in (stage/'imports/supplier').rglob('*.tsx'):f.write_text(pin(f.read_text()))
-for e in j:
- if e['type']=='cad_component':
-  for field in ['model_obj_url','model_step_url']:
-   if isinstance(e.get(field),str):e[field]=pin(e[field])
-strip_urls=lambda records:[{k:v for k,v in e.items() if not(e['type']=='cad_component' and k in ['model_obj_url','model_step_url'])} for e in records]
-assert strip_urls(j)==strip_urls(original),'Publication changed reviewed geometry or circuit records'
-assert all('/'+revision+'/imports/supplier/' in e[field] for e in j if e['type']=='cad_component' and e.get('model_obj_url') for field in ['model_obj_url','model_step_url'])
-(stage/'index.circuit.json').write_text(json.dumps(j,separators=(',',':'))+'\n')
-config=stage/'tscircuit.config.json';c=json.loads(config.read_text());c['includeBoardFiles']=['index.circuit.json'];config.write_text(json.dumps(c,indent=2)+'\n')
-proof={'github_revision':revision,'review_board_sha256':hashlib.sha256(board_path.read_bytes()).hexdigest(),'published_board_sha256':hashlib.sha256((stage/'index.circuit.json').read_bytes()).hexdigest(),'only_cad_url_metadata_changed':True,'saved_routing_preserved':True,'pinned_cad_components':sum(e['type']=='cad_component' and bool(e.get('model_obj_url')) for e in j)}
-(stage/'artifacts/publication-provenance.json').write_text(json.dumps(proof,indent=2)+'\n')
-print('Prepared source package:',json.dumps(proof))
-PYSTAGE
-cd "$package_stage"
-XDG_CONFIG_HOME=/workspace/.config tsci build index.circuit.json
-python3 - "$package_stage" <<'PYDIST'
-import json,pathlib,sys
-stage=pathlib.Path(sys.argv[1]);saved=json.loads((stage/'index.circuit.json').read_text());built=json.loads((stage/'dist/index/circuit.json').read_text())
-assert built==saved,'Native CLI dist build differs from saved routing'
-(stage/'dist/index/circuit.json').write_text(json.dumps(built,separators=(',',':'))+'\n')
-print('Including verified compact native dist/index/circuit.json')
-PYDIST
-if ! XDG_CONFIG_HOME=/workspace/.config tsci push index.circuit.tsx --include-dist --compress; then
-  # The registry may complete an archive after the CLI timeout. Accept recovery
-  # only after fetching and verifying the exact public release, copper, drills,
-  # evidence, pinned models and GitHub bytes; never retry by deleting files.
-  python3 "$project_root/scripts/recover-publication.py" "$package_stage"
-  python3 "$project_root/scripts/verify-publication.py" "$project_root"
-fi
-python3 - "$package_stage" <<'PYVERSION'
-import json,pathlib,sys
-p=pathlib.Path(sys.argv[1]);print('Published registry version:',json.loads((p/'package.json').read_text())['version'])
-PYVERSION
+cd "$project_root"
+python3 scripts/verify-publish-readiness.py --prototype
+/workspace/.routing-venv/bin/python scripts/verify-bottom-markings.py
+python3 scripts/verify-jlcpcb-review.py
+python3 scripts/verify-public-model-assets.py
+python3 scripts/publish-lean-tscircuit.py "$@"

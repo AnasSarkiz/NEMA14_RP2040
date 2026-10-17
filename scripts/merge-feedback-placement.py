@@ -31,6 +31,13 @@ for e in g.j:
  elif typ=='pcb_via':
   geom=Point(e['x'],e['y']).buffer(e['outer_diameter']/2)
   if any(geom.distance(g.geometry(p))<(.003 if g.key(e)==g.key(p) else .153) for p in new):hit=True
+ # Enlarged fastener copper envelopes also invalidate legacy traces/vias.
+ if not hit:
+  for keep in [q for q in fresh if q['type']=='pcb_keepout']:
+   center=keep['center'];region=Point(center['x'],center['y']).buffer(keep['radius']+.153,quad_segs=128)
+   if typ=='pcb_via':hit=Point(e['x'],e['y']).buffer(e['outer_diameter']/2).intersects(region)
+   else:hit=any(a['route_type']==b['route_type']=='wire' and a['layer']==b['layer'] and a['layer'] in keep['layers'] and LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2).intersects(region) for a,b in zip(e['route'],e['route'][1:]))
+   if hit:break
  if hit:removed.append({'id':e.get('pcb_trace_id',e.get('pcb_via_id')),'net':g.nets.get(g.key(e))})
  else:kept.append(e)
 board=[{**e,'is_via_in_pad_allowed':True} if e['type']=='pcb_board' else e for e in fresh if e['type'] not in ['pcb_trace','pcb_via','pcb_copper_pour'] and not e['type'].endswith(('_error','_warning'))]+kept

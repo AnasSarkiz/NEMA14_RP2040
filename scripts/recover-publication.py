@@ -1,5 +1,5 @@
 """Complete a CLI archive upload using bounded native registry archives; never replace existing rows."""
-import base64,gzip,json,pathlib,sys,urllib.parse,urllib.request,urllib.error
+import base64,gzip,json,pathlib,sys,urllib.parse,urllib.request,urllib.error,socket
 stage=pathlib.Path(sys.argv[1]);meta=json.loads((stage/'package.json').read_text());name='AnasSarkiz/'+meta['name'];version=meta['version'];api='https://registry-api.tscircuit.com/'
 token=json.loads(pathlib.Path('/workspace/.config/tscircuit-nodejs/config.json').read_text())['sessionToken']
 def request(endpoint,body):
@@ -15,6 +15,9 @@ for p in sorted(stage.rglob('*')):
  path=p.relative_to(stage).as_posix()
  if path in existing:continue
  data=p.read_bytes();entry={'file_path':path}
+ # Compact generated JSON before the registry archive expands it; preserve all records.
+ if path.startswith('dist/') and path.endswith('/circuit.json'):
+  data=json.dumps(json.loads(data),separators=(',',':'),ensure_ascii=False).encode()
  try:
   if p.suffix.lower() in ['.zip','.png','.pdf']:raise UnicodeDecodeError('binary',b'',0,1,'binary')
   entry['content_text']=data.decode()
@@ -25,15 +28,15 @@ def upload(group):
  if not group:return
  encoded=archive(group);assert len(encoded)<3_000_000,'Individual compressed file exceeds safe upload size'
  try:request('package_files/upload_archive',{'package_name_with_version':name+'@'+version,'archive_base64':encoded})
- except urllib.error.HTTPError as exc:
-  if exc.code not in [500,502,503,504]:raise
+ except (urllib.error.HTTPError, TimeoutError, socket.timeout) as exc:
+  if isinstance(exc,urllib.error.HTTPError) and exc.code not in [500,502,503,504]:raise
   with urllib.request.urlopen(api+'package_files/list?'+query,timeout=60) as response:present={e['file_path'] for e in json.load(response)['package_files'] if e['package_release_id']==release['package_release_id']}
   if not all(e['file_path'] in present for e in group):raise
   print('Gateway reported an error after accepting the archive; all group paths are present',flush=True)
  print('Uploaded',len(group),'missing files; encoded bytes',len(encoded),flush=True)
 group=[]
 for entry in entries:
- if group and len(archive(group+[entry]))>1_100_000:upload(group);group=[]
+ if group and (len(group)>=12 or sum(len(json.dumps(e)) for e in group)+len(json.dumps(entry))>2_000_000 or len(archive(group+[entry]))>1_100_000):upload(group);group=[]
  group.append(entry)
 upload(group)
 request('package_releases/update',{'package_name_with_version':name+'@'+version,'ready_to_build':True,'license':'ISC'})
