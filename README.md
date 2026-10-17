@@ -1,3 +1,7 @@
+## Bottom silkscreen — 1.13.1
+
+The bottom layer now carries the official tscircuit wordmark and “For evaluation only; not FCC approved for resale.” Copper, pads, drills, placements, nets and schematic records are preserved. See [artwork details](docs/bottom-silkscreen.md), [fabrication preview](artifacts/bottom-markings/bottom-silkscreen.png) and [verification](artifacts/bottom-markings/verification.json).
+
 ## CH224A migration — 1.13.0 (hardware prototype)
 
 **Order review, 17 October 2026: hold the assembled-board order.** The final review identifies regulator/driver layout corrections, screws that cannot reach the motor with the proposed stack, and feature/process decisions to resolve. See [the final order review](docs/final-order-review-2026-10-17.md). The passing short/DRC checks remain valid for their geometric scope.

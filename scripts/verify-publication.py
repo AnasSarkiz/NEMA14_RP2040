@@ -167,6 +167,19 @@ for path in ['docs/ch224a-migration.md','artifacts/ch224a-migration/vbus-rating-
     checks.append({'path':path,'sha256':sha(data)})
 vbus=json.loads(file('artifacts/ch224a-migration/vbus-rating-review.json'))
 assert vbus['VBUS_rating_concern_resolved'] and vbus['VBUS_absolute_maximum_V']==32
+for path in ['src/bottom-markings.tsx','src/bottom-markings.json','docs/bottom-silkscreen.md',
+             'references/branding/tscircuit-official-logo.svg',
+             'artifacts/bottom-markings/native-preservation.json',
+             'artifacts/bottom-markings/verification.json',
+             'artifacts/bottom-markings/bottom-silkscreen.svg',
+             'artifacts/bottom-markings/bottom-silkscreen.png']:
+    data=file(path)
+    assert data==(root/path).read_bytes(), 'Bottom silkscreen public evidence differs: '+path
+    checks.append({'path':path,'sha256':sha(data)})
+bottom=json.loads(file('artifacts/bottom-markings/verification.json'))
+assert bottom['passed'] and bottom['board_sha256']==sha(board_bytes)
+assert bottom['bottom_artwork_intact_in_fabrication_Gerber']
+receipt['bottom_tscircuit_logo_and_evaluation_warning_verified']=True
 receipt.update({'source_git_revision':source_revision,'source_git_revision_pushed_to_GitHub':False,
                 'github_revision_scope':'supplier model assets only',
                 'CH224A_VBUS_rating_confirmed_by_WCH_V2_1':True,'production_release_approved':False})

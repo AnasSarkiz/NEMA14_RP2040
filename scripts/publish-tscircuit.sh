@@ -3,6 +3,7 @@
 set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
 python3 "$project_root/scripts/verify-publish-readiness.py" --prototype
+/workspace/.routing-venv/bin/python "$project_root/scripts/verify-bottom-markings.py"
 python3 "$project_root/scripts/verify-jlcpcb-review.py"
 /workspace/.routing-venv/bin/python "$project_root/scripts/package-jlcpcb-review.py"
 python3 "$project_root/scripts/verify-public-model-assets.py"
@@ -58,6 +59,7 @@ for name in ['functional-preservation.json','connector-decision.json','placement
 for name in ['harness-connection-verification.json','harness-mesh-verification.json','harness-definition.json']:
  shutil.copy2(root/'artifacts/top-assembly'/name,top/name)
 shutil.copytree(root/'artifacts/ch224a-migration',stage/'artifacts/ch224a-migration')
+shutil.copytree(root/'artifacts/bottom-markings',stage/'artifacts/bottom-markings')
 shutil.copy2(root/'artifacts/board.circuit.json',stage/'artifacts/board.circuit.json')
 board_path=root/'artifacts/board.circuit.json';original=json.loads(board_path.read_text())
 assert json.loads((root/'index.circuit.json').read_text())==original

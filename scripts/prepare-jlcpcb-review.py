@@ -144,6 +144,26 @@ def main():
                                       c['center']['x']+c['width']/2,c['center']['y']+c['height']/2)
                                   for c in layer_components])
         knockout_roles = []
+        bottom_markings = []
+        if side == 'bottom':
+            # Keep the exact mirrored native logo/letter strokes. Do not clip
+            # letters around vias or substitute the uppercase reference font.
+            marks = [e for e in native if e['type']=='pcb_silkscreen_path'
+                     and e.get('pcb_silkscreen_path_id','').startswith('pcb_silkscreen_path_bottom_marking_')]
+            if marks:
+                artwork = unary_union([LineString([(p['x'],p['y']) for p in e['route']]).buffer(e['stroke_width']/2,quad_segs=16) for e in marks])
+                assert all(e['layer']=='bottom' and e['stroke_width']>=.15 for e in marks)
+                assert safe.covers(artwork), 'Bottom artwork conflicts with solder mask, a hole or board edge'
+                assert not artwork.intersects(body_guard), 'Bottom artwork conflicts with a component body'
+                labels.append(artwork)
+                occupied = occupied.union(artwork.buffer(.2))
+                bottom_markings.append({'warning':'For evaluation only; not FCC approved for resale.',
+                                        'logo':'official tscircuit wordmark', 'native_paths':len(marks),
+                                        'minimum_stroke_mm':min(e['stroke_width'] for e in marks),
+                                        'mask_clearance_mm':artwork.distance(mask),
+                                        'drill_clearance_mm':artwork.distance(holes),
+                                        'bounds_mm':list(artwork.bounds), 'intact':True,
+                                        'mirrored_for_underside_reading':True})
         if side == 'top':
             role_marks=[e for e in native if e['type']=='pcb_silkscreen_text' and e.get('text') in ['PWR','DATA'] and e['layer']=='top']
             assert len(role_marks)==2 and {e['text'] for e in role_marks}=={'PWR','DATA'}
@@ -170,6 +190,8 @@ def main():
             found = False
             for x,y in positions:
                 text = font_geometry(ref,x,y,alphabet,size=1.3,stroke=.15)
+                if side == 'bottom':
+                    text = scale(text,xfact=-1,yfact=1,origin=(x,y))
                 if not text.is_empty and safe.covers(text) and not text.intersects(occupied) and not text.intersects(body_guard):
                     labels.append(text)
                     occupied = occupied.union(text.buffer(.2))
@@ -182,6 +204,7 @@ def main():
         silk_changes.append({'layer':side,'original_area_mm2':original.area,
                              'new_area_mm2':clipped.area,'reference_captions_placed':len(labels),
                              'captions_omitted_for_clearance':omitted,'knockout_role_markings':knockout_roles,
+                             'bottom_brand_markings':bottom_markings,
                              'policy':'current component outlines and intact reference captions; board inset 0.101 mm, mask guard 0.151 mm, drill guard 0.101 mm; full references in assembly files'})
 
     # Source identities, not display abbreviations, determine procurement.

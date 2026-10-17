@@ -10,8 +10,8 @@ export function normalizeMetadata(json: any[]) {
       if (field.endsWith("_id") && e[field] === null) delete e[field]
     }
     // Board captions retain absolute coordinates; this schema requires a
-    // component owner for silk circles/text. Associate them with the controller.
-    if (["pcb_silkscreen_circle", "pcb_silkscreen_text"].includes(e.type) && !e.pcb_component_id) e.pcb_component_id = graphicOwner
+    // component owner for silk circles/text/paths. Associate them with the controller.
+    if (["pcb_silkscreen_circle", "pcb_silkscreen_text", "pcb_silkscreen_path"].includes(e.type) && !e.pcb_component_id) e.pcb_component_id = graphicOwner
     // The installed Circuit JSON schema has no simple_buzzer variant. Keep
     // its real MPN, numbered terminals and buzzer schematic; use generic pinout.
     if (e.type === "source_component" && e.name === "BZ1") e.ftype = "simple_pinout"

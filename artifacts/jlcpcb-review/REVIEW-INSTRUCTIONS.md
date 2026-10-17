@@ -26,6 +26,6 @@ Supplier review still must confirm exact stock and quote, pickup orientation, vi
 
 Every native and order-source record passes its installed Circuit JSON schema. Display offsets are canonical strings, optional null IDs are omitted, and the buzzer uses a generic pinout record with its real MPN and pin identities retained. See `native-json-compatibility.json`. The actual coupled USB copper and adjacent grounded references are checked separately; fabricator stackup/impedance and bench USB operation remain unverified.
 
-Board source SHA-256: `16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
+Board source SHA-256: `baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75`. Corrected CAM audit: PASS, zero findings. Electrical source, placement, native footprints/courtyards, copper, masks, drills and outline are preserved.
 
 CH224A revision 1.13.0: the electrical migration intentionally changes the PD supply/configuration circuit while preserving every existing placement and land pattern. The fixed request remains 15 V. See ch224a-migration.md for the 56 kohm configuration, 0 ohm supply feed and VBUS rating confirmed by WCH V2.1. Live stock, supplier process approval and hardware validation remain outstanding; this package is for engineering review, not manufacturing release.

@@ -4,6 +4,7 @@ import { SupplierPart } from "./supplier-parts"
 import placements from "./supplier-placement.json"
 const place=(name:string)=>(placements as Record<string,{pcbX:number,pcbY:number,pcbRotation:number}>)[name]
 import { SchematicNotes } from "./schematic-notes"
+import { BottomMarkings } from "./bottom-markings"
 
 // Fixed NEMA14 hole pattern. Same-edge ports require DIN 920 M3 heads ≤4 mm.
 // Circular Ø6.4 mm head envelope includes a defined 0.2 mm radial allowance; rear mounting is unverified.
@@ -124,6 +125,7 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <SupplierPart name="C_ENCODER_BULK" layer="bottom" doNotPlace capacitance="1uF" maxVoltageRating={6.3} {...place("C_ENCODER_BULK")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />
   {/* CH224A Table 5-1: 56 kΩ requests 15 V; CFG2/SCL and CFG3/SDA are unconnected. */}
   {resistor('R_PD_CFG','56k','PD_CFG','GND')}
+  <BottomMarkings />
   <SchematicNotes />
   </schematicsheet>
  </board>

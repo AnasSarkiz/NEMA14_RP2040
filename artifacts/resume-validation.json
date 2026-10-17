@@ -1,5 +1,5 @@
 {
-  "board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "board_sha256": "baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75",
   "checks": [
     {
       "check": "all_resistor_edge_clearances",
@@ -225,9 +225,7 @@
         "scripts/audit-oscillator-layout.py"
       ],
       "exit_code": 0,
-      "log": "artifacts/validation-resume/oscillator_layout.txt",
-      "rechecked_at_utc": "2026-10-16T20:26:55.251431+00:00",
-      "recheck_reason": "Restored omitted plan metadata from the frozen baseline and unchanged route construction policy; reran the actual oscillator audit."
+      "log": "artifacts/validation-resume/oscillator_layout.txt"
     }
   ],
   "native_STEP_mechanical_pass": true,

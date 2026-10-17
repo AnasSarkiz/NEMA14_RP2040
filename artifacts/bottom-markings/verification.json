@@ -1,0 +1,70 @@
+{
+  "passed": true,
+  "baseline_commit": "a6ddd7a",
+  "before_board_sha256": "16a605a565a272ce12a5194f28e1d9d8359c183d6110d117a4771d2b8ec91d2d",
+  "board_sha256": "baacfd9a4cd2319178d2ed1c095bc328fc81cb73a48bcbef493f26ebf1f62a75",
+  "fabrication_archive_sha256": "cb23ccda698ae8fd73ab50bf60ba1293a552105648d9f76bccd1ce2335c2cdae",
+  "all_existing_native_records_unchanged": true,
+  "source_vectors_match_native_paths": true,
+  "only_changed_fabrication_commands": [
+    "B_SilkScreen.gbr"
+  ],
+  "regenerated_CAM_members_with_byte_changes": [
+    "B_Cu.gbr",
+    "B_Mask.gbr",
+    "B_SilkScreen.gbr",
+    "Edge_Cuts.gbr",
+    "F_Cu.gbr",
+    "F_Fab.gbr",
+    "F_Mask.gbr",
+    "In1_Cu.gbr",
+    "In2_Cu.gbr",
+    "drill-L1-L4.drl",
+    "drill_npth.drl"
+  ],
+  "CAM_comparison": "timestamps and unused aperture declarations ignored; selected aperture shapes and all fabrication commands compared",
+  "copper_mask_paste_drill_outline_BOM_CPL_commands_identical": true,
+  "bottom_artwork_intact_in_fabrication_Gerber": true,
+  "minimum_stroke_mm": 0.15,
+  "mask_clearance_mm": 0.42508167739829833,
+  "drill_clearance_mm": 0.13140982147080804,
+  "warning": "For evaluation only; not FCC approved for resale.",
+  "underside_mirroring_applied": true,
+  "official_logo_svg_sha256": "ddece050488d2e622e25d257d217bbb0c4af38bec4c1da9b32ccb819042f062d",
+  "groups": [
+    {
+      "name": "For evaluation only;",
+      "bounds_mm": [
+        -17.300197,
+        -7.799665,
+        -15.953803,
+        9.721665
+      ],
+      "mask_clearance_mm": 3.027658676296515,
+      "drill_clearance_mm": 0.3952242545430111
+    },
+    {
+      "name": "not FCC approved for resale.",
+      "bounds_mm": [
+        -16.099598,
+        -15.000342999999999,
+        -14.754402,
+        9.792342999999999
+      ],
+      "mask_clearance_mm": 0.42508167739829833,
+      "drill_clearance_mm": 0.3245064671223582
+    },
+    {
+      "name": "tscircuit official wordmark",
+      "bounds_mm": [
+        -13.101150524044495,
+        7.399967384055592,
+        -4.114015831534197,
+        9.171987117159135
+      ],
+      "mask_clearance_mm": 2.348785114530301,
+      "drill_clearance_mm": 0.13140982147080804
+    }
+  ],
+  "preview_source": "actual fabrication B_SilkScreen/B_Mask/Excellon; underside view"
+}
