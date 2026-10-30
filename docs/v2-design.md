@@ -11,6 +11,7 @@ remain V1. Old files under `artifacts/` are historical unless under `artifacts/v
 | Outline | 34 × 34 × 1.6 mm, four layers; remove 0.5 mm from each edge. Mounting holes remain Ø3.2 mm on a 26 mm square. |
 | Both winding currents | Two inline 50 mΩ shunts and INA240A1 amplifiers; outputs reach RP2040 ADC0/ADC1 through 100 Ω / 10 nF filters. |
 | Motor terminal | Compact Phoenix 1770979, C3818616, imported with original footprint and CAD. Default draft candidate pending factory motor-wire fit. The pictured KEFA is retained as an alternative. |
+| Encoder capacitors | C_ENCODER (100 nF) and C_ENCODER_BULK (1 µF) fitted on top; optional AS5600 IC remains bottom/DNP. |
 | USB locating holes | Both USB4145 footprints retain the original round NPTH and now include the supplier's oval NPTH. All four soldered shell tabs remain. |
 
 ## Electrical design
@@ -59,6 +60,12 @@ the RC network is not a substitute for switching-transient validation.
 
 RGB LED, buzzer, temperature sensor, flash, crystal, USB data and optional DNP
 encoder are retained. Firmware must adopt GPIO4/5 and hardware I²C0 instead of the former I²C1 bus.
+
+The optional encoder's **100 nF C_ENCODER** and **1 µF C_ENCODER_BULK** are
+fitted on the top assembly side, across V3V3 and GND. Their top courtyards are
+reserved in the placement search. U_ENCODER alone remains bottom/DNP. Final
+routing must keep the supply and ground paths short through vias to the bottom
+sensor; the current draft has no routed copper.
 
 ## USB footprint evidence
 

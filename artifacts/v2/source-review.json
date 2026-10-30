@@ -1,7 +1,7 @@
 {
   "stage": "unrouted engineering draft",
   "fabrication_ready": false,
-  "sha256": "ae1eaba09d48f9020ebda7d6513d6e09fc7ad5e57281f9757b52917b9cfdd273",
+  "sha256": "9a5b1e2e790419e25dc5794833c40f32102d1f52e973ae195e08382bc739ac61",
   "checks": [
     {
       "check": "34 x 34 mm, four-layer, 1.6 mm board",
@@ -72,6 +72,18 @@
       "pass": true
     },
     {
+      "check": "Encoder supply capacitors are fitted on top",
+      "pass": true
+    },
+    {
+      "check": "Encoder bypass values and 3.3 V connections preserved",
+      "pass": true
+    },
+    {
+      "check": "Optional encoder IC remains bottom and DNP",
+      "pass": true
+    },
+    {
       "check": "J_PD has both supplier locating holes",
       "pass": true
     },
@@ -96,7 +108,7 @@
       "pass": true
     }
   ],
-  "passed": 23,
+  "passed": 26,
   "failed": 0,
   "native_error_count": 109,
   "native_errors": [

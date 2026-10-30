@@ -48,6 +48,11 @@ check('Phoenix four-pole terminal and all eight contacts assigned',byname['J_MOT
 pcs={e['pcb_component_id']:cs[e['source_component_id']]['name'] for e in data if e['type']=='pcb_component'}
 fitted=[e for e in data if e['type']=='pcb_component' and not e.get('do_not_place') and cs[e['source_component_id']]['ftype']!='simple_test_point']
 check('All fitted components remain on the top assembly side',all(e['layer']=='top' for e in fitted))
+pcb_byname={pcs[e['pcb_component_id']]:e for e in data if e['type']=='pcb_component'}
+check('Encoder supply capacitors are fitted on top',all(pcb_byname[n]['layer']=='top' and not pcb_byname[n].get('do_not_place') for n in ['C_ENCODER','C_ENCODER_BULK']))
+check('Encoder bypass values and 3.3 V connections preserved',all(math.isclose(byname[n]['capacitance'],value) and on(n,'pin1','V3V3') and on(n,'pin2','GND') for n,value in [('C_ENCODER',100e-9),('C_ENCODER_BULK',1e-6)]))
+check('Optional encoder IC remains bottom and DNP',pcb_byname['U_ENCODER']['layer']=='bottom' and pcb_byname['U_ENCODER'].get('do_not_place'))
+
 for connector in ['J_PD','J_DATA']:
     holes=[e for e in data if e['type']=='pcb_hole' and pcs.get(e.get('pcb_component_id'))==connector]
     round_holes=[e for e in holes if e['hole_shape']=='circle']

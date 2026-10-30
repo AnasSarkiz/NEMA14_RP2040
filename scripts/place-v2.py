@@ -18,7 +18,7 @@ components = {e['pcb_component_id']:e for e in baseline if e['type']=='pcb_compo
 ports = {e['source_port_id']:e for e in baseline if e['type']=='source_port'}
 local = {}
 for name,code in catalog['components'].items():
-    if name in ['U_ENCODER','C_ENCODER','C_ENCODER_BULK']: continue
+    if name == 'U_ENCODER': continue
     text = (ROOT/catalog['parts'][code]['importPath']).read_text()
     match = re.search(r'<courtyardoutline outline=\{(\[.*?\])\}',text,re.S)
     if not match: raise ValueError('Missing original courtyard: '+name)
@@ -41,8 +41,8 @@ def obstacle(xlist,ylist,x,y,w,h,name):
     xlist.append(model.new_fixed_size_interval_var(round(x*scale),math.ceil(w*scale),name+'x'))
     ylist.append(model.new_fixed_size_interval_var(round(y*scale),math.ceil(h*scale),name+'y'))
 if telemetry_bottom:
-    # Retain the optional encoder's complete bottom courtyards.
-    for name in ['U_ENCODER','C_ENCODER','C_ENCODER_BULK']:
+    # Retain the optional encoder IC's bottom courtyard; its capacitors are top-side.
+    for name in ['U_ENCODER']:
         text=(ROOT/catalog['parts'][catalog['components'][name]]['importPath']).read_text()
         match=re.search(r'<courtyardoutline outline=\{(\[.*?\])\}',text,re.S)
         p=placement[name];poly=translate(rotate(Polygon([(v['x'],v['y']) for v in json.loads(match[1])]),p['pcbRotation'],origin=(0,0)),xoff=p['pcbX'],yoff=p['pcbY'])

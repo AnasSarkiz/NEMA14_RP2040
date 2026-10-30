@@ -131,10 +131,10 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <testpoint name="TP_BOOT_GND" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT_GND")} connections={{pin1:n("GND")}} />
   <silkscreentext text="PWR" pcbX={-5.2} pcbY={14.6} pcbRotation={90} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   <silkscreentext text="DATA" layer="bottom" pcbX={-5} pcbY={-15.9} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
-  {/* Optional AS5600 at nominal motor axis. No rear shaft/magnet fit is claimed. */}
+  {/* Optional bottom AS5600; its two supply capacitors are fitted on top. Motor/magnet fit remains unverified. */}
   <SupplierPart name="U_ENCODER" layer="bottom" doNotPlace {...place("U_ENCODER")} noConnect={['OUT','PGO']} connections={{VDD5V:n('V3V3'),VDD3V3:n('V3V3'),GND:n('GND'),DIR:n('GND'),SDA:n('TEMP_SDA'),SCL:n('TEMP_SCL')}} />
-  <SupplierPart name="C_ENCODER" layer="bottom" doNotPlace capacitance="100nF" maxVoltageRating={16} {...place("C_ENCODER")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />
-  <SupplierPart name="C_ENCODER_BULK" layer="bottom" doNotPlace capacitance="1uF" maxVoltageRating={6.3} {...place("C_ENCODER_BULK")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />
+  <SupplierPart name="C_ENCODER" layer="top" capacitance="100nF" maxVoltageRating={16} {...place("C_ENCODER")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />
+  <SupplierPart name="C_ENCODER_BULK" layer="top" capacitance="1uF" maxVoltageRating={6.3} {...place("C_ENCODER_BULK")} connections={{pin1:n('V3V3'),pin2:n('GND')}} />
   {/* CH224A Table 5-1: 56 kΩ requests 15 V; CFG2/SCL and CFG3/SDA are unconnected. */}
   {resistor('R_PD_CFG','56k','PD_CFG','GND')}
   <BottomMarkings />
