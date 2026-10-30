@@ -50,7 +50,7 @@ export function prepareSchematic(json:any[]) {
   const groupId=`pro_group_${sheet}_${v.section}`;
   if(!out.some(e=>e.type==='schematic_group'&&e.schematic_group_id===groupId))out.push({type:'schematic_group',schematic_group_id:groupId,name:v.section,source_group_id:json.find(e=>e.type==='source_group')?.source_group_id,center:point(0,0),width:0,height:0,schematic_component_ids:[],show_as_schematic_box:false});
   const comp={...old,schematic_group_id:groupId,center,size,schematic_sheet_id:sheet,...(nativeUsb?{}:{is_box_with_pins:true,pin_spacing:.43}),...(def?{symbol_name:symbol,symbol_display_value:s.display_resistance??s.display_capacitance??s.display_inductance??(v.name==='Y_MCU'?'12 MHz':s.manufacturer_part_number)}:{})};if(!def&&!nativeUsb)delete comp.symbol_name;out.push(comp)
-  if(v.name==='J_MOTOR')text('MOUNT1/2: NC hold-down pads',v.x-size.width/2,v.y-size.height/2-.8,.17)
+  if(v.name==='J_MOTOR')text('Two PCB contacts per pole; pairs joined on board',v.x-size.width/2,v.y-size.height/2-.8,.17)
   if(!def){text(v.name,v.x-size.width/2,v.y+size.height/2+.38,.27,'left',comp.schematic_component_id);text(s.manufacturer_part_number??'PCB contacts',v.name==='BZ1'?v.x+2:nativeUsb?v.x+size.width/2+1.8:v.x-size.width/2,v.name==='BZ1'?v.y+.9:nativeUsb?v.y-size.height/2-.15:v.y-size.height/2-.38,.21,'left',comp.schematic_component_id)}
   let left=v.left??ps.slice(0,Math.ceil(ps.length/2)).map(p=>p.name);let right=v.right??ps.filter(p=>!left.includes(p.name)).map(p=>p.name)
   if(v.left||v.right){const remaining=ps.filter(p=>!left.includes(p.name)&&!right.includes(p.name)).map(p=>p.name);right=[...right,...remaining.filter(n=>!v.top?.includes(n)&&!v.bottom?.includes(n))]}
@@ -102,7 +102,7 @@ export function prepareSchematic(json:any[]) {
  const start=(index:number,name:string,subtitle:string)=>{
   sheet=`schematic_sheet_${index-1}`;placed.clear();sections.clear();connected.clear();annotated.clear();netAnnotated.clear();localComplete.clear()
   out.push({type:'schematic_sheet',schematic_sheet_id:sheet,name:`${String(index).padStart(2,'0')} ${name}`,display_name:name,sheet_index:index,sheet_size:'a4',sheet_width:297,sheet_height:210,center:point(16,11)})
-  text('NEMA14 / '+project,1.2,21.1,.44);text(name,12.3,21.1,.40);text(subtitle,1.2,20.35,.24);line(point(.8,19.8),point(31.2,19.8));line(point(.8,1.7),point(31.2,1.7));text('AnasSarkiz  /  '+project+' motor controller',1.2,1.05,.23);text(`Sheet ${index} / 5   •   A4   •   Rev SC-01`,22,1.05,.23);text('35 × 35 mm  |  4-layer PCB  |  Hardware prototype — assembly/firmware/bench qualification pending',1.2,.65,.20)
+  text('NEMA14 / '+project+' V2',1.2,21.1,.44);text(name,12.3,21.1,.40);text(subtitle,1.2,20.35,.24);line(point(.8,19.8),point(31.2,19.8));line(point(.8,1.7),point(31.2,1.7));text('AnasSarkiz  /  '+project+' motor controller',1.2,1.05,.23);text(`Sheet ${index} / 7   •   A4   •   Rev V2-DRAFT`,21,1.05,.23);text('34 × 34 mm  |  4-layer PCB  |  Unrouted V2 draft — NOT FOR FABRICATION',1.2,.65,.20)
  }
  // Route local signal networks orthogonally; shared power and ground use rail symbols.
  const finish=()=>{
@@ -184,7 +184,7 @@ export function prepareSchematic(json:any[]) {
  caption('Current reference','VREF / (8 × RSENSE) = 0.351 A nominal',.6,13.2);part({name:'R_REF_H',x:3,y:11,section:'reference'});part({name:'R_REF_L',x:3,y:8.6,section:'reference'});part({name:'C_REF',x:6.8,y:8.6,section:'reference'});connect(['R_REF_H.2','R_REF_L.1','C_REF.1'],[point(3,9.8)])
  part({name:'R_ENABLE',x:9,y:11.8,section:'driver'});part({name:'R_SLEEP',x:9,y:8.8,section:'driver'})
  caption('Motor voltage monitor','100 kΩ / 10 kΩ divider; 10 nF filter',.6,7);part({name:'R_VM_H',x:3,y:4.9,section:'monitor'});part({name:'R_VM_L',x:7,y:4.9,section:'monitor'});part({name:'C_VM_SENSE',x:10.5,y:4.9,section:'monitor'})
- text('JST-SH pin order: 1 A+   2 A−   3 B+   4 B−',19,18.7,.23);finish()
+ text('Spring terminal: A+ / A− / B+ / B−; 2 contacts per pole',18,18.7,.21);finish()
  start(5,'Temperature & feedback','I²C temperature telemetry, RGB status outputs and PWM magnetic buzzer')
  caption('TMP102 temperature','ADD0 grounded: address 0x48; ALERT unused',.6,19)
  part({name:'U_TEMP',x:5.2,y:15.5,section:'temp',box:[3.3,2.4],left:['SDA','SCL','ALERT'],right:['V_POS','ADD0','GND']});part({name:'C_TEMP',x:10.8,y:15.5,section:'temp'});part({name:'R_TEMP_SDA',x:2.3,y:11.5,section:'temp',symbol:'boxresistor_up'});part({name:'R_TEMP_SCL',x:6.3,y:11.5,section:'temp',symbol:'boxresistor_up'})
@@ -213,6 +213,34 @@ export function prepareSchematic(json:any[]) {
  text('Shared existing temperature I²C bus: AS5600 0x36 / TMP102 0x48.',.6,5.2,.25)
  text('Existing 4.7 kΩ top-side pull-ups retained. Encoder firmware is required.',.6,4.2,.25)
  text('A diametrically magnetized shaft magnet and motor fit must be validated.',.6,3.2,.25)
+ finish()
+
+ start(7,'Winding current telemetry','Signed current in both windings; independent of A4988 regulation shunts')
+ text('TEMP I²C: GPIO4 SDA / GPIO5 SCL. Current: GPIO26 ADC0 / GPIO27 ADC1.',.6,19,.25)
+ for(const [i,phase] of ['A','B'].entries()){
+  const x=7+i*16,section='current_'+phase
+  part({name:'R_SHUNT_'+phase,x:x-3.8,y:12.46,section,symbol:'boxresistor_down'})
+  part({name:'U_I'+phase,x,y:12,section,box:[4.5,4.4],left:['IN_POS','IN_NEG','REF1','REF2'],right:['OUT','NC'],top:['VS'],bottom:['GND']})
+  part({name:'C_I'+phase,x:x+6,y:12,section})
+  part({name:'R_I'+phase,x:x+4,y:10,section,symbol:'boxresistor_right'})
+  part({name:'C_IADC_'+phase,x:x+7,y:10,section})
+  for(const [pin,input] of [['1','IN_POS'],['2','IN_NEG']]){
+    const a=port('R_SHUNT_'+phase+'.'+pin).sch.center,b=port('U_I'+phase+'.'+input).sch.center
+    connect(['R_SHUNT_'+phase+'.'+pin,'U_I'+phase+'.'+input],[point(x-2.8,a.y),point(x-2.8,b.y)])
+  }
+  const coil=port('R_SHUNT_'+phase+'.2'),coilLabel=point(coil.sch.center.x-.65,coil.sch.center.y)
+  wire([coil.sch.center,coilLabel],coil,[coil.source_port_id]);label(coil,coilLabel,'right')
+  // Keep the output/filter wiring below the ground rail and away from supply
+  // pins so crossings cannot look like output-to-ground/supply connections.
+  const op=port('U_I'+phase+'.OUT').sch.center,ri=port('R_I'+phase+'.1').sch.center
+  connect(['U_I'+phase+'.OUT','R_I'+phase+'.1'],[point(op.x+.6,op.y),point(op.x+.6,ri.y)])
+  const ro=port('R_I'+phase+'.2').sch.center,ci=port('C_IADC_'+phase+'.1').sch.center
+  connect(['R_I'+phase+'.2','C_IADC_'+phase+'.1'],[point(ro.x+.4,ro.y),point(ro.x+.4,ci.y+.15),point(ci.x,ci.y+.15)])
+ }
+ text('INLINE SHUNTS: A_DRV_PLUS → 50 mΩ → A_PLUS; B_DRV_PLUS → 50 mΩ → B_PLUS.',.6,4.6,.23)
+ text('INA240A1: gain 20 V/V. REF1=3.3 V, REF2=GND. VOUT = 1.65 V + I × 1 V/A.',.6,3.7,.23)
+ text('100 Ω / 10 nF output filters. Kelvin routing and switching-transient checks are required.',.6,2.8,.23)
+ text('V2 ENGINEERING DRAFT — placement, routing, terminal wire fit and CAM not yet qualified.',.6,1.9,.23)
  finish()
 
  const traces=out.filter(e=>e.type==='schematic_trace');const allEdges=traces.flatMap(t=>t.edges.map((e:any)=>({t,e})));const bridges=new Map<any,P[]>();const candidates=new Map<string,{p:P,t:any}>()

@@ -1,0 +1,73 @@
+"""Audit generated V2 electrical topology and connector drills independently.
+
+Passing these checks establishes a source draft, never a fabrication release.
+Placement errors and missing routed copper are explicitly retained in the receipt.
+"""
+import hashlib, json, math, sys
+from pathlib import Path
+
+ROOT=Path(__file__).resolve().parents[1]
+path=ROOT/'artifacts/v2/source.circuit.json'
+data=json.loads(path.read_text())
+cs={e['source_component_id']:e for e in data if e['type']=='source_component'}
+byname={e['name']:e for e in cs.values()}
+ports={e['source_port_id']:e for e in data if e['type']=='source_port'}
+nets={e['source_net_id']:e['name'] for e in data if e['type']=='source_net'}
+connections={}
+for e in data:
+    if e['type']!='source_trace':continue
+    ns=[nets[n] for n in e.get('connected_source_net_ids',[]) if n in nets]
+    if len(set(ns))>1:raise AssertionError('Source trace shorts named nets: '+str(ns))
+    if not ns:continue
+    for pid in e.get('connected_source_port_ids',[]):
+        p=ports[pid];key=(cs[p['source_component_id']]['name'],p['name'])
+        previous=connections.setdefault(key,ns[0])
+        assert previous==ns[0],(key,previous,ns)
+checks=[]
+def check(title, condition):
+    checks.append({'check':title,'pass':bool(condition)})
+def on(name,pin,net):return connections.get((name,pin))==net
+
+board=next(e for e in data if e['type']=='pcb_board')
+check('34 x 34 mm, four-layer, 1.6 mm board',board['width']==34 and board['height']==34 and board['num_layers']==4 and board['thickness']==1.6)
+mounts=[e for e in data if e['type']=='pcb_hole' and not e.get('pcb_component_id')]
+check('Original 26 mm motor hole pitch, four 3.2 mm holes',len(mounts)==4 and {(round(e['x'],6),round(e['y'],6),e.get('hole_diameter')) for e in mounts}=={(x,y,3.2) for x in [-13,13] for y in [-13,13]})
+check('Current channels reach distinct ADC0/ADC1 pins',on('U_MCU','GPIO26','I_A_ADC') and on('U_MCU','GPIO27','I_B_ADC'))
+check('Temperature bus moved to spare GPIO4/5',on('U_MCU','GPIO4','TEMP_SDA') and on('U_MCU','GPIO5','TEMP_SCL'))
+check('Voltage ADC and POWER_GOOD preserved',on('U_MCU','GPIO28','VM_SENSE') and on('U_MCU','GPIO10','PD_GOOD') and on('U_MCU','GPIO29','DATA_PRESENT'))
+for phase,sense,out in [('A','SENSE1','OUT1A'),('B','SENSE2','OUT2A')]:
+    amp='U_I'+phase;shunt='R_SHUNT_'+phase
+    physical={p['pin_number']:p['name'] for p in ports.values() if p['source_component_id']==byname[amp]['source_component_id']}
+    check(phase+' TSSOP INA240 identity and physical pinout',byname[amp]['manufacturer_part_number']=='INA240A1PWR' and physical=={1:'NC',2:'IN_POS',3:'IN_NEG',4:'GND',5:'VS',6:'REF2',7:'REF1',8:'OUT'})
+    check(phase+' inline shunt is separate from regulation shunt',on('U_DRV',out,phase+'_DRV_PLUS') and on(shunt,'pin1',phase+'_DRV_PLUS') and on(shunt,'pin2',phase+'_PLUS') and math.isclose(byname[shunt]['resistance'],.05))
+    check(phase+' current amplifier supply, polarity and midpoint',on(amp,'VS','V3V3') and on(amp,'GND','GND') and on(amp,'REF1','V3V3') and on(amp,'REF2','GND') and on(amp,'IN_POS',phase+'_DRV_PLUS') and on(amp,'IN_NEG',phase+'_PLUS'))
+    check(phase+' output RC feeds ADC',on(amp,'OUT','I_'+phase+'_RAW') and on('R_I'+phase,'pin1','I_'+phase+'_RAW') and on('R_I'+phase,'pin2','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin1','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin2','GND'))
+    r='R_S'+phase
+    check(phase+' 0.24 ohm A4988 regulation resistor retained',on('U_DRV',sense,sense) and on(r,'pin1',sense) and on(r,'pin2','GND') and math.isclose(byname[r]['resistance'],.24))
+check('Phoenix four-pole terminal and all eight contacts assigned',byname['J_MOTOR']['manufacturer_part_number']=='1770979' and all(on('J_MOTOR',pole+suffix,pole) for pole in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS'] for suffix in ['','_2']))
+pcs={e['pcb_component_id']:cs[e['source_component_id']]['name'] for e in data if e['type']=='pcb_component'}
+fitted=[e for e in data if e['type']=='pcb_component' and not e.get('do_not_place') and cs[e['source_component_id']]['ftype']!='simple_test_point']
+check('All fitted components remain on the top assembly side',all(e['layer']=='top' for e in fitted))
+for connector in ['J_PD','J_DATA']:
+    holes=[e for e in data if e['type']=='pcb_hole' and pcs.get(e.get('pcb_component_id'))==connector]
+    round_holes=[e for e in holes if e['hole_shape']=='circle']
+    slots=[e for e in holes if e['hole_shape'] in ['oval','rotated_pill']]
+    # Derived from the original EasyEDA NPTH path, not the previous broken export.
+    check(connector+' has both supplier locating holes',len(round_holes)==1 and len(slots)==1 and math.isclose(round_holes[0]['hole_diameter'],.7099808,abs_tol=1e-6) and math.isclose(slots[0]['hole_width'],1.5099792,abs_tol=3e-5) and math.isclose(slots[0]['hole_height'],.7099808,abs_tol=1e-6) and math.isclose(abs(slots[0]['x']-round_holes[0]['x']),8,abs_tol=5e-5))
+    tabs=[e for e in data if e['type']=='pcb_plated_hole' and pcs.get(e.get('pcb_component_id'))==connector]
+    check(connector+' retains all four soldered shell tabs',len(tabs)==4)
+check('RGB, buzzer, temperature, flash and crystal retained',all(n in byname for n in ['D_STATUS','BZ1','U_TEMP','U_FLASH','Y_MCU']))
+check('Schematic includes every component',len([e for e in data if e['type']=='schematic_component'])==len(cs))
+errors=[e for e in data if e['type'].endswith('_error')]
+receipt={'stage':'unrouted engineering draft','fabrication_ready':False,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+         'checks':checks,'passed':sum(e['pass'] for e in checks),'failed':sum(not e['pass'] for e in checks),
+         'native_error_count':len(errors),'native_errors':errors,'routed_trace_count':sum(e['type']=='pcb_trace' for e in data),
+         'remaining':['Final placement and mechanical/wire access review','Kelvin routing, all-net connectivity, DRC and Gerber short/drill checks','Exact motor lead gauge and available terminal procurement confirmation','Current calibration, ADC sampling and motor-switching bench checks']}
+(ROOT/'artifacts/v2/source-review.json').write_text(json.dumps(receipt,indent=2)+'\n')
+print(json.dumps({k:v for k,v in receipt.items() if k not in ['native_errors','checks']},indent=2))
+for e in checks:
+    if not e['pass']:print('FAIL:',e['check'])
+if receipt['failed']:raise SystemExit(1)
+if '--require-release' in sys.argv:
+    print('BLOCKED: V2 is an unrouted engineering draft; manufacturing release is unavailable.')
+    raise SystemExit(1)

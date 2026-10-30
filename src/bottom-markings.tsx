@@ -6,6 +6,6 @@ import markings from "./bottom-markings.json"
 export function BottomMarkings() {
   return <>{markings.groups.flatMap((group, gi) => group.routes.map((route, ri) =>
     <React.Fragment key={`${gi}-${ri}`}><silkscreenpath layer="bottom" strokeWidth={group.stroke_width_mm}
-      route={route.map(([x, y]) => ({ x, y }))} /></React.Fragment>
+      route={route.map(([x, y]) => ({ x:x*34/35, y:y*34/35 }))} /></React.Fragment>
   ))}</>
 }

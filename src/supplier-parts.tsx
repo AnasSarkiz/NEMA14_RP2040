@@ -1,5 +1,7 @@
 import { AS5600_ASOM } from "../imports/supplier/AS5600_ASOM/AS5600_ASOM"
-import { StandardUsbConnector, SmtMotorConnector } from "./reference-connectors"
+import { StandardUsbConnector, SmtMotorConnector, SpringMotorConnector } from "./reference-connectors"
+import { INA240A1PWR } from "../imports/supplier/INA240A1PWR/INA240A1PWR"
+import { FRM121WFR050TM } from "../imports/supplier/FRM121WFR050TM/FRM121WFR050TM"
 import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
 import { CL05B104KB5NNNC } from "../imports/supplier/CL05B104KB5NNNC/CL05B104KB5NNNC"
 import { XL_1608SURC_06 } from "../imports/supplier/XL_1608SURC_06/XL_1608SURC_06"
@@ -53,6 +55,9 @@ import { CH224A } from "../imports/supplier/CH224A/CH224A"
 import { A_0603WAF0000T5E } from "../imports/supplier/A_0603WAF0000T5E/A_0603WAF0000T5E"
 import { A_0402WGF5602TCE } from "../imports/supplier/A_0402WGF5602TCE/A_0402WGF5602TCE"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C3818616": SpringMotorConnector,
+ "C93965": INA240A1PWR,
+ "C7467249": FRM121WFR050TM,
  "C79815": AS5600_ASOM,
  "C5815189": StandardUsbConnector,
  "C160390": SmtMotorConnector,

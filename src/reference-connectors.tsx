@@ -1,6 +1,7 @@
 import React, { Children, cloneElement, type ReactElement } from "react"
 import { USB4145_03_0070_C } from "../imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C"
 import { BM04B_SRSS_TB_LF__SN_ } from "../imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_"
+import { A_1770979 } from "../imports/supplier/A_1770979/A_1770979"
 
 // Keep the exact supplier land patterns and CAD. Split common mechanical pads
 // into source terminals so every real shell tab/hold-down is checked and routed.
@@ -28,4 +29,26 @@ const motorLabels = {
 export const SmtMotorConnector = (props: any) => (
   <connector {...motor.props} standard="jst_sh" pinCount={4} pinLabels={motorLabels}
     footprint={footprint(motor, "pin5", 5)} {...props} />
+)
+
+// Preserve both physical PCB contacts for each Phoenix terminal pole.
+const spring = A_1770979({name:"MOTOR"})
+function springFootprint(){
+  const fp=spring.props.footprint as ReactElement<any>
+  const counts=[0,0,0,0]
+  const result=cloneElement(fp,{},Children.map(fp.props.children,child=>{
+    const pad=child as ReactElement<any>
+    if(!pad.props.portHints)return pad
+    const match=pad.props.portHints[0]?.match(/^pin([1-4])$/)
+    if(!match)throw Error("Unexpected Phoenix terminal contact")
+    const pole=Number(match[1])-1,contact=counts[pole]++
+    return cloneElement(pad,{portHints:[`pin${pole*2+contact+1}`]})
+  }))
+  if(counts.some(n=>n!==2))throw Error("Phoenix terminal must have two contacts per pole")
+  return result
+}
+export const SpringMotorConnector = (props:any)=>(
+  <connector {...spring.props} pinCount={8} footprint={springFootprint()}
+    pinLabels={{pin1:["A_PLUS"],pin2:["A_PLUS_2"],pin3:["A_MINUS"],pin4:["A_MINUS_2"],
+      pin5:["B_PLUS"],pin6:["B_PLUS_2"],pin7:["B_MINUS"],pin8:["B_MINUS_2"]}} {...props} />
 )

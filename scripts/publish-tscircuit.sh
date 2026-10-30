@@ -3,6 +3,10 @@
 set -euo pipefail
 project_root=$(cd "$(dirname "$0")/.." && pwd)
 cd "$project_root"
+if [[ -d artifacts/v2 ]]; then
+  echo 'V2 is an unrouted engineering draft; publication is blocked.' >&2
+  exit 1
+fi
 python3 scripts/verify-publish-readiness.py --prototype
 /workspace/.routing-venv/bin/python scripts/verify-bottom-markings.py
 python3 scripts/verify-jlcpcb-review.py

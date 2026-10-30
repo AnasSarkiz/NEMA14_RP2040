@@ -10,6 +10,8 @@ ROOT=pathlib.Path(__file__).resolve().parents[1]
 PYTHON='/workspace/.routing-venv/bin/python'
 
 def main():
+    if (ROOT/'artifacts/v2').exists():
+        raise SystemExit('V2 is an unrouted engineering draft; manufacturing export is blocked.')
     board=ROOT/'artifacts/board.circuit.json';frozen=board.read_bytes();stage=ROOT/'artifacts/engineering-fixes';stage.mkdir(exist_ok=True)
     upstream=stage/'upstream-native-gerbers.zip';primary=ROOT/'artifacts/nema14-gerbers.zip'
     env=dict(os.environ);env['PATH']=str(ROOT/'node_modules/.bin')+':'+env['PATH'];env['XDG_CONFIG_HOME']='/workspace/.config'

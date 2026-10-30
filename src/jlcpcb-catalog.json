@@ -61,7 +61,7 @@
     "C_DRV_LOGIC": "C1525",
     "C_VM": "C960916",
     "C_REF": "C1589",
-    "J_MOTOR": "C160390",
+    "J_MOTOR": "C3818616",
     "D_PWR": "C965799",
     "R_PWR_LED": "C25104",
     "D_STATUS": "C458749",
@@ -84,7 +84,17 @@
     "U_ENCODER": "C79815",
     "C_ENCODER": "C1525",
     "C_ENCODER_BULK": "C52923",
-    "R_PD_CFG": "C25796"
+    "R_PD_CFG": "C25796",
+    "U_IA": "C93965",
+    "R_SHUNT_A": "C7467249",
+    "C_IA": "C1525",
+    "R_IA": "C25076",
+    "C_IADC_A": "C15195",
+    "U_IB": "C93965",
+    "R_SHUNT_B": "C7467249",
+    "C_IB": "C1525",
+    "R_IB": "C25076",
+    "C_IADC_B": "C15195"
   },
   "parts": {
     "C11702": {
@@ -969,6 +979,20 @@
       "cadAnchorCorrectionLocalMm": {
         "x": 0.1524952,
         "y": 0
+      },
+      "restoredSupplierNpthSlot": {
+        "source": "references/v2/usb-easyeda.json",
+        "easyedaShapeId": "gge931",
+        "centerLocalMm": [
+          4.1524872,
+          0.000127
+        ],
+        "sizeMm": [
+          1.5099792,
+          0.7099808
+        ],
+        "nativeShape": "oval",
+        "preservesOriginalPadsAndReviewedCadTransform": true
       }
     },
     "C79815": {
@@ -1076,6 +1100,51 @@
         "y": 0
       },
       "powerRatingWatts": 0.25
+    },
+    "C7467249": {
+      "manufacturerPartNumber": "FRM121WFR050TM",
+      "symbol": "FRM121WFR050TM",
+      "importPath": "imports/supplier/FRM121WFR050TM/FRM121WFR050TM.tsx",
+      "modelFiles": [
+        "imports/supplier/FRM121WFR050TM/FRM121WFR050TM.obj",
+        "imports/supplier/FRM121WFR050TM/FRM121WFR050TM.step"
+      ],
+      "sha256": {
+        "obj": "bb7ca81e5a381483c7fb7f3a472cf27ffa6f321494823911b0dae819cd352cc1",
+        "step": "ca0f6c898b6c5ac572fcabb6f326264b985a8cd3c0f7fa407526b8d2ce209713"
+      },
+      "originalImportSha256": "043f1321acae2ebcb516629093a9359bcca203eed9640125033026f49f4297f2",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C7467249"
+    },
+    "C3818616": {
+      "manufacturerPartNumber": "1770979",
+      "symbol": "A_1770979",
+      "importPath": "imports/supplier/A_1770979/A_1770979.tsx",
+      "modelFiles": [
+        "imports/supplier/A_1770979/A_1770979.obj",
+        "imports/supplier/A_1770979/A_1770979.step"
+      ],
+      "sha256": {
+        "obj": "2fd4af02f3ade338d97fa01cafe70e77c317e30430d829b455914cf86db87d95",
+        "step": "060b9a3f5c4c188dc5ec788942839dec6a8aa91a9e03265bd9e280eea4f05ae9"
+      },
+      "originalImportSha256": "c55308b78ac86d0b629deab4c8fcb06116f0cfddbeab55e86893f2ce624f1964",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C3818616"
+    },
+    "C93965": {
+      "manufacturerPartNumber": "INA240A1PWR",
+      "symbol": "INA240A1PWR",
+      "importPath": "imports/supplier/INA240A1PWR/INA240A1PWR.tsx",
+      "modelFiles": [
+        "imports/supplier/INA240A1PWR/INA240A1PWR.obj",
+        "imports/supplier/INA240A1PWR/INA240A1PWR.step"
+      ],
+      "sha256": {
+        "obj": "2299384de12bc8840655718ec32399565cc67fe7c9ce99237fa5bfe232b1a2c7",
+        "step": "5214bbca4ac829802d67878b1c6ca4197101a1db594bd882650feafb375a2ee7"
+      },
+      "originalImportSha256": "03f447b619e4db1e9036b46038f0750bf2f52ec51a3e03540b94c13fb71e0329",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C93965"
     }
   }
 }

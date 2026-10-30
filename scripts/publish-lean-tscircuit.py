@@ -8,6 +8,8 @@ from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.error, urllib.parse, urllib.request
 
 ROOT = pathlib.Path(__file__).resolve().parents[1]
+if (ROOT/'artifacts/v2').exists():
+    raise SystemExit('V2 is an unrouted engineering draft. Publication of V1 CAM as V2 is blocked.')
 API = 'https://registry-api.tscircuit.com/'
 REPO = 'AnasSarkiz/NEMA14_RP2040'
 sha = lambda data: hashlib.sha256(data).hexdigest()

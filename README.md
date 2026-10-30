@@ -1,4 +1,13 @@
-## Bottom silkscreen and lean publication — 1.13.2
+# NEMA14 RP2040 V2 — engineering draft
+
+This branch contains the requested **34 × 34 mm V2** with winding-current ADC
+circuits, a compact Phoenix spring-terminal candidate and restored USB-C locating slots.
+**PCB placement/clearance errors remain, routing is absent, and terminal stock/wire fit are unresolved. Do not order this draft.**
+See [V2 design and status](docs/v2-design.md) and [generated source review](artifacts/v2/source-review.json).
+The ordered V1 board and its public tscircuit package are unchanged.
+Sections and artifacts below describe historical V1 work.
+
+## Bottom silkscreen and lean publication — 1.13.2 (V1 history)
 
 Registry uploads contain only previews and manufacturing downloads. Full source,
 datasheets and engineering history stay in GitHub. See [publishing policy](docs/tscircuit-publishing-policy.md).
