@@ -1,28 +1,55 @@
 {
-  "stage": "electrical schematic draft; PCB incomplete",
-  "recorded_at": "2026-10-30T21:10:36.344069+00:00",
-  "source_sha256": "9a5b1e2e790419e25dc5794833c40f32102d1f52e973ae195e08382bc739ac61",
+  "stage": "verified placement seed; unrouted engineering draft",
+  "recorded_at": "2026-10-30T23:45:05.278576+00:00",
+  "source_sha256": "4344fbbffb27500f30db93a7e3114382636b54441de422c344a534702701f095",
   "typecheck": "passed",
   "source_checks": {
-    "passed": 26,
+    "passed": 33,
     "failed": 0
   },
   "native_schema_errors": 0,
   "native_schematic_placement": "passed",
   "usb_routed_np_th_slots": 2,
-  "native_pcb_errors": 109,
+  "native_pcb_errors": 0,
+  "independent_placement_errors": 0,
+  "top_courtyards_checked": 100,
+  "bottom_courtyards_checked": 6,
+  "minimum_courtyard_gap_mm": 0.0017956999999597658,
+  "screw_head_envelope_diameter_mm": 6.4,
+  "board_mm": [
+    34.5,
+    34.5
+  ],
   "routed_trace_count": 0,
   "fabrication_ready": false,
-  "manufacturing_and_publication_guard": "blocked for V2 draft",
+  "manufacturing_and_publication_guard": "verified blocked for unrouted V2 draft",
   "all_fitted_parts_top_side": true,
-  "terminal": "Phoenix 1770979 / C3818616, provisional",
+  "bottom_bare_probe_pads": [
+    "TP_3V3",
+    "TP_GND",
+    "TP_SWCLK",
+    "TP_SWDIO",
+    "TP_RUN"
+  ],
+  "boot_recovery_pads": "top, 0.8 mm, approx 1.25 mm centre separation",
+  "terminal": "2 x Phoenix 1770953 / C3817232, provisional",
+  "terminal_body_mm_each": [
+    5.5,
+    5,
+    10
+  ],
   "terminal_mirror_stock": 0,
-  "factory_motor_wire_gauge": "unconfirmed",
-  "ordered_v1_worktree": "unchanged",
+  "terminal_cad": "dimensioned body/pin envelope only; not detailed supplier CAD",
+  "factory_motor_wire_gauge": "unconfirmed; terminal bare-stranded range 0.2-0.5 mm2",
+  "compact_buzzer": "MLT-5020 / C94598; 4 kHz, loudness needs bench validation",
+  "compact_mosfets": "4 x DMN2300UFB4-7B / C154728, buzzer and RGB",
+  "rgb_gate_pull_downs": "3 x 10 kOhm; existing 1 kOhm LED limiters retained",
+  "flyback_diode": "B5819WS / C64886",
   "encoder_capacitors": {
     "C_ENCODER": "100 nF, top, fitted",
-    "C_ENCODER_BULK": "1 \u00b5F, top, fitted"
+    "C_ENCODER_BULK": "1 uF, top, fitted"
   },
   "encoder_ic": "bottom, optional DNP",
-  "capacitor_move_added_native_pcb_errors": 0
+  "ordered_v1_worktree": "unchanged at b6e2de5",
+  "scope": "2D fit and source topology only. Routing, copper DRC/shorts, signal/power layout, tool/wire/magnet access, procurement and bench tests remain."
 }

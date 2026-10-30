@@ -8,9 +8,12 @@ remain V1. Old files under `artifacts/` are historical unless under `artifacts/v
 
 | Item | V2 source implementation |
 |---|---|
-| Outline | 34 × 34 × 1.6 mm, four layers; remove 0.5 mm from each edge. Mounting holes remain Ø3.2 mm on a 26 mm square. |
+| Outline | 34.5 × 34.5 × 1.6 mm, four layers; remove 0.25 mm from each original 35 mm edge. Mounting holes remain Ø3.2 mm on a 26 mm square. |
 | Both winding currents | Two inline 50 mΩ shunts and INA240A1 amplifiers; outputs reach RP2040 ADC0/ADC1 through 100 Ω / 10 nF filters. |
-| Motor terminal | Compact Phoenix 1770979, C3818616, imported with original footprint and CAD. Default draft candidate pending factory motor-wire fit. The pictured KEFA is retained as an alternative. |
+| Motor terminal | Two smaller Phoenix 1770953 / C3817232 two-pole spring terminals, one per coil. Manufacturer/PCB footprint checked; procurement and factory lead fit remain unresolved. |
+| Buzzer | Compact MLT-5020 / C94598, 5.2 × 5.2 mm, passive magnetic, 2–4 V / 100 mA, 4 kHz; smaller DMN2300UFB4 MOSFET and B5819WS flyback diode. Sound level differs from the original. |
+| RGB drivers | Three DMN2300UFB4-7B MOSFETs replace the larger pre-biased BJTs. Existing 1 kΩ LED limiters remain; new 10 kΩ gate pull-downs keep the LEDs off during reset. |
+| Debug pads | Five bare copper probe pads on bottom; both 0.8 mm BOOT recovery pads remain top. No bottom fitted assembly is added. |
 | Encoder capacitors | C_ENCODER (100 nF) and C_ENCODER_BULK (1 µF) fitted on top; optional AS5600 IC remains bottom/DNP. |
 | USB locating holes | Both USB4145 footprints retain the original round NPTH and now include the supplier's oval NPTH. All four soldered shell tabs remain. |
 
@@ -63,7 +66,7 @@ encoder are retained. Firmware must adopt GPIO4/5 and hardware I²C0 instead of 
 
 The optional encoder's **100 nF C_ENCODER** and **1 µF C_ENCODER_BULK** are
 fitted on the top assembly side, across V3V3 and GND. Their top courtyards are
-reserved in the placement search. U_ENCODER alone remains bottom/DNP. Final
+reserved in the placement search. U_ENCODER remains bottom/DNP; five bare probe pads also use bottom copper without a placement operation. Final
 routing must keep the supply and ground paths short through vias to the bottom
 sensor; the current draft has no routed copper.
 
@@ -87,34 +90,57 @@ does not establish whether an upstream converter fix is available elsewhere.
 
 ## Terminal selection and wire qualification
 
-The user suggested the KEFA KF208V-2.54-4P / C49173465. Its much larger courtyard
-made the 34 mm placement difficult. The user confirmed a compact terminal and top-side-only assembly. The
-provisional compact candidate is:
-**Phoenix PTSM 0,5/4-2,5-V THR R44 / 1770979 / C3818616**.
+The selected layout uses **two Phoenix PTSM 0,5/2-2,5-V THR R44 /
+1770953 / C3817232**, one per winding. Each body is **5.5 × 5 mm**, 10 mm above
+its seating plane. The original four-pole candidate was 10.5 × 5 mm. Splitting
+the poles improves placement flexibility, rather than reducing total area/cost.
+See [primary dimensions, footprint provenance and alternatives](../references/v2/terminal-selection.md).
 
-The primary manufacturer datasheet is cached as `references/v2/phoenix-1770979.pdf`.
-It specifies a 10.5 × 5 mm body and 10 mm height above the seating plane.
-Pin length below that plane is 2.1 mm (about 0.5 mm nominal protrusion through
-a 1.6 mm PCB, before manufacturing/solder tolerances).
-Bare stranded conductor range is **0.2–0.5 mm²**, with **6 mm strip length**.
-Its 6 A IEC / 5 A UL current ratings exceed the motor's 0.4 A phase rating.
-The generic 26–20 AWG approval entry does not override the 0.2 mm² minimum for
-bare stranded conductors. Indexed JLCPCB assembly data previously listed
-Economic/Standard wave assembly with a fixture; recheck the quote and fixture. The current JLCsearch mirror returns stock 0 for C3818616.
-This is not live JLCPCB confirmation, but the terminal must remain provisional
-until stock/preorder or an available replacement is confirmed. The selected
-current amplifiers and shunts have nonzero mirror stock; see
-`references/v2/catalog-snapshot.json`.
+The drawing and the public KiCad land pattern agree on four Ø1.2 mm drills per
+terminal, 2.5 mm pole pitch and 3.1 mm row pitch. Each physical contact has an
+explicit source port and a Ø2 mm copper pad. The body/pin OBJ is a clearly
+identified dimensioned envelope; detailed supplier CAD was unavailable.
 
-The 14HM11-0404S factory drawing does not specify lead gauge or conductor CSA.
-The previous 28 AWG JST pigtails are below this terminal's bare-stranded minimum.
-Direct motor-wire fit therefore remains unconfirmed. No new order was placed.
+Bare-stranded range remains **0.2–0.5 mm²**, strip length **6 mm**. The factory
+14HM11-0404S drawing omits lead gauge/CSA, so direct motor-wire fit is still
+unconfirmed. Earlier 28 AWG SH pigtails are below this minimum. The current
+JLCsearch mirror returns **zero stock** for C3817232; preorder/consignment or
+an available qualified replacement must be confirmed before ordering.
 
-The original manufacturer drill drawing and EasyEDA footprint show two contacts
-per pole on 3.1 mm rows. Both contacts per pole are explicit in the generated
-netlist and connect A+, A−, B+, B− in order. The wrapper changes port identities
-only, preserving every supplier pad and drill. Verify wire insertion, release-tool
-access, pin protrusion, motor clearance and bend radius in the mechanical review.
+The MLT-5020 buzzer has nonzero mirror stock. It operates from 2–4 V at up to
+100 mA, preserving the 3.3 V supply and flyback diode. Its
+nominal resonance is 4 kHz and catalog sound level is 75 dB; firmware and bench
+checks must validate the desired tone/loudness. It saves space while retaining
+the buzzer feature. This is a deliberate part change, not a volume-equivalent
+substitution. Catalog snapshots are in `references/v2/compact-parts-snapshot.json`.
+
+The buzzer MOSFET changes from AO3400A to DMN2300UFB4-7B / C154728
+(X2-DFN1006-3, 1.0 × 0.6 mm body). The exact supplier land pattern has a
+1.2 × 1.6 mm courtyard. Its 20 V drain rating and 240 mΩ maximum RDS(on)
+at 2.5 V gate drive support the 3.3 V, 100 mA buzzer load: about 2.4 mW
+conduction loss using that resistance. The flyback diode remains fitted.
+The new physical pin order is **1=G, 2=D, 3=S**, different from the old MOSFET;
+source connections and schematic symbol mapping follow the new order.
+The mirror snapshot shows 11,980 pieces; this is not live stock assurance.
+See [Diodes manufacturer datasheet](https://www.diodes.com/datasheet/download/DMN2300UFB4.pdf).
+
+The RGB channels now use the same DMN2300UFB4-7B device, with source to ground,
+gate to the existing active-high GPIO, drain to the existing LED current-limiter
+net, and a new 10 kΩ gate pull-down. The 1 kΩ LED resistors and fixed 5 V
+common-anode supply remain. The maximum possible current is below 5 mA per
+channel, far below the MOSFET rating. Gate drive and firmware polarity are
+unchanged; the new physical map is 1 G, 2 D, 3 S. Reusing the buzzer MOSFET
+saves footprint area and avoids another unique assembly part.
+
+D_BUZZER changes to B5819WS / C64886, SOD-323, 1 A / 40 V, for the 100 mA
+buzzer load. Its cathode remains on 3.3 V and anode on the switched sink.
+The exact imported courtyard is 3.845 × 1.8 mm; the snapshot shows 393,595 pieces.
+
+Five **bare copper** probe pads (3V3, GND, SWCLK, SWDIO, RUN) are on the bottom,
+beside the optional encoder courtyard and clear of through-board terminals.
+They add no bottom-side part placement. They require underside access, normally
+with the controller unmounted from the motor. The top BOOT/GND recovery pair
+uses 0.8 mm pads, about 1.25 mm centre separation, for fine tweezers/probes.
 
 ## Validation and remaining work
 
@@ -124,21 +150,37 @@ generated source hash, native errors and routed-trace count. Passing its source
 checks does not mean that placement or routing passes. `npm run check:v2` and
 publication remain blocked while this is an unrouted draft.
 
-`scripts/place-v2.py` searches using complete supplier courtyards, retained hole
-positions and a conservative stepped cover of the Ø6.4 mm screw-head envelopes.
-A timed-out search is recorded as UNKNOWN, never as proof of a fit or of
-impossibility. The optional `--geometry-only` mode optimizes proximity but does
-not enforce the local center-distance constraints; it is a packing study and
-not an analog/clock-layout signoff. The receipt records that distinction. Verify
-placement against native output and physical pad/loop geometry after any result.
+`src/v2-placement-anchors.json` records the complete placement seed.
+`scripts/place-v2.py --anchor-plan --feasibility-only` checks full catalog
+courtyards, retained mounting positions, and local clock/power/current-sense
+proximity budgets. It preserves the Ø6.4 mm head envelopes. Fixed anchors use
+exact circle-to-rectangle distance; optional movable parts use 32 conservative
+supporting-line directions with outward quantization. No courtyard is shrunk.
+A timed-out search is UNKNOWN, never proof of fit or impossibility.
 
-The present PCB draft still has native placement, overlap and edge-clearance
-errors, and contains no routed traces. Those errors are retained in the JSON
-and review receipt, not suppressed. The bounded placement studies did not
-produce a verified complete layout. Only the electrical schematic, outline
-request and locating-slot restoration are implemented at this stage.
+The generated source has **zero native errors**. The independent Shapely audit
+checks 100 top and six bottom courtyards, board bounds, head clearance, bottom
+probe-pad/through-hole separation and terminal pad/drill dimensions; it reports
+zero errors. Its receipt records the actual source SHA-256. The minimum gap
+between top courtyards is about **0.002 mm**: this is a dense fit between full
+courtyard margins, not a copper-clearance measurement.
 
-Before a new order: complete placement and mechanical access, route the new
+All 33 electrical/source checks pass, including physical MOSFET pin maps,
+RGB reset pull-downs, both current channels, encoder capacitors and USB drills.
+The native schema and seven-sheet schematic placement checks pass. These
+checks establish a collision-free **placement seed**, not a routed electrical
+layout. In particular, USB series resistors, divider/filter networks, QSPI,
+Kelvin branches, driver current paths and power/ground loops still need review
+against the actual routing; distances in the placer are not measured trace
+lengths. Detailed wire/tool/magnet access and supplier 3D assembly review remain.
+The terminal model is a dimensioned envelope, not detailed supplier CAD.
+
+`npm run check:v2:placement` reruns the independent geometry audit.
+`npm run render:v2:placement` regenerates the readable SVG from native JSON.
+The native PCB SVG and Circuit JSON are also saved. There are **zero routed
+traces**, so manufacturing export/publication remain blocked by `check:v2`.
+
+Before a new order: finalize the routed layout and mechanical access, route the new
 board with Kelvin branches and corrected drill keepouts, check every physical
 net, DRC/clearances, all-layer Gerber shorts, actual drills and assembly angles,
 then verify current accuracy and switching behavior on the new prototype.

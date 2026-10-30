@@ -1,7 +1,8 @@
 import React from "react"
 import { Circuit } from "tscircuit"
-import { mkdirSync, writeFileSync } from "node:fs"
+import { mkdirSync, writeFileSync, readFileSync } from "node:fs"
 import { convertCircuitJsonToPcbSvg, convertCircuitJsonToSchematicSvg } from "circuit-to-svg"
+import { execFileSync } from "node:child_process"
 import { Resvg } from "@resvg/resvg-js"
 const cleanSvg=(svg:string)=>svg.replace(/[ \t]+$/gm,"")
 import Board from "../src/board"
@@ -35,6 +36,8 @@ for(const layer of ["top","bottom"]){
   const svg=convertCircuitJsonToPcbSvg(json,{layer:layer as "top"|"bottom"})
   writeFileSync(`artifacts/v2/${layer}.png`,new Resvg(svg,{fitTo:{mode:"width",value:1200}}).render().asPng())
 }
+execFileSync("python3",["scripts/render-v2-placement.py"],{stdio:"inherit"})
+writeFileSync("artifacts/v2/placement.png",new Resvg(readFileSync("artifacts/v2/placement.svg","utf8"),{fitTo:{mode:"width",value:1500}}).render().asPng())
 const errors = raw.filter(e=>e.type.endsWith("_error"))
 console.log(JSON.stringify({stage:"unrouted engineering draft",elements:json.length,errors},null,2))
 if(errors.length) process.exitCode=1

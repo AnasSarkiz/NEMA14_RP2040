@@ -1,4 +1,4 @@
-"""Pack intact supplier courtyards on the 34 mm V2 draft.
+"""Pack full catalog courtyards on the 34.5 mm V2 draft.
 
 This is a placement screen, not a copper, 3D, wire-access or manufacturing signoff.
 The ordered V1 geometry is never rewritten by this script.
@@ -12,6 +12,8 @@ from shapely.affinity import rotate, translate
 ROOT = Path(__file__).resolve().parents[1]
 catalog = json.loads((ROOT/'src/jlcpcb-catalog.json').read_text())
 placement = json.loads((ROOT/'src/supplier-placement.json').read_text())
+anchor_plan=json.loads((ROOT/'src/v2-placement-anchors.json').read_text()) if '--anchor-plan' in sys.argv else {}
+placement.update(anchor_plan)
 baseline = json.loads((ROOT/'artifacts/v1-ordered/index.circuit.json').read_text())
 sources = {e['source_component_id']:e for e in baseline if e['type']=='source_component'}
 components = {e['pcb_component_id']:e for e in baseline if e['type']=='pcb_component'}
@@ -25,22 +27,25 @@ for name,code in catalog['components'].items():
     local[name] = Polygon([(p['x'],p['y']) for p in json.loads(match[1])])
 # Physical test pads must also be respected.
 for name in placement:
-    if name.startswith('TP_'): local[name] = box(-.7,-.7,.7,.7)
+    if name.startswith('TP_'):
+        half=.5 if name in ['TP_BOOT','TP_BOOT_GND'] else .7
+        local[name] = box(-half,-half,half,half)
 
 telemetry_bottom='--telemetry-bottom' in sys.argv
 bottom_names={n+p for n in ['U_I','R_SHUNT_','C_I','R_I','C_IADC_'] for p in ['A','B']} if telemetry_bottom else set()
 if telemetry_bottom:
     bottom_names.update(['C_IO1','C_IO10','C_IO22','C_IO33','C_IO42','C_IO49','C_DV23','C_DV50','C_USB','C_ADC','C_VREG_IN','C_VREG_OUT'])
+bottom_names.update(n for n,v in placement.items() if n.startswith('TP_') and v.get('layer')=='bottom')
 model = cp_model.CpModel()
 scale = 100
 xs,ys,objective,variables,anchors = [],[],[],{},{}
 bx,by=[],[]
-fixed = {'U_MCU','U_DRV','J_PD','J_DATA','Y_MCU'}
-boundary = 16.75
+fixed = {'U_MCU','J_PD','J_DATA'} | set(anchor_plan)
+boundary = 17.0
 def obstacle(xlist,ylist,x,y,w,h,name):
     xlist.append(model.new_fixed_size_interval_var(round(x*scale),math.ceil(w*scale),name+'x'))
     ylist.append(model.new_fixed_size_interval_var(round(y*scale),math.ceil(h*scale),name+'y'))
-if telemetry_bottom:
+if bottom_names:
     # Retain the optional encoder IC's bottom courtyard; its capacitors are top-side.
     for name in ['U_ENCODER']:
         text=(ROOT/catalog['parts'][catalog['components'][name]]['importPath']).read_text()
@@ -55,24 +60,37 @@ if telemetry_bottom:
                 obstacle(bx,by,p['pcbX']+x-1.05,p['pcbY']+y-.8,2.1,1.6,f'{name}{x}{y}')
         for x in [-3.8474968,4.1524872]:
             obstacle(bx,by,p['pcbX']+x-1,p['pcbY']-.61,2,1.22,f'{name}loc{x}')
-for hx in [-13,13]:
-    for hy in [-13,13]:
-        # Conservative stepped cover of the full radius-3.2 mm head circle.
-        # Adjacent strips meet without overlap or gaps, preserving NoOverlap2D.
-        for y0 in range(-320,320,40):
-            near=0 if y0<=0<=y0+40 else min(abs(y0),abs(y0+40))
-            half=math.ceil(math.sqrt(320**2-near**2))
-            xs.append(model.new_fixed_size_interval_var(hx*scale-half,2*half,f'hx{hx}{hy}{y0}'))
-            ys.append(model.new_fixed_size_interval_var(hy*scale+y0,40,f'hy{hx}{hy}{y0}'))
-            if telemetry_bottom:
-                bx.append(model.new_fixed_size_interval_var(hx*scale-half,2*half,f'bhx{hx}{hy}{y0}'))
-                by.append(model.new_fixed_size_interval_var(hy*scale+y0,40,f'bhy{hx}{hy}{y0}'))
+def avoid_heads(name,ax,ay,gx,bounds,enabled):
+    # A rectangle is clear when one of 32 supporting lines separates its entire
+    # courtyard from the head circle. Integer normals use their actual length:
+    # this conservatively excludes the complete circle, never an inscribed one.
+    # Finite directions may reject a valid near-tangent corner (<0.016 mm), but
+    # avoid the large per-X lookup encoding. Native geometry is audited again.
+    a,b,c,d=bounds
+    lo_x,hi_x=math.floor(a*scale),math.ceil(c*scale)
+    lo_y,hi_y=math.floor(b*scale),math.ceil(d*scale)
+    for hx in [-1300,1300]:
+        for hy in [-1300,1300]:
+            choices=[]
+            for i in range(32):
+                theta=2*math.pi*i/32;nx=round(1000*math.cos(theta));ny=round(1000*math.sin(theta))
+                side=model.new_bool_var(f'{name}_head_{hx}_{hy}_{i}');choices.append(side)
+                offset=min(nx*lo_x,nx*hi_x)+min(ny*lo_y,ny*hi_y)
+                limit=math.ceil(320*math.hypot(nx,ny))
+                model.add(nx*(ax-hx)+ny*(ay-hy)+offset>=limit).only_enforce_if([enabled,side])
+            model.add_bool_or(choices).only_enforce_if(enabled)
+
 for name,poly in local.items():
     p=placement[name]; ox,oy,pr=p['pcbX'],p['pcbY'],p['pcbRotation']
     if name in fixed:
         a,b,c,d=translate(rotate(poly,pr,origin=(0,0)),xoff=ox,yoff=oy).bounds
-        xs.append(model.new_fixed_size_interval_var(math.floor(a*scale),math.ceil((c-a)*scale),name+'fx'))
-        ys.append(model.new_fixed_size_interval_var(math.floor(b*scale),math.ceil((d-b)*scale),name+'fy'))
+        target_x,target_y=(bx,by) if name in bottom_names else (xs,ys)
+        target_x.append(model.new_fixed_size_interval_var(math.floor(a*scale),math.ceil((c-a)*scale),name+'fx'))
+        target_y.append(model.new_fixed_size_interval_var(math.floor(b*scale),math.ceil((d-b)*scale),name+'fy'))
+        for hx in [-13,13]:
+            for hy in [-13,13]:
+                gap=math.hypot(max(a-hx,0,hx-c),max(b-hy,0,hy-d))
+                if gap<3.2-1e-6:raise ValueError(f'Fixed courtyard {name} intersects screw-head envelope at {(hx,hy)}: {gap:.6f} mm')
         anchors[name]=(round(ox*scale),round(oy*scale));continue
     ax=model.new_int_var(-1700,1700,name+'ax');ay=model.new_int_var(-1700,1700,name+'ay')
     gx=model.new_int_var(-340,340,name+'gridx');gy=model.new_int_var(-340,340,name+'gridy')
@@ -88,6 +106,7 @@ for name,poly in local.items():
         model.add(bottom>=round(-boundary*scale)).only_enforce_if(enabled)
         model.add(left+w<=round(boundary*scale)).only_enforce_if(enabled)
         model.add(bottom+h<=round(boundary*scale)).only_enforce_if(enabled)
+        avoid_heads(name+str(r),ax,ay,gx,(a,b,c,d),enabled)
         tx,ty=(bx,by) if name in bottom_names else (xs,ys)
         tx.append(model.new_optional_fixed_size_interval_var(left,w,enabled,name+str(r)+'x'))
         ty.append(model.new_optional_fixed_size_interval_var(bottom,h,enabled,name+str(r)+'y'))
@@ -97,28 +116,32 @@ for name,poly in local.items():
     model.add_abs_equality(dx,ax-round(ox*scale));model.add_abs_equality(dy,ay-round(oy*scale))
     objective.extend([dx,dy]);variables[name]=(ax,ay,active,options);anchors[name]=(ax,ay)
 model.add_no_overlap_2d(xs,ys)
-if telemetry_bottom:
+if bottom_names:
     # Prevent the bottom circuitry from colliding with the motor terminal's
     # two rows of soldered pins, even while the terminal is being repositioned.
-    mx,my=anchors['J_MOTOR']
-    if 'J_MOTOR' in variables:
-        _,_,ma,mr=variables['J_MOTOR']
-    else:
-        ma,mr=[model.new_constant(1)],[placement['J_MOTOR']['pcbRotation']]
-    for r,en in zip(mr,ma):
-        for x in [-3.81,-1.27,1.27,3.81]:
-            for y in [-2.54,2.54]:
-                angle=math.radians(r);dx=x*math.cos(angle)-y*math.sin(angle);dy=x*math.sin(angle)+y*math.cos(angle)
-                ix=model.new_int_var(-2000,2000,f'motor{x}{y}{r}x');iy=model.new_int_var(-2000,2000,f'motor{x}{y}{r}y')
-                model.add(ix==mx+round((dx-1.1)*scale));model.add(iy==my+round((dy-1.1)*scale))
-                bx.append(model.new_optional_fixed_size_interval_var(ix,220,en,f'motor{x}{y}{r}bx'))
-                by.append(model.new_optional_fixed_size_interval_var(iy,220,en,f'motor{x}{y}{r}by'))
+    for name in ['J_MOTOR_A','J_MOTOR_B']:
+        mx,my=anchors[name]
+        if name in variables:
+            _,_,ma,mr=variables[name]
+        else:
+            ma,mr=[model.new_constant(1)],[placement[name]['pcbRotation']]
+        for r,en in zip(mr,ma):
+            for x in [-.4,2.1]:
+                for y in [-1.6,1.5]:
+                    angle=math.radians(r);dx=x*math.cos(angle)-y*math.sin(angle);dy=x*math.sin(angle)+y*math.cos(angle)
+                    ix=model.new_int_var(-2000,2000,f'{name}{x}{y}{r}x');iy=model.new_int_var(-2000,2000,f'{name}{x}{y}{r}y')
+                    model.add(ix==mx+round((dx-1.1)*scale));model.add(iy==my+round((dy-1.1)*scale))
+                    bx.append(model.new_optional_fixed_size_interval_var(ix,220,en,f'{name}{x}{y}{r}bx'))
+                    by.append(model.new_optional_fixed_size_interval_var(iy,220,en,f'{name}{x}{y}{r}by'))
     model.add_no_overlap_2d(bx,by)
 
 assumptions={}
 def require(name):
     literal=model.new_bool_var('require_'+name)
-    model.add(literal==int('--geometry-only' not in sys.argv));assumptions[literal.index]=name
+    if '--geometry-only' in sys.argv:model.add(literal==0)
+    elif '--explain-infeasible' in sys.argv:model.add_assumption(literal)
+    else:model.add(literal==1)
+    assumptions[literal.index]=name
     return literal
 
 def local_to(name, x, y, limit, weight=2):
@@ -137,15 +160,46 @@ old_mcu=next(e for e in components.values() if sources[e['source_component_id']]
 dx=placement['U_MCU']['pcbX']-old_mcu['center']['x'];dy=placement['U_MCU']['pcbY']-old_mcu['center']['y']
 mcupins={n:(x+dx,y+dy) for n,(x,y) in mcupins.items()}
 for name,pin in {'C_IO1':1,'C_IO10':10,'C_IO22':22,'C_IO33':33,'C_IO42':42,'C_IO49':49,'C_DV23':23,'C_DV50':50,'C_USB':48,'C_ADC':43,'C_VREG_IN':44,'C_VREG_OUT':45}.items():
-    local_to(name,*mcupins[pin],4.5,5)
-for a,b,l in [('U_BUCK','C_BOOTSTRAP',3.5),('U_BUCK','L_BUCK',7),('U_BUCK','C_BUCK_IN',7),('L_BUCK','C_BUCK_OUT1',6),('L_BUCK','C_BUCK_OUT2',6),('U_TEMP','C_TEMP',3),('U_TEMP','U_DRV',10),('U_FLASH','U_MCU',10),('U_FLASH','C_FLASH',3),('Q_BUZZER','BZ1',10),('Q_BUZZER','D_BUZZER',6)]:
+    local_to(name,*mcupins[pin],6 if name=='C_VREG_IN' else 4.5,5)
+for a,b,l in [('U_BUCK','C_BOOTSTRAP',3.5),('U_BUCK','L_BUCK',7),('U_BUCK','C_BUCK_IN',7),('L_BUCK','C_BUCK_OUT1',6),('L_BUCK','C_BUCK_OUT2',6),('U_TEMP','C_TEMP',3),('U_TEMP','U_DRV',12),('U_FLASH','U_MCU',10),('Q_BUZZER','BZ1',10),('BZ1','D_BUZZER',6)]:
     together(a,b,l)
-for n in ['R_XOUT','C_XIN','C_XOUT']:together('Y_MCU',n,3,5)
+def near_pin(child,parent,pin,limit):
+    # Measure from the actual physical pin rather than the IC/crystal centre.
+    old=next((e for e in components.values() if sources[e['source_component_id']]['name']==parent),None)
+    if old:
+        old_port=next(e for e in baseline if e['type']=='pcb_port' and e['pcb_component_id']==old['pcb_component_id'] and ports[e['source_port_id']]['pin_number']==pin)
+        theta=-math.radians(old['rotation']);vx=old_port['x']-old['center']['x'];vy=old_port['y']-old['center']['y']
+        lx=vx*math.cos(theta)-vy*math.sin(theta);ly=vx*math.sin(theta)+vy*math.cos(theta)
+    else:
+        text=(ROOT/catalog['parts'][catalog['components'][parent]]['importPath']).read_text()
+        tag=next(tag for tag in re.findall(r'<smtpad\b[^>]+>',text) if 'portHints={["pin'+str(pin)+'"]}' in tag)
+        lx=float(re.search(r'pcbX="([\d.eE+-]+)mm"',tag)[1]);ly=float(re.search(r'pcbY="([\d.eE+-]+)mm"',tag)[1])
+    cx,cy=anchors[child];px,py=anchors[parent]
+    if parent in variables:_,_,active,options=variables[parent]
+    else:active,options=[model.new_constant(1)],[placement[parent]['pcbRotation']]
+    required=require(child+'_near_'+parent+'_pin'+str(pin))
+    for i,(en,r) in enumerate(zip(active,options)):
+        theta=math.radians(r);ox=round(scale*(lx*math.cos(theta)-ly*math.sin(theta)));oy=round(scale*(lx*math.sin(theta)+ly*math.cos(theta)))
+        dx=model.new_int_var(0,7000,f'{child}pin{i}dx');dy=model.new_int_var(0,7000,f'{child}pin{i}dy')
+        model.add_abs_equality(dx,cx-px-ox);model.add_abs_equality(dy,cy-py-oy)
+        model.add(dx+dy<=round(limit*scale)).only_enforce_if([required,en])
+        cost=model.new_int_var(0,14000,f'{child}pin{i}cost');model.add(cost==dx+dy).only_enforce_if(en);model.add(cost==0).only_enforce_if(en.negated());objective.append(cost*5)
+near_pin('C_XIN','Y_MCU',1,2.5)
+near_pin('C_XOUT','Y_MCU',3,2.5)
+near_pin('R_XOUT','U_MCU',21,3.5)
+near_pin('C_FLASH','U_FLASH',8,2.5)
 for phase in ['A','B']:
-    for a,b,l in [('U_I','C_I',4),('U_I','R_I',6),('R_I','C_IADC_',3),('U_I','R_SHUNT_',12)]:
-        together(a+phase,b+phase,l,4)
+    together('R_I'+phase,'C_IADC_'+phase,3.8,4)
+    near_pin('C_I'+phase,'U_I'+phase,5,2.5)
+    near_pin('R_SHUNT_'+phase,'U_I'+phase,2,4)
+    near_pin('R_SHUNT_'+phase,'U_I'+phase,3,4)
+    near_pin('C_IADC_'+phase,'U_MCU',38 if phase=='A' else 39,3)
 for name in ['C_CP','C_VCP','C_VREG','C_DRV_LOGIC','R_SA','R_SB','C_REF','R_REF_H','R_REF_L','C_VM']:
-    together('U_DRV',name,9,3)
+    together('U_DRV',name,15 if name.startswith('R_REF_') else 12 if name in ['R_SA','R_SB'] else 9,3)
+for child,pin,limit in [('C_CP',4,3.5),('C_CP',5,3.5),('C_VCP',6,4.5),('C_VREG',8,4.5),('C_DRV_LOGIC',15,4.5),('C_REF',17,4.5),('C_VM',22,3.5),('R_SA',23,8),('R_SB',27,8)]:
+    near_pin(child,'U_DRV',pin,limit)
+local_to('C_ENCODER',1.905,-2.7051,6)
+local_to('C_ENCODER_BULK',.635,-2.7051,6)
 
 model.minimize(sum(objective))
 if "--feasibility-only" in sys.argv:model.clear_objective()
@@ -153,15 +207,17 @@ for name,(ax,ay,active,options) in variables.items():
     p=placement[name]
     model.add_hint(ax,round(p['pcbX']*scale));model.add_hint(ay,round(p['pcbY']*scale))
     for r,v in zip(options,active):model.add_hint(v,int(r==p['pcbRotation']))
-solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=120;solver.parameters.num_search_workers=8
+solver=cp_model.CpSolver();solver.parameters.max_time_in_seconds=180;solver.parameters.num_search_workers=8
 solver.parameters.stop_after_first_solution='--geometry-only' not in sys.argv
 solver.parameters.repair_hint=False
 solver.parameters.log_search_progress=True
 model.export_to_file("/tmp/nema14-v2-placement-model.pbtxt")
 status=solver.solve(model)
-result={'solver':'CP-SAT','status':solver.status_name(status),'board_mm':[34,34],
-        'original_supplier_courtyards':True,'conservative_head_circle_diameter_mm':6.4,
+result={'solver':'CP-SAT','status':solver.status_name(status),'board_mm':[34.5,34.5],
+        'preserved_full_catalog_courtyards':True,'conservative_head_circle_diameter_mm':6.4,
+        'head_check':'32 conservative supporting-line directions versus full rectangles; fixed anchors checked against exact circle',
         'telemetry_bottom':telemetry_bottom,
+        'fixed_anchor_plan':bool(anchor_plan),
         'bottom_components':sorted(bottom_names),
         'local_placement_constraints_enforced':'--geometry-only' not in sys.argv,
         'scope':'2D placement only; not routing or 3D/wire-access qualification'}

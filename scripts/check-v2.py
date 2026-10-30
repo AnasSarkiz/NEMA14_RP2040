@@ -26,10 +26,18 @@ for e in data:
 checks=[]
 def check(title, condition):
     checks.append({'check':title,'pass':bool(condition)})
-def on(name,pin,net):return connections.get((name,pin))==net
+def on(name,pin,net):
+    if (name,pin) in connections:return connections[(name,pin)]==net
+    # Supplier symbols may retain pin1/pin2/pin3 as canonical names. Resolve
+    # semantic aliases to one physical port, then inspect its actual net.
+    matches=[p for p in ports.values() if cs[p['source_component_id']]['name']==name and pin in p.get('port_hints',[])]
+    return len(matches)==1 and connections.get((name,matches[0]['name']))==net
+
+def mosfet_pin_map(name):
+    return {p['pin_number']:next((a for a in p.get('port_hints',[]) if a in ['G','D','S']),None) for p in ports.values() if cs[p['source_component_id']]['name']==name}
 
 board=next(e for e in data if e['type']=='pcb_board')
-check('34 x 34 mm, four-layer, 1.6 mm board',board['width']==34 and board['height']==34 and board['num_layers']==4 and board['thickness']==1.6)
+check('34.5 x 34.5 mm, four-layer, 1.6 mm board',board['width']==34.5 and board['height']==34.5 and board['num_layers']==4 and board['thickness']==1.6)
 mounts=[e for e in data if e['type']=='pcb_hole' and not e.get('pcb_component_id')]
 check('Original 26 mm motor hole pitch, four 3.2 mm holes',len(mounts)==4 and {(round(e['x'],6),round(e['y'],6),e.get('hole_diameter')) for e in mounts}=={(x,y,3.2) for x in [-13,13] for y in [-13,13]})
 check('Current channels reach distinct ADC0/ADC1 pins',on('U_MCU','GPIO26','I_A_ADC') and on('U_MCU','GPIO27','I_B_ADC'))
@@ -44,7 +52,17 @@ for phase,sense,out in [('A','SENSE1','OUT1A'),('B','SENSE2','OUT2A')]:
     check(phase+' output RC feeds ADC',on(amp,'OUT','I_'+phase+'_RAW') and on('R_I'+phase,'pin1','I_'+phase+'_RAW') and on('R_I'+phase,'pin2','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin1','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin2','GND'))
     r='R_S'+phase
     check(phase+' 0.24 ohm A4988 regulation resistor retained',on('U_DRV',sense,sense) and on(r,'pin1',sense) and on(r,'pin2','GND') and math.isclose(byname[r]['resistance'],.24))
-check('Phoenix four-pole terminal and all eight contacts assigned',byname['J_MOTOR']['manufacturer_part_number']=='1770979' and all(on('J_MOTOR',pole+suffix,pole) for pole in ['A_PLUS','A_MINUS','B_PLUS','B_MINUS'] for suffix in ['','_2']))
+for phase in ['A','B']:
+    name='J_MOTOR_'+phase
+    check(phase+' two-pole Phoenix terminal and all four contacts assigned',byname[name]['manufacturer_part_number']=='1770953' and all(on(name,pin,phase+'_'+net) for pin,net in [('PLUS','PLUS'),('PLUS_2','PLUS'),('MINUS','MINUS'),('MINUS_2','MINUS')]))
+check('Compact magnetic buzzer retains the 3.3 V MOSFET/flyback circuit',byname['BZ1']['manufacturer_part_number']=='MLT-5020' and on('BZ1','_POS','V3V3') and on('BZ1','_NEG','BUZZER_SINK') and on('Q_BUZZER','D','BUZZER_SINK') and on('D_BUZZER','anode','BUZZER_SINK') and on('D_BUZZER','cathode','V3V3'))
+fet_ports=mosfet_pin_map('Q_BUZZER')
+check('Compact buzzer MOSFET identity, physical pinout and grounded source',byname['Q_BUZZER']['manufacturer_part_number']=='DMN2300UFB4-7B' and fet_ports=={1:'G',2:'D',3:'S'} and on('Q_BUZZER','G','BUZZER_GATE') and on('Q_BUZZER','D','BUZZER_SINK') and on('Q_BUZZER','S','GND'))
+for color in 'RGB':
+    name='Q_STATUS_'+color;pd='R_STATUS_PD_'+color
+    physical=mosfet_pin_map(name)
+    check(color+' compact RGB MOSFET, current limiter and reset pull-down',byname[name]['manufacturer_part_number']=='DMN2300UFB4-7B' and physical=={1:'G',2:'D',3:'S'} and on(name,'G','LED_'+color) and on(name,'S','GND') and on(name,'D','STATUS_'+color+'_C') and on('R_STATUS_'+color,'pin1','STATUS_'+color+'_K') and on('R_STATUS_'+color,'pin2','STATUS_'+color+'_C') and math.isclose(byname['R_STATUS_'+color]['resistance'],1000) and on(pd,'pin1','LED_'+color) and on(pd,'pin2','GND') and math.isclose(byname[pd]['resistance'],10000))
+check('Compact flyback diode retains cathode-to-3.3 V polarity',byname['D_BUZZER']['manufacturer_part_number']=='B5819WS' and on('D_BUZZER','cathode','V3V3') and on('D_BUZZER','anode','BUZZER_SINK'))
 pcs={e['pcb_component_id']:cs[e['source_component_id']]['name'] for e in data if e['type']=='pcb_component'}
 fitted=[e for e in data if e['type']=='pcb_component' and not e.get('do_not_place') and cs[e['source_component_id']]['ftype']!='simple_test_point']
 check('All fitted components remain on the top assembly side',all(e['layer']=='top' for e in fitted))
@@ -67,7 +85,7 @@ errors=[e for e in data if e['type'].endswith('_error')]
 receipt={'stage':'unrouted engineering draft','fabrication_ready':False,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
          'checks':checks,'passed':sum(e['pass'] for e in checks),'failed':sum(not e['pass'] for e in checks),
          'native_error_count':len(errors),'native_errors':errors,'routed_trace_count':sum(e['type']=='pcb_trace' for e in data),
-         'remaining':['Final placement and mechanical/wire access review','Kelvin routing, all-net connectivity, DRC and Gerber short/drill checks','Exact motor lead gauge and available terminal procurement confirmation','Current calibration, ADC sampling and motor-switching bench checks']}
+         'remaining':['Detailed mechanical/wire/tool access review and routed-layout refinement','Kelvin routing, all-net connectivity, DRC and Gerber short/drill checks','Exact motor lead gauge and available terminal procurement confirmation','Current calibration, ADC sampling and motor-switching bench checks']}
 (ROOT/'artifacts/v2/source-review.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps({k:v for k,v in receipt.items() if k not in ['native_errors','checks']},indent=2))
 for e in checks:

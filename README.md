@@ -1,9 +1,20 @@
 # NEMA14 RP2040 V2 — engineering draft
 
-This branch contains the requested **34 × 34 mm V2** with winding-current ADC
-circuits, a compact Phoenix spring-terminal candidate and restored USB-C locating slots.
-**PCB placement/clearance errors remain, routing is absent, and terminal stock/wire fit are unresolved. Do not order this draft.**
-See [V2 design and status](docs/v2-design.md) and [generated source review](artifacts/v2/source-review.json).
+This branch contains the **34.5 × 34.5 mm V2 placement draft** with winding-current
+ADC circuits, two compact Phoenix spring terminals, restored USB-C locating
+slots, and both encoder capacitors fitted on top. The smaller buzzer and four
+small MOSFETs retain the buzzer/RGB functions; RGB gates have reset pull-downs.
+All fitted components are on top; five bare debug pads are underneath, while
+the BOOT recovery pair remains on top.
+
+The generated board has **zero native errors and zero independent placement
+errors**. This is a dense, unrouted placement seed: detailed routing and signal/
+mechanical review can still require moves. **No copper is routed. Terminal stock
+and factory motor-wire fit remain unresolved. Do not order this draft.**
+
+See the [readable placement SVG](artifacts/v2/placement.svg),
+[native PCB SVG](artifacts/v2/top.svg), [placement checks](artifacts/v2/placement-verification.json),
+[V2 design/status](docs/v2-design.md) and [electrical source review](artifacts/v2/source-review.json).
 The ordered V1 board and its public tscircuit package are unchanged.
 Sections and artifacts below describe historical V1 work.
 

@@ -61,13 +61,12 @@
     "C_DRV_LOGIC": "C1525",
     "C_VM": "C960916",
     "C_REF": "C1589",
-    "J_MOTOR": "C3818616",
     "D_PWR": "C965799",
     "R_PWR_LED": "C25104",
     "D_STATUS": "C458749",
-    "Q_STATUS_R": "C509876",
-    "Q_STATUS_G": "C509876",
-    "Q_STATUS_B": "C509876",
+    "Q_STATUS_R": "C154728",
+    "Q_STATUS_G": "C154728",
+    "Q_STATUS_B": "C154728",
     "R_STATUS_R": "C11702",
     "R_STATUS_G": "C11702",
     "R_STATUS_B": "C11702",
@@ -75,9 +74,9 @@
     "C_TEMP": "C1525",
     "R_TEMP_SDA": "C25900",
     "R_TEMP_SCL": "C25900",
-    "BZ1": "C7544813",
-    "Q_BUZZER": "C20917",
-    "D_BUZZER": "C478000",
+    "BZ1": "C94598",
+    "Q_BUZZER": "C154728",
+    "D_BUZZER": "C64886",
     "R_BUZZER_GATE": "C25076",
     "R_BUZZER_PD": "C25741",
     "C_BUZZER": "C19702",
@@ -94,7 +93,12 @@
     "R_SHUNT_B": "C7467249",
     "C_IB": "C1525",
     "R_IB": "C25076",
-    "C_IADC_B": "C15195"
+    "C_IADC_B": "C15195",
+    "J_MOTOR_A": "C3817232",
+    "J_MOTOR_B": "C3817232",
+    "R_STATUS_PD_R": "C25744",
+    "R_STATUS_PD_G": "C25744",
+    "R_STATUS_PD_B": "C25744"
   },
   "parts": {
     "C11702": {
@@ -1145,6 +1149,67 @@
       },
       "originalImportSha256": "03f447b619e4db1e9036b46038f0750bf2f52ec51a3e03540b94c13fb71e0329",
       "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C93965"
+    },
+    "C3817232": {
+      "manufacturerPartNumber": "1770953",
+      "symbol": "PHOENIX_1770953",
+      "importPath": "imports/supplier/PHOENIX_1770953/PHOENIX_1770953.tsx",
+      "modelFiles": [
+        "imports/supplier/PHOENIX_1770953/PHOENIX_1770953.envelope.obj"
+      ],
+      "sha256": {
+        "obj": "bab2411731a32fb58b91f018b2d2f98c4e85f02b8984e8d9454fb440bf207f27"
+      },
+      "importCommand": "Manual translation of published KiCad footprint, cross-checked to manufacturer 1770953 drawing; detailed EasyEDA import unavailable",
+      "geometrySource": "Manufacturer drawing and attributed KiCad footprint; manual translation",
+      "cadModelKind": "Dimensioned body and pin envelope only, not detailed supplier CAD",
+      "definitionSha256": "abca0bf592368e4c2da28a7adb6936ff8dfcddb807c169cc2b95041f8251247c"
+    },
+    "C94598": {
+      "manufacturerPartNumber": "MLT-5020",
+      "symbol": "MLT_5020",
+      "importPath": "imports/supplier/MLT_5020/MLT_5020.tsx",
+      "modelFiles": [
+        "imports/supplier/MLT_5020/MLT_5020.obj",
+        "imports/supplier/MLT_5020/MLT_5020.step"
+      ],
+      "sha256": {
+        "obj": "bb843b8f6a60474d75146187d2a08d8d5c8e1ac4b9e2ff4331cc13beef10191a",
+        "step": "867309604960a2d7b111a32890275508b957a192f906f17a71728fc991489fac"
+      },
+      "originalImportSha256": "f74b608a7e7de32403b990b723e97f8b5dc13f573e27e36544a338559e20789c",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C94598"
+    },
+    "C154728": {
+      "manufacturerPartNumber": "DMN2300UFB4-7B",
+      "symbol": "DMN2300UFB4_7B",
+      "importPath": "imports/supplier/DMN2300UFB4_7B/DMN2300UFB4_7B.tsx",
+      "modelFiles": [
+        "imports/supplier/DMN2300UFB4_7B/DMN2300UFB4_7B.obj",
+        "imports/supplier/DMN2300UFB4_7B/DMN2300UFB4_7B.step"
+      ],
+      "sha256": {
+        "obj": "310882fefbe8a4a1b7b28b691a8221ef7033e0392c7fc15bc6f78f75b555c3a2",
+        "step": "6a9b9c68d076d0fd14ee931163968ea614359a0a5dbc1f045723d3bdd3179095"
+      },
+      "originalImportSha256": "1ae21d61bbdd538191d98b924bba7f5f455a66de53701919e3e4db17e58c2269",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C154728",
+      "datasheet": "https://www.diodes.com/datasheet/download/DMN2300UFB4.pdf"
+    },
+    "C64886": {
+      "manufacturerPartNumber": "B5819WS",
+      "symbol": "B5819WS",
+      "importPath": "imports/supplier/B5819WS/B5819WS.tsx",
+      "modelFiles": [
+        "imports/supplier/B5819WS/B5819WS.obj",
+        "imports/supplier/B5819WS/B5819WS.step"
+      ],
+      "sha256": {
+        "obj": "d80b1280ab715ab64d8d0d839353d728435d675c64844a6df39248f1918a22c9",
+        "step": "9d3d6f4ee4b582bb1ba7152befc7da6217084253623b730b996aacec436ec089"
+      },
+      "originalImportSha256": "95d5915313143915efef4eb09e90250fd69e234aec97e20fed3edb8f2aa0e948",
+      "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C64886"
     }
   }
 }

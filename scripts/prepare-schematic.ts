@@ -50,7 +50,7 @@ export function prepareSchematic(json:any[]) {
   const groupId=`pro_group_${sheet}_${v.section}`;
   if(!out.some(e=>e.type==='schematic_group'&&e.schematic_group_id===groupId))out.push({type:'schematic_group',schematic_group_id:groupId,name:v.section,source_group_id:json.find(e=>e.type==='source_group')?.source_group_id,center:point(0,0),width:0,height:0,schematic_component_ids:[],show_as_schematic_box:false});
   const comp={...old,schematic_group_id:groupId,center,size,schematic_sheet_id:sheet,...(nativeUsb?{}:{is_box_with_pins:true,pin_spacing:.43}),...(def?{symbol_name:symbol,symbol_display_value:s.display_resistance??s.display_capacitance??s.display_inductance??(v.name==='Y_MCU'?'12 MHz':s.manufacturer_part_number)}:{})};if(!def&&!nativeUsb)delete comp.symbol_name;out.push(comp)
-  if(v.name==='J_MOTOR')text('Two PCB contacts per pole; pairs joined on board',v.x-size.width/2,v.y-size.height/2-.8,.17)
+  if(v.name.startsWith('J_MOTOR'))text('Two PCB contacts per pole; pairs joined on board',v.x-size.width/2,v.y-size.height/2-.8,.17)
   if(!def){text(v.name,v.x-size.width/2,v.y+size.height/2+.38,.27,'left',comp.schematic_component_id);text(s.manufacturer_part_number??'PCB contacts',v.name==='BZ1'?v.x+2:nativeUsb?v.x+size.width/2+1.8:v.x-size.width/2,v.name==='BZ1'?v.y+.9:nativeUsb?v.y-size.height/2-.15:v.y-size.height/2-.38,.21,'left',comp.schematic_component_id)}
   let left=v.left??ps.slice(0,Math.ceil(ps.length/2)).map(p=>p.name);let right=v.right??ps.filter(p=>!left.includes(p.name)).map(p=>p.name)
   if(v.left||v.right){const remaining=ps.filter(p=>!left.includes(p.name)&&!right.includes(p.name)).map(p=>p.name);right=[...right,...remaining.filter(n=>!v.top?.includes(n)&&!v.bottom?.includes(n))]}
@@ -59,8 +59,8 @@ export function prepareSchematic(json:any[]) {
    if(nativeUsb){direction=op.facing_direction;local=point(op.center.x-old.center.x+(direction==='right'?(size.width-old.size.width)/2:direction==='left'?-(size.width-old.size.width)/2:0),op.center.y-old.center.y+(direction==='up'?(size.height-old.size.height)/2:direction==='down'?-(size.height-old.size.height)/2:0))}
    else if(def){
     let target=p.name;let lp:any
-    if(/^Q_STATUS/.test(v.name))target=({pin1:'emitter',pin2:'base',pin3:'collector'} as any)[p.name]
-    else if(v.name==='Q_BUZZER')target=({pin1:'gate',pin2:'source',pin3:'drain'} as any)[p.name]
+    if(/^Q_STATUS/.test(v.name))target=({G:'gate',D:'drain',S:'source',pin1:'gate',pin2:'drain',pin3:'source'} as any)[p.name]
+    else if(v.name==='Q_BUZZER')target=({G:'gate',D:'drain',S:'source',pin1:'gate',pin2:'drain',pin3:'source'} as any)[p.name]
     else if(v.name.startsWith('TP_'))target='1'
     else if(v.name.startsWith('D_'))target=/cathode|NEG/.test(p.name)?'cathode':/anode|POS/.test(p.name)?'anode':p.pin_number===1?'anode':'cathode'
     lp=def.ports.find((a:any)=>a.labels.includes(target))??def.ports.find((a:any)=>a.labels.includes(String(p.pin_number)))
@@ -179,7 +179,7 @@ export function prepareSchematic(json:any[]) {
  }finish()
  start(4,'Stepper motor driver','A4988 phase outputs, charge pump, current limit and motor-voltage measurement')
  part({name:'U_DRV',x:15.5,y:12.3,section:'driver',box:[4.4,7.9],left:['STEP','DIR','ENABLE_N','SLEEP','REF','VDD','MS1','MS2','MS3','RESET_N','ROSC','GND','GND18','EP'],right:['VBB1','VBB2','OUT1A','OUT1B','OUT2A','OUT2B','SENSE1','SENSE2','CP1','CP2','VCP','VREG','NC7','NC20','NC25']})
- part({name:'J_MOTOR',x:28,y:13.91,section:'driver',box:[1.76,2.1],left:['A_PLUS','A_MINUS','B_PLUS','B_MINUS'],right:[]});part({name:'R_SA',x:22,y:10.9,section:'driver'});part({name:'R_SB',x:25.8,y:10.9,section:'driver'});part({name:'C_CP',x:23,y:8.4,section:'pump',symbol:'capacitor_right'});part({name:'C_VCP',x:27.5,y:8.4,section:'pump'});part({name:'C_VREG',x:29.5,y:5.2,section:'pump'})
+ part({name:'J_MOTOR_A',x:28,y:15.3,section:'driver',box:[1.9,1.25],left:['PLUS','MINUS'],right:[]});part({name:'J_MOTOR_B',x:28,y:12.4,section:'driver',box:[1.9,1.25],left:['PLUS','MINUS'],right:[]});part({name:'R_SA',x:22,y:10.9,section:'driver'});part({name:'R_SB',x:25.8,y:10.9,section:'driver'});part({name:'C_CP',x:23,y:8.4,section:'pump',symbol:'capacitor_right'});part({name:'C_VCP',x:27.5,y:8.4,section:'pump'});part({name:'C_VREG',x:29.5,y:5.2,section:'pump'})
  caption('Driver supplies','Local bulk and high-frequency bypass',.6,19);capBank(['C_VM','C_BULK'],3,16.5,'PD_VBUS');capBank(['C_DRV_LOGIC'],8.5,16.5,'V3V3')
  caption('Current reference','VREF / (8 × RSENSE) = 0.351 A nominal',.6,13.2);part({name:'R_REF_H',x:3,y:11,section:'reference'});part({name:'R_REF_L',x:3,y:8.6,section:'reference'});part({name:'C_REF',x:6.8,y:8.6,section:'reference'});connect(['R_REF_H.2','R_REF_L.1','C_REF.1'],[point(3,9.8)])
  part({name:'R_ENABLE',x:9,y:11.8,section:'driver'});part({name:'R_SLEEP',x:9,y:8.8,section:'driver'})
@@ -198,11 +198,11 @@ export function prepareSchematic(json:any[]) {
  primitive([point(25.3,18.5),point(25.3,18.05),point(22,18.05),point(28.6,18.05)])
  for(const [i,color]of ['R','G','B'].entries()){
   const x=22+i*3.3;primitive([point(x,18.05),point(x,17.6)]);primitive([point(x-.25,17.6),point(x+.25,17.6),point(x,17),point(x-.25,17.6)]);primitive([point(x-.3,17),point(x+.3,17)]);primitive([point(x,17),point(x,16.1)]);primitive([point(x+.35,17.5),point(x+.75,17.85)]);primitive([point(x+.55,17.3),point(x+.95,17.65)]);text(color,x-.05,16.55,.19,'center',rgb.comp.schematic_component_id)
-  part({name:'R_STATUS_'+color,x,y:14.8,section:'rgb',symbol:'boxresistor_down'});part({name:'Q_STATUS_'+color,x:x-.3625,y:12.7,section:'rgb',symbol:'npn_bipolar_transistor_down'})
+  part({name:'R_STATUS_'+color,x,y:14.8,section:'rgb',symbol:'boxresistor_down'});part({name:'Q_STATUS_'+color,x:x-.3625,y:12.7,section:'rgb',symbol:'n_channel_e_mosfet_transistor_gate_left_drain_top'});part({name:'R_STATUS_PD_'+color,x:x-1.1,y:10.4,section:'rgb'})
  }
- text('DTC114E: NPN with internal input/bias resistors.',16,9.8,.22)
- caption('PWM buzzer','120 mA magnetic load; MOSFET drive and flyback diode',.6,9.3)
- part({name:'BZ1',x:9.4,y:6.5,section:'buzzer',box:[2.5,2.3],left:['_POS','_NEG'],right:['NC1','NC2']});part({name:'Q_BUZZER',x:8.5,y:3.8,section:'buzzer',symbol:'n_channel_e_mosfet_transistor_gate_left_drain_top'});part({name:'R_BUZZER_GATE',x:3.8,y:4.6,section:'buzzer',symbol:'boxresistor_right'});part({name:'R_BUZZER_PD',x:5.8,y:3.6,section:'buzzer'});part({name:'D_BUZZER',x:14,y:6.5,section:'buzzer',symbol:'diode_up'});part({name:'C_BUZZER',x:17,y:6.5,section:'buzzer'})
+ text('3.3 V gates; 10k external pull-downs keep RGB off during reset.',16,9.0,.22)
+ caption('PWM buzzer','100 mA magnetic load; 4 kHz target; MOSFET and flyback diode',.6,9.3)
+ part({name:'BZ1',x:9.4,y:6.5,section:'buzzer',box:[2.5,2.3],left:['_POS','_NEG'],right:['NC']});part({name:'Q_BUZZER',x:8.5,y:3.8,section:'buzzer',symbol:'n_channel_e_mosfet_transistor_gate_left_drain_top'});part({name:'R_BUZZER_GATE',x:3.8,y:4.6,section:'buzzer',symbol:'boxresistor_right'});part({name:'R_BUZZER_PD',x:5.8,y:3.6,section:'buzzer'});part({name:'D_BUZZER',x:14,y:6.5,section:'buzzer',symbol:'diode_up'});part({name:'C_BUZZER',x:17,y:6.5,section:'buzzer'})
  caption('Power indication','3.3 V rail present; RGB/buzzer require firmware',22,8.6);part({name:'R_PWR_LED',x:25,y:6.2,section:'power_led'});part({name:'D_PWR',x:25,y:3.8,section:'power_led',symbol:'led_down'});finish()
  start(6,'Optional encoder (DNP)','AS5600 optional on bottom; 100 nF and 1 µF supply capacitors fitted on top')
  caption('Future magnetic shaft position','Nominal sensor centre (0, 0); rear shaft/magnet geometry remains unverified',.6,19)

@@ -2,13 +2,13 @@ import React from "react"
 import { pinProps } from "./pin-attributes"
 import { SupplierPart } from "./supplier-parts"
 import placements from "./supplier-placement.json"
-const place=(name:string)=>(placements as Record<string,{pcbX:number,pcbY:number,pcbRotation:number}>)[name]
+const place=(name:string)=>(placements as Record<string,{pcbX:number,pcbY:number,pcbRotation:number,layer?:"top"|"bottom"}>)[name]
 import { SchematicNotes } from "./schematic-notes"
 import { BottomMarkings } from "./bottom-markings"
 
-// V2 draft: preserve the NEMA14 26 mm mounting-hole pitch while trimming 0.5 mm per edge.
+// V2 draft: preserve the NEMA14 26 mm mounting-hole pitch while trimming 0.25 mm per edge.
 // Circular Ø6.4 mm head envelope includes a defined 0.2 mm radial allowance; rear mounting is unverified.
-export const mechanical = { width: 34, height: 34, holePitch: 26, holeDiameter: 3.2, headEnvelopeRadius: 3.2, usbEdgeSeparation: 29.3 }
+export const mechanical = { width: 34.5, height: 34.5, holePitch: 26, holeDiameter: 3.2, headEnvelopeRadius: 3.2, usbEdgeSeparation: 29.3 }
 const n = (name: string) => `net.${name}`
 const mcuPins = {"pin1": "IOVDD1", "pin2": "GPIO0", "pin3": "GPIO1", "pin4": "GPIO2", "pin5": "GPIO3", "pin6": "GPIO4", "pin7": "GPIO5", "pin8": "GPIO6", "pin9": "GPIO7", "pin10": "IOVDD10", "pin11": "GPIO8", "pin12": "GPIO9", "pin13": "GPIO10", "pin14": "GPIO11", "pin15": "GPIO12", "pin16": "GPIO13", "pin17": "GPIO14", "pin18": "GPIO15", "pin19": "TESTEN", "pin20": "XIN", "pin21": "XOUT", "pin22": "IOVDD22", "pin23": "DVDD23", "pin24": "SWCLK", "pin25": "SWDIO", "pin26": "RUN", "pin27": "GPIO16", "pin28": "GPIO17", "pin29": "GPIO18", "pin30": "GPIO19", "pin31": "GPIO20", "pin32": "GPIO21", "pin33": "IOVDD33", "pin34": "GPIO22", "pin35": "GPIO23", "pin36": "GPIO24", "pin37": "GPIO25", "pin38": "GPIO26", "pin39": "GPIO27", "pin40": "GPIO28", "pin41": "GPIO29", "pin42": "IOVDD42", "pin43": "ADC_AVDD", "pin44": "VREG_IN", "pin45": "VREG_OUT", "pin46": "USB_DM", "pin47": "USB_DP", "pin48": "USB_VDD", "pin49": "IOVDD49", "pin50": "DVDD50", "pin51": "QSPI_SD3", "pin52": "QSPI_SCLK", "pin53": "QSPI_SD0", "pin54": "QSPI_SD2", "pin55": "QSPI_SD1", "pin56": "QSPI_SS", "pin57": "GND"} as const
 const driverPins = {pin1:"OUT2B",pin2:"ENABLE_N",pin3:"GND",pin4:"CP1",pin5:"CP2",pin6:"VCP",pin7:"NC7",pin8:"VREG",pin9:"MS1",pin10:"MS2",pin11:"MS3",pin12:"RESET_N",pin13:"ROSC",pin14:"SLEEP",pin15:"VDD",pin16:"STEP",pin17:"REF",pin18:"GND18",pin19:"DIR",pin20:"NC20",pin21:"OUT1B",pin22:"VBB1",pin23:"SENSE1",pin24:"OUT1A",pin25:"NC25",pin26:"OUT2A",pin27:"SENSE2",pin28:"VBB2",pin29:"EP"} as const
@@ -97,11 +97,14 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   {cap('C_REF','10nF','VREF')}
   {resistor('R_ENABLE','100k','V3V3','ENABLE_N')}
   {resistor('R_SLEEP','100k','SLEEP','GND')}
-  <SupplierPart name="J_MOTOR" {...pinProps("J_MOTOR")} {...place("J_MOTOR")} connections={{A_PLUS:n("A_PLUS"),A_PLUS_2:n("A_PLUS"),A_MINUS:n("A_MINUS"),A_MINUS_2:n("A_MINUS"),B_PLUS:n("B_PLUS"),B_PLUS_2:n("B_PLUS"),B_MINUS:n("B_MINUS"),B_MINUS_2:n("B_MINUS")}} />
+  {(['A','B'] as const).map(phase=><SupplierPart key={'J_MOTOR_'+phase} name={'J_MOTOR_'+phase} pinAttributes={{PLUS:{includeInBoardPinout:true},MINUS:{includeInBoardPinout:true}}} {...place('J_MOTOR_'+phase)} connections={{PLUS:n(phase+'_PLUS'),PLUS_2:n(phase+'_PLUS'),MINUS:n(phase+'_MINUS'),MINUS_2:n(phase+'_MINUS')}} />)}
   <SupplierPart name="U_ESD" {...pinProps("U_ESD")}  pinLabels={{pin1:"DP1",pin2:"GND",pin3:"DM1",pin4:"DM2",pin5:"VBUS",pin6:"DP2"}} {...place("U_ESD")} connections={{DP1:n("USB_DP"),DP2:n("USB_DP"),DM1:n("USB_DM"),DM2:n("USB_DM"),VBUS:n("DATA_VBUS"),GND:n("GND")}} />
   <SupplierPart name="D_TVS" {...place("D_TVS")} connections={{pin1:n("GND"),pin2:n("PD_VBUS")}} />
   <silkscreentext text="NEMA14 RP2040 V2" pcbX={0} pcbY={-16.45} fontSize={1} />
-  <silkscreentext text="A+ A- B+ B-" pcbX={-10.1} pcbY={-9.1} fontSize={.65} />
+  <silkscreentext text="A+" pcbX={-14.1} pcbY={3.35} fontSize={.5} />
+  <silkscreentext text="A-" pcbX={-11.6} pcbY={3.35} fontSize={.5} />
+  <silkscreentext text="B+" pcbX={-14.1} pcbY={9.4} fontSize={.5} />
+  <silkscreentext text="B-" pcbX={-11.6} pcbY={9.4} fontSize={.5} />
 
   {/* Reference feedback: TMP102 I2C address 0x48; alerts handled by application firmware. */}
   <SupplierPart name="U_TEMP" {...pinProps("U_TEMP")} {...place("U_TEMP")} noConnect={['ALERT']} connections={{SCL:n('TEMP_SCL'),GND:n('GND'),ADD0:n('GND'),V_POS:n('V3V3'),SDA:n('TEMP_SDA')}} />
@@ -114,9 +117,10 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <SupplierPart name="D_STATUS" {...pinProps("D_STATUS")} {...place("D_STATUS")} connections={{_POS:n('DATA_VBUS'),R_NEG:n('STATUS_R_K'),G_NEG:n('STATUS_G_K'),B_NEG:n('STATUS_B_K')}} />
   {(['R','G','B'] as const).map(color=><React.Fragment key={'status_'+color}>
     {resistor('R_STATUS_'+color,'1k','STATUS_'+color+'_K','STATUS_'+color+'_C')}
-    <SupplierPart name={'Q_STATUS_'+color} {...pinProps('Q_STATUS_'+color)} {...place('Q_STATUS_'+color)} connections={{E:n('GND'),B:n('LED_'+color),C:n('STATUS_'+color+'_C')}} />
+    <SupplierPart name={'Q_STATUS_'+color} {...pinProps('Q_STATUS_'+color)} {...place('Q_STATUS_'+color)} connections={{S:n('GND'),G:n('LED_'+color),D:n('STATUS_'+color+'_C')}} />
+    {resistor('R_STATUS_PD_'+color,'10k','LED_'+color,'GND')}
   </React.Fragment>)}
-  <SupplierPart name="BZ1" {...pinProps("BZ1")} {...place("BZ1")} noConnect={['NC1','NC2']} connections={{_POS:n('V3V3'),_NEG:n('BUZZER_SINK')}} />
+  <SupplierPart name="BZ1" {...pinProps("BZ1")} {...place("BZ1")} noConnect={['NC']} connections={{_POS:n('V3V3'),_NEG:n('BUZZER_SINK')}} />
   <SupplierPart name="Q_BUZZER" {...pinProps("Q_BUZZER")} {...place("Q_BUZZER")} connections={{G:n('BUZZER_GATE'),S:n('GND'),D:n('BUZZER_SINK')}} />
   <SupplierPart name="D_BUZZER" {...place("D_BUZZER")} connections={{cathode:n('V3V3'),anode:n('BUZZER_SINK')}} />
   {resistor('R_BUZZER_GATE','100','BUZZER_PWM','BUZZER_GATE')}
@@ -127,8 +131,8 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
   <testpoint name="TP_SWCLK" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_SWCLK")} connections={{pin1:n("SWCLK")}} />
   <testpoint name="TP_SWDIO" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_SWDIO")} connections={{pin1:n("SWDIO")}} />
   <testpoint name="TP_RUN" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_RUN")} connections={{pin1:n("RUN")}} />
-  <testpoint name="TP_BOOT" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT")} connections={{pin1:n("BOOT_PAD")}} />
-  <testpoint name="TP_BOOT_GND" layer="top" footprintVariant="pad" padDiameter="1.1mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.55} /><courtyardoutline outline={[{x:-.7,y:-.7},{x:.7,y:-.7},{x:.7,y:.7},{x:-.7,y:.7},{x:-.7,y:-.7}]} /></footprint>} {...place("TP_BOOT_GND")} connections={{pin1:n("GND")}} />
+  <testpoint name="TP_BOOT" layer="top" footprintVariant="pad" padDiameter="0.8mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.4} /><courtyardoutline outline={[{x:-.5,y:-.5},{x:.5,y:-.5},{x:.5,y:.5},{x:-.5,y:.5},{x:-.5,y:-.5}]} /></footprint>} {...place("TP_BOOT")} connections={{pin1:n("BOOT_PAD")}} />
+  <testpoint name="TP_BOOT_GND" layer="top" footprintVariant="pad" padDiameter="0.8mm" footprint={<footprint><smtpad portHints={["pin1"]} shape="circle" radius={.4} /><courtyardoutline outline={[{x:-.5,y:-.5},{x:.5,y:-.5},{x:.5,y:.5},{x:-.5,y:.5},{x:-.5,y:-.5}]} /></footprint>} {...place("TP_BOOT_GND")} connections={{pin1:n("GND")}} />
   <silkscreentext text="PWR" pcbX={-5.2} pcbY={14.6} pcbRotation={90} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   <silkscreentext text="DATA" layer="bottom" pcbX={-5} pcbY={-15.9} fontSize={0.8} isKnockout={true} knockoutPadding={0.25} />
   {/* Optional bottom AS5600; its two supply capacitors are fitted on top. Motor/magnet fit remains unverified. */}
