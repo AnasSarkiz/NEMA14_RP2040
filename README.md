@@ -15,6 +15,13 @@ and factory motor-wire fit remain unresolved. Do not order this draft.**
 See the [readable placement SVG](artifacts/v2/placement.svg),
 [native PCB SVG](artifacts/v2/top.svg), [placement checks](artifacts/v2/placement-verification.json),
 [V2 design/status](docs/v2-design.md) and [electrical source review](artifacts/v2/source-review.json).
+To view from a computer that cannot reach this cloud workspace's localhost,
+[download the standalone V2 viewer](artifacts/v2/NEMA14-V2-viewer.html) and open
+it in Chrome. PCB, schematic and 3D tabs use the embedded board, viewer, 45 OBJ
+models, Manifold runtime and Latin fonts. No local server or dependency install
+is needed. Regenerate it with `npm run preview:v2:portable`. See the
+[browser smoke check](artifacts/v2/portable-viewer-verification.json).
+
 The ordered V1 board and its public tscircuit package are unchanged.
 Sections and artifacts below describe historical V1 work.
 

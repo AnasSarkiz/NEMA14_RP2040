@@ -33,7 +33,8 @@
     "check:v2": "python3 scripts/check-v2.py --require-release",
     "check:v2:source": "python3 scripts/check-v2.py && node scripts/check-native-schema.mjs artifacts/v2/source.circuit.json && bun scripts/check-v2-drills.ts",
     "check:v2:placement": "/workspace/.routing-venv/bin/python scripts/verify-v2-placement.py",
-    "render:v2:placement": "/workspace/.routing-venv/bin/python scripts/render-v2-placement.py"
+    "render:v2:placement": "/workspace/.routing-venv/bin/python scripts/render-v2-placement.py",
+    "preview:v2:portable": "python3 scripts/make-v2-portable-viewer.py"
   },
   "repository": {
     "type": "git",

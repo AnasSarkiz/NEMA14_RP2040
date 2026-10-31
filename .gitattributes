@@ -1,3 +1,6 @@
 # Preserve exact supplier CAD bytes and keep mesh/solid data out of text diffs.
 *.step -text -diff
 *.obj -text -diff
+
+# Generated single-file viewer contains an embedded minified runtime and assets.
+artifacts/v2/NEMA14-V2-viewer.html -text -diff
