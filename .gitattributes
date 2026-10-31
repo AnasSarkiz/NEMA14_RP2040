@@ -4,3 +4,7 @@
 
 # Generated single-file viewer contains an embedded minified runtime and assets.
 artifacts/v2/NEMA14-V2-viewer.html -text -diff
+
+# Upstream viewer assets retain their exact published whitespace.
+references/viewer/manifold-3.2.1/manifold.js -whitespace
+references/viewer/fonts/OFL.txt -whitespace
