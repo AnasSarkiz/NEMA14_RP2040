@@ -1,5 +1,9 @@
 # Release-actuated motor terminal candidate — 1 November 2026
 
+**Superseded:** The user reports $9.34 and requests WAGO instead. See
+[WAGO decision](terminal-wago-2026-11-01.md). The catalog mirror price below
+is not a JLCPCB quote and must not be used to promise a purchase price.
+
 The user prefers deliberate wire release to the AVX twist-and-pull arrangement.
 The preferred compact mechanical candidate is now one **Phoenix 1770979 /
 PTSM 0,5/4-2,5-V THR R44**, [JLCPCB C3818616](https://jlcpcb.com/partdetail/PhoenixContact-1770979/C3818616).

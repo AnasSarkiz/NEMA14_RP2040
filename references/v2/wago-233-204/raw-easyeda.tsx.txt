@@ -1,0 +1,48 @@
+import objPath from "./A_233_204.obj"
+import stepPath from "./A_233_204.step"
+import type { ChipProps } from "@tscircuit/props"
+
+const pinLabels = {
+  pin1: ["pin1"],
+  pin2: ["pin2"],
+  pin3: ["pin3"],
+  pin4: ["pin4"]
+} as const
+
+export const A_233_204 = (props: ChipProps<typeof pinLabels>) => {
+  return (
+    <chip
+      pinLabels={pinLabels}
+      supplierPartNumbers={{
+  "jlcpcb": [
+    "C3310192"
+  ]
+}}
+      manufacturerPartNumber="233-204"
+      footprint={<footprint>
+        <platedhole  portHints={["pin1"]} pcbX="-3.750056mm" pcbY="-2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin2"]} pcbX="-1.249934mm" pcbY="-2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin3"]} pcbX="1.249934mm" pcbY="-2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin4"]} pcbX="3.750056mm" pcbY="-2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin4"]} pcbX="3.750056mm" pcbY="2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin3"]} pcbX="1.249934mm" pcbY="2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin2"]} pcbX="-1.249934mm" pcbY="2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<platedhole  portHints={["pin1"]} pcbX="-3.750056mm" pcbY="2.499995mm" outerDiameter="1.5999968mm" holeDiameter="0.999998mm" shape="circle" />
+<silkscreenpath route={[{"x":5.84992479999994,"y":4.999990000000025},{"x":-6.4500505999999405,"y":4.999990000000025}]} />
+<silkscreenpath route={[{"x":-6.4500505999999405,"y":4.999990000000025},{"x":-6.4500505999999405,"y":-7.299985399999969}]} />
+<silkscreenpath route={[{"x":5.84992479999994,"y":-7.299985399999969},{"x":-6.4500505999999405,"y":-7.299985399999969}]} />
+<silkscreenpath route={[{"x":5.849873999999886,"y":-7.299985399999969},{"x":5.849873999999886,"y":4.999990000000025}]} />
+<silkscreentext text="{NAME}" pcbX="-0.308356mm" pcbY="6.069205mm" anchorAlignment="center" fontSize="1mm" />
+<fabricationnotepath route={[{"x":-6.222974600000157,"y":4.953000000000088},{"x":-6.222974600000157,"y":-7.1119745999999395},{"x":5.588000000000079,"y":-7.1119745999999395},{"x":5.588000000000079,"y":4.8260000000001355},{"x":-5.969000000000051,"y":4.8260000000001355},{"x":-5.8419999999999845,"y":4.953000000000088},{"x":-5.969000000000051,"y":5.080000000000041},{"x":5.715000000000032,"y":5.080000000000041},{"x":5.804802561210522,"y":5.042802561210806},{"x":5.8419999999999845,"y":4.953000000000088},{"x":5.8419999999999845,"y":-7.238974600000006},{"x":5.804802561210522,"y":-7.32877716121061},{"x":5.715000000000032,"y":-7.365974599999959},{"x":-6.34997460000011,"y":-7.365974599999959},{"x":-6.439777161210827,"y":-7.32877716121061},{"x":-6.476974600000062,"y":-7.238974600000006},{"x":-6.476974600000062,"y":4.953000000000088},{"x":-6.34997460000011,"y":4.8260000000001355},{"x":-6.222974600000157,"y":4.953000000000088}]} strokeWidth="0.254mm" />
+<courtyardoutline outline={[{"x":-6.7019809999999325,"y":5.265991999999983},{"x":6.097994399999948,"y":5.265991999999983},{"x":6.097994399999948,"y":-7.5639807999999675},{"x":-6.7019809999999325,"y":-7.5639807999999675},{"x":-6.7019809999999325,"y":5.265991999999983}]} />
+      </footprint>}
+      cadModel={{
+        objUrl: objPath,
+        stepUrl: stepPath,
+        pcbRotationOffset: 0,
+        modelOriginPosition: { x: -1.0360167000000646, y: 7.373187499999992, z: -0.8741880000000002 },
+      }}
+      {...props}
+    />
+  )
+}
