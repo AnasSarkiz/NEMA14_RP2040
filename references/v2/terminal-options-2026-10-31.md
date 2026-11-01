@@ -1,5 +1,10 @@
 # Compact motor terminal proposal — 31 October 2026
 
+**Update, 1 November:** the user rejected the twist-and-pull AVX direction.
+The [Phoenix release-actuated alternative](terminal-release-alternative-2026-11-01.md)
+fits the original V2 connector area without moving the other parts. The AVX
+study below is historical and is not the current recommendation.
+
 The best compact candidate found is **KYOCERA AVX 009296004202906**,
 four-position enclosed horizontal poke-home spring connector. Its newly found
 [JLCPCB listing is C21619069](https://jlcpcb.com/partdetail/KyoceraAVX-009296004202906/C21619069),
