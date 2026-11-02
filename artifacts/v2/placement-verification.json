@@ -1,6 +1,6 @@
 {
   "passed": true,
-  "source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
+  "source_sha256": "d0b186a12789455240b003b6024c7acc70274d68703c1f5b692805122da6f2cc",
   "board_mm": [
     34.5,
     34.5
@@ -14,10 +14,10 @@
     "TP_SWDIO",
     "TP_RUN"
   ],
-  "minimum_courtyard_gap_mm": 0.004949300000066437,
+  "minimum_courtyard_gap_mm": 0.003723400000167132,
   "minimum_copper_to_board_edge_mm": 0.25100559999999916,
   "screw_head_envelope_diameter_mm": 6.4,
-  "critical_proximity_check_count": 62,
+  "critical_proximity_check_count": 65,
   "critical_proximity_checks": [
     {
       "type": "pair",
@@ -88,7 +88,7 @@
       "child": "U_FLASH",
       "parent": "U_MCU",
       "limit_mm": 10,
-      "actual_distance_mm": 9.290000000000001,
+      "actual_distance_mm": 9.115000000000002,
       "passed": true
     },
     {
@@ -159,7 +159,7 @@
       "local_x": 3.424936,
       "local_y": 2.600071,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.4551349999999985,
+      "actual_distance_mm": 4.110134999999999,
       "passed": true
     },
     {
@@ -170,7 +170,7 @@
       "local_x": 0.199898,
       "local_y": 3.425063,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.4450389999999995,
+      "actual_distance_mm": 4.039835,
       "passed": true
     },
     {
@@ -192,7 +192,7 @@
       "local_x": -0.200152,
       "local_y": 3.425063,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.479785000000001,
+      "actual_distance_mm": 4.489785,
       "passed": true
     },
     {
@@ -203,7 +203,7 @@
       "local_x": 0.599948,
       "local_y": 3.425063,
       "limit_mm": 4.5,
-      "actual_distance_mm": 3.454885,
+      "actual_distance_mm": 4.0749889999999995,
       "passed": true
     },
     {
@@ -214,7 +214,7 @@
       "local_x": 2.599944,
       "local_y": 3.425063,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.464993,
+      "actual_distance_mm": 3.910118999999999,
       "passed": true
     },
     {
@@ -225,7 +225,7 @@
       "local_x": 2.199894,
       "local_y": 3.425063,
       "limit_mm": 6,
-      "actual_distance_mm": 5.945042999999999,
+      "actual_distance_mm": 2.014831000000001,
       "passed": true
     },
     {
@@ -236,7 +236,7 @@
       "local_x": 1.799844,
       "local_y": 3.425063,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.285092999999999,
+      "actual_distance_mm": 4.0500929999999995,
       "passed": true
     },
     {
@@ -281,7 +281,7 @@
       "local_y": 1.4732,
       "limit_mm": 2.5,
       "child_pin": 1,
-      "actual_distance_mm": 2.44671425,
+      "actual_distance_mm": 1.5968857500000002,
       "passed": true
     },
     {
@@ -308,13 +308,43 @@
     },
     {
       "type": "pin",
+      "child": "R_DM",
+      "parent": "U_MCU",
+      "pin": 46,
+      "local_x": 1.400048,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 3.3498889999999992,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_DP",
+      "parent": "U_MCU",
+      "pin": 47,
+      "local_x": 0.999998,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 2.5649350000000006,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "R_DM",
+      "parent": "R_DP",
+      "limit_mm": 2.5,
+      "actual_distance_mm": 1.7249999999999999,
+      "passed": true
+    },
+    {
+      "type": "pin",
       "child": "R_IA",
       "parent": "U_IA",
       "pin": 8,
       "local_x": -0.975106,
       "local_y": 2.927096,
       "limit_mm": 4.5,
-      "actual_distance_mm": 2.6480100000000006,
+      "actual_distance_mm": 4.447798,
       "passed": true
     },
     {
@@ -322,7 +352,7 @@
       "child": "R_IA",
       "parent": "C_IADC_A",
       "limit_mm": 12,
-      "actual_distance_mm": 10.1,
+      "actual_distance_mm": 10.325,
       "passed": true
     },
     {
@@ -333,7 +363,7 @@
       "local_x": 0.975106,
       "local_y": 2.927096,
       "limit_mm": 2.5,
-      "actual_distance_mm": 1.7977980000000011,
+      "actual_distance_mm": 2.4977979999999995,
       "passed": true
     },
     {
@@ -344,7 +374,7 @@
       "local_x": -0.324866,
       "local_y": -2.927096,
       "limit_mm": 4,
-      "actual_distance_mm": 2.83777,
+      "actual_distance_mm": 3.2022299999999984,
       "passed": true
     },
     {
@@ -355,7 +385,7 @@
       "local_x": 0.32512,
       "local_y": -2.927096,
       "limit_mm": 4,
-      "actual_distance_mm": 2.1877839999999997,
+      "actual_distance_mm": 3.8522159999999985,
       "passed": true
     },
     {
@@ -366,7 +396,7 @@
       "local_x": 3.424936,
       "local_y": 1.000125,
       "limit_mm": 3,
-      "actual_distance_mm": 2.9249390000000006,
+      "actual_distance_mm": 2.760188999999999,
       "passed": true
     },
     {
@@ -377,7 +407,7 @@
       "local_x": -0.975106,
       "local_y": 2.927096,
       "limit_mm": 4.5,
-      "actual_distance_mm": 4.23199,
+      "actual_distance_mm": 4.48199,
       "passed": true
     },
     {
@@ -385,7 +415,7 @@
       "child": "R_IB",
       "parent": "C_IADC_B",
       "limit_mm": 12,
-      "actual_distance_mm": 4.68,
+      "actual_distance_mm": 5.375,
       "passed": true
     },
     {
@@ -429,7 +459,7 @@
       "local_x": 3.424936,
       "local_y": 1.399921,
       "limit_mm": 3,
-      "actual_distance_mm": 2.4649849999999995,
+      "actual_distance_mm": 2.1099849999999996,
       "passed": true
     },
     {
@@ -617,7 +647,7 @@
       "x": 1.905,
       "y": -2.7051,
       "limit_mm": 6,
-      "actual_distance_mm": 5.9901,
+      "actual_distance_mm": 1.9999000000000005,
       "passed": true
     },
     {
@@ -626,7 +656,7 @@
       "x": 0.635,
       "y": -2.7051,
       "limit_mm": 6,
-      "actual_distance_mm": 0.8899,
+      "actual_distance_mm": 5.5201,
       "passed": true
     }
   ],

@@ -1,11 +1,23 @@
 """Make a single-file, read-only tscircuit preview; never exports manufacturing files."""
-import base64, hashlib, json, re
+import argparse, base64, hashlib, html as html_escape, json, re
 from pathlib import Path
 from urllib.parse import urlparse, unquote
 
 ROOT=Path(__file__).resolve().parents[1]
-source=ROOT/'artifacts/v2/source.circuit.json'
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source',type=Path,default=ROOT/'artifacts/v2/source.circuit.json')
+parser.add_argument('--output',type=Path,default=ROOT/'artifacts/v2/NEMA14-V2-viewer.html')
+parser.add_argument('--notice',default='Placement draft · Unrouted · Not for ordering')
+parser.add_argument('--native-drc',type=Path,help='Append hash-matched native errors to the display only')
+args=parser.parse_args()
+source=args.source
 circuit=json.loads(source.read_text())
+if args.native_drc:
+    drc=json.loads(args.native_drc.read_text())
+    assert drc['source_sha256']==hashlib.sha256(source.read_bytes()).hexdigest(),'DRC report does not match the preview source'
+    # Preserve the raw candidate for independent checks. The viewer must show
+    # its actual open-connection diagnostics rather than an empty error list.
+    circuit.extend(drc['errors'])
 assets={}
 for element in circuit:
     if element['type']!='cad_component':continue
@@ -68,7 +80,9 @@ window.CIRCUIT_JSON_PREVIEW_PROPS={defaultActiveTab:'pcb',showRightHeaderContent
 window.addEventListener('error',e=>{console.error('Viewer error:',e.message)});
 </script><script type="module">BUNDLE</script></body></html>'''
 html=html.replace('ASSETS;',script_json(assets)+';',1).replace('CIRCUIT;',script_json(circuit)+';',1).replace('BUNDLE</script>',preload+js+'</script>',1)
+html=html.replace('Placement draft · Unrouted · Not for ordering',html_escape.escape(args.notice),1)
 html=html.replace('<title>',f'<!-- Source SHA256: {sha}; runframe {version}; models embedded, no manufacturing export. -->\n<title>',1)
-output=ROOT/'artifacts/v2/NEMA14-V2-viewer.html'
+output=args.output
+output.parent.mkdir(parents=True,exist_ok=True)
 output.write_text(html)
 print(json.dumps({'path':str(output),'bytes':output.stat().st_size,'source_sha256':sha,'runframe_version':version,'embedded_obj_models':len(assets),'pcb_renderer':'native Canvas'}))

@@ -7,7 +7,8 @@ USB-C is at the top. The four Ø3.2 mm mounting holes remain on a 26 mm square;
 their Ø6.4 mm screw-head envelopes are retained.
 
 The ordered V1 board, its manufacturing files and its public tscircuit package
-are unchanged. This branch is an **unrouted engineering draft**, not a release.
+are unchanged. The placement seed is unrouted; an isolated initial routing
+candidate is now available in [the routing review](v2-routing.md). Neither is a release.
 
 ## Terminal and retained functions
 
@@ -62,7 +63,7 @@ positions using the active supplier pin geometry, rather than V1 package offsets
 
 - `npm run build:v2`: native circuit generation, PCB previews and seven schematic sheets.
 - `npm run check:v2:source`: 33 electrical/source checks, native schema and both restored USB locating slots.
-- `npm run check:v2:placement`: 99 top and six bottom courtyards, board bounds, screw-head envelopes, terminal drills, pad-to-edge clearance and 62 proximity checks.
+- `npm run check:v2:placement`: 99 top and six bottom courtyards, board bounds, screw-head envelopes, terminal drills, pad-to-edge clearance and 65 proximity checks.
 - `npm run check:v2:schematic`: native schematic placement check for V2.
 - [Physical pin/net preservation](../artifacts/v2/net-preservation.json): all 338 non-motor connected pin assignments match V2 baseline `682481f`.
 
@@ -71,7 +72,9 @@ courtyard gap is about 0.005 mm between complete courtyard margins; this is not
 a copper-gap measurement. Actual pad envelopes meet the configured 0.25 mm
 board-edge minimum. This is a dense placement, with little spare edge margin.
 
-There are **zero routed traces**. USB series resistors, QSPI, voltage-divider
+The placement seed has **zero routed traces**. The initial copper candidate and
+its unresolved opens are documented in [the routing review](v2-routing.md).
+USB series resistors, QSPI, voltage-divider
 filters, Kelvin branches, driver return paths and power/ground loops require
 review against actual routing, which may require moving parts. Wire/button/tool
 access, assembled-motor clearance and supplier drill tolerances need mechanical

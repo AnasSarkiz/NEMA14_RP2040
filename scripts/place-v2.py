@@ -219,6 +219,9 @@ near_pin('R_XOUT','U_MCU',21,3.5)
 near_pin('C_FLASH','U_FLASH',8,2.5,child_pin=1)
 near_pin('C_PD','U_PD',1,6.5)
 near_pin('C_BUZZER','BZ1',1,3.5)
+near_pin('R_DM','U_MCU',46,4.5)
+near_pin('R_DP','U_MCU',47,4.5)
+together('R_DM','R_DP',2.5)
 for phase in ['A','B']:
     # Isolate the INA240 output before the ADC trace and capacitive load.
     near_pin('R_I'+phase,'U_I'+phase,8,4.5)

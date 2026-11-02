@@ -245,6 +245,30 @@
     },
     {
       "type": "pin",
+      "child": "R_DM",
+      "parent": "U_MCU",
+      "pin": 46,
+      "local_x": 1.400048,
+      "local_y": 3.425063,
+      "limit_mm": 4.5
+    },
+    {
+      "type": "pin",
+      "child": "R_DP",
+      "parent": "U_MCU",
+      "pin": 47,
+      "local_x": 0.999998,
+      "local_y": 3.425063,
+      "limit_mm": 4.5
+    },
+    {
+      "type": "pair",
+      "child": "R_DM",
+      "parent": "R_DP",
+      "limit_mm": 2.5
+    },
+    {
+      "type": "pin",
       "child": "R_IA",
       "parent": "U_IA",
       "pin": 8,
@@ -537,9 +561,9 @@
       "pcbRotation": 90
     },
     "U_FLASH": {
-      "pcbX": 3.3,
-      "pcbY": -2.6,
-      "pcbRotation": 90
+      "pcbX": 3.35,
+      "pcbY": -2.375,
+      "pcbRotation": 180
     },
     "U_BUCK": {
       "pcbX": 6.6,
@@ -587,14 +611,14 @@
       "pcbRotation": 180
     },
     "R_DM": {
-      "pcbX": 16.475,
-      "pcbY": -15.225,
-      "pcbRotation": 90
+      "pcbX": -0.925,
+      "pcbY": -2.9,
+      "pcbRotation": 180
     },
     "R_DP": {
-      "pcbX": -16.725,
-      "pcbY": -14.95,
-      "pcbRotation": 270
+      "pcbX": -0.25,
+      "pcbY": -1.85,
+      "pcbRotation": 0
     },
     "R_CC1": {
       "pcbX": 16.725,
@@ -612,9 +636,9 @@
       "pcbRotation": 90
     },
     "R_USB_SENSE_L": {
-      "pcbX": -7.6,
-      "pcbY": 2.775,
-      "pcbRotation": 180
+      "pcbX": -11.425,
+      "pcbY": -2.925,
+      "pcbRotation": 270
     },
     "R_VM_H": {
       "pcbX": 9.175,
@@ -682,14 +706,14 @@
       "pcbRotation": 90
     },
     "C_IO42": {
-      "pcbX": -6.95,
-      "pcbY": 1.72,
+      "pcbX": -6.4,
+      "pcbY": 1.925,
       "pcbRotation": 0
     },
     "C_IO49": {
-      "pcbX": -4.16,
-      "pcbY": 0.44,
-      "pcbRotation": 90
+      "pcbX": 0.975,
+      "pcbY": -2.9,
+      "pcbRotation": 180
     },
     "C_DV23": {
       "pcbX": 2.5,
@@ -697,33 +721,33 @@
       "pcbRotation": 180
     },
     "C_DV50": {
-      "pcbX": 3.95,
-      "pcbY": -0.765,
-      "pcbRotation": 0
+      "pcbX": 5.15,
+      "pcbY": 0.425,
+      "pcbRotation": 90
     },
     "C_USB": {
-      "pcbX": 2.09,
-      "pcbY": -0.8,
-      "pcbRotation": 0
+      "pcbX": -4.15,
+      "pcbY": 0.4,
+      "pcbRotation": 90
     },
     "C_ADC": {
-      "pcbX": -6.39,
-      "pcbY": 0.25,
-      "pcbRotation": 90
+      "pcbX": -4.55,
+      "pcbY": 1.925,
+      "pcbRotation": 180
     },
     "C_VREG_IN": {
-      "pcbX": -7.47,
-      "pcbY": 0.25,
-      "pcbRotation": 90
+      "pcbX": -0.95,
+      "pcbY": -0.8,
+      "pcbRotation": 180
     },
     "C_VREG_OUT": {
-      "pcbX": -5.3,
-      "pcbY": 0.14,
+      "pcbX": -5.2,
+      "pcbY": 0.275,
       "pcbRotation": 90
     },
     "C_FLASH": {
-      "pcbX": 0.63,
-      "pcbY": -1.68,
+      "pcbX": 5.575,
+      "pcbY": -3.55,
       "pcbRotation": 90
     },
     "C_XIN": {
@@ -957,13 +981,13 @@
       "pcbRotation": 0
     },
     "C_ENCODER": {
-      "pcbX": 5.99,
-      "pcbY": -0.8,
+      "pcbX": 1.15,
+      "pcbY": -3.95,
       "pcbRotation": 0
     },
     "C_ENCODER_BULK": {
-      "pcbX": 0.68,
-      "pcbY": -3.55,
+      "pcbX": 5.15,
+      "pcbY": -1.7,
       "pcbRotation": 90
     },
     "R_PD_CFG": {
@@ -973,27 +997,27 @@
     },
     "U_IA": {
       "pcbX": -5.8,
-      "pcbY": -2.7,
-      "pcbRotation": 90
+      "pcbY": -2.4,
+      "pcbRotation": 270
     },
     "R_SHUNT_A": {
-      "pcbX": -0.86,
-      "pcbY": -2.2,
-      "pcbRotation": 90
+      "pcbX": -7.9,
+      "pcbY": 0.3,
+      "pcbRotation": 180
     },
     "C_IA": {
-      "pcbX": -8.8,
-      "pcbY": 0,
-      "pcbRotation": 90
+      "pcbX": -0.95,
+      "pcbY": -3.95,
+      "pcbRotation": 180
     },
     "R_IA": {
-      "pcbX": -10.4,
-      "pcbY": -2.7,
-      "pcbRotation": 90
+      "pcbX": 0.95,
+      "pcbY": -0.8,
+      "pcbRotation": 180
     },
     "C_IADC_A": {
-      "pcbX": -4.9,
-      "pcbY": 1.9,
+      "pcbX": -5.6,
+      "pcbY": 2.975,
       "pcbRotation": 180
     },
     "U_IB": {
@@ -1012,14 +1036,14 @@
       "pcbRotation": 90
     },
     "R_IB": {
-      "pcbX": -9.1,
-      "pcbY": 2.5,
-      "pcbRotation": 90
+      "pcbX": -8.75,
+      "pcbY": 2.6,
+      "pcbRotation": 180
     },
     "C_IADC_B": {
-      "pcbX": -4.9,
-      "pcbY": 2.98,
-      "pcbRotation": 180
+      "pcbX": -4.15,
+      "pcbY": 3.375,
+      "pcbRotation": 270
     },
     "R_STATUS_PD_R": {
       "pcbX": 16.725,

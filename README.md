@@ -1,4 +1,10 @@
-# NEMA14 RP2040 V2 — engineering draft
+# NEMA14 RP2040 V2 — routing draft
+
+**Routing has started:** the first candidate has 343 trace sections and 16 vias.
+**52 of 70 net groups remain open; native DRC is not clean.** See the
+[routing status and checks](docs/v2-routing.md), [routed PCB SVG](artifacts/v2/routing/top.svg)
+and [routing viewer](artifacts/v2/routing/NEMA14-V2-routing-viewer.html).
+The main preview below remains the verified, unrouted placement seed.
 
 The **34.5 × 34.5 mm V2 placement draft now uses one WAGO 250-204 /
 C2765063 four-pole spring terminal**. Its housing stays within the PCB outline.

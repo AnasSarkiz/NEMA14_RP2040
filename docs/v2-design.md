@@ -146,7 +146,8 @@ Run `npm run build:v2`, then `npm run check:v2:source` for source-generation
 and electrical/drill checks. `artifacts/v2/source-review.json` reports the actual
 generated source hash, native errors and routed-trace count. Passing its source
 checks does not mean that placement or routing passes. `npm run check:v2` and
-publication remain blocked while this is an unrouted draft.
+publication remain blocked. The placement seed is unrouted; the separate
+[initial routing candidate](v2-routing.md) still has opens and native DRC errors.
 
 `src/v2-placement-anchors.json` records the complete placement seed.
 `scripts/place-v2.py --anchor-plan --feasibility-only` checks full catalog
@@ -166,7 +167,7 @@ zero errors. Its receipt records the actual source SHA-256. The minimum gap
 between top courtyards is about **0.005 mm**: this is a dense fit between full
 courtyard margins, not a copper-clearance measurement.
 
-The independent audit also checks 62 placement-proximity budgets using generated
+The independent audit also checks 65 placement-proximity budgets using generated
 physical ports, including the flash capacitor’s connected pad. Output isolation
 resistors are near their INA240 output pins, with the ADC filter capacitors near
 the RP2040. These are placement budgets, not measured trace lengths.

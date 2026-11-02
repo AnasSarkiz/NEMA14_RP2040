@@ -1,0 +1,43 @@
+{
+  "stage": "initial routing draft",
+  "fabrication_ready": false,
+  "rotation_trial_reverted_commit": "ac234d7",
+  "placement_source_sha256": "d0b186a12789455240b003b6024c7acc70274d68703c1f5b692805122da6f2cc",
+  "candidate_sha256": "1f9adafc2d1f1073eca96bdabec75c9cb42aebf858c924781525c1ea39bc3911",
+  "dsn_sha256": "a40847090ce9b764492b891e08ca918d0f92245fe2cf12340c788fea2b118d47",
+  "ses_sha256": "1a168e0de8b0a525cc0326368f9e2d72332a20e7c0e2816ed05d174b64d2c633",
+  "router": "Freerouting 2.0.1",
+  "router_jar_sha256": "d7fd0f63f52e6d74b0fad6715f87ca9f0ffd7109d66b2a584638000270592ecf",
+  "passes": 2,
+  "stop_control": "--router.start_pass_no=1 --router.stop_pass_no=2; the legacy -mp argument alone does not control BatchAutorouter in this version",
+  "routed_trace_sections": 343,
+  "through_vias": 16,
+  "via_outer_hole_mm": [
+    0.6,
+    0.3
+  ],
+  "physical_net_groups": 70,
+  "fully_connected_net_groups": 18,
+  "disconnected_net_groups": 52,
+  "physical_pin_nets_preserved": 342,
+  "independent_shorts": 0,
+  "independent_clearance_violations": 0,
+  "native_drc_errors": 144,
+  "native_error_types": {
+    "pcb_port_not_connected_error": 135,
+    "pcb_trace_error": 9
+  },
+  "native_drc_passed": false,
+  "physical_routing_audit_passed": false,
+  "initial_native_attempt": {
+    "placement_source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
+    "result": "Iteration limit, zero copper; retained for diagnostics"
+  },
+  "main_preview_contains": "verified unrouted placement seed; routed candidate is separate",
+  "remaining": [
+    "Close all 52 open nets and clear every native DRC issue",
+    "USB coupled routing and reference, crystal, Kelvin shunts and power-loop review",
+    "Inner1 ground fill/stitching and independent CAM/drill qualification",
+    "Motor-wire fit, shunt procurement and hardware calibration"
+  ]
+}

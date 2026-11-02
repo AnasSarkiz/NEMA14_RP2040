@@ -1,0 +1,38 @@
+2026-11-02 16:30:15.532 [main] INFO  Freerouting v2.0.1 (build-date: 2024-11-14)
+2026-11-02 16:30:15.748 [main] INFO  Settings were loaded from freerouting.json
+java.util.concurrent.CompletionException: java.lang.InternalError: java.net.SocketException: Operation not permitted
+	at java.base/java.util.concurrent.CompletableFuture.encodeThrowable(CompletableFuture.java:315)
+	at java.base/java.util.concurrent.CompletableFuture.completeThrowable(CompletableFuture.java:320)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1159)
+	at java.base/java.util.concurrent.CompletableFuture.postComplete(CompletableFuture.java:510)
+	at java.base/java.util.concurrent.CompletableFuture$AsyncSupply.run(CompletableFuture.java:1773)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1144)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
+	at java.base/java.lang.Thread.run(Thread.java:1583)
+Caused by: java.lang.InternalError: java.net.SocketException: Operation not permitted
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.<init>(PlainHttpConnection.java:343)
+	at java.net.http/jdk.internal.net.http.AsyncSSLConnection.<init>(AsyncSSLConnection.java:49)
+	at java.net.http/jdk.internal.net.http.HttpConnection.getSSLConnection(HttpConnection.java:306)
+	at java.net.http/jdk.internal.net.http.HttpConnection.getConnection(HttpConnection.java:292)
+	at java.net.http/jdk.internal.net.http.Http2Connection.createAsync(Http2Connection.java:520)
+	at java.net.http/jdk.internal.net.http.Http2ClientImpl.getConnectionFor(Http2ClientImpl.java:140)
+	at java.net.http/jdk.internal.net.http.ExchangeImpl.get(ExchangeImpl.java:98)
+	at java.net.http/jdk.internal.net.http.Exchange.establishExchange(Exchange.java:391)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl0(Exchange.java:584)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsyncImpl(Exchange.java:428)
+	at java.net.http/jdk.internal.net.http.Exchange.responseAsync(Exchange.java:420)
+	at java.net.http/jdk.internal.net.http.MultiExchange.responseAsyncImpl(MultiExchange.java:435)
+	at java.net.http/jdk.internal.net.http.MultiExchange.lambda$responseAsync0$2(MultiExchange.java:355)
+	at java.base/java.util.concurrent.CompletableFuture$UniCompose.tryFire(CompletableFuture.java:1150)
+	... 5 more
+Caused by: java.net.SocketException: Operation not permitted
+	at java.base/sun.nio.ch.Net.socket0(Native Method)
+	at java.base/sun.nio.ch.Net.socket(Net.java:546)
+	at java.base/sun.nio.ch.SocketChannelImpl.<init>(SocketChannelImpl.java:153)
+	at java.base/sun.nio.ch.SocketChannelImpl.<init>(SocketChannelImpl.java:136)
+	at java.base/sun.nio.ch.SelectorProviderImpl.openSocketChannel(SelectorProviderImpl.java:77)
+	at java.base/java.nio.channels.SocketChannel.open(SocketChannel.java:192)
+	at java.net.http/jdk.internal.net.http.PlainHttpConnection.<init>(PlainHttpConnection.java:319)
+	... 18 more
+2026-11-02 16:30:56.084 [Thread-2] INFO  Auto-router pass #1 on board '864f5ed1f614c9e1f29382963889f7a9' was completed in 37.70 seconds
+2026-11-02 16:31:51.780 [Thread-2] INFO  Auto-router pass #2 on board '331c7426934129aa95b23fce3bbc89da' was completed in 55.59 seconds

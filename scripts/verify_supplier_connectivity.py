@@ -1,9 +1,14 @@
 """Independent geometry check of every physical supplier pad and copper layer."""
-import json,pathlib,hashlib
+import argparse,json,pathlib,hashlib
 from shapely.geometry import Point,Polygon,LineString,box
 from shapely.affinity import rotate
 from shapely.strtree import STRtree
-ROOT=pathlib.Path(__file__).resolve().parents[1];path=ROOT/'artifacts/board.circuit.json';j=json.loads(path.read_text());src={e['source_component_id']:e['name'] for e in j if e['type']=='source_component'};sp={e['source_port_id']:e for e in j if e['type']=='source_port'};ports={e['pcb_port_id']:e for e in j if e['type']=='pcb_port'};comp={e['pcb_component_id']:e for e in j if e['type']=='pcb_component'};nets={e['subcircuit_connectivity_map_key']:e['name'] for e in j if e['type']=='source_net'}
+ROOT=pathlib.Path(__file__).resolve().parents[1]
+parser=argparse.ArgumentParser(description=__doc__)
+parser.add_argument('--source',type=pathlib.Path,default=ROOT/'artifacts/board.circuit.json')
+parser.add_argument('--connectivity-output',type=pathlib.Path,default=ROOT/'artifacts/physical-connectivity.json')
+args,_=parser.parse_known_args()
+path=args.source;j=json.loads(path.read_text());src={e['source_component_id']:e['name'] for e in j if e['type']=='source_component'};sp={e['source_port_id']:e for e in j if e['type']=='source_port'};ports={e['pcb_port_id']:e for e in j if e['type']=='pcb_port'};comp={e['pcb_component_id']:e for e in j if e['type']=='pcb_component'};nets={e['subcircuit_connectivity_map_key']:e['name'] for e in j if e['type']=='source_net'}
 for p in sp.values():
  k=p.get('subcircuit_connectivity_map_key')
  if k and k not in nets:nets[k]='DIRECT_'+k.rsplit('_',1)[-1]
@@ -58,5 +63,5 @@ def report():
    if e.get('pcb_port_id'):
     p=ports[e['pcb_port_id']];ref=src[comp[p['pcb_component_id']]['source_component_id']]+'.'+sp[p['source_port_id']]['name'];islands.setdefault(r,set()).add(ref)
   if len(islands)>1:errors.append({'net':name,'key':net,'islands':[sorted(v) for v in islands.values()]})
- r={'checkedNets':len(nets),'disconnectedNets':errors,'allCopperLayersChecked':True,'nativePolygonAndSlotGeometry':True,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()};(ROOT/'artifacts/physical-connectivity.json').write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2));return bool(errors)
+ r={'checkedNets':len(nets),'disconnectedNets':errors,'allCopperLayersChecked':True,'nativePolygonAndSlotGeometry':True,'sha256':hashlib.sha256(path.read_bytes()).hexdigest()};args.connectivity_output.parent.mkdir(parents=True,exist_ok=True);args.connectivity_output.write_text(json.dumps(r,indent=2)+'\n');print(json.dumps(r,indent=2));return bool(errors)
 if __name__=='__main__':raise SystemExit(report())

@@ -1,0 +1,1402 @@
+{
+  "stage": "routing engineering screen, not fabrication approval",
+  "source_sha256": "d0b186a12789455240b003b6024c7acc70274d68703c1f5b692805122da6f2cc",
+  "placement_source_sha256": "d0b186a12789455240b003b6024c7acc70274d68703c1f5b692805122da6f2cc",
+  "physical_pin_nets_checked": 342,
+  "changed_pin_nets": [],
+  "nets_checked": 70,
+  "disconnected_nets": [
+    {
+      "net": "A_DRV_PLUS",
+      "islands": [
+        [
+          "U_DRV.OUT1A"
+        ],
+        [
+          "R_SHUNT_A.pin1"
+        ],
+        [
+          "U_IA.IN_POS"
+        ]
+      ]
+    },
+    {
+      "net": "B_DRV_PLUS",
+      "islands": [
+        [
+          "U_DRV.OUT2A"
+        ],
+        [
+          "R_SHUNT_B.pin1"
+        ],
+        [
+          "U_IB.IN_POS"
+        ]
+      ]
+    },
+    {
+      "net": "I_A_RAW",
+      "islands": [
+        [
+          "U_IA.OUT"
+        ],
+        [
+          "R_IA.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "I_B_RAW",
+      "islands": [
+        [
+          "U_IB.OUT"
+        ],
+        [
+          "R_IB.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "I_A_ADC",
+      "islands": [
+        [
+          "U_MCU.GPIO26"
+        ],
+        [
+          "R_IA.pin2"
+        ],
+        [
+          "C_IADC_A.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "I_B_ADC",
+      "islands": [
+        [
+          "U_MCU.GPIO27"
+        ],
+        [
+          "R_IB.pin2"
+        ],
+        [
+          "C_IADC_B.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "GND",
+      "islands": [
+        [
+          "J_PD.EH1"
+        ],
+        [
+          "J_PD.EH2"
+        ],
+        [
+          "J_PD.EH3"
+        ],
+        [
+          "J_PD.EH4"
+        ],
+        [
+          "J_PD.GND1"
+        ],
+        [
+          "J_PD.GND2"
+        ],
+        [
+          "J_PD.GND3"
+        ],
+        [
+          "J_PD.GND4"
+        ],
+        [
+          "J_DATA.EH1"
+        ],
+        [
+          "J_DATA.EH2"
+        ],
+        [
+          "J_DATA.EH3"
+        ],
+        [
+          "J_DATA.EH4"
+        ],
+        [
+          "J_DATA.GND1"
+        ],
+        [
+          "J_DATA.GND2"
+        ],
+        [
+          "J_DATA.GND3"
+        ],
+        [
+          "J_DATA.GND4"
+        ],
+        [
+          "U_PD.GND"
+        ],
+        [
+          "C_PD.pin2"
+        ],
+        [
+          "U_MCU.GND"
+        ],
+        [
+          "U_MCU.TESTEN"
+        ],
+        [
+          "C_IO1.pin2"
+        ],
+        [
+          "C_IO10.pin2"
+        ],
+        [
+          "C_IO22.pin2"
+        ],
+        [
+          "C_IO33.pin2"
+        ],
+        [
+          "C_IO42.pin2"
+        ],
+        [
+          "C_IO49.pin2"
+        ],
+        [
+          "C_DV23.pin2"
+        ],
+        [
+          "C_DV50.pin2"
+        ],
+        [
+          "C_USB.pin2"
+        ],
+        [
+          "C_ADC.pin2"
+        ],
+        [
+          "C_VREG_IN.pin2"
+        ],
+        [
+          "C_VREG_OUT.pin2"
+        ],
+        [
+          "U_FLASH.GND"
+        ],
+        [
+          "U_FLASH.EP"
+        ],
+        [
+          "C_FLASH.pin2"
+        ],
+        [
+          "Y_MCU.pin2"
+        ],
+        [
+          "Y_MCU.pin4"
+        ],
+        [
+          "C_XIN.pin2"
+        ],
+        [
+          "C_XOUT.pin2"
+        ],
+        [
+          "R_CC1.pin2"
+        ],
+        [
+          "R_CC2.pin2"
+        ],
+        [
+          "R_USB_SENSE_L.pin2"
+        ],
+        [
+          "R_VM_L.pin2"
+        ],
+        [
+          "C_VM_SENSE.pin2"
+        ],
+        [
+          "U_BUCK.GND"
+        ],
+        [
+          "C_BUCK_IN.pin2"
+        ],
+        [
+          "C_BUCK_OUT1.pin2"
+        ],
+        [
+          "C_BUCK_OUT2.pin2"
+        ],
+        [
+          "U_DRV.EP"
+        ],
+        [
+          "U_DRV.GND18"
+        ],
+        [
+          "U_DRV.ROSC"
+        ],
+        [
+          "U_DRV.GND"
+        ],
+        [
+          "C_VREG.pin2"
+        ],
+        [
+          "C_DRV_LOGIC.pin2"
+        ],
+        [
+          "C_VM.pin2"
+        ],
+        [
+          "C_BULK.pin2"
+        ],
+        [
+          "R_SA.pin2"
+        ],
+        [
+          "R_SB.pin2"
+        ],
+        [
+          "U_IA.GND"
+        ],
+        [
+          "U_IA.REF2"
+        ],
+        [
+          "C_IA.pin2"
+        ],
+        [
+          "C_IADC_A.pin2"
+        ],
+        [
+          "U_IB.GND"
+        ],
+        [
+          "U_IB.REF2"
+        ],
+        [
+          "C_IB.pin2"
+        ],
+        [
+          "C_IADC_B.pin2"
+        ],
+        [
+          "R_REF_L.pin2"
+        ],
+        [
+          "C_REF.pin2"
+        ],
+        [
+          "R_SLEEP.pin2"
+        ],
+        [
+          "U_ESD.GND"
+        ],
+        [
+          "D_TVS.pin1"
+        ],
+        [
+          "U_TEMP.GND"
+        ],
+        [
+          "U_TEMP.ADD0"
+        ],
+        [
+          "C_TEMP.pin2"
+        ],
+        [
+          "D_PWR.cathode"
+        ],
+        [
+          "Q_STATUS_R.pin3"
+        ],
+        [
+          "R_STATUS_PD_R.pin2"
+        ],
+        [
+          "Q_STATUS_G.pin3"
+        ],
+        [
+          "R_STATUS_PD_G.pin2"
+        ],
+        [
+          "Q_STATUS_B.pin3"
+        ],
+        [
+          "R_STATUS_PD_B.pin2"
+        ],
+        [
+          "Q_BUZZER.pin3"
+        ],
+        [
+          "R_BUZZER_PD.pin2"
+        ],
+        [
+          "C_BUZZER.pin2"
+        ],
+        [
+          "TP_GND.pin1"
+        ],
+        [
+          "TP_BOOT_GND.pin1"
+        ],
+        [
+          "U_ENCODER.GND"
+        ],
+        [
+          "U_ENCODER.DIR"
+        ],
+        [
+          "C_ENCODER.pin2"
+        ],
+        [
+          "C_ENCODER_BULK.pin2"
+        ],
+        [
+          "R_PD_CFG.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "PD_VBUS",
+      "islands": [
+        [
+          "J_PD.VBUS1"
+        ],
+        [
+          "J_PD.VBUS2"
+        ],
+        [
+          "J_PD.VBUS3"
+        ],
+        [
+          "J_PD.VBUS4"
+        ],
+        [
+          "U_PD.VBUS"
+        ],
+        [
+          "R_PD.pin1"
+        ],
+        [
+          "R_VM_H.pin1"
+        ],
+        [
+          "D_PD.anode"
+        ],
+        [
+          "U_DRV.VBB2"
+        ],
+        [
+          "U_DRV.VBB1"
+        ],
+        [
+          "C_VCP.pin2"
+        ],
+        [
+          "C_VM.pin1"
+        ],
+        [
+          "C_BULK.pin1"
+        ],
+        [
+          "D_TVS.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "V3V3",
+      "islands": [
+        [
+          "R_PG.pin1"
+        ],
+        [
+          "U_MCU.IOVDD49"
+        ],
+        [
+          "U_MCU.USB_VDD"
+        ],
+        [
+          "U_MCU.VREG_IN"
+        ],
+        [
+          "U_MCU.ADC_AVDD"
+        ],
+        [
+          "U_MCU.IOVDD42"
+        ],
+        [
+          "U_MCU.IOVDD33"
+        ],
+        [
+          "U_MCU.IOVDD22"
+        ],
+        [
+          "U_MCU.IOVDD10"
+        ],
+        [
+          "U_MCU.IOVDD1"
+        ],
+        [
+          "C_IO1.pin1"
+        ],
+        [
+          "C_IO10.pin1"
+        ],
+        [
+          "C_IO22.pin1"
+        ],
+        [
+          "C_IO33.pin1"
+        ],
+        [
+          "C_IO42.pin1"
+        ],
+        [
+          "C_IO49.pin1"
+        ],
+        [
+          "C_USB.pin1"
+        ],
+        [
+          "C_ADC.pin1"
+        ],
+        [
+          "C_VREG_IN.pin1"
+        ],
+        [
+          "U_FLASH.VCC"
+        ],
+        [
+          "C_FLASH.pin1"
+        ],
+        [
+          "R_FLASH_CS.pin1"
+        ],
+        [
+          "R_RUN.pin1"
+        ],
+        [
+          "U_BUCK.FB"
+        ],
+        [
+          "L_BUCK.pin2"
+        ],
+        [
+          "C_BUCK_OUT1.pin1"
+        ],
+        [
+          "C_BUCK_OUT2.pin1"
+        ],
+        [
+          "U_DRV.VDD"
+        ],
+        [
+          "U_DRV.RESET_N"
+        ],
+        [
+          "U_DRV.MS3"
+        ],
+        [
+          "U_DRV.MS2"
+        ],
+        [
+          "U_DRV.MS1"
+        ],
+        [
+          "C_DRV_LOGIC.pin1"
+        ],
+        [
+          "U_IA.REF1"
+        ],
+        [
+          "U_IA.VS"
+        ],
+        [
+          "C_IA.pin1"
+        ],
+        [
+          "U_IB.REF1"
+        ],
+        [
+          "U_IB.VS"
+        ],
+        [
+          "C_IB.pin1"
+        ],
+        [
+          "R_REF_H.pin1"
+        ],
+        [
+          "R_ENABLE.pin1"
+        ],
+        [
+          "U_TEMP.V_POS"
+        ],
+        [
+          "C_TEMP.pin1"
+        ],
+        [
+          "R_TEMP_SDA.pin2"
+        ],
+        [
+          "R_TEMP_SCL.pin2"
+        ],
+        [
+          "R_PWR_LED.pin1"
+        ],
+        [
+          "BZ1.pin1"
+        ],
+        [
+          "D_BUZZER.cathode"
+        ],
+        [
+          "C_BUZZER.pin1"
+        ],
+        [
+          "TP_3V3.pin1"
+        ],
+        [
+          "U_ENCODER.VDD5V"
+        ],
+        [
+          "U_ENCODER.VDD3V3"
+        ],
+        [
+          "C_ENCODER.pin1"
+        ],
+        [
+          "C_ENCODER_BULK.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "LOGIC_IN",
+      "islands": [
+        [
+          "U_BUCK.VIN"
+        ],
+        [
+          "U_BUCK.EN"
+        ],
+        [
+          "C_BUCK_IN.pin1"
+        ],
+        [
+          "D_PD.cathode"
+        ],
+        [
+          "D_DATA.cathode"
+        ]
+      ]
+    },
+    {
+      "net": "DATA_VBUS",
+      "islands": [
+        [
+          "J_DATA.VBUS1"
+        ],
+        [
+          "J_DATA.VBUS2"
+        ],
+        [
+          "J_DATA.VBUS3"
+        ],
+        [
+          "J_DATA.VBUS4"
+        ],
+        [
+          "R_USB_SENSE_H.pin1"
+        ],
+        [
+          "D_DATA.anode"
+        ],
+        [
+          "U_ESD.VBUS"
+        ],
+        [
+          "D_STATUS._POS"
+        ]
+      ]
+    },
+    {
+      "net": "PD_VHV",
+      "islands": [
+        [
+          "U_PD.VHV"
+        ],
+        [
+          "R_PD.pin2"
+        ],
+        [
+          "C_PD.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "PD_CC1",
+      "islands": [
+        [
+          "J_PD.CC1"
+        ],
+        [
+          "U_PD.CC1"
+        ]
+      ]
+    },
+    {
+      "net": "PD_CC2",
+      "islands": [
+        [
+          "J_PD.CC2"
+        ],
+        [
+          "U_PD.CC2"
+        ]
+      ]
+    },
+    {
+      "net": "DATA_CC1",
+      "islands": [
+        [
+          "J_DATA.CC1"
+        ],
+        [
+          "R_CC1.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "DATA_CC2",
+      "islands": [
+        [
+          "J_DATA.CC2"
+        ],
+        [
+          "R_CC2.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "USB_DP",
+      "islands": [
+        [
+          "J_DATA.DP1"
+        ],
+        [
+          "J_DATA.DP2"
+        ],
+        [
+          "R_DP.pin2"
+        ],
+        [
+          "U_ESD.DP1"
+        ],
+        [
+          "U_ESD.DP2"
+        ]
+      ]
+    },
+    {
+      "net": "USB_DM",
+      "islands": [
+        [
+          "J_DATA.DM1"
+        ],
+        [
+          "J_DATA.DM2"
+        ],
+        [
+          "R_DM.pin2"
+        ],
+        [
+          "U_ESD.DM1"
+        ],
+        [
+          "U_ESD.DM2"
+        ]
+      ]
+    },
+    {
+      "net": "STEP",
+      "islands": [
+        [
+          "U_MCU.GPIO6"
+        ],
+        [
+          "U_DRV.STEP"
+        ]
+      ]
+    },
+    {
+      "net": "DIR",
+      "islands": [
+        [
+          "U_MCU.GPIO7"
+        ],
+        [
+          "U_DRV.DIR"
+        ]
+      ]
+    },
+    {
+      "net": "ENABLE_N",
+      "islands": [
+        [
+          "U_MCU.GPIO8"
+        ],
+        [
+          "U_DRV.ENABLE_N"
+        ],
+        [
+          "R_ENABLE.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "SLEEP",
+      "islands": [
+        [
+          "U_MCU.GPIO9"
+        ],
+        [
+          "U_DRV.SLEEP"
+        ],
+        [
+          "R_SLEEP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "PD_GOOD",
+      "islands": [
+        [
+          "U_PD.PG"
+        ],
+        [
+          "R_PG.pin2"
+        ],
+        [
+          "U_MCU.GPIO10"
+        ]
+      ]
+    },
+    {
+      "net": "DATA_PRESENT",
+      "islands": [
+        [
+          "U_MCU.GPIO29"
+        ],
+        [
+          "R_USB_SENSE_H.pin2"
+        ],
+        [
+          "R_USB_SENSE_L.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "VM_SENSE",
+      "islands": [
+        [
+          "U_MCU.GPIO28"
+        ],
+        [
+          "R_VM_H.pin2"
+        ],
+        [
+          "R_VM_L.pin1"
+        ],
+        [
+          "C_VM_SENSE.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "VREF",
+      "islands": [
+        [
+          "U_DRV.REF"
+        ],
+        [
+          "R_REF_H.pin2"
+        ],
+        [
+          "R_REF_L.pin1"
+        ],
+        [
+          "C_REF.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "CP1",
+      "islands": [
+        [
+          "U_DRV.CP1"
+        ],
+        [
+          "C_CP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "CP2",
+      "islands": [
+        [
+          "U_DRV.CP2"
+        ],
+        [
+          "C_CP.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "VCP",
+      "islands": [
+        [
+          "U_DRV.VCP"
+        ],
+        [
+          "C_VCP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "VREG",
+      "islands": [
+        [
+          "U_DRV.VREG"
+        ],
+        [
+          "C_VREG.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "SENSE1",
+      "islands": [
+        [
+          "U_DRV.SENSE1"
+        ],
+        [
+          "R_SA.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "SENSE2",
+      "islands": [
+        [
+          "U_DRV.SENSE2"
+        ],
+        [
+          "R_SB.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "A_PLUS",
+      "islands": [
+        [
+          "R_SHUNT_A.pin2"
+        ],
+        [
+          "U_IA.IN_NEG"
+        ],
+        [
+          "J_MOTOR.A_PLUS"
+        ]
+      ]
+    },
+    {
+      "net": "A_MINUS",
+      "islands": [
+        [
+          "U_DRV.OUT1B"
+        ],
+        [
+          "J_MOTOR.A_MINUS"
+        ]
+      ]
+    },
+    {
+      "net": "B_PLUS",
+      "islands": [
+        [
+          "R_SHUNT_B.pin2"
+        ],
+        [
+          "U_IB.IN_NEG"
+        ],
+        [
+          "J_MOTOR.B_PLUS"
+        ]
+      ]
+    },
+    {
+      "net": "B_MINUS",
+      "islands": [
+        [
+          "U_DRV.OUT2B"
+        ],
+        [
+          "J_MOTOR.B_MINUS"
+        ]
+      ]
+    },
+    {
+      "net": "V1V1",
+      "islands": [
+        [
+          "U_MCU.DVDD50"
+        ],
+        [
+          "U_MCU.VREG_OUT"
+        ],
+        [
+          "U_MCU.DVDD23"
+        ],
+        [
+          "C_DV23.pin1"
+        ],
+        [
+          "C_DV50.pin1"
+        ],
+        [
+          "C_VREG_OUT.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SS",
+      "islands": [
+        [
+          "U_MCU.QSPI_SS"
+        ],
+        [
+          "U_FLASH.CS"
+        ],
+        [
+          "R_FLASH_CS.pin2"
+        ],
+        [
+          "R_BOOT.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SCLK",
+      "islands": [
+        [
+          "U_MCU.QSPI_SCLK"
+        ],
+        [
+          "U_FLASH.CLK"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SD0",
+      "islands": [
+        [
+          "U_MCU.QSPI_SD0"
+        ],
+        [
+          "U_FLASH.IO0"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SD1",
+      "islands": [
+        [
+          "U_MCU.QSPI_SD1"
+        ],
+        [
+          "U_FLASH.IO1"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SD2",
+      "islands": [
+        [
+          "U_MCU.QSPI_SD2"
+        ],
+        [
+          "U_FLASH.IO2"
+        ]
+      ]
+    },
+    {
+      "net": "QSPI_SD3",
+      "islands": [
+        [
+          "U_MCU.QSPI_SD3"
+        ],
+        [
+          "U_FLASH.IO3"
+        ]
+      ]
+    },
+    {
+      "net": "MCU_DM",
+      "islands": [
+        [
+          "U_MCU.USB_DM"
+        ],
+        [
+          "R_DM.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "MCU_DP",
+      "islands": [
+        [
+          "U_MCU.USB_DP"
+        ],
+        [
+          "R_DP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "XIN",
+      "islands": [
+        [
+          "U_MCU.XIN"
+        ],
+        [
+          "Y_MCU.pin1"
+        ],
+        [
+          "C_XIN.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "XOUT",
+      "islands": [
+        [
+          "U_MCU.XOUT"
+        ],
+        [
+          "R_XOUT.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "XTAL_OUT",
+      "islands": [
+        [
+          "Y_MCU.pin3"
+        ],
+        [
+          "R_XOUT.pin2"
+        ],
+        [
+          "C_XOUT.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "RUN",
+      "islands": [
+        [
+          "U_MCU.RUN"
+        ],
+        [
+          "R_RUN.pin2"
+        ],
+        [
+          "TP_RUN.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "SWCLK",
+      "islands": [
+        [
+          "U_MCU.SWCLK"
+        ],
+        [
+          "TP_SWCLK.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "SWDIO",
+      "islands": [
+        [
+          "U_MCU.SWDIO"
+        ],
+        [
+          "TP_SWDIO.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "BUCK_SW",
+      "islands": [
+        [
+          "U_BUCK.SW"
+        ],
+        [
+          "L_BUCK.pin1"
+        ],
+        [
+          "C_BOOTSTRAP.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "BUCK_BST",
+      "islands": [
+        [
+          "U_BUCK.BST"
+        ],
+        [
+          "C_BOOTSTRAP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "BOOT_PAD",
+      "islands": [
+        [
+          "R_BOOT.pin2"
+        ],
+        [
+          "TP_BOOT.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "PWR_LED_A",
+      "islands": [
+        [
+          "D_PWR.anode"
+        ],
+        [
+          "R_PWR_LED.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "TEMP_SDA",
+      "islands": [
+        [
+          "U_MCU.GPIO4"
+        ],
+        [
+          "U_TEMP.SDA"
+        ],
+        [
+          "R_TEMP_SDA.pin1"
+        ],
+        [
+          "U_ENCODER.SDA"
+        ]
+      ]
+    },
+    {
+      "net": "TEMP_SCL",
+      "islands": [
+        [
+          "U_MCU.GPIO5"
+        ],
+        [
+          "U_TEMP.SCL"
+        ],
+        [
+          "R_TEMP_SCL.pin1"
+        ],
+        [
+          "U_ENCODER.SCL"
+        ]
+      ]
+    },
+    {
+      "net": "BUZZER_PWM",
+      "islands": [
+        [
+          "U_MCU.GPIO16"
+        ],
+        [
+          "R_BUZZER_GATE.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "BUZZER_GATE",
+      "islands": [
+        [
+          "Q_BUZZER.pin1"
+        ],
+        [
+          "R_BUZZER_GATE.pin2"
+        ],
+        [
+          "R_BUZZER_PD.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "BUZZER_SINK",
+      "islands": [
+        [
+          "BZ1.pin2"
+        ],
+        [
+          "Q_BUZZER.pin2"
+        ],
+        [
+          "D_BUZZER.anode"
+        ]
+      ]
+    },
+    {
+      "net": "LED_R",
+      "islands": [
+        [
+          "U_MCU.GPIO25"
+        ],
+        [
+          "Q_STATUS_R.pin1"
+        ],
+        [
+          "R_STATUS_PD_R.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "LED_G",
+      "islands": [
+        [
+          "U_MCU.GPIO2"
+        ],
+        [
+          "Q_STATUS_G.pin1"
+        ],
+        [
+          "R_STATUS_PD_G.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "LED_B",
+      "islands": [
+        [
+          "U_MCU.GPIO3"
+        ],
+        [
+          "Q_STATUS_B.pin1"
+        ],
+        [
+          "R_STATUS_PD_B.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_R_K",
+      "islands": [
+        [
+          "D_STATUS.R_NEG"
+        ],
+        [
+          "R_STATUS_R.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_G_K",
+      "islands": [
+        [
+          "D_STATUS.G_NEG"
+        ],
+        [
+          "R_STATUS_G.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_B_K",
+      "islands": [
+        [
+          "D_STATUS.B_NEG"
+        ],
+        [
+          "R_STATUS_B.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_R_C",
+      "islands": [
+        [
+          "R_STATUS_R.pin2"
+        ],
+        [
+          "Q_STATUS_R.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_G_C",
+      "islands": [
+        [
+          "R_STATUS_G.pin2"
+        ],
+        [
+          "Q_STATUS_G.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "STATUS_B_C",
+      "islands": [
+        [
+          "R_STATUS_B.pin2"
+        ],
+        [
+          "Q_STATUS_B.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "PD_CFG",
+      "islands": [
+        [
+          "U_PD.CFG1"
+        ],
+        [
+          "R_PD_CFG.pin1"
+        ]
+      ]
+    }
+  ],
+  "traces": 0,
+  "vias": 0,
+  "shorts": [],
+  "clearance_violations": [],
+  "copper_edge_violations": [],
+  "forbidden_copper": [],
+  "construction_errors": [],
+  "minimum_foreign_net_gap_within_0_15_mm": null,
+  "trace_width_ranges_mm": {},
+  "passed": false,
+  "fabrication_ready": false,
+  "remaining": [
+    "Native DRC and final Gerber/drill checks",
+    "USB pair/reference and Kelvin current-sense review",
+    "Thermal/power integrity, exact motor-wire fit and procurement"
+  ]
+}

@@ -1,0 +1,280 @@
+{
+  "reason": "Place both 27-ohm USB termination resistors within 4.5 mm Manhattan of their RP2040 pins and within 2.5 mm of each other. Retain all existing placement/proximity constraints.",
+  "baseline_commit": "83664be",
+  "baseline_source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
+  "changes": [
+    {
+      "reference": "U_FLASH",
+      "before": {
+        "pcbX": 3.3,
+        "pcbY": -2.6,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": 3.35,
+        "pcbY": -2.375,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "R_DM",
+      "before": {
+        "pcbX": 16.475,
+        "pcbY": -15.225,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -0.925,
+        "pcbY": -2.9,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "R_DP",
+      "before": {
+        "pcbX": -16.725,
+        "pcbY": -14.95,
+        "pcbRotation": 270
+      },
+      "after": {
+        "pcbX": -0.25,
+        "pcbY": -1.85,
+        "pcbRotation": 0
+      }
+    },
+    {
+      "reference": "R_USB_SENSE_L",
+      "before": {
+        "pcbX": -7.6,
+        "pcbY": 2.775,
+        "pcbRotation": 180
+      },
+      "after": {
+        "pcbX": -11.425,
+        "pcbY": -2.925,
+        "pcbRotation": 270
+      }
+    },
+    {
+      "reference": "C_IO42",
+      "before": {
+        "pcbX": -6.95,
+        "pcbY": 1.72,
+        "pcbRotation": 0
+      },
+      "after": {
+        "pcbX": -6.4,
+        "pcbY": 1.925,
+        "pcbRotation": 0
+      }
+    },
+    {
+      "reference": "C_IO49",
+      "before": {
+        "pcbX": -4.16,
+        "pcbY": 0.44,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": 0.975,
+        "pcbY": -2.9,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_DV50",
+      "before": {
+        "pcbX": 3.95,
+        "pcbY": -0.765,
+        "pcbRotation": 0
+      },
+      "after": {
+        "pcbX": 5.15,
+        "pcbY": 0.425,
+        "pcbRotation": 90
+      }
+    },
+    {
+      "reference": "C_USB",
+      "before": {
+        "pcbX": 2.09,
+        "pcbY": -0.8,
+        "pcbRotation": 0
+      },
+      "after": {
+        "pcbX": -4.15,
+        "pcbY": 0.4,
+        "pcbRotation": 90
+      }
+    },
+    {
+      "reference": "C_ADC",
+      "before": {
+        "pcbX": -6.39,
+        "pcbY": 0.25,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -4.55,
+        "pcbY": 1.925,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_VREG_IN",
+      "before": {
+        "pcbX": -7.47,
+        "pcbY": 0.25,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -0.95,
+        "pcbY": -0.8,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_VREG_OUT",
+      "before": {
+        "pcbX": -5.3,
+        "pcbY": 0.14,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -5.2,
+        "pcbY": 0.275,
+        "pcbRotation": 90
+      }
+    },
+    {
+      "reference": "C_FLASH",
+      "before": {
+        "pcbX": 0.63,
+        "pcbY": -1.68,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": 5.575,
+        "pcbY": -3.55,
+        "pcbRotation": 90
+      }
+    },
+    {
+      "reference": "C_ENCODER",
+      "before": {
+        "pcbX": 5.99,
+        "pcbY": -0.8,
+        "pcbRotation": 0
+      },
+      "after": {
+        "pcbX": 1.15,
+        "pcbY": -3.95,
+        "pcbRotation": 0
+      }
+    },
+    {
+      "reference": "C_ENCODER_BULK",
+      "before": {
+        "pcbX": 0.68,
+        "pcbY": -3.55,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": 5.15,
+        "pcbY": -1.7,
+        "pcbRotation": 90
+      }
+    },
+    {
+      "reference": "U_IA",
+      "before": {
+        "pcbX": -5.8,
+        "pcbY": -2.7,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -5.8,
+        "pcbY": -2.4,
+        "pcbRotation": 270
+      }
+    },
+    {
+      "reference": "R_SHUNT_A",
+      "before": {
+        "pcbX": -0.86,
+        "pcbY": -2.2,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -7.9,
+        "pcbY": 0.3,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_IA",
+      "before": {
+        "pcbX": -8.8,
+        "pcbY": 0,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -0.95,
+        "pcbY": -3.95,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "R_IA",
+      "before": {
+        "pcbX": -10.4,
+        "pcbY": -2.7,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": 0.95,
+        "pcbY": -0.8,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_IADC_A",
+      "before": {
+        "pcbX": -4.9,
+        "pcbY": 1.9,
+        "pcbRotation": 180
+      },
+      "after": {
+        "pcbX": -5.6,
+        "pcbY": 2.975,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "R_IB",
+      "before": {
+        "pcbX": -9.1,
+        "pcbY": 2.5,
+        "pcbRotation": 90
+      },
+      "after": {
+        "pcbX": -8.75,
+        "pcbY": 2.6,
+        "pcbRotation": 180
+      }
+    },
+    {
+      "reference": "C_IADC_B",
+      "before": {
+        "pcbX": -4.9,
+        "pcbY": 2.98,
+        "pcbRotation": 180
+      },
+      "after": {
+        "pcbX": -4.15,
+        "pcbY": 3.375,
+        "pcbRotation": 270
+      }
+    }
+  ]
+}
