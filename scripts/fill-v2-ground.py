@@ -1,5 +1,8 @@
 """Refill grounded, masked copper from saved final copper with 0.20 mm clearance."""
-import json,math
+import json,math,sys
+from pathlib import Path
+if "--source" not in sys.argv:
+ sys.argv += ["--source",str(Path(__file__).resolve().parents[1]/"artifacts/v2/routing/freerouted.circuit.json")]
 import verify_supplier_connectivity as g
 g.nets={e["subcircuit_connectivity_map_key"]:e for e in g.j if e["type"]=="source_net"}
 from shapely.geometry import box,Point,LineString,Polygon
@@ -50,4 +53,7 @@ for layer in layers:
    record={'type':'pcb_copper_pour','pcb_copper_pour_id':f'ground_{layer}_{i}_{piece_index}','source_net_id':netid,'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','layer':layer,'shape':'brep','covered_with_solder_mask':True,'brep_shape':{'outer_ring':{'vertices':vertices(piece.exterior)},'inner_rings':[{'vertices':vertices(r)} for r in piece.interiors]}}
    g.j.append(record);records.append({'layer':layer,'areaMm2':piece.area,'holes':len(piece.interiors)})
   continue
-g.path.write_text(json.dumps(g.j,indent=2)+'\n');(g.ROOT/'artifacts/v2/routing/ground-planes.json').write_text(json.dumps({'clearanceMm':.20,'edgeMarginMm':.35,'regions':records},indent=2)+'\n');print('Filled',len(records),'ground regions')
+g.path.write_text(json.dumps(g.j,indent=2)+'\n')
+report=Path(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--report=')),g.ROOT/'artifacts/v2/routing/ground-planes.json'))
+report.write_text(json.dumps({'clearanceMm':.20,'edgeMarginMm':.35,'regions':records},indent=2)+'\n')
+print('Filled',len(records),'ground regions')

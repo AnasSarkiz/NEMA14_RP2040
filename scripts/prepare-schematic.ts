@@ -220,7 +220,7 @@ export function prepareSchematic(json:any[]) {
  for(const [i,phase] of ['A','B'].entries()){
   const x=7+i*16,section='current_'+phase
   part({name:'R_SHUNT_'+phase,x:x-3.8,y:12.46,section,symbol:'boxresistor_down'})
-  part({name:'U_I'+phase,x,y:12,section,box:[4.5,4.4],left:['IN_POS','IN_NEG','REF1','REF2'],right:['OUT','NC'],top:['VS'],bottom:['GND']})
+  part({name:'U_I'+phase,x,y:12,section,box:[4.5,3.8],left:['IN_POS','IN_NEG','REF1','REF2'],right:['OUT','NC'],top:['VS'],bottom:['GND']})
   part({name:'C_I'+phase,x:x+6,y:12,section})
   part({name:'R_I'+phase,x:x+4,y:10,section,symbol:'boxresistor_right'})
   part({name:'C_IADC_'+phase,x:x+7,y:10,section})

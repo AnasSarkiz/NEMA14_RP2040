@@ -7,7 +7,7 @@ engineering screen; it does not replace final CAM or electrical qualification.
 import argparse
 from collections import defaultdict
 import hashlib
-import json
+import json,math
 from pathlib import Path
 
 from shapely.affinity import rotate
@@ -58,6 +58,7 @@ before_placement,after_placement=placement_records(baseline),placement_records(d
 placement_changes=[{'type':t,'id':uid} for t,uid in sorted(before_placement.keys()|after_placement.keys())
                    if before_placement.get((t,uid))!=after_placement.get((t,uid))]
 opens=[]
+floating=[]
 for net,name in g.nets.items():
     elements,roots=g.groups(net)
     islands=defaultdict(set)
@@ -66,6 +67,11 @@ for net,name in g.nets.items():
         p=g.ports[e['pcb_port_id']];component=g.src[g.comp[p['pcb_component_id']]['source_component_id']]
         islands[r].add(component+'.'+g.sp[p['source_port_id']]['name'])
     if len(islands)>1:opens.append({'net':name,'islands':[sorted(v) for v in islands.values()]})
+    unattached=defaultdict(set)
+    for e,r in zip(elements,roots):
+        if r not in islands and e['type'] in ['pcb_trace','pcb_via','pcb_copper_pour']:
+            unattached[r].add(e[e['type']+'_id'])
+    floating.extend({'net':name,'copper_ids':sorted(ids)} for ids in unattached.values())
 
 board=next(e for e in data if e['type']=='pcb_board')
 boundary=box(-board['width']/2,-board['height']/2,board['width']/2,board['height']/2)
@@ -106,6 +112,21 @@ for e in data:
         shape=e['brep_shape'];coords=lambda r:[(p['x'],p['y']) for p in r['vertices']]
         add(e,Polygon(coords(shape['outer_ring']),[coords(r) for r in shape.get('inner_rings',[])]),[e['layer']])
 
+# Check drilled edges independently of copper-mask construction margins.
+vias=[e for e in data if e['type']=='pcb_via']
+terminal_holes=[e for e in data if e['type']=='pcb_plated_hole' and e.get('shape')=='circle'
+                and g.src[g.comp[e['pcb_component_id']]['source_component_id']]=='J_MOTOR']
+via_drill_gaps=[];terminal_drill_gaps=[]
+for i,v in enumerate(vias):
+    for other in vias[:i]:
+        gap=math.hypot(v['x']-other['x'],v['y']-other['y'])-(v['hole_diameter']+other['hole_diameter'])/2
+        via_drill_gaps.append(gap)
+        if gap<.2-1e-6:errors.append({'kind':'via_drill_clearance','vias':[v['pcb_via_id'],other['pcb_via_id']],'gap_mm':gap})
+    for other in terminal_holes:
+        gap=math.hypot(v['x']-other['x'],v['y']-other['y'])-(v['hole_diameter']+other['hole_diameter'])/2
+        terminal_drill_gaps.append(gap)
+        if gap<.45-1e-6:errors.append({'kind':'terminal_via_drill_clearance','via':v['pcb_via_id'],'terminal':other['pcb_plated_hole_id'],'gap_mm':gap})
+
 holes=[];mount_holes=[];supplier_holes=[]
 for e in data:
     if e['type']!='pcb_hole':continue
@@ -145,8 +166,10 @@ report={'stage':'routing engineering screen, not fabrication approval',
         'placement_source_sha256':hashlib.sha256(baseline_path.read_bytes()).hexdigest(),
         'physical_pin_nets_checked':len(before),'changed_pin_nets':pin_changes,
         'changed_placement_records':placement_changes,
-        'nets_checked':len(g.nets),'disconnected_nets':opens,
+        'nets_checked':len(g.nets),'disconnected_nets':opens,'floating_copper_islands':floating,
         'traces':sum(e['type']=='pcb_trace' for e in data),'vias':sum(e['type']=='pcb_via' for e in data),
+        'minimum_via_drill_edge_gap_mm':min(via_drill_gaps,default=None),
+        'minimum_terminal_via_drill_edge_gap_mm':min(terminal_drill_gaps,default=None),
         'shorts':shorts,'clearance_violations':clearance,'copper_edge_violations':edge,
         'mount_hole_copper_clearance_violations':hole_clearance,
         'minimum_mount_hole_copper_clearance_mm':min(hole_gaps,default=None),
@@ -154,7 +177,7 @@ report={'stage':'routing engineering screen, not fabrication approval',
         'forbidden_copper':forbidden,'construction_errors':errors,
         'minimum_foreign_net_gap_within_0_15_mm':min(minimum_gaps,default=None),
         'trace_width_ranges_mm':{n:[min(v),max(v)] for n,v in widths.items()},
-        'passed':not any([pin_changes,placement_changes,opens,shorts,clearance,edge,hole_clearance,forbidden,errors]),
+        'passed':not any([pin_changes,placement_changes,opens,floating,shorts,clearance,edge,hole_clearance,forbidden,errors]),
         'fabrication_ready':False,
         'remaining':['Native DRC and final Gerber/drill checks','USB pair/reference and Kelvin current-sense review','Thermal/power integrity, exact motor-wire fit and procurement']}
 args.output.parent.mkdir(parents=True,exist_ok=True)

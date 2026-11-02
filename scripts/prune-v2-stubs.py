@@ -11,7 +11,7 @@ def signature(net):
     return sorted(sorted(v) for v in islands.values())
 removed=[];retained=[]
 for trace_id in sorted(ids):
-    if trace_id.startswith(("usb_","oscillator_","reviewed_local_critical_")):continue
+    if trace_id.startswith(("oscillator_","reviewed_local_critical_")) or (trace_id.startswith("usb_") and "--include-usb" not in sys.argv):continue
     if "--preserve-review-escapes" in sys.argv and trace_id.startswith(("reviewed_local_","oscillator_","usb_")):continue
     e=next((x for x in g.j if x.get('pcb_trace_id')==trace_id),None)
     if e is None:continue

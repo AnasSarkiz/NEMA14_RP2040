@@ -1,5 +1,5 @@
 """Trim obsolete endpoint branches only when live physical-pad partitions remain identical."""
-import json,math
+import json,math,sys
 from shapely.ops import unary_union
 import verify_supplier_connectivity as g
 errors=json.loads((g.ROOT/'artifacts/v2/routing/native-drc.json').read_text())['errors']
@@ -10,7 +10,7 @@ def signature(net):
  return sorted(sorted(v) for v in out.values())
 records=[]
 for err in errors:
- if err.get('pcb_trace_id','').startswith(('usb_','oscillator_','reviewed_local_critical_')):continue
+ if err.get('pcb_trace_id','').startswith(('oscillator_','reviewed_local_critical_')) or (err.get('pcb_trace_id','').startswith('usb_') and '--include-usb' not in sys.argv):continue
  if 'dangling endpoint' not in err.get('message',''):continue
  e=next((e for e in g.j if e.get('pcb_trace_id')==err['pcb_trace_id']),None)
  if e is None:continue

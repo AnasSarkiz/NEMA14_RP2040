@@ -91,7 +91,7 @@ export default function Nema14Controller({ routingDisabled = false, assemblyPrev
       recirculation. Existing SENSE1/SENSE2 regulation resistors stay unchanged. */}
   {(['A','B'] as const).map(phase=><React.Fragment key={'current_'+phase}>
     {resistor('R_SHUNT_'+phase,'0.05',phase+'_DRV_PLUS',phase+'_PLUS')}
-    <SupplierPart name={'U_I'+phase} {...place('U_I'+phase)} noConnect={['NC']}
+    <SupplierPart name={'U_I'+phase} {...pinProps('U_I'+phase)} {...place('U_I'+phase)} noConnect={['NC']}
       connections={{IN_POS:n(phase+'_DRV_PLUS'),IN_NEG:n(phase+'_PLUS'),GND:n('GND'),
         VS:n('V3V3'),REF1:n('V3V3'),REF2:n('GND'),OUT:n('I_'+phase+'_RAW')}} />
     {cap('C_I'+phase,'100nF','V3V3')}

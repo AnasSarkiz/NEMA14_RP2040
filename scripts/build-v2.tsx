@@ -24,6 +24,7 @@ const json = prepareSchematic(raw)
 writeFileSync("artifacts/v2/source.circuit.json", JSON.stringify(json,null,2)+"\n")
 writeFileSync("index.circuit.json", JSON.stringify(json,null,2)+"\n")
 writeFileSync("artifacts/board.circuit.json", JSON.stringify(json,null,2)+"\n")
+if (!process.argv.includes("--geometry-only")) {
 writeFileSync("artifacts/v2/top.svg", cleanSvg(convertCircuitJsonToPcbSvg(json,{layer:"top"})))
 writeFileSync("artifacts/v2/bottom.svg", cleanSvg(convertCircuitJsonToPcbSvg(json,{layer:"bottom"})))
 for(const sheet of json.filter(e=>e.type==="schematic_sheet")){
@@ -38,6 +39,7 @@ for(const layer of ["top","bottom"]){
 }
 execFileSync("python3",["scripts/render-v2-placement.py"],{stdio:"inherit"})
 writeFileSync("artifacts/v2/placement.png",new Resvg(readFileSync("artifacts/v2/placement.svg","utf8"),{fitTo:{mode:"width",value:1500}}).render().asPng())
+}
 const errors = raw.filter(e=>e.type.endsWith("_error"))
 console.log(JSON.stringify({stage:"unrouted engineering draft",elements:json.length,errors},null,2))
 if(errors.length) process.exitCode=1

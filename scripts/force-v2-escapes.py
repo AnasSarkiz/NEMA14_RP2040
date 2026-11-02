@@ -30,7 +30,10 @@ unlock_ids=unlock_traces | {e['pcb_via_id'] for e in g.j if e['type']=='pcb_via'
 unlock_ids.update(q.split('=',1)[1] for q in sys.argv if q.startswith('--unlock-escape-id='))
 def protected(e):
     uid=e.get(e['type']+'_id','')
-    return uid not in unlock_ids and uid.startswith(('v2_escape_','v2_thermal_','oscillator_v2_','usb_v2_'))
+    name=g.nets.get(g.key(e),'')
+    critical=name.startswith('QSPI_') or name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT',
+                                     'A_DRV_PLUS','B_DRV_PLUS','A_PLUS','B_PLUS'}
+    return uid not in unlock_ids and (critical or uid.startswith(('v2_escape_','v2_thermal_','oscillator_v2_','usb_v2_')))
 def pieces(e):
     if e['type']=='pcb_via':return [(l,Point(e['x'],e['y']).buffer(e['outer_diameter']/2)) for l in e['layers']]
     return [(a['layer'],LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2))
@@ -63,12 +66,13 @@ with tempfile.TemporaryDirectory(prefix='nema14-v2-local-') as temporary:
         if request is None:break
         net,name,pad=request;port=pad['pcb_port_id'];label=g.src[g.comp[pad['pcb_component_id']]['source_component_id']]+'.'+g.sp[g.ports[port]['source_port_id']]['name']
         added=None;removed=None
-        for step,margin in [(.025,.015),(.0125,.016),(.0125,.005),(.0125,.003)]:
+        trials=[(.0125,.003)] if '--fine-only' in sys.argv else [(.025,.015),(.0125,.016),(.0125,.005),(.0125,.003)]
+        for step,margin in trials:
             retained=[e for e in g.j if e['type'] not in ['pcb_trace','pcb_via','pcb_copper_pour'] or protected(e) or (e['type']=='pcb_via' and g.key(e)==net)]
             probe=directory/'probe.circuit.json';probe.write_text(json.dumps(retained,indent=2)+'\n')
             log=directory/'probe.log'
             command=[sys.executable,str(ROOT/'scripts/route-v2-repair.py'),'--source',str(probe),'--escape-islands','--escape-port='+port,'--net='+name,'--protect-signals','--via-pad-mm='+str(via_pad),'--grid-step-mm='+str(step),'--grid-margin-mm='+str(margin),'--repair-log='+str(directory/'repairs.json'),'--keep-floating-copper']
-            command.extend(q for q in sys.argv if q.startswith('--escape-via-'))
+            command.extend(q for q in sys.argv if q.startswith(('--escape-via-','--avoid-window=')))
             if name=='GND':command.append('--ground')
             with log.open('w') as stream:result=subprocess.run(command,stdout=stream,stderr=subprocess.STDOUT,cwd=ROOT)
             if result.returncode:raise RuntimeError(log.read_text())
@@ -110,9 +114,17 @@ with tempfile.TemporaryDirectory(prefix='nema14-v2-local-') as temporary:
             added,removed=candidate,rip;break
         if added is None:
             failed.add(port);print('NO_LOCAL_ESCAPE',name,label,flush=True);continue
+        fragments=[]
+        if '--local-rip' in sys.argv:
+            from v2_local_rip import retained_trace_fragments
+            used={e.get(e['type']+'_id') for e in g.j}
+            for old in g.j:
+                if old['type']=='pcb_trace' and old['pcb_trace_id'] in removed:
+                    fragments.extend(retained_trace_fragments(old,new_geometry,used))
         g.j[:]=[e for e in g.j if e.get(e['type']+'_id') not in removed]
+        g.j.extend(fragments)
         g.j.extend(added)
-        row={'net':name,'terminal':label,'pcb_port_id':port,'added':[e[e['type']+'_id'] for e in added],'removed':sorted(removed)}
+        row={'net':name,'terminal':label,'pcb_port_id':port,'added':[e[e['type']+'_id'] for e in added],'removed':sorted(removed),'retained_fragments':[e['pcb_trace_id'] for e in fragments]}
         history.append(row);print('LOCAL_ESCAPE',json.dumps(row),flush=True)
         g.path.write_text(json.dumps(g.j,indent=2)+'\n')
         report_path.write_text(json.dumps(history,indent=2)+'\n')

@@ -3,7 +3,8 @@
 These checks complement, rather than replace, all-net connectivity and DRC.
 """
 import hashlib
-import json
+import json,sys
+from pathlib import Path
 from collections import defaultdict
 
 from shapely.geometry import LineString, Point, Polygon
@@ -86,7 +87,7 @@ clock_layers={q['layer'] for e in g.j if e['type']=='pcb_trace' and g.key(e) in 
 check('Oscillator uses top copper without vias',not clock_vias and clock_layers=={'top'},vias=clock_vias,layers=sorted(clock_layers))
 report={'source_sha256':hashlib.sha256(g.path.read_bytes()).hexdigest(),'checks':checks,
         'passed':all(c['passed'] for c in checks),'fabrication_ready':False}
-output=g.ROOT/'artifacts/v2/routing/functional-routing-audit.json'
+output=Path(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--output=')),g.ROOT/'artifacts/v2/routing/functional-routing-audit.json'))
 output.write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps(report,indent=2))
 raise SystemExit(not report['passed'])

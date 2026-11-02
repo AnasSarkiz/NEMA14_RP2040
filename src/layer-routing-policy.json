@@ -1,10 +1,12 @@
 {
   "inner1_allowed_nets": [
+    "A_DRV_PLUS",
     "A_MINUS",
     "A_PLUS",
     "BOOT_PAD",
     "BUZZER_GATE",
     "BUZZER_PWM",
+    "B_DRV_PLUS",
     "B_MINUS",
     "B_PLUS",
     "DATA_CC1",
@@ -16,6 +18,7 @@
     "DIR",
     "ENABLE_N",
     "GND",
+    "I_A_ADC",
     "LED_B",
     "LED_G",
     "LED_R",
@@ -51,14 +54,15 @@
   ],
   "maximum_inner1_trace_section_length_mm": 30,
   "maximum_clock_or_flash_inner1_section_mm": 15,
-  "maximum_A_MINUS_inner1_section_mm": 8,
+  "maximum_A_MINUS_inner1_section_mm": 20,
   "minimum_A_MINUS_inner1_width_mm": 0.3,
   "USB_inner_signal_tracks_allowed": false,
   "required_main_inner1_ground_region_area_mm2": 700,
-  "rationale": "Inner1 retains grounded fill with bounded control routes and short motor-pin transitions totaling no more than 8 mm per phase. Motor trunks use outer/inner2 copper. Every phase transition is at least 0.30 mm wide and must pass full-budget thermal, physical connectivity, clearance, ground-plane area and USB reference checks.",
-  "maximum_total_phase_inner1_length_mm": 8,
+  "rationale": "The fixed 39k/10k VREF divider and 0.24-ohm regulation resistors set 0.351 A nominal and <=0.379 A at +5% supply / 1% resistor extremes. A 0.30 mm, 17.5 um internal trace screens at >=0.410 A for a 20 C rise by IPC-2221; a 20 mm section dissipates under 10 mW at the maximum setting. Phase transitions are bounded to 20 mm per net, with >=0.30 mm main paths and independent Kelvin pickup checks. Ground-reference area, USB return continuity and measured thermal performance remain separate electrical-release checks.",
+  "maximum_total_phase_inner1_length_mm": 20,
   "minimum_phase_inner1_width_mm": 0.3,
   "USB_construction_reference_buffer_mm": 0.4,
   "USB_reference_requires_full_track_width": true,
-  "USB_construction_reference_rationale": "Pair outer edge is 0.330 mm from the centreline. A 0.400 mm construction buffer plus the existing 0.15 mm copper clearance and 0.02 mm grid margin leaves 0.04 mm beyond the 0.20 mm ground-fill setback. Final exact full-track ground-reference geometry remains mandatory."
+  "USB_construction_reference_rationale": "Pair outer edge is 0.330 mm from the centreline. A 0.400 mm construction buffer plus the existing 0.15 mm copper clearance and 0.02 mm grid margin leaves 0.04 mm beyond the 0.20 mm ground-fill setback. Final exact full-track ground-reference geometry remains mandatory.",
+  "analog_inner1_rationale": "Permit a short filtered ADC branch on the fourth available copper layer to escape the fixed SOIC/QFN fanout field. The 0.16 mm width, 0.15 mm foreign clearance, 30 mm maximum section length and independent return-path qualification remain in force."
 }

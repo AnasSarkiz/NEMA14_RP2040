@@ -38,6 +38,7 @@ kelvin='--kelvin' in sys.argv
 escape_islands='--escape-islands' in sys.argv
 escape_port=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--escape-port=')),None)
 kelvin_target=None
+kelvin_start_ids=set()
 def pad_reference(p):
     return g.src[g.comp[p['pcb_component_id']]['source_component_id']]
 def pad_number(p):
@@ -47,9 +48,10 @@ def soft_eligible(e):
     uid=e.get('pcb_trace_id',e.get('pcb_via_id',''))
     if uid.startswith(('v2_escape_','oscillator_v2_','v2_thermal_','usb_v2_')):return False
     if e['type']=='pcb_via' and ('--rip-ordinary-vias' not in sys.argv or name in {'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VREF','VCP','BUCK_SW','BUCK_BST','A_DRV_PLUS','B_DRV_PLUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'}):return False
-    if name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','RUN','SWCLK','SWDIO'}:return False
+    if name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT','QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','RUN','SWCLK','SWDIO'} and not ('--rip-debug-branches' in sys.argv and name in {'RUN','SWCLK','SWDIO'}):return False
     protected_nets={q.split('=',1)[1] for q in sys.argv if q.startswith('--protect-net=')}
     if name in protected_nets:return False
+    if '--rip-debug-branches' in sys.argv and name in {'RUN','SWCLK','SWDIO'}:return True
     if '--rip-pd-branches' in sys.argv and name=='PD_VBUS' and not uid.startswith(('usb_','reviewed_local_')):return True
     if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'}:
         if not uid.startswith(('usb_','oscillator_','review_escape_','reviewed_local_')):return True
@@ -82,13 +84,19 @@ def blocked(net,via=False):
         typ=e['type']
         if typ in ['pcb_smtpad','pcb_plated_hole']:
             if g.key(e)==net and not via and pad_reference(e) not in avoid_refs:continue
-            add(e.get('layers',[e.get('layer','top')]),g.geometry(e),-.15 if g.key(e)==net and via else .1 if typ=='pcb_plated_hole' else 0)
+            # The motor terminal has a 0.40 mm annulus. Its actual 0.15 mm
+            # foreign-copper setback already exceeds the plated-drill rule;
+            # an additional blanket 0.10 mm construction pad is unnecessary.
+            wide_annulus=(typ=='pcb_plated_hole' and e.get('shape')=='circle' and
+                          (e['outer_diameter']-e['hole_diameter'])/2>=.4-1e-5)
+            extra=-.15 if g.key(e)==net and via else .1 if typ=='pcb_plated_hole' and not wide_annulus else 0
+            add(e.get('layers',[e.get('layer','top')]),g.geometry(e),extra)
         elif typ=='pcb_via':
             if g.key(e)==net and not via:
-                if kelvin:
+                if kelvin and e['pcb_via_id'] not in kelvin_start_ids:
                     add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2).difference(kelvin_target.buffer(.1)))
                 continue
-            eligible=soft_eligible(e)
+            eligible=g.key(e)!=net and soft_eligible(e)
             if via and eligible:continue
             add(draw_layers,g.Point(e['x'],e['y']).buffer(e['outer_diameter']/2),soft=not via and eligible)
         elif typ=='pcb_trace' and (g.key(e)!=net or kelvin):
@@ -96,16 +104,17 @@ def blocked(net,via=False):
             for a,b in zip(e['route'],e['route'][1:]):
                 if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']:
                     shape=g.LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)
+                    if kelvin and g.key(e)==net and e['pcb_trace_id'] in kelvin_start_ids:
+                        continue
                     if kelvin and g.key(e)==net:
                         shape=shape.difference(kelvin_target.buffer(.1))
                         add([a['layer']],shape)
                     else:add([a['layer']],shape,soft=not via and soft_eligible(e))
         elif typ=='pcb_keepout':
             # Exact circular keepout; native bounding-box diagnostics are independently reconciled.
-            # The specified mechanical envelope already includes the head
-            # margin. Copper must stay outside it; it is not a foreign net
-            # requiring another 0.15 mm electrical clearance.
-            c=e['center'];r=e['radius'];add(e['layers'],g.Point(c['x'],c['y']).buffer(r,quad_segs=128),-.15)
+            # Native DRC applies the 0.15 mm board clearance to keepouts.
+            # Retain that extra setback as well as the actual head envelope.
+            c=e['center'];r=e['radius'];add(e['layers'],g.Point(c['x'],c['y']).buffer(r,quad_segs=128))
         elif typ=='pcb_hole':
             if e['hole_shape']=='circle':hole=g.Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.1)
             else:
@@ -157,6 +166,7 @@ repairs=[]
 default_order='USB_DP,USB_DM,MCU_DP,MCU_DM,QSPI_SS,QSPI_SCLK,QSPI_SD0,QSPI_SD1,QSPI_SD2,QSPI_SD3,XIN,XOUT,XTAL_OUT,SWCLK,SWDIO,RUN,A_DRV_PLUS,B_DRV_PLUS,A_PLUS,A_MINUS,B_PLUS,B_MINUS,SENSE1,SENSE2,PD_VBUS,LOGIC_IN,BUCK_SW,BUCK_BST,CP1,CP2,VCP,VREG,V3V3,V1V1,I_A_RAW,I_B_RAW,I_A_ADC,I_B_ADC'
 net_order=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--net-order=')),default_order).split(',')
 for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k]['name'] in net_order else len(net_order)):
+    if nets[net]['name'] in {q.split('=',1)[1] for q in sys.argv if q.startswith('--skip-net=')}:continue
     if '--ground' in sys.argv and nets[net]['name']!='GND':continue
     requested=next((q.split('=',1)[1] for q in sys.argv if q.startswith('--net=')),None)
     if requested and nets[net]['name']!=requested:continue
@@ -170,6 +180,9 @@ for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k][
     elif nets[net]['name'] in ['QSPI_SCLK','QSPI_SD0','QSPI_SD1','QSPI_SD2','QSPI_SD3','QSPI_SS','XIN','XOUT','XTAL_OUT','RUN','SWCLK','SWDIO','USB_DP','USB_DM','MCU_DP','MCU_DM','DIR','STATUS_B_K','LED_B','LED_G','PWR_LED_A','STEP','V3V3','DATA_VBUS','TEMP_SDA','TEMP_SCL','V1V1','GND','DATA_CC1','DATA_CC2','VM_SENSE','ENABLE_N','BOOT_PAD','STATUS_R_C','STATUS_G_C','STATUS_B_C','DCK','DIO']:layers=['top','inner1','inner2','bottom']
     elif nets[net]['name']=='A_MINUS':layers=['top','inner1','inner2','bottom']
     else:layers=['top','inner2','bottom']
+    allowed_inner1=json.loads((ROOT/'src/layer-routing-policy.json').read_text())['inner1_allowed_nets']
+    if nets[net]['name'] in allowed_inner1 and 'inner1' not in layers:
+        layers=['top','inner1','inner2','bottom']
     board=next(e for e in j if e['type']=='pcb_board')
     current_via_diameter=max(board['min_via_pad_diameter'],.5 if nets[net]['name'] in ['PD_VBUS','A_DRV_PLUS','B_DRV_PLUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .4)
     current_via_hole=max(board['min_via_hole_diameter'],.25 if nets[net]['name'] in ['PD_VBUS','A_DRV_PLUS','B_DRV_PLUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'] else .2)
@@ -253,6 +266,9 @@ for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k][
         if kelvin:
             target=next(p for p in j if p['type'] in ['pcb_smtpad','pcb_plated_hole'] and pad_reference(p)==goal_ref and pad_number(p)==goal_pad_number)
             kelvin_target=g.geometry(target)
+            # The existing amplifier escape is part of the pickup being extended.
+            # Other same-net copper remains blocked except at the shunt land.
+            kelvin_start_ids={e[e['type']+'_id'] for e,r in zip(elems,roots) if r==startroot and e['type'] in ['pcb_trace','pcb_via']}
         target_roots={r for r,ps in islands.items() if any(g.src[g.sp[g.ports[p['pcb_port_id']]['source_port_id']]['source_component_id']]==goal_ref for p in ps)} if goal_ref else set()
         if goal_ref and startroot in target_roots:
             print('Requested physical terminal groups joined',nets[net]['name'],requested_start,goal_ref,flush=True);break
@@ -435,7 +451,7 @@ for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k][
                 # the saved board and the qualification rule remain unchanged.
                 candidate_trace={'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]}
                 candidate_vias=[e for e in j if e['type']=='pcb_via' and e['pcb_via_id'].startswith(uid+'_via_')]
-                (ROOT/('artifacts/opposite-edge/rejected-phase-'+nets[net]['name']+'.json')).write_text(json.dumps({'trace':candidate_trace,'vias':candidate_vias,'existing_inner1_mm':existing_inner,'proposed_total_inner1_mm':proposed_total,'limit_mm':limit},indent=2)+'\n')
+                (g.path.parent/('rejected-phase-'+nets[net]['name']+'.json')).write_text(json.dumps({'trace':candidate_trace,'vias':candidate_vias,'existing_inner1_mm':existing_inner,'proposed_total_inner1_mm':proposed_total,'limit_mm':limit},indent=2)+'\n')
                 j[:]=[e for e in j if not (e['type']=='pcb_via' and e['pcb_via_id'].startswith(uid+'_via_'))]
                 print('UNROUTED: proposed phase transitions exceed total inner1 length budget',nets[net]['name'],proposed_total,limit,flush=True)
                 break
@@ -475,9 +491,25 @@ for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k][
         rip_limit=int(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--max-ripped-traces=')),4));assert 0<=rip_limit<=16,'Construction rip-up budget must be between zero and sixteen traces; every displaced net requires full requalification';assert len(ripped)<=rip_limit,('Controlled rip-up budget exceeded',sorted(ripped))
         print('RIP_FOR',nets[net]['name'],sorted(ripped),flush=True)
         ripped_vias={e['pcb_via_id'] for e in j if e['type']=='pcb_via' and e['pcb_via_id'] in ripped}
+        retained_fragments=[]
+        if '--local-rip' in sys.argv:
+            from v2_local_rip import retained_trace_fragments
+            dead=[e for e in j if e['type']=='pcb_via' and e['pcb_via_id'] in ripped_vias]
+            # Split any trace referring to a removed barrel into real single-layer
+            # conductors. A stale annotation must not imply a plated transition.
+            for oldtrace in j:
+                if oldtrace['type']!='pcb_trace':continue
+                affected=oldtrace['pcb_trace_id'] in ripped or any(
+                    q['route_type']=='via' and any(math.hypot(q['x']-v['x'],q['y']-v['y'])<1e-6 for v in dead)
+                    for q in oldtrace['route'])
+                if not affected:continue
+                assert soft_eligible(oldtrace),('Removed barrel feeds protected trace',oldtrace['pcb_trace_id'])
+                ripped.add(oldtrace['pcb_trace_id'])
+                retained_fragments.extend(retained_trace_fragments(oldtrace,construction_shapes,used_ids))
         j[:]=[e for e in j if e.get(e['type']+'_id') not in ripped]
+        j.extend(retained_fragments)
         j.append({'type':'pcb_trace','pcb_trace_id':uid,'route':route,'source_net_id':nets[net]['source_net_id'],'source_trace_id':traces[net],'subcircuit_connectivity_map_key':net,'subcircuit_id':'subcircuit_source_group_0','pcb_port_ids':[p[k] for p in [route[0],route[-1]] for k in ['start_pcb_port_id','end_pcb_port_id'] if k in p]})
-        repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid,'removed_foreign_trace_ids':sorted(ripped-ripped_vias),'removed_foreign_via_ids':sorted(ripped_vias)})
+        repairs.append({'net':nets[net]['name'],'start_port':startpad['pcb_port_id'],'start_mm':[sx,sy],'end_mm':[gx,gy],'vias_mm':newvia,'expanded':expanded,'trace_id':uid,'removed_foreign_trace_ids':sorted(ripped-ripped_vias),'removed_foreign_via_ids':sorted(ripped_vias),'retained_fragment_ids':[e['pcb_trace_id'] for e in retained_fragments]})
         # Rip-up changes the obstacle field and warrants retrying trapped pins.
         # Otherwise continue joining other islands before a later repair pass.
         if ripped:failed_start_ports.clear()

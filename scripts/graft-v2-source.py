@@ -13,15 +13,39 @@ assert old_source==new_source,'Source pin/net identities changed'
 old_ports=g.ports
 new_ports={e['pcb_port_id']:e for e in fresh if e['type']=='pcb_port'}
 moved={p for p in old_ports if (old_ports[p]['x'],old_ports[p]['y'])!=(new_ports[p]['x'],new_ports[p]['y'])}
+old_pads={e['pcb_port_id']:e for e in g.j if e['type'] in ['pcb_smtpad','pcb_plated_hole']}
+fresh_pads=[e for e in fresh if e['type'] in ['pcb_smtpad','pcb_plated_hole']]
 new_pads=[e for e in fresh if e['type'] in ['pcb_smtpad','pcb_plated_hole'] and e.get('pcb_port_id') in moved]
 def pieces(e):
     if e['type']=='pcb_via':return [(l,Point(e['x'],e['y']).buffer(e['outer_diameter']/2)) for l in e['layers']]
     return [(a['layer'],LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2)) for a,b in zip(e['route'],e['route'][1:]) if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']]
 rip=set()
+reassigned=[]
 for e in g.j:
     if e['type'] not in ['pcb_trace','pcb_via']:continue
-    if e['type']=='pcb_trace' and (set(e.get('pcb_port_ids',[]))|{q.get(k) for q in e['route'] for k in ['start_pcb_port_id','end_pcb_port_id']})&moved:
-        rip.add(e['pcb_trace_id']);continue
+    if e['type']=='pcb_trace':
+        affected=(set(e.get('pcb_port_ids',[]))|{q.get(k) for q in e['route'] for k in ['start_pcb_port_id','end_pcb_port_id']})&moved
+        replacements={}
+        for pid in affected:
+            old_shape=g.geometry(old_pads[pid])
+            candidates=[p for p in fresh_pads if g.key(p)==g.key(e) and
+                        any(l in p.get('layers',[p.get('layer','top')]) and
+                            s.intersection(old_shape).intersection(g.geometry(p)).area>1e-8
+                            for l,s in pieces(e))]
+            if not candidates:break
+            replacements[pid]=candidates[0]['pcb_port_id']
+        else:
+            # Tiny moves and equal-net land replacements can retain actual
+            # copper. Reassign contact metadata only after geometric proof.
+            e['pcb_port_ids']=[replacements.get(pid,pid) for pid in e.get('pcb_port_ids',[])]
+            for q in e['route']:
+                for tag in ['start_pcb_port_id','end_pcb_port_id']:
+                    if q.get(tag) in replacements:
+                        old=q[tag];q[tag]=replacements[old]
+                        reassigned.append({'trace':e['pcb_trace_id'],'before':old,'after':q[tag]})
+            affected=set()
+        if affected:
+            rip.add(e['pcb_trace_id']);continue
     for p in new_pads:
         shape=g.geometry(p)
         if e['type']=='pcb_via' and any(s.intersection(shape).area>1e-8 for l,s in pieces(e)):
@@ -35,6 +59,6 @@ fresh.extend(e for e in g.j if e['type'] in ['pcb_trace','pcb_via'] and e[e['typ
 for e in fresh:
     if e['type']=='pcb_board':e['is_via_in_pad_allowed']=True
 g.path.write_text(json.dumps(fresh,indent=2)+'\n')
-report={'placement_source_sha256':hashlib.sha256(fresh_path.read_bytes()).hexdigest(),'moved_ports':sorted(moved),'removed_stale_copper':sorted(rip),'routed_source_sha256':hashlib.sha256(g.path.read_bytes()).hexdigest()}
+report={'placement_source_sha256':hashlib.sha256(fresh_path.read_bytes()).hexdigest(),'moved_ports':sorted(moved),'removed_stale_copper':sorted(rip),'geometrically_verified_contact_reassignments':reassigned,'routed_source_sha256':hashlib.sha256(g.path.read_bytes()).hexdigest()}
 (g.ROOT/'artifacts/v2/routing/source-graft.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({'moved_ports':len(moved),'removed_stale_copper':len(rip)}))
