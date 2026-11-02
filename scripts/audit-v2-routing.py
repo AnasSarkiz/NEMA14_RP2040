@@ -51,6 +51,12 @@ def physical_nets(records):
 before,after=physical_nets(baseline),physical_nets(data)
 pin_changes=[{'component':n,'pin':p,'before':before.get((n,p)),'after':after.get((n,p))}
              for n,p in sorted(before.keys()|after.keys()) if before.get((n,p))!=after.get((n,p))]
+placement_types={'pcb_component','pcb_port','pcb_smtpad','pcb_plated_hole','pcb_hole','pcb_keepout'}
+def placement_records(records):
+    return {(e['type'],e[e['type']+'_id']):e for e in records if e['type'] in placement_types}
+before_placement,after_placement=placement_records(baseline),placement_records(data)
+placement_changes=[{'type':t,'id':uid} for t,uid in sorted(before_placement.keys()|after_placement.keys())
+                   if before_placement.get((t,uid))!=after_placement.get((t,uid))]
 opens=[]
 for net,name in g.nets.items():
     elements,roots=g.groups(net)
@@ -84,6 +90,9 @@ for e in data:
     elif typ=='pcb_via':
         if e['hole_diameter']<.3-1e-6 or e['outer_diameter']<.45-1e-6:
             errors.append({'kind':'undersized_via','via':e['pcb_via_id'],'hole_mm':e['hole_diameter'],'outer_mm':e['outer_diameter']})
+        if e['outer_diameter']-e['hole_diameter']<.15-1e-6:
+            errors.append({'kind':'undersized_via_annulus','via':e['pcb_via_id'],
+                           'annular_ring_mm':(e['outer_diameter']-e['hole_diameter'])/2})
         if e.get('layers')!=layers:errors.append({'kind':'via_stack','via':e})
         add(e,Point(e['x'],e['y']).buffer(e['outer_diameter']/2,quad_segs=64),layers)
     elif typ=='pcb_trace':
@@ -97,7 +106,7 @@ for e in data:
         shape=e['brep_shape'];coords=lambda r:[(p['x'],p['y']) for p in r['vertices']]
         add(e,Polygon(coords(shape['outer_ring']),[coords(r) for r in shape.get('inner_rings',[])]),[e['layer']])
 
-holes=[]
+holes=[];mount_holes=[];supplier_holes=[]
 for e in data:
     if e['type']!='pcb_hole':continue
     if e['hole_shape']=='circle':shape=Point(e['x'],e['y']).buffer(e['hole_diameter']/2,quad_segs=64)
@@ -105,6 +114,7 @@ for e in data:
         w,h=e['hole_width'],e['hole_height'];dx,dy=((w-h)/2,0) if w>=h else (0,(h-w)/2)
         shape=rotate(LineString([(e['x']-dx,e['y']-dy),(e['x']+dx,e['y']+dy)]).buffer(min(w,h)/2,quad_segs=64),e.get('ccw_rotation',0),origin=(e['x'],e['y']))
     holes.append(shape)
+    (supplier_holes if e.get('pcb_component_id') else mount_holes).append(shape)
 keepouts=[]
 for e in data:
     if e['type']!='pcb_keepout':continue
@@ -112,12 +122,16 @@ for e in data:
     shape=Point(c['x'],c['y']).buffer(e['radius'],quad_segs=128) if e['shape']=='circle' else box(c['x']-e['width']/2,c['y']-e['height']/2,c['x']+e['width']/2,c['y']+e['height']/2)
     keepouts.append((e['layers'],shape))
 
-clearance=[];shorts=[];edge=[];forbidden=[];minimum_gaps=[]
+clearance=[];shorts=[];edge=[];forbidden=[];minimum_gaps=[];hole_clearance=[];hole_gaps=[];supplier_hole_gaps=[]
 for layer,by_net in copper.items():
     names=list(by_net);shapes=[unary_union(by_net[n]) for n in names];tree=STRtree(shapes)
     for i,shape in enumerate(shapes):
         if not boundary.buffer(-.25+1e-6).covers(shape):edge.append({'layer':layer,'net':g.nets.get(names[i],names[i])})
         if any(shape.intersection(h).area>1e-8 for h in holes):forbidden.append({'layer':layer,'net':g.nets.get(names[i],names[i]),'kind':'NPTH_copper_overlap'})
+        for hole in mount_holes:
+            gap=shape.distance(hole);hole_gaps.append(gap)
+            if gap<.25-2e-5:hole_clearance.append({'layer':layer,'net':g.nets.get(names[i],names[i]),'gap_mm':gap})
+        supplier_hole_gaps.extend(shape.distance(hole) for hole in supplier_holes)
         if any(layer in ls and shape.intersection(k).area>1e-8 for ls,k in keepouts):forbidden.append({'layer':layer,'net':g.nets.get(names[i],names[i]),'kind':'mount_keepout_overlap'})
         for j in tree.query(shape.buffer(.15),predicate='intersects'):
             if j<=i:continue
@@ -130,13 +144,17 @@ report={'stage':'routing engineering screen, not fabrication approval',
         'source_sha256':hashlib.sha256(args.source.read_bytes()).hexdigest(),
         'placement_source_sha256':hashlib.sha256(baseline_path.read_bytes()).hexdigest(),
         'physical_pin_nets_checked':len(before),'changed_pin_nets':pin_changes,
+        'changed_placement_records':placement_changes,
         'nets_checked':len(g.nets),'disconnected_nets':opens,
         'traces':sum(e['type']=='pcb_trace' for e in data),'vias':sum(e['type']=='pcb_via' for e in data),
         'shorts':shorts,'clearance_violations':clearance,'copper_edge_violations':edge,
+        'mount_hole_copper_clearance_violations':hole_clearance,
+        'minimum_mount_hole_copper_clearance_mm':min(hole_gaps,default=None),
+        'minimum_supplier_locating_hole_copper_gap_mm':min(supplier_hole_gaps,default=None),
         'forbidden_copper':forbidden,'construction_errors':errors,
         'minimum_foreign_net_gap_within_0_15_mm':min(minimum_gaps,default=None),
         'trace_width_ranges_mm':{n:[min(v),max(v)] for n,v in widths.items()},
-        'passed':not any([pin_changes,opens,shorts,clearance,edge,forbidden,errors]),
+        'passed':not any([pin_changes,placement_changes,opens,shorts,clearance,edge,hole_clearance,forbidden,errors]),
         'fabrication_ready':False,
         'remaining':['Native DRC and final Gerber/drill checks','USB pair/reference and Kelvin current-sense review','Thermal/power integrity, exact motor-wire fit and procurement']}
 args.output.parent.mkdir(parents=True,exist_ok=True)

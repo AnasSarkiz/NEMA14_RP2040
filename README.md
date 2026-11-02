@@ -1,9 +1,11 @@
 # NEMA14 RP2040 V2 — routing draft
 
-**Routing has started:** the first candidate has 343 trace sections and 16 vias.
-**52 of 70 net groups remain open; native DRC is not clean.** See the
-[routing status and checks](docs/v2-routing.md), [routed PCB SVG](artifacts/v2/routing/top.svg)
-and [routing viewer](artifacts/v2/routing/NEMA14-V2-routing-viewer.html).
+**Routing continues:** the saved checkpoint has 342 traces and 279 vias.
+**19 of 70 net groups remain open; native DRC has 78 errors.** The independent
+physical audit finds zero shorts, foreign-net clearance violations or mounting-hole
+clearance violations. See [routing status and checks](docs/v2-routing.md),
+[routed PCB SVG](artifacts/v2/routing/top.svg) and
+[routing viewer](artifacts/v2/routing/NEMA14-V2-routing-viewer.html).
 The main preview below remains the verified, unrouted placement seed.
 
 The **34.5 × 34.5 mm V2 placement draft now uses one WAGO 250-204 /
