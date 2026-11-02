@@ -30,7 +30,6 @@ See [placement verification](artifacts/v2/placement-verification.json),
 [V2 design details](docs/v2-design.md).
 
 **The ordered V1 board and public tscircuit package are unchanged.**
-See the [terminal rotation trial](docs/v2-terminal-rotation.md) for 90°/180° alternatives.
 Sections and artifacts below describe historical V1 work.
 
 ## Bottom silkscreen and lean publication — 1.13.2 (V1 history)

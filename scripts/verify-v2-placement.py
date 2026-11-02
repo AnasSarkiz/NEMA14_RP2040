@@ -1,14 +1,10 @@
 """Independent generated-geometry audit; does not establish routed-board readiness."""
-import argparse,json,math,hashlib
+import json,math,hashlib
 from pathlib import Path
 from shapely.geometry import Polygon,Point,box
 from shapely.affinity import rotate,translate
 ROOT=Path(__file__).resolve().parents[1]
-parser=argparse.ArgumentParser(description=__doc__)
-parser.add_argument('--source',type=Path,default=ROOT/'artifacts/v2/source.circuit.json')
-parser.add_argument('--output',type=Path,default=ROOT/'artifacts/v2/placement-verification.json')
-args=parser.parse_args()
-path=args.source;data=json.loads(path.read_text())
+path=ROOT/'artifacts/v2/source.circuit.json';data=json.loads(path.read_text())
 sources={e['source_component_id']:e for e in data if e['type']=='source_component'}
 pcs={e['pcb_component_id']:e for e in data if e['type']=='pcb_component'}
 names={i:sources[e['source_component_id']]['name'] for i,e in pcs.items()}
@@ -90,7 +86,6 @@ for rule in plan.get('proximity_checks',[]):
 if not proximity_results:errors.append({'type':'missing_proximity_checks'})
 native=[e for e in data if e['type'].endswith('_error') and not e['type'].startswith('schematic_')]
 receipt={'passed':not errors and not native,'source_sha256':hashlib.sha256(path.read_bytes()).hexdigest(),'board_mm':[board['width'],board['height']],'top_courtyards_checked':len(polys),'bottom_courtyards_checked':len(bottom),'bottom_probe_pads':[n for n in bottom if n.startswith('TP_')],'minimum_courtyard_gap_mm':min(gaps),'minimum_copper_to_board_edge_mm':min(copper_edge_gaps),'screw_head_envelope_diameter_mm':6.4,'critical_proximity_check_count':len(proximity_results),'critical_proximity_checks':proximity_results,'native_pcb_error_count':len(native),'independent_error_count':len(errors),'errors':errors,'scope':'Generated 2D placement, pad-to-board-edge clearance, board bounds, screw-head envelopes and terminal drills. Not routing, wire/tool access, detailed 3D, electrical performance or manufacturing release.'}
-args.output.parent.mkdir(parents=True,exist_ok=True)
-args.output.write_text(json.dumps(receipt,indent=2)+'\n')
+(ROOT/'artifacts/v2/placement-verification.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps(receipt,indent=2))
 if not receipt['passed']:raise SystemExit(1)
