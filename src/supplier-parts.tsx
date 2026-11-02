@@ -6,6 +6,9 @@ import { AS5600_ASOM } from "../imports/supplier/AS5600_ASOM/AS5600_ASOM"
 import { StandardUsbConnector, SmtMotorConnector, SpringMotorConnector, WagoMotorConnector } from "./reference-connectors"
 import { INA240A1PWR } from "../imports/supplier/INA240A1PWR/INA240A1PWR"
 import { FRM121WFR050TM } from "../imports/supplier/FRM121WFR050TM/FRM121WFR050TM"
+import { ERJL06KF50MV } from "../imports/supplier/ERJL06KF50MV/ERJL06KF50MV"
+import { SR731JTTDR240F } from "../imports/supplier/SR731JTTDR240F/SR731JTTDR240F"
+import { EEEFT1V470AR } from "../imports/supplier/EEEFT1V470AR/EEEFT1V470AR"
 import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
 import { CL05B104KB5NNNC } from "../imports/supplier/CL05B104KB5NNNC/CL05B104KB5NNNC"
 import { XL_1608SURC_06 } from "../imports/supplier/XL_1608SURC_06/XL_1608SURC_06"
@@ -59,6 +62,9 @@ import { CH224A } from "../imports/supplier/CH224A/CH224A"
 import { A_0603WAF0000T5E } from "../imports/supplier/A_0603WAF0000T5E/A_0603WAF0000T5E"
 import { A_0402WGF5602TCE } from "../imports/supplier/A_0402WGF5602TCE/A_0402WGF5602TCE"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C193627": EEEFT1V470AR,
+ "C713441": ERJL06KF50MV,
+ "C186557": SR731JTTDR240F,
  "C2765063": WagoMotorConnector,
  "C64886": B5819WS,
  "C154728": DMN2300UFB4_7B,

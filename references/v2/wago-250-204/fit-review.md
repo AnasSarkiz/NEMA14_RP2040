@@ -1,8 +1,10 @@
 # WAGO 250-204 fit review — 2 November 2026
 
-**The 250-204 does not fit the existing V2 placement.** This is a fixed-layout
+**Historical fixed-layout screen:** The 250-204 does not fit the previous Phoenix placement. This is a fixed-layout
 assessment, not proof that a redesigned 34.5 × 34.5 mm board is impossible.
-No electrical source, active placement, V1 order or public package was changed.
+This screen itself changed no electrical source or placement. The subsequent
+[WAGO repack](../../../docs/v2-wago-repack.md) now provides a verified 34.5 mm
+placement seed. The ordered V1 and its public package remain unchanged.
 
 ## Part and electrical suitability
 

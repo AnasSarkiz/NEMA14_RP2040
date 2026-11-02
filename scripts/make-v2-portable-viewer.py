@@ -38,6 +38,11 @@ font_json={
 }
 font_files={f'latin/sans-serif.normal.{w}.woff':data_url(fonts/f'latin-sans-{w}.woff','font/woff') for w in [400,700]}
 raw_js=bundle.read_text()
+# The pinned native PCB viewer supports Canvas and WebGPU. Canvas keeps the
+# portable PCB tab usable on machines without a WebGPU adapter; CAD is unchanged.
+pcb_renderer_default='renderer:o="webgpu",initialState:i,allowEditing:r=!0'
+assert raw_js.count(pcb_renderer_default)==1,'PCB renderer default changed; review pinned viewer packaging'
+raw_js=raw_js.replace(pcb_renderer_default,'renderer:o="canvas",initialState:i,allowEditing:r=!0')
 fetch_expression='fetch(Q+"/"+W)'
 font_expression='Q+"/font-files/"+q.id+"/"+ge+"."+ye+"."+le+".woff"'
 assert raw_js.count(fetch_expression)==1 and raw_js.count(font_expression)==1,'Viewer font transport changed; review packaging'
@@ -66,4 +71,4 @@ html=html.replace('ASSETS;',script_json(assets)+';',1).replace('CIRCUIT;',script
 html=html.replace('<title>',f'<!-- Source SHA256: {sha}; runframe {version}; models embedded, no manufacturing export. -->\n<title>',1)
 output=ROOT/'artifacts/v2/NEMA14-V2-viewer.html'
 output.write_text(html)
-print(json.dumps({'path':str(output),'bytes':output.stat().st_size,'source_sha256':sha,'runframe_version':version,'embedded_obj_models':len(assets)}))
+print(json.dumps({'path':str(output),'bytes':output.stat().st_size,'source_sha256':sha,'runframe_version':version,'embedded_obj_models':len(assets),'pcb_renderer':'native Canvas'}))

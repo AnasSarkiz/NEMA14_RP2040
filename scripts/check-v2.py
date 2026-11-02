@@ -52,9 +52,9 @@ for phase,sense,out in [('A','SENSE1','OUT1A'),('B','SENSE2','OUT2A')]:
     check(phase+' output RC feeds ADC',on(amp,'OUT','I_'+phase+'_RAW') and on('R_I'+phase,'pin1','I_'+phase+'_RAW') and on('R_I'+phase,'pin2','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin1','I_'+phase+'_ADC') and on('C_IADC_'+phase,'pin2','GND'))
     r='R_S'+phase
     check(phase+' 0.24 ohm A4988 regulation resistor retained',on('U_DRV',sense,sense) and on(r,'pin1',sense) and on(r,'pin2','GND') and math.isclose(byname[r]['resistance'],.24))
-for phase in ['A','B']:
-    name='J_MOTOR_'+phase
-    check(phase+' two-pole Phoenix terminal and all four contacts assigned',byname[name]['manufacturer_part_number']=='1770953' and all(on(name,pin,phase+'_'+net) for pin,net in [('PLUS','PLUS'),('PLUS_2','PLUS'),('MINUS','MINUS'),('MINUS_2','MINUS')]))
+motor_ports={p['pin_number']:p['name'] for p in ports.values() if cs[p['source_component_id']]['name']=='J_MOTOR'}
+check('Four-pole WAGO 250-204 identity and physical pole numbering',byname['J_MOTOR']['manufacturer_part_number']=='250-204' and motor_ports=={1:'A_PLUS',2:'A_MINUS',3:'B_PLUS',4:'B_MINUS'})
+check('WAGO motor poles retain both winding polarities after inline shunts',all(on('J_MOTOR',phase+'_'+polarity,phase+'_'+polarity) for phase in ['A','B'] for polarity in ['PLUS','MINUS']))
 check('Compact magnetic buzzer retains the 3.3 V MOSFET/flyback circuit',byname['BZ1']['manufacturer_part_number']=='MLT-5020' and on('BZ1','_POS','V3V3') and on('BZ1','_NEG','BUZZER_SINK') and on('Q_BUZZER','D','BUZZER_SINK') and on('D_BUZZER','anode','BUZZER_SINK') and on('D_BUZZER','cathode','V3V3'))
 fet_ports=mosfet_pin_map('Q_BUZZER')
 check('Compact buzzer MOSFET identity, physical pinout and grounded source',byname['Q_BUZZER']['manufacturer_part_number']=='DMN2300UFB4-7B' and fet_ports=={1:'G',2:'D',3:'S'} and on('Q_BUZZER','G','BUZZER_GATE') and on('Q_BUZZER','D','BUZZER_SINK') and on('Q_BUZZER','S','GND'))
@@ -76,7 +76,7 @@ for connector in ['J_PD','J_DATA']:
     round_holes=[e for e in holes if e['hole_shape']=='circle']
     slots=[e for e in holes if e['hole_shape'] in ['oval','rotated_pill']]
     # Derived from the original EasyEDA NPTH path, not the previous broken export.
-    check(connector+' has both supplier locating holes',len(round_holes)==1 and len(slots)==1 and math.isclose(round_holes[0]['hole_diameter'],.7099808,abs_tol=1e-6) and math.isclose(slots[0]['hole_width'],1.5099792,abs_tol=3e-5) and math.isclose(slots[0]['hole_height'],.7099808,abs_tol=1e-6) and math.isclose(abs(slots[0]['x']-round_holes[0]['x']),8,abs_tol=5e-5))
+    check(connector+' has both supplier locating holes',len(round_holes)==1 and len(slots)==1 and math.isclose(round_holes[0]['hole_diameter'],.7099808,abs_tol=1e-6) and math.isclose(max(slots[0]['hole_width'],slots[0]['hole_height']),1.5099792,abs_tol=3e-5) and math.isclose(min(slots[0]['hole_width'],slots[0]['hole_height']),.7099808,abs_tol=1e-6) and math.isclose(math.hypot(slots[0]['x']-round_holes[0]['x'],slots[0]['y']-round_holes[0]['y']),8,abs_tol=5e-5))
     tabs=[e for e in data if e['type']=='pcb_plated_hole' and pcs.get(e.get('pcb_component_id'))==connector]
     check(connector+' retains all four soldered shell tabs',len(tabs)==4)
 check('RGB, buzzer, temperature, flash and crystal retained',all(n in byname for n in ['D_STATUS','BZ1','U_TEMP','U_FLASH','Y_MCU']))

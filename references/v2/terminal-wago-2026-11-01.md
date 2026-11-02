@@ -1,5 +1,7 @@
 # WAGO motor-terminal decision — 1 November 2026
 
+**Superseded:** the active V2 placement now uses WAGO 250-204 / C2765063. See [the 2 November implementation](../../docs/v2-wago-repack.md). This file records the earlier 233-series research.
+
 The user rejected the Phoenix quote of $9.34 and explicitly selected WAGO.
 Phoenix is no longer the intended V2 procurement choice.
 

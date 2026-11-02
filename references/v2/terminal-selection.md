@@ -1,13 +1,12 @@
 # V2 compact terminal selection
 
-**1 November 2026 update:** The user rejected the Phoenix price and selected
-WAGO. The WAGO 233-204 / C3310192 is the new candidate. See
-[WAGO decision and qualification](terminal-wago-2026-11-01.md). The Phoenix
-implementation described below remains in the active unrouted draft until
-the WAGO import, placement and sourcing are qualified; it is not the approved
-V2 procurement choice.
+**2 November 2026 implementation update:** V2 now uses **WAGO 250-204 /
+C2765063**, with a verified 34.5 × 34.5 mm placement seed. See
+[the active WAGO implementation](../../docs/v2-wago-repack.md). Procurement,
+factory-wire qualification and routing remain open. The Phoenix and WAGO 233
+options below are historical alternatives, not the active motor-terminal BOM.
 
-## Existing draft implementation
+## Previous Phoenix draft implementation
 
 Two **Phoenix 1770953 / C3817232**, PTSM 0,5/2-2,5-V THR R44, replace the
 single four-pole 1770979 candidate. Each two-pole body is **5.5 × 5 × 10 mm

@@ -1,7 +1,7 @@
 {
   "name": "NEMA14_RP2040",
   "version": "2.0.0-dev.1",
-  "description": "NEMA14 RP2040 V2 engineering draft: 34 mm, winding telemetry and spring terminal",
+  "description": "NEMA14 RP2040 V2 unrouted draft: 34.5 mm, winding telemetry and WAGO spring terminal",
   "main": "index.circuit.tsx",
   "scripts": {
     "build": "npm run build:v2 && npm run check:v2",
@@ -34,7 +34,8 @@
     "check:v2:source": "python3 scripts/check-v2.py && node scripts/check-native-schema.mjs artifacts/v2/source.circuit.json && bun scripts/check-v2-drills.ts",
     "check:v2:placement": "/workspace/.routing-venv/bin/python scripts/verify-v2-placement.py",
     "render:v2:placement": "/workspace/.routing-venv/bin/python scripts/render-v2-placement.py",
-    "preview:v2:portable": "python3 scripts/make-v2-portable-viewer.py"
+    "preview:v2:portable": "python3 scripts/make-v2-portable-viewer.py",
+    "check:v2:schematic": "tsci check schematic-placement artifacts/v2/source.circuit.json"
   },
   "repository": {
     "type": "git",

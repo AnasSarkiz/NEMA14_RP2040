@@ -1,19 +1,25 @@
 {
   "passed": true,
-  "tested_at": "2026-10-31T17:28:12.559807+00:00",
-  "source_sha256": "4344fbbffb27500f30db93a7e3114382636b54441de422c344a534702701f095",
-  "html_sha256": "70b0b0337bd1c0bc65048f3cd38b5d960bc9f6a01aa8cfcabd714da0ba059cf2",
-  "html_bytes": 21876057,
+  "pcb_rendered": true,
+  "tested_at": "2026-11-02T15:10:30.648Z",
+  "source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
+  "html_sha256": "b3f01bbcf1f33f3d542be17080a130a0414f7468bcf6681118ce643456e976ce",
+  "html_bytes": 22025692,
   "runframe": "0.0.2929",
-  "embedded_distinct_obj_models": 45,
+  "embedded_distinct_obj_models": 44,
   "views_tested": [
     "PCB",
     "3D",
     "Schematic"
   ],
-  "browser_page_errors": 0,
+  "browser_page_errors": [],
   "external_requests": 0,
-  "browser": "Chromium headless, software WebGPU/WebGL, HTTP localhost test harness",
-  "test_note": "External HTTP/HTTPS requests aborted. File navigation was blocked by the cloud browser policy; the same standalone HTML was tested through a temporary loopback server. Open the downloaded HTML in Chrome on the user device.",
-  "hardware_source_changed": false
+  "browser": "Chromium headless, software WebGL, temporary loopback test server",
+  "test_note": "The same standalone HTML was served locally for testing because this cloud browser blocks file navigation. External HTTP/HTTPS requests were blocked. Open the downloaded HTML in Chrome on the user device.",
+  "circuit": {
+    "cad": 104,
+    "wago": true,
+    "oldTerminals": 0
+  },
+  "scope": "Viewer smoke check; not routing, mechanical or manufacturing qualification."
 }

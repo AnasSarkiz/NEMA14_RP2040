@@ -10,7 +10,7 @@ remain V1. Old files under `artifacts/` are historical unless under `artifacts/v
 |---|---|
 | Outline | 34.5 × 34.5 × 1.6 mm, four layers; remove 0.25 mm from each original 35 mm edge. Mounting holes remain Ø3.2 mm on a 26 mm square. |
 | Both winding currents | Two inline 50 mΩ shunts and INA240A1 amplifiers; outputs reach RP2040 ADC0/ADC1 through 100 Ω / 10 nF filters. |
-| Motor terminal | Two smaller Phoenix 1770953 / C3817232 two-pole spring terminals, one per coil. Manufacturer/PCB footprint checked; procurement and factory lead fit remain unresolved. |
+| Motor terminal | One WAGO 250-204 / C2765063 four-pole spring terminal. Exact supplier footprint/CAD imported; housing within the outline. Procurement and factory lead fit remain unresolved. |
 | Buzzer | Compact MLT-5020 / C94598, 5.2 × 5.2 mm, passive magnetic, 2–4 V / 100 mA, 4 kHz; smaller DMN2300UFB4 MOSFET and B5819WS flyback diode. Sound level differs from the original. |
 | RGB drivers | Three DMN2300UFB4-7B MOSFETs replace the larger pre-biased BJTs. Existing 1 kΩ LED limiters remain; new 10 kΩ gate pull-downs keep the LEDs off during reset. |
 | Debug pads | Five bare copper probe pads on bottom; both 0.8 mm BOOT recovery pads remain top. No bottom fitted assembly is added. |
@@ -90,22 +90,20 @@ does not establish whether an upstream converter fix is available elsewhere.
 
 ## Terminal selection and wire qualification
 
-The selected layout uses **two Phoenix PTSM 0,5/2-2,5-V THR R44 /
-1770953 / C3817232**, one per winding. Each body is **5.5 × 5 mm**, 10 mm above
-its seating plane. The original four-pole candidate was 10.5 × 5 mm. Splitting
-the poles improves placement flexibility, rather than reducing total area/cost.
-See [primary dimensions, footprint provenance and alternatives](../references/v2/terminal-selection.md).
+The selected layout uses **one WAGO 250-204 / C2765063**, with the
+manufacturer's **15.5 × 12 mm body, 13.1 mm installed height**, 3.5 mm pole pitch,
+and four staggered solder pins. The full imported courtyard is approximately
+16 × 12.5 mm. Physical poles are **1 A+, 2 A−, 3 B+, 4 B−**. Both bottom-side
+pole labels and the schematic identify this order. Detailed supplier OBJ/STEP
+models replace the former Phoenix envelope models for the active motor terminal.
 
-The drawing and the public KiCad land pattern agree on four Ø1.2 mm drills per
-terminal, 2.5 mm pole pitch and 3.1 mm row pitch. Each physical contact has an
-explicit source port and a Ø2 mm copper pad. The body/pin OBJ is a clearly
-identified dimensioned envelope; detailed supplier CAD was unavailable.
-
-Bare-stranded range remains **0.2–0.5 mm²**, strip length **6 mm**. The factory
-14HM11-0404S drawing omits lead gauge/CSA, so direct motor-wire fit is still
-unconfirmed. Earlier 28 AWG SH pigtails are below this minimum. The current
-JLCsearch mirror returns **zero stock** for C3817232; preorder/consignment or
-an available qualified replacement must be confirmed before ordering.
+The terminal accepts bare stranded **0.2–1.5 mm² / 24–16 AWG**, stripped
+**8.5–9.5 mm**, with 45° wire entry and push-button release. Its IEC 8 A rating
+exceeds the 0.4 A/phase target. The actual factory motor wire gauge and insulation
+fit are still unconfirmed. Catalog availability is not live stock assurance.
+See [WAGO implementation, component changes and sourcing](v2-wago-repack.md).
+The older [terminal selection research](../references/v2/terminal-selection.md)
+remains historical evidence, not the current BOM.
 
 The MLT-5020 buzzer has nonzero mirror stock. It operates from 2–4 V at up to
 100 mA, preserving the 3.3 V supply and flyback diode. Its
@@ -155,25 +153,35 @@ publication remain blocked while this is an unrouted draft.
 courtyards, retained mounting positions, and local clock/power/current-sense
 proximity budgets. It preserves the Ø6.4 mm head envelopes. Fixed anchors use
 exact circle-to-rectangle distance; optional movable parts use 32 conservative
-supporting-line directions with outward quantization. No courtyard is shrunk.
+supporting-line directions with outward quantization. The 0.025 mm anchor grid
+and 0.001 mm coordinate quantum preserve usable edge positions. Complete
+courtyards stay within the outline, and the independent audit separately
+enforces 0.25 mm copper-to-edge clearance. No courtyard is shrunk.
 A timed-out search is UNKNOWN, never proof of fit or impossibility.
 
 The generated source has **zero native errors**. The independent Shapely audit
-checks 100 top and six bottom courtyards, board bounds, head clearance, bottom
+checks 99 top and six bottom courtyards, board bounds, head clearance, bottom
 probe-pad/through-hole separation and terminal pad/drill dimensions; it reports
 zero errors. Its receipt records the actual source SHA-256. The minimum gap
-between top courtyards is about **0.002 mm**: this is a dense fit between full
+between top courtyards is about **0.005 mm**: this is a dense fit between full
 courtyard margins, not a copper-clearance measurement.
+
+The independent audit also checks 62 placement-proximity budgets using generated
+physical ports, including the flash capacitor’s connected pad. Output isolation
+resistors are near their INA240 output pins, with the ADC filter capacitors near
+the RP2040. These are placement budgets, not measured trace lengths.
 
 All 33 electrical/source checks pass, including physical MOSFET pin maps,
 RGB reset pull-downs, both current channels, encoder capacitors and USB drills.
-The native schema and seven-sheet schematic placement checks pass. These
+The native schema and seven-sheet schematic placement checks pass. Use
+`npm run check:v2:schematic` for V2; `check:schematic` and its frozen CH224A/V1
+preservation checks apply to historical V1 work. These
 checks establish a collision-free **placement seed**, not a routed electrical
 layout. In particular, USB series resistors, divider/filter networks, QSPI,
 Kelvin branches, driver current paths and power/ground loops still need review
 against the actual routing; distances in the placer are not measured trace
 lengths. Detailed wire/tool/magnet access and supplier 3D assembly review remain.
-The terminal model is a dimensioned envelope, not detailed supplier CAD.
+The WAGO model is the exact supplier CAD import; this does not establish wire/tool access or assembled-motor clearance.
 
 `npm run check:v2:placement` reruns the independent geometry audit.
 `npm run render:v2:placement` regenerates the readable SVG from native JSON.

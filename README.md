@@ -1,28 +1,35 @@
 # NEMA14 RP2040 V2 — engineering draft
 
-This branch contains the **34.5 × 34.5 mm V2 placement draft** with winding-current
-ADC circuits, two compact Phoenix spring terminals, restored USB-C locating
-slots, and both encoder capacitors fitted on top. The smaller buzzer and four
-small MOSFETs retain the buzzer/RGB functions; RGB gates have reset pull-downs.
-All fitted components are on top; five bare debug pads are underneath, while
-the BOOT recovery pair remains on top.
+The **34.5 × 34.5 mm V2 placement draft now uses one WAGO 250-204 /
+C2765063 four-pole spring terminal**. Its housing stays within the PCB outline.
+Data USB-C is on the left, power USB-C is at the top, and the motor terminal
+faces the bottom edge. Both winding-current channels, RGB, buzzer, temperature
+sensor, flash, crystal and both top-side encoder capacitors are retained.
+All fitted parts are on top; five bare debug pads are underneath.
 
-The generated board has **zero native errors and zero independent placement
-errors**. This is a dense, unrouted placement seed: detailed routing and signal/
-mechanical review can still require moves. **No copper is routed. Terminal stock
-and factory motor-wire fit remain unresolved. Do not order this draft.**
+The generated board passes **33 electrical/source checks**, native schema checks,
+and independent placement checks: **zero native or independent placement errors**,
+full supplier courtyards, retained Ø6.4 mm screw-head envelopes, and at least
+**0.25 mm copper-to-board-edge clearance**. All 338 retained non-motor physical
+pin-to-net assignments match the previous V2 draft.
 
-See the [readable placement SVG](artifacts/v2/placement.svg),
-[native PCB SVG](artifacts/v2/top.svg), [placement checks](artifacts/v2/placement-verification.json),
-[V2 design/status](docs/v2-design.md) and [electrical source review](artifacts/v2/source-review.json).
-To view from a computer that cannot reach this cloud workspace's localhost,
-[download the standalone V2 viewer](artifacts/v2/NEMA14-V2-viewer.html) and open
-it in Chrome. PCB, schematic and 3D tabs use the embedded board, viewer, 45 OBJ
-models, Manifold runtime and Latin fonts. No local server or dependency install
-is needed. Regenerate it with `npm run preview:v2:portable`. See the
-[browser smoke check](artifacts/v2/portable-viewer-verification.json).
+**This is an unrouted placement seed, not order files.** USB termination,
+Kelvin/current paths, power/ground loops and divider/filter placement need review
+with the actual routing. Procurement and factory motor-wire fit remain open;
+the new shunts need sourcing confirmation. See [WAGO changes and remaining work](docs/v2-wago-repack.md).
 
-The ordered V1 board and its public tscircuit package are unchanged.
+[Readable placement SVG](artifacts/v2/placement.svg) ·
+[Native PCB SVG](artifacts/v2/top.svg) ·
+[Download the standalone tscircuit viewer](artifacts/v2/NEMA14-V2-viewer.html)
+
+The viewer embeds the board, 44 distinct OBJ models, fonts and rendering runtime;
+open the downloaded HTML in Chrome and select **3D**. It needs no local server.
+See [placement verification](artifacts/v2/placement-verification.json),
+[electrical review](artifacts/v2/source-review.json),
+[net preservation](artifacts/v2/net-preservation.json) and
+[V2 design details](docs/v2-design.md).
+
+**The ordered V1 board and public tscircuit package are unchanged.**
 Sections and artifacts below describe historical V1 work.
 
 ## Bottom silkscreen and lean publication — 1.13.2 (V1 history)

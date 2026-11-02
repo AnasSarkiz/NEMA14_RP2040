@@ -1,11 +1,11 @@
 {
   "passed": true,
-  "source_sha256": "4344fbbffb27500f30db93a7e3114382636b54441de422c344a534702701f095",
+  "source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
   "board_mm": [
     34.5,
     34.5
   ],
-  "top_courtyards_checked": 100,
+  "top_courtyards_checked": 99,
   "bottom_courtyards_checked": 6,
   "bottom_probe_pads": [
     "TP_3V3",
@@ -14,10 +14,624 @@
     "TP_SWDIO",
     "TP_RUN"
   ],
-  "minimum_courtyard_gap_mm": 0.0017956999999597658,
+  "minimum_courtyard_gap_mm": 0.004949300000066437,
+  "minimum_copper_to_board_edge_mm": 0.25100559999999916,
   "screw_head_envelope_diameter_mm": 6.4,
+  "critical_proximity_check_count": 62,
+  "critical_proximity_checks": [
+    {
+      "type": "pair",
+      "child": "TP_BOOT",
+      "parent": "TP_BOOT_GND",
+      "limit_mm": 1.8,
+      "actual_distance_mm": 1.25,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_BUCK",
+      "parent": "C_BOOTSTRAP",
+      "limit_mm": 3.5,
+      "actual_distance_mm": 2.9400000000000004,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_BUCK",
+      "parent": "L_BUCK",
+      "limit_mm": 7,
+      "actual_distance_mm": 4.820000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_BUCK",
+      "parent": "C_BUCK_IN",
+      "limit_mm": 7,
+      "actual_distance_mm": 4.8,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "L_BUCK",
+      "parent": "C_BUCK_OUT1",
+      "limit_mm": 6,
+      "actual_distance_mm": 4.67,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "L_BUCK",
+      "parent": "C_BUCK_OUT2",
+      "limit_mm": 6,
+      "actual_distance_mm": 5.87,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_TEMP",
+      "parent": "C_TEMP",
+      "limit_mm": 3,
+      "actual_distance_mm": 1.7,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_TEMP",
+      "parent": "U_DRV",
+      "limit_mm": 12,
+      "actual_distance_mm": 11.850000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_FLASH",
+      "parent": "U_MCU",
+      "limit_mm": 10,
+      "actual_distance_mm": 9.290000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "Q_BUZZER",
+      "parent": "BZ1",
+      "limit_mm": 10,
+      "actual_distance_mm": 7.15,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "BZ1",
+      "parent": "D_BUZZER",
+      "limit_mm": 6,
+      "actual_distance_mm": 5.35,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO1",
+      "parent": "U_MCU",
+      "pin": 1,
+      "local_x": -3.424936,
+      "local_y": 2.600071,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 2.3051350000000004,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO10",
+      "parent": "U_MCU",
+      "pin": 10,
+      "local_x": -3.424936,
+      "local_y": -0.999871,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 1.8449349999999995,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO22",
+      "parent": "U_MCU",
+      "pin": 22,
+      "local_x": 0.199898,
+      "local_y": -3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.449834999999998,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO33",
+      "parent": "U_MCU",
+      "pin": 33,
+      "local_x": 3.424936,
+      "local_y": -0.999871,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 1.9451929999999988,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO42",
+      "parent": "U_MCU",
+      "pin": 42,
+      "local_x": 3.424936,
+      "local_y": 2.600071,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.4551349999999985,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IO49",
+      "parent": "U_MCU",
+      "pin": 49,
+      "local_x": 0.199898,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.4450389999999995,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_DV23",
+      "parent": "U_MCU",
+      "pin": 23,
+      "local_x": 0.599948,
+      "local_y": -3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 3.8348849999999985,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_DV50",
+      "parent": "U_MCU",
+      "pin": 50,
+      "local_x": -0.200152,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.479785000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_USB",
+      "parent": "U_MCU",
+      "pin": 48,
+      "local_x": 0.599948,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 3.454885,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_ADC",
+      "parent": "U_MCU",
+      "pin": 43,
+      "local_x": 2.599944,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.464993,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_VREG_IN",
+      "parent": "U_MCU",
+      "pin": 44,
+      "local_x": 2.199894,
+      "local_y": 3.425063,
+      "limit_mm": 6,
+      "actual_distance_mm": 5.945042999999999,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_VREG_OUT",
+      "parent": "U_MCU",
+      "pin": 45,
+      "local_x": 1.799844,
+      "local_y": 3.425063,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.285092999999999,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_XIN",
+      "parent": "Y_MCU",
+      "pin": 1,
+      "local_x": -1.100074,
+      "local_y": -0.850011,
+      "limit_mm": 2.5,
+      "actual_distance_mm": 1.439915,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_XOUT",
+      "parent": "Y_MCU",
+      "pin": 3,
+      "local_x": 1.100074,
+      "local_y": 0.850011,
+      "limit_mm": 2.5,
+      "actual_distance_mm": 2.099915,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_XOUT",
+      "parent": "U_MCU",
+      "pin": 21,
+      "local_x": -0.200152,
+      "local_y": -3.425063,
+      "limit_mm": 3.5,
+      "actual_distance_mm": 1.4950889999999994,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_FLASH",
+      "parent": "U_FLASH",
+      "pin": 8,
+      "local_x": -0.75003025,
+      "local_y": 1.4732,
+      "limit_mm": 2.5,
+      "child_pin": 1,
+      "actual_distance_mm": 2.44671425,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_PD",
+      "parent": "U_PD",
+      "pin": 1,
+      "local_x": -1.999996,
+      "local_y": -3.000121,
+      "limit_mm": 6.5,
+      "actual_distance_mm": 6.335117,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_BUZZER",
+      "parent": "BZ1",
+      "pin": 1,
+      "local_x": -2.29997,
+      "local_y": -1.749933,
+      "limit_mm": 3.5,
+      "actual_distance_mm": 2.210096999999999,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_IA",
+      "parent": "U_IA",
+      "pin": 8,
+      "local_x": -0.975106,
+      "local_y": 2.927096,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 2.6480100000000006,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "R_IA",
+      "parent": "C_IADC_A",
+      "limit_mm": 12,
+      "actual_distance_mm": 10.1,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IA",
+      "parent": "U_IA",
+      "pin": 5,
+      "local_x": 0.975106,
+      "local_y": 2.927096,
+      "limit_mm": 2.5,
+      "actual_distance_mm": 1.7977980000000011,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SHUNT_A",
+      "parent": "U_IA",
+      "pin": 2,
+      "local_x": -0.324866,
+      "local_y": -2.927096,
+      "limit_mm": 4,
+      "actual_distance_mm": 2.83777,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SHUNT_A",
+      "parent": "U_IA",
+      "pin": 3,
+      "local_x": 0.32512,
+      "local_y": -2.927096,
+      "limit_mm": 4,
+      "actual_distance_mm": 2.1877839999999997,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IADC_A",
+      "parent": "U_MCU",
+      "pin": 38,
+      "local_x": 3.424936,
+      "local_y": 1.000125,
+      "limit_mm": 3,
+      "actual_distance_mm": 2.9249390000000006,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_IB",
+      "parent": "U_IB",
+      "pin": 8,
+      "local_x": -0.975106,
+      "local_y": 2.927096,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 4.23199,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "R_IB",
+      "parent": "C_IADC_B",
+      "limit_mm": 12,
+      "actual_distance_mm": 4.68,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IB",
+      "parent": "U_IB",
+      "pin": 5,
+      "local_x": 0.975106,
+      "local_y": 2.927096,
+      "limit_mm": 2.5,
+      "actual_distance_mm": 2.1777979999999992,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SHUNT_B",
+      "parent": "U_IB",
+      "pin": 2,
+      "local_x": -0.324866,
+      "local_y": -2.927096,
+      "limit_mm": 4,
+      "actual_distance_mm": 3.271962000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SHUNT_B",
+      "parent": "U_IB",
+      "pin": 3,
+      "local_x": 0.32512,
+      "local_y": -2.927096,
+      "limit_mm": 4,
+      "actual_distance_mm": 2.621976000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_IADC_B",
+      "parent": "U_MCU",
+      "pin": 39,
+      "local_x": 3.424936,
+      "local_y": 1.399921,
+      "limit_mm": 3,
+      "actual_distance_mm": 2.4649849999999995,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_CP",
+      "limit_mm": 9,
+      "actual_distance_mm": 4.15,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_VCP",
+      "limit_mm": 9,
+      "actual_distance_mm": 5.25,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_VREG",
+      "limit_mm": 9,
+      "actual_distance_mm": 7.200000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_DRV_LOGIC",
+      "limit_mm": 9,
+      "actual_distance_mm": 5.9,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "R_SA",
+      "limit_mm": 12,
+      "actual_distance_mm": 8.05,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "R_SB",
+      "limit_mm": 12,
+      "actual_distance_mm": 9.5,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_REF",
+      "limit_mm": 9,
+      "actual_distance_mm": 4.000000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "R_REF_H",
+      "limit_mm": 15,
+      "actual_distance_mm": 13.725000000000001,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "R_REF_L",
+      "limit_mm": 15,
+      "actual_distance_mm": 11.500000000000002,
+      "passed": true
+    },
+    {
+      "type": "pair",
+      "child": "U_DRV",
+      "parent": "C_VM",
+      "limit_mm": 9,
+      "actual_distance_mm": 5.500000000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_CP",
+      "parent": "U_DRV",
+      "pin": 4,
+      "local_x": -0.000127,
+      "local_y": -2.499995,
+      "limit_mm": 3.5,
+      "actual_distance_mm": 1.650132000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_CP",
+      "parent": "U_DRV",
+      "pin": 5,
+      "local_x": 0.500253,
+      "local_y": -2.499995,
+      "limit_mm": 3.5,
+      "actual_distance_mm": 2.150258,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_VCP",
+      "parent": "U_DRV",
+      "pin": 6,
+      "local_x": 1.000633,
+      "local_y": -2.499995,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 1.7493720000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_VREG",
+      "parent": "U_DRV",
+      "pin": 8,
+      "local_x": 2.499995,
+      "local_y": -1.501267,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 3.1987380000000005,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_DRV_LOGIC",
+      "parent": "U_DRV",
+      "pin": 15,
+      "local_x": 1.501013,
+      "local_y": 2.499995,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 1.8989919999999998,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_REF",
+      "parent": "U_DRV",
+      "pin": 17,
+      "local_x": 0.500253,
+      "local_y": 2.499995,
+      "limit_mm": 4.5,
+      "actual_distance_mm": 1.600258000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "C_VM",
+      "parent": "U_DRV",
+      "pin": 22,
+      "local_x": -2.499995,
+      "local_y": 1.501013,
+      "limit_mm": 3.5,
+      "actual_distance_mm": 3.0989820000000003,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SA",
+      "parent": "U_DRV",
+      "pin": 23,
+      "local_x": -2.499995,
+      "local_y": 1.000633,
+      "limit_mm": 8,
+      "actual_distance_mm": 6.550638000000001,
+      "passed": true
+    },
+    {
+      "type": "pin",
+      "child": "R_SB",
+      "parent": "U_DRV",
+      "pin": 27,
+      "local_x": -2.499995,
+      "local_y": -1.000887,
+      "limit_mm": 8,
+      "actual_distance_mm": 5.999118000000002,
+      "passed": true
+    },
+    {
+      "type": "point",
+      "child": "C_ENCODER",
+      "x": 1.905,
+      "y": -2.7051,
+      "limit_mm": 6,
+      "actual_distance_mm": 5.9901,
+      "passed": true
+    },
+    {
+      "type": "point",
+      "child": "C_ENCODER_BULK",
+      "x": 0.635,
+      "y": -2.7051,
+      "limit_mm": 6,
+      "actual_distance_mm": 0.8899,
+      "passed": true
+    }
+  ],
   "native_pcb_error_count": 0,
   "independent_error_count": 0,
   "errors": [],
-  "scope": "Generated 2D placement, board bounds, screw-head envelopes and terminal drills. Not routing, wire/tool access, detailed 3D, electrical performance or manufacturing release."
+  "scope": "Generated 2D placement, pad-to-board-edge clearance, board bounds, screw-head envelopes and terminal drills. Not routing, wire/tool access, detailed 3D, electrical performance or manufacturing release."
 }

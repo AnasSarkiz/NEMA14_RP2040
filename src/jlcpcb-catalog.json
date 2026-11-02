@@ -9,7 +9,7 @@
     "D_PD": "C8598",
     "D_DATA": "C8598",
     "D_TVS": "C19077512",
-    "C_BULK": "C72522",
+    "C_BULK": "C193627",
     "U_FLASH": "C2986331",
     "U_BUCK": "C780769",
     "L_BUCK": "C780206",
@@ -28,8 +28,8 @@
     "R_USB_SENSE_L": "C25741",
     "R_VM_H": "C25741",
     "R_VM_L": "C25744",
-    "R_SA": "C2930216",
-    "R_SB": "C2930216",
+    "R_SA": "C186557",
+    "R_SB": "C186557",
     "R_REF_H": "C23153",
     "R_REF_L": "C25744",
     "R_ENABLE": "C25741",
@@ -60,7 +60,7 @@
     "C_VREG": "C21120",
     "C_DRV_LOGIC": "C1525",
     "C_VM": "C960916",
-    "C_REF": "C1589",
+    "C_REF": "C15195",
     "D_PWR": "C965799",
     "R_PWR_LED": "C25104",
     "D_STATUS": "C458749",
@@ -85,20 +85,19 @@
     "C_ENCODER_BULK": "C52923",
     "R_PD_CFG": "C25796",
     "U_IA": "C93965",
-    "R_SHUNT_A": "C7467249",
+    "R_SHUNT_A": "C713441",
     "C_IA": "C1525",
     "R_IA": "C25076",
     "C_IADC_A": "C15195",
     "U_IB": "C93965",
-    "R_SHUNT_B": "C7467249",
+    "R_SHUNT_B": "C713441",
     "C_IB": "C1525",
     "R_IB": "C25076",
     "C_IADC_B": "C15195",
-    "J_MOTOR_A": "C3817232",
-    "J_MOTOR_B": "C3817232",
     "R_STATUS_PD_R": "C25744",
     "R_STATUS_PD_G": "C25744",
-    "R_STATUS_PD_B": "C25744"
+    "R_STATUS_PD_B": "C25744",
+    "J_MOTOR": "C2765063"
   },
   "parts": {
     "C11702": {
@@ -1210,6 +1209,80 @@
       },
       "originalImportSha256": "95d5915313143915efef4eb09e90250fd69e234aec97e20fed3edb8f2aa0e948",
       "importCommand": "tsci import --jlcpcb --download --use-exact-footprint C64886"
+    },
+    "C2765063": {
+      "manufacturerPartNumber": "250-204",
+      "symbol": "A_250_204",
+      "importPath": "imports/supplier/A_250_204/A_250_204.tsx",
+      "modelFiles": [
+        "imports/supplier/A_250_204/A_250_204.obj",
+        "imports/supplier/A_250_204/A_250_204.step"
+      ],
+      "sha256": {
+        "obj": "0ba19a68b312003e9c166fd4efd56ec3d4aa98a250e96874093be280f72fd11d",
+        "step": "7cfb807c6d3eb57ff0120aec790591d6fb3b71e85dd4b88cb383ddc99a1eb3a9"
+      },
+      "originalImportSha256": "63b1bb2b1ef415b429c08524232909f10c616f935e1e7aa4ee26a0ba745f2eaa",
+      "importCommand": "tsci import C2765063 --download --use-exact-footprint",
+      "geometrySource": "Exact EasyEDA supplier import; only React runtime import added; pad, drill, courtyard and CAD definitions unchanged",
+      "definitionSha256": "fa35c8fd7332db0ed2898058afb080d8f4dcd402d7ba1197d5ec42ecd25bb819"
+    },
+    "C193627": {
+      "manufacturerPartNumber": "EEEFT1V470AR",
+      "symbol": "EEEFT1V470AR",
+      "importPath": "imports/supplier/EEEFT1V470AR/EEEFT1V470AR.tsx",
+      "modelFiles": [
+        "imports/supplier/EEEFT1V470AR/EEEFT1V470AR.obj",
+        "imports/supplier/EEEFT1V470AR/EEEFT1V470AR.step"
+      ],
+      "sha256": {
+        "obj": "410964d6d5209f3e3b6457ba713973858c49730e46819aeeade153b0eec1d162",
+        "step": "8cb9d32ef03387a75d8f5f58c0bebc026279848a23f464ae8116ef7acb4a1dab"
+      },
+      "originalImportSha256": "4fa8be42808062677a19ec30e9026c674a310ed64c4361afa0e6b50d8b6b0dbb",
+      "importCommand": "tsci import C193627 --download --use-exact-footprint",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "C713441": {
+      "manufacturerPartNumber": "ERJL06KF50MV",
+      "symbol": "ERJL06KF50MV",
+      "importPath": "imports/supplier/ERJL06KF50MV/ERJL06KF50MV.tsx",
+      "modelFiles": [
+        "imports/supplier/ERJL06KF50MV/ERJL06KF50MV.obj",
+        "imports/supplier/ERJL06KF50MV/ERJL06KF50MV.step"
+      ],
+      "sha256": {
+        "obj": "6bbe05c8bf2262e8c377c9a7cb422b1725e8842352dcd40bc47f3a573bb08a84",
+        "step": "fc4726ad0364128aa67ad16e76bace8fa7a85fb80514f68d5fbf53d114860b6f"
+      },
+      "originalImportSha256": "d73caafbac037797dd70d84e355fa41cb13c5dd950ff75486e127716d80b4da3",
+      "importCommand": "tsci import C713441 --download --use-exact-footprint",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0,
+        "y": 0
+      }
+    },
+    "C186557": {
+      "manufacturerPartNumber": "SR731JTTDR240F",
+      "symbol": "SR731JTTDR240F",
+      "importPath": "imports/supplier/SR731JTTDR240F/SR731JTTDR240F.tsx",
+      "modelFiles": [
+        "imports/supplier/SR731JTTDR240F/SR731JTTDR240F.obj",
+        "imports/supplier/SR731JTTDR240F/SR731JTTDR240F.step"
+      ],
+      "sha256": {
+        "obj": "6fc2f81a61e2fefd1edbcd85a273d04530b3c25f0a35ea9abb254bf5b47f6f94",
+        "step": "a3e5d4a02bc66be2c69fddff5e8b86374b250660f3f7001a0bb9debcd5b9adbc"
+      },
+      "originalImportSha256": "b3471424cddc7291fbf91a743e10402a323d0d4523ab4654cee3efaca433bbe7",
+      "importCommand": "tsci import C186557 --download --use-exact-footprint",
+      "cadAnchorCorrectionLocalMm": {
+        "x": 0,
+        "y": 0
+      }
     }
   }
 }
