@@ -1,0 +1,161 @@
+{
+  "baseline_source_sha256": "e0bf65eb1c4259a8a5fc4f67969a62410c61459ba6c8b300e4b7b81a221616d8",
+  "board_mm": [
+    34.5,
+    34.5
+  ],
+  "courtyard_mm": [
+    15.999968999999965,
+    12.499975999999947
+  ],
+  "fixed_layout_rotation_screens": [
+    {
+      "rotation_deg": 90,
+      "pcbX": 9.75,
+      "pcbY": 1.25,
+      "courtyard_bounds_mm": [
+        4.685023600000136,
+        -7.500033799999983,
+        17.184999600000083,
+        8.499935199999982
+      ],
+      "colliding_components": [
+        "BZ1",
+        "C_BUCK_IN",
+        "C_BUCK_OUT1",
+        "C_BUCK_OUT2",
+        "C_BUZZER",
+        "C_CP",
+        "C_DV50",
+        "C_ENCODER",
+        "C_IO1",
+        "C_IO10",
+        "C_REF",
+        "C_TEMP",
+        "C_VCP",
+        "C_VM",
+        "C_VM_SENSE",
+        "D_BUZZER",
+        "L_BUCK",
+        "Q_BUZZER",
+        "R_PWR_LED",
+        "R_SA",
+        "R_SB",
+        "R_STATUS_B",
+        "R_STATUS_G",
+        "U_BUCK",
+        "U_DRV",
+        "U_FLASH",
+        "U_TEMP"
+      ],
+      "collision_count": 27,
+      "overlap_area_mm2": 168.836145703097,
+      "free_centre_region_area_mm2_before_screw_checks": 0.0,
+      "continuous_zero_overlap_location_exists": false,
+      "minimization_grid_mm": 0.25,
+      "wire_entry": "right"
+    },
+    {
+      "rotation_deg": 180,
+      "pcbX": -2.5,
+      "pcbY": 9.0,
+      "courtyard_bounds_mm": [
+        -9.749935199999982,
+        3.935023600000136,
+        6.250033799999983,
+        16.434999600000083
+      ],
+      "colliding_components": [
+        "C_BUCK_IN",
+        "C_DV23",
+        "C_IO10",
+        "C_IO22",
+        "C_IO33",
+        "C_PD",
+        "C_XIN",
+        "C_XOUT",
+        "D_PD",
+        "D_STATUS",
+        "J_PD",
+        "R_SHUNT_B",
+        "R_STATUS_R",
+        "R_VM_L",
+        "R_XOUT",
+        "U_BUCK",
+        "U_IB",
+        "U_MCU",
+        "U_PD",
+        "Y_MCU"
+      ],
+      "collision_count": 20,
+      "overlap_area_mm2": 183.3347029247319,
+      "free_centre_region_area_mm2_before_screw_checks": 0.03440419752457067,
+      "continuous_zero_overlap_location_exists": true,
+      "minimization_grid_mm": 0.25,
+      "wire_entry": "top"
+    },
+    {
+      "rotation_deg": 270,
+      "pcbX": -9.75,
+      "pcbY": -2.5,
+      "courtyard_bounds_mm": [
+        -17.184999600000083,
+        -9.749935199999982,
+        -4.685023600000136,
+        6.250033799999983
+      ],
+      "colliding_components": [
+        "C_ADC",
+        "C_BULK",
+        "C_IA",
+        "C_IADC_A",
+        "C_IADC_B",
+        "C_IO42",
+        "C_VREG_IN",
+        "C_VREG_OUT",
+        "D_DATA",
+        "J_DATA",
+        "R_ENABLE",
+        "R_IA",
+        "R_IB",
+        "R_STATUS_PD_B",
+        "R_USB_SENSE_H",
+        "R_USB_SENSE_L",
+        "U_ESD",
+        "U_IA",
+        "U_IB"
+      ],
+      "collision_count": 19,
+      "overlap_area_mm2": 160.55293819846258,
+      "free_centre_region_area_mm2_before_screw_checks": 0.0,
+      "continuous_zero_overlap_location_exists": false,
+      "minimization_grid_mm": 0.25,
+      "wire_entry": "left"
+    }
+  ],
+  "half_turn_same_occupied_area": {
+    "pcbX": -1.0500986000000017,
+    "pcbY": -11.92002320000022,
+    "pcbRotation": 180,
+    "board_outline_passed": true,
+    "colliding_components": [],
+    "minimum_screw_head_clearance_mm": 1.4999662000000162
+  },
+  "main_layout_changed": false,
+  "scope": "2D fixed-layout rotation study, not a new routing or mechanical qualification. No free sideways location with all other parts fixed; this does not rule out a complete re-layout. The half-turn faces wires inward.",
+  "half_turn_native_source_sha256": "e6ce162207191286bd7c6d577f874581250c0be2b18a24fd58388db5d10f8ef6",
+  "half_turn_native_access_warnings": [
+    {
+      "type": "pcb_connector_not_in_accessible_orientation_warning",
+      "pcb_connector_not_in_accessible_orientation_warning_id": "pcb_connector_not_in_accessible_orientation_warning_0",
+      "warning_type": "pcb_connector_not_in_accessible_orientation_warning",
+      "message": "J_MOTOR is inferred to face y+ from its cable insertion center because no explicit footprint insertionDirection is defined, but should face y- so the connector is accessible from the board edge. Set insertionDirection on the <footprint> to specify the actual direction in the footprint's unrotated orientation; for example, <footprint insertionDirection=\"from_above\"> for a connector accessed from above the PCB (+Z).",
+      "pcb_component_id": "pcb_component_69",
+      "source_component_id": "source_component_69",
+      "pcb_board_id": "pcb_board_0",
+      "facing_direction": "y+",
+      "recommended_facing_direction": "y-",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ]
+}
