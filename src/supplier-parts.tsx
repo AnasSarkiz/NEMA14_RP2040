@@ -3,7 +3,7 @@ import { DMN2300UFB4_7B } from "../imports/supplier/DMN2300UFB4_7B/DMN2300UFB4_7
 import { PHOENIX_1770953 } from "../imports/supplier/PHOENIX_1770953/PHOENIX_1770953"
 import { MLT_5020 } from "../imports/supplier/MLT_5020/MLT_5020"
 import { AS5600_ASOM } from "../imports/supplier/AS5600_ASOM/AS5600_ASOM"
-import { StandardUsbConnector, SmtMotorConnector, SpringMotorConnector } from "./reference-connectors"
+import { StandardUsbConnector, SmtMotorConnector, SpringMotorConnector, WagoMotorConnector } from "./reference-connectors"
 import { INA240A1PWR } from "../imports/supplier/INA240A1PWR/INA240A1PWR"
 import { FRM121WFR050TM } from "../imports/supplier/FRM121WFR050TM/FRM121WFR050TM"
 import { PMEG6020ELRX } from "../imports/supplier/PMEG6020ELRX/PMEG6020ELRX"
@@ -59,6 +59,7 @@ import { CH224A } from "../imports/supplier/CH224A/CH224A"
 import { A_0603WAF0000T5E } from "../imports/supplier/A_0603WAF0000T5E/A_0603WAF0000T5E"
 import { A_0402WGF5602TCE } from "../imports/supplier/A_0402WGF5602TCE/A_0402WGF5602TCE"
 const parts: Record<string, React.ComponentType<any>> = {
+ "C2765063": WagoMotorConnector,
  "C64886": B5819WS,
  "C154728": DMN2300UFB4_7B,
  "C3817232": PHOENIX_1770953,

@@ -1,6 +1,7 @@
 import React, { Children, cloneElement, type ReactElement } from "react"
 import { USB4145_03_0070_C } from "../imports/supplier/USB4145_03_0070_C/USB4145_03_0070_C"
 import { BM04B_SRSS_TB_LF__SN_ } from "../imports/supplier/BM04B_SRSS_TB_LF__SN_/BM04B_SRSS_TB_LF__SN_"
+import { A_250_204 } from "../imports/supplier/A_250_204/A_250_204"
 import { A_1770979 } from "../imports/supplier/A_1770979/A_1770979"
 
 // Keep the exact supplier land patterns and CAD. Split common mechanical pads
@@ -51,4 +52,10 @@ export const SpringMotorConnector = (props:any)=>(
   <connector {...spring.props} pinCount={8} footprint={springFootprint()}
     pinLabels={{pin1:["A_PLUS"],pin2:["A_PLUS_2"],pin3:["A_MINUS"],pin4:["A_MINUS_2"],
       pin5:["B_PLUS"],pin6:["B_PLUS_2"],pin7:["B_MINUS"],pin8:["B_MINUS_2"]}} {...props} />
+)
+
+// One physical solder pin per WAGO pole. Preserve all supplier geometry/CAD.
+export const WagoMotorConnector = (props:any) => (
+  <connector {...A_250_204(props).props} pinCount={4}
+    pinLabels={{pin1:["A_PLUS"],pin2:["A_MINUS"],pin3:["B_PLUS"],pin4:["B_MINUS"]}} {...props} />
 )
