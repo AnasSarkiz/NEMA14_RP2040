@@ -1,0 +1,31 @@
+{
+  "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+  "scope": "Fixed-current and copper sizing estimate; not thermal or electrical release",
+  "supply_assumption_V": [
+    3.3,
+    3.465
+  ],
+  "resistor_tolerance_assumption": 0.01,
+  "nominal_current_A": {
+    "R_SA": 0.350765306122449,
+    "R_SB": 0.350765306122449
+  },
+  "maximum_trip_current_A": 0.37798107849175394,
+  "internal_trace_width_mm": 0.3,
+  "internal_copper_thickness_assumption_mm": 0.0175,
+  "estimated_rise_budget_C": 20,
+  "IPC2221_internal_current_capacity_A": 0.40998790578413474,
+  "bounded_section_resistance_ohm": 0.06567619047619047,
+  "bounded_section_peak_loss_W": 0.009383137347923391,
+  "inner1_phase_lengths_mm": {
+    "A_DRV_PLUS": 13.881727983645293,
+    "B_DRV_PLUS": 0.0,
+    "A_PLUS": 0.0,
+    "B_PLUS": 0.0,
+    "A_MINUS": 8.82383297014435,
+    "B_MINUS": 0.0
+  },
+  "undersized_inner1_phase_traces": [],
+  "passed": true,
+  "fabrication_ready": false
+}

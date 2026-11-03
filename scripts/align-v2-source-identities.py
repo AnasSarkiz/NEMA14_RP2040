@@ -4,18 +4,20 @@ This changes source-trace references only. Coordinates, widths, vias, net IDs
 and connectivity keys are unchanged; physical open nets remain mandatory errors.
 """
 import hashlib,json
-import verify_supplier_connectivity as g
+from v2_route_io import g
 traces=[e for e in g.j if e['type']=='source_trace'];changes=[];original={e.get('pcb_trace_id'):e for e in g.j if e['type']=='pcb_trace'}
 for net in g.nets:
- elems,roots=g.groups(net);lands={}
+ elems,roots=g.groups(net);lands={};represented={}
  for e,r in zip(elems,roots):
   if e.get('pcb_port_id'):lands.setdefault(r,set()).add(g.ports[e['pcb_port_id']]['source_port_id'])
+  if e['type']=='pcb_trace':
+   represented.setdefault(r,set()).update(g.ports[p]['source_port_id'] for p in e.get('pcb_port_ids',[]) if p in g.ports)
  for e,r in zip(elems,roots):
   if e['type'] not in ['pcb_trace','pcb_via'] or r not in lands:continue
   actual=set()
   for pid in e.get('pcb_port_ids',[]):
    if pid in g.ports:actual.add(g.ports[pid]['source_port_id'])
-  options=[t for t in traces if t.get('subcircuit_connectivity_map_key')==net and set(t.get('connected_source_port_ids',[])) & (actual or lands[r])]
+  options=[t for t in traces if t.get('subcircuit_connectivity_map_key')==net and set(t.get('connected_source_port_ids',[])) & (actual or represented.get(r) or lands[r])]
   if not options:continue
   chosen=options[0]['source_trace_id']
   target=original[e['pcb_trace_id']] if e['type']=='pcb_trace' else e

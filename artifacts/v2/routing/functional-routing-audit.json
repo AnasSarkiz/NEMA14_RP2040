@@ -1,25 +1,33 @@
 {
-  "source_sha256": "bb6ef03c8b97a95ca4267a2c194e3760abd5ac39923322ac9a46bcb38f6042b0",
+  "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
   "checks": [
     {
+      "check": "A motor return has a >=0.30 mm current path",
+      "passed": true
+    },
+    {
       "check": "A driver_to_shunt has a >=0.30 mm current path",
-      "passed": false
+      "passed": true
     },
     {
       "check": "A shunt_to_motor has a >=0.30 mm current path",
-      "passed": false
+      "passed": true
     },
     {
       "check": "A positive Kelvin pickup joins only at shunt",
-      "passed": false,
-      "connected_to_shunt": false,
+      "passed": true,
+      "connected_to_shunt": true,
       "joins_main_outside_shunt": false
     },
     {
       "check": "A negative Kelvin pickup joins only at shunt",
-      "passed": false,
-      "connected_to_shunt": false,
-      "joins_main_outside_shunt": true
+      "passed": true,
+      "connected_to_shunt": true,
+      "joins_main_outside_shunt": false
+    },
+    {
+      "check": "B motor return has a >=0.30 mm current path",
+      "passed": true
     },
     {
       "check": "B driver_to_shunt has a >=0.30 mm current path",
@@ -27,7 +35,7 @@
     },
     {
       "check": "B shunt_to_motor has a >=0.30 mm current path",
-      "passed": false
+      "passed": true
     },
     {
       "check": "B positive Kelvin pickup joins only at shunt",
@@ -50,6 +58,6 @@
       ]
     }
   ],
-  "passed": false,
+  "passed": true,
   "fabrication_ready": false
 }

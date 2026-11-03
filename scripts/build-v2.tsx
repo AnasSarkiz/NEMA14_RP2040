@@ -43,3 +43,4 @@ writeFileSync("artifacts/v2/placement.png",new Resvg(readFileSync("artifacts/v2/
 const errors = raw.filter(e=>e.type.endsWith("_error"))
 console.log(JSON.stringify({stage:"unrouted engineering draft",elements:json.length,errors},null,2))
 if(errors.length) process.exitCode=1
+else execFileSync("python3",["scripts/restore-v2-reviewed-routing.py","--if-current"],{stdio:"inherit"})

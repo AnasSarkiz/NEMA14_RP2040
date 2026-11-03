@@ -1,0 +1,58 @@
+{
+  "before_sha256": "f955479bdbb69cbdb127b106ebf60f36632b5e0fdfe24391df85ff2e73bc434f",
+  "after_sha256": "e5fba0c9e8aeb76263c8de7fb7d9b505f516dd97e585988826d92120c4bd982c",
+  "repairs": [
+    {
+      "removed_redundant_barrel": "same_side_repair_32_PD_VHV_0_via_237",
+      "retained_barrel": "same_side_repair_4_PD_VHV_0_via_77",
+      "edits": [],
+      "pad_partitions_unchanged": true
+    },
+    {
+      "removed_redundant_barrel": "same_side_repair_8_DATA_PRESENT_0_via_6",
+      "retained_barrel": "same_side_repair_19_DATA_PRESENT_0_via_2",
+      "edits": [
+        {
+          "trace": "same_side_repair_8_DATA_PRESENT_0",
+          "retargeted_barrel": "same_side_repair_19_DATA_PRESENT_0_via_2"
+        }
+      ],
+      "pad_partitions_unchanged": true
+    },
+    {
+      "removed_redundant_barrel": "same_side_repair_23_TEMP_SDA_0_via_19",
+      "retained_barrel": "same_side_repair_10_TEMP_SDA_1_via_20",
+      "edits": [],
+      "pad_partitions_unchanged": true
+    },
+    {
+      "trace": "v2_escape_same_side_repair_4_PD_VBUS_2",
+      "centred_brackets_at": "v2_escape_same_side_repair_4_PD_VBUS_2_via_1",
+      "copper_geometry_unchanged": true
+    },
+    {
+      "trace": "v2_escape_same_side_repair_11_V3V3_7",
+      "centred_brackets_at": "v2_escape_same_side_repair_11_V3V3_7_via_1",
+      "copper_geometry_unchanged": true
+    },
+    {
+      "trace": "same_side_repair_22_V3V3_16",
+      "centred_brackets_at": "same_side_repair_22_V3V3_16_via_35",
+      "copper_geometry_unchanged": true
+    },
+    {
+      "trace": "same_side_repair_0_QSPI_SS_0_rerouted",
+      "centred_brackets_at": "same_side_repair_0_QSPI_SS_0_rerouted_via_314",
+      "copper_geometry_unchanged": true
+    },
+    {
+      "removed_obsolete_trace": "same_side_repair_25_BUZZER_PWM_0",
+      "orphan_annotation_mm": [
+        -11.0,
+        -9.725
+      ],
+      "pad_partitions_unchanged": true
+    }
+  ],
+  "unresolved": []
+}

@@ -11,7 +11,7 @@ import sys
 import tempfile
 
 from shapely.geometry import Point, LineString
-import verify_supplier_connectivity as g
+from v2_route_io import g
 from v2_copper_cleanup import prune_floating
 
 ROOT=g.ROOT
@@ -31,7 +31,7 @@ unlock_ids.update(q.split('=',1)[1] for q in sys.argv if q.startswith('--unlock-
 def protected(e):
     uid=e.get(e['type']+'_id','')
     name=g.nets.get(g.key(e),'')
-    critical=name.startswith('QSPI_') or name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT',
+    critical=name in {q.split('=',1)[1] for q in sys.argv if q.startswith('--protect-net=')} or name.startswith('QSPI_') or name in {'USB_DP','USB_DM','MCU_DP','MCU_DM','XIN','XOUT','XTAL_OUT',
                                      'A_DRV_PLUS','B_DRV_PLUS','A_PLUS','B_PLUS'}
     return uid not in unlock_ids and (critical or uid.startswith(('v2_escape_','v2_thermal_','oscillator_v2_','usb_v2_')))
 def pieces(e):

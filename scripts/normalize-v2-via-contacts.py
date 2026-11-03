@@ -8,7 +8,7 @@ import copy, hashlib, json, math
 from collections import defaultdict
 from shapely.geometry import Point, LineString, Polygon
 from shapely.ops import unary_union
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 before_sha=hashlib.sha256(g.path.read_bytes()).hexdigest()
 history=[]

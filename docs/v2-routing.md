@@ -1,67 +1,87 @@
-# V2 routing work in progress
+# V2 routing verification
 
-The mistaken rotation was reverted in `ac234d7`. The WAGO 250-204 remains
-outward-facing. The ordered V1 and public tscircuit package are unchanged.
+**All 70 physical net groups are connected: zero shorts, zero native DRC errors
+or warnings, and zero floating copper islands.** The mistaken connector rotation
+was reverted; the WAGO 250-204 faces outward. The ordered V1 and public tscircuit
+package are unchanged.
 
-The current checkpoint has **342 traces, 279 through vias and 57 ground-fill
-regions** across four copper layers. **51 of 70 physical net groups are connected;
-19 remain open.** Native DRC retains **78 errors and six warnings**. Work continues;
-these are not order files.
+[Top copper](../artifacts/v2/routing/top.svg) ·
+[Inner1](../artifacts/v2/routing/inner1.svg) ·
+[Inner2](../artifacts/v2/routing/inner2.svg) ·
+[Bottom](../artifacts/v2/routing/bottom.svg) ·
+[Standalone tscircuit viewer](../artifacts/v2/routing/NEMA14-V2-routing-viewer.html) ·
+[Verification manifest](../artifacts/v2/routing/verification.json)
 
-[Top copper SVG](../artifacts/v2/routing/top.svg) ·
-[Inner1 SVG](../artifacts/v2/routing/inner1.svg) ·
-[Inner2 SVG](../artifacts/v2/routing/inner2.svg) ·
-[Bottom SVG](../artifacts/v2/routing/bottom.svg) ·
-[Standalone routing viewer](../artifacts/v2/routing/NEMA14-V2-routing-viewer.html)
+The saved four-layer board contains 639 trace records and 359 through vias.
+Every report in the manifest is bound to the exact routed JSON SHA-256. The
+independent physical audit uses the actual supplier pad, wire, plated-barrel and
+pour geometry. It finds zero foreign-net clearance, board-edge, mounting-hole,
+keepout or construction violations. All 342 physical pin/net assignments and
+all source placement records match the reviewed source.
 
-## Evidence and current limits
+Native DRC, independent connectivity/clearance, schema, source, placement and
+TypeScript checks pass. The functional audit verifies all six motor-current paths
+at a minimum 0.30 mm width, all four amplifier pickups joining the main conductors
+only at their shunt lands, and a top-only oscillator without vias. USB land
+contacts were extended into the real pads; conductive connections do not rely on
+port labels. Floating fragments and endpoint stubs were removed while preserving
+the physical pad partitions. Copper normalization preserves real wire geometry
+and every real layer-changing barrel.
 
-The independent physical audit checks every actual supplier pad, wire segment,
-plated barrel and ground polygon on all four layers. It finds **zero shorts,
-foreign-net clearance violations, board-edge violations, mount-hole clearance
-violations, keepout overlaps or changed pin/net assignments**. All 342 connected
-physical pin assignments and all source placement records match the current seed.
-The 19 opens correctly keep the audit failing.
+## Construction rules
 
-Native DRC retains 74 port-connection errors and four trace errors. Source checks,
-schema, typechecking, USB locating-slot drills and independent full-courtyard
-placement checks pass. The native DRC receipt and physical audit bind their
-results to the candidate SHA-256 in `routing-status.json`.
+Foreign-net copper clearance is at least 0.15 mm; board-edge copper clearance is
+at least 0.25 mm. Ordinary vias have at least 0.45 mm pads, 0.30 mm drills and
+0.075 mm annuli. Three separately validated 0.50/0.30 mm GND thermal vias occupy
+the MCU, PD and driver exposed pads. Every other via is subject to the strict
+native via-in-pad check.
 
-The MCU crystal and load-capacitor placements were refined to permit five short
-top-only oscillator traces without vias. USB and core flash signals now connect;
-QSPI chip select still has an open boot-resistor branch. Three explicitly checked
-0.50/0.30 mm grounded thermal vias occupy the MCU, PD and driver exposed pads.
-All other vias remain subject to the strict native via-in-pad check. Ordinary
-vias use at least 0.45 mm pads, 0.30 mm drills and 0.075 mm annuli.
+The Ø6.4 mm screw-head envelopes apply on both external surfaces. Inner copper
+may pass under the insulated FR4 surface, with at least 0.25 mm copper clearance
+from each actual Ø3.2 mm mounting hole on every layer. Through vias stay outside
+the head envelopes. The minimum mounting-hole copper gap is 0.2556 mm. Supplier
+USB locating holes and plated lands retain their imported geometry; the separate
+0.1248 mm supplier land-to-locating-hole gap is reported, not confused with a
+mounting-hole waiver. NPTH copper overlaps are rejected.
 
-The Ø6.4 mm screw-head envelopes apply on **both external surfaces**, and fitted
-courtyards remain outside them. Inner-layer copper may pass under the insulated
-FR4 mounting surface, with at least 0.25 mm copper clearance from the actual
-Ø3.2 mm drilled holes on every layer. Through vias remain outside the surface
-head envelopes. Supplier USB locating-hole lands retain their imported geometry;
-the minimum 0.125 mm gap to a supplier plated land is reported separately from
-mount-hole clearance and every NPTH overlap is still rejected.
+The current screen uses the actual fixed VREF network: nominal current limit
+0.351 A, screened worst-case trip 0.378 A. Two inner1 phase sections are 13.882
+and 8.824 mm long, at least 0.30 mm wide. The 17.5 µm internal-copper / 20 °C
+IPC-2221 estimate is 0.410 A. This sizing estimate does not qualify operating
+temperature or authorize raising the current limit. USB ground reference,
+thermal/power integrity, wire/tool access, procurement and hardware calibration
+remain engineering release work. `fabrication_ready` stays false and order-file
+export/publication gates remain blocked.
 
-## Repair tools
+## Reproduce and preview
 
-`route-v2-repair.py` searches actual physical copper islands using a conservative
-construction grid. The exact independent audit, native DRC and final CAM checks
-remain mandatory. `force-v2-escapes.py` can displace ordinary copper locally;
-every displaced net remains an explicit open until reconnected. Neither tool
-alters source nets or supplier pads. Contact/source identity refreshes change only
-metadata based on actual copper intersections, never conductive geometry.
+From the repository root, with Bun and the Python geometry environment installed:
 
-Ground fill is regenerated after foreign copper changes. Floating-copper cleanup
-and dangling-tail trimming are accepted only when all physical-pad partitions
-remain unchanged. Persisted plans and repair histories are under
-`artifacts/v2/routing/`; no V1 copper is imported.
+```sh
+npm run check:v2:source
+npm run check:v2:placement
+npm run typecheck
+npm run check:circle
+npm run check:v2:routing
+npm run check:v2:routing:native
+npm run check:v2:functional
+npm run check:v2:phase-current
+node scripts/check-native-schema.mjs artifacts/v2/routing/freerouted.circuit.json
+XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/v2/routing/freerouted.circuit.json --mode gerber --layer all --pixels-per-mm 100
+npm run route:v2
+npm run dev
+```
 
-The original `route:v2` Freerouting command remains experimental and can replace
-the working candidate. Use an isolated copy when experimenting. The main
-`index.circuit.json` preview remains the unrouted placement seed during repairs.
+`route:v2` restores the checked saved routing to `index.circuit.json` and
+`artifacts/board.circuit.json` only when source, routed copper and required proof
+hashes match the manifest. `build:v2` rebuilds source previews and automatically
+restores that copper only if still valid. Source-only previews remain explicitly
+unrouted. The standalone routing HTML embeds its exact checked board, models,
+fonts and rendering runtime; download it and open in Chrome for PCB, 3D and
+schematic views.
 
-Next work: close every open net; reach zero native DRC errors; verify main phase
-widths, Kelvin branches, USB reference and thermal/power integrity; then rerun
-Gerber/drill checks. Motor-wire fit, shunt sourcing and hardware calibration
-remain unqualified. Publication and manufacturing remain blocked.
+`route:v2:freerouting` and `route:v2:native` are experimental rerouting commands;
+use an isolated copy because they can replace saved copper. Repair scripts use
+`artifacts/v2/routing/freerouted.circuit.json` by default. Ground fill is rebuilt
+after geometry edits, then all checks must be rerun before a new manifest is
+accepted. No native errors or warnings are hidden in the viewer.

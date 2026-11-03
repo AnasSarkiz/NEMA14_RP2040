@@ -4,7 +4,7 @@ Thermal and motor/power vias retain their larger annuli. Every accepted change
 preserves the exact physical-pad partition of its net on all four layers.
 """
 import json,hashlib
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 power={'GND','PD_VBUS','DATA_VBUS','LOGIC_IN','V3V3','V1V1','VREG','VCP','BUCK_SW',
        'A_DRV_PLUS','B_DRV_PLUS','A_PLUS','A_MINUS','B_PLUS','B_MINUS','SENSE1','SENSE2','BUZZER_SINK'}

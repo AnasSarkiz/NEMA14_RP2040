@@ -1,41 +1,35 @@
-# NEMA14 RP2040 V2 — routing draft
+# NEMA14 RP2040 V2 — routing checked
 
-**Routing continues:** the saved checkpoint has 342 traces and 279 vias.
-**19 of 70 net groups remain open; native DRC has 78 errors.** The independent
-physical audit finds zero shorts, foreign-net clearance violations or mounting-hole
-clearance violations. See [routing status and checks](docs/v2-routing.md),
-[routed PCB SVG](artifacts/v2/routing/top.svg) and
-[routing viewer](artifacts/v2/routing/NEMA14-V2-routing-viewer.html).
-The main preview below remains the verified, unrouted placement seed.
+**All 70 physical net groups are connected. Zero shorts, zero native DRC errors
+or warnings, and zero floating copper islands.** The independent audit checks the
+actual supplier pads, traces, plated barrels and pours on all four copper layers.
+All 342 physical pin/net assignments and source placement records are preserved.
 
-The **34.5 × 34.5 mm V2 placement draft now uses one WAGO 250-204 /
-C2765063 four-pole spring terminal**. Its housing stays within the PCB outline.
-Data USB-C is on the left, power USB-C is at the top, and the motor terminal
-faces the bottom edge. Both winding-current channels, RGB, buzzer, temperature
-sensor, flash, crystal and both top-side encoder capacitors are retained.
-All fitted parts are on top; five bare debug pads are underneath.
+[Checks and engineering limits](docs/v2-routing.md) ·
+[Top PCB SVG](artifacts/v2/routing/top.svg) ·
+[Standalone tscircuit viewer](artifacts/v2/routing/NEMA14-V2-routing-viewer.html) ·
+[Verification manifest](artifacts/v2/routing/verification.json)
 
-The generated board passes **33 electrical/source checks**, native schema checks,
-and independent placement checks: **zero native or independent placement errors**,
-full supplier courtyards, retained Ø6.4 mm screw-head envelopes, and at least
-**0.25 mm copper-to-board-edge clearance**. All 338 retained non-motor physical
-pin-to-net assignments match the previous V2 draft.
+34.5 × 34.5 × 1.6 mm, four layers, one outward-facing **WAGO 250-204 /
+C2765063** four-pole spring terminal. Data USB-C is left, PD USB-C is top,
+and motor wires exit at the bottom. Both coil-current ADC channels, RGB LED,
+buzzer, temperature sensor, flash and crystal are retained. Both encoder
+capacitors are on top; the optional encoder is bottom/DNP and five bare debug
+pads are underneath. Both USB sockets retain their supplier locating holes.
 
-**This is an unrouted placement seed, not order files.** USB termination,
-Kelvin/current paths, power/ground loops and divider/filter placement need review
-with the actual routing. Procurement and factory motor-wire fit remain open;
-the new shunts need sourcing confirmation. See [WAGO changes and remaining work](docs/v2-wago-repack.md).
+The saved routing has 639 trace records and 359 through vias. Source checks,
+65 placement-proximity checks, schema and typechecking pass. Functional routing
+checks confirm six full-width motor-current paths, four shunt-only Kelvin pickups
+and a top-only oscillator. `npm run route:v2` restores the checked copper only
+when the source and all required proof hashes match. The main JSON preview shows
+this checked routing. Download the standalone HTML and open it in Chrome for
+PCB, schematic and 3D views; all models and rendering assets are embedded.
 
-[Readable placement SVG](artifacts/v2/placement.svg) ·
-[Native PCB SVG](artifacts/v2/top.svg) ·
-[Download the standalone tscircuit viewer](artifacts/v2/NEMA14-V2-viewer.html)
-
-The viewer embeds the board, 44 distinct OBJ models, fonts and rendering runtime;
-open the downloaded HTML in Chrome and select **3D**. It needs no local server.
-See [placement verification](artifacts/v2/placement-verification.json),
-[electrical review](artifacts/v2/source-review.json),
-[net preservation](artifacts/v2/net-preservation.json) and
-[V2 design details](docs/v2-design.md).
+**Passing routing checks are not manufacturing release.** USB reference and
+thermal/power integrity, factory motor-wire fit, procurement and hardware
+current-sense calibration remain unqualified. Manufacturing/publication gates
+remain blocked. See [V2 design details](docs/v2-design.md) and
+[WAGO changes](docs/v2-wago-repack.md).
 
 **The ordered V1 board and public tscircuit package are unchanged.**
 Sections and artifacts below describe historical V1 work.

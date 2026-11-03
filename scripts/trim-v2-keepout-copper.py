@@ -5,7 +5,7 @@ partition is recorded and must be routed and audited again.
 """
 import hashlib,json
 from shapely.geometry import Point,LineString
-import verify_supplier_connectivity as g
+from v2_route_io import g
 from v2_local_rip import retained_trace_fragments
 
 obstacles=[(layer,Point(e['center']['x'],e['center']['y']).buffer(e['radius'],quad_segs=256))

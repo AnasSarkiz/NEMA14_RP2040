@@ -1,0 +1,85 @@
+{
+  "passed": true,
+  "stage": "V2 routing verified; engineering release remains open",
+  "verified_at": "2026-11-03T00:20:52.440217+00:00",
+  "placement_source_sha256": "39ce54a193d226ff105ef2d72e7b330d7edbffc8c4ab9a453b11bdb7eb66b1de",
+  "routed_source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+  "nets_checked": 70,
+  "connected_net_groups": 70,
+  "shorts": 0,
+  "native_errors": 0,
+  "native_warnings": 0,
+  "floating_copper_islands": 0,
+  "physical_pin_nets_preserved": 342,
+  "checks": {
+    "physical-routing-audit.json": {
+      "passed": true,
+      "sha256": "c63ebd81522b6a7037cf4b20a71a0d4a6f4ba984738fde9db0dcd64486c9223b",
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d"
+    },
+    "native-drc.json": {
+      "passed": true,
+      "sha256": "2ec2ee721ec62ff3db7f7d020a06c6370aaec3e5653490721f135629ca8f5091",
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d"
+    },
+    "functional-routing-audit.json": {
+      "passed": true,
+      "sha256": "777c28873bb1566a2ea92542ec9a9958c46dc914ed50c8646671cba475c719e4",
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d"
+    },
+    "phase-current-screen.json": {
+      "passed": true,
+      "sha256": "564498009a2ba7d1d26966d09126dec787c7fc5b8e02b076932223238691bf59",
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d"
+    },
+    "schema-verification.json": {
+      "passed": true,
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+      "sha256": "3eabf01b0bb22f0fddd06671f10a06cd4dabef3e488da36d266612bd7ad41c16"
+    },
+    "viewer-verification.json": {
+      "passed": true,
+      "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+      "sha256": "e71b8719b4233126756130801d68b853949f7c0072915479c24ee4eb42e2508e"
+    },
+    "source-review.json": {
+      "passed": true,
+      "source_sha256": "39ce54a193d226ff105ef2d72e7b330d7edbffc8c4ab9a453b11bdb7eb66b1de",
+      "sha256": "dbc827de1573fdc2bf4a97035a1c440ac6aa1cd816644e25b6ef2bb9d8ed0889"
+    },
+    "placement-verification.json": {
+      "passed": true,
+      "source_sha256": "39ce54a193d226ff105ef2d72e7b330d7edbffc8c4ab9a453b11bdb7eb66b1de",
+      "sha256": "13ca1e7483fcaf68078e57dbb49e0d47a9ff7af73d17d3cb68fd2105cd41fd75"
+    }
+  },
+  "gerber_shorts": {
+    "passed": true,
+    "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+    "checked_at": "2026-11-03T00:20:52.440217+00:00",
+    "command": "XDG_CONFIG_HOME=/workspace/.config tsci check shorts artifacts/v2/routing/freerouted.circuit.json --mode gerber --layer all --pixels-per-mm 100",
+    "exit_code": 0,
+    "layers": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "pixels_per_mm": 100,
+    "output": "No shorts detected in freerouted.circuit.json",
+    "scope": "Native Gerber-mode shorts check; not manufacturing release"
+  },
+  "source_checks": {
+    "passed": 33,
+    "failed": 0
+  },
+  "placement_proximity_checks": 65,
+  "typecheck_exit_code": 0,
+  "circular_keepout_regression_passed": true,
+  "fabrication_ready": false,
+  "remaining": [
+    "USB reference and thermal/power integrity engineering review",
+    "Exact motor lead gauge, wire/tool access and terminal procurement confirmation",
+    "Current calibration, ADC sampling and motor-switching bench checks"
+  ]
+}

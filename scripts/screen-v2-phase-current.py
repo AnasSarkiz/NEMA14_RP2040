@@ -5,9 +5,7 @@ temperature, ground-return qualification or a manufacturing release.
 """
 import hashlib,json,math,sys
 from pathlib import Path
-if "--source" not in sys.argv:
-    sys.argv += ["--source",str(Path(__file__).resolve().parents[1]/"artifacts/v2/routing/freerouted.circuit.json")]
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 parts={e['name']:e for e in g.j if e['type']=='source_component'}
 ohms=lambda name:float(parts[name]['resistance'])

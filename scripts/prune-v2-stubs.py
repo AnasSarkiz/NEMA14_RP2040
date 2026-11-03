@@ -1,6 +1,6 @@
 """Remove reported obsolete copper branches only when live-pad connectivity is unchanged."""
 import json,sys
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 errors=json.loads((g.ROOT/'artifacts/v2/routing/native-drc.json').read_text())['errors']
 ids={e['pcb_trace_id'] for e in errors if 'dangling endpoint' in e.get('message','')}

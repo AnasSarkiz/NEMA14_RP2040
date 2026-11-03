@@ -82,15 +82,15 @@ for connector in ['J_PD','J_DATA']:
 check('RGB, buzzer, temperature, flash and crystal retained',all(n in byname for n in ['D_STATUS','BZ1','U_TEMP','U_FLASH','Y_MCU']))
 check('Schematic includes every component',len([e for e in data if e['type']=='schematic_component'])==len(cs))
 errors=[e for e in data if e['type'].endswith('_error')]
-receipt={'stage':'unrouted engineering draft','fabrication_ready':False,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
+receipt={'stage':'source and placement engineering checks; routing reviewed separately','fabrication_ready':False,'sha256':hashlib.sha256(path.read_bytes()).hexdigest(),
          'checks':checks,'passed':sum(e['pass'] for e in checks),'failed':sum(not e['pass'] for e in checks),
          'native_error_count':len(errors),'native_errors':errors,'routed_trace_count':sum(e['type']=='pcb_trace' for e in data),
-         'remaining':['Detailed mechanical/wire/tool access review and routed-layout refinement','Kelvin routing, all-net connectivity, DRC and Gerber short/drill checks','Exact motor lead gauge and available terminal procurement confirmation','Current calibration, ADC sampling and motor-switching bench checks']}
+         'remaining':['USB reference and thermal/power integrity engineering review','Exact motor lead gauge, wire/tool access and terminal procurement confirmation','Current calibration, ADC sampling and motor-switching bench checks']}
 (ROOT/'artifacts/v2/source-review.json').write_text(json.dumps(receipt,indent=2)+'\n')
 print(json.dumps({k:v for k,v in receipt.items() if k not in ['native_errors','checks']},indent=2))
 for e in checks:
     if not e['pass']:print('FAIL:',e['check'])
 if receipt['failed']:raise SystemExit(1)
 if '--require-release' in sys.argv:
-    print('BLOCKED: V2 is an unrouted engineering draft; manufacturing release is unavailable.')
+    print('BLOCKED: V2 manufacturing release requires USB reference, thermal/power, sourcing, wire-fit and hardware qualification; routing evidence is separate.')
     raise SystemExit(1)

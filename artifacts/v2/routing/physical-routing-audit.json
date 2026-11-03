@@ -1,400 +1,17 @@
 {
   "stage": "routing engineering screen, not fabrication approval",
-  "source_sha256": "0f1ea43d479fcc816bea27add1f3b5e5c0c241f44c7688c3be5c335b875330ca",
-  "placement_source_sha256": "39a26e846527d5a600a8fbafd82dd6207360388c91bb4389ed419f4e8f631010",
+  "source_sha256": "84184bc67437c1131abbd9ce69e031ac8dedf56923b18821666bc1ff7ce42b3d",
+  "placement_source_sha256": "39ce54a193d226ff105ef2d72e7b330d7edbffc8c4ab9a453b11bdb7eb66b1de",
   "physical_pin_nets_checked": 342,
   "changed_pin_nets": [],
   "changed_placement_records": [],
   "nets_checked": 70,
-  "disconnected_nets": [
-    {
-      "net": "A_DRV_PLUS",
-      "islands": [
-        [
-          "U_DRV.OUT1A"
-        ],
-        [
-          "R_SHUNT_A.pin1",
-          "U_IA.IN_POS"
-        ]
-      ]
-    },
-    {
-      "net": "B_DRV_PLUS",
-      "islands": [
-        [
-          "U_DRV.OUT2A"
-        ],
-        [
-          "R_SHUNT_B.pin1",
-          "U_IB.IN_POS"
-        ]
-      ]
-    },
-    {
-      "net": "GND",
-      "islands": [
-        [
-          "C_ADC.pin2",
-          "C_BUCK_IN.pin2",
-          "C_BUCK_OUT1.pin2",
-          "C_BUCK_OUT2.pin2",
-          "C_BULK.pin2",
-          "C_BUZZER.pin2",
-          "C_DRV_LOGIC.pin2",
-          "C_DV23.pin2",
-          "C_DV50.pin2",
-          "C_ENCODER.pin2",
-          "C_ENCODER_BULK.pin2",
-          "C_FLASH.pin2",
-          "C_IA.pin2",
-          "C_IADC_A.pin2",
-          "C_IADC_B.pin2",
-          "C_IB.pin2",
-          "C_IO1.pin2",
-          "C_IO10.pin2",
-          "C_IO22.pin2",
-          "C_IO42.pin2",
-          "C_IO49.pin2",
-          "C_PD.pin2",
-          "C_REF.pin2",
-          "C_TEMP.pin2",
-          "C_USB.pin2",
-          "C_VM.pin2",
-          "C_VM_SENSE.pin2",
-          "C_VREG.pin2",
-          "C_VREG_OUT.pin2",
-          "C_XIN.pin2",
-          "C_XOUT.pin2",
-          "D_PWR.cathode",
-          "D_TVS.pin1",
-          "J_DATA.EH1",
-          "J_DATA.EH2",
-          "J_DATA.EH3",
-          "J_DATA.EH4",
-          "J_DATA.GND1",
-          "J_DATA.GND2",
-          "J_DATA.GND3",
-          "J_DATA.GND4",
-          "J_PD.EH1",
-          "J_PD.EH2",
-          "J_PD.EH3",
-          "J_PD.EH4",
-          "J_PD.GND1",
-          "J_PD.GND2",
-          "J_PD.GND3",
-          "J_PD.GND4",
-          "Q_BUZZER.pin3",
-          "Q_STATUS_B.pin3",
-          "Q_STATUS_G.pin3",
-          "Q_STATUS_R.pin3",
-          "R_BUZZER_PD.pin2",
-          "R_CC1.pin2",
-          "R_CC2.pin2",
-          "R_PD_CFG.pin2",
-          "R_SA.pin2",
-          "R_SB.pin2",
-          "R_SLEEP.pin2",
-          "R_STATUS_PD_B.pin2",
-          "R_STATUS_PD_G.pin2",
-          "R_STATUS_PD_R.pin2",
-          "R_USB_SENSE_L.pin2",
-          "R_VM_L.pin2",
-          "TP_BOOT_GND.pin1",
-          "TP_GND.pin1",
-          "U_BUCK.GND",
-          "U_DRV.EP",
-          "U_DRV.GND",
-          "U_DRV.GND18",
-          "U_DRV.ROSC",
-          "U_ENCODER.DIR",
-          "U_ENCODER.GND",
-          "U_ESD.GND",
-          "U_FLASH.EP",
-          "U_IA.GND",
-          "U_IA.REF2",
-          "U_IB.REF2",
-          "U_MCU.GND",
-          "U_MCU.TESTEN",
-          "U_PD.GND",
-          "U_TEMP.ADD0",
-          "U_TEMP.GND",
-          "Y_MCU.pin2",
-          "Y_MCU.pin4"
-        ],
-        [
-          "C_IO33.pin2",
-          "U_IB.GND"
-        ],
-        [
-          "C_VREG_IN.pin2"
-        ],
-        [
-          "U_FLASH.GND"
-        ],
-        [
-          "R_REF_L.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "V3V3",
-      "islands": [
-        [
-          "BZ1.pin1",
-          "C_BUCK_OUT1.pin1",
-          "C_BUCK_OUT2.pin1",
-          "C_BUZZER.pin1",
-          "C_DRV_LOGIC.pin1",
-          "C_ENCODER.pin1",
-          "C_ENCODER_BULK.pin1",
-          "C_FLASH.pin1",
-          "C_IA.pin1",
-          "C_IB.pin1",
-          "C_IO1.pin1",
-          "C_IO10.pin1",
-          "C_IO22.pin1",
-          "C_IO33.pin1",
-          "C_IO42.pin1",
-          "C_IO49.pin1",
-          "C_TEMP.pin1",
-          "C_USB.pin1",
-          "D_BUZZER.cathode",
-          "L_BUCK.pin2",
-          "R_ENABLE.pin1",
-          "R_FLASH_CS.pin1",
-          "R_PG.pin1",
-          "R_PWR_LED.pin1",
-          "R_REF_H.pin1",
-          "R_RUN.pin1",
-          "R_TEMP_SCL.pin2",
-          "TP_3V3.pin1",
-          "U_BUCK.FB",
-          "U_DRV.MS1",
-          "U_DRV.MS2",
-          "U_DRV.MS3",
-          "U_DRV.RESET_N",
-          "U_DRV.VDD",
-          "U_ENCODER.VDD3V3",
-          "U_ENCODER.VDD5V",
-          "U_FLASH.VCC",
-          "U_IA.REF1",
-          "U_IA.VS",
-          "U_IB.REF1",
-          "U_IB.VS",
-          "U_MCU.ADC_AVDD",
-          "U_MCU.IOVDD1",
-          "U_MCU.IOVDD22",
-          "U_MCU.IOVDD33",
-          "U_MCU.IOVDD42",
-          "U_MCU.IOVDD49",
-          "U_MCU.USB_VDD",
-          "U_MCU.VREG_IN",
-          "U_TEMP.V_POS"
-        ],
-        [
-          "U_MCU.IOVDD10"
-        ],
-        [
-          "C_ADC.pin1"
-        ],
-        [
-          "C_VREG_IN.pin1"
-        ],
-        [
-          "R_TEMP_SDA.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "DATA_VBUS",
-      "islands": [
-        [
-          "D_DATA.anode",
-          "D_STATUS._POS",
-          "J_DATA.VBUS1",
-          "J_DATA.VBUS2",
-          "J_DATA.VBUS3",
-          "R_USB_SENSE_H.pin1",
-          "U_ESD.VBUS"
-        ],
-        [
-          "J_DATA.VBUS4"
-        ]
-      ]
-    },
-    {
-      "net": "DIR",
-      "islands": [
-        [
-          "U_MCU.GPIO7"
-        ],
-        [
-          "U_DRV.DIR"
-        ]
-      ]
-    },
-    {
-      "net": "ENABLE_N",
-      "islands": [
-        [
-          "R_ENABLE.pin2",
-          "U_MCU.GPIO8"
-        ],
-        [
-          "U_DRV.ENABLE_N"
-        ]
-      ]
-    },
-    {
-      "net": "PD_GOOD",
-      "islands": [
-        [
-          "U_MCU.GPIO10",
-          "U_PD.PG"
-        ],
-        [
-          "R_PG.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "DATA_PRESENT",
-      "islands": [
-        [
-          "U_MCU.GPIO29"
-        ],
-        [
-          "R_USB_SENSE_H.pin2",
-          "R_USB_SENSE_L.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "QSPI_SS",
-      "islands": [
-        [
-          "R_FLASH_CS.pin2",
-          "U_FLASH.CS",
-          "U_MCU.QSPI_SS"
-        ],
-        [
-          "R_BOOT.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "PWR_LED_A",
-      "islands": [
-        [
-          "D_PWR.anode"
-        ],
-        [
-          "R_PWR_LED.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "TEMP_SCL",
-      "islands": [
-        [
-          "U_ENCODER.SCL",
-          "U_MCU.GPIO5"
-        ],
-        [
-          "R_TEMP_SCL.pin1",
-          "U_TEMP.SCL"
-        ]
-      ]
-    },
-    {
-      "net": "BUZZER_PWM",
-      "islands": [
-        [
-          "U_MCU.GPIO16"
-        ],
-        [
-          "R_BUZZER_GATE.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "BUZZER_GATE",
-      "islands": [
-        [
-          "Q_BUZZER.pin1",
-          "R_BUZZER_PD.pin1"
-        ],
-        [
-          "R_BUZZER_GATE.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "LED_R",
-      "islands": [
-        [
-          "U_MCU.GPIO25"
-        ],
-        [
-          "Q_STATUS_R.pin1"
-        ],
-        [
-          "R_STATUS_PD_R.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "LED_G",
-      "islands": [
-        [
-          "U_MCU.GPIO2"
-        ],
-        [
-          "Q_STATUS_G.pin1"
-        ],
-        [
-          "R_STATUS_PD_G.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "LED_B",
-      "islands": [
-        [
-          "Q_STATUS_B.pin1",
-          "U_MCU.GPIO3"
-        ],
-        [
-          "R_STATUS_PD_B.pin1"
-        ]
-      ]
-    },
-    {
-      "net": "STATUS_R_C",
-      "islands": [
-        [
-          "R_STATUS_R.pin2"
-        ],
-        [
-          "Q_STATUS_R.pin2"
-        ]
-      ]
-    },
-    {
-      "net": "STATUS_G_C",
-      "islands": [
-        [
-          "R_STATUS_G.pin2"
-        ],
-        [
-          "Q_STATUS_G.pin2"
-        ]
-      ]
-    }
-  ],
-  "traces": 342,
-  "vias": 279,
+  "disconnected_nets": [],
+  "floating_copper_islands": [],
+  "traces": 639,
+  "vias": 359,
+  "minimum_via_drill_edge_gap_mm": 0.30337591930735835,
+  "minimum_terminal_via_drill_edge_gap_mm": 0.7818359775145196,
   "shorts": [],
   "clearance_violations": [],
   "copper_edge_violations": [],
@@ -408,14 +25,6 @@
     "QSPI_SS": [
       0.16,
       0.16
-    ],
-    "A_PLUS": [
-      0.3,
-      0.3
-    ],
-    "B_PLUS": [
-      0.3,
-      0.3
     ],
     "PD_VBUS": [
       0.16,
@@ -457,10 +66,6 @@
       0.16,
       0.3
     ],
-    "PD_VHV": [
-      0.16,
-      0.16
-    ],
     "PD_CC1": [
       0.16,
       0.16
@@ -471,10 +76,6 @@
     ],
     "BUZZER_SINK": [
       0.3,
-      0.3
-    ],
-    "B_DRV_PLUS": [
-      0.16,
       0.3
     ],
     "V1V1": [
@@ -533,15 +134,19 @@
       0.16,
       0.16
     ],
+    "B_DRV_PLUS": [
+      0.16,
+      0.3
+    ],
     "I_A_ADC": [
       0.16,
       0.16
     ],
-    "DATA_CC1": [
+    "PD_VHV": [
       0.16,
       0.16
     ],
-    "STEP": [
+    "DATA_CC1": [
       0.16,
       0.16
     ],
@@ -601,18 +206,6 @@
       0.16,
       0.16
     ],
-    "TEMP_SDA": [
-      0.16,
-      0.16
-    ],
-    "BUZZER_GATE": [
-      0.16,
-      0.16
-    ],
-    "STATUS_B_C": [
-      0.16,
-      0.16
-    ],
     "USB_DP": [
       0.16,
       0.16
@@ -620,14 +213,6 @@
     "USB_DM": [
       0.16,
       0.16
-    ],
-    "MCU_DP": [
-      0.16,
-      0.16
-    ],
-    "A_DRV_PLUS": [
-      0.16,
-      0.3
     ],
     "I_A_RAW": [
       0.16,
@@ -665,6 +250,10 @@
       0.16,
       0.16
     ],
+    "STEP": [
+      0.16,
+      0.16
+    ],
     "DIR": [
       0.16,
       0.16
@@ -680,9 +269,41 @@
     "QSPI_SD2": [
       0.16,
       0.16
+    ],
+    "TEMP_SDA": [
+      0.16,
+      0.16
+    ],
+    "A_DRV_PLUS": [
+      0.16,
+      0.3
+    ],
+    "MCU_DP": [
+      0.16,
+      0.16
+    ],
+    "A_PLUS": [
+      0.16,
+      0.3
+    ],
+    "B_PLUS": [
+      0.16,
+      0.3
+    ],
+    "STATUS_G_C": [
+      0.16,
+      0.16
+    ],
+    "BUZZER_GATE": [
+      0.16,
+      0.16
+    ],
+    "STATUS_B_C": [
+      0.16,
+      0.16
     ]
   },
-  "passed": false,
+  "passed": true,
   "fabrication_ready": false,
   "remaining": [
     "Native DRC and final Gerber/drill checks",

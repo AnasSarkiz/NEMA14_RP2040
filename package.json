@@ -1,7 +1,7 @@
 {
   "name": "NEMA14_RP2040",
   "version": "2.0.0-dev.1",
-  "description": "NEMA14 RP2040 V2 unrouted draft: 34.5 mm, winding telemetry and WAGO spring terminal",
+  "description": "NEMA14 RP2040 V2: checked four-layer routing, winding telemetry and WAGO spring terminal",
   "main": "index.circuit.tsx",
   "scripts": {
     "build": "npm run build:v2 && npm run check:v2",
@@ -30,7 +30,7 @@
     "publish:assembly": "npm run check:v2 && python3 scripts/prepare-assembly-release.py",
     "check:pd": "python3 scripts/check-ch224a.py",
     "build:v2": "bun scripts/build-v2.tsx",
-    "route:v2": "/workspace/.routing-venv/bin/python scripts/route-v2-freerouting.py",
+    "route:v2": "python3 scripts/restore-v2-reviewed-routing.py",
     "route:v2:native": "bun scripts/route-v2.tsx",
     "check:v2:routing": "/workspace/.routing-venv/bin/python scripts/audit-v2-routing.py --source artifacts/v2/routing/freerouted.circuit.json --output artifacts/v2/routing/physical-routing-audit.json",
     "check:v2:routing:native": "bun scripts/check-v2-routing.ts",
@@ -40,7 +40,10 @@
     "check:v2:placement": "/workspace/.routing-venv/bin/python scripts/verify-v2-placement.py",
     "render:v2:placement": "/workspace/.routing-venv/bin/python scripts/render-v2-placement.py",
     "preview:v2:portable": "python3 scripts/make-v2-portable-viewer.py",
-    "check:v2:schematic": "tsci check schematic-placement artifacts/v2/source.circuit.json"
+    "check:v2:schematic": "tsci check schematic-placement artifacts/v2/source.circuit.json",
+    "route:v2:freerouting": "/workspace/.routing-venv/bin/python scripts/route-v2-freerouting.py",
+    "check:v2:functional": "/workspace/.routing-venv/bin/python scripts/audit-v2-functional-routing.py --source artifacts/v2/routing/freerouted.circuit.json",
+    "check:v2:phase-current": "/workspace/.routing-venv/bin/python scripts/screen-v2-phase-current.py"
   },
   "repository": {
     "type": "git",

@@ -9,7 +9,7 @@ import numpy as np
 from PIL import Image,ImageDraw
 from scipy.ndimage import distance_transform_edt
 from shapely.ops import unary_union
-import verify_supplier_connectivity as g
+from v2_route_io import g
 from v2_copper_cleanup import prune_floating
 
 if '--keep-floating-copper' not in sys.argv:
@@ -52,6 +52,7 @@ def soft_eligible(e):
     protected_nets={q.split('=',1)[1] for q in sys.argv if q.startswith('--protect-net=')}
     if name in protected_nets:return False
     if '--rip-debug-branches' in sys.argv and name in {'RUN','SWCLK','SWDIO'}:return True
+    if name in {q.split('=',1)[1] for q in sys.argv if q.startswith('--rip-net=')}:return True
     if '--rip-pd-branches' in sys.argv and name=='PD_VBUS' and not uid.startswith(('usb_','reviewed_local_')):return True
     if '--rip-power-branches' in sys.argv and name in {'V3V3','DATA_VBUS','LOGIC_IN'}:
         if not uid.startswith(('usb_','oscillator_','review_escape_','reviewed_local_')):return True
@@ -347,6 +348,21 @@ for net in sorted(nets,key=lambda k:net_order.index(nets[k]['name']) if nets[k][
             if anchor['type']=='pcb_via':
                 for l in anchor['layers']:
                     if l in layers:starts[(*xy(anchor['x'],anchor['y']),layers.index(l))]=(anchor['x'],anchor['y'])
+            elif anchor['type']=='pcb_copper_pour' and nets[net]['name']=='GND':
+                # A connected pour is a valid starting conductor, including
+                # regions reached through a neck narrower than a new track.
+                # Keep the added track's full width inside the existing copper.
+                b=anchor['brep_shape'];pts=lambda r:[(p['x'],p['y']) for p in r['vertices']]
+                poly=g.Polygon(pts(b['outer_ring']),[pts(r) for r in b.get('inner_rings',[])]).buffer(-.10)
+                for piece in list(poly.geoms) if hasattr(poly,'geoms') else [poly]:
+                    if piece.is_empty or piece.geom_type!='Polygon':continue
+                    rp=piece.representative_point()
+                    if anchor['layer'] in layers:
+                        starts[(*xy(rp.x,rp.y),layers.index(anchor['layer']))]=(rp.x,rp.y)
+                        for ring in [piece.exterior]+list(piece.interiors):
+                            for index in range(max(1,math.ceil(ring.length/.15))):
+                                q=ring.interpolate(index*.15)
+                                starts[(*xy(q.x,q.y),layers.index(anchor['layer']))]=(q.x,q.y)
             elif anchor['type']=='pcb_trace':
                 for a,b in zip(anchor['route'],anchor['route'][1:]):
                     if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer'] and a['layer'] in layers:

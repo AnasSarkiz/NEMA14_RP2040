@@ -9,7 +9,7 @@ from collections import defaultdict
 
 from shapely.geometry import LineString, Point, Polygon
 from shapely.strtree import STRtree
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 layers = ['top', 'inner1', 'inner2', 'bottom']
 def reference(e):
@@ -67,6 +67,11 @@ for phase,driver_pin,motor_pin,amp in [('A',24,1,'U_IA'),('B',21,3,'U_IB')]:
     # rather than assumed from the package's viewing orientation.
     driver=next(e for e in g.j if e['type']=='pcb_smtpad' and reference(e)=='U_DRV'
                 and g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']=='OUT'+('1A' if phase=='A' else '2A'))
+    driver_return=next(e for e in g.j if e['type']=='pcb_smtpad' and reference(e)=='U_DRV'
+                       and g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']=='OUT'+('1B' if phase=='A' else '2B'))
+    motor_return=next(e for e in g.j if e['type']=='pcb_plated_hole' and reference(e)=='J_MOTOR'
+                     and g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']==phase+'_MINUS')
+    check(phase+' motor return has a >=0.30 mm current path',connected(g.key(driver_return),driver_return,motor_return,.30))
     shunt1,shunt2=pad('R_SHUNT_'+phase,1),pad('R_SHUNT_'+phase,2)
     motor=next(e for e in g.j if e['type']=='pcb_plated_hole' and reference(e)=='J_MOTOR'
                and g.sp[g.ports[e['pcb_port_id']]['source_port_id']]['name']==phase+'_PLUS')

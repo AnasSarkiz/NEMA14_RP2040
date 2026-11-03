@@ -1,9 +1,7 @@
-"""Refill grounded, masked copper from saved final copper with 0.20 mm clearance."""
+"""Refill grounded, masked copper with a verified >=0.15 mm clearance."""
 import json,math,sys
 from pathlib import Path
-if "--source" not in sys.argv:
- sys.argv += ["--source",str(Path(__file__).resolve().parents[1]/"artifacts/v2/routing/freerouted.circuit.json")]
-import verify_supplier_connectivity as g
+from v2_route_io import g
 g.nets={e["subcircuit_connectivity_map_key"]:e for e in g.j if e["type"]=="source_net"}
 from shapely.geometry import box,Point,LineString,Polygon
 from shapely.ops import unary_union
@@ -11,6 +9,8 @@ from shapely.geometry.polygon import orient
 net=next(k for k,v in g.nets.items() if v['name']=='GND');netid=g.nets[net]['source_net_id']
 g.j[:]=[e for e in g.j if e['type']!='pcb_copper_pour']
 records=[]
+clearance=float(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--clearance-mm=')),.16))
+assert .16<=clearance<=.20,'Plane construction retains at least 0.01 mm margin over the board clearance'
 layers=['top','bottom'] if next(e for e in g.j if e['type']=='pcb_board')['num_layers']==2 else ['top','inner1','inner2','bottom']
 for layer in layers:
  cuts=[];terminals=[]
@@ -19,14 +19,14 @@ for layer in layers:
   if typ in ['pcb_smtpad','pcb_plated_hole'] and layer in e.get('layers',[e.get('layer','top')]):
    geom=g.geometry(e)
    if g.key(e)==net:terminals.append(geom)
-   else:cuts.append(geom.buffer(.20,quad_segs=16))
+   else:cuts.append(geom.buffer(clearance,quad_segs=16))
   elif typ=='pcb_via':
    geom=Point(e['x'],e['y']).buffer(e['outer_diameter']/2,quad_segs=16)
    if g.key(e)==net:terminals.append(geom)
-   else:cuts.append(geom.buffer(.20,quad_segs=16))
+   else:cuts.append(geom.buffer(clearance,quad_segs=16))
   elif typ=='pcb_trace' and g.key(e)!=net:
    for a,b in zip(e['route'],e['route'][1:]):
-    if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']==layer:cuts.append(LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2+.20,quad_segs=16))
+    if a['route_type']==b['route_type']=='wire' and a['layer']==b['layer']==layer:cuts.append(LineString([(a['x'],a['y']),(b['x'],b['y'])]).buffer(max(a['width'],b['width'])/2+clearance,quad_segs=16))
   elif typ=='pcb_hole':
    if e['hole_shape']=='circle':hole=Point(e['x'],e['y']).buffer(e['hole_diameter']/2+.26,quad_segs=64)
    else:
@@ -55,5 +55,5 @@ for layer in layers:
   continue
 g.path.write_text(json.dumps(g.j,indent=2)+'\n')
 report=Path(next((q.split('=',1)[1] for q in sys.argv if q.startswith('--report=')),g.ROOT/'artifacts/v2/routing/ground-planes.json'))
-report.write_text(json.dumps({'clearanceMm':.20,'edgeMarginMm':.35,'regions':records},indent=2)+'\n')
+report.write_text(json.dumps({'clearanceMm':clearance,'edgeMarginMm':.35,'regions':records},indent=2)+'\n')
 print('Filled',len(records),'ground regions')

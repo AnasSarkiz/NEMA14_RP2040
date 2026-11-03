@@ -4,7 +4,7 @@ Every affected net remains physically open until the router reconnects it.
 Supplier pads, pin assignments, USB, oscillator and thermal copper stay fixed.
 """
 import json,sys
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 port=next(q.split('=',1)[1] for q in sys.argv if q.startswith('--port='))
 selected=[e for e in g.j if e['type']=='pcb_trace' and e['pcb_trace_id'].startswith('v2_escape_')

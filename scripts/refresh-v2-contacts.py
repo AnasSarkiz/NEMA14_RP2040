@@ -5,7 +5,7 @@ Independent physical connectivity and native/CAM clearance are still mandatory.
 import json,hashlib
 from shapely.geometry import LineString,Point
 from shapely.strtree import STRtree
-import verify_supplier_connectivity as g
+from v2_route_io import g
 pads=[e for e in g.j if e['type'] in ['pcb_smtpad','pcb_plated_hole']];geoms=[g.geometry(e) for e in pads];tree=STRtree(geoms);changes=[]
 for t in g.j:
  if t['type']!='pcb_trace':continue

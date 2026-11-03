@@ -1,9 +1,13 @@
-"""Retain routing after a placement refinement; remove stale local connections."""
+"""Retain routing after a placement refinement; detach stale contact metadata.
+
+Only copper obstructed by new supplier pads is cut. Vacated pad locations
+never count as connections to the moved terminals.
+"""
 import hashlib
 import json
 from pathlib import Path
 from shapely.geometry import Point, LineString
-import verify_supplier_connectivity as g
+from v2_route_io import g
 
 fresh_path=g.ROOT/'artifacts/v2/source.circuit.json'
 fresh=json.loads(fresh_path.read_text())
@@ -32,17 +36,21 @@ for e in g.j:
                         any(l in p.get('layers',[p.get('layer','top')]) and
                             s.intersection(old_shape).intersection(g.geometry(p)).area>1e-8
                             for l,s in pieces(e))]
-            if not candidates:break
+            if not candidates:
+                replacements[pid]=None
+                continue
             replacements[pid]=candidates[0]['pcb_port_id']
         else:
             # Tiny moves and equal-net land replacements can retain actual
             # copper. Reassign contact metadata only after geometric proof.
-            e['pcb_port_ids']=[replacements.get(pid,pid) for pid in e.get('pcb_port_ids',[])]
+            e['pcb_port_ids']=[replacements.get(pid,pid) for pid in e.get('pcb_port_ids',[]) if replacements.get(pid,pid) is not None]
             for q in e['route']:
                 for tag in ['start_pcb_port_id','end_pcb_port_id']:
                     if q.get(tag) in replacements:
-                        old=q[tag];q[tag]=replacements[old]
-                        reassigned.append({'trace':e['pcb_trace_id'],'before':old,'after':q[tag]})
+                        old=q[tag];target=replacements[old]
+                        if target is None:del q[tag]
+                        else:q[tag]=target
+                        reassigned.append({'trace':e['pcb_trace_id'],'before':old,'after':target})
             affected=set()
         if affected:
             rip.add(e['pcb_trace_id']);continue
@@ -55,10 +63,19 @@ for e in g.j:
 dead=[e for e in g.j if e['type']=='pcb_via' and e['pcb_via_id'] in rip]
 for e in g.j:
     if e['type']=='pcb_trace' and any(any(abs(q['x']-v['x'])<1e-6 and abs(q['y']-v['y'])<1e-6 for q in e['route']) for v in dead):rip.add(e['pcb_trace_id'])
+from v2_local_rip import retained_trace_fragments
+used={e.get(e['type']+'_id') for e in g.j}
+fragments=[]
+for trace in g.j:
+    if trace['type']!='pcb_trace' or trace['pcb_trace_id'] not in rip:continue
+    obstacles=[(layer,g.geometry(p)) for p in new_pads if g.key(p)!=g.key(trace)
+               for layer in p.get('layers',[p.get('layer','top')])]
+    fragments.extend(retained_trace_fragments(trace,obstacles,used))
 fresh.extend(e for e in g.j if e['type'] in ['pcb_trace','pcb_via'] and e[e['type']+'_id'] not in rip)
+fresh.extend(fragments)
 for e in fresh:
     if e['type']=='pcb_board':e['is_via_in_pad_allowed']=True
 g.path.write_text(json.dumps(fresh,indent=2)+'\n')
-report={'placement_source_sha256':hashlib.sha256(fresh_path.read_bytes()).hexdigest(),'moved_ports':sorted(moved),'removed_stale_copper':sorted(rip),'geometrically_verified_contact_reassignments':reassigned,'routed_source_sha256':hashlib.sha256(g.path.read_bytes()).hexdigest()}
+report={'placement_source_sha256':hashlib.sha256(fresh_path.read_bytes()).hexdigest(),'moved_ports':sorted(moved),'removed_stale_copper':sorted(rip),'retained_copper_fragments':[e['pcb_trace_id'] for e in fragments],'geometrically_verified_contact_reassignments':reassigned,'routed_source_sha256':hashlib.sha256(g.path.read_bytes()).hexdigest()}
 (g.ROOT/'artifacts/v2/routing/source-graft.json').write_text(json.dumps(report,indent=2)+'\n')
 print(json.dumps({'moved_ports':len(moved),'removed_stale_copper':len(rip)}))

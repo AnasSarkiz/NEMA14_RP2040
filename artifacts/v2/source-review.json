@@ -1,7 +1,7 @@
 {
-  "stage": "unrouted engineering draft",
+  "stage": "source and placement engineering checks; routing reviewed separately",
   "fabrication_ready": false,
-  "sha256": "39a26e846527d5a600a8fbafd82dd6207360388c91bb4389ed419f4e8f631010",
+  "sha256": "39ce54a193d226ff105ef2d72e7b330d7edbffc8c4ab9a453b11bdb7eb66b1de",
   "checks": [
     {
       "check": "34.5 x 34.5 mm, four-layer, 1.6 mm board",
@@ -142,9 +142,8 @@
   "native_errors": [],
   "routed_trace_count": 0,
   "remaining": [
-    "Detailed mechanical/wire/tool access review and routed-layout refinement",
-    "Kelvin routing, all-net connectivity, DRC and Gerber short/drill checks",
-    "Exact motor lead gauge and available terminal procurement confirmation",
+    "USB reference and thermal/power integrity engineering review",
+    "Exact motor lead gauge, wire/tool access and terminal procurement confirmation",
     "Current calibration, ADC sampling and motor-switching bench checks"
   ]
 }
