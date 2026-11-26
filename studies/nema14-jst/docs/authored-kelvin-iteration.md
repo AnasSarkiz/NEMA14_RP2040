@@ -1,3 +1,5 @@
+The integration status below records the earlier coupon pass. See the [NEMA14 JST full-controller integration report](full-controller-kelvin-integration.md) for the subsequent eight-path candidate and current blockers.
+
 # NEMA14 JST authored copper experiment
 
 The accepted controller stays at 25/59 locality passes, with 0 traces and 0 vias. This pass adds a verified native Kelvin coupon and an explicitly unadopted placement comparison. It does not replace the intended top-side assembly, waive locality or provide a clean routed board. Original board files and NEMA14 WAGO are unchanged.

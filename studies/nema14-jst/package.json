@@ -21,7 +21,8 @@
     "check:critical-placement": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/critical-paths.json",
     "check:independent": "python3 scripts/inspect-copper.py artifacts/final-source.circuit.json artifacts/independent-copper.json",
     "check:critical-routing": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/routed-critical-paths.json --routed",
-    "test:kelvin": "bun scripts/test-authored-kelvin.ts"
+    "test:kelvin": "bun scripts/test-authored-kelvin.ts",
+    "test:integration": "mkdir -p .config/integration && bun experiments/integrated/check-native.ts artifacts/iteration-3/authored.circuit.json .config/integration/authored-native.json && bun experiments/integrated/check-native.ts artifacts/iteration-3/normal-attempt.circuit.json .config/integration/normal-native.json && ${PYTHON:-python3} scripts/test-integrated-kelvin.py && ${PYTHON:-python3} scripts/verify-integrated-kelvin.py artifacts/final-source.circuit.json artifacts/iteration-3/authored.circuit.json artifacts/iteration-3/normal-attempt.circuit.json .config/integration/authored-native.json .config/integration/normal-native.json .config/integration/verification.json"
   },
   "repository": {
     "type": "git",

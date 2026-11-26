@@ -1,0 +1,131 @@
+{
+  "checkPadPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkPadTraceClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkEachPcbTraceNonOverlapping": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViaPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViaTraceClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViasInPads": {
+    "count": 0,
+    "findings": []
+  },
+  "checkTracesAreContiguous": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSourceTracesMatchPcbTraceThickness": {
+    "count": 4,
+    "findings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_220",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.U_DRV > .OUT1A to .R_SHUNT_A > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 8.235101862962885,
+          "y": 10.456489813703712
+        },
+        "source_trace_id": "source_trace_220",
+        "pcb_trace_id": "pcb_trace_2",
+        "pcb_component_ids": [
+          "pcb_component_45",
+          "pcb_component_54"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_226",
+          "pcb_port_248"
+        ]
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_221",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .J_MOTOR > .A_PLUS] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 9.086784032616764,
+          "y": 10.648881342998573
+        },
+        "source_trace_id": "source_trace_221",
+        "pcb_trace_id": "pcb_trace_3",
+        "pcb_component_ids": [
+          "pcb_component_54",
+          "pcb_component_69"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_249",
+          "pcb_port_290"
+        ]
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_239",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.U_DRV > .OUT2A to .R_SHUNT_B > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 7.378830914640277,
+          "y": 13.236321182807131
+        },
+        "source_trace_id": "source_trace_239",
+        "pcb_trace_id": "pcb_trace_6",
+        "pcb_component_ids": [
+          "pcb_component_45",
+          "pcb_component_59"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_228",
+          "pcb_port_264"
+        ]
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_240",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_B > .pin2 to .J_MOTOR > .B_PLUS] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 7.381506808709974,
+          "y": 14.236371736657286
+        },
+        "source_trace_id": "source_trace_240",
+        "pcb_trace_id": "pcb_trace_7",
+        "pcb_component_ids": [
+          "pcb_component_59",
+          "pcb_component_69"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_265",
+          "pcb_port_292"
+        ]
+      }
+    ]
+  },
+  "checkPcbCopperOverKeepout": {
+    "count": 0,
+    "findings": []
+  },
+  "checkCopperToBoardEdgeClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSameNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  },
+  "checkDifferentNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  }
+}

@@ -4,6 +4,8 @@ This isolated engineering study adds two inline 50 mΩ winding shunts and two IN
 
 **Layout status: mechanically clear placement study; routing blocked by electrical locality.** There is no completed routed board or manufacturing release here.
 
+A separate [NEMA14 JST full-controller Kelvin experiment](docs/full-controller-kelvin-integration.md) now preserves eight authored paths through normal native routing. Its copper has no independent shorts or clearance findings, but full routing fails with 66 disconnected nets and unchanged 25/59 locality. Neither 0.60 mm ground return is qualified. The production source and accepted placement remain unchanged.
+
 | Check | Result |
 | --- | --- |
 | Outline / layers / board thickness | 35 × 35 mm / 4 / 1.6 mm |
@@ -47,7 +49,7 @@ npm run check:locality
 npm run check:plug
 ```
 
-`source:check` runs the native entry point, `tsci build controller.tsx --routing-disabled`, with CLI 0.1.2261 and tscircuit 0.0.2764. Native DRC is enabled. The parts metadata engine is disabled because supplier footprints and CAD are imported locally; this does not suppress placement or routing errors. `check:locality` intentionally returns nonzero for the current source. Install `requirements-geometry.txt` for the independent geometry and critical-path checks; `npm run test:copper` runs eleven connectivity/Kelvin regressions. Run `npm run check:critical-placement` separately to see the explicit star-return reservation gate. `npm run check:independent` correctly reports the current 70 disconnected PCB nets, since no copper has been installed. Run `check:plug` separately to reproduce its independent report; its Python solid check needs CadQuery.
+`source:check` runs the native entry point, `tsci build controller.tsx --routing-disabled`, with CLI 0.1.2261 and tscircuit 0.0.2764. Native DRC is enabled. The parts metadata engine is disabled because supplier footprints and CAD are imported locally; this does not suppress placement or routing errors. `check:locality` intentionally returns nonzero for the current source. Install `requirements-geometry.txt` for the independent geometry and critical-path checks; `npm run test:copper` runs fourteen connectivity/Kelvin regressions. Run `npm run check:critical-placement` separately to see the explicit star-return reservation gate. `npm run check:independent` correctly reports the current 70 disconnected PCB nets, since no copper has been installed. Run `check:plug` separately to reproduce its independent report; its Python solid check needs CadQuery.
 
 `npm run autoroute` first runs the complete source/electrical/mechanical/locality/plug gate and only starts native routing if they all pass. Its current nonzero locality gate is intentional. The command also requires the new star-return preflight, and independent physical connectivity plus routed Kelvin/return/USB-reference checks after any native routed output. Do not bypass it to produce a convincing-looking routed preview. A passing placement build does not qualify a routed board. The native single-sheet schematic still reports drawing-area warnings; schematic presentation also needs review. The CI job covers native source generation, electrical contracts, placement, regressions and the locality gate. The locality step is expected to fail while this draft retains the documented placement failures; it is deliberately not suppressed.
 
