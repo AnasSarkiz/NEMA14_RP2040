@@ -1,0 +1,15 @@
+node_modules
+.config/
+dist/
+__pycache__/
+*.pyc
+artifacts/*.log
+!artifacts/native-cli.log
+!artifacts/autoroute-gate.log
+!artifacts/electrical-check.log
+!artifacts/locality-check.log
+!artifacts/test-gate.log
+!artifacts/test-plug.log
+!artifacts/typecheck.log
+review/*-raw.png
+review/*-labels.json

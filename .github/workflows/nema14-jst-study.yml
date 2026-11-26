@@ -1,0 +1,32 @@
+name: NEMA14 JST engineering gates
+on:
+  pull_request:
+    paths:
+      - 'studies/nema14-jst/**'
+      - 'imports/**'
+      - '.github/workflows/nema14-jst-study.yml'
+permissions:
+  contents: read
+jobs:
+  source-placement-and-locality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: studies/nema14-jst
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+      - run: bun install --frozen-lockfile
+      - run: npm run typecheck
+      - run: npm run test:gate
+      - run: npm run test:plug
+      - run: npm run source:check
+      - run: npm run check:electrical
+      - run: npm run check:placement
+      # This intentionally remains a blocking gate while the draft layout
+      # fails the documented locality targets.
+      - name: Electrical locality gate (currently blocks routing)
+        run: npm run check:locality

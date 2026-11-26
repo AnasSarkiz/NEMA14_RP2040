@@ -1,0 +1,46 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 check:locality
+> python3 scripts/measure-locality.py artifacts/final-source.circuit.json artifacts/locality-screen.json
+
+NEMA14 JST locality targets: 19 of 59 pass
+U_IA.IN_NEG -> R_SHUNT_A.pin2: 8.178 mm > 8 mm
+C_IA.pin2 -> U_IA.GND: 7.777 mm > 5 mm
+R_IA.pin2 -> C_IADC_A.pin1: 14.410 mm > 2 mm
+C_IADC_A.pin1 -> U_MCU.GPIO26: 12.255 mm > 3.5 mm
+C_IB.pin1 -> U_IB.VS: 9.506 mm > 3 mm
+R_IB.pin2 -> C_IADC_B.pin1: 5.696 mm > 2 mm
+C_IADC_B.pin1 -> U_MCU.GPIO27: 9.592 mm > 3.5 mm
+R_SHUNT_B.pin2 -> J_MOTOR.B_PLUS: 22.057 mm > 20 mm
+C_IO1.pin1 -> U_MCU.IOVDD1: 4.778 mm > 3.5 mm
+C_IO10.pin1 -> U_MCU.IOVDD10: 4.455 mm > 3.5 mm
+C_IO22.pin1 -> U_MCU.IOVDD22: 5.075 mm > 3.5 mm
+C_IO33.pin1 -> U_MCU.IOVDD33: 12.319 mm > 3.5 mm
+C_IO42.pin1 -> U_MCU.IOVDD42: 12.063 mm > 3.5 mm
+C_IO49.pin1 -> U_MCU.IOVDD49: 6.521 mm > 3.5 mm
+C_DV23.pin1 -> U_MCU.DVDD23: 8.145 mm > 3.5 mm
+C_DV50.pin1 -> U_MCU.DVDD50: 4.648 mm > 3.5 mm
+C_ADC.pin1 -> U_MCU.ADC_AVDD: 8.745 mm > 3.5 mm
+C_USB.pin1 -> U_MCU.USB_VDD: 8.038 mm > 3.5 mm
+C_VREG_IN.pin1 -> U_MCU.VREG_IN: 9.122 mm > 3.5 mm
+C_VREG_OUT.pin1 -> U_MCU.VREG_OUT: 8.918 mm > 3.5 mm
+C_DRV_LOGIC.pin1 -> U_DRV.VDD: 4.053 mm > 4 mm
+C_VREG.pin1 -> U_DRV.VREG: 8.109 mm > 4 mm
+C_CP.pin1 -> U_DRV.CP1: 8.340 mm > 4 mm
+R_SA.pin1 -> U_DRV.SENSE1: 6.691 mm > 4 mm
+R_SB.pin1 -> U_DRV.SENSE2: 9.678 mm > 4 mm
+C_CP.pin2 -> U_DRV.CP2: 9.681 mm > 4 mm
+C_BULK.pin1 -> U_DRV.VBB1: 19.271 mm > 12 mm
+C_BUCK_IN.pin1 -> U_BUCK.VIN: 10.102 mm > 4 mm
+C_BOOTSTRAP.pin1 -> U_BUCK.BST: 3.620 mm > 3 mm
+L_BUCK.pin1 -> U_BUCK.SW: 4.300 mm > 4 mm
+C_BUCK_OUT2.pin1 -> L_BUCK.pin2: 5.624 mm > 5 mm
+C_FLASH.pin1 -> U_FLASH.VCC: 5.225 mm > 3 mm
+R_XOUT.pin1 -> U_MCU.XOUT: 4.868 mm > 3 mm
+R_XOUT.pin2 -> Y_MCU.pin3: 3.909 mm > 3 mm
+C_XIN.pin1 -> Y_MCU.pin1: 3.580 mm > 3 mm
+C_XOUT.pin1 -> Y_MCU.pin3: 6.980 mm > 3 mm
+R_DM.pin1 -> U_MCU.USB_DM: 3.428 mm > 3 mm
+R_DP.pin1 -> U_MCU.USB_DP: 5.789 mm > 3 mm
+U_ESD.DM1 -> J_DATA.DM1: 8.596 mm > 7 mm
+U_ESD.DP1 -> J_DATA.DP1: 7.196 mm > 7 mm
