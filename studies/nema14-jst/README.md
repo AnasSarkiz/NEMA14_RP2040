@@ -72,3 +72,7 @@ The plug screen uses the [JST SH catalog](https://www.jst-mfg.com/product/pdf/en
 The study starts from public repository commit `b9864ad90458cb3bb6f996090dcd7ac4aeb0db5c`. [Asset provenance](artifacts/public-asset-provenance.json) records the byte hashes and reuses existing root CAD whenever identical; the four added INA240/header assets come from the supplier imports recorded by the catalog. Supplier land patterns and CAD are not shrunk to make the study fit. No private repository source or private discussion is included. The NEMA14 WAGO design is outside this study.
 
 The screw regression fixture retains the earlier native-clean placement with 20 independent screw intrusions, including intrusions at every mount. The regression test ensures that native-clean alone cannot pass the independent screw gate. It is historical test data, not the proposed layout.
+
+## Authored copper follow-up
+
+[The NEMA14 JST authored copper experiment](docs/authored-kelvin-iteration.md) verifies four native pad-edge Kelvin pickups and fixed-copper preservation. A separate two-capacitor placement comparison is documented and rejected; it does not change the accepted all-top layout or its 25/59 locality result. Run `npm run test:kelvin` for the native regression.

@@ -1,0 +1,31 @@
+Building 1 file(s)...
+Building experiments/kelvin/fixture.tsx...
+Generating circuit JSON...
+Saved autorouting paths to .tscircuit/autorouting-artifacts/fixture-tsx-3c4807d8f1/subcircuit_source_group_0-phase-default-order-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Circuit JSON written to dist/experiments/kelvin/fixture/circuit.json
+Component P_A_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_A_NEG has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_NEG has ftype="simple_test_point" but reference designator should start with TP
+U_IA has no pin with requires_power=true
+U_IB has no pin with requires_power=true
+No <schematicsheet> was found. Add a <schematicsheet> to define the schematic drawing area.
+<testpoint#22 name=".P_A_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#26 name=".P_A_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#42 name=".P_B_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#46 name=".P_B_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+P_A_POS has no courtyard
+P_A_NEG has no courtyard
+P_B_POS has no courtyard
+P_B_NEG has no courtyard
+Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_B > .pin1 to .P_B_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_B > .pin2 to .P_B_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

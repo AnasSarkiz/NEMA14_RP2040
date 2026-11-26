@@ -1,0 +1,156 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 test:kelvin
+> bun scripts/test-authored-kelvin.ts
+
+Building 1 file(s)...
+Building experiments/kelvin/fixture.tsx...
+Generating circuit JSON...
+Circuit JSON written to dist/experiments/kelvin/fixture/circuit.json
+Component P_A_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_A_NEG has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_NEG has ftype="simple_test_point" but reference designator should start with TP
+U_IA has no pin with requires_power=true
+U_IB has no pin with requires_power=true
+No <schematicsheet> was found. Add a <schematicsheet> to define the schematic drawing area.
+<testpoint#22 name=".P_A_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#26 name=".P_A_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#42 name=".P_B_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#46 name=".P_B_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+P_A_POS has no courtyard
+P_A_NEG has no courtyard
+P_B_POS has no courtyard
+P_B_NEG has no courtyard
+
+Build complete
+  Circuits  1 passed
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully
+Building 1 file(s)...
+Building experiments/kelvin/fixture.tsx...
+Generating circuit JSON...
+Saved autorouting paths to .tscircuit/autorouting-artifacts/fixture-tsx-3c4807d8f1/subcircuit_source_group_0-phase-default-order-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Circuit JSON written to dist/experiments/kelvin/fixture/circuit.json
+Component P_A_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_A_NEG has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_B_NEG has ftype="simple_test_point" but reference designator should start with TP
+U_IA has no pin with requires_power=true
+U_IB has no pin with requires_power=true
+No <schematicsheet> was found. Add a <schematicsheet> to define the schematic drawing area.
+<testpoint#22 name=".P_A_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#26 name=".P_A_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#42 name=".P_B_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#46 name=".P_B_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+P_A_POS has no courtyard
+P_A_NEG has no courtyard
+P_B_POS has no courtyard
+P_B_NEG has no courtyard
+Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_B > .pin1 to .P_B_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+Trace [.R_SHUNT_B > .pin2 to .P_B_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).
+
+Build complete
+  Circuits  1 passed
+  Options   autorouter-timeout
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully
+{
+  "input_sha256": "68a80b7dcb492b249e753f84251e59dc71cc68c91cbe3f1c35b057387a729444",
+  "authored_source_sha256": "8aa0775adcaad74ec47d0ade7b5ec37a691669aa8350d48cd21f2d726908f409",
+  "native_error_records": [],
+  "branches": [
+    {
+      "branch": "KELVIN_A_POS",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429344800997114,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_A_NEG",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429169624785946,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_POS",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429344800997114,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_NEG",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429169624785946,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    }
+  ],
+  "manufacturing_qualified": false
+}
+Copper True connectivity True

@@ -28,6 +28,7 @@ jobs:
       - run: npm run test:gate
       - run: npm run test:plug
       - run: npm run test:copper
+      - run: npm run test:kelvin
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement

@@ -1,0 +1,120 @@
+{
+  "input_sha256": "68a80b7dcb492b249e753f84251e59dc71cc68c91cbe3f1c35b057387a729444",
+  "authored_source_sha256": "8aa0775adcaad74ec47d0ade7b5ec37a691669aa8350d48cd21f2d726908f409",
+  "native_error_records": [],
+  "branches": [
+    {
+      "branch": "KELVIN_A_POS",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429344800997114,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_A_NEG",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429169624785946,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_POS",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429344800997114,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_NEG",
+      "fixed_geometry_preserved": true,
+      "kelvin_widths_mm": [
+        0.16
+      ],
+      "power_widths_mm": [
+        0.45
+      ],
+      "kelvin_length_mm": 3.6429169624785946,
+      "power_length_mm": 3.0000020000000003,
+      "pickup_centerline_at_actual_pad_edge_mm": 0.0,
+      "shared_copper_outside_actual_pad_mm2": 0.0,
+      "topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    }
+  ],
+  "copper": {
+    "input_sha256": "68a80b7dcb492b249e753f84251e59dc71cc68c91cbe3f1c35b057387a729444",
+    "scope": "Independent Circuit JSON polygonal copper; not CAM, impedance, thermal or hardware validation",
+    "round_curve_quad_segments": 128,
+    "numerical_comparison_tolerance_mm": 1e-06,
+    "pcb_traces": 14,
+    "pcb_vias": 0,
+    "copper_primitives": 70,
+    "layers_checked": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "shorts": [],
+    "clearance_violations": [],
+    "drill_spacing_violations": [],
+    "hole_trace_violations": [],
+    "board_edge_violations": [],
+    "screw_keepout_violations": [],
+    "disconnected_nets": [],
+    "scoped_connections": [],
+    "scope_connected": null,
+    "unsupported": [],
+    "geometric_clearance_pass": true,
+    "full_board_connectivity_pass": true,
+    "manufacturing_qualified": false
+  },
+  "manufacturing_qualified": false
+}

@@ -1,6 +1,6 @@
 """Regression: source names do not bridge layers or prove physical clearance."""
 from pathlib import Path
-from routing_geometry import layer_copper,shared_outside_pad,pad_cut_topology
+from routing_geometry import layer_copper,shared_outside_pad,pad_cut_topology,resolve_copper_nets
 from shapely.geometry import box
 import importlib.util,json,tempfile,unittest
 spec=importlib.util.spec_from_file_location('copper',Path(__file__).with_name('inspect-copper.py'));m=importlib.util.module_from_spec(spec);spec.loader.exec_module(m)
@@ -23,6 +23,16 @@ class GeometryRegression(unittest.TestCase):
   b=fixture();b.append({'type':'pcb_via','pcb_via_id':'V','x':2,'y':0,'outer_diameter':.45,'hole_diameter':.3,'layers':['inner1','inner2'],'subcircuit_connectivity_map_key':'N'});self.assertFalse(self.run_board(b)['full_board_connectivity_pass'])
  def test_independent_screen_rejects_via_pad_gap_below_rule(self):
   b=fixture();b=[e for e in b if e['type']!='pcb_trace'];next(e for e in b if e.get('pcb_smtpad_id')=='0')['width']=2;b.append({'type':'source_net','subcircuit_connectivity_map_key':'OTHER','name':'CP2'});b.append({'type':'pcb_via','pcb_via_id':'V','x':1.331,'y':0,'outer_diameter':.45,'hole_diameter':.3,'layers':['top','inner1','inner2','bottom'],'subcircuit_connectivity_map_key':'OTHER'});r=self.run_board(b);self.assertFalse(r['geometric_clearance_pass']);self.assertEqual(len(r['clearance_violations']),1);self.assertAlmostEqual(r['clearance_violations'][0]['clearance_mm'],.106,places=5)
+class NativeAuthoredIdentityRegression(unittest.TestCase):
+ def test_native_authored_trace_resolves_through_source_id_without_mutating_input(self):
+  b=[{'type':'source_trace','source_trace_id':'S','subcircuit_connectivity_map_key':'N'},{'type':'pcb_trace','pcb_trace_id':'T','source_trace_id':'S','route':[]},{'type':'pcb_via','pcb_via_id':'V','pcb_trace_id':'T'}]
+  out=resolve_copper_nets(b);self.assertEqual(out[1]['subcircuit_connectivity_map_key'],'N');self.assertEqual(out[2]['subcircuit_connectivity_map_key'],'N');self.assertNotIn('subcircuit_connectivity_map_key',b[1]);self.assertEqual(out[1]['route'],b[1]['route'])
+ def test_conflicting_explicit_source_identity_fails_closed(self):
+  b=[{'type':'source_trace','source_trace_id':'S','subcircuit_connectivity_map_key':'N'},{'type':'pcb_trace','pcb_trace_id':'T','source_trace_id':'S','subcircuit_connectivity_map_key':'OTHER','route':[]}]
+  with self.assertRaises(ValueError):resolve_copper_nets(b)
+ def test_unresolved_identity_is_not_guessed_from_crossing_geometry(self):
+  b=[{'type':'pcb_trace','pcb_trace_id':'T','source_trace_id':'MISSING','route':[]}];self.assertNotIn('subcircuit_connectivity_map_key',resolve_copper_nets(b)[0])
+
 class KelvinRegression(unittest.TestCase):
  def wire(self,a,z,width=.16,layer='top'):
   return {'type':'pcb_trace','subcircuit_connectivity_map_key':'N','route':[{'route_type':'wire','x':a[0],'y':a[1],'width':width,'layer':layer},{'route_type':'wire','x':z[0],'y':z[1],'width':width,'layer':layer}]}

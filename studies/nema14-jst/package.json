@@ -20,7 +20,8 @@
     "test:copper": "python3 scripts/test-copper.py",
     "check:critical-placement": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/critical-paths.json",
     "check:independent": "python3 scripts/inspect-copper.py artifacts/final-source.circuit.json artifacts/independent-copper.json",
-    "check:critical-routing": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/routed-critical-paths.json --routed"
+    "check:critical-routing": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/routed-critical-paths.json --routed",
+    "test:kelvin": "bun scripts/test-authored-kelvin.ts"
   },
   "repository": {
     "type": "git",

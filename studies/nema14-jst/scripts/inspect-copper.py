@@ -7,6 +7,7 @@ from collections import defaultdict
 from shapely.geometry import Point,Polygon,LineString,box
 from shapely.affinity import rotate
 from shapely.strtree import STRtree
+from routing_geometry import resolve_copper_nets
 P=128;TOL=1e-6
 
 def pad_shape(e,drill=False):
@@ -27,7 +28,7 @@ def pad_shape(e,drill=False):
  return rotate(g,e.get('ccw_rotation',0),origin=(x,y))
 
 def inspect(path,scope=None):
- raw=Path(path).read_bytes();b=json.loads(raw);board=next(e for e in b if e['type']=='pcb_board');layers=['top','inner1','inner2','bottom'];src={e['source_component_id']:e['name'] for e in b if e['type']=='source_component'};sp={e['source_port_id']:e for e in b if e['type']=='source_port'};pp={e['pcb_port_id']:e for e in b if e['type']=='pcb_port'};names={e['subcircuit_connectivity_map_key']:e['name'] for e in b if e['type']=='source_net'}
+ raw=Path(path).read_bytes();b=resolve_copper_nets(json.loads(raw));board=next(e for e in b if e['type']=='pcb_board');layers=['top','inner1','inner2','bottom'];src={e['source_component_id']:e['name'] for e in b if e['type']=='source_component'};sp={e['source_port_id']:e for e in b if e['type']=='source_port'};pp={e['pcb_port_id']:e for e in b if e['type']=='pcb_port'};names={e['subcircuit_connectivity_map_key']:e['name'] for e in b if e['type']=='source_net'}
  records=[];unsupported=[]
  def append(e,geom,ls,pid=None):
   port=pp.get(pid,{});source=sp.get(port.get('source_port_id'),{});key=source.get('subcircuit_connectivity_map_key') if pid else e.get('subcircuit_connectivity_map_key');ref=(src.get(source.get('source_component_id'),'')+'.'+source.get('name','')) if pid else None

@@ -69,3 +69,25 @@ def pad_cut_topology(board,net,shunt_port,amplifier_port,power_port,pad,pad_laye
      if p.intersection(shapes[int(j)]).area>1e-10:parents[root(entries[int(j)][0])]=root(entries[i][0])
   return {pid:{root(i) for i,p in enumerate(nodes) if p==pid} for pid in [shunt_port,amplifier_port,power_port]}
  original=graph(False);cut=graph(True);all_connected=bool(set.intersection(*(original[p] for p in [shunt_port,amplifier_port,power_port])));bypass=bool(cut[amplifier_port]&cut[power_port]);return {'all_three_terminals_connected_before_cut':all_connected,'amplifier_connected_to_winding_without_shunt_pad':bypass,'actual_shunt_pad_is_required_pickup':all_connected and not bypass,'cut_layer':pad_layer,'method':'Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used.'}
+
+
+def resolve_copper_nets(board):
+ """Resolve omitted copper net keys only through native source-trace/trace IDs.
+ Geometry is untouched; conflicting explicit identities fail closed.
+ """
+ sources={e['source_trace_id']:e.get('subcircuit_connectivity_map_key') for e in board if e['type']=='source_trace'}
+ traces={};out=[]
+ for original in board:
+  e=dict(original)
+  if e['type']=='pcb_trace':
+   expected=sources.get(e.get('source_trace_id'));actual=e.get('subcircuit_connectivity_map_key')
+   if actual and expected and actual!=expected:raise ValueError('Copper/source identity conflict '+e['pcb_trace_id'])
+   if not actual and expected:e['subcircuit_connectivity_map_key']=expected
+   traces[e['pcb_trace_id']]=e.get('subcircuit_connectivity_map_key')
+  out.append(e)
+ for e in out:
+  if e['type']=='pcb_via':
+   expected=traces.get(e.get('pcb_trace_id'));actual=e.get('subcircuit_connectivity_map_key')
+   if actual and expected and actual!=expected:raise ValueError('Via/trace identity conflict')
+   if not actual and expected:e['subcircuit_connectivity_map_key']=expected
+ return out
