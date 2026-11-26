@@ -20,9 +20,14 @@ jobs:
         with:
           bun-version: '1.4.2'
       - run: bun install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-geometry.txt
       - run: npm run typecheck
       - run: npm run test:gate
       - run: npm run test:plug
+      - run: npm run test:copper
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement

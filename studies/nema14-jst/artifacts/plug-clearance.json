@@ -1,6 +1,8 @@
 {
-  "board_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+  "board_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
   "envelope_clearance_pass": true,
+  "fitted_body_screw_projection_pass": true,
+  "fitted_body_screw_projection_intersections": [],
   "physical_fit_verified": false,
   "actual_cable_handling_verified": false,
   "exposed_housing_length_mm": 0.9625033000001153,
@@ -8,17 +10,17 @@
     "seated_envelope": {
       "intersections": [],
       "nearest_bounding_box_clearance_mm": 1.4339883999999286,
-      "nearest_bounding_box_part": "R_USB_SENSE_H"
+      "nearest_bounding_box_part": "R_PWR_LED"
     },
     "withdrawal_sweep": {
       "intersections": [],
       "nearest_bounding_box_clearance_mm": 1.4339883999999286,
-      "nearest_bounding_box_part": "R_USB_SENSE_H"
+      "nearest_bounding_box_part": "R_PWR_LED"
     },
     "service_grip_envelope": {
       "intersections": [],
-      "nearest_bounding_box_clearance_mm": 0.921300948163456,
-      "nearest_bounding_box_part": "U_TEMP"
+      "nearest_bounding_box_clearance_mm": 0.8674077000000011,
+      "nearest_bounding_box_part": "R_PWR_LED"
     }
   },
   "supplier_solids_checked": 91,
@@ -60,5 +62,15 @@
     "Rear body datum +2.125 mm from the 4.25 mm body drawing",
     "5 mm straight withdrawal and 2 mm service allowance are engineering screens",
     "Exposed housing length is reported; grip force, wire bends, custom cable and operator access require physical verification"
-  ]
+  ],
+  "fitted_supplier_solids_screw_checked": 92,
+  "screw_projection_verification_provenance": "91 other fitted solids in the full plug/body check, plus the actual J_MOTOR STEP solid in a separate identical-transform four-cylinder check.",
+  "header_screw_projection_check": {
+    "board_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+    "part": "J_MOTOR",
+    "model_sha256": "7ab88fac35e9f8410cfcc28ef434a9b1c4088593322226034be3398dcabf4f6d",
+    "four_screw_xy_projection_pass": true,
+    "intersections": [],
+    "scope": "Supplemental actual header solid, using the same native CAD transform and four reserve cylinders as the full checker"
+  }
 }

@@ -9,14 +9,18 @@
     "check:placement": "python3 scripts/check-revision-placement.py artifacts/final-source.circuit.json --report artifacts/placement-screen.json",
     "check:locality": "python3 scripts/measure-locality.py artifacts/final-source.circuit.json artifacts/locality-screen.json",
     "check:plug": "bun scripts/describe-plug.ts artifacts/final-source.circuit.json artifacts/side-entry-plug.json && python3 scripts/check-plug-solids.py artifacts/final-source.circuit.json artifacts/side-entry-plug.json artifacts/plug-clearance.json",
-    "check": "npm run source:check && npm run check:electrical && npm run check:placement && npm run check:locality && npm run check:plug",
+    "check": "npm run source:check && npm run check:electrical && npm run check:placement && npm run check:locality && npm run check:critical-placement && npm run check:plug",
     "test": "npm run check",
-    "autoroute": "npm run check && XDG_CONFIG_HOME=.config tsci build controller.tsx",
+    "autoroute": "npm run check && XDG_CONFIG_HOME=.config tsci build controller.tsx && bun scripts/capture-native.ts && npm run check:independent && npm run check:critical-routing",
     "typecheck": "tsc --noEmit",
     "test:gate": "python3 scripts/test-revision-placement.py",
     "test:plug": "bun scripts/test-plug.ts",
     "review:pcb": "bun scripts/render-pcb.ts",
-    "dev": "XDG_CONFIG_HOME=.config tsci dev controller.tsx"
+    "dev": "XDG_CONFIG_HOME=.config tsci dev controller.tsx",
+    "test:copper": "python3 scripts/test-copper.py",
+    "check:critical-placement": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/critical-paths.json",
+    "check:independent": "python3 scripts/inspect-copper.py artifacts/final-source.circuit.json artifacts/independent-copper.json",
+    "check:critical-routing": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/routed-critical-paths.json --routed"
   },
   "repository": {
     "type": "git",
@@ -42,7 +46,10 @@
     "tsx": "4.20.6",
     "typescript": "5.9.3",
     "schematic-symbols": "0.0.248",
-    "circuit-to-svg": "0.0.445"
+    "circuit-to-svg": "0.0.445",
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/checks": "0.0.242",
+    "@tscircuit/capacity-autorouter": "0.0.958"
   },
   "devDependencies": {
     "bun": "1.4.2"

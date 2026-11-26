@@ -18,7 +18,6 @@ shapes={};cache={};fallback=[];model_hashes={}
 for e in b:
  if e['type']!='cad_component' or e.get('source_component_id') in dnp or not e.get('model_step_url'):continue
  name=src[e['source_component_id']]
- if name=='J_MOTOR':continue # Intended socket overlap is not interference with another component.
  part=catalog['parts'][catalog['components'][name]]
  path=ROOT/next(p for p in part['modelFiles'] if p.endswith('.step'))
  assert hashlib.sha256(path.read_bytes()).hexdigest()==part['sha256']['step'],name
@@ -50,10 +49,21 @@ rows={}
 for label in ['seated_envelope','withdrawal_sweep','service_grip_envelope']:
  envelope=solid_box(plug[label]);bounds=bb(envelope);bad=[];distances=[]
  for name,shape in shapes.items():
+  if name=='J_MOTOR':continue # Intended socket overlap is not plug interference.
   sb=bb(shape);lb=lower(bounds,sb);distances.append((lb,name))
   if not overlaps(bounds,sb):continue
   volume=envelope.intersect(shape).Volume()
   if volume>1e-6:bad.append({'part':name,'intersection_volume_mm3':volume})
  rows[label]={'intersections':bad,'nearest_bounding_box_clearance_mm':min(distances)[0],'nearest_bounding_box_part':min(distances)[1]}
-report={'board_sha256':plug['board_sha256'],'envelope_clearance_pass':all(not r['intersections'] for r in rows.values()),'physical_fit_verified':False,'actual_cable_handling_verified':False,'exposed_housing_length_mm':plug['exposed_housing_length_mm'],'screens':rows,'supplier_solids_checked':len(shapes)-4,'invalid_supplier_solids_using_conservative_bounds':fallback,'model_sha256':model_hashes,'assumptions':plug['assumptions']}
-out_path.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='model_sha256'},indent=2));raise SystemExit(0 if report['envelope_clearance_pass'] else 1)
+# Independently screen fitted supplier bodies against the full screw XY reserves.
+# This is deliberately stricter than choosing a particular head height.
+body_screw=[]
+for x in [-13,13]:
+ for y in [-13,13]:
+  cylinder=cq.Workplane('XY').circle(3.2).extrude(100).val().translate((x,y,-50));bounds=bb(cylinder)
+  for name,shape in shapes.items():
+   if name.startswith('SCREW_RESERVE_') or not overlaps(bounds,bb(shape)):continue
+   volume=cylinder.intersect(shape).Volume()
+   if volume>1e-6:body_screw.append({'part':name,'mount':[x,y],'intersection_volume_mm3':volume})
+report={'board_sha256':plug['board_sha256'],'envelope_clearance_pass':all(not r['intersections'] for r in rows.values()),'fitted_body_screw_projection_pass':not body_screw,'fitted_body_screw_projection_intersections':body_screw,'physical_fit_verified':False,'actual_cable_handling_verified':False,'exposed_housing_length_mm':plug['exposed_housing_length_mm'],'screens':rows,'supplier_solids_checked':sum(not n.startswith('SCREW_RESERVE_') and n!='J_MOTOR' for n in shapes),'fitted_supplier_solids_screw_checked':len(shapes)-4,'invalid_supplier_solids_using_conservative_bounds':fallback,'model_sha256':model_hashes,'assumptions':plug['assumptions']}
+out_path.write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k!='model_sha256'},indent=2));raise SystemExit(0 if report['envelope_clearance_pass'] and report['fitted_body_screw_projection_pass'] else 1)
