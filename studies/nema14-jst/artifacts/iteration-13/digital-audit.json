@@ -1,0 +1,330 @@
+{
+  "status": "review only; not fabrication qualified",
+  "baseline_native_sha256": "3b15b204de54597d98c78a1c008b2541b035374d787009e89b541842ce68b1eb",
+  "coupon_sha256": "9b04b9cb23c8c7f43a7bf6b701de0e91ffdb9cf5ad6976982f3de32adf33daf5",
+  "native_own_ground_net_verified": true,
+  "native_new_traces": 0,
+  "reference_EP_mm": 3.15,
+  "via_count": 4,
+  "via_hole_land_mm": [
+    0.3,
+    0.75
+  ],
+  "pitch_mm": 1.0,
+  "nominal_annulus_mm": 0.225,
+  "conditional_annulus_after_unchanged_0_115_screen_mm": 0.11,
+  "actual_via_tolerance_confirmed": false,
+  "minimum_reference_foreign_pad_to_annulus_mm": 0.95,
+  "minimum_reference_foreign_pad_to_hole_mm": 1.1749999999999998,
+  "reference_drill_margin_after_0_115_and_0_20_mm": 0.8599999999999999,
+  "paste_area_mm2": 6.25,
+  "paste_coverage": 0.6298815822625347,
+  "paste_outer_edge_margin_mm": 0.22499999999999984,
+  "paste_web_mm": 0.2,
+  "foil_proposed_mm": 0.12,
+  "aperture_area_ratio": 2.604166666666667,
+  "CAM_adapter_is_separate_from_native_circuit": true,
+  "CAM_plated_drill_tools": {
+    "T10": {
+      "diameter_mm": 0.3,
+      "holes": 4
+    }
+  },
+  "selective_fill_only_XY_ids": [
+    "EP_TV1",
+    "EP_TV2",
+    "EP_TV3",
+    "EP_TV4"
+  ],
+  "existing_same_diameter_vias_not_selected": 22,
+  "board_overlay_new_via_only": [
+    {
+      "id": "EP_TV1",
+      "fixture_x_mm": -0.5,
+      "fixture_y_mm": -0.5,
+      "board_x_mm": 7.100127,
+      "board_y_mm": 6.949873,
+      "CAD_drill_mm": 0.3,
+      "land_mm": 0.75,
+      "selective_fill": true,
+      "ground_net": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "layers": [
+        {
+          "layer": "top",
+          "nearest_drill_object": "U_DRV.OUT1A",
+          "nominal_drill_edge_clearance_mm": 1.3998689515762577,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.0848689515762577,
+          "nearest_annulus_object": "U_DRV.OUT1A",
+          "annulus_foreign_copper_gap_mm": 1.1748689614536643
+        },
+        {
+          "layer": "inner1",
+          "nearest_drill_object": "pcb_via_1",
+          "nominal_drill_edge_clearance_mm": 2.324873031055459,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.0098730310554584,
+          "nearest_annulus_object": "pcb_via_1",
+          "annulus_foreign_copper_gap_mm": 2.099873034383031
+        },
+        {
+          "layer": "inner2",
+          "nearest_drill_object": "pcb_via_1",
+          "nominal_drill_edge_clearance_mm": 2.324873031055459,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.0098730310554584,
+          "nearest_annulus_object": "pcb_via_1",
+          "annulus_foreign_copper_gap_mm": 2.099873034383031
+        },
+        {
+          "layer": "bottom",
+          "nearest_drill_object": "pcb_trace_7:segment1",
+          "nominal_drill_edge_clearance_mm": 1.5298730000000003,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.2148730000000003,
+          "nearest_annulus_object": "pcb_trace_7:segment1",
+          "annulus_foreign_copper_gap_mm": 1.3048730000000006
+        }
+      ],
+      "minimum_circle_screw_gap_mm": 4.875594232234986,
+      "minimum_square_screw_gap_mm": 3.5508818740643746
+    },
+    {
+      "id": "EP_TV2",
+      "fixture_x_mm": -0.5,
+      "fixture_y_mm": 0.5,
+      "board_x_mm": 7.100127,
+      "board_y_mm": 7.949873,
+      "CAD_drill_mm": 0.3,
+      "land_mm": 0.75,
+      "selective_fill": true,
+      "ground_net": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "layers": [
+        {
+          "layer": "top",
+          "nearest_drill_object": "U_DRV.REF",
+          "nominal_drill_edge_clearance_mm": 1.4001229515669011,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.0851229515669012,
+          "nearest_annulus_object": "U_DRV.REF",
+          "annulus_foreign_copper_gap_mm": 1.1751229614403813
+        },
+        {
+          "layer": "inner1",
+          "nearest_drill_object": "pcb_via_1",
+          "nominal_drill_edge_clearance_mm": 3.3248730217151143,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 3.009873021715114,
+          "nearest_annulus_object": "pcb_via_1",
+          "annulus_foreign_copper_gap_mm": 3.099873023291276
+        },
+        {
+          "layer": "inner2",
+          "nearest_drill_object": "pcb_via_1",
+          "nominal_drill_edge_clearance_mm": 3.3248730217151143,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 3.009873021715114,
+          "nearest_annulus_object": "pcb_via_1",
+          "annulus_foreign_copper_gap_mm": 3.099873023291276
+        },
+        {
+          "layer": "bottom",
+          "nearest_drill_object": "pcb_trace_7:segment1",
+          "nominal_drill_edge_clearance_mm": 2.5298730000000007,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.2148730000000003,
+          "nearest_annulus_object": "pcb_trace_7:segment1",
+          "annulus_foreign_copper_gap_mm": 2.3048730000000006
+        }
+      ],
+      "minimum_circle_screw_gap_mm": 4.191144786509487,
+      "minimum_square_screw_gap_mm": 2.897962657252881
+    },
+    {
+      "id": "EP_TV3",
+      "fixture_x_mm": 0.5,
+      "fixture_y_mm": -0.5,
+      "board_x_mm": 8.100127,
+      "board_y_mm": 6.949873,
+      "CAD_drill_mm": 0.3,
+      "land_mm": 0.75,
+      "selective_fill": true,
+      "ground_net": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "layers": [
+        {
+          "layer": "top",
+          "nearest_drill_object": "U_DRV.OUT2A",
+          "nominal_drill_edge_clearance_mm": 1.3998689515762577,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.0848689515762577,
+          "nearest_annulus_object": "U_DRV.OUT2A",
+          "annulus_foreign_copper_gap_mm": 1.1748689614536643
+        },
+        {
+          "layer": "inner1",
+          "nearest_drill_object": "pcb_via_5",
+          "nominal_drill_edge_clearance_mm": 2.3998730033603857,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.0848730033603853,
+          "nearest_annulus_object": "pcb_via_5",
+          "annulus_foreign_copper_gap_mm": 2.1748730037080324
+        },
+        {
+          "layer": "inner2",
+          "nearest_drill_object": "pcb_via_5",
+          "nominal_drill_edge_clearance_mm": 2.3998730033603857,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.0848730033603853,
+          "nearest_annulus_object": "pcb_via_5",
+          "annulus_foreign_copper_gap_mm": 2.1748730037080324
+        },
+        {
+          "layer": "bottom",
+          "nearest_drill_object": "pcb_trace_7:segment1",
+          "nominal_drill_edge_clearance_mm": 1.529873005271353,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.214873005271353,
+          "nearest_annulus_object": "pcb_trace_7:segment1",
+          "annulus_foreign_copper_gap_mm": 1.3048730061802956
+        }
+      ],
+      "minimum_circle_screw_gap_mm": 4.210488587149697,
+      "minimum_square_screw_gap_mm": 2.943553719430366
+    },
+    {
+      "id": "EP_TV4",
+      "fixture_x_mm": 0.5,
+      "fixture_y_mm": 0.5,
+      "board_x_mm": 8.100127,
+      "board_y_mm": 7.949873,
+      "CAD_drill_mm": 0.3,
+      "land_mm": 0.75,
+      "selective_fill": true,
+      "ground_net": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "layers": [
+        {
+          "layer": "top",
+          "nearest_drill_object": "U_DRV.CP2",
+          "nominal_drill_edge_clearance_mm": 1.399868951576257,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 1.084868951576257,
+          "nearest_annulus_object": "U_DRV.CP2",
+          "annulus_foreign_copper_gap_mm": 1.1748689614536634
+        },
+        {
+          "layer": "inner1",
+          "nearest_drill_object": "pcb_via_5",
+          "nominal_drill_edge_clearance_mm": 3.399873002372,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 3.0848730023719995,
+          "nearest_annulus_object": "pcb_via_5",
+          "annulus_foreign_copper_gap_mm": 3.1748730025401017
+        },
+        {
+          "layer": "inner2",
+          "nearest_drill_object": "pcb_via_5",
+          "nominal_drill_edge_clearance_mm": 3.399873002372,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 3.0848730023719995,
+          "nearest_annulus_object": "pcb_via_5",
+          "annulus_foreign_copper_gap_mm": 3.1748730025401017
+        },
+        {
+          "layer": "bottom",
+          "nearest_drill_object": "pcb_trace_7:segment1",
+          "nominal_drill_edge_clearance_mm": 2.52987300318771,
+          "conditional_drill_margin_after_0_115_and_0_20_rule_mm": 2.2148730031877095,
+          "nearest_annulus_object": "pcb_trace_7:segment1",
+          "annulus_foreign_copper_gap_mm": 2.304873003498892
+        }
+      ],
+      "minimum_circle_screw_gap_mm": 3.4615436876423393,
+      "minimum_square_screw_gap_mm": 2.1374830197010906
+    }
+  ],
+  "full_VREG_loop": {
+    "islands": {
+      "C_VREG.pin2": 50,
+      "U_DRV.EP": 48
+    },
+    "closed": false,
+    "complete_loop_length_mm": null,
+    "complete_loop_area_mm2": null,
+    "nearest_edge_bridge_mm": 1.8501311000000005,
+    "diagnostic_line_mm": [
+      [
+        6.8999752,
+        10.9000009
+      ],
+      [
+        6.8999752,
+        9.0498698
+      ]
+    ],
+    "direct_bridge_blockers": [
+      {
+        "object": "U_DRV.RESET_N",
+        "gap_to_0_192_mm_diagnostic_stroke_mm": 0.0,
+        "intersects": true
+      }
+    ],
+    "new_process_required_to_diagnose": false,
+    "new_process_required_for_every_possible_ground_route": false,
+    "reason": "No ground return copper is authored. Direct bridge encounters listed existing foreign copper; an EP via alone would not connect the capacitor. A legal ground route/plane remains separate work; no process approval assumed."
+  },
+  "endpoint_semantics": {
+    "pinned_checker": "0.0.283,routePointTouchesPad calls isPointInPad; pad contact tests centre, not wire radius",
+    "measurements": [
+      {
+        "phase": "A",
+        "outside_centre_mm": [
+          5.84,
+          7.449873
+        ],
+        "centre_to_EP_mm": 0.16013019999999933,
+        "wire_radius_mm": 0.3,
+        "endcap_contact_area_mm2": 0.05007161361133797,
+        "inside_control_x_mm": 6.01,
+        "inside_control_move_mm": 0.16999999999999993
+      },
+      {
+        "phase": "B",
+        "outside_centre_mm": [
+          9.36,
+          6.949493
+        ],
+        "centre_to_EP_mm": 0.15987619999999933,
+        "wire_radius_mm": 0.3,
+        "endcap_contact_area_mm2": 0.05020052672127534,
+        "inside_control_x_mm": 9.19,
+        "inside_control_move_mm": 0.16999999999999993
+      }
+    ],
+    "outside_control_native": {
+      "pcb_trace_error": 2
+    },
+    "inside_control_native": {},
+    "isolated_only_no_full_board_correction_adopted": true
+  },
+  "native_candidate_routing_checks": {
+    "pcb_port_not_connected_error": 3
+  },
+  "native_source_generated_errors": [
+    {
+      "type": "pcb_placement_error",
+      "pcb_placement_error_id": "pcb_placement_error_0",
+      "error_type": "pcb_placement_error",
+      "message": "Via hole at (-0.50mm, -0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_placement_error",
+      "pcb_placement_error_id": "pcb_placement_error_1",
+      "error_type": "pcb_placement_error",
+      "message": "Via hole at (-0.50mm, 0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_placement_error",
+      "pcb_placement_error_id": "pcb_placement_error_2",
+      "error_type": "pcb_placement_error",
+      "message": "Via hole at (0.50mm, -0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)",
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    {
+      "type": "pcb_placement_error",
+      "pcb_placement_error_id": "pcb_placement_error_3",
+      "error_type": "pcb_placement_error",
+      "message": "Via hole at (0.50mm, 0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)",
+      "subcircuit_id": "subcircuit_source_group_0"
+    }
+  ],
+  "full_board_opens_unchanged": 59,
+  "accepted_source_unchanged": true,
+  "routing_run": false
+}

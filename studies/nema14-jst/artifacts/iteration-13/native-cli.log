@@ -1,0 +1,21 @@
+Building 1 file(s)...
+Building experiments/ep-process/candidate.tsx...
+Generating circuit JSON...
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Circuit JSON written to dist/experiments/ep-process/candidate/circuit.json
+D has no pin with requires_power=true
+D has no pin with requires_ground=true
+All pins on D are underspecified (no pinAttributes set)
+No <schematicsheet> was found. Add a <schematicsheet> to define the schematic drawing area.
+D has no courtyard
+Via hole at (-0.50mm, -0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)
+Via hole at (-0.50mm, 0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)
+Via hole at (0.50mm, -0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)
+Via hole at (0.50mm, 0.50mm) overlaps SMD pad D.EP at (0.00mm, 0.00mm)
+
+Build complete
+  Circuits  0 passed 1 failed
+  Output    dist
+
+⚠ Build completed with errors
+Build exiting with code 1: circuit build errors occurred

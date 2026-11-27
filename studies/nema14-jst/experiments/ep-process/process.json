@@ -1,0 +1,45 @@
+{
+  "status": "DIGITAL REVIEW ONLY; NOT APPROVED; DO NOT FABRICATE",
+  "basis_head": "767da2071c1d3b6a6d5e28d169fde6b21f926cae",
+  "accepted_board_footprint_and_process_unchanged": true,
+  "part": "A4988SETTR-T",
+  "land_reference": "Complete Allegro A4988 Rev8 p19 reference, not tooling approval",
+  "EP_mm": [3.15,3.15],
+  "array": {
+    "centres_mm": [[-0.5,-0.5],[-0.5,0.5],[0.5,-0.5],[0.5,0.5]],
+    "nominal_CAD_hole_mm": 0.30,
+    "land_mm": 0.75,
+    "process_proposed": "Mechanical through-via, nonconductive epoxy fill, cure, planarize, copper cap, ENIG; bottom mask covered",
+    "conductive_fill_required": false,
+    "minimum_surface_cap_copper_um_requested": 5,
+    "cap_recess_or_protrusion_relative_to_EP_um_requested": 25,
+    "cap_flatness_or_thickness_guaranteed_for_this_QFN": false,
+    "native_geometry_does_not_encode_fill_cap_or_planarization": true,
+    "actual_via_drill_finished_size_registration_tolerance_confirmed": false,
+    "proposed_future_board_mapping": "EP_TV1/3 could replace V_STAR_A/B after qualification; EP_TV2/4 additional thermal stitches; 22-2+4=24 total vias. No replacement performed.",
+    "selective_fill_only": ["EP_TV1","EP_TV2","EP_TV3","EP_TV4"],
+    "other_0_30_holes_not_selected_by_diameter": true
+  },
+  "unchanged_conditional_screen": {
+    "position_mm_published": 0.075,
+    "hole_radius_growth_mm_assumed": 0.025,
+    "copper_registration_mm_assumed": 0.015,
+    "radial_total_mm": 0.115,
+    "accepted_all_SMT_rule_and_native_via_prohibition_still_apply": true
+  },
+  "stencil_proposal": {
+    "apertures": 4,
+    "square_mm": 1.25,
+    "centres_mm": [[-0.725,-0.725],[-0.725,0.725],[0.725,-0.725],[0.725,0.725]],
+    "foil_mm": 0.12,
+    "source": "Generic JLCPCB thermal-pad guidance, not exact A4988 assembly approval",
+    "coverage_means_aperture_area_not_post_reflow_solder_contact": true,
+    "represented_by_explicit_review_CAM_sidecar_not_native_JSX_primitive": true,
+    "qualified": false
+  },
+  "stack": "JLC04161H-2116 4-layer 1.6mm ENIG screening basis; no supplier process selection or order",
+  "assembly_tier": "Unconfirmed: compare Economic with separate bottom-encoder step against Standard double-sided with carrier/panel",
+  "planes_ground_returns_or_VREG_loop_routed": false,
+  "supplier_contacted": false,
+  "approved_for_manufacture": false
+}

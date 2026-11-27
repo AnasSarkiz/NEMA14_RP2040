@@ -1,0 +1,35 @@
+{
+  "by_type": {
+    "pcb_trace_error": 2
+  },
+  "findings": [
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_0_start",
+      "message": "Trace [.U_TEST > .GND to .TA > .GND] has dangling endpoint at (5.84, 7.45)",
+      "source_trace_id": "source_trace_0",
+      "pcb_trace_id": "pcb_trace_0",
+      "center": {
+        "x": 5.84,
+        "y": 7.449873
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": []
+    },
+    {
+      "type": "pcb_trace_error",
+      "error_type": "pcb_trace_error",
+      "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_1_start",
+      "message": "Trace [.U_TEST > .GND to .TB > .GND] has dangling endpoint at (9.36, 6.95)",
+      "source_trace_id": "source_trace_1",
+      "pcb_trace_id": "pcb_trace_1",
+      "center": {
+        "x": 9.36,
+        "y": 6.949493
+      },
+      "pcb_component_ids": [],
+      "pcb_port_ids": []
+    }
+  ]
+}

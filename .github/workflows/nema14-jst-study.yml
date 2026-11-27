@@ -40,6 +40,7 @@ jobs:
       - run: python3 experiments/original-process/test.py
       - run: python3 experiments/vreg-star/test.py
       - run: python3 experiments/external-star/test.py
+      - run: python3 experiments/ep-process/test.py
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement
