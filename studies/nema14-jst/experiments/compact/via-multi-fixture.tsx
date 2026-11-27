@@ -1,0 +1,3 @@
+import React from 'react'
+import ThroughVia from '../reachability/through-via'
+export default function Fixture(){return <board width={10} height={8} layers={4} thickness={1.6} routingDisabled minTraceWidth={.16} minViaHoleDiameter={.3} minViaPadDiameter={.45}><net name="A"/>{[-3,3].map((x,i)=><testpoint name={'TP'+i} pcbX={x} pcbY={0} connections={{pin1:'net.A'}} footprint={<footprint><smtpad portHints={['pin1']} shape="rect" width={.8} height={.8}/></footprint>}/>)}<ThroughVia name="V1" x={-1} y={0} net="A"/><ThroughVia name="V2" x={1} y={0} net="A"/><trace name="POWER" from=".TP0 > .pin1" to=".TP1 > .pin1" thickness={.45} pcbPaths={[[ '.TP0 > .pin1','.V1 > .top'],['.V1 > .inner2','.V2 > .inner2'],['.V2 > .top','.TP1 > .pin1']]}/></board>}

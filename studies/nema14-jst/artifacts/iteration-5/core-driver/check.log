@@ -1,0 +1,147 @@
+{
+  checkPadPadClearance: 0,
+  checkPadTraceClearance: 3,
+  checkEachPcbTraceNonOverlapping: 1,
+  checkViaPadClearance: 1,
+  checkViaTraceClearance: 0,
+  checkViasInPads: 3,
+  checkTracesAreContiguous: 0,
+  checkSourceTracesMatchPcbTraceThickness: 0,
+  checkPcbCopperOverKeepout: 0,
+  checkCopperToBoardEdgeClearance: 0,
+  checkSameNetViaSpacing: 0,
+  checkDifferentNetViaSpacing: 0,
+}
+{
+  "input_sha256": "79f5035f7494a1cba76dd09d87731275b66829a7124ea954574e7fba6c3ed644",
+  "scope": "Independent Circuit JSON polygonal copper; not CAM, impedance, thermal or hardware validation",
+  "round_curve_quad_segments": 128,
+  "numerical_comparison_tolerance_mm": 1e-06,
+  "pcb_traces": 52,
+  "pcb_vias": 31,
+  "copper_primitives": 804,
+  "layers_checked": [
+    "top",
+    "inner1",
+    "inner2",
+    "bottom"
+  ],
+  "drill_spacing_violations": [],
+  "hole_trace_violations": [],
+  "board_edge_violations": [
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    },
+    {
+      "id": "source_net_1_mst2_0",
+      "kind": "pcb_trace"
+    }
+  ],
+  "screw_keepout_violations": [],
+  "scope_connected": null,
+  "unsupported": [],
+  "geometric_clearance_pass": false,
+  "full_board_connectivity_pass": false,
+  "manufacturing_qualified": false
+}
+shorts 1 clearance violations 14 disconnected nets 32
+{
+  "board_sha256": "79f5035f7494a1cba76dd09d87731275b66829a7124ea954574e7fba6c3ed644",
+  "placement_only": false,
+  "usb_return_path": {
+    "routed_traces": 0,
+    "segments": [],
+    "uninterrupted_ground_reference_verified": false,
+    "differential_impedance_verified": false,
+    "limitation": "No fabricator dielectric stackup or impedance calculation is supplied. Empty copper is not a return-path pass."
+  },
+  "return_corridor_screen_pass": false,
+  "bypass_ordering": [
+    {
+      "supply_pin": "VBB1",
+      "ceramic_distance_mm": 1.9738759999999993,
+      "bulk_distance_mm": 8.878943999999997,
+      "ceramic_closer_than_bulk": true
+    },
+    {
+      "supply_pin": "VBB2",
+      "ceramic_distance_mm": 4.976156,
+      "bulk_distance_mm": 11.881224,
+      "ceramic_closer_than_bulk": true
+    }
+  ],
+  "bypass_ordering_pass": true,
+  "sense_return_source_ground_pass": true,
+  "kelvin_source_intent_pass": true,
+  "routed_return_width_and_continuity_verified": true,
+  "routed_kelvin_full_continuity_verified": true,
+  "shared_copper_error_example": {
+    "shunt_ohms": 0.05,
+    "shared_ohms": 0.001,
+    "fractional_error": 0.02,
+    "current_A": 0.4,
+    "gain": 20,
+    "output_error_V": 0.008
+  },
+  "limits": [
+    "5 mm return length is an engineering placement target, not an Allegro numerical limit",
+    "Reserved top stubs, all-layer via barrels and inner1 strips must remain clear of unrelated future copper",
+    "Corridors are not actual vias or traces and do not prove width, physical continuity, return-plane integrity or thermal performance",
+    "Kelvin layer intersections screen shared winding copper, but full branch continuity requires independent routed connectivity"
+  ]
+}
+Return corridor passes 1 of 2
+vias 31 position-only SMT failures 4 position-only inner failures 8

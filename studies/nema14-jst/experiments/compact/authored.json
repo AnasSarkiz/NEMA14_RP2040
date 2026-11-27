@@ -1,0 +1,464 @@
+{
+  "paths": {
+    "POWER_A_DRV": {
+      "anchor": ".R_SHUNT_A > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin1",
+          {
+            "x": -1.5662656000000001,
+            "y": -9.590610768273045e-17
+          },
+          ".V_PA_S > .top"
+        ],
+        [
+          ".V_PA_S > .inner2",
+          {
+            "x": 0.5749999999999997,
+            "y": 3.520859547548639e-17
+          },
+          {
+            "x": 0.5749999999999995,
+            "y": 3.450253000000001
+          },
+          ".V_PA_D > .inner2"
+        ],
+        [
+          ".V_PA_D > .top",
+          {
+            "x": 2.3000059000000004,
+            "y": 3.450253000000001
+          }
+        ]
+      ]
+    },
+    "POWER_A_COIL": {
+      "anchor": ".R_SHUNT_A > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin2",
+          {
+            "x": 1.5662656000000004,
+            "y": 9.590610768273046e-17
+          },
+          ".V_CA_S > .top"
+        ],
+        [
+          ".V_CA_S > .inner2",
+          {
+            "x": 1.7500000000000002,
+            "y": -3.549999999999999
+          },
+          {
+            "x": -6.99987,
+            "y": -3.5499999999999994
+          },
+          ".V_CA_T > .inner2"
+        ],
+        [
+          ".V_CA_T > .top",
+          ".J_MOTOR > .A_PLUS"
+        ]
+      ]
+    },
+    "POWER_B_DRV": {
+      "anchor": ".R_SHUNT_B > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin1",
+          {
+            "x": -1.5662655999999995,
+            "y": 0.0
+          },
+          {
+            "x": -1.7249999999999996,
+            "y": 0.0
+          },
+          {
+            "x": -1.7249999999999996,
+            "y": -0.9999999999999998
+          },
+          ".V_PB_S > .top"
+        ],
+        [
+          ".V_PB_S > .bottom",
+          {
+            "x": -1.75,
+            "y": -1.9999999999999998
+          },
+          {
+            "x": 1.0500000000000007,
+            "y": -1.9999999999999998
+          },
+          {
+            "x": 1.0500000000000007,
+            "y": 1.25
+          },
+          ".V_PB_D > .bottom"
+        ],
+        [
+          ".V_PB_D > .top",
+          {
+            "x": 0.35050700000000035,
+            "y": 1.25
+          },
+          {
+            "x": 0.35050700000000035,
+            "y": 1.7000059000000007
+          }
+        ]
+      ]
+    },
+    "POWER_B_COIL": {
+      "anchor": ".R_SHUNT_B > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin2",
+          {
+            "x": 1.5662655999999995,
+            "y": 0.0
+          },
+          {
+            "x": 1.6999999999999993,
+            "y": 0.0
+          },
+          ".V_CB_S > .top"
+        ],
+        [
+          ".V_CB_S > .inner2",
+          {
+            "x": 1.0500000000000007,
+            "y": -1.0999999999999999
+          },
+          {
+            "x": 1.0500000000000007,
+            "y": -4.1
+          },
+          ".V_CB_T > .inner2"
+        ],
+        [
+          ".V_CB_T > .top",
+          ".J_MOTOR > .B_PLUS"
+        ]
+      ]
+    },
+    "KELVIN_A_POS": {
+      "anchor": ".R_SHUNT_A > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin1",
+          {
+            "x": -0.4337304000000002,
+            "y": -2.655832730264507e-17
+          },
+          {
+            "x": -0.4337304000000001,
+            "y": -0.75
+          },
+          {
+            "x": -0.9000000000000001,
+            "y": -0.75
+          },
+          {
+            "x": -0.8999999999999999,
+            "y": -3.625133999999999
+          },
+          ".U_IA > .IN_POS"
+        ]
+      ]
+    },
+    "KELVIN_A_NEG": {
+      "anchor": ".R_SHUNT_A > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin2",
+          {
+            "x": 0.43373039999999996,
+            "y": 2.6558327302645056e-17
+          },
+          ".V_KAN_S > .top"
+        ],
+        [
+          ".V_KAN_S > .bottom",
+          ".V_KAN_T > .bottom"
+        ],
+        [
+          ".V_KAN_T > .top",
+          ".U_IA > .IN_NEG"
+        ]
+      ]
+    },
+    "KELVIN_B_POS": {
+      "anchor": ".R_SHUNT_B > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin1",
+          {
+            "x": -0.43373039999999996,
+            "y": 0.0
+          },
+          {
+            "x": -0.20000000000000018,
+            "y": 0.0
+          },
+          ".V_KBP_S > .top"
+        ],
+        [
+          ".V_KBP_S > .inner1",
+          {
+            "x": 1.0500000000000007,
+            "y": -2.8
+          },
+          ".V_KBP_T > .inner1"
+        ],
+        [
+          ".V_KBP_T > .top",
+          ".U_IB > .IN_POS"
+        ]
+      ]
+    },
+    "KELVIN_B_NEG": {
+      "anchor": ".R_SHUNT_B > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin2",
+          {
+            "x": 0.43373039999999996,
+            "y": 0.0
+          },
+          {
+            "x": 0.20000000000000018,
+            "y": 0.0
+          },
+          ".V_KBN_S > .top"
+        ],
+        [
+          ".V_KBN_S > .inner1",
+          ".V_KBN_T > .inner1"
+        ],
+        [
+          ".V_KBN_T > .top",
+          ".U_IB > .IN_NEG"
+        ]
+      ]
+    }
+  },
+  "vias": [
+    {
+      "name": "V_PA_S",
+      "x": 10.55,
+      "y": 0.1,
+      "net": "A_DRV_PLUS"
+    },
+    {
+      "name": "V_PA_D",
+      "x": 7.099747,
+      "y": 4.2,
+      "net": "A_DRV_PLUS"
+    },
+    {
+      "name": "V_CA_S",
+      "x": 11.8,
+      "y": 3.95,
+      "net": "A_PLUS"
+    },
+    {
+      "name": "V_CA_T",
+      "x": 13.25,
+      "y": -4.799869999999999,
+      "net": "A_PLUS"
+    },
+    {
+      "name": "V_PB_S",
+      "x": 6,
+      "y": 1.8,
+      "net": "B_DRV_PLUS"
+    },
+    {
+      "name": "V_PB_D",
+      "x": 8.65,
+      "y": 4.05,
+      "net": "B_DRV_PLUS"
+    },
+    {
+      "name": "V_CB_S",
+      "x": 9.45,
+      "y": 1.7,
+      "net": "B_PLUS"
+    },
+    {
+      "name": "V_CB_T",
+      "x": 13.25,
+      "y": -2.7996199999999996,
+      "net": "B_PLUS"
+    },
+    {
+      "name": "V_KAN_S",
+      "x": 11.8,
+      "y": 2.6337304,
+      "net": "A_PLUS"
+    },
+    {
+      "name": "V_KAN_T",
+      "x": 14.82512,
+      "y": 1.3,
+      "net": "A_PLUS"
+    },
+    {
+      "name": "V_KBP_S",
+      "x": 7.55,
+      "y": 2.0,
+      "net": "B_DRV_PLUS"
+    },
+    {
+      "name": "V_KBP_T",
+      "x": 9.5,
+      "y": -0.3498660000000001,
+      "net": "B_DRV_PLUS"
+    },
+    {
+      "name": "V_KBN_S",
+      "x": 7.75,
+      "y": 3.425,
+      "net": "B_PLUS"
+    },
+    {
+      "name": "V_KBN_T",
+      "x": 9.5,
+      "y": 0.42511999999999983,
+      "net": "B_PLUS"
+    },
+    {
+      "name": "V_GA",
+      "x": 4.3,
+      "y": 7.45,
+      "net": "GND"
+    },
+    {
+      "name": "V_STAR_A",
+      "x": 5.775067149999999,
+      "y": 7.449873,
+      "net": "GND"
+    },
+    {
+      "name": "V_GB",
+      "x": 11.0,
+      "y": 6.7,
+      "net": "GND"
+    },
+    {
+      "name": "V_STAR_B",
+      "x": 9.42505985,
+      "y": 6.949493,
+      "net": "GND"
+    }
+  ],
+  "returns": [
+    {
+      "name": "RETURN_A_TOP",
+      "from": ".R_SA > .pin2",
+      "to": ".V_GA > .top",
+      "paths": [
+        [
+          ".R_SA > .pin2",
+          ".V_GA > .top"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_A_INNER",
+      "from": ".V_GA > .inner1",
+      "to": ".V_STAR_A > .inner1",
+      "paths": [
+        [
+          ".V_GA > .inner1",
+          ".V_STAR_A > .inner1"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_A_EP",
+      "from": ".V_STAR_A > .top",
+      "to": ".U_DRV > .EP",
+      "paths": [
+        [
+          ".V_STAR_A > .top",
+          ".U_DRV > .EP"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_TOP",
+      "from": ".R_SB > .pin2",
+      "to": ".V_GB > .top",
+      "paths": [
+        [
+          ".R_SB > .pin2",
+          ".V_GB > .top"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_INNER",
+      "from": ".V_GB > .inner1",
+      "to": ".V_STAR_B > .inner1",
+      "paths": [
+        [
+          ".V_GB > .inner1",
+          ".V_STAR_B > .inner1"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_EP",
+      "from": ".V_STAR_B > .top",
+      "to": ".U_DRV > .EP",
+      "paths": [
+        [
+          ".V_STAR_B > .top",
+          ".U_DRV > .EP"
+        ]
+      ]
+    }
+  ],
+  "actual_pad_edges": {
+    "KELVIN_A_POS": [
+      10.55,
+      1.7662696
+    ],
+    "KELVIN_A_NEG": [
+      10.55,
+      2.6337304
+    ],
+    "KELVIN_B_POS": [
+      7.3162696,
+      2.8
+    ],
+    "KELVIN_B_NEG": [
+      8.1837304,
+      2.8
+    ]
+  },
+  "star_landings": {
+    "A": [
+      5.775067149999999,
+      7.449873
+    ],
+    "B": [
+      9.42505985,
+      6.949493
+    ]
+  },
+  "source_vias": {
+    "A": [
+      4.3,
+      7.45
+    ],
+    "B": [
+      11.0,
+      6.7
+    ]
+  },
+  "min_via_hole_mm": 0.3,
+  "manufacturing_qualified": false
+}

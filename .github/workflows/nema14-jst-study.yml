@@ -32,6 +32,7 @@ jobs:
       - run: npm run test:integration
       - run: npm run test:width-ownership
       - run: npm run test:reachability
+      - run: npm run test:compact
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement

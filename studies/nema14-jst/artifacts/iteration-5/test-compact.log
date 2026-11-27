@@ -1,0 +1,7 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 test:compact
+> mkdir -p .config/compact && bun experiments/compact/render.ts .config/compact/replay.circuit.json --scope && ${PYTHON:-python3} experiments/compact/verify.py .config/compact/replay.circuit.json
+
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Verified scoped copper, 4 actual pickups, 2 isolated returns, fixed mechanics, 5 rejection controls; full board rejected

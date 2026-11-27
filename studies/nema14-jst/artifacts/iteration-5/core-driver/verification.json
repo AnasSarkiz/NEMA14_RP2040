@@ -1,0 +1,323 @@
+{
+  "input_authored_sha256": "7d03676a6ca9055c0da5bb1ae3a58801bb0febe0d533dfde4377bd357384c6ac",
+  "native_output_sha256": "79f5035f7494a1cba76dd09d87731275b66829a7124ea954574e7fba6c3ed644",
+  "native_materialization": true,
+  "scoped_solver": {
+    "native_core": true,
+    "autorouter_version": "0.0.958",
+    "input_connections": 42,
+    "experiment_connections": 9,
+    "obstacles": 293,
+    "preloaded_traces": 28,
+    "all_obstacles_retained": true,
+    "solved": true,
+    "failed": false,
+    "error": null,
+    "elapsed_ms": 25830.106193,
+    "nominal_step_loop_budget_ms": 60000,
+    "full_board_routed": false
+  },
+  "fixed_authored_wire_changes": [
+    {
+      "id": "pcb_trace_1",
+      "branch": "POWER_A_DRV",
+      "wire_copper_symmetric_difference_mm2": 0.4517470138810649
+    },
+    {
+      "id": "pcb_trace_11",
+      "branch": "POWER_B_DRV",
+      "wire_copper_symmetric_difference_mm2": 6.1408316327019845
+    },
+    {
+      "id": "pcb_trace_13",
+      "branch": "POWER_B_COIL",
+      "wire_copper_symmetric_difference_mm2": 0.06888974205363026
+    },
+    {
+      "id": "pcb_trace_16",
+      "branch": "KELVIN_B_POS",
+      "wire_copper_symmetric_difference_mm2": 0.1699461746917448
+    },
+    {
+      "id": "pcb_trace_19",
+      "branch": "KELVIN_B_NEG",
+      "wire_copper_symmetric_difference_mm2": 0.13830529736582425
+    },
+    {
+      "id": "pcb_trace_20",
+      "branch": "KELVIN_B_NEG",
+      "wire_copper_symmetric_difference_mm2": 0.46864967753379017
+    }
+  ],
+  "six_ground_wire_shapes_preserved": true,
+  "four_actual_pad_pickoffs_pass": true,
+  "selected_native_checks": {
+    "checkPadPadClearance": 0,
+    "checkPadTraceClearance": 3,
+    "checkEachPcbTraceNonOverlapping": 1,
+    "checkViaPadClearance": 1,
+    "checkViaTraceClearance": 0,
+    "checkViasInPads": 3,
+    "checkTracesAreContiguous": 0,
+    "checkSourceTracesMatchPcbTraceThickness": 0,
+    "checkPcbCopperOverKeepout": 0,
+    "checkCopperToBoardEdgeClearance": 0,
+    "checkSameNetViaSpacing": 0,
+    "checkDifferentNetViaSpacing": 0
+  },
+  "native_all_routing_by_type": {
+    "pcb_port_not_connected_error": 186,
+    "pcb_trace_error": 15,
+    "pcb_pad_trace_clearance_error": 3,
+    "pcb_pad_pad_clearance_error": 1
+  },
+  "independent": {
+    "pcb_traces": 52,
+    "pcb_vias": 31,
+    "shorts": 1,
+    "clearance_violations": 14,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 15,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 32
+  },
+  "new_auto_wire_measurements": [
+    {
+      "trace": "source_net_25_0",
+      "net": "SENSE2",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 13.070921007113396,
+      "native_source_trace_id": "source_trace_162"
+    },
+    {
+      "trace": "source_net_24_0",
+      "net": "SENSE1",
+      "minimum_wire_width_mm": 0.225,
+      "planar_wire_length_mm": 6.530558748674433,
+      "native_source_trace_id": "source_trace_161"
+    },
+    {
+      "trace": "source_net_23_0",
+      "net": "VREG",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 2.602943775575467,
+      "native_source_trace_id": "source_trace_149"
+    },
+    {
+      "trace": "source_net_22_0",
+      "net": "VCP",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 3.8772348223649455,
+      "native_source_trace_id": "source_trace_148"
+    },
+    {
+      "trace": "source_net_21_0",
+      "net": "CP2",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 3.822409065021729,
+      "native_source_trace_id": "source_trace_147"
+    },
+    {
+      "trace": "source_net_20_0",
+      "net": "CP1",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 3.192306444520398,
+      "native_source_trace_id": "source_trace_146"
+    },
+    {
+      "trace": "source_net_2_mst0_0",
+      "net": "V3V3",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 0.5003799999999998,
+      "native_source_trace_id": "source_trace_152"
+    },
+    {
+      "trace": "source_net_2_mst1_0",
+      "net": "V3V3",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 0.5003799999999998,
+      "native_source_trace_id": "source_trace_150"
+    },
+    {
+      "trace": "source_net_2_mst2_0",
+      "net": "V3V3",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 0.5013560000000057,
+      "native_source_trace_id": "source_trace_151"
+    },
+    {
+      "trace": "source_net_2_mst3_0",
+      "net": "V3V3",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 6.863587729854219,
+      "native_source_trace_id": "source_trace_153"
+    },
+    {
+      "trace": "source_net_2_mst4_0",
+      "net": "V3V3",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 3.272946132693199,
+      "native_source_trace_id": "source_trace_154"
+    },
+    {
+      "trace": "source_net_1_mst0_0",
+      "net": "PD_VBUS",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 1.6449843668100987,
+      "native_source_trace_id": "source_trace_141"
+    },
+    {
+      "trace": "source_net_1_mst1_0",
+      "net": "PD_VBUS",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 19.704938264242994,
+      "native_source_trace_id": "source_trace_141"
+    },
+    {
+      "trace": "source_net_1_mst2_0",
+      "net": "PD_VBUS",
+      "minimum_wire_width_mm": 0.16,
+      "planar_wire_length_mm": 30.32464491905476,
+      "native_source_trace_id": "source_trace_142"
+    },
+    {
+      "trace": "source_net_1_mst3_0",
+      "net": "PD_VBUS",
+      "minimum_wire_width_mm": 0.39375,
+      "planar_wire_length_mm": 11.64530873849117,
+      "native_source_trace_id": "source_trace_171"
+    },
+    {
+      "trace": "source_net_0_mst0_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.225,
+      "planar_wire_length_mm": 3.6857488123832267,
+      "native_source_trace_id": "source_trace_155"
+    },
+    {
+      "trace": "source_net_0_mst1_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 2.093508797566533,
+      "native_source_trace_id": "source_trace_144"
+    },
+    {
+      "trace": "source_net_0_mst2_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 2.207675738577556,
+      "native_source_trace_id": "source_trace_143"
+    },
+    {
+      "trace": "source_net_0_mst3_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 2.5001239999999987,
+      "native_source_trace_id": "source_trace_144"
+    },
+    {
+      "trace": "source_net_0_mst4_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 2.707264082340245,
+      "native_source_trace_id": "source_trace_143"
+    },
+    {
+      "trace": "source_net_0_mst5_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.2800096,
+      "planar_wire_length_mm": 2.914652364680498,
+      "native_source_trace_id": "source_trace_145"
+    },
+    {
+      "trace": "source_net_0_mst6_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.499999,
+      "planar_wire_length_mm": 4.128182801004197,
+      "native_source_trace_id": "source_trace_170"
+    },
+    {
+      "trace": "source_net_0_mst7_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.499999,
+      "planar_wire_length_mm": 8.987780865197124,
+      "native_source_trace_id": "source_trace_172"
+    },
+    {
+      "trace": "source_net_0_mst8_0",
+      "net": "GND",
+      "minimum_wire_width_mm": 0.499999,
+      "planar_wire_length_mm": 13.61787774877728,
+      "native_source_trace_id": "source_trace_172"
+    }
+  ],
+  "candidate_accepted": false,
+  "full_board_routed": false,
+  "manufacturing_qualified": false,
+  "actual_native_authored_branch_planar_wire_mm": {
+    "POWER_A_DRV": 9.065805309860762,
+    "POWER_A_COIL": 14.930085473330529,
+    "KELVIN_A_POS": 6.130575199999999,
+    "KELVIN_A_NEG": 6.595255052407721,
+    "POWER_B_DRV": 10.288030816314942,
+    "POWER_B_COIL": 11.50598607306545,
+    "KELVIN_B_POS": 6.1762415376377815,
+    "KELVIN_B_NEG": 6.6085623281207155,
+    "RETURN_A_TOP": 1.308626684736331,
+    "RETURN_A_INNER": 1.475067155467208,
+    "RETURN_A_EP": 1.8250598500000006,
+    "RETURN_B_TOP": 1.2419727050156943,
+    "RETURN_B_INNER": 1.5945793279517397,
+    "RETURN_B_EP": 1.8922896320090972
+  },
+  "actual_native_authored_branch_widths_mm": {
+    "POWER_A_DRV": [
+      0.45
+    ],
+    "POWER_A_COIL": [
+      0.45
+    ],
+    "KELVIN_A_POS": [
+      0.16
+    ],
+    "KELVIN_A_NEG": [
+      0.16
+    ],
+    "POWER_B_DRV": [
+      0.45
+    ],
+    "POWER_B_COIL": [
+      0.45
+    ],
+    "KELVIN_B_POS": [
+      0.16
+    ],
+    "KELVIN_B_NEG": [
+      0.16
+    ],
+    "RETURN_A_TOP": [
+      0.6
+    ],
+    "RETURN_A_INNER": [
+      0.6
+    ],
+    "RETURN_A_EP": [
+      0.6
+    ],
+    "RETURN_B_TOP": [
+      0.6
+    ],
+    "RETURN_B_INNER": [
+      0.6
+    ],
+    "RETURN_B_EP": [
+      0.6
+    ]
+  },
+  "limits": [
+    "Ground return wire lengths exclude barrels; selected stack required for 5mm total-length acceptance.",
+    "Automatic driver supply neckdowns down to 0.16mm are not validated for current/thermal capacity. Zero thickness warnings are not current acceptance.",
+    "Six authored trace wire shapes change in this rejected isolated output. Accepted experiment source remains untouched."
+  ]
+}
