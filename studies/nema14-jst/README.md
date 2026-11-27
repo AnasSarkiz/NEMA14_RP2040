@@ -4,7 +4,7 @@ This isolated engineering study adds two inline 50 mΩ winding shunts and two IN
 
 **Layout status: mechanically clear placement study; routing blocked by electrical locality.** There is no completed routed board or manufacturing release here.
 
-A separate [NEMA14 JST full-controller Kelvin experiment](docs/full-controller-kelvin-integration.md) now preserves eight authored paths through normal native routing. Its copper has no independent shorts or clearance findings, but full routing fails with 66 disconnected nets and unchanged 25/59 locality. Neither 0.60 mm ground return is qualified. The production source and accepted placement remain unchanged.
+A separate [NEMA14 JST native escape and ground-copper experiment](docs/reachability-and-ground-copper.md) adds a same-net driver escape and actual 0.60 mm ground returns while preserving the eight verified Kelvin/power paths. It remains rejected: full routing is incomplete, 66 nets are disconnected, and the returns measure 6.601/14.265 mm to the star landing against an unchanged 5 mm target. The checker/schema correction removes false thickness ownership warnings while retaining detection of real underwidth. The production source and accepted placement remain unchanged. Earlier [NEMA14 JST integration evidence](docs/full-controller-kelvin-integration.md) is retained as history.
 
 | Check | Result |
 | --- | --- |

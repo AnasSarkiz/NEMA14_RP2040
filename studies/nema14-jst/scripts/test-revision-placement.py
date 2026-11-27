@@ -35,4 +35,12 @@ class ScreenRegression(unittest.TestCase):
   self.assertTrue(m.screen(board,self.contract)['screen_pass'])
   next(e for e in board if e['type']=='pcb_keepout')['allow_placements']=True
   self.assertIn('screw_keepout_contract',{e['kind'] for e in m.screen(board,self.contract)['findings']})
+ def test_native_via_is_not_a_fitted_component_but_requires_physical_barrel(self):
+  board=copy.deepcopy(self.board);source='source_manually_placed_via_test';comp={'type':'pcb_component','pcb_component_id':'via_component_test','source_component_id':source,'center':{'x':0,'y':-2},'width':.45,'height':.45,'layer':'top'}
+  board += [{'type':'source_manually_placed_via','source_manually_placed_via_id':source,'source_net_id':'source_net_0'},comp,{'type':'pcb_via','pcb_via_id':'via_test','source_net_id':'source_net_0','x':0,'y':-2,'outer_diameter':.45,'hole_diameter':.3,'layers':['top','inner1','inner2','bottom'],'from_layer':'top','to_layer':'bottom'}]
+  r=m.screen(board,self.contract);self.assertEqual(r['pcb_only_manual_vias'],1);self.assertFalse(any(f['kind'] in ['missing_courtyard','manual_via_geometry','unknown_component_source'] for f in r['findings']));self.assertEqual(len([f for f in r['findings'] if f['kind']=='screw_reserve']),20)
+  board=[e for e in board if e.get('pcb_via_id')!='via_test'];self.assertIn('manual_via_geometry',{f['kind'] for f in m.screen(board,self.contract)['findings']})
+ def test_unknown_component_is_not_exempted(self):
+  board=copy.deepcopy(self.board);board.append({'type':'pcb_component','pcb_component_id':'unknown','source_component_id':'unknown','center':{'x':0,'y':0},'width':.45,'height':.45,'layer':'top'})
+  self.assertIn('unknown_component_source',{f['kind'] for f in m.screen(board,self.contract)['findings']})
 if __name__=='__main__':unittest.main()

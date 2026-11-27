@@ -1,6 +1,7 @@
 """Verify the rendered TSX netlist for the NEMA14 JST engineering study."""
 import json
 import sys
+from native_sources import source_owner_names
 
 with open(sys.argv[1]) as board_file:
     elements = json.load(board_file)
@@ -9,8 +10,9 @@ def of_type(name):
     return (e for e in elements if e["type"] == name)
 
 parts = {e["source_component_id"]: e["name"] for e in of_type("source_component")}
+owners = source_owner_names(elements)
 ports = {
-    e["source_port_id"]: (parts[e["source_component_id"]], e["name"])
+    e["source_port_id"]: (owners[e["source_component_id"]], e["name"])
     for e in of_type("source_port")
 }
 nets = {e["source_net_id"]: e["name"] for e in of_type("source_net")}
@@ -51,7 +53,7 @@ expect("U_MCU", "GPIO4", "TEMP_SDA")
 expect("U_MCU", "GPIO5", "TEMP_SCL")
 expect("U_DRV", "SENSE1", "SENSE1")
 expect("U_DRV", "SENSE2", "SENSE2")
-by_name = {parts[e["source_component_id"]]: e for e in of_type("pcb_component")}
+by_name = {parts[e["source_component_id"]]: e for e in of_type("pcb_component") if e["source_component_id"] in parts}
 for name, layer in (("C_ENCODER", "top"), ("C_ENCODER_BULK", "top"), ("U_ENCODER", "bottom")):
     assert by_name[name]["layer"] == layer and by_name[name]["do_not_place"], name
 

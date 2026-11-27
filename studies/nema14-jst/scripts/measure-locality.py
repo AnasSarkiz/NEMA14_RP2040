@@ -1,8 +1,9 @@
 """NEMA14 JST placement-only pin-distance screen; not copper or PI qualification."""
 from pathlib import Path
+from native_sources import source_owner_names
 import json,hashlib,math,sys
 p=Path(sys.argv[1]);raw=p.read_bytes();b=json.loads(raw);root=Path(__file__).resolve().parents[1];contract=json.loads((root/'scripts/locality-contract.json').read_text())
-src={e['source_component_id']:e['name'] for e in b if e['type']=='source_component'};ports={e['source_port_id']:(src[e['source_component_id']],e['name']) for e in b if e['type']=='source_port'};pos={ports[e['source_port_id']]:(e['x'],e['y']) for e in b if e['type']=='pcb_port'}
+src=source_owner_names(b);ports={e['source_port_id']:(src[e['source_component_id']],e['name']) for e in b if e['type']=='source_port'};pos={ports[e['source_port_id']]:(e['x'],e['y']) for e in b if e['type']=='pcb_port'}
 rows=[]
 for e in contract:
  a,z=pos[e['a'],e['pa']],pos[e['b'],e['pb']];l1=abs(a[0]-z[0])+abs(a[1]-z[1]);euclid=math.dist(a,z)

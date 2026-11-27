@@ -1,0 +1,285 @@
+[
+  {
+    "stack": "current",
+    "mode": "authored",
+    "checker": "0.0.242",
+    "warnings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_5",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": -0.43373040000000007,
+          "y": -0.6807474499999999
+        },
+        "source_trace_id": "source_trace_5",
+        "pcb_trace_id": "pcb_trace_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_2"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_0",
+          "pcb_port_10"
+        ],
+        "requested_name": "POWER_A_POS",
+        "actual_owner": "KELVIN_A_POS",
+        "ownership_matches": false
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_7",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 0.43373040000000007,
+          "y": -0.6807474499999999
+        },
+        "source_trace_id": "source_trace_7",
+        "pcb_trace_id": "pcb_trace_2",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_3"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_1",
+          "pcb_port_11"
+        ],
+        "requested_name": "POWER_A_NEG",
+        "actual_owner": "KELVIN_A_NEG",
+        "ownership_matches": false
+      }
+    ]
+  },
+  {
+    "stack": "current",
+    "mode": "authored",
+    "checker": "0.0.283",
+    "warnings": []
+  },
+  {
+    "stack": "current",
+    "mode": "automatic",
+    "checker": "0.0.242",
+    "warnings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_5",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": -2.5831328,
+          "y": -2
+        },
+        "source_trace_id": "source_trace_5",
+        "pcb_trace_id": "source_trace_4__source_trace_5_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_2"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_0",
+          "pcb_port_10"
+        ],
+        "requested_name": "POWER_A_POS",
+        "actual_owner": "POWER_A_POS",
+        "ownership_matches": true
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_7",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 2.5831328,
+          "y": -2
+        },
+        "source_trace_id": "source_trace_7",
+        "pcb_trace_id": "source_trace_6__source_trace_7_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_3"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_1",
+          "pcb_port_11"
+        ],
+        "requested_name": "POWER_A_NEG",
+        "actual_owner": "POWER_A_NEG",
+        "ownership_matches": true
+      }
+    ]
+  },
+  {
+    "stack": "current",
+    "mode": "automatic",
+    "checker": "0.0.283",
+    "warnings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_5",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": -2.5831328,
+          "y": -2
+        },
+        "source_trace_id": "source_trace_5",
+        "pcb_trace_id": "source_trace_4__source_trace_5_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_2"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_0",
+          "pcb_port_10"
+        ],
+        "requested_name": "POWER_A_POS",
+        "actual_owner": "POWER_A_POS",
+        "ownership_matches": true
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_7",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 2.5831328,
+          "y": -2
+        },
+        "source_trace_id": "source_trace_7",
+        "pcb_trace_id": "source_trace_6__source_trace_7_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_3"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_1",
+          "pcb_port_11"
+        ],
+        "requested_name": "POWER_A_NEG",
+        "actual_owner": "POWER_A_NEG",
+        "ownership_matches": true
+      }
+    ]
+  },
+  {
+    "stack": "tagged",
+    "mode": "authored",
+    "checker": "0.0.242",
+    "warnings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_5",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": -0.43373040000000007,
+          "y": -0.6807474499999999
+        },
+        "source_trace_id": "source_trace_5",
+        "pcb_trace_id": "pcb_trace_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_2"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_0",
+          "pcb_port_10"
+        ],
+        "requested_name": "POWER_A_POS",
+        "actual_owner": "KELVIN_A_POS",
+        "ownership_matches": false
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_7",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 0.43373040000000007,
+          "y": -0.6807474499999999
+        },
+        "source_trace_id": "source_trace_7",
+        "pcb_trace_id": "pcb_trace_2",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_3"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_1",
+          "pcb_port_11"
+        ],
+        "requested_name": "POWER_A_NEG",
+        "actual_owner": "KELVIN_A_NEG",
+        "ownership_matches": false
+      }
+    ]
+  },
+  {
+    "stack": "tagged",
+    "mode": "authored",
+    "checker": "0.0.283",
+    "warnings": []
+  },
+  {
+    "stack": "tagged",
+    "mode": "automatic",
+    "checker": "0.0.242",
+    "warnings": [
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_5",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin1 to .P_A_POS > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": -0.324866,
+          "y": -0.566460155469805
+        },
+        "source_trace_id": "source_trace_5",
+        "pcb_trace_id": "source_trace_4__source_trace_5_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_2"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_0",
+          "pcb_port_10"
+        ],
+        "requested_name": "POWER_A_POS",
+        "actual_owner": "KELVIN_A_POS",
+        "ownership_matches": false
+      },
+      {
+        "type": "pcb_trace_warning",
+        "pcb_trace_warning_id": "pcb_trace_warning_source_trace_7",
+        "warning_type": "pcb_trace_warning",
+        "message": "Trace [.R_SHUNT_A > .pin2 to .P_A_NEG > .pin1] is routed thinner than requested (requested: 0.45mm, actual: 0.16mm).",
+        "center": {
+          "x": 0.999998,
+          "y": -0.6067375771289598
+        },
+        "source_trace_id": "source_trace_7",
+        "pcb_trace_id": "source_trace_6__source_trace_7_mst0_0",
+        "pcb_component_ids": [
+          "pcb_component_0",
+          "pcb_component_3"
+        ],
+        "pcb_port_ids": [
+          "pcb_port_1",
+          "pcb_port_11"
+        ],
+        "requested_name": "POWER_A_NEG",
+        "actual_owner": "KELVIN_A_NEG",
+        "ownership_matches": false
+      }
+    ]
+  },
+  {
+    "stack": "tagged",
+    "mode": "automatic",
+    "checker": "0.0.283",
+    "warnings": []
+  }
+]

@@ -1,0 +1,67 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 test:integration
+> mkdir -p .config/integration && bun experiments/integrated/check-native.ts artifacts/iteration-3/authored.circuit.json .config/integration/authored-native.json && bun experiments/integrated/check-native.ts artifacts/iteration-3/normal-attempt.circuit.json .config/integration/normal-native.json && ${PYTHON:-python3} scripts/test-integrated-kelvin.py && ${PYTHON:-python3} scripts/verify-integrated-kelvin.py artifacts/final-source.circuit.json artifacts/iteration-3/authored.circuit.json artifacts/iteration-3/normal-attempt.circuit.json .config/integration/authored-native.json .config/integration/normal-native.json .config/integration/verification.json
+
+{
+  checkPadPadClearance: 0,
+  checkPadTraceClearance: 0,
+  checkEachPcbTraceNonOverlapping: 0,
+  checkViaPadClearance: 0,
+  checkViaTraceClearance: 0,
+  checkViasInPads: 0,
+  checkTracesAreContiguous: 0,
+  checkSourceTracesMatchPcbTraceThickness: 0,
+  checkPcbCopperOverKeepout: 0,
+  checkCopperToBoardEdgeClearance: 0,
+  checkSameNetViaSpacing: 0,
+  checkDifferentNetViaSpacing: 0,
+}
+{
+  checkPadPadClearance: 0,
+  checkPadTraceClearance: 0,
+  checkEachPcbTraceNonOverlapping: 0,
+  checkViaPadClearance: 0,
+  checkViaTraceClearance: 0,
+  checkViasInPads: 0,
+  checkTracesAreContiguous: 0,
+  checkSourceTracesMatchPcbTraceThickness: 0,
+  checkPcbCopperOverKeepout: 0,
+  checkCopperToBoardEdgeClearance: 0,
+  checkSameNetViaSpacing: 0,
+  checkDifferentNetViaSpacing: 0,
+}
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.104s
+
+OK
+{
+  "control_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "authored_sha256": "b087771faff5274883d54664aa2b8340109efbdb0294d412406e4f80bee5d1aa",
+  "normal_attempt_sha256": "9bc32c4db2138cf00fb5d16edc8dc560488391e39c4ea273e20699b9313a4350",
+  "source_and_fixed_geometry_unchanged": true,
+  "authored_geometry_preserved_by_normal_native_routing": true,
+  "authored_paths": 8,
+  "through_vias": 10,
+  "wire_length_mm": {
+    "POWER_A_DRV": 3.6854409743424443,
+    "POWER_A_COIL": 20.755643940236073,
+    "KELVIN_A_POS": 25.54485198369283,
+    "KELVIN_A_NEG": 43.51723334951435,
+    "POWER_B_DRV": 26.89474831692156,
+    "POWER_B_COIL": 25.705051343800182,
+    "KELVIN_B_POS": 12.320913505705606,
+    "KELVIN_B_NEG": 10.307172151348464
+  },
+  "via_barrel_lengths_included": false,
+  "kelvin_wire_length_mismatch_mm": {
+    "A": 17.97238136582152,
+    "B": 2.0137413543571423
+  },
+  "independent_shorts": 0,
+  "independent_clearance_findings": 0,
+  "independent_open_nets": 66,
+  "candidate_passes_production_gates": false,
+  "production_source_changed": false
+}

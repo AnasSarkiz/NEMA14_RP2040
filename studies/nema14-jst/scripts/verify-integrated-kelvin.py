@@ -40,9 +40,7 @@ def verify(control_path,before_path,after_path,native_before,native_after,out):
   checks=json.loads(Path(path).read_text());assert len(checks)==12
   for name,result in checks.items():
    assert 'exception' not in result,(name,result)
-   if name=='checkSourceTracesMatchPcbTraceThickness':
-    assert result['count']==4 and all(e.get('type')=='pcb_trace_warning' for e in result['findings']),result
-   else:assert result['count']==0,(name,result)
+   assert result['count']==0,(name,result)
   native[label]={n:r['count'] for n,r in checks.items()}
  report={'control_sha256':hashlib.sha256(paths[0].read_bytes()).hexdigest(),'authored_sha256':hashlib.sha256(paths[1].read_bytes()).hexdigest(),'normal_attempt_sha256':hashlib.sha256(paths[2].read_bytes()).hexdigest(),'source_and_fixed_geometry_unchanged':True,'authored_geometry_preserved_by_normal_native_routing':True,'authored_paths':len(routes),'through_vias':len(vias),'actual_width_mm':widths,'wire_length_mm':lengths,'via_barrel_lengths_included':False,'kelvin_wire_length_mismatch_mm':{p:abs(lengths[f'KELVIN_{p}_POS']-lengths[f'KELVIN_{p}_NEG']) for p in 'AB'},'pickups':pickups,'native_selected_checks':native,'independent_shorts':len(copper['shorts']),'independent_clearance_findings':len(copper['clearance_violations']),'independent_open_nets':len(copper['disconnected_nets']),'candidate_passes_production_gates':False,'production_source_changed':False,'limits':['Eight paths only. Normal native routing failed; remaining nets are open.','Long Kelvin and winding detours are not qualified current loops.','Neither 0.60 mm ground return is verified. USB return-plane, impedance, thermal, CAM and physical assembly remain unverified.']}
  Path(out).write_text(json.dumps(report,indent=2)+'\n');print(json.dumps({k:v for k,v in report.items() if k not in ['pickups','native_selected_checks','actual_width_mm','limits']},indent=2));return report

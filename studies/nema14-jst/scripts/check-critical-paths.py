@@ -2,13 +2,14 @@
 A corridor is a reserved routing contract, not copper or a routed DRC pass.
 """
 from pathlib import Path
+from native_sources import source_owner_names
 import json,sys,math,hashlib,importlib.util
 from shapely.geometry import Point,LineString
 from shapely.ops import unary_union,nearest_points
 from routing_geometry import layer_copper,shared_outside_pad,pad_cut_topology,resolve_copper_nets
 spec=importlib.util.spec_from_file_location('copper',Path(__file__).with_name('inspect-copper.py'));g=importlib.util.module_from_spec(spec);spec.loader.exec_module(g)
 contract=json.loads((Path(__file__).resolve().parents[1]/'src/critical-routing-contract.json').read_text());rc=contract['sense_returns'];WIDTH=rc['reserved_trace_width_mm'];VIA_OD=rc['via_pad_diameter_mm'];VIA_ID=rc['via_hole_diameter_mm'];LIMIT=rc['placement_path_target_mm'];reservation=next((a for a in sys.argv[3:] if not a.startswith('--')),None);routed_required='--routed' in sys.argv
-raw=Path(sys.argv[1]).read_bytes();b=resolve_copper_nets(json.loads(raw));board=next(e for e in b if e['type']=='pcb_board');src={e['source_component_id']:e['name'] for e in b if e['type']=='source_component'};sp={e['source_port_id']:e for e in b if e['type']=='source_port'};pp={e['pcb_port_id']:e for e in b if e['type']=='pcb_port'};pcs={src[e['source_component_id']]:e for e in b if e['type']=='pcb_component'};ports={(src[sp[e['source_port_id']]['source_component_id']],sp[e['source_port_id']]['name']):e for e in pp.values()};pads=[e for e in b if e['type'] in ['pcb_smtpad','pcb_plated_hole']];byport={k:unary_union([g.pad_shape(e) for e in pads if e.get('pcb_port_id')==p['pcb_port_id']]) for k,p in ports.items()}
+raw=Path(sys.argv[1]).read_bytes();b=resolve_copper_nets(json.loads(raw));board=next(e for e in b if e['type']=='pcb_board');src=source_owner_names(b);sp={e['source_port_id']:e for e in b if e['type']=='source_port'};pp={e['pcb_port_id']:e for e in b if e['type']=='pcb_port'};pcs={src[e['source_component_id']]:e for e in b if e['type']=='pcb_component'};ports={(src[sp[e['source_port_id']]['source_component_id']],sp[e['source_port_id']]['name']):e for e in pp.values()};pads=[e for e in b if e['type'] in ['pcb_smtpad','pcb_plated_hole']];byport={k:unary_union([g.pad_shape(e) for e in pads if e.get('pcb_port_id')==p['pcb_port_id']]) for k,p in ports.items()}
 ground=sp[ports['U_DRV','EP']['source_port_id']]['subcircuit_connectivity_map_key'];ep=byport['U_DRV','EP'];land=ep.buffer(-VIA_OD/2);alllayers=['top','inner1','inner2','bottom'];safe=__import__('shapely').geometry.box(-board['width']/2+.25,-board['height']/2+.25,board['width']/2-.25,board['height']/2-.25);keep=[Point(e['center']['x'],e['center']['y']).buffer(e['radius'],quad_segs=128) for e in b if e['type']=='pcb_keepout']
 
 # Cache exact obstacle geometries once; spatial queries do not change clearances.

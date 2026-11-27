@@ -1,0 +1,116 @@
+[
+  {
+    "routeId": 0,
+    "connectionId": "source_net_2",
+    "startPortId": 51904,
+    "endPortId": 51905,
+    "startRegionId": "topology_merge_6587",
+    "endRegionId": "topology_merge_6808",
+    "pointIds": [
+      "pcb_port_213",
+      "pcb_port_214"
+    ],
+    "start": {
+      "id": 51904,
+      "x": 9.199872999999998,
+      "y": 1.200005,
+      "z": 0,
+      "regions": [
+        13555,
+        29725
+      ],
+      "mask": 1,
+      "assigned": -1,
+      "reserved": [
+        0
+      ],
+      "metadata": {
+        "portId": "tiny-terminal:start-port:source_net_2",
+        "x": 9.199872999999998,
+        "y": 1.200005,
+        "z": 0,
+        "distToCentermostPortOnZ": 0,
+        "_tinyTerminal": true,
+        "pcb_port_id": "pcb_port_213",
+        "layer": "z0"
+      }
+    },
+    "end": {
+      "id": 51905,
+      "x": 9.700252999999998,
+      "y": 1.200005,
+      "z": 0,
+      "regions": [
+        14087,
+        29726
+      ],
+      "mask": 1,
+      "assigned": -1,
+      "reserved": [
+        0
+      ],
+      "metadata": {
+        "portId": "tiny-terminal:end-port:source_net_2",
+        "x": 9.700252999999998,
+        "y": 1.200005,
+        "z": 0,
+        "distToCentermostPortOnZ": 0,
+        "_tinyTerminal": true,
+        "pcb_port_id": "pcb_port_214",
+        "layer": "z0"
+      }
+    },
+    "startRegion": 13555,
+    "startRegionNet": 0,
+    "net": 0,
+    "incidentStart": [
+      {
+        "id": 24413,
+        "x": 9.200000000000003,
+        "y": 1.2519480519480521,
+        "z": 0,
+        "regions": [
+          13555,
+          13574
+        ],
+        "mask": 1,
+        "assigned": -1,
+        "reserved": [],
+        "metadata": {
+          "portId": "ce43348_pp0_z0_cramped::0",
+          "x": 9.200000000000003,
+          "y": 1.2519480519480521,
+          "z": 0,
+          "distToCentermostPortOnZ": 0,
+          "cramped": true,
+          "layer": "z0"
+        }
+      },
+      {
+        "id": 51904,
+        "x": 9.199872999999998,
+        "y": 1.200005,
+        "z": 0,
+        "regions": [
+          13555,
+          29725
+        ],
+        "mask": 1,
+        "assigned": -1,
+        "reserved": [
+          0
+        ],
+        "metadata": {
+          "portId": "tiny-terminal:start-port:source_net_2",
+          "x": 9.199872999999998,
+          "y": 1.200005,
+          "z": 0,
+          "distToCentermostPortOnZ": 0,
+          "_tinyTerminal": true,
+          "pcb_port_id": "pcb_port_213",
+          "layer": "z0"
+        }
+      }
+    ]
+  }
+]

@@ -1,0 +1,24 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 test:reachability
+> mkdir -p .config/reachability && bun experiments/reachability/render.ts .config/reachability/test-authored.circuit.json && bun experiments/integrated/check-native.ts .config/reachability/test-authored.circuit.json .config/reachability/test-native.json && ${PYTHON:-python3} scripts/verify-reachability.py artifacts/iteration-3/authored.circuit.json .config/reachability/test-authored.circuit.json artifacts/iteration-4/normal-attempt.circuit.json .config/reachability/test-native.json .config/reachability/test-verification.json
+
+Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <board>. See https://react.dev/link/warning-keys for more information.
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+{
+  checkPadPadClearance: 0,
+  checkPadTraceClearance: 0,
+  checkEachPcbTraceNonOverlapping: 0,
+  checkViaPadClearance: 0,
+  checkViaTraceClearance: 0,
+  checkViasInPads: 0,
+  checkTracesAreContiguous: 0,
+  checkSourceTracesMatchPcbTraceThickness: 0,
+  checkPcbCopperOverKeepout: 0,
+  checkCopperToBoardEdgeClearance: 0,
+  checkSameNetViaSpacing: 0,
+  checkDifferentNetViaSpacing: 0,
+}
+{'authored_sha256': '7f6483f83f3111f8338dbdd88788e1849f1e70e59e687be484092661b3158f70', 'normal_sha256': 'be81f011bc0bb9f512a15347a48f16a5e87c3be1a70021965300acbe02f15f6d', 'original_components_ports_nets_pads_mounts_board_unchanged': True, 'original_eight_paths_identical': True, 'all_fifteen_paths_preserved': True, 'traces': 15, 'vias': 14, 'ground_source_to_star_wire_mm': {'A': 6.601309487469441, 'B': 14.264937189953507}, 'ground_return_target_mm': 5, 'ground_return_length_pass': False, 'via_barrel_lengths_included': False, 'shorts': 0, 'clearance_findings': 0, 'open_nets': 66, 'full_board_routed_pass': False, 'manufacturing_qualified': False}

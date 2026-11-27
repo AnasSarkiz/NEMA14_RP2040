@@ -1,0 +1,22 @@
+Building 1 file(s)...
+Building experiments/compatibility/one-shunt.tsx...
+Generating circuit JSON...
+Saved autorouting paths to .tscircuit/autorouting-artifacts/one-shunt-tsx-8ae5d33b06/subcircuit_source_group_0-phase-default-order-0.pcb-trace-paths.json (import this JSON into <autoroutingphase pcbTracePaths={...} />).
+Circuit JSON written to dist/experiments/compatibility/one-shunt/circuit.json
+Component P_A_POS has ftype="simple_test_point" but reference designator should start with TP
+Component P_A_NEG has ftype="simple_test_point" but reference designator should start with TP
+Component P_VCC has ftype="simple_test_point" but reference designator should start with TP
+U_IA has no pin with requires_power=true
+No <schematicsheet> was found. Add a <schematicsheet> to define the schematic drawing area.
+<testpoint#14 name=".P_A_POS" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#18 name=".P_A_NEG" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+<testpoint#22 name=".P_VCC" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace.
+Net labels attached to R_SHUNT_A or U_IA overlap the other component or its labels. Separate the components and their attached labels, preserving pin connections and rerouting affected traces.
+
+Build complete
+  Circuits  1 passed
+  Options   autorouter-timeout
+  Output    dist
+
+✓ Done
+Build exiting with code 0: build finished successfully

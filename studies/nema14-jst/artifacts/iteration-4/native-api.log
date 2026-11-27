@@ -1,0 +1,8 @@
+Each child in a list should have a unique "key" prop.
+
+Check the top-level render call using <board>. See https://react.dev/link/warning-keys for more information.
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Async effect error in PcbTraceRender "autorouting":
+AutorouterError: aJ ran out of iterations (capacity-autorouter@0.0.958)
+    at runCycleAndQueueNextCycle (/tmp/nema14-jst-checks283/node_modules/@tscircuit/core/dist/index.js:107791:24)
+    at <anonymous> (/tmp/nema14-jst-checks283/node_modules/@tscircuit/core/dist/index.js:107826:27)

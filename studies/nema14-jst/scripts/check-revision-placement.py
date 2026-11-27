@@ -3,12 +3,23 @@ This does not claim solid-body, plug-sweep, copper or manufacturing qualificatio
 """
 import argparse, hashlib, json, math
 from pathlib import Path
+from native_sources import source_owner_names
 
 def screen(board, contract):
     findings=[]
     sources={e['source_component_id']:e['name'] for e in board if e['type']=='source_component'}
     components={e['pcb_component_id']:e for e in board if e['type']=='pcb_component'}
-    by_name={sources[c['source_component_id']]:c for c in components.values()}
+    owners=source_owner_names(board)
+    by_name={sources[c['source_component_id']]:c for c in components.values() if c['source_component_id'] in sources}
+    manual={e['source_manually_placed_via_id']:e for e in board if e['type']=='source_manually_placed_via'}
+    for c in components.values():
+        ident=c['source_component_id']
+        if ident in sources:continue
+        if ident not in manual:
+            findings.append({'kind':'unknown_component_source','source':ident});continue
+        matches=[v for v in board if v['type']=='pcb_via' and v.get('source_net_id')==manual[ident].get('source_net_id') and abs(v['x']-c['center']['x'])+abs(v['y']-c['center']['y'])<1e-6]
+        if manual[ident].get('source_net_id') not in {e['source_net_id'] for e in board if e['type']=='source_net'} or len(matches)!=1 or set(matches[0].get('layers',[]))!={'top','inner1','inner2','bottom'} or {matches[0].get('from_layer'),matches[0].get('to_layer')}!={'top','bottom'} or any(abs(c.get(k,0)-matches[0]['outer_diameter'])>1e-6 for k in ['width','height']) or matches[0]['outer_diameter']<.45 or matches[0]['hole_diameter']<.3:
+            findings.append({'kind':'manual_via_geometry','source':ident})
     boards=[e for e in board if e['type']=='pcb_board']
     if len(boards)!=1 or any(boards[0].get(k)!=v for k,v in contract['board'].items()):findings.append({'kind':'board_contract'})
     for name,pose in contract['usb'].items():
@@ -35,7 +46,7 @@ def screen(board, contract):
     checked=set()
     for item in board:
         if item['type']!='pcb_courtyard_outline' or item.get('layer')!='top':continue
-        c=components[item['pcb_component_id']];name=sources[c['source_component_id']];checked.add(name)
+        c=components[item['pcb_component_id']];name=owners[c['source_component_id']];checked.add(name)
         xs=[p['x'] for p in item['outline']];ys=[p['y'] for p in item['outline']]
         for h in contract['holes']:
             d=math.hypot(max(min(xs)-h['x'],0,h['x']-max(xs)),max(min(ys)-h['y'],0,h['y']-max(ys)))
@@ -44,7 +55,7 @@ def screen(board, contract):
     for name,c in by_name.items():
         if c['layer']=='top' and name not in checked:findings.append({'kind':'missing_courtyard','part':name})
     native=[{'type':e['type'],'message':e.get('message')} for e in board if e['type'].endswith('_error')]
-    return {'screen_pass':not findings and not native,'checked_top_courtyards':len(checked),'native_errors':native,'findings':findings,'pcb_traces':sum(e['type']=='pcb_trace' for e in board),'pcb_vias':sum(e['type']=='pcb_via' for e in board),'mated_plug_and_sweep_verified':False,'power_and_kelvin_routing_verified':False,'manufacturing_qualified':False}
+    return {'screen_pass':not findings and not native,'checked_top_courtyards':len(checked),'pcb_only_manual_vias':len(manual),'native_errors':native,'findings':findings,'pcb_traces':sum(e['type']=='pcb_trace' for e in board),'pcb_vias':sum(e['type']=='pcb_via' for e in board),'mated_plug_and_sweep_verified':False,'power_and_kelvin_routing_verified':False,'manufacturing_qualified':False}
 
 def main():
     p=argparse.ArgumentParser(description=__doc__);p.add_argument('circuit_json');p.add_argument('--report');args=p.parse_args()
