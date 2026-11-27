@@ -1,0 +1,200 @@
+{
+  "API_CLI_source_physical_geometry_and_actual_lengths_exact": true,
+  "source_generation_CLI_exit": 0,
+  "source_generation_is_not_routing_DRC": true,
+  "explicit_pinned_routing_check_by_type": {
+    "pcb_port_not_connected_error": 301,
+    "pcb_trace_too_long_error": 1,
+    "pcb_trace_style_warning": 4
+  },
+  "API_pinned_routing_check_by_type": {
+    "pcb_port_not_connected_error": 299,
+    "pcb_trace_too_long_error": 1,
+    "pcb_trace_style_warning": 4
+  },
+  "extra_CLI_port_diagnostics": [
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT1A] is not connected to net [A_DRV_PLUS] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_226"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_45"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_176"
+    },
+    {
+      "type": "pcb_port_not_connected_error",
+      "message": "Port [U_DRV.OUT2A] is not connected to net [B_DRV_PLUS] by a PCB trace.",
+      "error_type": "pcb_port_not_connected_error",
+      "pcb_port_ids": [
+        "pcb_port_228"
+      ],
+      "pcb_component_ids": [
+        "pcb_component_45"
+      ],
+      "pcb_port_not_connected_error_id": "pcb_port_not_connected_error_trace_source_trace_178"
+    }
+  ],
+  "missing_nonphysical_CLI_endpoint_annotations": [
+    {
+      "trace": "pcb_trace_1",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_378"
+    },
+    {
+      "trace": "pcb_trace_1",
+      "node": 6,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_382"
+    },
+    {
+      "trace": "pcb_trace_2",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_379"
+    },
+    {
+      "trace": "pcb_trace_2",
+      "node": 1,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_226"
+    },
+    {
+      "trace": "pcb_trace_6",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_264"
+    },
+    {
+      "trace": "pcb_trace_6",
+      "node": 4,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_391"
+    },
+    {
+      "trace": "pcb_trace_7",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_392"
+    },
+    {
+      "trace": "pcb_trace_7",
+      "node": 3,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_396"
+    },
+    {
+      "trace": "pcb_trace_8",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_395"
+    },
+    {
+      "trace": "pcb_trace_8",
+      "node": 2,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_228"
+    },
+    {
+      "trace": "pcb_trace_10",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_402"
+    },
+    {
+      "trace": "pcb_trace_10",
+      "node": 3,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_406"
+    },
+    {
+      "trace": "pcb_trace_24",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_435"
+    },
+    {
+      "trace": "pcb_trace_24",
+      "node": 1,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_231"
+    },
+    {
+      "trace": "pcb_trace_25",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_247"
+    },
+    {
+      "trace": "pcb_trace_25",
+      "node": 1,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_439"
+    },
+    {
+      "trace": "pcb_trace_26",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_441"
+    },
+    {
+      "trace": "pcb_trace_26",
+      "node": 2,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_445"
+    },
+    {
+      "trace": "pcb_trace_27",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_443"
+    },
+    {
+      "trace": "pcb_trace_27",
+      "node": 1,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_231"
+    },
+    {
+      "trace": "pcb_trace_28",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_244"
+    },
+    {
+      "trace": "pcb_trace_28",
+      "node": 3,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_225"
+    },
+    {
+      "trace": "pcb_trace_43",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_210"
+    },
+    {
+      "trace": "pcb_trace_43",
+      "node": 2,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_236"
+    },
+    {
+      "trace": "pcb_trace_44",
+      "node": 0,
+      "missing_CLI_annotation": "start_pcb_port_id",
+      "API_value": "pcb_port_237"
+    },
+    {
+      "trace": "pcb_trace_44",
+      "node": 5,
+      "missing_CLI_annotation": "end_pcb_port_id",
+      "API_value": "pcb_port_231"
+    }
+  ],
+  "normal_config_restored": true
+}
