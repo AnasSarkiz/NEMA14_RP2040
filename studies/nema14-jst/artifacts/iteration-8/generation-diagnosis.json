@@ -1,0 +1,55 @@
+{
+  "normal_cli_routing_enabled_exit": 137,
+  "normal_cli_router_adapter_entered": false,
+  "normal_cli_router_input_written": false,
+  "normal_routing_disabled_control": {
+    "exit_code": 124,
+    "elapsed_s": 45.04160442599823,
+    "command": [
+      "tsci",
+      "build",
+      "experiments/reconnect/native-entry.tsx",
+      "--disable-parts-engine",
+      "--inject-props",
+      "{\"process\": \"small-hole-screen\", \"net\": \"VREG\", \"out\": \"artifacts/iteration-8/native-normal-generation\"}",
+      "--routing-disabled"
+    ],
+    "schematic_drawing_disabled_only": false,
+    "PCB_DRC_enabled": true,
+    "normal_config_restored": true,
+    "normal_config_sha256": "0c62406334eb63544825a946c9371c91b59e5e9069e3010be179735d1e9b55c0",
+    "diagnostic_config_text": "export default { platformConfig: { partsEngineDisabled: true, schematicDisabled: true } }\n"
+  },
+  "schematic_disabled_routing_disabled_control": {
+    "exit_code": 0,
+    "elapsed_s": 8.947335059994657,
+    "command": [
+      "tsci",
+      "build",
+      "experiments/reconnect/native-entry.tsx",
+      "--disable-parts-engine",
+      "--inject-props",
+      "{\"process\": \"small-hole-screen\", \"net\": \"VREG\", \"out\": \"artifacts/iteration-8/native-generation\"}",
+      "--routing-disabled"
+    ],
+    "schematic_drawing_disabled_only": true,
+    "PCB_DRC_enabled": true,
+    "normal_config_restored": true,
+    "normal_config_sha256": "0c62406334eb63544825a946c9371c91b59e5e9069e3010be179735d1e9b55c0",
+    "diagnostic_config_text": "export default { platformConfig: { partsEngineDisabled: true, schematicDisabled: true } }\n"
+  },
+  "controlled_cli_matches_native_API_exactly": [
+    "source_port",
+    "source_net",
+    "pcb_trace",
+    "pcb_via",
+    "pcb_smtpad",
+    "pcb_plated_hole",
+    "pcb_board",
+    "pcb_keepout",
+    "pcb_hole"
+  ],
+  "local_assets_and_versions_unchanged": true,
+  "result": "The normal schematic-generation path stalls even with routing disabled. Schematic-drawing-disabled generation completes with identical PCB geometry. Exit 137 does not by itself prove OOM.",
+  "normal_config_restored": true
+}

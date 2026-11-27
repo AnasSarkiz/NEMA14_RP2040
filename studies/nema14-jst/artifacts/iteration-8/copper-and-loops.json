@@ -1,0 +1,253 @@
+{
+  "input_sha256": "ac8de31ce73a451f26ca9a6077d945edd87e399b39e0424a47905ba7a71782ac",
+  "prior_unchanged_trace_records": 32,
+  "prior_unchanged_via_records": 20,
+  "intentional_prior_path_reroutes": [
+    "AUTHORED_CP1_CORRIDOR"
+  ],
+  "traces": 43,
+  "vias": 22,
+  "new_vias": [
+    {
+      "name": "V_BUZ_SUPPLY_SOURCE",
+      "x": 0.58,
+      "y": -12.0,
+      "net": "V3V3",
+      "hole_mm": 0.3,
+      "pad_mm": 0.55
+    },
+    {
+      "name": "V_BUZ_SUPPLY_TARGET",
+      "x": -8.349815,
+      "y": -9.6,
+      "net": "V3V3",
+      "hole_mm": 0.3,
+      "pad_mm": 0.55
+    }
+  ],
+  "actual_native_paths": [
+    {
+      "name": "AUTHORED_CP1_CORRIDOR",
+      "native_trace_id": "pcb_trace_32",
+      "layer": "top",
+      "width_mm": 0.16,
+      "wire_length_mm": 2.2962236858970453,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net50",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.15231170164793767
+    },
+    {
+      "name": "AUTHORED_CP2_CORRIDOR",
+      "native_trace_id": "pcb_trace_33",
+      "layer": "top",
+      "width_mm": 0.16,
+      "wire_length_mm": 3.298707623071504,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net51",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.15258340843978446
+    },
+    {
+      "name": "BUZ_SWITCH_SUPPLY__0",
+      "native_trace_id": "pcb_trace_34",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 1.1199759999999999,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net12",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.3051619999999999
+    },
+    {
+      "name": "BUZ_SWITCH_SUPPLY__1",
+      "native_trace_id": "pcb_trace_35",
+      "layer": "inner2",
+      "width_mm": 0.45,
+      "wire_length_mm": 9.246707302290096,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net12",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 1.1275505062766666
+    },
+    {
+      "name": "BUZ_SWITCH_SUPPLY__2",
+      "native_trace_id": "pcb_trace_36",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 1.739942000000001,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net12",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 1.6051661098140155
+    },
+    {
+      "name": "BUZ_FLYBACK_SINK",
+      "native_trace_id": "pcb_trace_37",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 2.6876630924558165,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net68",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.7276594533397556
+    },
+    {
+      "name": "BUZ_FLYBACK_SUPPLY",
+      "native_trace_id": "pcb_trace_38",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 10.636967546635704,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net12",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 1.1226085517132145
+    },
+    {
+      "name": "BUZ_SWITCH_RETURN",
+      "native_trace_id": "pcb_trace_39",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 3.866143396405766,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net0",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.25190237001240556
+    },
+    {
+      "name": "BUZ_SWITCH_DRAIN",
+      "native_trace_id": "pcb_trace_40",
+      "layer": "top",
+      "width_mm": 0.45,
+      "wire_length_mm": 16.58304060667621,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net68",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.250218070530628
+    },
+    {
+      "name": "BUZ_GATE_SERIES",
+      "native_trace_id": "pcb_trace_41",
+      "layer": "top",
+      "width_mm": 0.16,
+      "wire_length_mm": 6.406548508365671,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net69",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.255887614607329
+    },
+    {
+      "name": "BUZ_GATE_PULLDOWN",
+      "native_trace_id": "pcb_trace_42",
+      "layer": "top",
+      "width_mm": 0.16,
+      "wire_length_mm": 6.660404060144372,
+      "net_key": "unnamedsubcircuitsubcircuit_source_group_0_connectivity_net69",
+      "native_endpoints_and_world_points_match": true,
+      "minimum_offline_foreign_copper_gap_mm": 0.25515124530977323
+    }
+  ],
+  "loop_branches": [
+    {
+      "branch": "flyback_sink",
+      "baseline_terminal_refs": [
+        "BZ1._NEG",
+        "D_BUZZER.anode"
+      ],
+      "baseline_physical_pad_edge_lower_bound_mm": 27.391789444756334,
+      "baseline_center_euclidean_lower_bound_mm": 29.63608966304315,
+      "baseline_actual_copper_available": false,
+      "candidate_native_fragments": [
+        "BUZ_FLYBACK_SINK"
+      ],
+      "candidate_actual_wire_mm": 2.6876630924558165,
+      "candidate_conducted_barrel_mm": 0,
+      "candidate_wire_plus_barrel_mm": 2.6876630924558165
+    },
+    {
+      "branch": "flyback_supply",
+      "baseline_terminal_refs": [
+        "D_BUZZER.cathode",
+        "BZ1._POS"
+      ],
+      "baseline_physical_pad_edge_lower_bound_mm": 28.873237788716175,
+      "baseline_center_euclidean_lower_bound_mm": 31.215884189238228,
+      "baseline_actual_copper_available": false,
+      "candidate_native_fragments": [
+        "BUZ_FLYBACK_SUPPLY"
+      ],
+      "candidate_actual_wire_mm": 10.636967546635704,
+      "candidate_conducted_barrel_mm": 0,
+      "candidate_wire_plus_barrel_mm": 10.636967546635704
+    },
+    {
+      "branch": "switch_supply",
+      "baseline_terminal_refs": [
+        "C_BUZZER.pin1",
+        "BZ1._POS"
+      ],
+      "baseline_physical_pad_edge_lower_bound_mm": 7.67676717349904,
+      "baseline_center_euclidean_lower_bound_mm": 9.878440113750196,
+      "baseline_actual_copper_available": false,
+      "candidate_native_fragments": [
+        "BUZ_SWITCH_SUPPLY__0",
+        "BUZ_SWITCH_SUPPLY__1",
+        "BUZ_SWITCH_SUPPLY__2"
+      ],
+      "candidate_actual_wire_mm": 12.106625302290096,
+      "candidate_conducted_barrel_mm": 2.8434,
+      "candidate_wire_plus_barrel_mm": 14.950025302290097
+    },
+    {
+      "branch": "switch_drain",
+      "baseline_terminal_refs": [
+        "BZ1._NEG",
+        "Q_BUZZER.pin3"
+      ],
+      "baseline_physical_pad_edge_lower_bound_mm": 5.800165,
+      "baseline_center_euclidean_lower_bound_mm": 7.640979937045575,
+      "baseline_actual_copper_available": false,
+      "candidate_native_fragments": [
+        "BUZ_SWITCH_DRAIN"
+      ],
+      "candidate_actual_wire_mm": 16.58304060667621,
+      "candidate_conducted_barrel_mm": 0,
+      "candidate_wire_plus_barrel_mm": 16.58304060667621
+    },
+    {
+      "branch": "switch_return",
+      "baseline_terminal_refs": [
+        "Q_BUZZER.pin2",
+        "C_BUZZER.pin2"
+      ],
+      "baseline_physical_pad_edge_lower_bound_mm": 24.451437862214714,
+      "baseline_center_euclidean_lower_bound_mm": 25.471396137709057,
+      "baseline_actual_copper_available": false,
+      "candidate_native_fragments": [
+        "BUZ_SWITCH_RETURN"
+      ],
+      "candidate_actual_wire_mm": 3.866143396405766,
+      "candidate_conducted_barrel_mm": 0,
+      "candidate_wire_plus_barrel_mm": 3.866143396405766
+    }
+  ],
+  "loop_comparison": {
+    "flyback": {
+      "baseline_sum_physical_edge_lower_bound_mm": 56.26502723347251,
+      "candidate_external_copper_wire_plus_barrel_mm": 13.32463063909152,
+      "candidate_shorter_than_optimistic_baseline": true,
+      "minimum_reduction_mm": 42.940396594380985,
+      "package_internal_paths_not_measured": true
+    },
+    "switch": {
+      "baseline_sum_physical_edge_lower_bound_mm": 37.928370035713755,
+      "candidate_external_copper_wire_plus_barrel_mm": 35.399209305372075,
+      "candidate_shorter_than_optimistic_baseline": true,
+      "minimum_reduction_mm": 2.5291607303416797,
+      "package_internal_paths_not_measured": true
+    }
+  },
+  "top_to_inner2_conducted_depth_mm": 1.4217,
+  "stack_tolerances_confirmed": false,
+  "independent": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 60
+  },
+  "manufacturing_qualified": false,
+  "full_controller_promoted": false
+}

@@ -1,0 +1,520 @@
+[
+  {
+    "name": "AUTHORED_CP1_CORRIDOR",
+    "from": ".U_DRV > .CP1",
+    "to": ".C_CP > .pin1",
+    "width_mm": 0.16,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        10.099995,
+        7.449873
+      ],
+      [
+        10.639994999999999,
+        7.629873
+      ],
+      [
+        10.969994999999999,
+        7.959873
+      ],
+      [
+        11.069995,
+        7.999873
+      ],
+      [
+        11.449995,
+        8.099873
+      ],
+      [
+        11.329884,
+        8.85
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.17987299999999992,
+        "y": -3.0399949999999993
+      },
+      {
+        "x": 0.509873,
+        "y": -3.3699949999999994
+      },
+      {
+        "x": 0.5498730000000001,
+        "y": -3.469995000000001
+      },
+      {
+        "x": 0.6498730000000006,
+        "y": -3.849995
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.15231170164793767,
+    "search_margin_mm": 0.152,
+    "wire_length_mm": 2.2962236858970453,
+    "actual_native_port_pair": [
+      "pcb_port_206",
+      "pcb_port_232"
+    ],
+    "mandatory_world_waypoints_mm": [
+      [
+        11.45,
+        8.1
+      ]
+    ],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "AUTHORED_CP2_CORRIDOR",
+    "from": ".U_DRV > .CP2",
+    "to": ".C_CP > .pin2",
+    "width_mm": 0.16,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        10.099995,
+        7.950253
+      ],
+      [
+        10.609995,
+        8.120253
+      ],
+      [
+        10.839995,
+        8.360253
+      ],
+      [
+        10.839995,
+        9.150253
+      ],
+      [
+        10.879995,
+        9.250253
+      ],
+      [
+        10.949995,
+        9.320253000000001
+      ],
+      [
+        11.059995,
+        9.360253
+      ],
+      [
+        11.599995,
+        9.360253
+      ],
+      [
+        11.709995,
+        9.320253000000001
+      ],
+      [
+        12.170116,
+        8.85
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.670253,
+        "y": -3.009995
+      },
+      {
+        "x": 0.9102530000000002,
+        "y": -3.2399950000000004
+      },
+      {
+        "x": 1.7002529999999993,
+        "y": -3.2399950000000004
+      },
+      {
+        "x": 1.8002530000000008,
+        "y": -3.2799949999999995
+      },
+      {
+        "x": 1.870253000000001,
+        "y": -3.349995
+      },
+      {
+        "x": 1.9102530000000002,
+        "y": -3.459995000000001
+      },
+      {
+        "x": 1.9102530000000002,
+        "y": -3.999995
+      },
+      {
+        "x": 1.870253000000001,
+        "y": -4.109995
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.15258340843978446,
+    "search_margin_mm": 0.152,
+    "wire_length_mm": 3.298707623071504,
+    "actual_native_port_pair": [
+      "pcb_port_207",
+      "pcb_port_233"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_SWITCH_SUPPLY__0",
+    "from": ".C_BUZZER > .pin1",
+    "to": ".V_BUZ_SUPPLY_SOURCE > .top",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        1.699976,
+        -12
+      ],
+      [
+        0.58,
+        -12
+      ]
+    ],
+    "local_points": [
+      ".C_BUZZER > .pin1"
+    ],
+    "minimum_other_copper_gap_mm": 0.3051619999999999,
+    "search_margin_mm": 0.15,
+    "wire_length_mm": 1.1199759999999999,
+    "actual_native_port_pair": [
+      "pcb_port_352",
+      "pcb_port_455"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_SWITCH_SUPPLY__1",
+    "from": ".V_BUZ_SUPPLY_SOURCE > .inner2",
+    "to": ".V_BUZ_SUPPLY_TARGET > .inner2",
+    "width_mm": 0.45,
+    "layer": "inner2",
+    "world_points_mm": [
+      [
+        0.58,
+        -12
+      ],
+      [
+        -8.349815,
+        -9.6
+      ]
+    ],
+    "local_points": [
+      ".V_BUZ_SUPPLY_SOURCE > .inner2"
+    ],
+    "minimum_other_copper_gap_mm": 1.1275505062766666,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 9.246707302290096,
+    "actual_native_port_pair": [
+      "pcb_port_458",
+      "pcb_port_462"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_SWITCH_SUPPLY__2",
+    "from": ".V_BUZ_SUPPLY_TARGET > .top",
+    "to": ".BZ1 > ._POS",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        -8.349815,
+        -9.6
+      ],
+      [
+        -8.349815,
+        -11.339942
+      ]
+    ],
+    "local_points": [
+      ".V_BUZ_SUPPLY_TARGET > .top"
+    ],
+    "minimum_other_copper_gap_mm": 1.6051661098140155,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 1.739942000000001,
+    "actual_native_port_pair": [
+      "pcb_port_459",
+      "pcb_port_339"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_FLYBACK_SINK",
+    "from": ".BZ1 > ._NEG",
+    "to": ".D_BUZZER > .anode",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        -1.150185,
+        -11.339942
+      ],
+      [
+        1.3649095999999998,
+        -10.392401999999999
+      ]
+    ],
+    "local_points": [
+      ".BZ1 > ._NEG"
+    ],
+    "minimum_other_copper_gap_mm": 0.7276594533397556,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 2.6876630924558165,
+    "actual_native_port_pair": [
+      "pcb_port_340",
+      "pcb_port_347"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_FLYBACK_SUPPLY",
+    "from": ".D_BUZZER > .cathode",
+    "to": ".BZ1 > ._POS",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        1.3649096000000003,
+        -7.007598
+      ],
+      [
+        -8.349815,
+        -11.339942
+      ]
+    ],
+    "local_points": [
+      ".D_BUZZER > .cathode"
+    ],
+    "minimum_other_copper_gap_mm": 1.1226085517132145,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 10.636967546635704,
+    "actual_native_port_pair": [
+      "pcb_port_346",
+      "pcb_port_339"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_SWITCH_RETURN",
+    "from": ".Q_BUZZER > .pin2",
+    "to": ".C_BUZZER > .pin2",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        6.85004,
+        -11.830002
+      ],
+      [
+        5.50004,
+        -11.580002
+      ],
+      [
+        4.00004,
+        -11.580002
+      ],
+      [
+        3.100024,
+        -12
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 1.2499979999999995,
+        "y": 2.2999599999999996
+      },
+      {
+        "x": 1.2499979999999995,
+        "y": 3.7999599999999996
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.25190237001240556,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 3.866143396405766,
+    "actual_native_port_pair": [
+      "pcb_port_345",
+      "pcb_port_353"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_SWITCH_DRAIN",
+    "from": ".BZ1 > ._NEG",
+    "to": ".Q_BUZZER > .pin3",
+    "width_mm": 0.45,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        -1.150185,
+        -11.339942
+      ],
+      [
+        0.4498150000000001,
+        -9.539942
+      ],
+      [
+        5.249815,
+        -6.839942000000001
+      ],
+      [
+        6.749815,
+        -6.839942000000001
+      ],
+      [
+        6.999815,
+        -7.039942000000001
+      ],
+      [
+        7.0998149999999995,
+        -7.439942
+      ],
+      [
+        7.699814999999999,
+        -11.639942000000001
+      ],
+      [
+        7.8,
+        -13.829998
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 5.199815,
+        "y": -1.7999419999999997
+      },
+      {
+        "x": 9.999815,
+        "y": 0.9000579999999996
+      },
+      {
+        "x": 11.499815,
+        "y": 0.9000579999999996
+      },
+      {
+        "x": 11.749815,
+        "y": 0.7000579999999994
+      },
+      {
+        "x": 11.849815,
+        "y": 0.30005799999999994
+      },
+      {
+        "x": 12.449815,
+        "y": -3.899942000000001
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.250218070530628,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 16.58304060667621,
+    "actual_native_port_pair": [
+      "pcb_port_340",
+      "pcb_port_343"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_GATE_SERIES",
+    "from": ".R_BUZZER_GATE > .pin2",
+    "to": ".Q_BUZZER > .pin1",
+    "width_mm": 0.16,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        4.95,
+        -13.767183999999999
+      ],
+      [
+        7.4,
+        -14.667183999999999
+      ],
+      [
+        8.25,
+        -14.667183999999999
+      ],
+      [
+        8.4,
+        -14.567184
+      ],
+      [
+        8.5,
+        -14.267183999999999
+      ],
+      [
+        8.74996,
+        -11.830002
+      ]
+    ],
+    "local_points": [
+      {
+        "x": -0.46718399999999943,
+        "y": -2.45
+      },
+      {
+        "x": -0.4671839999999994,
+        "y": -3.3
+      },
+      {
+        "x": -0.36718399999999973,
+        "y": -3.45
+      },
+      {
+        "x": -0.06718399999999902,
+        "y": -3.55
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.255887614607329,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 6.406548508365671,
+    "actual_native_port_pair": [
+      "pcb_port_349",
+      "pcb_port_344"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  },
+  {
+    "name": "BUZ_GATE_PULLDOWN",
+    "from": ".R_BUZZER_PD > .pin1",
+    "to": ".Q_BUZZER > .pin1",
+    "width_mm": 0.16,
+    "layer": "top",
+    "world_points_mm": [
+      [
+        10.3,
+        -5.567184
+      ],
+      [
+        9.700000000000001,
+        -5.9671840000000005
+      ],
+      [
+        8.74996,
+        -11.830002
+      ]
+    ],
+    "local_points": [
+      {
+        "x": -0.0328159999999994,
+        "y": -0.5999999999999996
+      }
+    ],
+    "minimum_other_copper_gap_mm": 0.25515124530977323,
+    "search_margin_mm": 0.25,
+    "wire_length_mm": 6.660404060144372,
+    "actual_native_port_pair": [
+      "pcb_port_350",
+      "pcb_port_344"
+    ],
+    "mandatory_world_waypoints_mm": [],
+    "native_autorouter_run": false
+  }
+]

@@ -1,0 +1,110 @@
+{
+  "saved_head": "6b6aa3455ac8c4abb957ed4559d6f5a9017cb6a8",
+  "EP_pad_record": {
+    "type": "pcb_smtpad",
+    "pcb_smtpad_id": "pcb_smtpad_195",
+    "pcb_component_id": "pcb_component_45",
+    "pcb_port_id": "pcb_port_231",
+    "layer": "top",
+    "shape": "rect",
+    "width": 3.1999936,
+    "height": 3.1999936,
+    "port_hints": [
+      "pin29"
+    ],
+    "is_covered_with_solder_mask": false,
+    "x": 7.600127,
+    "y": 7.449873,
+    "subcircuit_id": "subcircuit_source_group_0"
+  },
+  "EP_polygon_world_mm": [
+    [
+      9.2001238,
+      5.849876200000001
+    ],
+    [
+      9.2001238,
+      9.0498698
+    ],
+    [
+      6.000130199999999,
+      9.0498698
+    ],
+    [
+      6.000130199999999,
+      5.849876200000001
+    ],
+    [
+      9.2001238,
+      5.849876200000001
+    ]
+  ],
+  "two_exact_EP_pairs": [
+    {
+      "pcb_trace_id": "source_net_21_0",
+      "source_trace_id": "source_trace_186",
+      "segment_index": 3,
+      "foreign_pad_id": "pcb_smtpad_195",
+      "foreign_pad": "U_DRV.EP",
+      "layer": "top",
+      "wire_width_mm": 0.16,
+      "segment_centres_mm": [
+        [
+          9.438860768013217,
+          8.037054021384705
+        ],
+        [
+          9.401017922345167,
+          8.660409711103618
+        ]
+      ],
+      "measured_gap_mm": 0.12089414339202519,
+      "nearest_EP_and_wire_points_mm": [
+        [
+          9.2001238,
+          8.660467741240804
+        ],
+        [
+          9.321017943392025,
+          8.660467741240804
+        ]
+      ],
+      "required_mm": 0.15
+    },
+    {
+      "pcb_trace_id": "source_net_21_0",
+      "source_trace_id": "source_trace_186",
+      "segment_index": 4,
+      "foreign_pad_id": "pcb_smtpad_195",
+      "foreign_pad": "U_DRV.EP",
+      "layer": "top",
+      "wire_width_mm": 0.16,
+      "segment_centres_mm": [
+        [
+          9.401017922345167,
+          8.660409711103618
+        ],
+        [
+          9.398782443065379,
+          9.218424188829143
+        ]
+      ],
+      "measured_gap_mm": 0.11933229453829415,
+      "nearest_EP_and_wire_points_mm": [
+        [
+          9.2001238,
+          9.0498698
+        ],
+        [
+          9.31945513696256,
+          9.050347857007225
+        ]
+      ],
+      "required_mm": 0.15
+    }
+  ],
+  "actual_physical_screw_circle_clearance_mm": 0.31713501291124296,
+  "native_axis_bounds_clearance_mm": 0.08999800000000137,
+  "keepout_first_cause": "Native keepout uses axis-aligned bounds; no physical circle incursion. Its 0.15mm gate stays in force.",
+  "correction": "Route outside actual EP clearance and the unchanged native keepout bounds; no checker or threshold change."
+}

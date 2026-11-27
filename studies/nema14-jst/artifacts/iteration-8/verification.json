@@ -1,0 +1,187 @@
+{
+  "baseline_head": "6b6aa3455ac8c4abb957ed4559d6f5a9017cb6a8",
+  "accepted_source_sha256_unchanged": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "accepted_production_locality": {
+    "pass": 25,
+    "total": 59,
+    "fails": 34,
+    "gate_unchanged": true
+  },
+  "candidate_locality_before_after": {
+    "previous_pass": 43,
+    "candidate_pass": 43,
+    "total": 59,
+    "regressed_previous_passes": []
+  },
+  "prior_baseline_unchanged": true,
+  "selected_comparison_promoted": false,
+  "intentional_changes": {
+    "local_part_poses": 13,
+    "prior_CP1_rerouted": true,
+    "other_prior_traces_exactly_unchanged": 32,
+    "prior_vias_exactly_unchanged": 20,
+    "new_authored_trace_count": 43,
+    "new_via_count": 22,
+    "added_vias": [
+      {
+        "name": "V_BUZ_SUPPLY_SOURCE",
+        "x": 0.58,
+        "y": -12.0,
+        "net": "V3V3",
+        "hole_mm": 0.3,
+        "pad_mm": 0.55
+      },
+      {
+        "name": "V_BUZ_SUPPLY_TARGET",
+        "x": -8.349815,
+        "y": -9.6,
+        "net": "V3V3",
+        "hole_mm": 0.3,
+        "pad_mm": 0.55
+      }
+    ]
+  },
+  "CP_corridors": [
+    {
+      "path": "AUTHORED_CP1_CORRIDOR",
+      "actual_EP_gap_mm": 0.8198714878429172,
+      "native_square_gap_mm": 0.8700000231571217,
+      "actual_screw_circle_gap_mm": 1.19348000753436,
+      "actual_width_mm": 0.16,
+      "maximum_centerline_y_mm": 8.85
+    },
+    {
+      "path": "AUTHORED_CP2_CORRIDOR",
+      "actual_EP_gap_mm": 0.8198714878429172,
+      "native_square_gap_mm": 0.3597470000000005,
+      "actual_screw_circle_gap_mm": 0.6190948802235591,
+      "actual_width_mm": 0.16,
+      "maximum_centerline_y_mm": 9.360253
+    }
+  ],
+  "actual_ground_returns": [
+    {
+      "phase": "A",
+      "actual_wire_mm": 4.60875369020354,
+      "annulus_end_to_axis_access_mm": 0,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.89175369020354,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.92875369020354,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    },
+    {
+      "phase": "B",
+      "actual_wire_mm": 4.0819261878445925,
+      "annulus_end_to_axis_access_mm": 0.2,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.564926187844593,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.601926187844593,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    }
+  ],
+  "four_actual_shunt_pad_cut_checks_pass": true,
+  "full_nominal_placement_pass": true,
+  "authored_independent": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 60
+  },
+  "native_single_net_result": {
+    "net": "VREG",
+    "solver_s": 9.038425166000001,
+    "CLI_exit": 1,
+    "schematic_drawing_disabled_only": true,
+    "normal_config_restored": true,
+    "after_traces": 44,
+    "after_vias": 22,
+    "all_43_trace_22_via_records_byte_equivalent": true,
+    "fixed_record_sha256": "8307c1270e5b581ab21ac60716f2020cddfbd852fc2c58511892846d0eb8c410",
+    "new_actual_wire_length_mm": 2.60585631220988,
+    "new_actual_width_mm": 0.16,
+    "independent": {
+      "shorts": 0,
+      "clearance_violations": 0,
+      "drill_spacing_violations": 0,
+      "hole_trace_violations": 0,
+      "board_edge_violations": 0,
+      "screw_keepout_violations": 0,
+      "disconnected_nets": 59
+    },
+    "native_routing_checks": {
+      "pcb_port_not_connected_error": 300,
+      "pcb_trace_style_warning": 4
+    },
+    "selected_native_geometry_and_thickness_checks_all_zero": true,
+    "only_newly_closed_net": "VREG",
+    "full_controller_routed": false
+  },
+  "buzzer_external_copper": {
+    "flyback": {
+      "baseline_sum_physical_edge_lower_bound_mm": 56.26502723347251,
+      "candidate_external_copper_wire_plus_barrel_mm": 13.32463063909152,
+      "candidate_shorter_than_optimistic_baseline": true,
+      "minimum_reduction_mm": 42.940396594380985,
+      "package_internal_paths_not_measured": true
+    },
+    "switch": {
+      "baseline_sum_physical_edge_lower_bound_mm": 37.928370035713755,
+      "candidate_external_copper_wire_plus_barrel_mm": 35.399209305372075,
+      "candidate_shorter_than_optimistic_baseline": true,
+      "minimum_reduction_mm": 2.5291607303416797,
+      "package_internal_paths_not_measured": true
+    }
+  },
+  "manufacturing": {
+    "screen_process_not_approved": true,
+    "conditional_22_via_tolerance_summary": {
+      "vias": 22,
+      "negative_position_only_SMT_margins": 0,
+      "negative_assumption_adjusted_SMT_margins": 0,
+      "negative_assumption_adjusted_annular_margins": 0,
+      "assumption_adjusted_inner_via_rule_failures": 0,
+      "minimum_assumption_adjusted_SMT_margin_mm": 0.009936050000000515,
+      "minimum_assumption_adjusted_annular_margin_mm": 0.009999999999999995,
+      "width_plus_20_percent_shorts": 0,
+      "width_plus_20_percent_spacing_findings": 24
+    },
+    "width_stress_previous": 11,
+    "width_stress_selected_comparison": 24,
+    "width_stress_after_native_step": 24,
+    "new_stress_findings_all_charge_pump": 13,
+    "supplier_acceptance_verified": false,
+    "fabrication_ready": false
+  },
+  "mechanical": {
+    "nominal_supplier_body_screw_gap_mm": 0.2999999999999998,
+    "nominal_supplier_body_plug_service_gap_mm": 0.9416632098526982,
+    "minimum_courtyard_screw_gap_mm": 0.00704716639294789,
+    "fit_or_handling_verified": false
+  },
+  "remaining_gates": [
+    "Charge-pump width-stress margin; 11 inherited and 13 new spacing findings",
+    "Original via process fails; smaller-hole screening option unapproved",
+    "16 candidate locality failures; unchanged 34 production failures",
+    "59 full-board open nets including pulldown ground and supply/USB return networks",
+    "Four native odd-angle style warnings; no thickness findings",
+    "Normal schematic-generation path stalls; controlled CLI diagnostic is not normal-build success",
+    "Finished stack/process tolerance and supplier acceptance",
+    "USB return/reference, thermal/current capacity, CAM, real fit and handling"
+  ],
+  "merge_or_order": false
+}
