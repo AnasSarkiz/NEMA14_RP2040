@@ -1,0 +1,65 @@
+{
+  "checkPadPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkPadTraceClearance": {
+    "count": 1,
+    "findings": [
+      {
+        "type": "pcb_pad_trace_clearance_error",
+        "pcb_pad_trace_clearance_error_id": "pad_trace_clearance_pcb_smtpad_176_source_net_20_0",
+        "error_type": "pcb_pad_trace_clearance_error",
+        "message": "Pad U_DRV.CP2 and trace .U_DRV > .CP1 to net.CP1 are too close (clearance: 0.115mm, minimum: 0.15mm)",
+        "pcb_pad_id": "pcb_smtpad_176",
+        "pcb_trace_id": "source_net_20_0",
+        "minimum_clearance": 0.15,
+        "actual_clearance": 0.11530538104559099,
+        "center": {
+          "x": 10.50021033221102,
+          "y": 7.774387571599343
+        }
+      }
+    ]
+  },
+  "checkEachPcbTraceNonOverlapping": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViaPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViaTraceClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViasInPads": {
+    "count": 0,
+    "findings": []
+  },
+  "checkTracesAreContiguous": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSourceTracesMatchPcbTraceThickness": {
+    "count": 0,
+    "findings": []
+  },
+  "checkPcbCopperOverKeepout": {
+    "count": 0,
+    "findings": []
+  },
+  "checkCopperToBoardEdgeClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSameNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  },
+  "checkDifferentNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  }
+}

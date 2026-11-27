@@ -1,0 +1,324 @@
+{
+  "input_sha256": "62673021fb7ec25e903ce3ae9dc6b06325e31d96f03481501285c9bce52ba0e6",
+  "scope": "Independent Circuit JSON polygonal copper; not CAM, impedance, thermal or hardware validation",
+  "round_curve_quad_segments": 128,
+  "numerical_comparison_tolerance_mm": 1e-06,
+  "pcb_traces": 32,
+  "pcb_vias": 20,
+  "copper_primitives": 222,
+  "layers_checked": [
+    "top",
+    "inner1",
+    "inner2",
+    "bottom"
+  ],
+  "shorts": [],
+  "clearance_violations": [],
+  "drill_spacing_violations": [],
+  "hole_trace_violations": [],
+  "board_edge_violations": [],
+  "screw_keepout_violations": [],
+  "disconnected_nets": [
+    {
+      "net": "GND",
+      "islands": [
+        [
+          "J_PD.EH1"
+        ],
+        [
+          "J_PD.EH2"
+        ],
+        [
+          "J_PD.EH3"
+        ],
+        [
+          "J_PD.EH4"
+        ],
+        [
+          "J_PD.GND1"
+        ],
+        [
+          "J_PD.GND2"
+        ],
+        [
+          "J_PD.GND3"
+        ],
+        [
+          "J_PD.GND4"
+        ],
+        [
+          "J_DATA.EH1"
+        ],
+        [
+          "J_DATA.EH2"
+        ],
+        [
+          "J_DATA.EH3"
+        ],
+        [
+          "J_DATA.EH4"
+        ],
+        [
+          "J_DATA.GND1"
+        ],
+        [
+          "J_DATA.GND2"
+        ],
+        [
+          "J_DATA.GND3"
+        ],
+        [
+          "J_DATA.GND4"
+        ],
+        [
+          "R_SA.pin2",
+          "R_SB.pin2",
+          "U_DRV.EP",
+          "U_DRV.GND",
+          "U_DRV.GND18"
+        ],
+        [
+          "U_DRV.ROSC"
+        ],
+        [
+          "C_VREG.pin2"
+        ],
+        [
+          "C_DRV_LOGIC.pin2"
+        ],
+        [
+          "C_VM.pin2"
+        ],
+        [
+          "C_BULK.pin2"
+        ],
+        [
+          "U_IA.GND"
+        ],
+        [
+          "U_IA.REF2"
+        ],
+        [
+          "C_IA.pin2"
+        ],
+        [
+          "U_IB.GND"
+        ],
+        [
+          "U_IB.REF2"
+        ],
+        [
+          "C_IB.pin2"
+        ],
+        [
+          "U_ENCODER.GND"
+        ],
+        [
+          "U_ENCODER.DIR"
+        ],
+        [
+          "C_ENCODER.pin2"
+        ],
+        [
+          "C_ENCODER_BULK.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "PD_VBUS",
+      "islands": [
+        [
+          "J_PD.VBUS1"
+        ],
+        [
+          "J_PD.VBUS2"
+        ],
+        [
+          "J_PD.VBUS3"
+        ],
+        [
+          "J_PD.VBUS4"
+        ],
+        [
+          "U_DRV.VBB2"
+        ],
+        [
+          "U_DRV.VBB1"
+        ],
+        [
+          "C_VCP.pin2"
+        ],
+        [
+          "C_VM.pin1"
+        ],
+        [
+          "C_BULK.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "USB_DP",
+      "islands": [
+        [
+          "J_DATA.DP1"
+        ],
+        [
+          "J_DATA.DP2"
+        ]
+      ]
+    },
+    {
+      "net": "DATA_VBUS",
+      "islands": [
+        [
+          "J_DATA.VBUS1"
+        ],
+        [
+          "J_DATA.VBUS2"
+        ],
+        [
+          "J_DATA.VBUS3"
+        ],
+        [
+          "J_DATA.VBUS4"
+        ]
+      ]
+    },
+    {
+      "net": "USB_DM",
+      "islands": [
+        [
+          "J_DATA.DM1"
+        ],
+        [
+          "J_DATA.DM2"
+        ]
+      ]
+    },
+    {
+      "net": "A_MINUS",
+      "islands": [
+        [
+          "U_DRV.OUT1B"
+        ],
+        [
+          "J_MOTOR.A_MINUS"
+        ]
+      ]
+    },
+    {
+      "net": "V3V3",
+      "islands": [
+        [
+          "U_DRV.VDD"
+        ],
+        [
+          "U_DRV.RESET_N"
+        ],
+        [
+          "U_DRV.MS3"
+        ],
+        [
+          "U_DRV.MS2"
+        ],
+        [
+          "U_DRV.MS1"
+        ],
+        [
+          "C_DRV_LOGIC.pin1"
+        ],
+        [
+          "U_IA.REF1"
+        ],
+        [
+          "U_IA.VS"
+        ],
+        [
+          "C_IA.pin1"
+        ],
+        [
+          "U_IB.REF1"
+        ],
+        [
+          "U_IB.VS"
+        ],
+        [
+          "C_IB.pin1"
+        ],
+        [
+          "U_ENCODER.VDD5V"
+        ],
+        [
+          "U_ENCODER.VDD3V3"
+        ],
+        [
+          "C_ENCODER.pin1"
+        ],
+        [
+          "C_ENCODER_BULK.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "VREG",
+      "islands": [
+        [
+          "U_DRV.VREG"
+        ],
+        [
+          "C_VREG.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "VCP",
+      "islands": [
+        [
+          "U_DRV.VCP"
+        ],
+        [
+          "C_VCP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "CP2",
+      "islands": [
+        [
+          "U_DRV.CP2"
+        ],
+        [
+          "C_CP.pin2"
+        ]
+      ]
+    },
+    {
+      "net": "CP1",
+      "islands": [
+        [
+          "U_DRV.CP1"
+        ],
+        [
+          "C_CP.pin1"
+        ]
+      ]
+    },
+    {
+      "net": "B_MINUS",
+      "islands": [
+        [
+          "U_DRV.OUT2B"
+        ],
+        [
+          "J_MOTOR.B_MINUS"
+        ]
+      ]
+    }
+  ],
+  "scoped_connections": [],
+  "scope_connected": null,
+  "unsupported": [],
+  "geometric_clearance_pass": true,
+  "full_board_connectivity_pass": false,
+  "manufacturing_qualified": false
+}

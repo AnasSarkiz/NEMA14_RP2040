@@ -1,0 +1,202 @@
+{
+  "same_authored_route_bytes_before_native_routing": true,
+  "cases": {
+    "singular": {
+      "before_sha256": "70f5a8a5536a97b7edada234d791ad63bdf594103a68817f083397fb1a6a2eac",
+      "after_sha256": "3a0114440748ebb79d6a2aacee687c7e214f994fe9fd92dfe525680bf70f5f06",
+      "native_editable_prior_traces": 0,
+      "authored_trace_record_changes": [],
+      "actual_widths_mm": {
+        "KELVIN_A_POS": [
+          0.16
+        ],
+        "POWER_A_POS": [
+          0.45
+        ],
+        "KELVIN_A_NEG": [
+          0.16
+        ],
+        "POWER_A_NEG": [
+          0.45
+        ]
+      },
+      "independent": {
+        "shorts": 0,
+        "clearance_violations": 0,
+        "disconnected_nets": 0,
+        "board_edge_violations": 0
+      },
+      "geometry_pass": true,
+      "full_coupon_connectivity": true,
+      "record": {
+        "mode": "singular",
+        "core": "0.0.2110",
+        "router": "0.0.958",
+        "elapsed_ms": 772.1099640000001,
+        "dependency_modified": false
+      }
+    },
+    "plural": {
+      "before_sha256": "70f5a8a5536a97b7edada234d791ad63bdf594103a68817f083397fb1a6a2eac",
+      "after_sha256": "2d993d8cba693e8aed91c51ffa0392e79f28c0f69e35dcde27423ea4cf1aba14",
+      "native_editable_prior_traces": 4,
+      "authored_trace_record_changes": [
+        "pcb_trace_1"
+      ],
+      "actual_widths_mm": {
+        "KELVIN_A_POS": [
+          0.16
+        ],
+        "POWER_A_POS": [
+          0.45
+        ],
+        "KELVIN_A_NEG": [
+          0.16
+        ],
+        "POWER_A_NEG": [
+          0.45
+        ]
+      },
+      "independent": {
+        "shorts": 0,
+        "clearance_violations": 0,
+        "disconnected_nets": 0,
+        "board_edge_violations": 0
+      },
+      "geometry_pass": true,
+      "full_coupon_connectivity": true,
+      "record": {
+        "mode": "plural",
+        "core": "0.0.2110",
+        "router": "0.0.958",
+        "elapsed_ms": 485.001022,
+        "dependency_modified": false
+      }
+    },
+    "protected-plural": {
+      "before_sha256": "70f5a8a5536a97b7edada234d791ad63bdf594103a68817f083397fb1a6a2eac",
+      "after_sha256": "3a0114440748ebb79d6a2aacee687c7e214f994fe9fd92dfe525680bf70f5f06",
+      "native_editable_prior_traces": 4,
+      "authored_trace_record_changes": [],
+      "actual_widths_mm": {
+        "KELVIN_A_POS": [
+          0.16
+        ],
+        "POWER_A_POS": [
+          0.45
+        ],
+        "KELVIN_A_NEG": [
+          0.16
+        ],
+        "POWER_A_NEG": [
+          0.45
+        ]
+      },
+      "independent": {
+        "shorts": 0,
+        "clearance_violations": 0,
+        "disconnected_nets": 0,
+        "board_edge_violations": 0
+      },
+      "geometry_pass": true,
+      "full_coupon_connectivity": true,
+      "record": {
+        "mode": "protected-plural",
+        "core": "0.0.2110",
+        "router": "0.0.958",
+        "elapsed_ms": 708.8443659999999,
+        "dependency_modified": false
+      }
+    }
+  },
+  "actual_pad_cuts": [
+    {
+      "mode": "singular",
+      "stage": "before",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "singular",
+      "stage": "before",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "singular",
+      "stage": "after",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "singular",
+      "stage": "after",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "plural",
+      "stage": "after",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "plural",
+      "stage": "after",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "protected-plural",
+      "stage": "after",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "mode": "protected-plural",
+      "stage": "after",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    }
+  ],
+  "core_modified": false,
+  "unmerged_stack_used": false,
+  "upstream_references": [
+    "https://github.com/tscircuit/core/issues/5462",
+    "https://github.com/tscircuit/core/pull/5473",
+    "https://github.com/tscircuit/core/pull/5475"
+  ],
+  "interpretation": "Singular native copper is fixed; equivalent plural copper is editable and one power branch mutates. The diagnostic fixed-input adapter preserves plural records. This is board-specific evidence, not proof that the unmerged PR has a plural-path regression."
+}

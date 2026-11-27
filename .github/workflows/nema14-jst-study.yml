@@ -33,6 +33,7 @@ jobs:
       - run: npm run test:width-ownership
       - run: npm run test:reachability
       - run: npm run test:compact
+      - run: npm run test:anchored
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement

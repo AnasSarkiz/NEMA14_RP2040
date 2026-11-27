@@ -1,0 +1,649 @@
+{
+  "description": "Parametric routing topology: selectors and offsets bound to named physical pads. No native IDs or prior world copper is read by the generator. Initial topology is the public compact diagnostic; every candidate must re-render and pass independent geometry.",
+  "reference_rotations": {
+    "U_DRV": 90,
+    "R_SA": 90,
+    "R_SB": 90,
+    "R_SHUNT_A": 90,
+    "R_SHUNT_B": 0,
+    "U_IA": 0,
+    "U_IB": 90,
+    "J_MOTOR": 90
+  },
+  "vias": [
+    {
+      "name": "V_PA_S",
+      "net": "A_DRV_PLUS",
+      "anchor_pad": "R_SHUNT_A.pin1",
+      "offset_world_mm": [
+        0.0,
+        -1.100002
+      ]
+    },
+    {
+      "name": "V_PA_D",
+      "net": "A_DRV_PLUS",
+      "anchor_pad": "U_DRV.OUT1A",
+      "offset_world_mm": [
+        0.0,
+        -0.7500049999999998
+      ]
+    },
+    {
+      "name": "V_CA_S",
+      "net": "A_PLUS",
+      "anchor_pad": "R_SHUNT_A.pin2",
+      "offset_world_mm": [
+        1.25,
+        0.7500019999999998
+      ]
+    },
+    {
+      "name": "V_CA_T",
+      "net": "A_PLUS",
+      "anchor_pad": "J_MOTOR.A_PLUS",
+      "offset_world_mm": [
+        1.2005166999999997,
+        0.0
+      ]
+    },
+    {
+      "name": "V_PB_S",
+      "net": "B_DRV_PLUS",
+      "anchor_pad": "R_SHUNT_B.pin1",
+      "offset_world_mm": [
+        -0.7500020000000003,
+        -0.9999999999999998
+      ]
+    },
+    {
+      "name": "V_PB_D",
+      "net": "B_DRV_PLUS",
+      "anchor_pad": "U_DRV.OUT2A",
+      "offset_world_mm": [
+        0.099493,
+        -0.900005
+      ]
+    },
+    {
+      "name": "V_CB_S",
+      "net": "B_PLUS",
+      "anchor_pad": "R_SHUNT_B.pin2",
+      "offset_world_mm": [
+        0.6500019999999995,
+        -1.0999999999999999
+      ]
+    },
+    {
+      "name": "V_CB_T",
+      "net": "B_PLUS",
+      "anchor_pad": "J_MOTOR.B_PLUS",
+      "offset_world_mm": [
+        1.2000086999999997,
+        0.0
+      ]
+    },
+    {
+      "name": "V_KAN_S",
+      "net": "A_PLUS",
+      "anchor_pad": "R_SHUNT_A.pin2",
+      "offset_world_mm": [
+        1.25,
+        -0.5662676000000002
+      ]
+    },
+    {
+      "name": "V_KAN_T",
+      "net": "A_PLUS",
+      "anchor_pad": "U_IA.IN_NEG",
+      "offset_world_mm": [
+        0.0,
+        -1.472904
+      ]
+    },
+    {
+      "name": "V_KBP_S",
+      "net": "B_DRV_PLUS",
+      "anchor_pad": "R_SHUNT_B.pin1",
+      "offset_world_mm": [
+        0.7999979999999995,
+        -0.7999999999999998
+      ]
+    },
+    {
+      "name": "V_KBP_T",
+      "net": "B_DRV_PLUS",
+      "anchor_pad": "U_IB.IN_POS",
+      "offset_world_mm": [
+        1.5729039999999994,
+        -0.12499999999999997
+      ]
+    },
+    {
+      "name": "V_KBN_S",
+      "net": "B_PLUS",
+      "anchor_pad": "R_SHUNT_B.pin2",
+      "offset_world_mm": [
+        -0.9999979999999997,
+        0.625
+      ]
+    },
+    {
+      "name": "V_KBN_T",
+      "net": "B_PLUS",
+      "anchor_pad": "U_IB.IN_NEG",
+      "offset_world_mm": [
+        1.5229039999999994,
+        0.0
+      ]
+    },
+    {
+      "name": "V_GA",
+      "net": "GND",
+      "anchor_pad": "R_SA.pin2",
+      "offset_world_mm": [
+        0.8999999999999999,
+        0.9500020000000005
+      ]
+    },
+    {
+      "name": "V_STAR_A",
+      "net": "GND",
+      "star_ground_pad": "GND18",
+      "driver": "U_DRV",
+      "nominal_hole_mm": 0.3,
+      "comparison_hole_mm": 0.2
+    },
+    {
+      "name": "V_GB",
+      "net": "GND",
+      "anchor_pad": "R_SB.pin2",
+      "offset_world_mm": [
+        -0.915,
+        0
+      ]
+    },
+    {
+      "name": "V_STAR_B",
+      "net": "GND",
+      "star_ground_pad": "GND",
+      "driver": "U_DRV",
+      "nominal_hole_mm": 0.3,
+      "comparison_hole_mm": 0.2
+    }
+  ],
+  "paths": {
+    "POWER_A_DRV": {
+      "anchor": ".R_SHUNT_A > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin1",
+          {
+            "x": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "V_PA_S",
+              "offset_mm": 0.5337344
+            }
+          },
+          ".V_PA_S > .top"
+        ],
+        [
+          ".V_PA_S > .inner2",
+          {
+            "x": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "U_IA.IN_NEG",
+              "offset_mm": 0.0020959999999998757
+            }
+          },
+          {
+            "x": {
+              "anchor": "U_DRV.OUT1A",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "U_IA.IN_NEG",
+              "offset_mm": 0.0020959999999994317
+            }
+          },
+          ".V_PA_D > .inner2"
+        ],
+        [
+          ".V_PA_D > .top",
+          {
+            "actual_driver_outward_pad_tip": "U_DRV.OUT1A"
+          }
+        ]
+      ],
+      "logical_terminal_pair": [
+        "U_DRV.OUT1A",
+        "R_SHUNT_A.pin1"
+      ],
+      "width_mm": 0.45
+    },
+    "POWER_A_COIL": {
+      "anchor": ".R_SHUNT_A > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin2",
+          {
+            "x": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "V_CA_S",
+              "offset_mm": -0.18373439999999963
+            }
+          },
+          ".V_CA_S > .top"
+        ],
+        [
+          ".V_CA_S > .inner2",
+          {
+            "x": {
+              "anchor": "U_IA.IN_POS",
+              "offset_mm": -0.07513400000000026
+            },
+            "y": {
+              "anchor": "V_CA_S",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "x": {
+              "anchor": "U_IA.IN_POS",
+              "offset_mm": -0.07513400000000026
+            },
+            "y": {
+              "anchor": "J_MOTOR.A_PLUS",
+              "offset_mm": 0.0
+            }
+          },
+          ".V_CA_T > .inner2"
+        ],
+        [
+          ".V_CA_T > .top",
+          ".J_MOTOR > .A_PLUS"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_A.pin2",
+        "J_MOTOR.A_PLUS"
+      ],
+      "width_mm": 0.45
+    },
+    "POWER_B_DRV": {
+      "anchor": ".R_SHUNT_B > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin1",
+          {
+            "x": {
+              "anchor": "V_PB_S",
+              "offset_mm": 0.18373440000000052
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "x": {
+              "anchor": "V_PB_S",
+              "offset_mm": 0.025000000000000355
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "x": {
+              "anchor": "V_PB_S",
+              "offset_mm": 0.025000000000000355
+            },
+            "y": {
+              "anchor": "V_PB_S",
+              "offset_mm": 0.0
+            }
+          },
+          ".V_PB_S > .top"
+        ],
+        [
+          ".V_PB_S > .bottom",
+          {
+            "x": {
+              "anchor": "V_PB_S",
+              "offset_mm": 0
+            },
+            "y": {
+              "anchor": "U_DRV.OUT2A",
+              "offset_mm": 0.049995
+            }
+          },
+          {
+            "x": {
+              "anchor": "V_PB_D",
+              "offset_mm": 0
+            },
+            "y": {
+              "anchor": "U_DRV.OUT2A",
+              "offset_mm": 0.049995
+            }
+          },
+          ".V_PB_D > .bottom"
+        ],
+        [
+          ".V_PB_D > .top",
+          {
+            "x": {
+              "anchor": "U_DRV.OUT2A",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "V_PB_D",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "actual_driver_outward_pad_tip": "U_DRV.OUT2A"
+          }
+        ]
+      ],
+      "logical_terminal_pair": [
+        "U_DRV.OUT2A",
+        "R_SHUNT_B.pin1"
+      ],
+      "width_mm": 0.45
+    },
+    "POWER_B_COIL": {
+      "anchor": ".R_SHUNT_B > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin2",
+          {
+            "x": {
+              "anchor": "V_CB_S",
+              "offset_mm": -0.1337343999999998
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "x": {
+              "anchor": "V_CB_S",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.0
+            }
+          },
+          ".V_CB_S > .top"
+        ],
+        [
+          ".V_CB_S > .inner2",
+          {
+            "x": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.05000200000000099
+            },
+            "y": {
+              "anchor": "V_CB_S",
+              "offset_mm": 0.0
+            }
+          },
+          {
+            "x": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.05000200000000099
+            },
+            "y": {
+              "anchor": "U_IB.IN_POS",
+              "offset_mm": -1.0751339999999996
+            }
+          },
+          ".V_CB_T > .inner2"
+        ],
+        [
+          ".V_CB_T > .top",
+          ".J_MOTOR > .B_PLUS"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_B.pin2",
+        "J_MOTOR.B_PLUS"
+      ],
+      "width_mm": 0.45
+    },
+    "KELVIN_A_POS": {
+      "anchor": ".R_SHUNT_A > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin1",
+          {
+            "actual_body_facing_pad_edge": "R_SHUNT_A.pin1"
+          },
+          {
+            "x": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.75
+            },
+            "y": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.5662676
+            }
+          },
+          {
+            "x": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.75
+            },
+            "y": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.09999800000000003
+            }
+          },
+          {
+            "x": {
+              "anchor": "U_IA.IN_POS",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "R_SHUNT_A.pin1",
+              "offset_mm": 0.09999800000000003
+            }
+          },
+          ".U_IA > .IN_POS"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_A.pin1",
+        "U_IA.IN_POS"
+      ],
+      "width_mm": 0.16
+    },
+    "KELVIN_A_NEG": {
+      "anchor": ".R_SHUNT_A > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_A > .pin2",
+          {
+            "actual_body_facing_pad_edge": "R_SHUNT_A.pin2"
+          },
+          ".V_KAN_S > .top"
+        ],
+        [
+          ".V_KAN_S > .bottom",
+          ".V_KAN_T > .bottom"
+        ],
+        [
+          ".V_KAN_T > .top",
+          ".U_IA > .IN_NEG"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_A.pin2",
+        "U_IA.IN_NEG"
+      ],
+      "width_mm": 0.16
+    },
+    "KELVIN_B_POS": {
+      "anchor": ".R_SHUNT_B > .pin1",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin1",
+          {
+            "actual_body_facing_pad_edge": "R_SHUNT_B.pin1"
+          },
+          {
+            "x": {
+              "anchor": "V_KBP_S",
+              "offset_mm": 0.0
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.0
+            }
+          },
+          ".V_KBP_S > .top"
+        ],
+        [
+          ".V_KBP_S > .inner1",
+          {
+            "x": {
+              "anchor": "R_SHUNT_B.pin2",
+              "offset_mm": 0.05000200000000099
+            },
+            "y": {
+              "anchor": "U_IB.IN_POS",
+              "offset_mm": 0.22486600000000015
+            }
+          },
+          ".V_KBP_T > .inner1"
+        ],
+        [
+          ".V_KBP_T > .top",
+          ".U_IB > .IN_POS"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_B.pin1",
+        "U_IB.IN_POS"
+      ],
+      "width_mm": 0.16
+    },
+    "KELVIN_B_NEG": {
+      "anchor": ".R_SHUNT_B > .pin2",
+      "paths": [
+        [
+          ".R_SHUNT_B > .pin2",
+          {
+            "actual_body_facing_pad_edge": "R_SHUNT_B.pin2"
+          },
+          {
+            "x": {
+              "anchor": "U_IB.IN_POS",
+              "offset_mm": 0.02290399999999959
+            },
+            "y": {
+              "anchor": "R_SHUNT_B.pin1",
+              "offset_mm": 0.0
+            }
+          },
+          ".V_KBN_S > .top"
+        ],
+        [
+          ".V_KBN_S > .inner1",
+          ".V_KBN_T > .inner1"
+        ],
+        [
+          ".V_KBN_T > .top",
+          ".U_IB > .IN_NEG"
+        ]
+      ],
+      "logical_terminal_pair": [
+        "R_SHUNT_B.pin2",
+        "U_IB.IN_NEG"
+      ],
+      "width_mm": 0.16
+    }
+  },
+  "returns": [
+    {
+      "name": "RETURN_A_TOP",
+      "from": ".R_SA > .pin2",
+      "to": ".V_GA > .top",
+      "paths": [
+        [
+          ".R_SA > .pin2",
+          ".V_GA > .top"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_A_INNER",
+      "from": ".V_GA > .inner1",
+      "to": ".V_STAR_A > .inner1",
+      "paths": [
+        [
+          ".V_GA > .inner1",
+          ".V_STAR_A > .inner1"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_A_EP",
+      "from": ".V_STAR_A > .top",
+      "to": ".U_DRV > .EP",
+      "paths": [
+        [
+          ".V_STAR_A > .top",
+          ".U_DRV > .EP"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_TOP",
+      "from": ".R_SB > .pin2",
+      "to": ".V_GB > .top",
+      "paths": [
+        [
+          ".R_SB > .pin2",
+          ".V_GB > .top"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_INNER",
+      "from": ".V_GB > .inner1",
+      "to": ".V_STAR_B > .inner1",
+      "paths": [
+        [
+          ".V_GB > .inner1",
+          ".V_STAR_B > .inner1"
+        ]
+      ]
+    },
+    {
+      "name": "RETURN_B_EP",
+      "from": ".V_STAR_B > .top",
+      "to": ".U_DRV > .EP",
+      "paths": [
+        [
+          ".V_STAR_B > .top",
+          ".U_DRV > .EP"
+        ]
+      ]
+    }
+  ]
+}

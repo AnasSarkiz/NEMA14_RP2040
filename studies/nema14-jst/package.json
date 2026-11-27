@@ -25,7 +25,8 @@
     "test:integration": "mkdir -p .config/integration && bun experiments/integrated/check-native.ts artifacts/iteration-3/authored.circuit.json .config/integration/authored-native.json && bun experiments/integrated/check-native.ts artifacts/iteration-3/normal-attempt.circuit.json .config/integration/normal-native.json && ${PYTHON:-python3} scripts/test-integrated-kelvin.py && ${PYTHON:-python3} scripts/verify-integrated-kelvin.py artifacts/final-source.circuit.json artifacts/iteration-3/authored.circuit.json artifacts/iteration-3/normal-attempt.circuit.json .config/integration/authored-native.json .config/integration/normal-native.json .config/integration/verification.json",
     "test:reachability": "mkdir -p .config/reachability && bun experiments/reachability/render.ts .config/reachability/test-authored.circuit.json && bun experiments/integrated/check-native.ts .config/reachability/test-authored.circuit.json .config/reachability/test-native.json && ${PYTHON:-python3} scripts/verify-reachability.py artifacts/iteration-3/authored.circuit.json .config/reachability/test-authored.circuit.json artifacts/iteration-4/normal-attempt.circuit.json .config/reachability/test-native.json .config/reachability/test-verification.json",
     "test:width-ownership": "bun scripts/test-width-ownership.ts && ${PYTHON:-python3} scripts/verify-width-coupons.py",
-    "test:compact": "mkdir -p .config/compact && bun experiments/compact/render.ts .config/compact/replay.circuit.json --scope && ${PYTHON:-python3} experiments/compact/verify.py .config/compact/replay.circuit.json"
+    "test:compact": "mkdir -p .config/compact && bun experiments/compact/render.ts .config/compact/replay.circuit.json --scope && ${PYTHON:-python3} experiments/compact/verify.py .config/compact/replay.circuit.json",
+    "test:anchored": "${PYTHON:-python3} experiments/anchored/test.py"
   },
   "repository": {
     "type": "git",
