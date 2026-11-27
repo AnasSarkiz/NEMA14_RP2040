@@ -1,0 +1,32 @@
+{
+  "runs": [
+    {
+      "mode": "external",
+      "exit_code": 0,
+      "wall_s": 9.764454153002589,
+      "command": [
+        "tsci",
+        "build",
+        "experiments/external-star/candidate.tsx",
+        "--routing-disabled",
+        "--disable-parts-engine"
+      ]
+    },
+    {
+      "mode": "direct",
+      "exit_code": 0,
+      "wall_s": 9.21806287200161,
+      "command": [
+        "tsci",
+        "build",
+        "experiments/external-star/top-direct.tsx",
+        "--routing-disabled",
+        "--disable-parts-engine"
+      ]
+    }
+  ],
+  "scope": "Native source generation only; no routing stage is allowed",
+  "normal_config_restored": true,
+  "normal_config_sha256": "0c62406334eb63544825a946c9371c91b59e5e9069e3010be179735d1e9b55c0",
+  "thresholds_unchanged": true
+}

@@ -1,0 +1,82 @@
+{
+  "API_input_sha256": "33d123504a43ebd58218c4581b5cc14c5dfcd1159559187574188c745d6bf3f0",
+  "CLI_input_sha256": "89cd0fc56682abee900258e6714b5187fc3e101956fb64a921a2183e4a61cac1",
+  "CLI_physical_copper_net_and_widths_exactly_match": true,
+  "CLI_source_contract_and_mechanics_exactly_match": true,
+  "only_missing_nonphysical_endpoint_annotations": [
+    {
+      "trace": "POWER_A_DRV__2",
+      "node": 1,
+      "API_annotation": "pcb_port_226",
+      "CLI_missing_field": "end_pcb_port_id"
+    },
+    {
+      "trace": "POWER_B_DRV__2",
+      "node": 2,
+      "API_annotation": "pcb_port_228",
+      "CLI_missing_field": "end_pcb_port_id"
+    },
+    {
+      "trace": "RETURN_B_TOP",
+      "node": 1,
+      "API_annotation": "pcb_port_439",
+      "CLI_missing_field": "end_pcb_port_id"
+    }
+  ],
+  "supplemental_combined_width_and_drill_screen": {
+    "replaces_existing_gate": false,
+    "width_multiplier": 1.2,
+    "radial_drill_budget_mm": 0.115,
+    "hole_to_foreign_track_rule_mm": 0.2,
+    "checked_via_trace_layer_pairs": 846,
+    "failed_pairs": [
+      {
+        "path": "POWER_A_DRV__1",
+        "via": "pcb_via_12",
+        "via_name": "V_KBN_S",
+        "layer": "inner2",
+        "drill_edge_to_stressed_foreign_trace_mm": 0.28000000000000014,
+        "radial_budget_mm": 0.115,
+        "unchanged_published_rule_mm": 0.2,
+        "adjusted_margin_mm": -0.034999999999999865
+      },
+      {
+        "path": "POWER_B_COIL__1",
+        "via": "pcb_via_11",
+        "via_name": "V_KBP_T",
+        "layer": "inner2",
+        "drill_edge_to_stressed_foreign_trace_mm": 0.27999999999999936,
+        "radial_budget_mm": 0.115,
+        "unchanged_published_rule_mm": 0.2,
+        "adjusted_margin_mm": -0.03500000000000064
+      },
+      {
+        "path": "AUTHORED_SENSE_A",
+        "via": "pcb_via_1",
+        "via_name": "V_PA_D",
+        "layer": "top",
+        "drill_edge_to_stressed_foreign_trace_mm": 0.3048016468488259,
+        "radial_budget_mm": 0.115,
+        "unchanged_published_rule_mm": 0.2,
+        "adjusted_margin_mm": -0.010198353151174122
+      }
+    ],
+    "failure_count": 3,
+    "CP_failed_pairs": 0,
+    "minimum_CP_margin_mm": 0.07587408243103083,
+    "supplier_acceptance": false
+  },
+  "VREG_length_gate": {
+    "new_source_owner": "AUTHORED_VREG_BASELINE",
+    "former_source_owner": "source_trace_188, one physical port plus net.VREG, no max_length field",
+    "new_native_max_length_mm": 1,
+    "unchanged_actual_wire_mm": 2.60585631220988,
+    "current_port_centre_lower_bound_mm": 2.2577624531987404,
+    "physical_pad_edge_lower_bound_mm": 1.3660173605161823,
+    "centre_translation_lower_bound_for_1mm_centreline_mm": 1.2577624531987404,
+    "native_error_retained": true,
+    "no_length_limit_override": true
+  },
+  "native_routing_attempted": false,
+  "manufacturing_qualified": false
+}

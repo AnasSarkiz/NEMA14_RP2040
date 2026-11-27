@@ -1,0 +1,215 @@
+{
+  "input": "artifacts/iteration-5/full-unpacked.circuit.json",
+  "input_sha256": "4dcb54258d89ef0b2a45f3859727914a0f1c23abd5533d45fa480035122d3412",
+  "screen_pass": false,
+  "checked_top_courtyards": 101,
+  "pcb_only_manual_vias": 18,
+  "native_errors": [
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_PD overlaps L_BUCK: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "U_BUCK overlaps R_PG: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_FLASH_CS overlaps L_BUCK: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_BOOT overlaps C_BUCK_IN: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_USB_SENSE_H overlaps U_BUCK: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_USB_SENSE_L overlaps C_BUCK_OUT1: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_VM_H overlaps L_BUCK: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "U_BUCK overlaps R_REF_H: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "U_BUCK overlaps R_SLEEP: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "U_BUCK overlaps D_STATUS: 2 footprint overlaps, 3 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "L_BUCK overlaps R_TEMP_SDA: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "L_BUCK overlaps TP_SWCLK: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "L_BUCK overlaps TP_RUN: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "L_BUCK overlaps TP_BOOT: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "R_PD_CFG overlaps L_BUCK: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_IN overlaps R_STATUS_B: 1 footprint overlap, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_IN overlaps C_BUZZER: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_IN overlaps TP_GND: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_IN overlaps TP_RUN: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_OUT1 overlaps R_TEMP_SCL: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_OUT1 overlaps R_STATUS_R: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_OUT1 overlaps R_BUZZER_PD: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BUCK_OUT2 overlaps D_BUZZER: 2 footprint overlaps, 2 pad clearance violations, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_footprint_overlap_error",
+      "message": "C_BULK overlaps Q_BUZZER: 1 footprint overlap, 1 pad clearance violation, 1 courtyard conflict. Move the components apart."
+    },
+    {
+      "type": "pcb_pad_pad_clearance_error",
+      "message": "Pads C_DV23.pin1 and R_STATUS_G.pin2 are too close (clearance: 0.13mm, minimum: 0.15mm)"
+    },
+    {
+      "type": "pcb_pad_pad_clearance_error",
+      "message": "Pads R_CC1.pin1 and C_BUCK_IN.pin2 are too close (clearance: 0.094mm, minimum: 0.15mm)"
+    },
+    {
+      "type": "pcb_pad_pad_clearance_error",
+      "message": "Pads L_BUCK.pin2 and D_BUZZER.anode are too close (clearance: 0mm, minimum: 0.15mm)"
+    },
+    {
+      "type": "pcb_pad_pad_clearance_error",
+      "message": "Pads C_BOOTSTRAP.pin2 and C_VM.pin2 are too close (clearance: 0.04mm, minimum: 0.15mm)"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_PG overlaps with courtyard of L_BUCK"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_DV23 overlaps with courtyard of R_STATUS_G"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_FLASH_CS overlaps with courtyard of C_BUCK_OUT1"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_RUN overlaps with courtyard of C_BUCK_IN"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_RUN overlaps with courtyard of C_BUCK_OUT1"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_CC1 overlaps with courtyard of C_BUCK_IN"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_VM_H overlaps with courtyard of C_BUCK_OUT1"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_VM_L overlaps with courtyard of L_BUCK"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of R_VM_L overlaps with courtyard of C_BUCK_OUT1"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of L_BUCK overlaps with courtyard of D_BUZZER"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of L_BUCK overlaps with courtyard of TP_3V3"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BOOTSTRAP overlaps with courtyard of C_VM"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BOOTSTRAP overlaps with courtyard of U_IB"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BOOTSTRAP overlaps with courtyard of C_IB"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BUCK_IN overlaps with courtyard of R_PD_CFG"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BUCK_OUT1 overlaps with courtyard of R_TEMP_SDA"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BUCK_OUT1 overlaps with courtyard of R_PD_CFG"
+    },
+    {
+      "type": "pcb_courtyard_overlap_error",
+      "message": "Courtyard of C_BULK overlaps with courtyard of Q_STATUS_B"
+    },
+    {
+      "type": "pcb_placement_error",
+      "message": "Test point TP_3V3 is not accessible because it is inside the courtyard of L_BUCK"
+    },
+    {
+      "type": "pcb_placement_error",
+      "message": "Test point TP_GND is not accessible because it is inside the courtyard of C_BUCK_IN"
+    },
+    {
+      "type": "pcb_placement_error",
+      "message": "Test point TP_SWCLK is not accessible because it is inside the courtyard of L_BUCK"
+    },
+    {
+      "type": "pcb_placement_error",
+      "message": "Test point TP_BOOT is not accessible because it is inside the courtyard of L_BUCK"
+    }
+  ],
+  "findings": [],
+  "pcb_traces": 28,
+  "pcb_vias": 18,
+  "mated_plug_and_sweep_verified": false,
+  "power_and_kelvin_routing_verified": false,
+  "manufacturing_qualified": false
+}

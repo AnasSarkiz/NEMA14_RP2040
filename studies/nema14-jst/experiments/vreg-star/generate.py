@@ -1,0 +1,7 @@
+"""One physical pad-to-pad VREG trace, wholly inside both real terminal pads; no length override."""
+from model import *
+from shapely.ops import nearest_points
+j=read('artifacts/iteration-11/seed.circuit.json');nm,cs,_,ss,pp,ps,_=index(j);pads={e['pcb_port_id']:e for e in j if e['type']=='pcb_smtpad'};a,z=[g.pad_shape(pads[ps[k]['pcb_port_id']]) for k in [('U_DRV','VREG'),('C_VREG','pin1')]];u,v=nearest_points(a,z);dx,dy=(v.x-u.x)/u.distance(v),(v.y-u.y)/u.distance(v);inset=.005;source=ps['U_DRV','VREG'];points=[[source['x'],a.bounds[3]-.015],[source['x'],a.bounds[3]+.05],[z.bounds[2]-inset,z.bounds[1]+inset]];assert a.covers(Point(*points[0])) and z.covers(Point(*points[-1]));c=cs['U_DRV'];angle=math.radians(-c['rotation']);local=[]
+for x,y in points:
+ dx,dy=x-c['center']['x'],y-c['center']['y'];local.append({'x':dx*math.cos(angle)-dy*math.sin(angle),'y':dx*math.sin(angle)+dy*math.cos(angle),'layer':'top'})
+out={'name':'AUTHORED_VREG_BASELINE','from':'.U_DRV > .VREG','to':'.C_VREG > .pin1','anchor':'.U_DRV > .VREG','width_mm':.16,'local_points':local,'world_points_mm':points,'actual_pad_edge_distance_mm':a.distance(z),'wire_length_mm':sum(math.dist(u,v) for u,v in zip(points,points[1:])),'port_centre_distance_mm':math.dist([ps['U_DRV','VREG']['x'],ps['U_DRV','VREG']['y']],[ps['C_VREG','pin1']['x'],ps['C_VREG','pin1']['y']]),'pad_edge_inset_mm':inset,'native_maximum_override':False};assert out['wire_length_mm']<1;Path('experiments/vreg-star/path.json').write_text(json.dumps(out,indent=2)+'\n');print(json.dumps(out,indent=2))

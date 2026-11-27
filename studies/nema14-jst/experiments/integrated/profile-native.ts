@@ -1,0 +1,10 @@
+import {plugin} from 'bun'
+import {writeFileSync,appendFileSync,mkdirSync} from 'node:fs'
+import {Circuit} from '@tscircuit/core'
+const mode=process.argv[2]??'full';const out='.config/integration/profile-'+mode;mkdirSync(out,{recursive:true});const started=performance.now();let last:any;const log=(v:any)=>appendFileSync(out+'/events.jsonl',JSON.stringify({elapsed_ms:performance.now()-started,...v})+'\n');
+plugin({name:'local-cad-paths',setup(build){build.onLoad({filter:/\.(obj|step)$/},args=>({contents:'export default '+JSON.stringify(args.path),loader:'js'}))}})
+const original=globalThis.fetch;globalThis.fetch=new Proxy(original,{async apply(target,thisArg,args){const input=args[0];const url=new URL(typeof input==='string'?input:input instanceof URL?input.href:input.url);log({event:'fetch:start',host:url.host,path:url.pathname});const r=await Reflect.apply(target,thisArg,args);log({event:'fetch:end',host:url.host,path:url.pathname,status:r.status});return r}})
+const {default:Board}=await import('../../src/board');log({event:'board_imported'});const c=new Circuit({platform:{partsEngineDisabled:true,schematicDisabled:mode==='pcb'}});c.pcbRoutingDisabled=true;
+c.on('renderable:renderLifecycle:anyEvent',(e:any)=>{last=e;if(e.type.endsWith(':start'))writeFileSync(out+'/last-phase.json',JSON.stringify({elapsed_ms:performance.now()-started,...e}));});
+for(const event of ['asyncEffect:start','asyncEffect:end','solver:started','solver:ended'] as const)c.on(event,(e:any)=>{const {solverParams,solverConstructorArgs,...small}=e;log({event,...small});if(event==='solver:started'){const data=JSON.stringify(solverConstructorArgs);writeFileSync(out+'/last-solver.json',data.length<500000?data:JSON.stringify({solverName:e.solverName,input_bytes:data.length}));}})
+c.add(Board({routingDisabled:true}));const timer=setInterval(()=>log({event:'heartbeat',last,effects:c.getRunningAsyncEffects()}),10000);await c.renderUntilSettled();clearInterval(timer);writeFileSync(out+'/circuit.json',JSON.stringify(c.getCircuitJson(),null,2)+'\n');log({event:'completed',elements:c.getCircuitJson().length});

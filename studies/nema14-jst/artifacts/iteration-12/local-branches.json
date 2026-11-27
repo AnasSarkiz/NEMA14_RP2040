@@ -1,0 +1,306 @@
+[
+  {
+    "mode": "external",
+    "branches": [
+      {
+        "branch": "CP1",
+        "real_terminals": [
+          "U_DRV.CP1",
+          "C_CP.pin1"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 1.820361718646104,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 1.820361718646104,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "CP2",
+        "real_terminals": [
+          "U_DRV.CP2",
+          "C_CP.pin2"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 2.1257336030982947,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 2.1257336030982947,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "flyback_sink",
+        "real_terminals": [
+          "BZ1._NEG",
+          "D_BUZZER.anode"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 2.6876630924558165,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 2.6876630924558165,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "flyback_supply",
+        "real_terminals": [
+          "D_BUZZER.cathode",
+          "BZ1._POS"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 10.636967546635704,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 10.636967546635704,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_supply",
+        "real_terminals": [
+          "C_BUZZER.pin1",
+          "BZ1._POS"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 12.106625302290096,
+        "conducted_barrels": 2,
+        "conducted_barrel_travel_mm": 2.8434,
+        "external_wire_plus_barrel_mm": 14.950025302290097,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_drain",
+        "real_terminals": [
+          "BZ1._NEG",
+          "Q_BUZZER.D"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 16.58304060667621,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 16.58304060667621,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_return",
+        "real_terminals": [
+          "Q_BUZZER.S",
+          "C_BUZZER.pin2"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 3.866143396405766,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 3.866143396405766,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "gate_series",
+        "real_terminals": [
+          "R_BUZZER_GATE.pin2",
+          "Q_BUZZER.G"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 6.406548508365671,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 6.406548508365671,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "gate_pulldown",
+        "real_terminals": [
+          "R_BUZZER_PD.pin1",
+          "Q_BUZZER.G"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 6.660404060144372,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 6.660404060144372,
+        "package_internal_travel_not_measured": true
+      }
+    ],
+    "CP": [
+      {
+        "name": "CP1",
+        "actual_width_mm": 0.16,
+        "stress_width_mm": 0.192,
+        "stressed_gaps_mm": {
+          "real_EP": 0.8038719582841195,
+          "native_square": 1.164116513520435,
+          "real_screw_circle": 1.409655335206565
+        }
+      },
+      {
+        "name": "CP2",
+        "actual_width_mm": 0.16,
+        "stress_width_mm": 0.192,
+        "stressed_gaps_mm": {
+          "real_EP": 0.8038719582841195,
+          "native_square": 0.32388425760739104,
+          "real_screw_circle": 0.6223622298665338
+        }
+      }
+    ],
+    "buzzer_external_loop_lengths_mm": {
+      "flyback": 13.32463063909152,
+      "switch": 35.399209305372075
+    },
+    "board_copper_pours": 0,
+    "drill_centres_inside_driver_EP": 0,
+    "full_board_or_VREG_loop_qualified": false,
+    "manufacturing_qualified": false
+  },
+  {
+    "mode": "direct",
+    "branches": [
+      {
+        "branch": "CP1",
+        "real_terminals": [
+          "U_DRV.CP1",
+          "C_CP.pin1"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 1.820361718646104,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 1.820361718646104,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "CP2",
+        "real_terminals": [
+          "U_DRV.CP2",
+          "C_CP.pin2"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 2.1257336030982947,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 2.1257336030982947,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "flyback_sink",
+        "real_terminals": [
+          "BZ1._NEG",
+          "D_BUZZER.anode"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 2.6876630924558165,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 2.6876630924558165,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "flyback_supply",
+        "real_terminals": [
+          "D_BUZZER.cathode",
+          "BZ1._POS"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 10.636967546635704,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 10.636967546635704,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_supply",
+        "real_terminals": [
+          "C_BUZZER.pin1",
+          "BZ1._POS"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 12.106625302290096,
+        "conducted_barrels": 2,
+        "conducted_barrel_travel_mm": 2.8434,
+        "external_wire_plus_barrel_mm": 14.950025302290097,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_drain",
+        "real_terminals": [
+          "BZ1._NEG",
+          "Q_BUZZER.D"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 16.58304060667621,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 16.58304060667621,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "switch_return",
+        "real_terminals": [
+          "Q_BUZZER.S",
+          "C_BUZZER.pin2"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 3.866143396405766,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 3.866143396405766,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "gate_series",
+        "real_terminals": [
+          "R_BUZZER_GATE.pin2",
+          "Q_BUZZER.G"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 6.406548508365671,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 6.406548508365671,
+        "package_internal_travel_not_measured": true
+      },
+      {
+        "branch": "gate_pulldown",
+        "real_terminals": [
+          "R_BUZZER_PD.pin1",
+          "Q_BUZZER.G"
+        ],
+        "hole_subtracted_continuity": true,
+        "wire_mm": 6.660404060144372,
+        "conducted_barrels": 0,
+        "conducted_barrel_travel_mm": 0,
+        "external_wire_plus_barrel_mm": 6.660404060144372,
+        "package_internal_travel_not_measured": true
+      }
+    ],
+    "CP": [
+      {
+        "name": "CP1",
+        "actual_width_mm": 0.16,
+        "stress_width_mm": 0.192,
+        "stressed_gaps_mm": {
+          "real_EP": 0.8038719582841195,
+          "native_square": 1.164116513520435,
+          "real_screw_circle": 1.409655335206565
+        }
+      },
+      {
+        "name": "CP2",
+        "actual_width_mm": 0.16,
+        "stress_width_mm": 0.192,
+        "stressed_gaps_mm": {
+          "real_EP": 0.8038719582841195,
+          "native_square": 0.32388425760739104,
+          "real_screw_circle": 0.6223622298665338
+        }
+      }
+    ],
+    "buzzer_external_loop_lengths_mm": {
+      "flyback": 13.32463063909152,
+      "switch": 35.399209305372075
+    },
+    "board_copper_pours": 0,
+    "drill_centres_inside_driver_EP": 0,
+    "full_board_or_VREG_loop_qualified": false,
+    "manufacturing_qualified": false
+  }
+]

@@ -1,0 +1,2148 @@
+{
+  "board": "NEMA14 JST",
+  "baseline_commit": "a79d7cf3f1503c46a32e8ff0c9fb1e4bf2aed88f",
+  "before_native_json_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+  "after_native_json_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "before_locality_pass": 19,
+  "after_locality_pass": 25,
+  "total_locality_targets": 59,
+  "original_passing_targets_retained": true,
+  "p0_distance_regressions": [],
+  "other_distance_increases": [
+    {
+      "a": "R_IA",
+      "pa": "pin1",
+      "b": "U_IA",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 12,
+      "before_mm": 11.3488878,
+      "after_mm": 11.8488878,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_IB",
+      "pa": "pin1",
+      "b": "U_IB",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 12,
+      "before_mm": 6.134460300000001,
+      "after_mm": 6.8233823000000005,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_IADC_B",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "GPIO27",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 3.5,
+      "before_mm": 9.591552,
+      "after_mm": 10.298669,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IO22",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD22",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 5.0749724,
+      "after_mm": 5.6547096,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_DV23",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD23",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.144632,
+      "after_mm": 8.4046561,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_DV50",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD50",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 4.648439,
+      "after_mm": 7.2382833999999985,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_ADC",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "ADC_AVDD",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.744754,
+      "after_mm": 10.7879302,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_USB",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_VDD",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.038383399999999,
+      "after_mm": 8.7530938,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VREG_IN",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "VREG_IN",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 9.1217458,
+      "after_mm": 9.3178762,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_XIN",
+      "pa": "pin1",
+      "b": "Y_MCU",
+      "pb": "pin1",
+      "category": "P1_crystal",
+      "limit_mm": 3,
+      "before_mm": 3.5800818,
+      "after_mm": 6.4198319999999995,
+      "before_pass": false,
+      "after_pass": false
+    }
+  ],
+  "p0_comparison_tolerance_mm": 0.0001,
+  "electrical_source_signature_unchanged": true,
+  "fixed_mechanical_geometry_unchanged": true,
+  "before_electrical_signature": "a376c2a954870a0cdaa0a6575d762af80995760f78e1589215ec708dbc1b81c5",
+  "after_electrical_signature": "a376c2a954870a0cdaa0a6575d762af80995760f78e1589215ec708dbc1b81c5",
+  "before_native_errors": 0,
+  "after_native_errors": 0,
+  "installed_pcb_traces": 0,
+  "installed_pcb_vias": 0,
+  "by_category": {
+    "P0_shunt_power": {
+      "before_pass": 2,
+      "after_pass": 2,
+      "total": 2
+    },
+    "P0_kelvin": {
+      "before_pass": 3,
+      "after_pass": 3,
+      "total": 4
+    },
+    "P0_ina_bypass": {
+      "before_pass": 2,
+      "after_pass": 2,
+      "total": 4
+    },
+    "P1_adc_output_filter": {
+      "before_pass": 2,
+      "after_pass": 3,
+      "total": 6
+    },
+    "P2_coil_span": {
+      "before_pass": 1,
+      "after_pass": 1,
+      "total": 2
+    },
+    "P1_mcu_decoupling": {
+      "before_pass": 0,
+      "after_pass": 2,
+      "total": 12
+    },
+    "P0_driver_supply_and_regulation": {
+      "before_pass": 3,
+      "after_pass": 3,
+      "total": 10
+    },
+    "P0_buck_switching": {
+      "before_pass": 2,
+      "after_pass": 2,
+      "total": 6
+    },
+    "P1_pd_bypass": {
+      "before_pass": 1,
+      "after_pass": 1,
+      "total": 1
+    },
+    "P1_flash": {
+      "before_pass": 1,
+      "after_pass": 2,
+      "total": 2
+    },
+    "P1_crystal": {
+      "before_pass": 1,
+      "after_pass": 2,
+      "total": 5
+    },
+    "P1_usb_signal_and_return": {
+      "before_pass": 0,
+      "after_pass": 1,
+      "total": 4
+    },
+    "P2_temperature": {
+      "before_pass": 1,
+      "after_pass": 1,
+      "total": 1
+    }
+  },
+  "targets": [
+    {
+      "a": "R_SHUNT_A",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "OUT1A",
+      "category": "P0_shunt_power",
+      "limit_mm": 8,
+      "before_mm": 4.2800348,
+      "after_mm": 4.2800348,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "U_IA",
+      "pa": "IN_POS",
+      "b": "R_SHUNT_A",
+      "pb": "pin1",
+      "category": "P0_kelvin",
+      "limit_mm": 8,
+      "before_mm": 6.8275468,
+      "after_mm": 6.8275468,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "U_IA",
+      "pa": "IN_NEG",
+      "b": "R_SHUNT_A",
+      "pb": "pin2",
+      "category": "P0_kelvin",
+      "limit_mm": 8,
+      "before_mm": 8.1775568,
+      "after_mm": 8.1775568,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IA",
+      "pa": "pin1",
+      "b": "U_IA",
+      "pb": "VS",
+      "category": "P0_ina_bypass",
+      "limit_mm": 3,
+      "before_mm": 1.9719011999999998,
+      "after_mm": 1.9719011999999998,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_IA",
+      "pa": "pin2",
+      "b": "U_IA",
+      "pb": "GND",
+      "category": "P0_ina_bypass",
+      "limit_mm": 5,
+      "before_mm": 7.7765244000000004,
+      "after_mm": 7.7765244000000004,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_IA",
+      "pa": "pin1",
+      "b": "U_IA",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 12,
+      "before_mm": 11.3488878,
+      "after_mm": 11.8488878,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_IA",
+      "pa": "pin2",
+      "b": "C_IADC_A",
+      "pb": "pin1",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 2,
+      "before_mm": 14.410407,
+      "after_mm": 5.9734777999999995,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IADC_A",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "GPIO26",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 3.5,
+      "before_mm": 12.2552036,
+      "after_mm": 7.2053338,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_SHUNT_A",
+      "pa": "pin2",
+      "b": "J_MOTOR",
+      "pb": "A_PLUS",
+      "category": "P2_coil_span",
+      "limit_mm": 20,
+      "before_mm": 19.6291261,
+      "after_mm": 19.6291261,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_SHUNT_B",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "OUT2A",
+      "category": "P0_shunt_power",
+      "limit_mm": 8,
+      "before_mm": 7.706754000000001,
+      "after_mm": 7.706754000000001,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "U_IB",
+      "pa": "IN_POS",
+      "b": "R_SHUNT_B",
+      "pb": "pin1",
+      "category": "P0_kelvin",
+      "limit_mm": 8,
+      "before_mm": 7.567534,
+      "after_mm": 7.567534,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "U_IB",
+      "pa": "IN_NEG",
+      "b": "R_SHUNT_B",
+      "pb": "pin2",
+      "category": "P0_kelvin",
+      "limit_mm": 8,
+      "before_mm": 4.917552000000001,
+      "after_mm": 4.917552000000001,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_IB",
+      "pa": "pin1",
+      "b": "U_IB",
+      "pb": "VS",
+      "category": "P0_ina_bypass",
+      "limit_mm": 3,
+      "before_mm": 9.506102199999999,
+      "after_mm": 9.506102199999999,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IB",
+      "pa": "pin2",
+      "b": "U_IB",
+      "pb": "GND",
+      "category": "P0_ina_bypass",
+      "limit_mm": 5,
+      "before_mm": 4.002343400000001,
+      "after_mm": 4.002343400000001,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_IB",
+      "pa": "pin1",
+      "b": "U_IB",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 12,
+      "before_mm": 6.134460300000001,
+      "after_mm": 6.8233823000000005,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_IB",
+      "pa": "pin2",
+      "b": "C_IADC_B",
+      "pb": "pin1",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 2,
+      "before_mm": 5.6956647,
+      "after_mm": 1.5360863,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "C_IADC_B",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "GPIO27",
+      "category": "P1_adc_output_filter",
+      "limit_mm": 3.5,
+      "before_mm": 9.591552,
+      "after_mm": 10.298669,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_SHUNT_B",
+      "pa": "pin2",
+      "b": "J_MOTOR",
+      "pb": "B_PLUS",
+      "category": "P2_coil_span",
+      "limit_mm": 20,
+      "before_mm": 22.056863300000003,
+      "after_mm": 22.056863300000003,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IO1",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD1",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 4.7782902,
+      "after_mm": 2.071598999999999,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "C_IO10",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD10",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 4.4550676,
+      "after_mm": 1.2678949999999993,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "C_IO22",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD22",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 5.0749724,
+      "after_mm": 5.6547096,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IO33",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD33",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 12.3190454,
+      "after_mm": 9.4347086,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IO42",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD42",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 12.0630658,
+      "after_mm": 11.1551948,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_IO49",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD49",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 6.521425,
+      "after_mm": 4.344708000000001,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_DV23",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD23",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.144632,
+      "after_mm": 8.4046561,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_DV50",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD50",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 4.648439,
+      "after_mm": 7.2382833999999985,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_ADC",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "ADC_AVDD",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.744754,
+      "after_mm": 10.7879302,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_USB",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_VDD",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.038383399999999,
+      "after_mm": 8.7530938,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VREG_IN",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "VREG_IN",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 9.1217458,
+      "after_mm": 9.3178762,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VREG_OUT",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "VREG_OUT",
+      "category": "P1_mcu_decoupling",
+      "limit_mm": 3.5,
+      "before_mm": 8.9178262,
+      "after_mm": 7.5619278,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VM",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB1",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 1.6909621999999995,
+      "after_mm": 1.6909621999999995,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_DRV_LOGIC",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VDD",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 4.0533134,
+      "after_mm": 4.0533134,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VREG",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VREG",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 8.108814599999999,
+      "after_mm": 8.108814599999999,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_CP",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "CP1",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 8.339915,
+      "after_mm": 6.2439784000000005,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VCP",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VCP",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 3.6874243,
+      "after_mm": 3.6874243,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_SA",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "SENSE1",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 6.6909163000000005,
+      "after_mm": 6.6909163000000005,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_SB",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "SENSE2",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 9.677666199999997,
+      "after_mm": 9.677666199999997,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_VM",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB2",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 5,
+      "before_mm": 3.7713149999999986,
+      "after_mm": 3.7713149999999986,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_CP",
+      "pa": "pin2",
+      "b": "U_DRV",
+      "pb": "CP2",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 4,
+      "before_mm": 9.680527,
+      "after_mm": 7.584590400000001,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_BULK",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB1",
+      "category": "P0_driver_supply_and_regulation",
+      "limit_mm": 12,
+      "before_mm": 19.271055999999998,
+      "after_mm": 13.430985399999999,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_BUCK_IN",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "VIN",
+      "category": "P0_buck_switching",
+      "limit_mm": 4,
+      "before_mm": 10.101659999999999,
+      "after_mm": 10.101659999999999,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_BOOTSTRAP",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "BST",
+      "category": "P0_buck_switching",
+      "limit_mm": 3,
+      "before_mm": 3.6200551,
+      "after_mm": 3.6200697,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_BOOTSTRAP",
+      "pa": "pin2",
+      "b": "U_BUCK",
+      "pb": "SW",
+      "category": "P0_buck_switching",
+      "limit_mm": 4,
+      "before_mm": 2.6701097000000003,
+      "after_mm": 2.6700951,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "L_BUCK",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "SW",
+      "category": "P0_buck_switching",
+      "limit_mm": 4,
+      "before_mm": 4.300152000000001,
+      "after_mm": 4.300152000000001,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "pa": "pin1",
+      "b": "L_BUCK",
+      "pb": "pin2",
+      "category": "P0_buck_switching",
+      "limit_mm": 5,
+      "before_mm": 4.590000099999999,
+      "after_mm": 4.590000099999999,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_BUCK_OUT2",
+      "pa": "pin1",
+      "b": "L_BUCK",
+      "pb": "pin2",
+      "category": "P0_buck_switching",
+      "limit_mm": 5,
+      "before_mm": 5.6240583,
+      "after_mm": 5.6240583,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_PD",
+      "pa": "pin1",
+      "b": "U_PD",
+      "pb": "VHV",
+      "category": "P1_pd_bypass",
+      "limit_mm": 4,
+      "before_mm": 2.0949416999999997,
+      "after_mm": 2.0949416999999997,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "C_FLASH",
+      "pa": "pin1",
+      "b": "U_FLASH",
+      "pb": "VCC",
+      "category": "P1_flash",
+      "limit_mm": 3,
+      "before_mm": 5.22498255,
+      "after_mm": 2.9463395000000006,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "U_FLASH",
+      "pa": "CLK",
+      "b": "U_MCU",
+      "pb": "QSPI_SCLK",
+      "category": "P1_flash",
+      "limit_mm": 8,
+      "before_mm": 5.19836075,
+      "after_mm": 1.75151725,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "Y_MCU",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "XIN",
+      "category": "P1_crystal",
+      "limit_mm": 4,
+      "before_mm": 2.724948,
+      "after_mm": 2.724948,
+      "before_pass": true,
+      "after_pass": true
+    },
+    {
+      "a": "R_XOUT",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "XOUT",
+      "category": "P1_crystal",
+      "limit_mm": 3,
+      "before_mm": 4.8680593000000005,
+      "after_mm": 4.8680593000000005,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_XOUT",
+      "pa": "pin2",
+      "b": "Y_MCU",
+      "pb": "pin3",
+      "category": "P1_crystal",
+      "limit_mm": 3,
+      "before_mm": 3.9086653000000005,
+      "after_mm": 3.9086653000000005,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_XIN",
+      "pa": "pin1",
+      "b": "Y_MCU",
+      "pb": "pin1",
+      "category": "P1_crystal",
+      "limit_mm": 3,
+      "before_mm": 3.5800818,
+      "after_mm": 6.4198319999999995,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "C_XOUT",
+      "pa": "pin1",
+      "b": "Y_MCU",
+      "pb": "pin3",
+      "category": "P1_crystal",
+      "limit_mm": 3,
+      "before_mm": 6.9796138999999995,
+      "after_mm": 2.75,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "R_DM",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_DM",
+      "category": "P1_usb_signal_and_return",
+      "limit_mm": 3,
+      "before_mm": 3.4277834000000005,
+      "after_mm": 3.4277834000000005,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "R_DP",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_DP",
+      "category": "P1_usb_signal_and_return",
+      "limit_mm": 3,
+      "before_mm": 5.7891234,
+      "after_mm": 5.7891234,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "U_ESD",
+      "pa": "DM1",
+      "b": "J_DATA",
+      "pb": "DM1",
+      "category": "P1_usb_signal_and_return",
+      "limit_mm": 7,
+      "before_mm": 8.5959333,
+      "after_mm": 8.0959333,
+      "before_pass": false,
+      "after_pass": false
+    },
+    {
+      "a": "U_ESD",
+      "pa": "DP1",
+      "b": "J_DATA",
+      "pb": "DP1",
+      "category": "P1_usb_signal_and_return",
+      "limit_mm": 7,
+      "before_mm": 7.1958853000000005,
+      "after_mm": 6.6958853000000005,
+      "before_pass": false,
+      "after_pass": true
+    },
+    {
+      "a": "C_TEMP",
+      "pa": "pin1",
+      "b": "U_TEMP",
+      "pb": "V_POS",
+      "category": "P2_temperature",
+      "limit_mm": 3,
+      "before_mm": 1.080050700000001,
+      "after_mm": 1.080050700000001,
+      "before_pass": true,
+      "after_pass": true
+    }
+  ],
+  "routing_before": {
+    "driver": {
+      "solver": {
+        "source_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+        "mode": "driver",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 9,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 19381.375602,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "output_trace_count": 24
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 24,
+      "physical_vias": 20,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 1,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 3,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 311,
+        "checkSourceTracesHavePcbTraces": 8
+      },
+      "native_all_routing_checks": {
+        "count": 320,
+        "by_type": {
+          "pcb_port_not_connected_error": 311,
+          "pcb_trace_missing_error": 8,
+          "pcb_pad_pad_clearance_error": 1
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 9,
+        "scoped_connections_total": 9,
+        "shorts": 0,
+        "copper_clearance_violations": [
+          {
+            "a": "pcb_smtpad_182",
+            "b": "experiment_via_7",
+            "a_ref": "L_BUCK.pin2",
+            "b_ref": null,
+            "a_net": "V3V3",
+            "b_net": "CP2",
+            "layer": "top",
+            "clearance_mm": 0.10644156201735386,
+            "required_mm": 0.15
+          }
+        ],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 64,
+        "geometric_clearance_pass": false,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [],
+          "R_SB.pin2": [
+            "experiment_trace_4",
+            "experiment_trace_5"
+          ]
+        }
+      }
+    },
+    "kelvin": {
+      "solver": {
+        "source_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+        "mode": "kelvin",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 14,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 23194.851039,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "output_trace_count": 27
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 27,
+      "physical_vias": 20,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 2,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 4,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 303,
+        "checkSourceTracesHavePcbTraces": 0
+      },
+      "native_all_routing_checks": {
+        "count": 308,
+        "by_type": {
+          "pcb_port_not_connected_error": 303,
+          "pcb_trace_warning": 3,
+          "pcb_pad_pad_clearance_error": 2
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 14,
+        "scoped_connections_total": 14,
+        "shorts": 0,
+        "copper_clearance_violations": [
+          {
+            "a": "pcb_smtpad_233",
+            "b": "experiment_via_19",
+            "a_ref": "C_VM.pin1",
+            "b_ref": null,
+            "a_net": "PD_VBUS",
+            "b_net": "A_DRV_PLUS",
+            "layer": "top",
+            "clearance_mm": 0.11225864516666949,
+            "required_mm": 0.15
+          },
+          {
+            "a": "pcb_smtpad_256",
+            "b": "experiment_via_2",
+            "a_ref": "R_SHUNT_B.pin2",
+            "b_ref": null,
+            "a_net": "B_PLUS",
+            "b_net": "V3V3",
+            "layer": "top",
+            "clearance_mm": 0.12247439999999976,
+            "required_mm": 0.15
+          }
+        ],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 66,
+        "geometric_clearance_pass": false,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [
+            "experiment_trace_20"
+          ],
+          "R_SB.pin2": [
+            "experiment_trace_19",
+            "experiment_via_13"
+          ]
+        }
+      }
+    },
+    "usb": {
+      "solver": {
+        "source_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+        "mode": "usb",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 6,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 11790.442389,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "output_trace_count": 24
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 24,
+      "physical_vias": 11,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 1,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 314,
+        "checkSourceTracesHavePcbTraces": 8
+      },
+      "native_all_routing_checks": {
+        "count": 323,
+        "by_type": {
+          "pcb_port_not_connected_error": 314,
+          "pcb_trace_missing_error": 8,
+          "pcb_pad_pad_clearance_error": 1
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 6,
+        "scoped_connections_total": 6,
+        "shorts": 0,
+        "copper_clearance_violations": [
+          {
+            "a": "pcb_smtpad_289",
+            "b": "experiment_via_4",
+            "a_ref": "U_ESD.GND",
+            "b_ref": null,
+            "a_net": "GND",
+            "b_net": "USB_DM",
+            "layer": "top",
+            "clearance_mm": 0.10126116723234187,
+            "required_mm": 0.15
+          }
+        ],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 66,
+        "geometric_clearance_pass": false,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [],
+          "R_SB.pin2": []
+        }
+      }
+    },
+    "full": {
+      "solver": {
+        "source_sha256": "3b88507ee70c6b1a65f1add09943efc2111495cb7d228525ed8dbf345b4f2fd1",
+        "mode": "full",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 78,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 60000.131321999994,
+        "solved": false,
+        "failed": false,
+        "error": null,
+        "phase": "highDensityRouteSolver"
+      },
+      "solver_result_is_board_qualification": false
+    }
+  },
+  "routing_after": {
+    "driver": {
+      "solver": {
+        "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "mode": "driver",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 9,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "state": "solved",
+        "nominal_step_loop_budget_ms": 60000,
+        "elapsed_ms": 20279.387643000002,
+        "phase": "none",
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "output_trace_count": 24,
+        "delivered_native_json_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "selected_attempt": "serial-driver",
+        "native_experiment_input_sha256": "e025a1767d7b813ba0f53f74b4125cddf5c880fb206b53d4092a7b6a926788e3",
+        "input_identical_to_delivered_native_experiment": true,
+        "loop_budget_seconds": 60,
+        "external_process_cap_seconds": 90,
+        "repeat_variability": [
+          {
+            "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+            "external_exit_code": 124,
+            "hard_timeout_seconds": 90,
+            "final_solver_state_available": false
+          }
+        ]
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 24,
+      "physical_vias": 22,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 1,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 3,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 311,
+        "checkSourceTracesHavePcbTraces": 8
+      },
+      "native_all_routing_checks": {
+        "count": 320,
+        "by_type": {
+          "pcb_port_not_connected_error": 311,
+          "pcb_trace_missing_error": 8,
+          "pcb_pad_pad_clearance_error": 1
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 9,
+        "scoped_connections_total": 9,
+        "shorts": 0,
+        "copper_clearance_violations": [
+          {
+            "a": "pcb_smtpad_188",
+            "b": "experiment_via_0",
+            "a_ref": "C_BUCK_OUT1.pin1",
+            "b_ref": null,
+            "a_net": "V3V3",
+            "b_net": "SENSE2",
+            "layer": "top",
+            "clearance_mm": 0.020000000000000462,
+            "required_mm": 0.15
+          }
+        ],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 64,
+        "geometric_clearance_pass": false,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [
+            "experiment_trace_8"
+          ],
+          "R_SB.pin2": [
+            "experiment_trace_0",
+            "experiment_trace_5",
+            "experiment_via_0",
+            "experiment_via_13",
+            "experiment_via_9"
+          ]
+        }
+      }
+    },
+    "kelvin": {
+      "solver": {
+        "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "mode": "kelvin",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 14,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "state": "solved",
+        "nominal_step_loop_budget_ms": 60000,
+        "elapsed_ms": 19213.135981,
+        "phase": "none",
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "output_trace_count": 27,
+        "delivered_native_json_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "selected_attempt": "serial-kelvin",
+        "native_experiment_input_sha256": "c42e037e63749bc7906c74a742df23918bc928243a10d9a7531dcf4974f9796b",
+        "input_identical_to_delivered_native_experiment": true,
+        "loop_budget_seconds": 60,
+        "external_process_cap_seconds": 90,
+        "repeat_variability": [
+          {
+            "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+            "mode": "kelvin",
+            "autorouter_version": "0.0.958",
+            "input_connections": 78,
+            "experiment_connections": 14,
+            "all_native_obstacles_retained": true,
+            "experimental_only": true,
+            "full_board_routed": false,
+            "physical_kelvin_verified": false,
+            "usb_return_plane_verified": false,
+            "elapsed_ms": 85271.83879200001,
+            "solved": false,
+            "failed": false,
+            "error": null,
+            "phase": "powerTraceExpansionSolver"
+          }
+        ]
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 27,
+      "physical_vias": 19,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 1,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 4,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 303,
+        "checkSourceTracesHavePcbTraces": 0
+      },
+      "native_all_routing_checks": {
+        "count": 307,
+        "by_type": {
+          "pcb_port_not_connected_error": 303,
+          "pcb_trace_warning": 3,
+          "pcb_pad_pad_clearance_error": 1
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 14,
+        "scoped_connections_total": 14,
+        "shorts": 0,
+        "copper_clearance_violations": [
+          {
+            "a": "pcb_smtpad_233",
+            "b": "experiment_via_18",
+            "a_ref": "C_VM.pin1",
+            "b_ref": null,
+            "a_net": "PD_VBUS",
+            "b_net": "A_DRV_PLUS",
+            "layer": "top",
+            "clearance_mm": 0.11225864516666949,
+            "required_mm": 0.15
+          }
+        ],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 66,
+        "geometric_clearance_pass": false,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 2,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": true,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": true,
+              "amplifier_connected_to_winding_without_shunt_pad": true,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [
+            "experiment_trace_20"
+          ],
+          "R_SB.pin2": [
+            "experiment_trace_19",
+            "experiment_trace_21",
+            "experiment_via_11"
+          ]
+        }
+      }
+    },
+    "usb": {
+      "solver": {
+        "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "mode": "usb",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 6,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 8728.038205,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "output_trace_count": 24,
+        "delivered_native_json_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "selected_attempt": "final-usb",
+        "native_experiment_input_sha256": "9d266e3aa44fea5d5862a906c589acdf69a7846075cffc8feb0f47340c7f000e",
+        "input_identical_to_delivered_native_experiment": true,
+        "loop_budget_seconds": 60,
+        "external_process_cap_seconds": 90
+      },
+      "solver_result_is_board_qualification": false,
+      "translated_traces": 24,
+      "physical_vias": 18,
+      "unsupported_primitives": [],
+      "source_identity_limitations": [],
+      "native_check_counts": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViaPadClearance": 0,
+        "checkHoleTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkPcbTraceSelfShorts": 0,
+        "checkCopperPourShorts": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkPcbCopperOverKeepout": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0,
+        "checkEachPcbPortConnectedToPcbTraces": 314,
+        "checkSourceTracesHavePcbTraces": 8
+      },
+      "native_all_routing_checks": {
+        "count": 322,
+        "by_type": {
+          "pcb_port_not_connected_error": 314,
+          "pcb_trace_missing_error": 8
+        }
+      },
+      "independent": {
+        "scoped_connections_connected": 6,
+        "scoped_connections_total": 6,
+        "shorts": 0,
+        "copper_clearance_violations": [],
+        "drill_spacing_violations": [],
+        "hole_trace_violations": [],
+        "board_edge_violations": [],
+        "screw_keepout_violations": [],
+        "full_board_disconnected_nets": 66,
+        "geometric_clearance_pass": true,
+        "full_board_connectivity_pass": false
+      },
+      "critical": {
+        "routed_returns_verified": false,
+        "kelvin_pickups": [
+          {
+            "branch": "KELVIN_A_POS",
+            "source_pickup_port": "source_port_248",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_241"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_A_NEG",
+            "source_pickup_port": "source_port_249",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_240"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_POS",
+            "source_pickup_port": "source_port_264",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_257"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          },
+          {
+            "branch": "KELVIN_B_NEG",
+            "source_pickup_port": "source_port_265",
+            "source_intent_starts_at_shunt": true,
+            "pickup_pad_ids": [
+              "pcb_smtpad_256"
+            ],
+            "routed_branch_traces": 0,
+            "routed_power_traces": 0,
+            "touches_actual_shunt_pad": false,
+            "shared_copper_outside_shunt_mm2": null,
+            "named_branch_overlap_measurement_available": false,
+            "pickup_geometry_pass": false,
+            "full_branch_continuity_verified": false,
+            "named_branch_continuity_verified": false,
+            "pad_cut_topology": {
+              "all_three_terminals_connected_before_cut": false,
+              "amplifier_connected_to_winding_without_shunt_pad": false,
+              "actual_shunt_pad_is_required_pickup": false,
+              "cut_layer": "top",
+              "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+            }
+          }
+        ],
+        "routed_kelvin_verified": false,
+        "usb_ground_reference_verified": false,
+        "usb_impedance_verified": false,
+        "return_corridor_conflicts": {
+          "R_SA.pin2": [],
+          "R_SB.pin2": [
+            "experiment_trace_9"
+          ]
+        }
+      }
+    },
+    "full": {
+      "solver": {
+        "source_sha256": "37c3237d2487db36d0904356ccab5e299bdfdc5af29aa15fa78bda6271c326e9",
+        "mode": "full",
+        "autorouter_version": "0.0.958",
+        "input_connections": 78,
+        "experiment_connections": 78,
+        "all_native_obstacles_retained": true,
+        "experimental_only": true,
+        "full_board_routed": false,
+        "physical_kelvin_verified": false,
+        "usb_return_plane_verified": false,
+        "elapsed_ms": 60224.680205,
+        "solved": false,
+        "failed": false,
+        "error": null,
+        "phase": "highDensityRouteSolver",
+        "delivered_native_json_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+        "selected_attempt": "accepted-full",
+        "native_experiment_input_sha256": "d4f03f906f2fc8603e01e351acdc177e74cb307af1074e49951a9f18752c2122",
+        "input_identical_to_delivered_native_experiment": true,
+        "loop_budget_seconds": 60,
+        "external_process_cap_seconds": 90,
+        "repeat_on_delivered_native_source": {
+          "source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+          "external_exit_code": 124,
+          "hard_timeout_seconds": 90,
+          "final_solver_state_available": false,
+          "output_saved": false
+        },
+        "equivalent_source_note": "Selected 60-second step-loop result used identical SRJ; only source_project_metadata differs between its native JSON and the delivered JSON."
+      },
+      "solver_result_is_board_qualification": false
+    }
+  },
+  "full_routed_candidate_verified": false,
+  "manufacturing_qualified": false,
+  "board_design_rules_unchanged": true,
+  "board_design_rules": {
+    "min_trace_width": 0.16,
+    "min_via_hole_diameter": 0.3,
+    "min_via_pad_diameter": 0.45,
+    "min_via_hole_edge_to_via_hole_edge_clearance": 0.2,
+    "min_trace_to_hole_edge_clearance": 0.2,
+    "min_trace_to_pad_edge_clearance": 0.15,
+    "min_pad_edge_to_pad_edge_clearance": 0.15,
+    "min_plated_hole_drill_edge_to_drill_edge_clearance": 0.45,
+    "min_board_edge_clearance": 0.25
+  }
+}

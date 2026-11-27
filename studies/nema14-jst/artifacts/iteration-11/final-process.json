@@ -1,0 +1,1404 @@
+{
+  "input_sha256": "7b16faed5d3f5c90c90f373e85903e9916b962420afaf0080ff2d2ec7209820c",
+  "profile": {
+    "name": "JLC04161H-2116 screening model",
+    "commitment": "Screening reference only; no supplier selected or acceptance established",
+    "nominal_board_thickness_mm": 1.6,
+    "finished_layers_top_to_bottom_mm": [
+      0.035,
+      0.1164,
+      0.0152,
+      1.265,
+      0.0152,
+      0.1164,
+      0.035
+    ],
+    "outer_copper_oz": 1,
+    "inner_copper_oz": 0.5,
+    "process": "ENIG; mechanically drilled through vias; nonconductive epoxy filled, copper capped and planarized",
+    "published_hole_position_tolerance_mm": 0.075,
+    "assumed_max_via_hole_diameter_growth_mm": 0.05,
+    "assumed_additional_relative_copper_registration_mm": 0.015,
+    "assumptions_are_supplier_guarantees": false,
+    "published_inner_via_hole_to_foreign_copper_mm": 0.2,
+    "published_inner_component_PTH_hole_to_foreign_copper_mm": 0.3,
+    "published_track_width_tolerance_fraction": 0.2,
+    "published_generic_PTH_tolerance_applies_to_vias": false,
+    "top_to_inner1_engineering_upper_depth_mm": 0.16,
+    "sources": [
+      "https://jlcpcb.com/impedance",
+      "https://jlcpcb.com/capabilities/Capabilities",
+      "https://jlcpcb.com/help/article/pcb-via-covering",
+      "https://jlcpcb.com/help/article/multi-layer-pcb-standard-laminated-structures"
+    ],
+    "supplier_acceptance_verified": false
+  },
+  "radial_hole_clearance_budget_mm": 0.115,
+  "finished_table_stack_sum_mm": 1.5981999999999998,
+  "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+  "hole_size_and_registration_budgets_require_procurement_confirmation": true,
+  "vias": [
+    {
+      "name": "V_PA_S",
+      "pcb_via_id": "pcb_via_0",
+      "center_mm": [
+        10.55,
+        0.10000000000000009
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.3837344,
+      "position_only_hole_SMT_clearance_mm": 0.30873439999999996,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.2687344,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.5499768,
+          "nominal_annulus_to_foreign_copper_mm": 0.42497680000000004,
+          "position_only_drill_clearance_mm": 0.47497680000000003,
+          "assumption_adjusted_drill_clearance_mm": 0.43497680000000005,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.7173131991624281,
+          "nominal_annulus_to_foreign_copper_mm": 0.5923132058720885,
+          "position_only_drill_clearance_mm": 0.6423131991624281,
+          "assumption_adjusted_drill_clearance_mm": 0.6023131991624281,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.7173131991624281,
+          "nominal_annulus_to_foreign_copper_mm": 0.5923132058720885,
+          "position_only_drill_clearance_mm": 0.6423131991624281,
+          "assumption_adjusted_drill_clearance_mm": 0.6023131991624281,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.7173131991624281,
+          "nominal_annulus_to_foreign_copper_mm": 0.5923132058720885,
+          "position_only_drill_clearance_mm": 0.6423131991624281,
+          "assumption_adjusted_drill_clearance_mm": 0.6023131991624281,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_PA_D",
+      "pcb_via_id": "pcb_via_1",
+      "center_mm": [
+        7.099747,
+        4.2
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.15000590000000003,
+      "position_only_hole_SMT_clearance_mm": 0.07500590000000003,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.03500590000000002,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.36759453622845134,
+          "nominal_annulus_to_foreign_copper_mm": 0.24259463067672196,
+          "position_only_drill_clearance_mm": 0.29259453622845133,
+          "assumption_adjusted_drill_clearance_mm": 0.25259453622845135,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.5780613873888534,
+          "nominal_annulus_to_foreign_copper_mm": 0.4530617388738257,
+          "position_only_drill_clearance_mm": 0.5030613873888534,
+          "assumption_adjusted_drill_clearance_mm": 0.4630613873888534,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.5780613873888534,
+          "nominal_annulus_to_foreign_copper_mm": 0.4530617388738257,
+          "position_only_drill_clearance_mm": 0.5030613873888534,
+          "assumption_adjusted_drill_clearance_mm": 0.4630613873888534,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.4249999999999999,
+          "nominal_annulus_to_foreign_copper_mm": 0.2999999999999999,
+          "position_only_drill_clearance_mm": 0.34999999999999987,
+          "assumption_adjusted_drill_clearance_mm": 0.3099999999999999,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_CA_S",
+      "pcb_via_id": "pcb_via_2",
+      "center_mm": [
+        11.8,
+        3.95
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.44079251957995497,
+      "position_only_hole_SMT_clearance_mm": 0.36579251957995496,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.325792519579955,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.5337344000000002,
+          "nominal_annulus_to_foreign_copper_mm": 0.40873440000000016,
+          "position_only_drill_clearance_mm": 0.45873440000000015,
+          "assumption_adjusted_drill_clearance_mm": 0.4187344000000002,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.6412337192570798,
+          "nominal_annulus_to_foreign_copper_mm": 0.5162347061523881,
+          "position_only_drill_clearance_mm": 0.5662337192570799,
+          "assumption_adjusted_drill_clearance_mm": 0.5262337192570798,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.240085704797916,
+          "nominal_annulus_to_foreign_copper_mm": 1.115086417525595,
+          "position_only_drill_clearance_mm": 1.165085704797916,
+          "assumption_adjusted_drill_clearance_mm": 1.125085704797916,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.240085704797916,
+          "nominal_annulus_to_foreign_copper_mm": 1.115086417525595,
+          "position_only_drill_clearance_mm": 1.165085704797916,
+          "assumption_adjusted_drill_clearance_mm": 1.125085704797916,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_CA_T",
+      "pcb_via_id": "pcb_via_3",
+      "center_mm": [
+        13.25,
+        -4.799869999999999
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2755118999999997,
+      "position_only_hole_SMT_clearance_mm": 0.2005118999999997,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.1605118999999997,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.6691843733339479,
+          "nominal_annulus_to_foreign_copper_mm": 0.5441867264236224,
+          "position_only_drill_clearance_mm": 0.5941843733339479,
+          "assumption_adjusted_drill_clearance_mm": 0.5541843733339479,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.5752499999999996,
+          "nominal_annulus_to_foreign_copper_mm": 1.4502499999999996,
+          "position_only_drill_clearance_mm": 1.5002499999999996,
+          "assumption_adjusted_drill_clearance_mm": 1.4602499999999996,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.5752499999999996,
+          "nominal_annulus_to_foreign_copper_mm": 1.4502499999999996,
+          "position_only_drill_clearance_mm": 1.5002499999999996,
+          "assumption_adjusted_drill_clearance_mm": 1.4602499999999996,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.5752499999999996,
+          "nominal_annulus_to_foreign_copper_mm": 1.4502499999999996,
+          "position_only_drill_clearance_mm": 1.5002499999999996,
+          "assumption_adjusted_drill_clearance_mm": 1.4602499999999996,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_PB_S",
+      "pcb_via_id": "pcb_via_4",
+      "center_mm": [
+        6,
+        1.8
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2116480856139595,
+      "position_only_hole_SMT_clearance_mm": 0.13664808561395952,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.0966480856139595,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.7342732688036409,
+          "nominal_annulus_to_foreign_copper_mm": 0.6092751361733295,
+          "position_only_drill_clearance_mm": 0.6592732688036409,
+          "assumption_adjusted_drill_clearance_mm": 0.6192732688036409,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.9631216576367123,
+          "nominal_annulus_to_foreign_copper_mm": 1.8381216617708496,
+          "position_only_drill_clearance_mm": 1.8881216576367124,
+          "assumption_adjusted_drill_clearance_mm": 1.8481216576367123,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.9623515357472098,
+          "nominal_annulus_to_foreign_copper_mm": 0.8373520413912424,
+          "position_only_drill_clearance_mm": 0.8873515357472098,
+          "assumption_adjusted_drill_clearance_mm": 0.8473515357472098,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.9631216576367123,
+          "nominal_annulus_to_foreign_copper_mm": 1.8381216617708496,
+          "position_only_drill_clearance_mm": 1.8881216576367124,
+          "assumption_adjusted_drill_clearance_mm": 1.8481216576367123,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "automatic:pcb_via_5",
+      "pcb_via_id": "pcb_via_5",
+      "center_mm": [
+        8.1,
+        4.125
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2250064712042969,
+      "position_only_hole_SMT_clearance_mm": 0.1500064712042969,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.1100064712042969,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_CB_S",
+      "pcb_via_id": "pcb_via_6",
+      "center_mm": [
+        9.399999999999999,
+        1.7
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2699301624170852,
+      "position_only_hole_SMT_clearance_mm": 0.19493016241708516,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.15493016241708518,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.31149490000000135,
+          "nominal_annulus_to_foreign_copper_mm": 0.18649490000000135,
+          "position_only_drill_clearance_mm": 0.23649490000000134,
+          "assumption_adjusted_drill_clearance_mm": 0.19649490000000136,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.1925621765572374,
+          "nominal_annulus_to_foreign_copper_mm": 1.0675640916857208,
+          "position_only_drill_clearance_mm": 1.1175621765572374,
+          "assumption_adjusted_drill_clearance_mm": 1.0775621765572374,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.37117268368100353,
+          "nominal_annulus_to_foreign_copper_mm": 0.24617323130650773,
+          "position_only_drill_clearance_mm": 0.2961726836810035,
+          "assumption_adjusted_drill_clearance_mm": 0.25617268368100354,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.4418155933516763,
+          "nominal_annulus_to_foreign_copper_mm": 1.3168156446765833,
+          "position_only_drill_clearance_mm": 1.3668155933516764,
+          "assumption_adjusted_drill_clearance_mm": 1.3268155933516763,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_CB_T",
+      "pcb_via_id": "pcb_via_7",
+      "center_mm": [
+        13.25,
+        -2.7996199999999996
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.27500389999999975,
+      "position_only_hole_SMT_clearance_mm": 0.20000389999999973,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.16000389999999975,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.6689205404909437,
+          "nominal_annulus_to_foreign_copper_mm": 0.5439228935806186,
+          "position_only_drill_clearance_mm": 0.5939205404909438,
+          "assumption_adjusted_drill_clearance_mm": 0.5539205404909437,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.5752499999999996,
+          "nominal_annulus_to_foreign_copper_mm": 1.4502499999999996,
+          "position_only_drill_clearance_mm": 1.5002499999999996,
+          "assumption_adjusted_drill_clearance_mm": 1.4602499999999996,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.47499999999999964,
+          "nominal_annulus_to_foreign_copper_mm": 0.34999999999999964,
+          "position_only_drill_clearance_mm": 0.39999999999999963,
+          "assumption_adjusted_drill_clearance_mm": 0.35999999999999965,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.5752499999999996,
+          "nominal_annulus_to_foreign_copper_mm": 1.4502499999999996,
+          "position_only_drill_clearance_mm": 1.5002499999999996,
+          "assumption_adjusted_drill_clearance_mm": 1.4602499999999996,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KAN_S",
+      "pcb_via_id": "pcb_via_8",
+      "center_mm": [
+        11.8,
+        2.6337304
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.4114948999999992,
+      "position_only_hole_SMT_clearance_mm": 0.3364948999999992,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.29649489999999923,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.7712467929434321,
+          "nominal_annulus_to_foreign_copper_mm": 0.6462491460331062,
+          "position_only_drill_clearance_mm": 0.6962467929434322,
+          "assumption_adjusted_drill_clearance_mm": 0.6562467929434321,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.8992969263731587,
+          "nominal_annulus_to_foreign_copper_mm": 1.7742979132684675,
+          "position_only_drill_clearance_mm": 1.8242969263731588,
+          "assumption_adjusted_drill_clearance_mm": 1.7842969263731587,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.9187845130973371,
+          "nominal_annulus_to_foreign_copper_mm": 0.7937855398298709,
+          "position_only_drill_clearance_mm": 0.8437845130973372,
+          "assumption_adjusted_drill_clearance_mm": 0.8037845130973371,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.1502404410443843,
+          "nominal_annulus_to_foreign_copper_mm": 2.0252412302973797,
+          "position_only_drill_clearance_mm": 2.075240441044384,
+          "assumption_adjusted_drill_clearance_mm": 2.035240441044384,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KAN_T",
+      "pcb_via_id": "pcb_via_9",
+      "center_mm": [
+        14.82512,
+        1.3
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.5959052000000005,
+      "position_only_hole_SMT_clearance_mm": 0.5209052000000005,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.4809052000000005,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.41998599999999975,
+          "nominal_annulus_to_foreign_copper_mm": 0.29498599999999975,
+          "position_only_drill_clearance_mm": 0.34498599999999974,
+          "assumption_adjusted_drill_clearance_mm": 0.30498599999999976,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.924269317174467,
+          "nominal_annulus_to_foreign_copper_mm": 3.799270903350312,
+          "position_only_drill_clearance_mm": 3.8492693171744667,
+          "assumption_adjusted_drill_clearance_mm": 3.8092693171744667,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.9001199999999994,
+          "nominal_annulus_to_foreign_copper_mm": 3.775119999999999,
+          "position_only_drill_clearance_mm": 3.825119999999999,
+          "assumption_adjusted_drill_clearance_mm": 3.785119999999999,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.924269317174467,
+          "nominal_annulus_to_foreign_copper_mm": 3.799270903350312,
+          "position_only_drill_clearance_mm": 3.8492693171744667,
+          "assumption_adjusted_drill_clearance_mm": 3.8092693171744667,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KBP_S",
+      "pcb_via_id": "pcb_via_10",
+      "center_mm": [
+        7.55,
+        1.95
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.13409762245642748,
+      "position_only_hole_SMT_clearance_mm": 0.05909762245642748,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.019097622456427474,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.5039854327494874,
+          "nominal_annulus_to_foreign_copper_mm": 0.3789876098077935,
+          "position_only_drill_clearance_mm": 0.42898543274948736,
+          "assumption_adjusted_drill_clearance_mm": 0.3889854327494874,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.671218308865077,
+          "nominal_annulus_to_foreign_copper_mm": 0.5462183102455815,
+          "position_only_drill_clearance_mm": 0.5962183088650771,
+          "assumption_adjusted_drill_clearance_mm": 0.5562183088650771,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3692487859279987,
+          "nominal_annulus_to_foreign_copper_mm": 0.24424878892615584,
+          "position_only_drill_clearance_mm": 0.2942487859279987,
+          "assumption_adjusted_drill_clearance_mm": 0.2542487859279987,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.0634975789282313,
+          "nominal_annulus_to_foreign_copper_mm": 0.9384975855839264,
+          "position_only_drill_clearance_mm": 0.9884975789282313,
+          "assumption_adjusted_drill_clearance_mm": 0.9484975789282313,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KBP_T",
+      "pcb_via_id": "pcb_via_11",
+      "center_mm": [
+        9.5,
+        -0.3498660000000001
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.28018411544788757,
+      "position_only_hole_SMT_clearance_mm": 0.20518411544788756,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.16518411544788758,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.28018411544788757,
+          "nominal_annulus_to_foreign_copper_mm": 0.15518646853756266,
+          "position_only_drill_clearance_mm": 0.20518411544788756,
+          "assumption_adjusted_drill_clearance_mm": 0.16518411544788758,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093933,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093933,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093933,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093933,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093933,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093933,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093933,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093933,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093933,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KBN_S",
+      "pcb_via_id": "pcb_via_12",
+      "center_mm": [
+        7.75,
+        3.425
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2837303999999996,
+      "position_only_hole_SMT_clearance_mm": 0.2087303999999996,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.16873039999999961,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.2837303999999996,
+          "nominal_annulus_to_foreign_copper_mm": 0.1587303999999996,
+          "position_only_drill_clearance_mm": 0.2087303999999996,
+          "assumption_adjusted_drill_clearance_mm": 0.16873039999999961,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.35762713853456796,
+          "nominal_annulus_to_foreign_copper_mm": 0.2326294790235496,
+          "position_only_drill_clearance_mm": 0.28262713853456795,
+          "assumption_adjusted_drill_clearance_mm": 0.24262713853456797,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_KBN_T",
+      "pcb_via_id": "pcb_via_13",
+      "center_mm": [
+        9.45,
+        0.42511999999999983
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.31135546877040005,
+      "position_only_hole_SMT_clearance_mm": 0.23635546877040003,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.19635546877040005,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.31135546877040005,
+          "nominal_annulus_to_foreign_copper_mm": 0.1863572746022246,
+          "position_only_drill_clearance_mm": 0.23635546877040003,
+          "assumption_adjusted_drill_clearance_mm": 0.19635546877040005,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093932,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093932,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093932,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093932,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093932,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093932,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3516016050093932,
+          "nominal_annulus_to_foreign_copper_mm": 0.22660395809906805,
+          "position_only_drill_clearance_mm": 0.2766016050093932,
+          "assumption_adjusted_drill_clearance_mm": 0.2366016050093932,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_GA",
+      "pcb_via_id": "pcb_via_14",
+      "center_mm": [
+        4.3,
+        7.45
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.2000059403213063,
+      "position_only_hole_SMT_clearance_mm": 0.1250059403213063,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.0850059403213063,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.41025575168173367,
+          "nominal_annulus_to_foreign_copper_mm": 0.2852567263776634,
+          "position_only_drill_clearance_mm": 0.33525575168173366,
+          "assumption_adjusted_drill_clearance_mm": 0.2952557516817337,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.8646484864893895,
+          "nominal_annulus_to_foreign_copper_mm": 3.739648520844289,
+          "position_only_drill_clearance_mm": 3.7896484864893893,
+          "assumption_adjusted_drill_clearance_mm": 3.7496484864893893,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.7870307634712814,
+          "nominal_annulus_to_foreign_copper_mm": 3.6620307669339005,
+          "position_only_drill_clearance_mm": 3.7120307634712812,
+          "assumption_adjusted_drill_clearance_mm": 3.672030763471281,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.607035499831832,
+          "nominal_annulus_to_foreign_copper_mm": 2.4820378420947504,
+          "position_only_drill_clearance_mm": 2.532035499831832,
+          "assumption_adjusted_drill_clearance_mm": 2.492035499831832,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_STAR_A",
+      "pcb_via_id": "pcb_via_15",
+      "center_mm": [
+        5.775067149999999,
+        7.449872999999997
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.0750630499999998,
+      "position_only_hole_SMT_clearance_mm": 6.304999999980077e-05,
+      "assumption_adjusted_hole_SMT_clearance_mm": -0.03993695000000021,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3293984123249072,
+          "nominal_annulus_to_foreign_copper_mm": 0.20440076541458202,
+          "position_only_drill_clearance_mm": 0.2543984123249072,
+          "assumption_adjusted_drill_clearance_mm": 0.2143984123249072,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.084487778368025,
+          "nominal_annulus_to_foreign_copper_mm": 2.9594901314577,
+          "position_only_drill_clearance_mm": 3.0094877783680247,
+          "assumption_adjusted_drill_clearance_mm": 2.9694877783680247,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.0640629025933053,
+          "nominal_annulus_to_foreign_copper_mm": 2.9390631983142708,
+          "position_only_drill_clearance_mm": 2.989062902593305,
+          "assumption_adjusted_drill_clearance_mm": 2.949062902593305,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.0851841057785765,
+          "nominal_annulus_to_foreign_copper_mm": 1.9601864588682516,
+          "position_only_drill_clearance_mm": 2.0101841057785763,
+          "assumption_adjusted_drill_clearance_mm": 1.9701841057785765,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "automatic:pcb_via_16",
+      "pcb_via_id": "pcb_via_16",
+      "center_mm": [
+        10.83,
+        7
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.13149489999999986,
+      "position_only_hole_SMT_clearance_mm": 0.05649489999999986,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.016494899999999854,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.32545991362160376,
+          "nominal_annulus_to_foreign_copper_mm": 0.20046194393197436,
+          "position_only_drill_clearance_mm": 0.25045991362160375,
+          "assumption_adjusted_drill_clearance_mm": 0.21045991362160377,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.0991578717278956,
+          "nominal_annulus_to_foreign_copper_mm": 1.9741588586232042,
+          "position_only_drill_clearance_mm": 2.0241578717278954,
+          "assumption_adjusted_drill_clearance_mm": 1.9841578717278956,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.3181577804908775,
+          "nominal_annulus_to_foreign_copper_mm": 2.1931592428368054,
+          "position_only_drill_clearance_mm": 2.2431577804908773,
+          "assumption_adjusted_drill_clearance_mm": 2.2031577804908773,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.3181577804908775,
+          "nominal_annulus_to_foreign_copper_mm": 2.1931592428368054,
+          "position_only_drill_clearance_mm": 2.2431577804908773,
+          "assumption_adjusted_drill_clearance_mm": 2.2031577804908773,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_STAR_B",
+      "pcb_via_id": "pcb_via_17",
+      "center_mm": [
+        9.42505985,
+        6.949493
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.07493604999999981,
+      "position_only_hole_SMT_clearance_mm": -6.395000000018747e-05,
+      "assumption_adjusted_hole_SMT_clearance_mm": -0.040063950000000195,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.3293233858427747,
+          "nominal_annulus_to_foreign_copper_mm": 0.20432573893244935,
+          "position_only_drill_clearance_mm": 0.2543233858427747,
+          "assumption_adjusted_drill_clearance_mm": 0.21432338584277472,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.4640561176665807,
+          "nominal_annulus_to_foreign_copper_mm": 2.3390571045618893,
+          "position_only_drill_clearance_mm": 2.3890561176665805,
+          "assumption_adjusted_drill_clearance_mm": 2.3490561176665805,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.5549622948892705,
+          "nominal_annulus_to_foreign_copper_mm": 2.4299638229815703,
+          "position_only_drill_clearance_mm": 2.4799622948892703,
+          "assumption_adjusted_drill_clearance_mm": 2.4399622948892703,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.9821861357192057,
+          "nominal_annulus_to_foreign_copper_mm": 1.8571879229468338,
+          "position_only_drill_clearance_mm": 1.9071861357192057,
+          "assumption_adjusted_drill_clearance_mm": 1.8671861357192057,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_SENSE_B_D",
+      "pcb_via_id": "pcb_via_18",
+      "center_mm": [
+        9,
+        4.000005900000001
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.357963918569611,
+      "position_only_hole_SMT_clearance_mm": 0.282963918569611,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.24296391856961103,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.357963918569611,
+          "nominal_annulus_to_foreign_copper_mm": 0.23296591189165056,
+          "position_only_drill_clearance_mm": 0.282963918569611,
+          "assumption_adjusted_drill_clearance_mm": 0.24296391856961103,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.48364189600977403,
+          "nominal_annulus_to_foreign_copper_mm": 0.35864419286363136,
+          "position_only_drill_clearance_mm": 0.408641896009774,
+          "assumption_adjusted_drill_clearance_mm": 0.36864189600977404,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.48364189600977403,
+          "nominal_annulus_to_foreign_copper_mm": 0.35864419286363136,
+          "position_only_drill_clearance_mm": 0.408641896009774,
+          "assumption_adjusted_drill_clearance_mm": 0.36864189600977404,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.48364189600977403,
+          "nominal_annulus_to_foreign_copper_mm": 0.35864419286363136,
+          "position_only_drill_clearance_mm": 0.408641896009774,
+          "assumption_adjusted_drill_clearance_mm": 0.36864189600977404,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "V_SENSE_B_R",
+      "pcb_via_id": "pcb_via_19",
+      "center_mm": [
+        12.9,
+        5.2000020000000005
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.26149489999999886,
+      "position_only_hole_SMT_clearance_mm": 0.18649489999999885,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.14649489999999887,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.240085704797916,
+          "nominal_annulus_to_foreign_copper_mm": 1.115086417525595,
+          "position_only_drill_clearance_mm": 1.165085704797916,
+          "assumption_adjusted_drill_clearance_mm": 1.125085704797916,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.240085704797916,
+          "nominal_annulus_to_foreign_copper_mm": 1.115086417525595,
+          "position_only_drill_clearance_mm": 1.165085704797916,
+          "assumption_adjusted_drill_clearance_mm": 1.125085704797916,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.8750020000000004,
+          "nominal_annulus_to_foreign_copper_mm": 0.7500020000000003,
+          "position_only_drill_clearance_mm": 0.8000020000000004,
+          "assumption_adjusted_drill_clearance_mm": 0.7600020000000004,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.240085704797916,
+          "nominal_annulus_to_foreign_copper_mm": 1.115086417525595,
+          "position_only_drill_clearance_mm": 1.165085704797916,
+          "assumption_adjusted_drill_clearance_mm": 1.125085704797916,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "automatic:pcb_via_20",
+      "pcb_via_id": "pcb_via_20",
+      "center_mm": [
+        0.58,
+        -12
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.38016199999999983,
+      "position_only_hole_SMT_clearance_mm": 0.3051619999999998,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.26516199999999984,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 0.38016199999999983,
+          "nominal_annulus_to_foreign_copper_mm": 0.2551619999999999,
+          "position_only_drill_clearance_mm": 0.3051619999999998,
+          "assumption_adjusted_drill_clearance_mm": 0.26516199999999984,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.255436697799295,
+          "nominal_annulus_to_foreign_copper_mm": 1.1304390508889701,
+          "position_only_drill_clearance_mm": 1.180436697799295,
+          "assumption_adjusted_drill_clearance_mm": 1.140436697799295,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.255436697799295,
+          "nominal_annulus_to_foreign_copper_mm": 1.1304390508889701,
+          "position_only_drill_clearance_mm": 1.180436697799295,
+          "assumption_adjusted_drill_clearance_mm": 1.140436697799295,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.255436697799295,
+          "nominal_annulus_to_foreign_copper_mm": 1.1304390508889701,
+          "position_only_drill_clearance_mm": 1.180436697799295,
+          "assumption_adjusted_drill_clearance_mm": 1.140436697799295,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    },
+    {
+      "name": "automatic:pcb_via_21",
+      "pcb_via_id": "pcb_via_21",
+      "center_mm": [
+        -8.349815,
+        -9.6
+      ],
+      "hole_pad_mm": [
+        0.3,
+        0.55
+      ],
+      "nominal_hole_edge_to_SMT_copper_mm": 0.3899190000000008,
+      "position_only_hole_SMT_clearance_mm": 0.3149190000000008,
+      "assumption_adjusted_hole_SMT_clearance_mm": 0.2749190000000008,
+      "nominal_annular_radial_width_mm": 0.12500000000000003,
+      "assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+      "layers": {
+        "top": {
+          "nominal_drill_edge_to_foreign_copper_mm": 2.5055285799791225,
+          "nominal_annulus_to_foreign_copper_mm": 2.3805298725653485,
+          "position_only_drill_clearance_mm": 2.4305285799791223,
+          "assumption_adjusted_drill_clearance_mm": 2.3905285799791223,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        },
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.4201081046060318,
+          "nominal_annulus_to_foreign_copper_mm": 3.2951081047807613,
+          "position_only_drill_clearance_mm": 3.3451081046060316,
+          "assumption_adjusted_drill_clearance_mm": 3.3051081046060315,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.4201081046060318,
+          "nominal_annulus_to_foreign_copper_mm": 3.2951081047807613,
+          "position_only_drill_clearance_mm": 3.3451081046060316,
+          "assumption_adjusted_drill_clearance_mm": 3.3051081046060315,
+          "inner_via_rule_mm": 0.2,
+          "nominal_inner_rule_pass": true,
+          "assumption_adjusted_inner_rule_pass": true
+        },
+        "bottom": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.4201081046060318,
+          "nominal_annulus_to_foreign_copper_mm": 3.2951081047807613,
+          "position_only_drill_clearance_mm": 3.3451081046060316,
+          "assumption_adjusted_drill_clearance_mm": 3.3051081046060315,
+          "inner_via_rule_mm": null,
+          "nominal_inner_rule_pass": null,
+          "assumption_adjusted_inner_rule_pass": null
+        }
+      }
+    }
+  ],
+  "component_PTH_inner_rule_checks": [
+    {
+      "id": "pcb_plated_hole_0",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 15.497308753831838,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 15.382308753831838,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 15.420669157828382,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 15.305669157828381,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_1",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 13.413910391520766,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 13.298910391520765,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 13.318224023076318,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 13.203224023076318,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_2",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 9.207323658131578,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 9.092323658131578,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 9.207323658131578,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 9.092323658131578,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_3",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 12.00765896471919,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 11.892658964719189,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 12.00765896471919,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 11.892658964719189,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_4",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.545107604443624,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 3.4301076044436236,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 3.4539577254260783,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 3.338957725426078,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_5",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 6.404893602459546,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 6.2898936024595455,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 6.215736495395933,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 6.100736495395933,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_6",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 4.098370313533807,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 3.9833703135338068,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 4.098370313533807,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 3.9833703135338068,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    },
+    {
+      "id": "pcb_plated_hole_7",
+      "layers": {
+        "inner1": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.3804338447190319,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 1.2654338447190319,
+          "assumption_adjusted_rule_pass": true
+        },
+        "inner2": {
+          "nominal_drill_edge_to_foreign_copper_mm": 1.3775470667643925,
+          "inner_component_PTH_rule_mm": 0.3,
+          "assumption_adjusted_gap_mm": 1.2625470667643925,
+          "assumption_adjusted_rule_pass": true
+        }
+      }
+    }
+  ],
+  "summary": {
+    "vias": 22,
+    "negative_position_only_SMT_margins": 1,
+    "negative_assumption_adjusted_SMT_margins": 2,
+    "negative_assumption_adjusted_annular_margins": 0,
+    "assumption_adjusted_inner_via_rule_failures": 0,
+    "minimum_assumption_adjusted_SMT_margin_mm": -0.040063950000000195,
+    "minimum_assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+    "width_plus_20_percent_shorts": 0,
+    "width_plus_20_percent_spacing_findings": 0
+  },
+  "width_plus_20_percent_spacing": [],
+  "supplier_acceptance_verified": false,
+  "manufacturing_qualified": false
+}

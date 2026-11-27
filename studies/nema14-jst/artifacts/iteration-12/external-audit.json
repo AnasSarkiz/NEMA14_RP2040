@@ -1,0 +1,188 @@
+{
+  "input_sha256": "fc4ece97d2e70ce38a2229539de48920566f96e719cf92d95a74ba950556f74b",
+  "preserved_nonreturn_route_arrays": 38,
+  "preserved_other_via_whole_records": 18,
+  "all_fitted_component_poses_DNP_CAD_and_supplier_pads_exact": true,
+  "manual_via_component_deltas": [
+    {
+      "via_component": "pcb_component_116",
+      "before": {
+        "x": 4.3,
+        "y": 7.45
+      },
+      "after": {
+        "x": 3.7,
+        "y": 7.35
+      }
+    },
+    {
+      "via_component": "pcb_component_117",
+      "before": {
+        "x": 5.775067149999999,
+        "y": 7.449872999999997
+      },
+      "after": {
+        "x": 4.3,
+        "y": 7.449873
+      }
+    },
+    {
+      "via_component": "pcb_component_118",
+      "before": {
+        "x": 10.83,
+        "y": 7
+      },
+      "after": {
+        "x": 11.8,
+        "y": 6.36
+      }
+    },
+    {
+      "via_component": "pcb_component_119",
+      "before": {
+        "x": 9.42505985,
+        "y": 6.949493
+      },
+      "after": {
+        "x": 10.83,
+        "y": 6.949493
+      }
+    }
+  ],
+  "unused_via_port_metadata_deltas": [],
+  "all_via_holes_lands_mm": [
+    0.3,
+    0.55
+  ],
+  "returns": [
+    {
+      "phase": "A",
+      "all_authored_return_wire_widths_mm": 0.6,
+      "intermediate_land": ".U_DRV.GND18",
+      "intermediate_land_required_after_actual_pad_cut": true,
+      "middle_cross_section_copper_upper_bound_mm": 0.28000959999999964,
+      "required_planar_width_mm": 0.6,
+      "actual_0_60_width_pass": false,
+      "nominal_width_loss_percent": 53.33173333333339,
+      "individual_barrel_links_required": [
+        true,
+        true
+      ],
+      "authored_wire_mm": 3.3297720921054204,
+      "explicit_intermediate_pad_access_mm": 1.4799999999999995,
+      "authored_serial_barrels": 2,
+      "authored_serial_path_mm": 5.09277209210542,
+      "serial_path_describes_required_current_flow": true
+    },
+    {
+      "phase": "B",
+      "all_authored_return_wire_widths_mm": 0.6,
+      "intermediate_land": ".U_DRV.GND",
+      "intermediate_land_required_after_actual_pad_cut": true,
+      "middle_cross_section_copper_upper_bound_mm": 0.28000959999999964,
+      "required_planar_width_mm": 0.6,
+      "actual_0_60_width_pass": false,
+      "nominal_width_loss_percent": 53.33173333333339,
+      "individual_barrel_links_required": [
+        false,
+        false
+      ],
+      "authored_wire_mm": 3.8147024671379866,
+      "explicit_intermediate_pad_access_mm": 1.4800000000000004,
+      "authored_serial_barrels": 2,
+      "authored_serial_path_mm": 5.577702467137987,
+      "serial_path_describes_required_current_flow": false
+    }
+  ],
+  "Kelvin_actual_pickups": [
+    {
+      "phase": "A",
+      "pole": "POS",
+      "actual_pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_winding_Cu_outside_pad_mm2": 0.0
+    },
+    {
+      "phase": "A",
+      "pole": "NEG",
+      "actual_pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_winding_Cu_outside_pad_mm2": 0.0
+    },
+    {
+      "phase": "B",
+      "pole": "POS",
+      "actual_pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_winding_Cu_outside_pad_mm2": 0.0
+    },
+    {
+      "phase": "B",
+      "pole": "NEG",
+      "actual_pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_winding_Cu_outside_pad_mm2": 0.0
+    }
+  ],
+  "actual_loop_closures": {
+    "sense_A_to_EP": true,
+    "sense_B_to_EP": true,
+    "driver_GND3_to_EP": true,
+    "driver_GND18_to_EP": true,
+    "EP_to_ceramic_VBB_bypass_ground": false,
+    "EP_to_bulk_ground": false,
+    "VCP_reservoir_to_driver": false,
+    "VCP_reservoir_supply_to_VBB1": false
+  },
+  "full_VREG_loop": {
+    "positive_leg_wire_mm": 0.9907754874075481,
+    "ground_pad_to_EP_pad_edge_lower_bound_mm": 1.8501311000000005,
+    "capacitor_ground_island": [
+      "C_VREG.pin2"
+    ],
+    "driver_ground_island": [
+      "R_SA.pin2",
+      "R_SB.pin2",
+      "U_DRV.EP",
+      "U_DRV.GND",
+      "U_DRV.GND18"
+    ],
+    "capacitor_ground_reaches_driver_ground": false,
+    "closed_copper_loop_exists": false,
+    "complete_loop_length_mm": null,
+    "loop_area_mm2": null,
+    "reason": "No real ground copper from C_VREG.pin2 to the driver GND/PAD island. Internal chip connections and source net identity are not substituted for copper."
+  },
+  "independent": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 59
+  },
+  "native_routing_attempted": false,
+  "candidate_promoted": false,
+  "manufacturing_qualified": false
+}

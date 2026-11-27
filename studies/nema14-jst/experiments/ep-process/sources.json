@@ -1,0 +1,73 @@
+{
+  "retrieved_UTC_date": "2026-11-27",
+  "sources": [
+    {
+      "id": "a4988",
+      "url": "https://www.allegromicro.com/-/media/files/datasheets/a4988-datasheet.pdf",
+      "scope": "Rev8, April5 2022; pages10,12,18,19; exact fitted ET land reference",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "solder",
+      "url": "https://www.allegromicro.com/-/media/files/application-notes/an26009-soldering-methods-for-allegro-products.pdf",
+      "scope": "Rev14 July9 2024; hidden QFN joint and via solder-wicking guidance",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_via",
+      "url": "https://jlcpcb.com/help/article/pcb-via-covering",
+      "scope": "Updated Nov10 2026: vias have no specified tolerance; selective fill note/image; diameter selection is a different option",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_capability",
+      "url": "https://jlcpcb.com/capabilities/Capabilities",
+      "scope": "Accessed Nov27 2026; position \u00b1.075, average plating18um, track\u00b120%, inner foreign via clearance.20; PTH tolerance is not a via guarantee",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_fill_blog",
+      "url": "https://jlcpcb.com/blog/pcb-via-filling-and-covering",
+      "scope": "Published Nov16 2026; generic cap>=5um/recess<=127um/protrusion<=50um; not QFN-qualified; 4-layer extra-fee option",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_thermal",
+      "url": "https://jlcpcb.com/blog/pcb-thermal-pad-design",
+      "scope": "Generic proposed segmented50-75% paste, .12-.15 foil and1-1.2mm via pitch; not A4988 specific",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_pcba",
+      "url": "https://jlcpcb.com/capabilities/pcb-assembly-capabilities",
+      "scope": "Economic single-side vs Standard double-side/SPI; Standard70mm minimum; selected QFN Xray criteria and filled-via tier compatibility unconfirmed",
+      "status": "official published general reference; no supplier acceptance"
+    },
+    {
+      "id": "jlc_stack",
+      "url": "https://jlcpcb.com/impedance",
+      "scope": "JLC04161H-2116: .035/.1164/.0152/1.265/.0152/.1164/.035 nominal mm; layer tolerances unconfirmed",
+      "status": "official published general reference; no supplier acceptance"
+    }
+  ],
+  "manufacturer_prior_verified_pdf_sha256": {
+    "a4988": {
+      "url": "https://www.allegromicro.com/-/media/files/datasheets/a4988-datasheet.pdf",
+      "sha256": "d1dfba3bb7be2cbf2b689f39424569fc78b1f4fd1f427648bbd8f291ebb933ea",
+      "retrieved_date": "2026-11-27",
+      "visual_pages_reviewed": [
+        19
+      ]
+    },
+    "solder": {
+      "url": "https://www.allegromicro.com/-/media/files/application-notes/an26009-soldering-methods-for-allegro-products.pdf",
+      "sha256": "dd1b60c1b03df585b982f969e5394592043429e81a4cfa23b448164c8e0713a8",
+      "retrieved_date": "2026-11-27",
+      "visual_pages_reviewed": [
+        9,
+        11
+      ]
+    }
+  },
+  "supplier_contacted": false
+}

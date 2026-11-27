@@ -1,0 +1,45 @@
+{
+  "toolchain": {
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/checks": "0.0.283",
+    "@tscircuit/cli": "0.1.2261",
+    "circuit-json": "0.0.562"
+  },
+  "installed_source_sha256": {
+    "core": "24257b29c463a0c9abcddcfd4368481139d6867b688893ee33f62cd8e9ad08c7",
+    "checks": "8586d47befd95cce0aeb33eb7e1defc315e2cdc62168673ea80019aaacc4b880"
+  },
+  "datasheet": {
+    "url": "https://www.allegromicro.com/-/media/files/datasheets/a4988-datasheet.pdf",
+    "revision": "Rev8,5April2022",
+    "page10": "VREG is nominally7V; decouple using0.22uF ceramic to ground. Class2 dielectric15% maximum or EIA toleranceR. Existing C_VREG220nF is retained.",
+    "pages12_18": "Heavy ground plane; pins3/18 tie to PAD plane under device; short sense traces and thick low-impedance star returns.",
+    "numeric_1mm_VREG_limit_found": false,
+    "page19_reference_EP_dimension_mm": 3.15,
+    "reference_layout_is_not_supplier_acceptance": true
+  },
+  "native": {
+    "Core_default_max_decoupling_trace_length_mm": 1,
+    "topology": "Two-terminal capacitor with power and ground ports",
+    "propagation": "Capacitor source max_decoupling_trace_length -> getMaxLengthFromConnectedComponents -> source_trace.max_length",
+    "checker": "getPcbTracesBySourceTraceId prefers traces with both real endpoint IDs, then sums getPcbTraceLength; cached trace_length is used when present.",
+    "widths_coordinates_nets_not_modified_by_checker": true,
+    "cached_length_independently_recomputed_for_every_candidate": true,
+    "no_source_splitting_or_owner_reassignment": true,
+    "maximum_not_overridden": true,
+    "native_wire_limit_does_not_include_pad_centre_access": true
+  },
+  "baseline_4600e6b": {
+    "actual_pad_edge_gap_mm": 1.3660173605161823,
+    "necessary_wire_centreline_lower_bound_with_both_0_08_endcaps_mm": 1.2060173605161824,
+    "original_actual_wire_mm": 2.60585631220988,
+    "even_endcap_contact_cannot_meet_native_1mm_at_original_pads": true
+  },
+  "candidate": {
+    "true_pad_gap_mm": 0.8854739312460946,
+    "authored_wire_mm": 0.9907754874075481,
+    "complete_pad_centre_path_reported_separately": true,
+    "both_endpoints_inside_real_pads": true
+  },
+  "manufacturing_qualified": false
+}

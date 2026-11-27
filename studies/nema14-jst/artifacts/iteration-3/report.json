@@ -1,0 +1,286 @@
+{
+  "starting_public_head": "8b7dd84ff2e24f4b19aa6222dd975c67fe5efb40",
+  "production_source_changed": false,
+  "candidate_accepted": false,
+  "locality_before": {
+    "passed": 25,
+    "total": 59,
+    "failed": 34
+  },
+  "locality_after": {
+    "passed": 25,
+    "total": 59,
+    "failed": 34
+  },
+  "native_entries": {
+    "control_disabled": {
+      "command": "tsci build controller.tsx --routing-disabled --profile",
+      "exit_code": 0,
+      "profile_ms": 210855.9,
+      "sha256": "66643819b739252aa04b489a61cbb2f7387d9069929e3ba26fd669be147024be"
+    },
+    "clean_candidate_disabled": {
+      "command": "tsci build experiments/integrated/candidate.tsx --routing-disabled --profile",
+      "exit_code": 0,
+      "profile_ms": 214178.9,
+      "sha256": "9b23f6efa7f51e9458039c5c4ea9e6d1c3620200c564951b3ce2b550242674f5",
+      "source_and_geometry_identical_to_authored_snapshot": true
+    },
+    "normal_candidate_attempt": {
+      "command": "tsci build experiments/integrated/candidate-final.tsx --autorouter-timeout 60s --autorouter-dump-srj all --profile",
+      "exit_code": 1,
+      "profile_ms": 235909,
+      "solver_elapsed_ms": 20000,
+      "blocking_route": "V3V3 U_DRV.MS3 to U_DRV.RESET_N",
+      "error": "Static reachability precheck failed under reservation and start-region rules",
+      "native_error_records": {
+        "pcb_autorouting_error": 1,
+        "pcb_port_not_connected_error": 324
+      },
+      "authored_geometry_preserved": true,
+      "wrapper_note": "candidate-final was the scratch wrapper; candidate.tsx removes only its unused zero-valued capacitor-shift option. Fresh native generation proves identical PCB, source and authored copper."
+    }
+  },
+  "integration": {
+    "control_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+    "authored_sha256": "b087771faff5274883d54664aa2b8340109efbdb0294d412406e4f80bee5d1aa",
+    "normal_attempt_sha256": "9bc32c4db2138cf00fb5d16edc8dc560488391e39c4ea273e20699b9313a4350",
+    "source_and_fixed_geometry_unchanged": true,
+    "authored_geometry_preserved_by_normal_native_routing": true,
+    "authored_paths": 8,
+    "through_vias": 10,
+    "actual_width_mm": {
+      "POWER_A_DRV": 0.45,
+      "POWER_A_COIL": 0.45,
+      "KELVIN_A_POS": 0.16,
+      "KELVIN_A_NEG": 0.16,
+      "POWER_B_DRV": 0.45,
+      "POWER_B_COIL": 0.45,
+      "KELVIN_B_POS": 0.16,
+      "KELVIN_B_NEG": 0.16
+    },
+    "wire_length_mm": {
+      "POWER_A_DRV": 3.6854409743424443,
+      "POWER_A_COIL": 20.755643940236073,
+      "KELVIN_A_POS": 25.54485198369283,
+      "KELVIN_A_NEG": 43.51723334951435,
+      "POWER_B_DRV": 26.89474831692156,
+      "POWER_B_COIL": 25.705051343800182,
+      "KELVIN_B_POS": 12.320913505705606,
+      "KELVIN_B_NEG": 10.307172151348464
+    },
+    "via_barrel_lengths_included": false,
+    "kelvin_wire_length_mismatch_mm": {
+      "A": 17.97238136582152,
+      "B": 2.0137413543571423
+    },
+    "pickups": [
+      {
+        "name": "KELVIN_A_POS",
+        "actual_body_facing_pad_edge": [
+          8.8464949,
+          10.1925393
+        ],
+        "pad_cut": {
+          "all_three_terminals_connected_before_cut": true,
+          "amplifier_connected_to_winding_without_shunt_pad": false,
+          "actual_shunt_pad_is_required_pickup": true,
+          "cut_layer": "top",
+          "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+        },
+        "shared_copper_outside_actual_pad_mm2": 0.0
+      },
+      {
+        "name": "KELVIN_A_NEG",
+        "actual_body_facing_pad_edge": [
+          8.8464949,
+          11.0600001
+        ],
+        "pad_cut": {
+          "all_three_terminals_connected_before_cut": true,
+          "amplifier_connected_to_winding_without_shunt_pad": false,
+          "actual_shunt_pad_is_required_pickup": true,
+          "cut_layer": "top",
+          "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+        },
+        "shared_copper_outside_actual_pad_mm2": 0.0
+      },
+      {
+        "name": "KELVIN_B_POS",
+        "actual_body_facing_pad_edge": [
+          7.9149864,
+          13.68851
+        ],
+        "pad_cut": {
+          "all_three_terminals_connected_before_cut": true,
+          "amplifier_connected_to_winding_without_shunt_pad": false,
+          "actual_shunt_pad_is_required_pickup": true,
+          "cut_layer": "top",
+          "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+        },
+        "shared_copper_outside_actual_pad_mm2": 0.0
+      },
+      {
+        "name": "KELVIN_B_NEG",
+        "actual_body_facing_pad_edge": [
+          7.0475256,
+          13.68851
+        ],
+        "pad_cut": {
+          "all_three_terminals_connected_before_cut": true,
+          "amplifier_connected_to_winding_without_shunt_pad": false,
+          "actual_shunt_pad_is_required_pickup": true,
+          "cut_layer": "top",
+          "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+        },
+        "shared_copper_outside_actual_pad_mm2": 0.0
+      }
+    ],
+    "native_selected_checks": {
+      "before": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkViaPadClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 4,
+        "checkPcbCopperOverKeepout": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0
+      },
+      "after": {
+        "checkPadPadClearance": 0,
+        "checkPadTraceClearance": 0,
+        "checkEachPcbTraceNonOverlapping": 0,
+        "checkViaPadClearance": 0,
+        "checkViaTraceClearance": 0,
+        "checkViasInPads": 0,
+        "checkTracesAreContiguous": 0,
+        "checkSourceTracesMatchPcbTraceThickness": 4,
+        "checkPcbCopperOverKeepout": 0,
+        "checkCopperToBoardEdgeClearance": 0,
+        "checkSameNetViaSpacing": 0,
+        "checkDifferentNetViaSpacing": 0
+      }
+    },
+    "independent_shorts": 0,
+    "independent_clearance_findings": 0,
+    "independent_open_nets": 66,
+    "candidate_passes_production_gates": false,
+    "production_source_changed": false,
+    "limits": [
+      "Eight paths only. Normal native routing failed; remaining nets are open.",
+      "Long Kelvin and winding detours are not qualified current loops.",
+      "Neither 0.60 mm ground return is verified. USB return-plane, impedance, thermal, CAM and physical assembly remain unverified."
+    ]
+  },
+  "driver_clearance_original_findings": 12,
+  "driver_diagnostics": [
+    {
+      "name": "driver-margin",
+      "native_solver": {
+        "diagnostic_only": true,
+        "frozen_prior_geometry": true,
+        "new_bottom_placement_trial": false,
+        "solver_version": "0.0.958",
+        "original_spacing_target_mm": 0.15,
+        "stricter_router_spacing_target_mm": 0.2,
+        "unchanged_board_clearance_gate_mm": 0.15,
+        "all_obstacles_retained": true,
+        "connections": 9,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "elapsed_ms": 26847.430106
+      },
+      "independent_shorts": 0,
+      "independent_clearance_findings": 2,
+      "independent_open_nets": 64,
+      "native_routing_checks": {
+        "pcb_port_not_connected_error": 313,
+        "pcb_trace_missing_error": 8,
+        "pcb_pad_trace_clearance_error": 1
+      },
+      "input_sha256": "5c89c2e5e5ad6001c768245aec3d15946aaf7fc13405407be9500dd0b7ea65c9",
+      "accepted": false,
+      "ground_return_copper_verified": false,
+      "limitation": "SRJ diagnostic materialization does not carry authored returns; externallyConnectedPointIds are not physical copper. Frozen prior driver geometry only; no new bottom assembly comparison."
+    },
+    {
+      "name": "driver-corridor",
+      "native_solver": {
+        "diagnostic_only": true,
+        "extra_C_VCP_pin1_forbidden_border_mm": 0.12,
+        "frozen_prior_geometry": true,
+        "new_bottom_placement_trial": false,
+        "solver_version": "0.0.958",
+        "original_spacing_target_mm": 0.15,
+        "stricter_router_spacing_target_mm": 0.2,
+        "unchanged_board_clearance_gate_mm": 0.15,
+        "all_obstacles_retained": true,
+        "connections": 9,
+        "solved": true,
+        "failed": false,
+        "error": null,
+        "phase": "none",
+        "elapsed_ms": 24740.5549
+      },
+      "independent_shorts": 0,
+      "independent_clearance_findings": 4,
+      "independent_open_nets": 64,
+      "native_routing_checks": {
+        "pcb_port_not_connected_error": 313,
+        "pcb_trace_missing_error": 8,
+        "pcb_pad_trace_clearance_error": 2,
+        "pcb_via_trace_clearance_error": 1
+      },
+      "input_sha256": "017b4d7861495c7908918ef695b4312e00301d4c77af7bbc66c614cfdb6a5b85",
+      "accepted": false,
+      "ground_return_copper_verified": false,
+      "limitation": "SRJ diagnostic materialization does not carry authored returns; externallyConnectedPointIds are not physical copper. Frozen prior driver geometry only; no new bottom assembly comparison."
+    }
+  ],
+  "ground_return_probe": {
+    "width_mm": 0.6,
+    "physical_copper_verified": false,
+    "sources": [
+      {
+        "source": "R_SA",
+        "pad_to_ep_lower_bound_mm": 1.8801242999999999,
+        "minimum_probed_source_to_ep_landing_mm": 6.524323459049079,
+        "unchanged_engineering_target_mm": 5,
+        "target_pass": false
+      },
+      {
+        "source": "R_SB",
+        "pad_to_ep_lower_bound_mm": 9.622756966448652,
+        "minimum_probed_source_to_ep_landing_mm": 14.261183741182183,
+        "unchanged_engineering_target_mm": 5,
+        "target_pass": false
+      }
+    ]
+  },
+  "generation_diagnosis": {
+    "initial_bounds_seconds": [
+      75,
+      90,
+      180
+    ],
+    "replay_bound_seconds": 60,
+    "replay_phase": "inlineNetLabelSolver",
+    "observed_fetch_events": 0,
+    "local_asset_import_ms": 15.8,
+    "conclusion": "CPU-bound schematic label refinement, not demonstrated catalog/CAD resolution blockage. Longer unchanged pinned native builds complete. Not proven infinite hang."
+  },
+  "manufacturing_qualified": false,
+  "optional_profiler_pcb_smoke": {
+    "command": "bun experiments/integrated/profile-native.ts pcb",
+    "exit_code": 0,
+    "wall_seconds": 10.059,
+    "purpose": "Diagnostic PCB-only render; not a production gate."
+  }
+}

@@ -1,0 +1,21 @@
+{
+  "status": "FEASIBLE",
+  "candidate_found": true,
+  "solver_seconds": 45.141766382,
+  "courtyard_rounding_margin_each_side_mm": 0.008,
+  "mandatory_previous_pass_constraints": [
+    {
+      "a": "C_TEMP",
+      "pa": "pin1",
+      "b": "U_TEMP",
+      "pb": "V_POS",
+      "limit": 3,
+      "weight": 6,
+      "distance_l1_mm": 1.080051,
+      "straight_distance_mm": 1.079999,
+      "pass": true
+    }
+  ],
+  "statistics": "CpSolverResponse summary:\nstatus: FEASIBLE\nobjective: 39704\nbest_bound: 22829\nintegers: 8971\nbooleans: 73446\nconflicts: 272\nbranches: 39071\npropagations: 18691977\ninteger_propagations: 5849589\nrestarts: 15976\nlp_iterations: 0\nwalltime: 45.1418\nusertime: 45.1418\ndeterministic_time: 102.706\ngap_integral: 944.21\nsolution_fingerprint: 0x6e474ba475caf99c\n",
+  "native_router_runs": 0
+}

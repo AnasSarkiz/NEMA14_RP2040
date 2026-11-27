@@ -1,0 +1,14 @@
+Building 1 file(s)...
+Building experiments/reachability/escape.tsx...
+Generating circuit JSON...
+Each child in a list should have a unique "key" prop.
+
+Check the render method of `Escape`. See https://react.dev/link/warning-keys for more information.
+trace: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://react.dev/link/special-props)
+Autorouting phase 1/1 has been running for 10.2s; enabling phase diagnostics. Re-run with --autorouter-debug for full autorouter logs from the start.
+Autorouting <board#1123 /> phase 1/1 long-running start: connections=70, obstacles=879, previous_traces=11, router=tscircuit, solver=AutoroutingPipelineSolver9_PreloadedTraceGraph, effort=2x, cache=miss, cache_id=0f3db717/f8d21638
+  connections: net.GND, net.PD_VBUS, net.V3V3, net.LOGIC_IN, net.DATA_VBUS, net.PD_VHV, net.PD_CC1, net.PD_CC2, net.DATA_CC1, net.DATA_CC2, net.USB_DP, net.USB_DM, net.STEP, net.DIR, net.ENABLE_N, net.SLEEP, net.PD_GOOD, net.DATA_PRESENT, net.VM_SENSE, net.VREF, net.CP1, net.CP2, net.VCP, net.VREG, net.SENSE1, net.SENSE2, net.A_PLUS, net.A_MINUS, net.B_PLUS, net.B_MINUS, net.A_DRV_PLUS, net.B_DRV_PLUS, net.I_A_RAW, net.I_B_RAW, net.I_A_ADC, net.I_B_ADC, net.V1V1, net.QSPI_SS, net.QSPI_SCLK, net.QSPI_SD0, net.QSPI_SD1, net.QSPI_SD2, net.QSPI_SD3, net.MCU_DM, net.MCU_DP, net.XIN, net.XOUT, net.XTAL_OUT, net.RUN, net.SWCLK, net.SWDIO, net.BUCK_SW, net.BUCK_BST, net.BOOT_PAD, net.PWR_LED_A, net.TEMP_SDA, net.TEMP_SCL, net.BUZZER_PWM, net.BUZZER_GATE, net.BUZZER_SINK, net.LED_R, net.LED_G, net.LED_B, net.STATUS_R_K, net.STATUS_G_K, net.STATUS_B_K, net.STATUS_R_C, net.STATUS_G_C, net.STATUS_B_C, net.PD_CFG
+  phase 1/1 progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=edgeSolver steps=11 progress=28% iterations_per_second=28676 elapsed=10.3s
+  phase 1/1 progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=edgeSolver steps=12 progress=28% iterations_per_second=16704 elapsed=10.5s
+  phase 1/1 progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=portPointPathingSolver steps=20 progress=44% iterations_per_second=250712 elapsed=20.6s
+  phase 1/1 progress: solver=AutoroutingPipelineSolver9_PreloadedTraceGraph solver_phase=portPointPathingSolver steps=37 progress=44% iterations_per_second=7056 elapsed=33.2s

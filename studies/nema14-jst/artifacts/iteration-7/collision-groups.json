@@ -1,0 +1,914 @@
+{
+  "saved_head": "76db864634bfcfc97056d582e968288dde5f12a6",
+  "copper_spacing_findings": 39,
+  "shorts_included": 33,
+  "actual_unplaced_parts": 26,
+  "by_unplaced_part": {
+    "R_PD": {
+      "original_pose": [
+        -13.8784015,
+        -5.0789936,
+        0
+      ],
+      "nets": [
+        "PD_VBUS",
+        "PD_VHV"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_PD.pin2",
+          "a_net": "PD_VHV",
+          "b_ref": "L_BUCK.pin1",
+          "b_net": "BUCK_SW",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "R_PD.pin1",
+          "a_net": "PD_VBUS",
+          "b_ref": "L_BUCK.pin1",
+          "b_net": "BUCK_SW",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_PG": {
+      "original_pose": [
+        -13.8784015,
+        -6.473,
+        0
+      ],
+      "nets": [
+        "PD_GOOD",
+        "V3V3"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_PG.pin2",
+          "a_net": "PD_GOOD",
+          "b_ref": "U_BUCK.GND",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_STATUS_G": {
+      "original_pose": [
+        -9.029836,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "STATUS_G_K",
+        "STATUS_G_C"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_DV23.pin1",
+          "a_net": "V1V1",
+          "b_ref": "R_STATUS_G.pin2",
+          "b_net": "STATUS_G_C",
+          "clearance_mm": 0.13004650000000062,
+          "required_mm": 0.15,
+          "short": false
+        }
+      ]
+    },
+    "R_FLASH_CS": {
+      "original_pose": [
+        -15.824994,
+        -1.69439,
+        90
+      ],
+      "nets": [
+        "V3V3",
+        "QSPI_SS"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_FLASH_CS.pin2",
+          "a_net": "QSPI_SS",
+          "b_ref": "L_BUCK.pin2",
+          "b_net": "V3V3",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_BOOT": {
+      "original_pose": [
+        -11.544978,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "QSPI_SS",
+        "BOOT_PAD"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_BOOT.pin1",
+          "a_net": "QSPI_SS",
+          "b_ref": "C_BUCK_IN.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_CC1": {
+      "original_pose": [
+        -10.474974,
+        -1.69439,
+        90
+      ],
+      "nets": [
+        "GND",
+        "DATA_CC1"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_CC1.pin1",
+          "a_net": "DATA_CC1",
+          "b_ref": "C_BUCK_IN.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.09445150000000013,
+          "required_mm": 0.15,
+          "short": false
+        }
+      ]
+    },
+    "R_USB_SENSE_H": {
+      "original_pose": [
+        -10.257002,
+        -9.319355,
+        270
+      ],
+      "nets": [
+        "DATA_PRESENT",
+        "DATA_VBUS"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_USB_SENSE_H.pin1",
+          "a_net": "DATA_VBUS",
+          "b_ref": "U_BUCK.FB",
+          "b_net": "V3V3",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_USB_SENSE_L": {
+      "original_pose": [
+        -14.75499,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "GND",
+        "DATA_PRESENT"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_USB_SENSE_L.pin1",
+          "a_net": "DATA_PRESENT",
+          "b_ref": "C_BUCK_OUT1.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_VM_H": {
+      "original_pose": [
+        -13.684986,
+        -1.69439,
+        90
+      ],
+      "nets": [
+        "PD_VBUS",
+        "VM_SENSE"
+      ],
+      "collisions": [
+        {
+          "a_ref": "R_VM_H.pin2",
+          "a_net": "VM_SENSE",
+          "b_ref": "L_BUCK.pin1",
+          "b_net": "BUCK_SW",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "R_VM_H.pin1",
+          "a_net": "PD_VBUS",
+          "b_ref": "L_BUCK.pin1",
+          "b_net": "BUCK_SW",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "D_STATUS": {
+      "original_pose": [
+        -13.7430068,
+        -8.7350016,
+        270
+      ],
+      "nets": [
+        "DATA_VBUS",
+        "STATUS_R_K",
+        "STATUS_G_K",
+        "STATUS_B_K"
+      ],
+      "collisions": [
+        {
+          "a_ref": "U_BUCK.BST",
+          "a_net": "BUCK_BST",
+          "b_ref": "D_STATUS.G_NEG",
+          "b_net": "STATUS_G_K",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "U_BUCK.BST",
+          "a_net": "BUCK_BST",
+          "b_ref": "D_STATUS.R_NEG",
+          "b_net": "STATUS_R_K",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "U_BUCK.SW",
+          "a_net": "BUCK_SW",
+          "b_ref": "D_STATUS.R_NEG",
+          "b_net": "STATUS_R_K",
+          "clearance_mm": 0.03490200000000065,
+          "required_mm": 0.15,
+          "short": false
+        }
+      ]
+    },
+    "R_SLEEP": {
+      "original_pose": [
+        -11.0351981,
+        -6.2597934,
+        180
+      ],
+      "nets": [
+        "GND",
+        "SLEEP"
+      ],
+      "collisions": [
+        {
+          "a_ref": "U_BUCK.VIN",
+          "a_net": "LOGIC_IN",
+          "b_ref": "R_SLEEP.pin1",
+          "b_net": "SLEEP",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "U_BUCK.VIN",
+          "a_net": "LOGIC_IN",
+          "b_ref": "R_SLEEP.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_REF_H": {
+      "original_pose": [
+        -11.4890072,
+        -8.3783983,
+        90
+      ],
+      "nets": [
+        "V3V3",
+        "VREF"
+      ],
+      "collisions": [
+        {
+          "a_ref": "U_BUCK.EN",
+          "a_net": "LOGIC_IN",
+          "b_ref": "R_REF_H.pin2",
+          "b_net": "VREF",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "TP_BOOT": {
+      "original_pose": [
+        -13.855,
+        -3.417792,
+        270
+      ],
+      "nets": [
+        "BOOT_PAD"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin1",
+          "a_net": "BUCK_SW",
+          "b_ref": "TP_BOOT.pin1",
+          "b_net": "BOOT_PAD",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "TP_RUN": {
+      "original_pose": [
+        -12.425,
+        -3.417792,
+        270
+      ],
+      "nets": [
+        "RUN"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin1",
+          "a_net": "BUCK_SW",
+          "b_ref": "TP_RUN.pin1",
+          "b_net": "RUN",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_IN.pin1",
+          "a_net": "LOGIC_IN",
+          "b_ref": "TP_RUN.pin1",
+          "b_net": "RUN",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_PD_CFG": {
+      "original_pose": [
+        -12.614982,
+        -1.69439,
+        90
+      ],
+      "nets": [
+        "GND",
+        "PD_CFG"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin1",
+          "a_net": "BUCK_SW",
+          "b_ref": "R_PD_CFG.pin1",
+          "b_net": "PD_CFG",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "L_BUCK.pin1",
+          "a_net": "BUCK_SW",
+          "b_ref": "R_PD_CFG.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "D_BUZZER": {
+      "original_pose": [
+        -16.3650016,
+        -7.8675926,
+        90
+      ],
+      "nets": [
+        "V3V3",
+        "BUZZER_SINK"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin2",
+          "a_net": "V3V3",
+          "b_ref": "D_BUZZER.anode",
+          "b_net": "BUZZER_SINK",
+          "clearance_mm": 0.0001894000000008944,
+          "required_mm": 0.15,
+          "short": false
+        },
+        {
+          "a_ref": "C_BUCK_OUT2.pin2",
+          "a_net": "GND",
+          "b_ref": "D_BUZZER.cathode",
+          "b_net": "V3V3",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_OUT2.pin1",
+          "a_net": "V3V3",
+          "b_ref": "D_BUZZER.anode",
+          "b_net": "BUZZER_SINK",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "TP_SWCLK": {
+      "original_pose": [
+        -16.695,
+        -3.417792,
+        270
+      ],
+      "nets": [
+        "SWCLK"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin2",
+          "a_net": "V3V3",
+          "b_ref": "TP_SWCLK.pin1",
+          "b_net": "SWCLK",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_TEMP_SDA": {
+      "original_pose": [
+        -16.894998,
+        -1.6943900000001142,
+        270
+      ],
+      "nets": [
+        "V3V3",
+        "TEMP_SDA"
+      ],
+      "collisions": [
+        {
+          "a_ref": "L_BUCK.pin2",
+          "a_net": "V3V3",
+          "b_ref": "R_TEMP_SDA.pin1",
+          "b_net": "TEMP_SDA",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "C_BOOTSTRAP": {
+      "original_pose": [
+        5.2499864,
+        1.8998887,
+        90
+      ],
+      "nets": [
+        "BUCK_SW",
+        "BUCK_BST"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BOOTSTRAP.pin2",
+          "a_net": "BUCK_SW",
+          "b_ref": "C_VM.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.03988029999999965,
+          "required_mm": 0.15,
+          "short": false
+        }
+      ]
+    },
+    "R_STATUS_B": {
+      "original_pose": [
+        -11.544978,
+        -1.69439,
+        90
+      ],
+      "nets": [
+        "STATUS_B_K",
+        "STATUS_B_C"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_IN.pin2",
+          "a_net": "GND",
+          "b_ref": "R_STATUS_B.pin2",
+          "b_net": "STATUS_B_C",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_IN.pin2",
+          "a_net": "GND",
+          "b_ref": "R_STATUS_B.pin1",
+          "b_net": "STATUS_B_K",
+          "clearance_mm": 0.09445150000000013,
+          "required_mm": 0.15,
+          "short": false
+        }
+      ]
+    },
+    "C_BUZZER": {
+      "original_pose": [
+        -11.0917766,
+        -4.8477911,
+        180
+      ],
+      "nets": [
+        "GND",
+        "V3V3"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_IN.pin1",
+          "a_net": "LOGIC_IN",
+          "b_ref": "C_BUZZER.pin1",
+          "b_net": "V3V3",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_IN.pin1",
+          "a_net": "LOGIC_IN",
+          "b_ref": "C_BUZZER.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "TP_GND": {
+      "original_pose": [
+        -10.995,
+        -3.417792,
+        270
+      ],
+      "nets": [
+        "GND"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_IN.pin1",
+          "a_net": "LOGIC_IN",
+          "b_ref": "TP_GND.pin1",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_STATUS_R": {
+      "original_pose": [
+        -13.684986,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "STATUS_R_K",
+        "STATUS_R_C"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_OUT1.pin2",
+          "a_net": "GND",
+          "b_ref": "R_STATUS_R.pin1",
+          "b_net": "STATUS_R_K",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_OUT1.pin2",
+          "a_net": "GND",
+          "b_ref": "R_STATUS_R.pin2",
+          "b_net": "STATUS_R_C",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_BUZZER_PD": {
+      "original_pose": [
+        -15.824994,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "GND",
+        "BUZZER_GATE"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_OUT1.pin1",
+          "a_net": "V3V3",
+          "b_ref": "R_BUZZER_PD.pin1",
+          "b_net": "BUZZER_GATE",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        },
+        {
+          "a_ref": "C_BUCK_OUT1.pin1",
+          "a_net": "V3V3",
+          "b_ref": "R_BUZZER_PD.pin2",
+          "b_net": "GND",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "R_TEMP_SCL": {
+      "original_pose": [
+        -16.894998,
+        0.2669,
+        90
+      ],
+      "nets": [
+        "V3V3",
+        "TEMP_SCL"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BUCK_OUT1.pin1",
+          "a_net": "V3V3",
+          "b_ref": "R_TEMP_SCL.pin1",
+          "b_net": "TEMP_SCL",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    },
+    "Q_BUZZER": {
+      "original_pose": [
+        7.530006,
+        -11.1549972,
+        180
+      ],
+      "nets": [
+        "GND",
+        "BUZZER_SINK",
+        "BUZZER_GATE"
+      ],
+      "collisions": [
+        {
+          "a_ref": "C_BULK.pin2",
+          "a_net": "GND",
+          "b_ref": "Q_BUZZER.pin1",
+          "b_net": "BUZZER_GATE",
+          "clearance_mm": 0.0,
+          "required_mm": 0.15,
+          "short": true
+        }
+      ]
+    }
+  },
+  "all_top_courtyard_conflicts": [
+    {
+      "a": "R_PD",
+      "b": "L_BUCK",
+      "overlap_mm2": 3.662425111518926
+    },
+    {
+      "a": "R_PG",
+      "b": "U_BUCK",
+      "overlap_mm2": 1.995928412120594
+    },
+    {
+      "a": "R_PG",
+      "b": "L_BUCK",
+      "overlap_mm2": 0.4269202331503028
+    },
+    {
+      "a": "C_DV23",
+      "b": "R_STATUS_G",
+      "overlap_mm2": 0.38475311981390825
+    },
+    {
+      "a": "R_FLASH_CS",
+      "b": "L_BUCK",
+      "overlap_mm2": 1.4664376721232353
+    },
+    {
+      "a": "R_FLASH_CS",
+      "b": "C_BUCK_OUT1",
+      "overlap_mm2": 0.10011078504004807
+    },
+    {
+      "a": "R_BOOT",
+      "b": "C_BUCK_IN",
+      "overlap_mm2": 0.7111864553219536
+    },
+    {
+      "a": "R_RUN",
+      "b": "C_BUCK_IN",
+      "overlap_mm2": 0.08138519797785804
+    },
+    {
+      "a": "R_RUN",
+      "b": "C_BUCK_OUT1",
+      "overlap_mm2": 0.2412981094998169
+    },
+    {
+      "a": "R_CC1",
+      "b": "C_BUCK_IN",
+      "overlap_mm2": 1.9486130919131317
+    },
+    {
+      "a": "R_USB_SENSE_H",
+      "b": "U_BUCK",
+      "overlap_mm2": 0.6036092036902676
+    },
+    {
+      "a": "R_USB_SENSE_L",
+      "b": "C_BUCK_OUT1",
+      "overlap_mm2": 1.7927068950000906
+    },
+    {
+      "a": "R_VM_H",
+      "b": "L_BUCK",
+      "overlap_mm2": 1.4664376721232348
+    },
+    {
+      "a": "R_VM_H",
+      "b": "C_BUCK_OUT1",
+      "overlap_mm2": 0.10011078504004807
+    },
+    {
+      "a": "R_VM_L",
+      "b": "L_BUCK",
+      "overlap_mm2": 1.4664376721232348
+    },
+    {
+      "a": "R_VM_L",
+      "b": "C_BUCK_OUT1",
+      "overlap_mm2": 0.10011078504004807
+    },
+    {
+      "a": "U_BUCK",
+      "b": "R_REF_H",
+      "overlap_mm2": 3.312098345364567
+    },
+    {
+      "a": "U_BUCK",
+      "b": "R_SLEEP",
+      "overlap_mm2": 2.111185476260463
+    },
+    {
+      "a": "U_BUCK",
+      "b": "D_STATUS",
+      "overlap_mm2": 3.4281001101379305
+    },
+    {
+      "a": "L_BUCK",
+      "b": "R_TEMP_SDA",
+      "overlap_mm2": 1.304349837558433
+    },
+    {
+      "a": "L_BUCK",
+      "b": "D_BUZZER",
+      "overlap_mm2": 0.9921457327797818
+    },
+    {
+      "a": "L_BUCK",
+      "b": "TP_3V3",
+      "overlap_mm2": 1.9599999999999977
+    },
+    {
+      "a": "L_BUCK",
+      "b": "TP_SWCLK",
+      "overlap_mm2": 1.8270652399998961
+    },
+    {
+      "a": "L_BUCK",
+      "b": "TP_RUN",
+      "overlap_mm2": 0.735065240000059
+    },
+    {
+      "a": "L_BUCK",
+      "b": "TP_BOOT",
+      "overlap_mm2": 1.9599999999999977
+    },
+    {
+      "a": "L_BUCK",
+      "b": "R_PD_CFG",
+      "overlap_mm2": 0.7544096249425576
+    },
+    {
+      "a": "C_BOOTSTRAP",
+      "b": "C_VM",
+      "overlap_mm2": 0.4210051083507704
+    },
+    {
+      "a": "C_BOOTSTRAP",
+      "b": "U_IB",
+      "overlap_mm2": 0.905036232894999
+    },
+    {
+      "a": "C_BOOTSTRAP",
+      "b": "C_IB",
+      "overlap_mm2": 0.08472379281274657
+    },
+    {
+      "a": "C_BUCK_IN",
+      "b": "R_STATUS_B",
+      "overlap_mm2": 2.0085493251600184
+    },
+    {
+      "a": "C_BUCK_IN",
+      "b": "C_BUZZER",
+      "overlap_mm2": 2.3110768481019863
+    },
+    {
+      "a": "C_BUCK_IN",
+      "b": "TP_GND",
+      "overlap_mm2": 1.9599999999999977
+    },
+    {
+      "a": "C_BUCK_IN",
+      "b": "TP_RUN",
+      "overlap_mm2": 0.6845911800000495
+    },
+    {
+      "a": "C_BUCK_IN",
+      "b": "R_PD_CFG",
+      "overlap_mm2": 0.2298499686730398
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "b": "R_TEMP_SDA",
+      "overlap_mm2": 0.05101822354401482
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "b": "R_TEMP_SCL",
+      "overlap_mm2": 0.9135950844998776
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "b": "R_STATUS_R",
+      "overlap_mm2": 1.7927068950000906
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "b": "R_BUZZER_PD",
+      "overlap_mm2": 1.7927068950000906
+    },
+    {
+      "a": "C_BUCK_OUT1",
+      "b": "R_PD_CFG",
+      "overlap_mm2": 0.013474898343995564
+    },
+    {
+      "a": "C_BUCK_OUT2",
+      "b": "D_BUZZER",
+      "overlap_mm2": 7.194421022004054
+    },
+    {
+      "a": "C_BULK",
+      "b": "Q_STATUS_B",
+      "overlap_mm2": 0.13009283088735069
+    },
+    {
+      "a": "C_BULK",
+      "b": "Q_BUZZER",
+      "overlap_mm2": 5.652690159657034
+    }
+  ],
+  "additional_unplaced_parts_in_courtyard_conflicts": [
+    "Q_STATUS_B",
+    "R_RUN",
+    "R_VM_L",
+    "TP_3V3"
+  ]
+}

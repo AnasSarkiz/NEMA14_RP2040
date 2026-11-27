@@ -1,0 +1,40 @@
+{
+  "board": "NEMA14 JST",
+  "sense_returns": {
+    "sources": [
+      "R_SA.pin2",
+      "R_SB.pin2"
+    ],
+    "target": "U_DRV.EP",
+    "reserved_trace_width_mm": 0.6,
+    "via_pad_diameter_mm": 0.45,
+    "via_hole_diameter_mm": 0.3,
+    "placement_path_target_mm": 5,
+    "stub_extension_candidates_mm": [
+      0.6,
+      0.85,
+      1.1
+    ],
+    "routing_layers": [
+      "top",
+      "inner1"
+    ],
+    "via_barrel_layers": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "meaning": "Engineering reservation and width intent; not a manufacturer numerical limit or thermal signoff"
+  },
+  "kelvin": {
+    "shunts": [
+      "R_SHUNT_A",
+      "R_SHUNT_B"
+    ],
+    "required_pickup": "Actual inline shunt pad before any shared winding-current copper",
+    "allowed_shared_copper_outside_shunt_mm2": 1e-08
+  },
+  "bypass": "C_VM must be closer to each VBB pin than C_BULK",
+  "usb": "Each routed USB signal segment requires full-width adjacent uninterrupted GND reference; impedance needs a fabricator stackup"
+}

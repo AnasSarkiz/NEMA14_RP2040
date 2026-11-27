@@ -1,0 +1,47 @@
+{
+  "distances": [
+    {
+      "from": "D_BUZZER.anode",
+      "to": "BZ1._NEG",
+      "function": "Buzzer flyback connection",
+      "previous_compact_pin_L1_mm": 20.629568,
+      "new_pin_L1_mm": 38.332529,
+      "actual_copper_loop_verified": false
+    },
+    {
+      "from": "C_BUZZER.pin1",
+      "to": "BZ1._POS",
+      "function": "Buzzer bulk supply connection",
+      "previous_compact_pin_L1_mm": 8.784088500000001,
+      "new_pin_L1_mm": 13.460266999999998,
+      "actual_copper_loop_verified": false
+    },
+    {
+      "from": "C_BOOTSTRAP.pin1",
+      "to": "U_BUCK.BST",
+      "function": "Buck bootstrap",
+      "previous_compact_pin_L1_mm": 28.7796151,
+      "new_pin_L1_mm": 2.7701800000000008,
+      "actual_copper_loop_verified": false
+    },
+    {
+      "from": "C_BOOTSTRAP.pin2",
+      "to": "U_BUCK.SW",
+      "function": "Buck switched bootstrap",
+      "previous_compact_pin_L1_mm": 28.6698871,
+      "new_pin_L1_mm": 1.82022,
+      "actual_copper_loop_verified": false
+    },
+    {
+      "from": "C_TEMP.pin1",
+      "to": "U_TEMP.V_POS",
+      "function": "Temperature supply bypass",
+      "previous_compact_pin_L1_mm": 1.080050700000001,
+      "new_pin_L1_mm": 1.729996800000002,
+      "actual_copper_loop_verified": false
+    }
+  ],
+  "placement_only": true,
+  "buzzer_auxiliary_loop_tradeoff_requires_further_layout_before_promotion": true,
+  "not_a_proof_all_top_impossible": true
+}

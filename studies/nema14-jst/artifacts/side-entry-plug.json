@@ -1,0 +1,74 @@
+{
+  "board_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "header_mpn": "SM04B-SRSS-TB(LF)(SN)",
+  "housing_mpn": "SHR-04V-S",
+  "insertion_direction": "from_right",
+  "nominal_housing_dimensions_mm": [
+    5,
+    5,
+    2.8
+  ],
+  "catalog_mated_depth_mm": 6.25,
+  "catalog_mated_height_mm": 2.95,
+  "housing": {
+    "min": [
+      13.462503300000117,
+      -5.8,
+      0.9500000000000001
+    ],
+    "max": [
+      18.462503300000115,
+      -0.7999999999999998,
+      3.75
+    ]
+  },
+  "seated_envelope": {
+    "min": [
+      13.312503300000117,
+      -5.95,
+      0.8
+    ],
+    "max": [
+      18.612503300000114,
+      -0.6499999999999998,
+      3.9
+    ]
+  },
+  "withdrawal_sweep": {
+    "min": [
+      13.312503300000117,
+      -5.95,
+      0.8
+    ],
+    "max": [
+      23.612503300000114,
+      -0.6499999999999998,
+      3.9
+    ]
+  },
+  "service_grip_envelope": {
+    "min": [
+      17.5,
+      -7.8,
+      0.8
+    ],
+    "max": [
+      20.462503300000115,
+      1.2000000000000002,
+      5.75
+    ]
+  },
+  "exposed_housing_length_mm": 0.9625033000001153,
+  "withdrawal_screen_mm": 5,
+  "geometric_tolerance_mm": 0.15,
+  "service_lateral_and_vertical_allowance_mm": 2,
+  "supplier_model": false,
+  "actual_cable_handling_verified": false,
+  "source": "https://www.jst-mfg.com/product/pdf/eng/eSH.pdf",
+  "assumptions": [
+    "SHR-04V-S without protrusions, not the 7 mm wide -B housing",
+    "Rear body datum +2.125 mm from the 4.25 mm body drawing",
+    "5 mm straight withdrawal and 2 mm service allowance are engineering screens",
+    "Exposed housing length is reported; grip force, wire bends, custom cable and operator access require physical verification"
+  ]
+}

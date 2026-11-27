@@ -1,0 +1,51 @@
+name: NEMA14 JST engineering gates
+on:
+  pull_request:
+    paths:
+      - 'studies/nema14-jst/**'
+      - 'imports/**'
+      - '.github/workflows/nema14-jst-study.yml'
+permissions:
+  contents: read
+jobs:
+  source-placement-and-locality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    defaults:
+      run:
+        working-directory: studies/nema14-jst
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v2
+        with:
+          bun-version: '1.4.2'
+      - run: bun install --frozen-lockfile
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r requirements-geometry.txt
+      - run: npm run typecheck
+      - run: npm run test:gate
+      - run: npm run test:plug
+      - run: npm run test:copper
+      - run: npm run test:kelvin
+      - run: npm run test:integration
+      - run: npm run test:width-ownership
+      - run: npm run test:reachability
+      - run: npm run test:compact
+      - run: npm run test:anchored
+      - run: python3 experiments/placement/test.py
+      - run: python3 experiments/reconnect/test.py
+      - run: python3 experiments/tolerance/test.py
+      - run: python3 experiments/original-process/test.py
+      - run: python3 experiments/vreg-star/test.py
+      - run: python3 experiments/external-star/test.py
+      - run: python3 experiments/ep-process/test.py
+      - run: python3 experiments/loop-check/test.py
+      - run: npm run source:check
+      - run: npm run check:electrical
+      - run: npm run check:placement
+      # This intentionally remains a blocking gate while the draft layout
+      # fails the documented locality targets.
+      - name: Electrical locality gate (currently blocks routing)
+        run: npm run check:locality

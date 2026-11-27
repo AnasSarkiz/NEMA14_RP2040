@@ -1,0 +1,98 @@
+{
+  "authored_sha256": "7f6483f83f3111f8338dbdd88788e1849f1e70e59e687be484092661b3158f70",
+  "normal_sha256": "be81f011bc0bb9f512a15347a48f16a5e87c3be1a70021965300acbe02f15f6d",
+  "original_components_ports_nets_pads_mounts_board_unchanged": true,
+  "original_eight_paths_identical": true,
+  "all_fifteen_paths_preserved": true,
+  "traces": 15,
+  "vias": 14,
+  "actual_widths_mm": {
+    "POWER_A_DRV": 0.45,
+    "POWER_A_COIL": 0.45,
+    "KELVIN_A_POS": 0.16,
+    "KELVIN_A_NEG": 0.16,
+    "POWER_B_DRV": 0.45,
+    "POWER_B_COIL": 0.45,
+    "KELVIN_B_POS": 0.16,
+    "KELVIN_B_NEG": 0.16,
+    "DRIVER_MODE_RESET": 0.16,
+    "RETURN_A_TOP": 0.6,
+    "RETURN_A_INNER1": 0.6,
+    "RETURN_B_TOP": 0.6,
+    "RETURN_B_INNER1": 0.6,
+    "STAR_TO_EP": 0.6,
+    "MODE_ESCAPE": 0.16
+  },
+  "kelvin_pickups": [
+    {
+      "name": "KELVIN_A_POS",
+      "pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_copper_outside_shunt_mm2": 0.0
+    },
+    {
+      "name": "KELVIN_A_NEG",
+      "pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_copper_outside_shunt_mm2": 0.0
+    },
+    {
+      "name": "KELVIN_B_POS",
+      "pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_copper_outside_shunt_mm2": 0.0
+    },
+    {
+      "name": "KELVIN_B_NEG",
+      "pad_cut": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      },
+      "shared_copper_outside_shunt_mm2": 0.0
+    }
+  ],
+  "ground_source_to_star_wire_mm": {
+    "A": 6.601309487469441,
+    "B": 14.264937189953507
+  },
+  "ground_return_target_mm": 5,
+  "ground_return_length_pass": false,
+  "via_barrel_lengths_included": false,
+  "native_selected_checks": {
+    "checkPadPadClearance": 0,
+    "checkPadTraceClearance": 0,
+    "checkEachPcbTraceNonOverlapping": 0,
+    "checkViaPadClearance": 0,
+    "checkViaTraceClearance": 0,
+    "checkViasInPads": 0,
+    "checkTracesAreContiguous": 0,
+    "checkSourceTracesMatchPcbTraceThickness": 0,
+    "checkPcbCopperOverKeepout": 0,
+    "checkCopperToBoardEdgeClearance": 0,
+    "checkSameNetViaSpacing": 0,
+    "checkDifferentNetViaSpacing": 0
+  },
+  "shorts": 0,
+  "clearance_findings": 0,
+  "open_nets": 66,
+  "full_board_routed_pass": false,
+  "manufacturing_qualified": false
+}

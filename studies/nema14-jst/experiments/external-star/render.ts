@@ -1,0 +1,5 @@
+import {plugin} from 'bun'
+import {Circuit} from '@tscircuit/core'
+import {writeFileSync} from 'node:fs'
+plugin({name:'local-cad',setup(b){b.onLoad({filter:/\.(obj|step)$/},a=>({contents:'export default '+JSON.stringify(a.path),loader:'js'}))}})
+const {default:old}=await import('../original-process/paths.json');const {default:vreg}=await import('../vreg-star/path.json');const {default:paths}=await import('./paths.json');const {default:vias}=await import('./all-vias.json');const {bindEndpoints}=await import('../original-process/bind-endpoints');const direct=process.argv.includes('--top-direct');const {default:extra}=await import('./direct-paths.json');const {default:Candidate}=await import(direct?'./top-direct':'./candidate');const c=new Circuit({platform:{partsEngineDisabled:true,schematicDisabled:true}});c.pcbRoutingDisabled=true;c.add(Candidate());await c.renderUntilSettled();bindEndpoints(c,[...old.filter(p=>!p.name.startsWith('RETURN_')),vreg,...(direct?[...paths.filter(p=>!p.name.endsWith('_TOP')&&!p.name.endsWith('_INNER')),...extra]:paths)],vias);writeFileSync(process.argv[2],JSON.stringify(c.getCircuitJson(),null,2)+'\n')

@@ -1,0 +1,251 @@
+{
+  "board_sha256": "be81f011bc0bb9f512a15347a48f16a5e87c3be1a70021965300acbe02f15f6d",
+  "placement_only": false,
+  "usb_return_path": {
+    "routed_traces": 0,
+    "segments": [],
+    "uninterrupted_ground_reference_verified": false,
+    "differential_impedance_verified": false,
+    "limitation": "No fabricator dielectric stackup or impedance calculation is supplied. Empty copper is not a return-path pass."
+  },
+  "return_corridors": [
+    {
+      "source": "R_SA.pin2",
+      "source_pcb_port_id": "pcb_port_245",
+      "source_pad_ids": [
+        "pcb_smtpad_236"
+      ],
+      "target": "U_DRV.EP",
+      "top_stub": [
+        [
+          8.1782149,
+          -0.4684991999999999
+        ],
+        [
+          7.578214900000001,
+          -0.11849919999999986
+        ]
+      ],
+      "inner1_path": [
+        [
+          7.578214900000001,
+          -0.11849919999999986
+        ],
+        [
+          7.578214900000001,
+          2.3251302000000003
+        ],
+        [
+          7.8248761999999985,
+          2.3251302000000003
+        ]
+      ],
+      "via_centers": [
+        [
+          7.578214900000001,
+          -0.11849919999999986
+        ],
+        [
+          7.8248761999999985,
+          2.3251302000000003
+        ]
+      ],
+      "reserved_width_mm": 0.6,
+      "via_pad_diameter_mm": 0.45,
+      "via_hole_diameter_mm": 0.3,
+      "path_length_mm": 3.384912899472488,
+      "engineering_length_target_mm": 5,
+      "conflicts": [],
+      "corridor_geometry_pass": true,
+      "locality_pass": true,
+      "placement_corridor_pass": true,
+      "routed_width_and_continuity_verified": true,
+      "wide_ground_wire_segments_found": 8
+    },
+    {
+      "source": "R_SB.pin2",
+      "source_pcb_port_id": "pcb_port_247",
+      "source_pad_ids": [
+        "pcb_smtpad_238"
+      ],
+      "target": "U_DRV.EP",
+      "top_stub": [
+        [
+          6.481258,
+          15.5955202
+        ],
+        [
+          5.881258000000001,
+          15.2455202
+        ]
+      ],
+      "inner1_path": [
+        [
+          5.881258000000001,
+          15.2455202
+        ],
+        [
+          5.881258000000001,
+          5.0751238
+        ],
+        [
+          7.8248761999999985,
+          5.0751238
+        ]
+      ],
+      "via_centers": [
+        [
+          5.881258000000001,
+          15.2455202
+        ],
+        [
+          7.8248761999999985,
+          5.0751238
+        ]
+      ],
+      "reserved_width_mm": 0.6,
+      "via_pad_diameter_mm": 0.45,
+      "via_hole_diameter_mm": 0.3,
+      "path_length_mm": 12.808636799472488,
+      "engineering_length_target_mm": 5,
+      "conflicts": [
+        "pcb_trace_3",
+        "pcb_trace_5",
+        "pcb_via_12"
+      ],
+      "corridor_geometry_pass": false,
+      "locality_pass": false,
+      "placement_corridor_pass": false,
+      "routed_width_and_continuity_verified": true,
+      "wide_ground_wire_segments_found": 8
+    }
+  ],
+  "return_corridor_screen_pass": false,
+  "bypass_ordering": [
+    {
+      "supply_pin": "VBB1",
+      "ceramic_distance_mm": 1.6909621999999995,
+      "bulk_distance_mm": 13.430985399999999,
+      "ceramic_closer_than_bulk": true
+    },
+    {
+      "supply_pin": "VBB2",
+      "ceramic_distance_mm": 3.7713149999999986,
+      "bulk_distance_mm": 12.1713354,
+      "ceramic_closer_than_bulk": true
+    }
+  ],
+  "bypass_ordering_pass": true,
+  "kelvin_pickups": [
+    {
+      "branch": "KELVIN_A_POS",
+      "source_pickup_port": "source_port_248",
+      "source_intent_starts_at_shunt": true,
+      "pickup_pad_ids": [
+        "pcb_smtpad_241"
+      ],
+      "routed_branch_traces": 1,
+      "routed_power_traces": 1,
+      "touches_actual_shunt_pad": true,
+      "shared_copper_outside_shunt_mm2": 0.0,
+      "named_branch_overlap_measurement_available": true,
+      "pickup_geometry_pass": true,
+      "full_branch_continuity_verified": true,
+      "named_branch_continuity_verified": true,
+      "pad_cut_topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_A_NEG",
+      "source_pickup_port": "source_port_249",
+      "source_intent_starts_at_shunt": true,
+      "pickup_pad_ids": [
+        "pcb_smtpad_240"
+      ],
+      "routed_branch_traces": 1,
+      "routed_power_traces": 1,
+      "touches_actual_shunt_pad": true,
+      "shared_copper_outside_shunt_mm2": 0.0,
+      "named_branch_overlap_measurement_available": true,
+      "pickup_geometry_pass": true,
+      "full_branch_continuity_verified": true,
+      "named_branch_continuity_verified": true,
+      "pad_cut_topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_POS",
+      "source_pickup_port": "source_port_264",
+      "source_intent_starts_at_shunt": true,
+      "pickup_pad_ids": [
+        "pcb_smtpad_257"
+      ],
+      "routed_branch_traces": 1,
+      "routed_power_traces": 1,
+      "touches_actual_shunt_pad": true,
+      "shared_copper_outside_shunt_mm2": 0.0,
+      "named_branch_overlap_measurement_available": true,
+      "pickup_geometry_pass": true,
+      "full_branch_continuity_verified": true,
+      "named_branch_continuity_verified": true,
+      "pad_cut_topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    },
+    {
+      "branch": "KELVIN_B_NEG",
+      "source_pickup_port": "source_port_265",
+      "source_intent_starts_at_shunt": true,
+      "pickup_pad_ids": [
+        "pcb_smtpad_256"
+      ],
+      "routed_branch_traces": 1,
+      "routed_power_traces": 1,
+      "touches_actual_shunt_pad": true,
+      "shared_copper_outside_shunt_mm2": 0.0,
+      "named_branch_overlap_measurement_available": true,
+      "pickup_geometry_pass": true,
+      "full_branch_continuity_verified": true,
+      "named_branch_continuity_verified": true,
+      "pad_cut_topology": {
+        "all_three_terminals_connected_before_cut": true,
+        "amplifier_connected_to_winding_without_shunt_pad": false,
+        "actual_shunt_pad_is_required_pickup": true,
+        "cut_layer": "top",
+        "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+      }
+    }
+  ],
+  "sense_return_source_ground_pass": true,
+  "kelvin_source_intent_pass": true,
+  "routed_return_width_and_continuity_verified": true,
+  "routed_kelvin_full_continuity_verified": true,
+  "shared_copper_error_example": {
+    "shunt_ohms": 0.05,
+    "shared_ohms": 0.001,
+    "fractional_error": 0.02,
+    "current_A": 0.4,
+    "gain": 20,
+    "output_error_V": 0.008
+  },
+  "limits": [
+    "5 mm return length is an engineering placement target, not an Allegro numerical limit",
+    "Reserved top stubs, all-layer via barrels and inner1 strips must remain clear of unrelated future copper",
+    "Corridors are not actual vias or traces and do not prove width, physical continuity, return-plane integrity or thermal performance",
+    "Kelvin layer intersections screen shared winding copper, but full branch continuity requires independent routed connectivity"
+  ]
+}

@@ -1,0 +1,152 @@
+{
+  "input_sha256": "4cdfe25d3227fef8945ab91f840d96f567b988fdf976227974b07c173473dbbe",
+  "four_actual_pad_pickups": [
+    {
+      "branch": "KELVIN_A_POS",
+      "actual_body_facing_edge_mm": [
+        10.55,
+        1.7662696
+      ],
+      "shared_winding_copper_outside_pad_mm2": 0.0,
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "branch": "KELVIN_A_NEG",
+      "actual_body_facing_edge_mm": [
+        10.55,
+        2.6337304
+      ],
+      "shared_winding_copper_outside_pad_mm2": 0.0,
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "branch": "KELVIN_B_POS",
+      "actual_body_facing_edge_mm": [
+        7.3162696,
+        2.8
+      ],
+      "shared_winding_copper_outside_pad_mm2": 0.0,
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "branch": "KELVIN_B_NEG",
+      "actual_body_facing_edge_mm": [
+        8.1837304,
+        2.8
+      ],
+      "shared_winding_copper_outside_pad_mm2": 0.0,
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    }
+  ],
+  "planar_wire_lengths_mm": {
+    "POWER_A_DRV": 8.950260900000002,
+    "POWER_A_COIL": 14.930085473330529,
+    "POWER_B_DRV": 8.649500900000003,
+    "POWER_B_COIL": 11.245898277913248,
+    "KELVIN_A_POS": 6.130575199999999,
+    "KELVIN_A_NEG": 6.595255052407722,
+    "KELVIN_B_POS": 6.326671948844868,
+    "KELVIN_B_NEG": 6.427205765178905,
+    "AUTHORED_SENSE_A": 4.150974824688243,
+    "AUTHORED_SENSE_B": 6.270197799859788
+  },
+  "actual_ground_returns": [
+    {
+      "phase": "A",
+      "actual_wire_mm": 4.60875369020354,
+      "annulus_end_to_axis_access_mm": 0,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.89175369020354,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.92875369020354,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    },
+    {
+      "phase": "B",
+      "actual_wire_mm": 4.0819261878445925,
+      "annulus_end_to_axis_access_mm": 0.2,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.564926187844593,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.601926187844593,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    }
+  ],
+  "fixed_mechanics_match_accepted": true,
+  "accepted_source_unchanged": true,
+  "independent": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 63
+  },
+  "geometric_clearance_pass": true,
+  "full_controller_promoted": false,
+  "manufacturing_qualified": false,
+  "same_critical_geometry_checks_as_prior_diagnostic": true,
+  "native_full_placement": {
+    "input_sha256": "4cdfe25d3227fef8945ab91f840d96f567b988fdf976227974b07c173473dbbe",
+    "source_pin_net_contract_unchanged": true,
+    "fixed_mechanical_poses": {
+      "J_PD": true,
+      "J_DATA": true,
+      "J_MOTOR": true,
+      "U_ENCODER": true,
+      "C_ENCODER": true,
+      "C_ENCODER_BULK": true
+    },
+    "top_courtyards": 101,
+    "courtyard_conflicts": [],
+    "courtyard_screw_conflicts": [],
+    "courtyard_boundary_conflicts": [],
+    "independent": {
+      "shorts": 0,
+      "clearance_violations": 0,
+      "drill_spacing_violations": 0,
+      "hole_trace_violations": 0,
+      "board_edge_violations": 0,
+      "screw_keepout_violations": 0,
+      "disconnected_nets": 63
+    },
+    "native_errors_by_type": {},
+    "full_nominal_placement_pass": true,
+    "routed_controller": false,
+    "manufacturing_qualified": false
+  },
+  "locality": {
+    "previous_pass": 41,
+    "candidate_pass": 43,
+    "total": 59,
+    "regressed_previous_passes": [],
+    "full_contract_pass": false
+  }
+}

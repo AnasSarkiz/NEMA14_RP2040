@@ -1,0 +1,11 @@
+/** Explicit native adapter contract: live authored copper becomes obstacles, never editable seeds.
+ * This avoids pinned Core 0.0.2110's pcbPaths fixed-detection gap. No output is repaired. */
+export function freezeLiveCopper(input:any,before:any[]){
+ const sources=new Map(before.filter(e=>e.type==='source_trace').map(e=>[e.source_trace_id,e]));const nets=new Map(before.filter(e=>e.type==='source_net').map(e=>[e.subcircuit_connectivity_map_key,e.source_net_id]));const ports=before.filter(e=>e.type==='pcb_port');const sourcePorts=new Map(before.filter(e=>e.type==='source_port').map(e=>[e.source_port_id,e]));const traces=before.filter(e=>e.type==='pcb_trace');const ids=new Set(traces.map(t=>t.pcb_trace_id));const seedIds=new Set((input.traces??[]).map((t:any)=>t.pcb_trace_id));const frozen:any[]=[];const serial=JSON.stringify(traces);
+ for(const seed of input.traces??[])if(!ids.has(seed.pcb_trace_id))throw Error('Unknown editable prior trace cannot be frozen by this fixture')
+ for(const t of traces){if(!seedIds.has(t.pcb_trace_id))continue;
+  const key=t.subcircuit_connectivity_map_key??sources.get(t.source_trace_id)?.subcircuit_connectivity_map_key;if(!key)throw Error('Unknown fixed copper net');const connectedTo=[t.pcb_trace_id,t.source_trace_id,nets.get(key),...ports.filter(p=>sourcePorts.get(p.source_port_id)?.subcircuit_connectivity_map_key===key).map(p=>p.pcb_port_id)].filter(Boolean);
+  for(let i=0;i<t.route.length-1;i++){const a=t.route[i],b=t.route[i+1];if(a.route_type!=='wire'||b.route_type!=='wire'||a.layer!==b.layer)throw Error('Fixture only freezes same-layer wires; real through vias are retained native obstacles');const width=Math.max(a.width,b.width),steps=a.x===b.x||a.y===b.y?1:Math.max(1,Math.ceil(Math.hypot(b.x-a.x,b.y-a.y)/width));for(let j=0;j<steps;j++){const x1=a.x+(b.x-a.x)*j/steps,y1=a.y+(b.y-a.y)*j/steps,x2=a.x+(b.x-a.x)*(j+1)/steps,y2=a.y+(b.y-a.y)*(j+1)/steps;frozen.push({type:'rect',center:{x:(x1+x2)/2,y:(y1+y2)/2},width:Math.abs(x2-x1)+width,height:Math.abs(y2-y1)+width,layers:[a.layer],connectedTo,circuitJsonMetadata:{frozen_pcb_trace_id:t.pcb_trace_id,source_trace_id:t.source_trace_id,segment:i,subsegment:j}})}}
+ }
+ return {input:{...input,traces:[],obstacles:[...input.obstacles,...frozen]},trace_ids:ids,before_serialized_copper:serial,added_obstacles:frozen.length}
+}

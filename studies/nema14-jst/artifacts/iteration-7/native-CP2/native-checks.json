@@ -1,0 +1,83 @@
+{
+  "checkPadPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkPadTraceClearance": {
+    "count": 1,
+    "findings": [
+      {
+        "type": "pcb_pad_trace_clearance_error",
+        "pcb_pad_trace_clearance_error_id": "pad_trace_clearance_pcb_smtpad_195_source_net_21_0",
+        "error_type": "pcb_pad_trace_clearance_error",
+        "message": "Pad U_DRV.EP and trace .U_DRV > .CP2 to net.CP2 are too close (clearance: 0.119mm, minimum: 0.15mm)",
+        "pcb_pad_id": "pcb_smtpad_195",
+        "pcb_trace_id": "source_net_21_0",
+        "minimum_clearance": 0.15,
+        "actual_clearance": 0.11933229453829473,
+        "center": {
+          "x": 9.25978946848128,
+          "y": 9.05010882850361
+        }
+      }
+    ]
+  },
+  "checkEachPcbTraceNonOverlapping": {
+    "count": 1,
+    "findings": [
+      {
+        "type": "pcb_trace_error",
+        "error_type": "pcb_trace_error",
+        "message": "PCB trace .U_DRV > .CP2 to net.CP2 is too close to pcb_keepout \"unnamed keepout\" (gap: 0.090mm)",
+        "pcb_trace_id": "source_net_21_0",
+        "source_trace_id": "",
+        "pcb_trace_error_id": "overlap_source_net_21_0_pcb_keepout_3",
+        "pcb_component_ids": [],
+        "center": {
+          "x": 9.919156152079191,
+          "y": 9.8
+        },
+        "pcb_port_ids": [
+          "pcb_port_207",
+          "pcb_port_233"
+        ]
+      }
+    ]
+  },
+  "checkViaPadClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViaTraceClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkViasInPads": {
+    "count": 0,
+    "findings": []
+  },
+  "checkTracesAreContiguous": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSourceTracesMatchPcbTraceThickness": {
+    "count": 0,
+    "findings": []
+  },
+  "checkPcbCopperOverKeepout": {
+    "count": 0,
+    "findings": []
+  },
+  "checkCopperToBoardEdgeClearance": {
+    "count": 0,
+    "findings": []
+  },
+  "checkSameNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  },
+  "checkDifferentNetViaSpacing": {
+    "count": 0,
+    "findings": []
+  }
+}

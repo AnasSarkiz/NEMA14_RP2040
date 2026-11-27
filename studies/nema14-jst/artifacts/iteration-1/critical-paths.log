@@ -1,0 +1,46 @@
+{
+  "board_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "placement_only": true,
+  "usb_return_path": {
+    "routed_traces": 0,
+    "segments": [],
+    "uninterrupted_ground_reference_verified": false,
+    "differential_impedance_verified": false,
+    "limitation": "No fabricator dielectric stackup or impedance calculation is supplied. Empty copper is not a return-path pass."
+  },
+  "return_corridor_screen_pass": false,
+  "bypass_ordering": [
+    {
+      "supply_pin": "VBB1",
+      "ceramic_distance_mm": 1.6909621999999995,
+      "bulk_distance_mm": 13.430985399999999,
+      "ceramic_closer_than_bulk": true
+    },
+    {
+      "supply_pin": "VBB2",
+      "ceramic_distance_mm": 3.7713149999999986,
+      "bulk_distance_mm": 12.1713354,
+      "ceramic_closer_than_bulk": true
+    }
+  ],
+  "bypass_ordering_pass": true,
+  "sense_return_source_ground_pass": true,
+  "kelvin_source_intent_pass": true,
+  "routed_return_width_and_continuity_verified": false,
+  "routed_kelvin_full_continuity_verified": false,
+  "shared_copper_error_example": {
+    "shunt_ohms": 0.05,
+    "shared_ohms": 0.001,
+    "fractional_error": 0.02,
+    "current_A": 0.4,
+    "gain": 20,
+    "output_error_V": 0.008
+  },
+  "limits": [
+    "5 mm return length is an engineering placement target, not an Allegro numerical limit",
+    "Reserved top stubs, all-layer via barrels and inner1 strips must remain clear of unrelated future copper",
+    "Corridors are not actual vias or traces and do not prove width, physical continuity, return-plane integrity or thermal performance",
+    "Kelvin layer intersections screen shared winding copper, but full branch continuity requires independent routed connectivity"
+  ]
+}
+Return corridor passes 1 of 2

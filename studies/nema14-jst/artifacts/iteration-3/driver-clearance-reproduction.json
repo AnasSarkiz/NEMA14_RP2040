@@ -1,0 +1,185 @@
+{
+  "original_sha256": "13ccd4be96bc514ca19df31643a7974bba9c9cb8af02167e31404f6cac0fdb09",
+  "diagnostic_sha256": "164f11f3afb627145cf710ffc690e940fb21125fa3fd6043010b85ffb1ce2468",
+  "original_copper_elements": 410,
+  "diagnostic_traces": 7,
+  "diagnostic_vias": 5,
+  "diagnostic_pads": 6,
+  "all_original_12_findings_reproduced": true,
+  "exact_clearance_findings": true,
+  "independent": {
+    "input_sha256": "164f11f3afb627145cf710ffc690e940fb21125fa3fd6043010b85ffb1ce2468",
+    "scope": "Independent Circuit JSON polygonal copper; not CAM, impedance, thermal or hardware validation",
+    "round_curve_quad_segments": 128,
+    "numerical_comparison_tolerance_mm": 1e-06,
+    "pcb_traces": 7,
+    "pcb_vias": 5,
+    "copper_primitives": 137,
+    "layers_checked": [
+      "top",
+      "inner1",
+      "inner2",
+      "bottom"
+    ],
+    "shorts": [],
+    "clearance_violations": [
+      {
+        "a": "pcb_smtpad_78",
+        "b": "source_net_0_mst6_0",
+        "a_ref": "U_MCU.GPIO17",
+        "b_ref": null,
+        "a_net": null,
+        "b_net": "GND",
+        "layer": "top",
+        "clearance_mm": 0.0960559435419821,
+        "required_mm": 0.15
+      },
+      {
+        "a": "pcb_smtpad_225",
+        "b": "source_net_1_mst3_0",
+        "a_ref": "C_CP.pin1",
+        "b_ref": null,
+        "a_net": "CP1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.10634883879393255,
+        "required_mm": 0.15
+      },
+      {
+        "a": "pcb_smtpad_227",
+        "b": "source_net_1_mst3_0",
+        "a_ref": "C_VCP.pin1",
+        "b_ref": null,
+        "a_net": "VCP",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.14835131747347027,
+        "required_mm": 0.15
+      },
+      {
+        "a": "pcb_smtpad_231",
+        "b": "source_net_0_mst4_0",
+        "a_ref": "C_DRV_LOGIC.pin1",
+        "b_ref": null,
+        "a_net": "V3V3",
+        "b_net": "GND",
+        "layer": "top",
+        "clearance_mm": 0.1450002894841815,
+        "required_mm": 0.15
+      },
+      {
+        "a": "pcb_smtpad_237",
+        "b": "source_net_25_0",
+        "a_ref": "R_SA.pin1",
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "SENSE2",
+        "layer": "top",
+        "clearance_mm": 0.1160075884109463,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.09424628536384193,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.09501521334031426,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.09939674441478318,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.10779534461458759,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.1421833483684978,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_24_0",
+        "b": "source_net_1_mst0_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "SENSE1",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.1260150305716916,
+        "required_mm": 0.15
+      },
+      {
+        "a": "source_net_22_0",
+        "b": "source_net_1_mst3_0",
+        "a_ref": null,
+        "b_ref": null,
+        "a_net": "VCP",
+        "b_net": "PD_VBUS",
+        "layer": "top",
+        "clearance_mm": 0.13115469119941442,
+        "required_mm": 0.15
+      }
+    ],
+    "drill_spacing_violations": [],
+    "hole_trace_violations": [],
+    "board_edge_violations": [],
+    "screw_keepout_violations": [],
+    "disconnected_nets": [
+      {
+        "net": "V3V3",
+        "islands": [
+          [
+            "U_DRV.RESET_N"
+          ],
+          [
+            "C_DRV_LOGIC.pin1"
+          ]
+        ]
+      }
+    ],
+    "scoped_connections": [],
+    "scope_connected": null,
+    "unsupported": [],
+    "geometric_clearance_pass": false,
+    "full_board_connectivity_pass": false,
+    "manufacturing_qualified": false
+  },
+  "full_board_routed": false,
+  "purpose": "Frozen failure reproduction only; no bottom placement experiment or gate suppression."
+}

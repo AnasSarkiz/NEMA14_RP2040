@@ -1,0 +1,218 @@
+{
+  "input_sha256": "0a8171591758d73b185d0cc239ae743260f867203338c883cd311bdd5418e07e",
+  "baseline": "a01fd79,unchanged r11 all-top native geometry",
+  "new_paths": 1,
+  "preserved_whole_pcb_trace_records": 44,
+  "preserved_via_whole_records": 22,
+  "all_component_poses_pads_CAD_courtyards_mechanical_and_old_sources_exact": true,
+  "positive_wire_mm": 0.9907754874075481,
+  "ground_wire_mm": 4.960966109587472,
+  "positive_full_pad_centre_travel_mm": 2.0207943912808704,
+  "ground_full_pad_centre_travel_mm": 4.960966109587472,
+  "total_external_PCB_copper_travel_mm": 6.981760500868343,
+  "capacitor_terminal_centre_span_mm": 1.400048,
+  "driver_EP_VREG_terminal_centre_chord_mm": 2.916167230198571,
+  "terminal_closure_reference_polygon_area_mm2": 8.531633742944667,
+  "terminal_closure_reference_perimeter_mm": 11.297975731066913,
+  "area_is_actual_internal_current_loop": false,
+  "internal_capacitor_and_silicon_current_paths_known": false,
+  "complete_external_decoupling_connections_verified": true,
+  "driver_GND3_external_tie_to_EP_present": true,
+  "driver_GND18_external_tie_to_EP_present": true,
+  "VBB_ceramic_ground_to_EP_present": false,
+  "ground_island_count_before_after": [
+    83,
+    82
+  ],
+  "full_board_disconnected_nets_before_after": [
+    59,
+    59
+  ],
+  "nominal_independent": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0
+  },
+  "simultaneous_plus20_percent_width": {
+    "shorts": 0,
+    "clearance_violations": 0,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0
+  },
+  "new_route_closest_foreign_objects": [
+    {
+      "object": "U_DRV.SLEEP",
+      "nominal_gap_mm": 0.1964207490619164,
+      "simultaneous_stressed_gap_mm": 0.18042074906191632
+    },
+    {
+      "object": "U_DRV.VDD",
+      "nominal_gap_mm": 0.31841457450510646,
+      "simultaneous_stressed_gap_mm": 0.3024146010640328
+    },
+    {
+      "object": "U_DRV.STEP",
+      "nominal_gap_mm": 0.6643495557556137,
+      "simultaneous_stressed_gap_mm": 0.6483495557556141
+    },
+    {
+      "object": "C_VREG.pin1",
+      "nominal_gap_mm": 0.9200491351528779,
+      "simultaneous_stressed_gap_mm": 0.9040492021834527
+    },
+    {
+      "object": "U_DRV.RESET_N",
+      "nominal_gap_mm": 0.9379296480037705,
+      "simultaneous_stressed_gap_mm": 0.9219296480037701
+    },
+    {
+      "object": "U_DRV.REF",
+      "nominal_gap_mm": 1.0112846176678194,
+      "simultaneous_stressed_gap_mm": 0.9952846176678201
+    },
+    {
+      "object": "R_REF_H.pin2",
+      "nominal_gap_mm": 1.1570590846527367,
+      "simultaneous_stressed_gap_mm": 1.1410590846527366
+    },
+    {
+      "object": "U_DRV.MS3",
+      "nominal_gap_mm": 1.29850725021441,
+      "simultaneous_stressed_gap_mm": 1.2825072502144097
+    },
+    {
+      "object": "U_DRV.MS2",
+      "nominal_gap_mm": 1.6590848524250492,
+      "simultaneous_stressed_gap_mm": 1.643084852425049
+    },
+    {
+      "object": "pcb_trace_43:1",
+      "nominal_gap_mm": 1.6733833565664757,
+      "simultaneous_stressed_gap_mm": 1.6573833581168262
+    },
+    {
+      "object": "U_DRV.DIR",
+      "nominal_gap_mm": 1.7051547414922308,
+      "simultaneous_stressed_gap_mm": 1.689154741492231
+    },
+    {
+      "object": "U_DRV.NC25",
+      "nominal_gap_mm": 1.9698700532602782,
+      "simultaneous_stressed_gap_mm": 1.953870295244937
+    }
+  ],
+  "new_route_shared_existing_GND_trace_area_outside_EP_mm2": 0.0,
+  "new_route_crosses_any_real_drill": false,
+  "supplemental_foreign_drill_failures": [],
+  "supplemental_foreign_drill_minimum_margin_mm": 0.009248785927897019,
+  "supplemental_new_route_foreign_drill_minimum_margin_mm": 2.7271713510471316,
+  "inherited_all_SMT_star_hole_failures": [
+    {
+      "via": "pcb_via_15",
+      "nominal_hole_SMT_mm": 0.0750630499999998,
+      "unchanged_adjusted_margin_mm": -0.03993695000000021
+    },
+    {
+      "via": "pcb_via_17",
+      "nominal_hole_SMT_mm": 0.07493604999999981,
+      "unchanged_adjusted_margin_mm": -0.040063950000000195
+    }
+  ],
+  "Kelvin_real_pad_cuts": [
+    {
+      "phase": "A",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "phase": "A",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "phase": "B",
+      "pole": "POS",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    },
+    {
+      "phase": "B",
+      "pole": "NEG",
+      "all_three_terminals_connected_before_cut": true,
+      "amplifier_connected_to_winding_without_shunt_pad": false,
+      "actual_shunt_pad_is_required_pickup": true,
+      "cut_layer": "top",
+      "method": "Remove actual SMT pad copper on its own layer; preserve physical barrels and split disconnected wire/pour pieces. Trace names are not used."
+    }
+  ],
+  "sense_returns_mm_unchanged": [
+    4.891753690204,
+    4.752642038738
+  ],
+  "native": {
+    "by_type": {
+      "pcb_port_not_connected_error": 299,
+      "pcb_trace_too_long_error": 1,
+      "pcb_trace_style_warning": 4
+    },
+    "new_ground_length_error": {
+      "type": "pcb_trace_too_long_error",
+      "pcb_trace_too_long_error_id": "pcb_trace_too_long_error_pcb_trace_44",
+      "error_type": "pcb_trace_too_long_error",
+      "message": "PCB trace is 4.96mm long, exceeding the 1mm maximum",
+      "pcb_trace_id": "pcb_trace_44",
+      "source_trace_id": "source_trace_380",
+      "actual_trace_length": 4.960966109587472,
+      "maximum_trace_length": 1,
+      "subcircuit_id": "subcircuit_source_group_0"
+    },
+    "limit_overridden": false
+  },
+  "placement_limit_bound": {
+    "assumptions": [
+      "Retained rectangular top-side U_DRV and C_VREG courtyards do not overlap",
+      "Only orthogonal capacitor poses; no courtyard/footprint/side change",
+      "Physical pad edge gap minus both0.08mm trace end caps is an optimistic wire-length lower bound"
+    ],
+    "driver_EP_to_courtyard_axis_insets_mm": [
+      1.6001242999999974,
+      1.5998702999999983,
+      1.5998703000000045,
+      1.6001242999999974
+    ],
+    "cap_ground_to_own_courtyard_axis_insets_mm": [
+      0.24999999999989608,
+      0.2500000000000142,
+      1.6500480000000088,
+      0.2500000000000142
+    ],
+    "any_orthogonal_legal_pad_gap_lower_bound_mm": 1.8498702999998944,
+    "any_orthogonal_legal_wire_length_lower_bound_mm": 1.6898702999998945,
+    "current_pad_edge_gap_mm": 1.8501311000000005,
+    "current_wire_length_lower_bound_mm": 1.6901311000000006,
+    "native_ground_max_mm": 1,
+    "necessary_aggregate_courtyard_inset_or_native_budget_change_mm": 0.6898702999998945,
+    "native_budget_for_this_actual_route_mm": 4.960966109587472,
+    "proof_scope": "Axis separation of disjoint rectangles; no claim for different footprints, nonorthogonal rotations or another assembly side"
+  },
+  "no_new_process_or_vias": true,
+  "controller_promoted": false,
+  "fabrication_qualified": false,
+  "autorouter_run": false
+}

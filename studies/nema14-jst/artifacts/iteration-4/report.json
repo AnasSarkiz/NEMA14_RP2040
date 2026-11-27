@@ -1,0 +1,131 @@
+{
+  "accepted_source_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "production_source_changed": false,
+  "locality_before": {
+    "pass": 25,
+    "total": 59,
+    "fail": 34
+  },
+  "locality_after": {
+    "pass": 25,
+    "total": 59,
+    "fail": 34
+  },
+  "before": {
+    "traces": 8,
+    "vias": 10,
+    "open_nets": 66,
+    "native_all_routing_with_current_checker": {
+      "pcb_port_not_connected_error": 324,
+      "pcb_trace_style_warning": 7
+    },
+    "legacy_false_thickness_warnings": 4
+  },
+  "after": {
+    "traces": 15,
+    "vias": 14,
+    "independent_shorts": 0,
+    "independent_clearance_findings": 0,
+    "open_nets": 66,
+    "native_all_routing": {
+      "pcb_port_not_connected_error": 319,
+      "pcb_trace_style_warning": 8
+    },
+    "native_autorouting_errors": 1,
+    "actual_thickness_warnings": 0
+  },
+  "native_api_receipt": {
+    "routing_enabled": true,
+    "schematic_disabled": true,
+    "parts_engine_disabled": true,
+    "elapsed_ms": 50625.356908
+  },
+  "full_cli_attempts": [
+    {
+      "command": "XDG_CONFIG_HOME=.config tsci build experiments/reachability/escape.tsx",
+      "exit": 137,
+      "outcome": "Killed during global port-point planning, no new completed board emitted"
+    },
+    {
+      "command": "XDG_CONFIG_HOME=.config tsci build experiments/reachability/escape.tsx --autorouter-debug",
+      "exit": 137,
+      "outcome": "Killed during global port-point planning; exact termination cause unverified"
+    }
+  ],
+  "ground_source_to_star_wire_mm": {
+    "A": 6.601309487469441,
+    "B": 14.264937189953507
+  },
+  "ground_return_target_mm": 5,
+  "ground_return_length_pass": false,
+  "ground_return_width_continuity_verified": true,
+  "driver_downward_escape_rejected": {
+    "shorts": 2,
+    "clearance_findings": 17,
+    "unsupported_native_route_primitives": 2,
+    "prior_two_clearances_resolved": false
+  },
+  "pins": {
+    "@tscircuit/cli": "0.1.2261",
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/capacity-autorouter": "0.0.958",
+    "@tscircuit/checks": "0.0.283",
+    "circuit-json": "0.0.562"
+  },
+  "selected_native_hard_checks": {
+    "checkPadPadClearance": 0,
+    "checkPadTraceClearance": 0,
+    "checkEachPcbTraceNonOverlapping": 0,
+    "checkViaPadClearance": 0,
+    "checkViaTraceClearance": 0,
+    "checkViasInPads": 0,
+    "checkTracesAreContiguous": 0,
+    "checkSourceTracesMatchPcbTraceThickness": 0,
+    "checkPcbCopperOverKeepout": 0,
+    "checkCopperToBoardEdgeClearance": 0,
+    "checkSameNetViaSpacing": 0,
+    "checkDifferentNetViaSpacing": 0
+  },
+  "candidate_accepted": false,
+  "full_board_routed_drc_pass": false,
+  "manufacturing_and_physical_fit_qualified": false,
+  "production_cli_source_check": {
+    "command": "npm run source:check",
+    "exit": 0,
+    "generated_sha256": "325b1896fd9d8451df5935905d8c85ec8a4eea2a50a5fbe1ce9e590124c5f814",
+    "accepted_artifact_retained_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+    "source_and_pcb_types_identical": [
+      "source_component",
+      "source_port",
+      "source_net",
+      "source_trace",
+      "pcb_component",
+      "pcb_port",
+      "pcb_smtpad",
+      "pcb_plated_hole",
+      "pcb_board",
+      "pcb_hole",
+      "pcb_keepout"
+    ],
+    "cad_geometry_and_poses_identical": true,
+    "traces": 0,
+    "vias": 0,
+    "full_routing_test": false,
+    "warnings_retained_in_log": true
+  },
+  "local_tests": {
+    "typecheck": "pass",
+    "placement_regressions": 6,
+    "copper_regressions": 14,
+    "integration_guards": 4,
+    "integration_verification": "pass",
+    "reachability_preservation": "pass",
+    "width_and_ownership_controls": 4,
+    "compatibility_pad_cuts": 8,
+    "plug_regressions": "pass",
+    "kelvin_regressions": "pass",
+    "production_electrical": "pass",
+    "production_placement": "pass",
+    "production_locality_exit": 1
+  }
+}

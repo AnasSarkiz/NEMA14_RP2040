@@ -1,0 +1,60 @@
+{
+  "name": "nema14-jst",
+  "version": "0.0.0",
+  "description": "NEMA14 JST guarded top-side layout study",
+  "main": "controller.tsx",
+  "scripts": {
+    "source:check": "XDG_CONFIG_HOME=.config tsci build controller.tsx --routing-disabled && bun scripts/capture-native.ts",
+    "check:electrical": "python3 scripts/check-jst-revision.py artifacts/final-source.circuit.json",
+    "check:placement": "python3 scripts/check-revision-placement.py artifacts/final-source.circuit.json --report artifacts/placement-screen.json",
+    "check:locality": "python3 scripts/measure-locality.py artifacts/final-source.circuit.json artifacts/locality-screen.json",
+    "check:plug": "bun scripts/describe-plug.ts artifacts/final-source.circuit.json artifacts/side-entry-plug.json && python3 scripts/check-plug-solids.py artifacts/final-source.circuit.json artifacts/side-entry-plug.json artifacts/plug-clearance.json",
+    "check": "npm run source:check && npm run check:electrical && npm run check:placement && npm run check:locality && npm run check:critical-placement && npm run check:plug",
+    "test": "npm run check",
+    "autoroute": "npm run check && XDG_CONFIG_HOME=.config tsci build controller.tsx && bun scripts/capture-native.ts && npm run check:independent && npm run check:critical-routing",
+    "typecheck": "tsc --noEmit",
+    "test:gate": "python3 scripts/test-revision-placement.py",
+    "test:plug": "bun scripts/test-plug.ts",
+    "review:pcb": "bun scripts/render-pcb.ts",
+    "dev": "XDG_CONFIG_HOME=.config tsci dev controller.tsx",
+    "test:copper": "python3 scripts/test-copper.py",
+    "check:critical-placement": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/critical-paths.json",
+    "check:independent": "python3 scripts/inspect-copper.py artifacts/final-source.circuit.json artifacts/independent-copper.json",
+    "check:critical-routing": "python3 scripts/check-critical-paths.py artifacts/final-source.circuit.json artifacts/routed-critical-paths.json --routed",
+    "test:kelvin": "bun scripts/test-authored-kelvin.ts",
+    "test:integration": "mkdir -p .config/integration && bun experiments/integrated/check-native.ts artifacts/iteration-3/authored.circuit.json .config/integration/authored-native.json && bun experiments/integrated/check-native.ts artifacts/iteration-3/normal-attempt.circuit.json .config/integration/normal-native.json && ${PYTHON:-python3} scripts/test-integrated-kelvin.py && ${PYTHON:-python3} scripts/verify-integrated-kelvin.py artifacts/final-source.circuit.json artifacts/iteration-3/authored.circuit.json artifacts/iteration-3/normal-attempt.circuit.json .config/integration/authored-native.json .config/integration/normal-native.json .config/integration/verification.json"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AnasSarkiz/NEMA14_RP2040.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "bugs": {
+    "url": "https://github.com/AnasSarkiz/NEMA14_RP2040/issues"
+  },
+  "homepage": "https://github.com/AnasSarkiz/NEMA14_RP2040",
+  "dependencies": {
+    "@tscircuit/cli": "0.1.2261",
+    "circuit-json-to-gerber": "0.0.112",
+    "circuit-json-to-kicad": "0.0.230",
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "react-reconciler": "0.34.0",
+    "three": "0.186.1",
+    "tscircuit": "0.0.2764",
+    "tsx": "4.20.6",
+    "typescript": "5.9.3",
+    "schematic-symbols": "0.0.248",
+    "circuit-to-svg": "0.0.445",
+    "@tscircuit/core": "0.0.2110",
+    "@tscircuit/checks": "0.0.242",
+    "@tscircuit/capacity-autorouter": "0.0.958"
+  },
+  "devDependencies": {
+    "bun": "1.4.2"
+  },
+  "private": true
+}

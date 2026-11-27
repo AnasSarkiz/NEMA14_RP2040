@@ -1,0 +1,89 @@
+{
+  "path": "artifacts/iteration-6/cli-guarded-CP1/native.circuit.json",
+  "independent": {
+    "shorts": 0,
+    "clearance_violations": 2,
+    "drill_spacing_violations": 0,
+    "hole_trace_violations": 0,
+    "board_edge_violations": 0,
+    "screw_keepout_violations": 0,
+    "disconnected_nets": 35
+  },
+  "returns": [
+    {
+      "phase": "A",
+      "actual_wire_mm": 4.60875369020354,
+      "annulus_end_to_axis_access_mm": 0,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.89175369020354,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.92875369020354,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    },
+    {
+      "phase": "B",
+      "actual_wire_mm": 4.088565432326859,
+      "annulus_end_to_axis_access_mm": 0.2,
+      "conducted_top_to_inner1_barrel_mm": 0.14150000000000001,
+      "conducted_barrels": 2,
+      "finished_stack_centerline_mm": 4.571565432326859,
+      "engineering_depth_upper_bound_mm": 0.16,
+      "conditional_upper_total_mm": 4.608565432326859,
+      "unchanged_maximum_mm": 5,
+      "actual_width_mm": 0.6,
+      "isolated_phase_connected_after_drill_subtraction": true,
+      "missing_barrel_and_narrow_wire_rejected": true,
+      "stack_tolerances_confirmed": false
+    }
+  ],
+  "fixed": {
+    "whole_record_byte_equivalent": true,
+    "serialized_record_sha256_before": "e4a973aa075eb6fb611f50ff1a7ce9f06bb0505292938c297c98b2a896b16c46",
+    "serialized_record_sha256_after": "e4a973aa075eb6fb611f50ff1a7ce9f06bb0505292938c297c98b2a896b16c46",
+    "trace_records": 32,
+    "via_records": 20,
+    "source_hashes_match": true,
+    "CP1_connected": true,
+    "bounded_native": {
+      "native_core": true,
+      "router": "0.0.958",
+      "scope": "guarded",
+      "net": "CP1",
+      "small_star_comparison": true,
+      "full_board_routed": false,
+      "original_fixed_traces": 32,
+      "raw_native_obstacles": 501,
+      "raw_editable_priors": 3,
+      "editable_prior_traces": 0,
+      "fixed_obstacles_added": 4,
+      "original_obstacles": 505,
+      "protected_obstacles": 505,
+      "rotated_obstacles_conservatively_normalized": 52,
+      "actual_board_bounds": {
+        "minX": -17.5,
+        "maxX": 17.5,
+        "minY": -17.5,
+        "maxY": 17.5
+      },
+      "physical_edge_clearance_mm": 0.25,
+      "maximum_conductor_envelope_mm": 0.6,
+      "conductor_center_bounds": {
+        "minX": -16.95,
+        "maxX": 16.95,
+        "minY": -16.95,
+        "maxY": 16.95
+      },
+      "connections": 1,
+      "elapsed_ms": 10460.581718999998,
+      "step_loop_budget_ms": 45000,
+      "solved": true,
+      "failed": false,
+      "error": null
+    }
+  }
+}

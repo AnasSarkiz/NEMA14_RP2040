@@ -1,0 +1,18 @@
+npm warn Unknown env config "http-proxy". This will stop working in the next major version of npm. See `npm help npmrc` for supported config options.
+
+> nema14-jst@0.0.0 check:placement
+> python3 scripts/check-revision-placement.py artifacts/final-source.circuit.json --report artifacts/placement-screen.json
+
+{
+  "input": "artifacts/final-source.circuit.json",
+  "input_sha256": "fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b",
+  "screen_pass": true,
+  "checked_top_courtyards": 101,
+  "native_errors": [],
+  "findings": [],
+  "pcb_traces": 0,
+  "pcb_vias": 0,
+  "mated_plug_and_sweep_verified": false,
+  "power_and_kelvin_routing_verified": false,
+  "manufacturing_qualified": false
+}

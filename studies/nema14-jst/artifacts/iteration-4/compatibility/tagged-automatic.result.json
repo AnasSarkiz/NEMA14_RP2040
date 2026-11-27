@@ -1,0 +1,40 @@
+{
+  "version": "tagged",
+  "mode": "automatic",
+  "elapsed_ms": 558.6338519999999,
+  "traces": 7,
+  "diagnostics": [
+    {
+      "type": "source_refdes_convention_warning",
+      "message": "Component P_A_POS has ftype=\"simple_test_point\" but reference designator should start with TP"
+    },
+    {
+      "type": "source_refdes_convention_warning",
+      "message": "Component P_A_NEG has ftype=\"simple_test_point\" but reference designator should start with TP"
+    },
+    {
+      "type": "source_refdes_convention_warning",
+      "message": "Component P_VCC has ftype=\"simple_test_point\" but reference designator should start with TP"
+    },
+    {
+      "type": "source_property_ignored_warning",
+      "message": "autorouter.traceClearance on <board> is deprecated. Set minTraceToPadEdgeClearance on <board> or <autoroutingphase> instead."
+    },
+    {
+      "type": "source_no_power_pin_defined_warning",
+      "message": "U_IA has no pin with requires_power=true"
+    },
+    {
+      "type": "source_missing_manufacturer_part_number_warning",
+      "message": "<testpoint#14 name=\".P_A_POS\" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace."
+    },
+    {
+      "type": "source_missing_manufacturer_part_number_warning",
+      "message": "<testpoint#18 name=\".P_A_NEG\" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace."
+    },
+    {
+      "type": "source_missing_manufacturer_part_number_warning",
+      "message": "<testpoint#22 name=\".P_VCC\" /> is missing a manufacturer part number and could not be resolved to a supplier part. Specify mpn, manufacturerPartNumber, or mfn, provide supplierPartNumbers, or configure a parts engine to select a part. If this part will not be assembled, mark it doNotPlace."
+    }
+  ]
+}

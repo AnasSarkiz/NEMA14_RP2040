@@ -1,0 +1,1627 @@
+{
+  "width_multiplier_unchanged": 1.2,
+  "clearance_rule_unchanged_mm": 0.15,
+  "preexisting": 11,
+  "introduced": 13,
+  "findings": [
+    {
+      "finding_index": 0,
+      "a": "pcb_smtpad_197",
+      "b": "pcb_trace_8",
+      "a_ref": "U_DRV.SENSE2",
+      "b_ref": null,
+      "a_net": "SENSE2",
+      "b_net": "B_DRV_PLUS",
+      "layer": "top",
+      "clearance_mm": 0.10959752483813538,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "POWER_B_DRV__2",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.SENSE2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "POWER_B_DRV__2",
+            "centerline_mm": [
+              [
+                8.100507,
+                4.05
+              ],
+              [
+                8.100507,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1545966777258518,
+          "stress_gap_mm": 0.10959752483813538,
+          "nearest_stress_edges_mm": [
+            [
+              8.466172662266459,
+              4.60189697029351
+            ],
+            [
+              8.36072653776477,
+              4.572018344518223
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 1,
+      "a": "pcb_smtpad_199",
+      "b": "pcb_trace_8",
+      "a_ref": "U_DRV.NC25",
+      "b_ref": null,
+      "a_net": null,
+      "b_net": "B_DRV_PLUS",
+      "layer": "top",
+      "clearance_mm": 0.10959752483813481,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "POWER_B_DRV__2",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.NC25",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "POWER_B_DRV__2",
+            "centerline_mm": [
+              [
+                8.100507,
+                4.05
+              ],
+              [
+                8.100507,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.154596677725852,
+          "stress_gap_mm": 0.10959752483813481,
+          "nearest_stress_edges_mm": [
+            [
+              7.735060275336477,
+              4.602669633732279
+            ],
+            [
+              7.840506399838157,
+              4.572791007956954
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 2,
+      "a": "pcb_smtpad_199",
+      "b": "pcb_trace_2",
+      "a_ref": "U_DRV.NC25",
+      "b_ref": null,
+      "a_net": null,
+      "b_net": "A_DRV_PLUS",
+      "layer": "top",
+      "clearance_mm": 0.10959752483813397,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "POWER_A_DRV__2",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.NC25",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "POWER_A_DRV__2",
+            "centerline_mm": [
+              [
+                7.099747,
+                4.2
+              ],
+              [
+                7.099747,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15459667772585114,
+          "stress_gap_mm": 0.10959752483813397,
+          "nearest_stress_edges_mm": [
+            [
+              7.465412662266447,
+              4.601896970293548
+            ],
+            [
+              7.359966537764769,
+              4.572018344518223
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 3,
+      "a": "pcb_smtpad_201",
+      "b": "pcb_trace_2",
+      "a_ref": "U_DRV.SENSE1",
+      "b_ref": null,
+      "a_net": "SENSE1",
+      "b_net": "A_DRV_PLUS",
+      "layer": "top",
+      "clearance_mm": 0.10959752483813567,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "POWER_A_DRV__2",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.SENSE1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "POWER_A_DRV__2",
+            "centerline_mm": [
+              [
+                7.099747,
+                4.2
+              ],
+              [
+                7.099747,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15459667772585284,
+          "stress_gap_mm": 0.10959752483813567,
+          "nearest_stress_edges_mm": [
+            [
+              6.734081337733551,
+              4.601896970293549
+            ],
+            [
+              6.839527462235231,
+              4.572018344518223
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 4,
+      "a": "pcb_smtpad_205",
+      "b": "pcb_trace_24",
+      "a_ref": "U_DRV.DIR",
+      "b_ref": null,
+      "a_net": "DIR",
+      "b_net": "GND",
+      "layer": "top",
+      "clearance_mm": 0.119402365515561,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "RETURN_A_EP",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.DIR",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "RETURN_A_EP",
+            "centerline_mm": [
+              [
+                5.775067149999999,
+                7.449872999999997
+              ],
+              [
+                5.775067149999999,
+                7.449872999999997
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.17940123603251718,
+          "stress_gap_mm": 0.119402365515561,
+          "nearest_stress_edges_mm": [
+            [
+              5.492013811873616,
+              7.062960897949916
+            ],
+            [
+              5.56255191772683,
+              7.159300404453491
+            ]
+          ]
+        },
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.DIR",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "RETURN_A_EP",
+            "centerline_mm": [
+              [
+                5.775067149999999,
+                7.449872999999997
+              ],
+              [
+                7.600127,
+                7.449873
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1794012360325173,
+          "stress_gap_mm": 0.11940236551556149,
+          "nearest_stress_edges_mm": [
+            [
+              5.492013811873616,
+              7.062960897949916
+            ],
+            [
+              5.5625519177268306,
+              7.159300404453491
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 5,
+      "a": "pcb_smtpad_207",
+      "b": "pcb_trace_24",
+      "a_ref": "U_DRV.REF",
+      "b_ref": null,
+      "a_net": "VREF",
+      "b_net": "GND",
+      "layer": "top",
+      "clearance_mm": 0.11940236551556671,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "RETURN_A_EP",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.REF",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "RETURN_A_EP",
+            "centerline_mm": [
+              [
+                5.775067149999999,
+                7.449872999999997
+              ],
+              [
+                5.775067149999999,
+                7.449872999999997
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.17940123603252292,
+          "stress_gap_mm": 0.11940236551556671,
+          "nearest_stress_edges_mm": [
+            [
+              5.492013811873616,
+              7.836785102050085
+            ],
+            [
+              5.562551917726833,
+              7.740445595546505
+            ]
+          ]
+        },
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.REF",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "RETURN_A_EP",
+            "centerline_mm": [
+              [
+                5.775067149999999,
+                7.449872999999997
+              ],
+              [
+                7.600127,
+                7.449873
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1794012360325229,
+          "stress_gap_mm": 0.11940236551556745,
+          "nearest_stress_edges_mm": [
+            [
+              5.493400061985601,
+              7.837800090196558
+            ],
+            [
+              5.563938167838819,
+              7.7414605836929775
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 6,
+      "a": "pcb_smtpad_218",
+      "b": "pcb_trace_33",
+      "a_ref": "U_DRV.VCP",
+      "b_ref": null,
+      "a_net": "VCP",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.1406690474539403,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.VCP",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.099995,
+                7.950253
+              ],
+              [
+                10.609995,
+                8.120253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.156669047453941,
+          "stress_gap_mm": 0.1406690474539403,
+          "nearest_stress_edges_mm": [
+            [
+              10.453906249328199,
+              8.317694496981709
+            ],
+            [
+              10.498389707952274,
+              8.18424412110948
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 7,
+      "a": "pcb_smtpad_218",
+      "b": "pcb_trace_33",
+      "a_ref": "U_DRV.VCP",
+      "b_ref": null,
+      "a_net": "VCP",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.1369893989299951,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.VCP",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.609995,
+                8.120253
+              ],
+              [
+                10.839995,
+                8.360253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15298939892999566,
+          "stress_gap_mm": 0.1369893989299951,
+          "nearest_stress_edges_mm": [
+            [
+              10.511387367999204,
+              8.354094013942195
+            ],
+            [
+              10.610292098252511,
+              8.259310314116108
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 8,
+      "a": "pcb_smtpad_219",
+      "b": "pcb_trace_32",
+      "a_ref": "U_DRV.CP2",
+      "b_ref": null,
+      "a_net": "CP2",
+      "b_net": "CP1",
+      "layer": "top",
+      "clearance_mm": 0.14066904745394027,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP1_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.CP2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "AUTHORED_CP1_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.099995,
+                7.449873
+              ],
+              [
+                10.639994999999999,
+                7.629873
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15666904745394097,
+          "stress_gap_mm": 0.14066904745394027,
+          "nearest_stress_edges_mm": [
+            [
+              10.453906249328199,
+              7.817314496981709
+            ],
+            [
+              10.498389707952276,
+              7.6838641211094805
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 9,
+      "a": "pcb_smtpad_220",
+      "b": "pcb_trace_27",
+      "a_ref": "U_DRV.CP1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "GND",
+      "layer": "top",
+      "clearance_mm": 0.11932733903342883,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "RETURN_B_EP",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.CP1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "RETURN_B_EP",
+            "centerline_mm": [
+              [
+                9.42505985,
+                6.949493
+              ],
+              [
+                9.42505985,
+                6.949493
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1793262095503845,
+          "stress_gap_mm": 0.11932733903342883,
+          "nearest_stress_edges_mm": [
+            [
+              9.707986188126384,
+              7.336405102050085
+            ],
+            [
+              9.637492404895386,
+              7.240126130480069
+            ]
+          ]
+        },
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.CP1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "RETURN_B_EP",
+            "centerline_mm": [
+              [
+                9.42505985,
+                6.949493
+              ],
+              [
+                7.600127,
+                7.449873
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.17932556208383443,
+          "stress_gap_mm": 0.11932669156687899,
+          "nearest_stress_edges_mm": [
+            [
+              9.707986188126384,
+              7.336405102050085
+            ],
+            [
+              9.637720853291404,
+              7.239960081230837
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 10,
+      "a": "pcb_smtpad_222",
+      "b": "pcb_trace_27",
+      "a_ref": "U_DRV.ENABLE_N",
+      "b_ref": null,
+      "a_net": "ENABLE_N",
+      "b_net": "GND",
+      "layer": "top",
+      "clearance_mm": 0.11932733903342953,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "RETURN_B_EP",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.ENABLE_N",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "RETURN_B_EP",
+            "centerline_mm": [
+              [
+                9.42505985,
+                6.949493
+              ],
+              [
+                9.42505985,
+                6.949493
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.17932620955038522,
+          "stress_gap_mm": 0.11932733903342953,
+          "nearest_stress_edges_mm": [
+            [
+              9.707986188126384,
+              6.562580897949915
+            ],
+            [
+              9.637492404895386,
+              6.658859869519932
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 11,
+      "a": "pcb_smtpad_222",
+      "b": "pcb_trace_27",
+      "a_ref": "U_DRV.ENABLE_N",
+      "b_ref": null,
+      "a_net": "ENABLE_N",
+      "b_net": "GND",
+      "layer": "top",
+      "clearance_mm": 0.11932311930874255,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "RETURN_B_EP",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "U_DRV.ENABLE_N",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "RETURN_B_EP",
+            "centerline_mm": [
+              [
+                9.42505985,
+                6.949493
+              ],
+              [
+                7.600127,
+                7.449873
+              ]
+            ],
+            "nominal_width_mm": 0.6,
+            "stress_width_mm": 0.72,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.17932269311314689,
+          "stress_gap_mm": 0.11932311930874255,
+          "nearest_stress_edges_mm": [
+            [
+              9.707128316637162,
+              6.561952779412552
+            ],
+            [
+              9.636637026249398,
+              6.658228346307982
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 12,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.14388950000000023,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 2,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.839995,
+                8.360253
+              ],
+              [
+                10.839995,
+                9.150253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15988950000000024,
+          "stress_gap_mm": 0.14388950000000023,
+          "nearest_stress_edges_mm": [
+            [
+              11.0798845,
+              9.120002
+            ],
+            [
+              10.935995,
+              9.120002
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 13,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.137966748488508,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 3,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.839995,
+                9.150253
+              ],
+              [
+                10.879995,
+                9.250253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1539667484885076,
+          "stress_gap_mm": 0.137966748488508,
+          "nearest_stress_edges_mm": [
+            [
+              11.0798845,
+              9.120002
+            ],
+            [
+              10.951785589911191,
+              9.17124156403552
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 14,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.13744458629431816,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 4,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.879995,
+                9.250253
+              ],
+              [
+                10.949995,
+                9.320253000000001
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15344458629431873,
+          "stress_gap_mm": 0.13744458629431816,
+          "nearest_stress_edges_mm": [
+            [
+              11.0798845,
+              9.120002
+            ],
+            [
+              10.982696500993908,
+              9.217189999006091
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 15,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.1370476311734449,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 8,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                11.709995,
+                9.320253000000001
+              ],
+              [
+                12.170116,
+                8.85
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15304763117344558,
+          "stress_gap_mm": 0.1370476311734449,
+          "nearest_stress_edges_mm": [
+            [
+              11.5798835,
+              9.120002
+            ],
+            [
+              11.677840345063686,
+              9.215848281698465
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 16,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.1366592753997901,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 7,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                11.599995,
+                9.360253
+              ],
+              [
+                11.709995,
+                9.320253000000001
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15265927539978955,
+          "stress_gap_mm": 0.1366592753997901,
+          "nearest_stress_edges_mm": [
+            [
+              11.5798835,
+              9.120002
+            ],
+            [
+              11.626585859374332,
+              9.248433488279417
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 17,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.14425100000000055,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 6,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                11.059995,
+                9.360253
+              ],
+              [
+                11.599995,
+                9.360253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.16025100000000056,
+          "stress_gap_mm": 0.14425100000000055,
+          "nearest_stress_edges_mm": [
+            [
+              11.5798835,
+              9.120002
+            ],
+            [
+              11.5798835,
+              9.264253
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 18,
+      "a": "pcb_smtpad_225",
+      "b": "pcb_trace_33",
+      "a_ref": "C_CP.pin1",
+      "b_ref": null,
+      "a_net": "CP1",
+      "b_net": "CP2",
+      "layer": "top",
+      "clearance_mm": 0.1365834084397855,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP2_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_CP.pin1",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 5,
+            "path": "AUTHORED_CP2_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.949995,
+                9.320253000000001
+              ],
+              [
+                11.059995,
+                9.360253
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15258340843978432,
+          "stress_gap_mm": 0.1365834084397855,
+          "nearest_stress_edges_mm": [
+            [
+              11.0798845,
+              9.120002
+            ],
+            [
+              11.033208067632968,
+              9.248362189009345
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 19,
+      "a": "pcb_smtpad_232",
+      "b": "pcb_trace_6",
+      "a_ref": "C_VM.pin2",
+      "b_ref": null,
+      "a_net": "GND",
+      "b_net": "B_DRV_PLUS",
+      "layer": "top",
+      "clearance_mm": 0.10999800000000093,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "POWER_B_DRV__0",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_VM.pin2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "POWER_B_DRV__0",
+            "centerline_mm": [
+              [
+                6.1837344000000005,
+                2.8
+              ],
+              [
+                6.025,
+                2.8
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15499800000000086,
+          "stress_gap_mm": 0.10999800000000093,
+          "nearest_stress_edges_mm": [
+            [
+              5.645002,
+              2.8
+            ],
+            [
+              5.755000000000001,
+              2.8
+            ]
+          ]
+        },
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "C_VM.pin2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 2,
+            "path": "POWER_B_DRV__0",
+            "centerline_mm": [
+              [
+                6.025,
+                2.8
+              ],
+              [
+                6.025,
+                1.8
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15499800000000086,
+          "stress_gap_mm": 0.10999800000000093,
+          "nearest_stress_edges_mm": [
+            [
+              5.645002,
+              2.8
+            ],
+            [
+              5.755000000000001,
+              2.8
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 20,
+      "a": "pcb_smtpad_238",
+      "b": "pcb_trace_32",
+      "a_ref": "R_SB.pin2",
+      "b_ref": null,
+      "a_net": "GND",
+      "b_net": "CP1",
+      "layer": "top",
+      "clearance_mm": 0.14126640217228537,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP1_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "R_SB.pin2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 3,
+            "path": "AUTHORED_CP1_CORRIDOR",
+            "centerline_mm": [
+              [
+                11.069995,
+                7.999873
+              ],
+              [
+                11.449995,
+                8.099873
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.15726610097680715,
+          "stress_gap_mm": 0.14126640217228537,
+          "nearest_stress_edges_mm": [
+            [
+              11.1114949,
+              7.7662656
+            ],
+            [
+              11.086543689235414,
+              7.905311036689174
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 21,
+      "a": "pcb_smtpad_238",
+      "b": "pcb_trace_32",
+      "a_ref": "R_SB.pin2",
+      "b_ref": null,
+      "a_net": "GND",
+      "b_net": "CP1",
+      "layer": "top",
+      "clearance_mm": 0.14095664425511556,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP1_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "R_SB.pin2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "AUTHORED_CP1_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.639994999999999,
+                7.629873
+              ],
+              [
+                10.969994999999999,
+                7.959873
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1569566442551155,
+          "stress_gap_mm": 0.14095664425511556,
+          "nearest_stress_edges_mm": [
+            [
+              11.1114949,
+              7.7662656
+            ],
+            [
+              11.01182350099391,
+              7.865936999006092
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 22,
+      "a": "pcb_smtpad_238",
+      "b": "pcb_trace_32",
+      "a_ref": "R_SB.pin2",
+      "b_ref": null,
+      "a_net": "GND",
+      "b_net": "CP1",
+      "layer": "top",
+      "clearance_mm": 0.13631170164793777,
+      "required_mm": 0.15,
+      "a_path": null,
+      "b_path": "AUTHORED_CP1_CORRIDOR",
+      "already_present_in_baseline_stress": false,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": null,
+            "path": null,
+            "terminal": "R_SB.pin2",
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 2,
+            "path": "AUTHORED_CP1_CORRIDOR",
+            "centerline_mm": [
+              [
+                10.969994999999999,
+                7.959873
+              ],
+              [
+                11.069995,
+                7.999873
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1523117016479373,
+          "stress_gap_mm": 0.13631170164793777,
+          "nearest_stress_edges_mm": [
+            [
+              11.1114949,
+              7.7662656
+            ],
+            [
+              11.060870004929994,
+              7.892827837675016
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "finding_index": 23,
+      "a": "pcb_trace_8",
+      "b": "pcb_trace_31",
+      "a_ref": null,
+      "b_ref": null,
+      "a_net": "B_DRV_PLUS",
+      "b_net": "SENSE2",
+      "layer": "top",
+      "clearance_mm": 0.13438013763055898,
+      "required_mm": 0.15,
+      "a_path": "POWER_B_DRV__2",
+      "b_path": "AUTHORED_SENSE_B__2",
+      "already_present_in_baseline_stress": true,
+      "matching_primitive_pairs": [
+        {
+          "a": {
+            "segment_index": 1,
+            "path": "POWER_B_DRV__2",
+            "centerline_mm": [
+              [
+                8.100507,
+                4.05
+              ],
+              [
+                8.100507,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 0,
+            "path": "AUTHORED_SENSE_B__2",
+            "centerline_mm": [
+              [
+                9.0,
+                4.000005900000001
+              ],
+              [
+                8.600887,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1953800942922276,
+          "stress_gap_mm": 0.13438013763055898,
+          "nearest_stress_edges_mm": [
+            [
+              8.370507,
+              4.500005900000001
+            ],
+            [
+              8.504887080279556,
+              4.500130051794852
+            ]
+          ]
+        },
+        {
+          "a": {
+            "segment_index": 1,
+            "path": "POWER_B_DRV__2",
+            "centerline_mm": [
+              [
+                8.100507,
+                4.05
+              ],
+              [
+                8.100507,
+                4.500005900000001
+              ]
+            ],
+            "nominal_width_mm": 0.45,
+            "stress_width_mm": 0.54,
+            "layers": [
+              "top"
+            ]
+          },
+          "b": {
+            "segment_index": 1,
+            "path": "AUTHORED_SENSE_B__2",
+            "centerline_mm": [
+              [
+                8.600887,
+                4.500005900000001
+              ],
+              [
+                8.600887,
+                4.950005
+              ]
+            ],
+            "nominal_width_mm": 0.16,
+            "stress_width_mm": 0.192,
+            "layers": [
+              "top"
+            ]
+          },
+          "nominal_gap_mm": 0.1953800000000001,
+          "stress_gap_mm": 0.13438000000000017,
+          "nearest_stress_edges_mm": [
+            [
+              8.370507,
+              4.500005900000001
+            ],
+            [
+              8.504887,
+              4.500005900000001
+            ]
+          ]
+        }
+      ]
+    }
+  ]
+}

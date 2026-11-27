@@ -1,0 +1,601 @@
+{
+  "scope": "Engineering risk ranking; original locality thresholds are unchanged",
+  "targets": [
+    {
+      "target_index": 0,
+      "a": "R_SHUNT_A",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "OUT1A",
+      "category": "P0_shunt_power",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 1,
+      "a": "U_IA",
+      "pa": "IN_POS",
+      "b": "R_SHUNT_A",
+      "pb": "pin1",
+      "category": "P0_kelvin",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 2,
+      "a": "U_IA",
+      "pa": "IN_NEG",
+      "b": "R_SHUNT_A",
+      "pb": "pin2",
+      "category": "P0_kelvin",
+      "original_pass": false,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 3,
+      "a": "C_IA",
+      "pa": "pin1",
+      "b": "U_IA",
+      "pb": "VS",
+      "category": "P0_ina_bypass",
+      "original_pass": true,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 4,
+      "a": "C_IA",
+      "pa": "pin2",
+      "b": "U_IA",
+      "pb": "GND",
+      "category": "P0_ina_bypass",
+      "original_pass": false,
+      "limit_mm": 5
+    },
+    {
+      "target_index": 5,
+      "a": "R_IA",
+      "pa": "pin1",
+      "b": "U_IA",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "original_pass": true,
+      "limit_mm": 12
+    },
+    {
+      "target_index": 6,
+      "a": "R_IA",
+      "pa": "pin2",
+      "b": "C_IADC_A",
+      "pb": "pin1",
+      "category": "P1_adc_output_filter",
+      "original_pass": false,
+      "limit_mm": 2
+    },
+    {
+      "target_index": 7,
+      "a": "C_IADC_A",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "GPIO26",
+      "category": "P1_adc_output_filter",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 8,
+      "a": "R_SHUNT_A",
+      "pa": "pin2",
+      "b": "J_MOTOR",
+      "pb": "A_PLUS",
+      "category": "P2_coil_span",
+      "original_pass": true,
+      "limit_mm": 20
+    },
+    {
+      "target_index": 9,
+      "a": "R_SHUNT_B",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "OUT2A",
+      "category": "P0_shunt_power",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 10,
+      "a": "U_IB",
+      "pa": "IN_POS",
+      "b": "R_SHUNT_B",
+      "pb": "pin1",
+      "category": "P0_kelvin",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 11,
+      "a": "U_IB",
+      "pa": "IN_NEG",
+      "b": "R_SHUNT_B",
+      "pb": "pin2",
+      "category": "P0_kelvin",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 12,
+      "a": "C_IB",
+      "pa": "pin1",
+      "b": "U_IB",
+      "pb": "VS",
+      "category": "P0_ina_bypass",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 13,
+      "a": "C_IB",
+      "pa": "pin2",
+      "b": "U_IB",
+      "pb": "GND",
+      "category": "P0_ina_bypass",
+      "original_pass": true,
+      "limit_mm": 5
+    },
+    {
+      "target_index": 14,
+      "a": "R_IB",
+      "pa": "pin1",
+      "b": "U_IB",
+      "pb": "OUT",
+      "category": "P1_adc_output_filter",
+      "original_pass": true,
+      "limit_mm": 12
+    },
+    {
+      "target_index": 15,
+      "a": "R_IB",
+      "pa": "pin2",
+      "b": "C_IADC_B",
+      "pb": "pin1",
+      "category": "P1_adc_output_filter",
+      "original_pass": false,
+      "limit_mm": 2
+    },
+    {
+      "target_index": 16,
+      "a": "C_IADC_B",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "GPIO27",
+      "category": "P1_adc_output_filter",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 17,
+      "a": "R_SHUNT_B",
+      "pa": "pin2",
+      "b": "J_MOTOR",
+      "pb": "B_PLUS",
+      "category": "P2_coil_span",
+      "original_pass": false,
+      "limit_mm": 20
+    },
+    {
+      "target_index": 18,
+      "a": "C_IO1",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD1",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 19,
+      "a": "C_IO10",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD10",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 20,
+      "a": "C_IO22",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD22",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 21,
+      "a": "C_IO33",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD33",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 22,
+      "a": "C_IO42",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD42",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 23,
+      "a": "C_IO49",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "IOVDD49",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 24,
+      "a": "C_DV23",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD23",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 25,
+      "a": "C_DV50",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "DVDD50",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 26,
+      "a": "C_ADC",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "ADC_AVDD",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 27,
+      "a": "C_USB",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_VDD",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 28,
+      "a": "C_VREG_IN",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "VREG_IN",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 29,
+      "a": "C_VREG_OUT",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "VREG_OUT",
+      "category": "P1_mcu_decoupling",
+      "original_pass": false,
+      "limit_mm": 3.5
+    },
+    {
+      "target_index": 30,
+      "a": "C_VM",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB1",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": true,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 31,
+      "a": "C_DRV_LOGIC",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VDD",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 32,
+      "a": "C_VREG",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VREG",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 33,
+      "a": "C_CP",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "CP1",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 34,
+      "a": "C_VCP",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VCP",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": true,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 35,
+      "a": "R_SA",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "SENSE1",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 36,
+      "a": "R_SB",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "SENSE2",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 37,
+      "a": "C_VM",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB2",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": true,
+      "limit_mm": 5
+    },
+    {
+      "target_index": 38,
+      "a": "C_CP",
+      "pa": "pin2",
+      "b": "U_DRV",
+      "pb": "CP2",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 39,
+      "a": "C_BULK",
+      "pa": "pin1",
+      "b": "U_DRV",
+      "pb": "VBB1",
+      "category": "P0_driver_supply_and_regulation",
+      "original_pass": false,
+      "limit_mm": 12
+    },
+    {
+      "target_index": 40,
+      "a": "C_BUCK_IN",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "VIN",
+      "category": "P0_buck_switching",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 41,
+      "a": "C_BOOTSTRAP",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "BST",
+      "category": "P0_buck_switching",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 42,
+      "a": "C_BOOTSTRAP",
+      "pa": "pin2",
+      "b": "U_BUCK",
+      "pb": "SW",
+      "category": "P0_buck_switching",
+      "original_pass": true,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 43,
+      "a": "L_BUCK",
+      "pa": "pin1",
+      "b": "U_BUCK",
+      "pb": "SW",
+      "category": "P0_buck_switching",
+      "original_pass": false,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 44,
+      "a": "C_BUCK_OUT1",
+      "pa": "pin1",
+      "b": "L_BUCK",
+      "pb": "pin2",
+      "category": "P0_buck_switching",
+      "original_pass": true,
+      "limit_mm": 5
+    },
+    {
+      "target_index": 45,
+      "a": "C_BUCK_OUT2",
+      "pa": "pin1",
+      "b": "L_BUCK",
+      "pb": "pin2",
+      "category": "P0_buck_switching",
+      "original_pass": false,
+      "limit_mm": 5
+    },
+    {
+      "target_index": 46,
+      "a": "C_PD",
+      "pa": "pin1",
+      "b": "U_PD",
+      "pb": "VHV",
+      "category": "P1_pd_bypass",
+      "original_pass": true,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 47,
+      "a": "C_FLASH",
+      "pa": "pin1",
+      "b": "U_FLASH",
+      "pb": "VCC",
+      "category": "P1_flash",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 48,
+      "a": "U_FLASH",
+      "pa": "CLK",
+      "b": "U_MCU",
+      "pb": "QSPI_SCLK",
+      "category": "P1_flash",
+      "original_pass": true,
+      "limit_mm": 8
+    },
+    {
+      "target_index": 49,
+      "a": "Y_MCU",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "XIN",
+      "category": "P1_crystal",
+      "original_pass": true,
+      "limit_mm": 4
+    },
+    {
+      "target_index": 50,
+      "a": "R_XOUT",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "XOUT",
+      "category": "P1_crystal",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 51,
+      "a": "R_XOUT",
+      "pa": "pin2",
+      "b": "Y_MCU",
+      "pb": "pin3",
+      "category": "P1_crystal",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 52,
+      "a": "C_XIN",
+      "pa": "pin1",
+      "b": "Y_MCU",
+      "pb": "pin1",
+      "category": "P1_crystal",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 53,
+      "a": "C_XOUT",
+      "pa": "pin1",
+      "b": "Y_MCU",
+      "pb": "pin3",
+      "category": "P1_crystal",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 54,
+      "a": "R_DM",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_DM",
+      "category": "P1_usb_signal_and_return",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 55,
+      "a": "R_DP",
+      "pa": "pin1",
+      "b": "U_MCU",
+      "pb": "USB_DP",
+      "category": "P1_usb_signal_and_return",
+      "original_pass": false,
+      "limit_mm": 3
+    },
+    {
+      "target_index": 56,
+      "a": "U_ESD",
+      "pa": "DM1",
+      "b": "J_DATA",
+      "pb": "DM1",
+      "category": "P1_usb_signal_and_return",
+      "original_pass": false,
+      "limit_mm": 7
+    },
+    {
+      "target_index": 57,
+      "a": "U_ESD",
+      "pa": "DP1",
+      "b": "J_DATA",
+      "pb": "DP1",
+      "category": "P1_usb_signal_and_return",
+      "original_pass": false,
+      "limit_mm": 7
+    },
+    {
+      "target_index": 58,
+      "a": "C_TEMP",
+      "pa": "pin1",
+      "b": "U_TEMP",
+      "pb": "V_POS",
+      "category": "P2_temperature",
+      "original_pass": true,
+      "limit_mm": 3
+    }
+  ],
+  "additional_checks": [
+    "R_SA.pin2 and R_SB.pin2 wide star-return corridor and routed continuity",
+    "VBB ceramic closer than bulk",
+    "Actual shunt-pad Kelvin pickup with no shared winding copper outside the pad",
+    "USB full-width adjacent uninterrupted ground reference and impedance stackup review"
+  ]
+}
