@@ -1,6 +1,6 @@
 """Measure real native copper and baseline lower bounds; never invent a previous routed loop."""
 from pathlib import Path
-import json,sys,math,hashlib,importlib.util
+import json,sys,math,hashlib,importlib.util,copy
 from model import *
 from routing_geometry import resolve_copper_nets
 from shapely.ops import unary_union
@@ -25,9 +25,14 @@ for r in read('experiments/reconnect/paths.json'):
  rows.append({'name':r['name'],'native_trace_id':t['pcb_trace_id'],'layer':r['layer'],'width_mm':r['width_mm'],'wire_length_mm':length,'net_key':t['subcircuit_connectivity_map_key'],'native_endpoints_and_world_points_match':True,'minimum_offline_foreign_copper_gap_mm':r['minimum_other_copper_gap_mm']})
 # Original fixed geometry: deliberately reroute CP1; every other prior copper record must match.
 ost={e['source_trace_id']:e for e in old if e['type']=='source_trace'};oldtr={ost[e['source_trace_id']].get('name',''):e for e in old if e['type']=='pcb_trace'}
+# Fresh replay may differ in the derived JS length cache across machines.
+# Validate that cache independently, then compare every physical/identity field exactly.
+# Native before/after byte-preservation is a separate strict check, never normalized.
+def physical_record(t):
+ q=copy.deepcopy(t);actual=sum(math.dist([a['x'],a['y']],[z['x'],z['y']]) for a,z in zip(q['route'],q['route'][1:]) if a['route_type']==z['route_type']=='wire' and a['layer']==z['layer']);assert abs(q['trace_length']-actual)<1e-12,('invalid derived length cache',q['pcb_trace_id']);q.pop('trace_length');return q
 for name,t in oldtr.items():
  if name=='AUTHORED_CP1_CORRIDOR':continue
- assert t==groups[name],('prior fixed record changed',name)
+ old_record,new_record=physical_record(t),physical_record(groups[name]);assert old_record==new_record,('prior fixed physical record changed',name,{k:[old_record.get(k),new_record.get(k)] for k in set(old_record)|set(new_record) if old_record.get(k)!=new_record.get(k)})
 oldv=[e for e in old if e['type']=='pcb_via'];assert all(e in vias for e in oldv),'Prior via record changed'
 # Baseline distance between physical pad edges is a rigorous optimistic lower bound.
 pairs=[('flyback_sink',('BZ1','_NEG'),('D_BUZZER','anode'),['BUZ_FLYBACK_SINK']),('flyback_supply',('D_BUZZER','cathode'),('BZ1','_POS'),['BUZ_FLYBACK_SUPPLY']),('switch_supply',('C_BUZZER','pin1'),('BZ1','_POS'),['BUZ_SWITCH_SUPPLY__0','BUZ_SWITCH_SUPPLY__1','BUZ_SWITCH_SUPPLY__2']),('switch_drain',('BZ1','_NEG'),('Q_BUZZER','pin3'),['BUZ_SWITCH_DRAIN']),('switch_return',('Q_BUZZER','pin2'),('C_BUZZER','pin2'),['BUZ_SWITCH_RETURN'])]

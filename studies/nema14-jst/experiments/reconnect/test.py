@@ -20,6 +20,8 @@ wrong=copy.deepcopy(b);vias=json.load(open('experiments/reconnect/vias.json'));q
 # Native world-coordinate or width drift is rejected rather than repaired.
 for field in ['x','width']:
  wrong=copy.deepcopy(b);st={e['source_trace_id']:e.get('name','') for e in wrong if e['type']=='source_trace'};t=next(e for e in wrong if e['type']=='pcb_trace' and st[e['source_trace_id']]=='AUTHORED_CP2_CORRIDOR');t['route'][1][field]+=.001;p=tmp/('bad-'+field+'.json');p.write_text(json.dumps(wrong));res=subprocess.run([sys.executable,'experiments/reconnect/analyze.py',str(p),str(tmp/'bad.json')],capture_output=True,text=True);assert res.returncode!=0
+# A materially wrong derived length cache is rejected; it is never trusted as geometry.
+wrong=copy.deepcopy(b);st={e['source_trace_id']:e.get('name','') for e in wrong if e['type']=='source_trace'};t=next(e for e in wrong if e['type']=='pcb_trace' and st[e['source_trace_id']]=='AUTHORED_SENSE_B__2');t['trace_length']+=.001;p=tmp/'bad-length-cache.json';p.write_text(json.dumps(wrong));res=subprocess.run([sys.executable,'experiments/reconnect/analyze.py',str(p),str(tmp/'bad.json')],capture_output=True,text=True);assert res.returncode!=0 and 'invalid derived length cache' in res.stderr
 # Preserve rejection of the real former EP failures and of manufacturing stress.
 old=read(root/'cp2-root-cause.json');assert '0.120894' in json.dumps(old) and '0.119332' in json.dumps(old)
 mfg=read(root/'process-screen.json');assert mfg['summary']['vias']==22 and mfg['summary']['width_plus_20_percent_spacing_findings']==24;assert not mfg['supplier_acceptance_verified'];assert read(root/'locked-process-screen.json')['summary']['negative_assumption_adjusted_annular_margins']==4
