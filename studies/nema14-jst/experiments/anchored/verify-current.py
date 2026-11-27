@@ -70,7 +70,11 @@ def verify(path,require_clean=True):
   return bool(set.intersection(*[{find(i) for i,r in enumerate(records) if r[2]==pid} for pid in ends]))
  returns=[]
  for phase in 'AB':
-  ts=[t for suffix in ['TOP','INNER','EP'] for t in group('RETURN_'+phase+'_'+suffix)];wire=length(ts);access=0 if phase=='A' else next(r['via_axis_access_mm'] for r in spec['returns'] if r['name']=='RETURN_B_TOP');depth=.035/2+.1164+.0152/2;total=wire+access+2*depth;upper=wire+access+2*.160
+  ts=[t for suffix in ['TOP','INNER','EP'] for t in group('RETURN_'+phase+'_'+suffix)];wire=length(ts)
+  # Count access to both actual via axes, so annular clipping cannot hide length.
+  end=group('RETURN_'+phase+'_TOP')[0]['route'][-1];start=group('RETURN_'+phase+'_EP')[0]['route'][0]
+  access=math.dist([end['x'],end['y']],[via['V_G'+phase]['x'],via['V_G'+phase]['y']])+math.dist([start['x'],start['y']],[via['V_STAR_'+phase]['x'],via['V_STAR_'+phase]['y']])
+  depth=.035/2+.1164+.0152/2;total=wire+access+2*depth;upper=wire+access+2*.160
   assert return_connected(phase) and all(not return_connected(phase,missing=i) for i in [0,1]) and not return_connected(phase,narrow=True);assert total<=5 and upper<=5
   returns.append({'phase':phase,'actual_wire_mm':wire,'annulus_end_to_axis_access_mm':access,'conducted_top_to_inner1_barrel_mm':depth,'conducted_barrels':2,'finished_stack_centerline_mm':total,'engineering_depth_upper_bound_mm':.160,'conditional_upper_total_mm':upper,'unchanged_maximum_mm':5,'actual_width_mm':.6,'isolated_phase_connected_after_drill_subtraction':True,'missing_barrel_and_narrow_wire_rejected':True,'stack_tolerances_confirmed':False})
  accepted=resolve_copper_nets(json.load(open('artifacts/final-source.circuit.json')));assert hashlib.sha256(Path('artifacts/final-source.circuit.json').read_bytes()).hexdigest()=='fe986e028cb398ebf3ed7fcbd9fd5dd8133b64c80aeac673c0540aa5c98cf06b';_,_,_,_,oldpcs=index(accepted)
