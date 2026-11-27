@@ -36,6 +36,7 @@ jobs:
       - run: npm run test:anchored
       - run: python3 experiments/placement/test.py
       - run: python3 experiments/reconnect/test.py
+      - run: python3 experiments/tolerance/test.py
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement
