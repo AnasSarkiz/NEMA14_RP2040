@@ -2,7 +2,7 @@
  * No copper, width, net, or endpoint coordinate is changed. */
 import paths from './paths.json'
 import vias from './vias.json'
-export function bindEndpoints(root:any){
+export function bindEndpoints(root:any,traceSpecs:any[]=paths){
  const j=root.getCircuitJson(),sources=new Map(j.filter((e:any)=>e.type==='source_trace').map((e:any)=>[e.source_trace_id,e])),components=new Map(j.filter((e:any)=>e.type==='source_component').map((e:any)=>[e.source_component_id,e.name]));const annotations:any[]=[];
  function terminal(selector:string){const [name,pin]=selector.slice(1).split(' > .');const vs=(vias as any)[name];let port:any,pad:any;
   if(vs){pad=j.find((v:any)=>v.type==='pcb_via'&&Math.hypot(v.x-vs.x,v.y-vs.y)<1e-8);port=j.find((p:any)=>p.type==='pcb_port'&&pad.pcb_port_ids.includes(p.pcb_port_id)&&j.some((s:any)=>s.type==='source_port'&&s.source_port_id===p.source_port_id&&s.name===pin))}
@@ -15,7 +15,7 @@ export function bindEndpoints(root:any){
   else if(p.shape==='rect')distance=Math.hypot(Math.max(Math.abs(x)-p.width/2,0),Math.max(Math.abs(y)-p.height/2,0));else throw Error('Unverified terminal pad shape '+p.shape);
   return distance<radius-1e-8;
  }
- for(const p of paths as any[]){const t=j.find((e:any)=>e.type==='pcb_trace'&&(sources.get(e.source_trace_id) as any)?.name===p.name);if(!t)throw Error('Missing physical trace '+p.name);const s:any=sources.get(t.source_trace_id);const route=t.route.map((q:any)=>({...q}));
+ for(const p of traceSpecs){const t=j.find((e:any)=>e.type==='pcb_trace'&&(sources.get(e.source_trace_id) as any)?.name===p.name);if(!t)throw Error('Missing physical trace '+p.name);const s:any=sources.get(t.source_trace_id);const route=t.route.map((q:any)=>({...q}));
   for(const [selector,node,field] of [[p.from,route[0],'start_pcb_port_id'],[p.to,route.at(-1),'end_pcb_port_id']] as any[]){const {port,pad}=terminal(selector);if(!s.connected_source_port_ids.includes(port.source_port_id)||!contact(node,pad))throw Error('Unproven terminal stroke contact '+p.name+' '+selector);node[field]=port.pcb_port_id;annotations.push({trace:p.name,terminal:selector,physical_port:port.pcb_port_id,point_mm:[node.x,node.y],geometry_changed:false})}
   root.db.pcb_trace.update(t.pcb_trace_id,{route});
  }

@@ -38,6 +38,7 @@ jobs:
       - run: python3 experiments/reconnect/test.py
       - run: python3 experiments/tolerance/test.py
       - run: python3 experiments/original-process/test.py
+      - run: python3 experiments/vreg-star/test.py
       - run: npm run source:check
       - run: npm run check:electrical
       - run: npm run check:placement

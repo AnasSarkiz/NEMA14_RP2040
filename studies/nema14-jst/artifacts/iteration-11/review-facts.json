@@ -1,0 +1,94 @@
+{
+  "input_sha256": "7b16faed5d3f5c90c90f373e85903e9916b962420afaf0080ff2d2ec7209820c",
+  "VREG_stressed_foreign_SMT_gaps": [
+    {
+      "terminal": "U_DRV.MS1",
+      "stressed_copper_gap_mm": 0.17539804011372234
+    },
+    {
+      "terminal": "C_VCP.pin1",
+      "stressed_copper_gap_mm": 0.1886040142930792
+    },
+    {
+      "terminal": "U_DRV.MS2",
+      "stressed_copper_gap_mm": 0.4213284040959908
+    },
+    {
+      "terminal": "U_DRV.MS3",
+      "stressed_copper_gap_mm": 0.7121097327997598
+    },
+    {
+      "terminal": "C_VCP.pin2",
+      "stressed_copper_gap_mm": 0.9203492913889508
+    },
+    {
+      "terminal": "U_DRV.RESET_N",
+      "stressed_copper_gap_mm": 1.1222034421677671
+    },
+    {
+      "terminal": "U_DRV.EP",
+      "stressed_copper_gap_mm": 1.2391243000000005
+    },
+    {
+      "terminal": "C_VREG.pin2",
+      "stressed_copper_gap_mm": 1.2990481261154034
+    }
+  ],
+  "moved_capacitor_body_bounds": [
+    {
+      "part": "C_VCP",
+      "supplier_obj_sha256": "11ff3d0e00ddf06caa7ba9e7a4127aa407425d2dbeb9d33203f865f52a44590d",
+      "native_transformed_supplier_bounds": {
+        "min": [
+          8.84998729999993,
+          11.1,
+          0.8
+        ],
+        "max": [
+          9.34998729999993,
+          12.1,
+          1.3
+        ]
+      },
+      "minimum_screw_reserve_xy_gap_mm": 0.5593340780199099,
+      "plug_envelope_bounds_gaps_mm": {
+        "seated_envelope": 12.400162621927887,
+        "withdrawal_sweep": 12.400162621927887,
+        "service_grip_envelope": 12.823131716166781
+      },
+      "layer": "top"
+    },
+    {
+      "part": "C_VREG",
+      "supplier_obj_sha256": "3af4d2000750b3be8149bdf53d8b14743d96fc20c1c8a963704802ada85759f2",
+      "native_transformed_supplier_bounds": {
+        "min": [
+          6.4,
+          10.95,
+          0.8
+        ],
+        "max": [
+          8.0,
+          11.75,
+          1.6
+        ]
+      },
+      "minimum_screw_reserve_xy_gap_mm": 1.9538820320220758,
+      "plug_envelope_bounds_gaps_mm": {
+        "seated_envelope": 12.758632031393967,
+        "withdrawal_sweep": 12.758632031393967,
+        "service_grip_envelope": 13.612953390061982
+      },
+      "layer": "top"
+    }
+  ],
+  "minimum_body_screw_gap_mm": 0.2999999999999998,
+  "minimum_plug_service_gap_mm": 0.9416632098526982,
+  "candidate_locality": {
+    "before": 43,
+    "after": 43,
+    "total": 59,
+    "lost_previous_passes": []
+  },
+  "native_routing_attempted": false
+}
