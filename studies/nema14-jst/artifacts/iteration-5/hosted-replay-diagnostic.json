@@ -1,0 +1,18 @@
+{
+  "failing_run": "https://github.com/AnasSarkiz/NEMA14_RP2040/actions/runs/45926549071",
+  "head": "1773ec5a9b4c9e2a8ae5455cf70d62654272fe5f",
+  "only_difference": {
+    "path": "pcb_trace[20].trace_length",
+    "expected": 3.4730073444206826,
+    "actual": 3.473007344420682,
+    "absolute_difference_mm": 4.440892098500626e-16
+  },
+  "actual_source_and_PCB_coordinates_widths_layers_and_identity_match_exactly": true,
+  "fix": "Recompute cached wire lengths from coordinates and compare only trace_length cache at 1e-12mm; every physical field remains exact.",
+  "regression_controls": [
+    "larger_cache_error_rejected",
+    "one_ulp_coordinate_change_rejected",
+    "one_ulp_width_change_rejected"
+  ],
+  "routing_or_DRC_gate_changed": false
+}

@@ -83,10 +83,22 @@ cli=json.load(open(root/'native-cli-exit.json'));cj=json.load(open('dist/experim
 if len(sys.argv)>1:
  replay=resolve_copper_nets(json.load(open(sys.argv[1])))
  def differences(a,z,path=''):
+  # Hosted evidence: only this derived cache differs by one floating-point ULP.
+  # Physical coordinates, widths, layers and identities still compare exactly.
+  if path.startswith('pcb_trace[') and path.endswith('.trace_length') and isinstance(a,(int,float)) and isinstance(z,(int,float)) and abs(a-z)<=1e-12:return []
   if type(a)!=type(z):return [{'path':path,'expected':a,'actual':z}]
   if isinstance(a,dict):return [q for k in sorted(set(a)|set(z)) for q in differences(a.get(k),z.get(k),path+'.'+str(k))][:12]
   if isinstance(a,list):return ([{'path':path+'.length','expected':len(a),'actual':len(z)}] if len(a)!=len(z) else [q for i,(aa,zz) in enumerate(zip(a,z)) for q in differences(aa,zz,path+'['+str(i)+']')][:12])
   return [] if a==z else [{'path':path,'expected':a,'actual':z}]
+ for board_values in [b,replay]:
+  for t in [e for e in board_values if e['type']=='pcb_trace']:
+   assert all(n['route_type']=='wire' for n in t['route']),'Unsupported trace-length cache geometry'
+   assert abs(t['trace_length']-length([t]))<=1e-12,'Cached length disagrees with actual copper'
+ assert not differences(3.4730073444206826,3.473007344420682,'pcb_trace[20].trace_length')
+ assert differences(3.4730073444206826,3.4730073454206826,'pcb_trace[20].trace_length')
+ assert differences(1.0,math.nextafter(1.0,2.0),'pcb_trace[20].route[0].x')
+ assert differences(.16,math.nextafter(.16,1.0),'pcb_trace[20].route[0].width')
+ report['derived_cache_comparison']={'trace_length_tolerance_mm':1e-12,'actual_route_arrays_compared_exactly':True,'both_caches_recomputed_from_actual_coordinates':True,'metadata_coordinate_width_controls_pass':3}
  mismatch={t:differences([e for e in b if e['type']==t],[e for e in replay if e['type']==t],t) for t in types};mismatch={k:v for k,v in mismatch.items() if v}
  if mismatch:print(json.dumps({'fresh_native_mismatches':mismatch},indent=2),flush=True)
  assert not mismatch,'Fresh native source/PCB geometry changed'
