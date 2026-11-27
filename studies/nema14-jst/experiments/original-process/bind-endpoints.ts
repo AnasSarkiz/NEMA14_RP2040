@@ -2,9 +2,9 @@
  * No copper, width, net, or endpoint coordinate is changed. */
 import paths from './paths.json'
 import vias from './vias.json'
-export function bindEndpoints(root:any,traceSpecs:any[]=paths){
+export function bindEndpoints(root:any,traceSpecs:any[]=paths,viaSpecs:Record<string,any>=vias){
  const j=root.getCircuitJson(),sources=new Map(j.filter((e:any)=>e.type==='source_trace').map((e:any)=>[e.source_trace_id,e])),components=new Map(j.filter((e:any)=>e.type==='source_component').map((e:any)=>[e.source_component_id,e.name]));const annotations:any[]=[];
- function terminal(selector:string){const [name,pin]=selector.slice(1).split(' > .');const vs=(vias as any)[name];let port:any,pad:any;
+ function terminal(selector:string){const [name,pin]=selector.slice(1).split(' > .');const vs=viaSpecs[name];let port:any,pad:any;
   if(vs){pad=j.find((v:any)=>v.type==='pcb_via'&&Math.hypot(v.x-vs.x,v.y-vs.y)<1e-8);port=j.find((p:any)=>p.type==='pcb_port'&&pad.pcb_port_ids.includes(p.pcb_port_id)&&j.some((s:any)=>s.type==='source_port'&&s.source_port_id===p.source_port_id&&s.name===pin))}
   else{const sp=j.find((e:any)=>e.type==='source_port'&&components.get(e.source_component_id)===name&&e.name===pin);port=j.find((e:any)=>e.type==='pcb_port'&&e.source_port_id===sp?.source_port_id);pad=j.find((e:any)=>e.type==='pcb_smtpad'&&e.pcb_port_id===port?.pcb_port_id)}
   if(!port||!pad)throw Error('Missing actual terminal '+selector);return {port,pad};

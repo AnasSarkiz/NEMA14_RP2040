@@ -1,0 +1,234 @@
+[
+  {
+    "name": "RETURN_A_TOP",
+    "from": ".R_SA > .pin2",
+    "to": ".V_GA > .top",
+    "anchor": ".R_SA > .pin2",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        3.4,
+        6.499998
+      ],
+      [
+        3.7,
+        7.35
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.9999979999999997,
+        "y": 6.123221749268773e-17,
+        "layer": "top"
+      },
+      {
+        "x": 1.8499999999999996,
+        "y": -0.30000000000000016,
+        "layer": "top"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_A_INNER",
+    "from": ".V_GA > .inner1",
+    "to": ".V_STAR_A > .inner1",
+    "anchor": ".V_GA > .inner1",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        3.7,
+        7.35
+      ],
+      [
+        4.3,
+        7.449873
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "layer": "inner1"
+      },
+      {
+        "x": 0.5999999999999996,
+        "y": 0.09987300000000054,
+        "layer": "inner1"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_A_EXTERNAL",
+    "from": ".V_STAR_A > .top",
+    "to": ".U_DRV > .GND18",
+    "anchor": ".V_STAR_A > .top",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        4.3,
+        7.449873
+      ],
+      [
+        4.36,
+        7.449873
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "layer": "top"
+      },
+      {
+        "x": 0.0600000000000005,
+        "y": 0.0,
+        "layer": "top"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_A_EP",
+    "from": ".U_DRV > .GND18",
+    "to": ".U_DRV > .EP",
+    "anchor": ".U_DRV > .GND18",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        5.84,
+        7.449873
+      ],
+      [
+        7.600127,
+        7.449873
+      ]
+    ],
+    "local_points": [
+      {
+        "x": -0.000127000000000096,
+        "y": 1.7599999999999998,
+        "layer": "top"
+      },
+      {
+        "x": -0.00012699999999998823,
+        "y": -0.00012699999999998823,
+        "layer": "top"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_B_TOP",
+    "from": ".R_SB > .pin2",
+    "to": ".V_GB > .top",
+    "anchor": ".R_SB > .pin2",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        11.8,
+        7.199998
+      ],
+      [
+        11.8,
+        6.36
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.9999979999999997,
+        "y": 6.123221749268773e-17,
+        "layer": "top"
+      },
+      {
+        "x": 0.16000000000000014,
+        "y": 9.797174393178835e-18,
+        "layer": "top"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_B_INNER",
+    "from": ".V_GB > .inner1",
+    "to": ".V_STAR_B > .inner1",
+    "anchor": ".V_GB > .inner1",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        11.8,
+        6.36
+      ],
+      [
+        10.83,
+        6.949493
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "layer": "inner1"
+      },
+      {
+        "x": -0.9700000000000006,
+        "y": 0.589493,
+        "layer": "inner1"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_B_EXTERNAL",
+    "from": ".V_STAR_B > .top",
+    "to": ".U_DRV > .GND",
+    "anchor": ".V_STAR_B > .top",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        10.83,
+        6.949493
+      ],
+      [
+        10.84,
+        6.949493
+      ]
+    ],
+    "local_points": [
+      {
+        "x": 0.0,
+        "y": 0.0,
+        "layer": "top"
+      },
+      {
+        "x": 0.009999999999999787,
+        "y": 0.0,
+        "layer": "top"
+      }
+    ]
+  },
+  {
+    "name": "RETURN_B_EP",
+    "from": ".U_DRV > .GND",
+    "to": ".U_DRV > .EP",
+    "anchor": ".U_DRV > .GND",
+    "width_mm": 0.6,
+    "world_points_mm": [
+      [
+        9.36,
+        6.949493
+      ],
+      [
+        7.600127,
+        7.449873
+      ]
+    ],
+    "local_points": [
+      {
+        "x": -0.5005069999999997,
+        "y": -1.7599999999999998,
+        "layer": "top"
+      },
+      {
+        "x": -0.00012699999999998823,
+        "y": -0.00012699999999998823,
+        "layer": "top"
+      }
+    ]
+  }
+]

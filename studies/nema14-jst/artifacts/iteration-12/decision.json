@@ -1,0 +1,132 @@
+{
+  "baseline_head": "731ff153d4c5968dd137cbcc84fbc4367cfeb654",
+  "controls": {
+    "external": {
+      "input_sha256": "fc4ece97d2e70ce38a2229539de48920566f96e719cf92d95a74ba950556f74b",
+      "trace_count": 46,
+      "via_count": 22,
+      "native_connectivity_errors": {
+        "pcb_port_not_connected_error": 298,
+        "pcb_trace_style_warning": 4,
+        "pcb_trace_error": 2
+      },
+      "native_endpoint_findings": [
+        {
+          "type": "pcb_trace_error",
+          "error_type": "pcb_trace_error",
+          "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_24_start",
+          "message": "Trace [.U_DRV > .GND18 to .U_DRV > .EP] has dangling endpoint at (5.84, 7.45)",
+          "source_trace_id": "source_trace_360",
+          "pcb_trace_id": "pcb_trace_24",
+          "center": {
+            "x": 5.84,
+            "y": 7.449873
+          },
+          "pcb_component_ids": [],
+          "pcb_port_ids": [],
+          "actual_path": "RETURN_A_EP"
+        },
+        {
+          "type": "pcb_trace_error",
+          "error_type": "pcb_trace_error",
+          "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_27_start",
+          "message": "Trace [.U_DRV > .GND to .U_DRV > .EP] has dangling endpoint at (9.36, 6.95)",
+          "source_trace_id": "source_trace_363",
+          "pcb_trace_id": "pcb_trace_27",
+          "center": {
+            "x": 9.36,
+            "y": 6.949493
+          },
+          "pcb_component_ids": [],
+          "pcb_port_ids": [],
+          "actual_path": "RETURN_B_EP"
+        }
+      ],
+      "process_summary": {
+        "vias": 22,
+        "negative_position_only_SMT_margins": 0,
+        "negative_assumption_adjusted_SMT_margins": 0,
+        "negative_assumption_adjusted_annular_margins": 0,
+        "assumption_adjusted_inner_via_rule_failures": 0,
+        "minimum_assumption_adjusted_SMT_margin_mm": 0.008730399999999444,
+        "minimum_assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+        "width_plus_20_percent_shorts": 0,
+        "width_plus_20_percent_spacing_findings": 0
+      },
+      "stage_allowed": false,
+      "stage_blockers": [
+        "Compulsory intermediate ground-land width at most0.280010mm, below retained0.60mm",
+        "Two native dangling inner-pad endpoints retained",
+        "Full VREG ground loop, VBB bypass return and VCP reservoir wiring open",
+        "Full-board59 disconnected nets and pre-existing locality gates"
+      ],
+      "physical_locks_and_supplier_footprint_exact": true,
+      "promoted": false
+    },
+    "direct": {
+      "input_sha256": "117ccf02b9c78bde705b7ab7f37eb21850d46bec2b9e44c13406ef3209bc32e3",
+      "trace_count": 44,
+      "via_count": 22,
+      "native_connectivity_errors": {
+        "pcb_port_not_connected_error": 298,
+        "pcb_trace_style_warning": 4,
+        "pcb_trace_error": 2
+      },
+      "native_endpoint_findings": [
+        {
+          "type": "pcb_trace_error",
+          "error_type": "pcb_trace_error",
+          "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_23_start",
+          "message": "Trace [.U_DRV > .GND18 to .U_DRV > .EP] has dangling endpoint at (5.84, 7.45)",
+          "source_trace_id": "source_trace_359",
+          "pcb_trace_id": "pcb_trace_23",
+          "center": {
+            "x": 5.84,
+            "y": 7.449873
+          },
+          "pcb_component_ids": [],
+          "pcb_port_ids": [],
+          "actual_path": "RETURN_A_EP"
+        },
+        {
+          "type": "pcb_trace_error",
+          "error_type": "pcb_trace_error",
+          "pcb_trace_error_id": "disconnected_endpoint_pcb_trace_25_start",
+          "message": "Trace [.U_DRV > .GND to .U_DRV > .EP] has dangling endpoint at (9.36, 6.95)",
+          "source_trace_id": "source_trace_361",
+          "pcb_trace_id": "pcb_trace_25",
+          "center": {
+            "x": 9.36,
+            "y": 6.949493
+          },
+          "pcb_component_ids": [],
+          "pcb_port_ids": [],
+          "actual_path": "RETURN_B_EP"
+        }
+      ],
+      "process_summary": {
+        "vias": 22,
+        "negative_position_only_SMT_margins": 0,
+        "negative_assumption_adjusted_SMT_margins": 0,
+        "negative_assumption_adjusted_annular_margins": 0,
+        "assumption_adjusted_inner_via_rule_failures": 0,
+        "minimum_assumption_adjusted_SMT_margin_mm": 0.008730399999999444,
+        "minimum_assumption_adjusted_annular_margin_mm": 0.010000000000000023,
+        "width_plus_20_percent_shorts": 0,
+        "width_plus_20_percent_spacing_findings": 0
+      },
+      "stage_allowed": false,
+      "stage_blockers": [
+        "Compulsory intermediate ground-land width at most0.280010mm, below retained0.60mm",
+        "Two native dangling inner-pad endpoints retained",
+        "Full VREG ground loop, VBB bypass return and VCP reservoir wiring open",
+        "Full-board59 disconnected nets and pre-existing locality gates"
+      ],
+      "physical_locks_and_supplier_footprint_exact": true,
+      "promoted": false
+    }
+  },
+  "recommendation": "Stop routing/placement sweeps. Review an intentional under-EP thermal-via fabrication and assembly process on a source-reviewed land pattern, with explicit own-pad policy approval and all foreign clearances retained. No such policy or footprint change adopted.",
+  "manufacturer_reference_is_not_a_solution_to_original_between-pad_0_30_holes": true,
+  "no_merge_order_or_outreach": true
+}
